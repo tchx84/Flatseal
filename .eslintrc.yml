@@ -1,0 +1,252 @@
+---
+env:
+  es6: true
+extends: 'eslint:recommended'
+rules:
+  accessor-pairs: error
+  array-bracket-newline:
+    - error
+    - consistent
+  array-bracket-spacing:
+    - error
+    - never
+  array-callback-return: error
+  arrow-parens:
+    - error
+    - as-needed
+  arrow-spacing: error
+  block-scoped-var: error
+  block-spacing: error
+  brace-style:
+    - error
+    - 1tbs
+  class-methods-use-this: error
+  comma-dangle:
+    - error
+    - always-multiline
+  comma-spacing:
+    - error
+    - after: true
+      before: false
+  comma-style:
+    - error
+    - last
+  complexity: error
+  computed-property-spacing:
+    - error
+    - never
+  consistent-return: error
+  curly:
+    - error
+    - multi-or-nest
+    - consistent
+  default-case: error
+  dot-location:
+    - error
+    - property
+  eol-last: error
+  eqeqeq: error
+  for-direction: error
+  func-call-spacing: error
+  func-name-matching: error
+  func-names:
+    - error
+    - never
+  func-style:
+    - error
+    - declaration
+  generator-star-spacing: error
+  getter-return: error
+  global-require: error
+  guard-for-in: error
+  handle-callback-err: error
+  indent:
+    - error
+    - 4
+    - MemberExpression: 'off'
+  key-spacing: error
+  keyword-spacing:
+    - error
+    - after: true
+      before: true
+  linebreak-style:
+    - error
+    - unix
+  lines-around-comment: error
+  lines-around-directive: error
+  lines-between-class-members: error
+  max-depth: error
+  max-len:
+    - error
+    - code: 96
+      comments: 80
+  max-nested-callbacks: error
+  max-statements-per-line: error
+  new-parens: error
+  newline-per-chained-call: error
+  no-array-constructor: error
+  no-await-in-loop: error
+  no-caller: error
+  no-catch-shadow: error
+  no-confusing-arrow: error
+  no-div-regex: error
+  no-else-return: error
+  no-empty:
+    - error
+    - allowEmptyCatch: true
+  no-empty-function: error
+  no-eq-null: error
+  no-eval: error
+  no-extend-native: error
+  no-extra-bind: error
+  no-extra-label: error
+  no-extra-parens:
+    - error
+    - all
+    - conditionalAssign: false
+      returnAssign: false
+  no-floating-decimal: error
+  no-invalid-this: error
+  no-iterator: error
+  no-label-var: error
+  no-labels: error
+  no-lone-blocks: error
+  no-lonely-if: error
+  no-loop-func: error
+  no-multi-assign: error
+  no-multi-spaces:
+    - error
+    - ignoreEOLComments: true
+  no-multiple-empty-lines: error
+  no-native-reassign: error
+  no-negated-condition: error
+  no-negated-in-lhs: error
+  no-nested-ternary: error
+  no-new: error
+  no-new-func: error
+  no-new-object: error
+  no-new-wrappers: error
+  no-octal-escape: error
+  no-param-reassign: error
+  no-proto: error
+  no-restricted-syntax:
+    - error
+    # Use ES6 classes rather than Lang.Class
+    - "NewExpression > MemberExpression[object.name='Lang']\
+      [property.name='Class']"
+    # Use arrow functions or Function.bind rather than Lang.bind
+    - "CallExpression > MemberExpression[object.name='Lang']\
+      [property.name='bind']"
+    # Use super rather than this.parent()
+    - "CallExpression > MemberExpression[object.type='ThisExpression']\
+      [property.name='parent']"
+    # Use GLib timeouts rather than the mainloop module
+    - MemberExpression[object.name='imports'][property.name='mainloop']
+  no-return-assign: error
+  no-return-await: error
+  no-self-compare: error
+  no-sequences: error
+  no-shadow: error
+  no-shadow-restricted-names: error
+  no-spaced-func: error
+  no-tabs: error
+  no-template-curly-in-string: error
+  no-throw-literal: error
+  no-trailing-spaces: error
+  no-undef-init: error
+  no-undefined: error
+  no-unmodified-loop-condition: error
+  no-unneeded-ternary: error
+  no-unused-expressions: error
+  no-use-before-define: error
+  no-useless-call: error
+  no-useless-computed-key: error
+  no-useless-concat: error
+  no-useless-constructor: error
+  no-useless-rename: error
+  no-useless-return: error
+  no-whitespace-before-property: error
+  no-with: error
+  nonblock-statement-body-position:
+    - error
+    - below
+  object-curly-newline:
+    - error
+    - consistent: true
+  object-curly-spacing: error
+  object-shorthand: 'off'
+  operator-assignment: error
+  operator-linebreak: error
+  padded-blocks:
+    - error
+    - never
+  prefer-const: error
+  prefer-destructuring: error
+  prefer-numeric-literals: error
+  prefer-promise-reject-errors: error
+  prefer-rest-params: error
+  prefer-spread: error
+  prefer-template: error
+  quote-props:
+    - error
+    - as-needed
+  quotes:
+    - error
+    - single
+    - avoidEscape: true
+  radix: error
+  require-await: error
+  rest-spread-spacing:
+    - error
+    - never
+  semi: error
+  semi-spacing:
+    - error
+    - after: true
+      before: false
+  semi-style:
+    - error
+    - last
+  space-before-blocks: error
+  space-before-function-paren:
+    - error
+    - named: never
+      anonymous: never
+      asyncArrow: always
+  space-in-parens:
+    - error
+    - never
+  space-infix-ops: error
+  space-unary-ops: error
+  spaced-comment:
+    - error
+    - always
+  strict:
+    - error
+    - never
+  switch-colon-spacing: error
+  symbol-description: error
+  template-curly-spacing: error
+  template-tag-spacing: error
+  unicode-bom:
+    - error
+    - never
+  valid-jsdoc: error
+  wrap-iife: error
+  wrap-regex: error
+  yield-star-spacing: error
+  yoda:
+    - error
+    - never
+# GJS and SpiderMonkey global objects
+globals:
+  ARGV: false
+  imports: false
+  Intl: false
+  log: false
+  logError: false
+  print: false
+  printerr: false
+  window: false
+parserOptions:
+  ecmaVersion: 2017

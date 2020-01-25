@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/tchx84/Flatseal">
+    <file>applicationRow.ui</file>
+    <file>permissionEntryRow.ui</file>
+    <file>permissionSwitchRow.ui</file>
+    <file>view.ui</file>
+    <file>window.ui</file>
+    <file>window.css</file>
+  </gresource>
+</gresources>

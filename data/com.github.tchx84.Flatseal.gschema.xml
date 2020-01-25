@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="flatseal">
+	<schema id="com.github.tchx84.Flatseal" path="/com/github/tchx84/Flatseal/">
+	</schema>
+</schemalist>
