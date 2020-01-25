@@ -1,0 +1,33 @@
+#applicationLabel {
+   padding-left: 15px;
+}
+
+#permissionsBox {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#FlatsealPermissionSwitchRow,
+#FlatsealPermissionEntryRow {
+   margin-top: 10px;
+   background-color: white;
+   border-style: solid;
+   border-width: 0.2px;
+}
+
+#permissionLabel {
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+#permissionDescription {
+    margin-left: 15px;
+    font-style: italic;
+    font-size: 14px;
+}
+
+#permissionContent {
+   margin-right: 15px;
+}

@@ -1,0 +1,37 @@
+{
+    "app-id": "com.github.tchx84.Flatseal",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.34",
+    "sdk": "org.gnome.Sdk",
+    "command": "com.github.tchx84.Flatseal",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--filesystem=~/.local/share/flatpak"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+            "name": "flatseal",
+            "builddir": true,
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "file:///var/home/tchx84/Projects/Flatseal"
+                }
+            ]
+        }
+    ]
+}

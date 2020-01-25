@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/github/tchx84/Flatseal/js">
+    <file>applicationRow.js</file>
+    <file>main.js</file>
+    <file>model.js</file>
+    <file>permissionEntryRow.js</file>
+    <file>permissionSwitchRow.js</file>
+    <file>view.js</file>
+    <file>window.js</file>
+  </gresource>
+</gresources>

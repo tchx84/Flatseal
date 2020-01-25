@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=flatseal
+Exec=com.github.tchx84.Flatseal
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=true
+Comment = Take control of your applications
+Icon=com.github.tchx84.Flatseal
