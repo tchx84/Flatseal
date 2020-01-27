@@ -1,14 +1,10 @@
 # Flatseal
 
-Flatseal is a graphical utility to review and modify permissions from your [Flatpak](https://flatpak.org/) applications.
+Flatseal is a graphical utility to review and modify basic permissions from your [Flatpak](https://flatpak.org/) applications.
 
 ## Usage
 
 Simply launch Flatseal and modify your applications permissions. If anything goes wrong just press the reset button.
-
-## Limitations
-
-For security reasons, Flatseal will only work with applications from the user installation, e.g. `flatpak --user list --app`.
 
 ## Test it
 

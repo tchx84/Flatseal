@@ -8,7 +8,9 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
-        "--filesystem=~/.local/share/flatpak"
+        "--filesystem=/var/lib/flatpak:ro",
+        "--filesystem=~/.local/share/flatpak:ro",
+        "--filesystem=~/.local/share/flatpak/overrides"
     ],
     "cleanup": [
         "/include",

@@ -128,12 +128,20 @@ var FlatsealModel = GObject.registerClass({
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
 
+    _getSystemInstallationPath() {
+        return GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak']);
+    }
+
     _getUserInstallationPath() {
         return GLib.build_filenamev([GLib.get_home_dir(), '.local', 'share', 'flatpak']);
     }
 
-    _getApplicationsPath() {
+    _getUserApplicationsPath() {
         return GLib.build_filenamev([this._getUserInstallationPath(), 'app']);
+    }
+
+    _getSystemApplicationsPath() {
+        return GLib.build_filenamev([this._getSystemInstallationPath(), 'app']);
     }
 
     _getOverridesPathForAppId(appId) {
@@ -141,7 +149,17 @@ var FlatsealModel = GObject.registerClass({
     }
 
     _getBundlePathForAppId(appId) {
-        return GLib.build_filenamev([this._getApplicationsPath(), appId, 'current', 'active']);
+        const path = GLib.build_filenamev([
+            this._getUserApplicationsPath(), appId, 'current', 'active',
+        ]);
+
+        /* XXX Assume user installation takes precedence */
+        if (GLib.access(path, 0) === 0)
+            return path;
+
+        return GLib.build_filenamev([
+            this._getSystemApplicationsPath(), appId, 'current', 'active',
+        ]);
     }
 
     _getMetadataPathForAppId(appId) {
@@ -314,9 +332,8 @@ var FlatsealModel = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
-    listApplications() {
+    _listApplicationsForPath(path) {
         const list = [];
-        const path = this._getApplicationsPath();
 
         if (GLib.access(path, 0) !== 0)
             return list;
@@ -328,16 +345,28 @@ var FlatsealModel = GObject.registerClass({
         while (info !== null) {
             const file = enumerator.get_child(info);
             const appId = GLib.path_get_basename(file.get_path());
-            const path = this._getBundlePathForAppId(appId);
+            const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
 
-            if (GLib.access(path, 0) === 0)
+            if (GLib.access(activePath, 0) === 0)
                 list.push(appId);
-
 
             info = enumerator.next_file(null);
         }
 
         return list;
+    }
+
+    listApplications() {
+        const userApplications = this._listApplicationsForPath(
+            this._getUserApplicationsPath());
+        const systemApplications = this._listApplicationsForPath(
+            this._getSystemApplicationsPath());
+        const list = [...userApplications, ...systemApplications];
+
+        list.sort();
+        const union = new Set(list);
+
+        return [...union];
     }
 
     listPermissions() {
