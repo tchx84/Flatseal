@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
   <name>Flatseal</name>
-	<id>com.github.tchx84.Flatseal.desktop</id>
-	<metadata_license>CC0-1.0</metadata_license>
-	<project_license>GPL-3.0-or-later</project_license>
+  <id>com.github.tchx84.Flatseal.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
-  <summary>Take control of your applications</summary>
-	<description>
-        <p>
-            Flatseal is graphical utility to review and modify permissions from your Flatpak applications.
-        </p>
-	</description>
+  <summary>A permissions manager for Flatpak</summary>
+  <description>
+    <p>
+      Flatseal is a graphical utility to review and modify basic permissions from your Flatpak applications.
+    </p>
+  </description>
   <releases>
-      <release date="2020-01-26" version="1.0.2"/>
+    <release date="2020-01-26" version="1.0.2"/>
   </releases>
   <screenshots>
-      <screenshot type="default">
-          <image>https://raw.githubusercontent.com/tchx84/flatseal/master/screenshots/en/1.png</image>
-      </screenshot>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/tchx84/flatseal/master/screenshots/en/1.png</image>
+    </screenshot>
   </screenshots>
   <update_contact>martin.abente.lahaye@gmail.com</update_contact>
   <developer_name>Martin Abente Lahaye</developer_name>
