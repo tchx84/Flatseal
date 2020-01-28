@@ -361,12 +361,12 @@ var FlatsealModel = GObject.registerClass({
             this._getUserApplicationsPath());
         const systemApplications = this._listApplicationsForPath(
             this._getSystemApplicationsPath());
-        const list = [...userApplications, ...systemApplications];
+        const union = new Set([...userApplications, ...systemApplications]);
+        const list = [...union];
 
         list.sort();
-        const union = new Set(list);
 
-        return [...union];
+        return list;
     }
 
     listPermissions() {
