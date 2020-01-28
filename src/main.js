@@ -23,25 +23,10 @@ pkg.require({
     Gtk: '3.0',
 });
 
-const {Gio, Gtk} = imports.gi;
+const {FlatsealApplication} = imports.application;
 
-const {FlatsealWindow} = imports.window;
 
 function main(argv) {
-    const application = new Gtk.Application({
-        application_id: 'com.github.tchx84.Flatseal',
-        flags: Gio.ApplicationFlags.FLAGS_NONE,
-    });
-
-    application.connect('activate', app => {
-        var {activeWindow} = app;
-
-        if (!activeWindow)
-            activeWindow = new FlatsealWindow(app);
-
-
-        activeWindow.present();
-    });
-
+    const application = new FlatsealApplication();
     return application.run(argv);
 }

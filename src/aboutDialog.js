@@ -1,4 +1,4 @@
-/* window.js
+/* aboutDialog.js
  *
  * Copyright 2020 Martin Abente Lahaye
  *
@@ -17,16 +17,13 @@
  */
 
 const {GObject, Gtk} = imports.gi;
-const {FlatsealView} = imports.view;
 
 
-var FlatsealWindow = GObject.registerClass({
-    GTypeName: 'FlatsealWindow',
-    Template: 'resource:///com/github/tchx84/Flatseal/window.ui',
-    InternalChildren: ['resetButton', 'menu'],
-}, class FlatsealWindow extends Gtk.ApplicationWindow {
-    _init(application) {
-        super._init({application});
-        this.add(new FlatsealView(this._resetButton));
+var FlatsealAboutDialog = GObject.registerClass({
+    GTypeName: 'FlatsealAboutDialog',
+    Template: 'resource:///com/github/tchx84/Flatseal/aboutDialog.ui',
+}, class FlatsealAboutDialog extends Gtk.AboutDialog {
+    _init(props) {
+        super._init(props);
     }
 });

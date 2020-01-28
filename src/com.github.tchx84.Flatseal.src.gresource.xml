@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/tchx84/Flatseal/js">
+    <file>aboutDialog.js</file>
+    <file>application.js</file>
     <file>applicationRow.js</file>
     <file>main.js</file>
     <file>model.js</file>
