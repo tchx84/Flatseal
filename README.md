@@ -1,12 +1,18 @@
 # Flatseal
 
+<img height="100" src="https://github.com/tchx84/Flatseal/blob/test/data/com.github.tchx84.Flatseal.svg">
+
 Flatseal is a graphical utility to review and modify basic permissions from your [Flatpak](https://flatpak.org/) applications.
 
 ## Usage
 
 Simply launch Flatseal and modify your applications permissions. Restart your application after making the changes. If anything goes wrong just press the reset button.
 
-## Test it
+## Get it
+
+[<img width="240" src="https://flathub.org/assets/badges/flathub-badge-i-en.png">](https://flathub.org/apps/details/com.github.tchx84.Flatseal)
+
+## Build it yourself
 
 ```
 $ git clone https://github.com/tchx84/Flatseal.git
@@ -16,7 +22,7 @@ $ flatpak build-bundle repo flatseal.flatpak com.github.tchx84.Flatseal
 $ flatpak install flatseal.flatpak
 ```
 
-**NOTE**: Or just build it with [Builder](https://flathub.org/apps/details/org.gnome.Builder)
+Or just use [Builder](https://flathub.org/apps/details/org.gnome.Builder)
 
 ## Contribute
 
