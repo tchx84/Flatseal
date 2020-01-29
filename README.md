@@ -1,6 +1,6 @@
 # Flatseal
 
-<img height="100" src="https://github.com/tchx84/Flatseal/blob/test/data/com.github.tchx84.Flatseal.svg">
+<img height="100" src="https://github.com/tchx84/Flatseal/blob/master/data/com.github.tchx84.Flatseal.svg">
 
 Flatseal is a graphical utility to review and modify basic permissions from your [Flatpak](https://flatpak.org/) applications.
 
