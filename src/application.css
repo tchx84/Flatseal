@@ -1,5 +1,20 @@
-#applicationLabel {
-   padding-left: 15px;
+#applicationsBox {
+   background-color: @theme_selected_fg_color;
+}
+
+#applicationsSearchEntry {
+    margin: 10px;
+}
+
+#applicationIcon,
+#applicationLabel,
+#applicationDescription {
+   padding-left: 5px;
+}
+
+#applicationDescription {
+    font-style: italic;
+    font-size: 14px;
 }
 
 #permissionsBox {

@@ -23,10 +23,10 @@ const {FlatsealView} = imports.view;
 var FlatsealWindow = GObject.registerClass({
     GTypeName: 'FlatsealWindow',
     Template: 'resource:///com/github/tchx84/Flatseal/window.ui',
-    InternalChildren: ['resetButton', 'menu'],
+    InternalChildren: ['headerBarLabel', 'resetButton', 'menu'],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
         super._init({application});
-        this.add(new FlatsealView(this._resetButton));
+        this.add(new FlatsealView(this._resetButton, this._headerBarLabel));
     }
 });

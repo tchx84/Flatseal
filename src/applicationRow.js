@@ -22,11 +22,13 @@ const {GObject, Gtk} = imports.gi;
 var FlatsealApplicationRow = GObject.registerClass({
     GTypeName: 'FlatsealApplicationRow',
     Template: 'resource:///com/github/tchx84/Flatseal/applicationRow.ui',
-    InternalChildren: ['applicationLabel'],
+    InternalChildren: ['applicationIcon', 'applicationLabel', 'applicationDescription'],
 }, class FlatsealApplicationRow extends Gtk.ListBoxRow {
     _init(appId) {
         super._init();
         this.appId = appId;
-        this._applicationLabel.set_text(this.appId);
+        this._applicationIcon.set_from_icon_name(appId, Gtk.IconSize.INVALID);
+        this._applicationLabel.set_text(this.appId.split('.').pop());
+        this._applicationDescription.set_text(this.appId);
     }
 });

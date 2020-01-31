@@ -17,7 +17,7 @@
  */
 
 const Gettext = imports.gettext;
-const {GObject, Gio, GLib} = imports.gi;
+const {GObject, Gio, Gtk, GLib} = imports.gi;
 
 const _ = Gettext.gettext;
 
@@ -164,6 +164,12 @@ var FlatsealModel = GObject.registerClass({
 
     _getMetadataPathForAppId(appId) {
         return GLib.build_filenamev([this._getBundlePathForAppId(appId), 'metadata']);
+    }
+
+    _getIconThemePathForAppId(appId) {
+        return GLib.build_filenamev([
+            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
+        ]);
     }
 
     _getPermissionsForPath(path) {
@@ -365,6 +371,13 @@ var FlatsealModel = GObject.registerClass({
         const list = [...union];
 
         list.sort();
+
+        /* XXX Register applications icons path */
+        const iconTheme = Gtk.IconTheme.get_default();
+
+        list.forEach(appId => {
+            iconTheme.append_search_path(this._getIconThemePathForAppId(appId));
+        });
 
         return list;
     }

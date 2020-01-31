@@ -29,14 +29,16 @@ var FlatsealView = GObject.registerClass({
     GTypeName: 'FlatsealView',
     Template: 'resource:///com/github/tchx84/Flatseal/view.ui',
     InternalChildren: [
+        'applicationsSearchEntry',
         'applicationsStack',
         'applicationsListBox',
         'permissionsStack',
         'permissionsBox',
     ],
 }, class FlatsealView extends Gtk.Box {
-    _init(resetButton) {
+    _init(resetButton, headerBarLabel) {
         super._init({});
+        this._headerBarLabel = headerBarLabel;
         this._model = new FlatsealModel();
         const applications = this._model.listApplications();
         const permissions = this._model.listPermissions();
@@ -77,6 +79,10 @@ var FlatsealView = GObject.registerClass({
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
 
         this._applicationsListBox.connect('row-selected', this._updateApplication.bind(this));
+        this._applicationsListBox.set_filter_func(this._filterApplications.bind(this));
+        this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
+        this._applicationsSearchEntry.connect(
+            'search-changed', this._invalidateSearch.bind(this));
 
         resetButton.set_sensitive(true);
         resetButton.connect('clicked', this._resetApplication.bind(this));
@@ -85,10 +91,28 @@ var FlatsealView = GObject.registerClass({
     _updateApplication() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.setApplicationId(row.appId);
+        this._headerBarLabel.set_text(row.appId);
     }
 
     _resetApplication() {
         const row = this._applicationsListBox.get_selected_row();
         this._model._resetPermissionsForAppId(row.appId);
+    }
+
+    _filterApplications(application) {
+        const text = this._applicationsSearchEntry.get_text();
+
+        if (text.length === 0)
+            return true;
+
+        return application.appId.toLowerCase().includes(text.toLowerCase());
+    }
+
+    _invalidateSearch() {
+        this._applicationsListBox.invalidate_filter();
+    }
+
+    _cancelSearch() {
+        this._applicationsSearchEntry.set_text('');
     }
 });
