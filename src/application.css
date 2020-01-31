@@ -1,5 +1,5 @@
 #applicationsBox {
-   background-color: @theme_selected_fg_color;
+   background-color: @theme_base_color;
 }
 
 #applicationsSearchEntry {
@@ -27,7 +27,7 @@
 #FlatsealPermissionSwitchRow,
 #FlatsealPermissionEntryRow {
    margin-top: 10px;
-   background-color: @theme_selected_fg_color;
+   background-color: @theme_base_color;
    border-style: solid;
    border-width: 0.2px;
 }
