@@ -40,7 +40,6 @@ var FlatsealApplication = GObject.registerClass({
 
     _displayAbout() {
         const dialog = new FlatsealAboutDialog({transient_for: this._window, modal: true});
-        dialog.connect('response', dialog => dialog.close());
         dialog.present();
     }
 
