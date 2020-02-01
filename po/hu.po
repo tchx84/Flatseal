@@ -29,7 +29,7 @@ msgstr "A Flatpak engedélykezelője"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 msgid "com.github.tchx84.Flatseal"
-msgstr "com.github.tchx84.Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:10 src/aboutDialog.ui:12
 msgid ""
@@ -40,11 +40,11 @@ msgstr "A Flatseal egy grafikus segédprogram, amely áttekintheti és "
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Martin Abente Lahaye"
-msgstr "Lahaye Martin Abente"
+msgstr ""
 
 #: src/aboutDialog.ui:11
 msgid "Copyright © 2020 - Martín Abente Lahaye"
-msgstr "Szerzői jog © 2020 - Lahaye Martín Abente"
+msgstr ""
 
 #: src/applicationRow.ui:57
 msgid "Application"
@@ -101,7 +101,7 @@ msgstr "A D-Bus rendszer busz hozzáférése (korlátlan)"
 
 #: src/model.js:70
 msgid "Access D-Bus session bus (unrestricted)"
-msgstr "A D-Bus rendszer busz hozzáférése (korlátlan)"
+msgstr "A D-Bus munkamenet busz hozzáférése (korlátlan)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
