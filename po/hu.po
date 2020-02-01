@@ -20,132 +20,133 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:3
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:3 src/aboutDialog.ui:14
 msgid "Flatseal"
-msgstr ""
+msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:9
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:8
 msgid "A permissions manager for Flatpak"
-msgstr ""
+msgstr "A Flatpak engedélykezelője"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 msgid "com.github.tchx84.Flatseal"
-msgstr ""
+msgstr "com.github.tchx84.Flatseal"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:10 src/aboutDialog.ui:12
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
-msgstr ""
+msgstr "A Flatseal egy grafikus segédprogram, amely áttekintheti és "
+"módosíthatja a Flatpak-alkalmazások alapvető engedélyeit."
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Martin Abente Lahaye"
-msgstr ""
+msgstr "Lahaye Martin Abente"
 
 #: src/aboutDialog.ui:11
 msgid "Copyright © 2020 - Martín Abente Lahaye"
-msgstr ""
+msgstr "Szerzői jog © 2020 - Lahaye Martín Abente"
 
 #: src/applicationRow.ui:57
 msgid "Application"
-msgstr ""
+msgstr "Alkalmazás"
 
 #: src/applicationRow.ui:74 src/permissionEntryRow.ui:45
 #: src/permissionSwitchRow.ui:45
 msgid "Description"
-msgstr ""
+msgstr "Leírás"
 
 #: src/permissionEntryRow.ui:29 src/permissionSwitchRow.ui:29
 msgid "Pemission"
-msgstr ""
+msgstr "Engedély"
 
 #: src/view.ui:36
 msgid "No applications found."
-msgstr ""
+msgstr "Alkalmazás nem található."
 
 #: src/window.ui:41
 msgid "Reset"
-msgstr ""
+msgstr "Visszaállítás"
 
 #: src/window.ui:47
 msgid "Reset this application permisions"
-msgstr ""
+msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
 
 #: src/model.js:35
 msgid "Access network"
-msgstr ""
+msgstr "A hálózat hozzáférés"
 
 #: src/model.js:40
 msgid "Access inter-process communications"
-msgstr ""
+msgstr "A folyamatok közötti kommunikáció hozzáférés"
 
 #: src/model.js:45
 msgid "Access X11 windowing system"
-msgstr ""
+msgstr "Az X11 ablakrendszer hozzáférés"
 
 #: src/model.js:50
 msgid "Access X11 windowing system (as fallback)"
-msgstr ""
+msgstr "Az X11 ablakrendszer hozzáférés (tartalékként)"
 
 #: src/model.js:55
 msgid "Access Wayland windowing system"
-msgstr ""
+msgstr "A Wayland ablakrendszer hozzáférés"
 
 #: src/model.js:60
 msgid "Access PulseAudio sound server"
-msgstr ""
+msgstr "A PulseAudio hangkiszolgáló hozzáférés"
 
 #: src/model.js:65
 msgid "Access D-Bus system bus (unrestricted)"
-msgstr ""
+msgstr "A D-Bus rendszer busz hozzáférés (korlátlan)"
 
 #: src/model.js:70
 msgid "Access D-Bus session bus (unrestricted)"
-msgstr ""
+msgstr "A D-Bus rendszer busz hozzáférés (korlátlan)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
-msgstr ""
+msgstr "A biztonsági héj ügynök hozzáférés"
 
 #: src/model.js:80
 msgid "Access printing system"
-msgstr ""
+msgstr "A nyomtatási rendszer hozzáférés"
 
 #: src/model.js:85
 msgid "Access GPU acceleration"
-msgstr ""
+msgstr "GPU gyorsítási hozzáférés"
 
 #: src/model.js:90
 msgid "Access all devices (e.g. webcam)"
-msgstr ""
+msgstr "Az összes eszköz hozzáférés (pl. webkamera)"
 
 #: src/model.js:95
 msgid "Access all system directories (unrestricted)"
-msgstr ""
+msgstr "Az összes rendszerkönyvtár hozzáférés (korlátlan)"
 
 #: src/model.js:100
 msgid "Access home directory (unrestricted)"
-msgstr ""
+msgstr "Az otthoni könyvtár hozzáférés (korlátlan)"
 
 #: src/model.js:105
 msgid "Access bluetooth"
-msgstr ""
+msgstr "Bluetooth hozzáférés"
 
 #: src/model.js:110
 msgid "Access other syscalls (e.g. ptrace)"
-msgstr ""
+msgstr "Más rendszerhívások hozzáférés (pl. ptrace)"
 
 #: src/model.js:115
 msgid "Access programs from other architectures"
-msgstr ""
+msgstr "Más architektúrák programjaihoz hozzáférés"
 
 #: src/model.js:120
 msgid "Access other directories"
-msgstr ""
+msgstr "Egyéb könyvtárak hozzáférés"
 
 #: src/menu.ui:7
 msgid "Help"
-msgstr ""
+msgstr "Súgó"
 
 #: src/menu.ui:11
 msgid "About Flatseal"
-msgstr ""
+msgstr "A Flatseal névjegye"
