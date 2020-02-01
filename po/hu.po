@@ -1,21 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Hungarian translations for flatseal package.
+# Copyright (C) 2020 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-01 03:47-0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-02-01 03:47-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:3
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:3 src/aboutDialog.ui:14
