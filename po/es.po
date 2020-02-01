@@ -1,0 +1,153 @@
+# Spanish translations for flatseal package.
+# Copyright (C) 2020 THE flatseal'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# Automatically generated, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-01 03:30-0300\n"
+"PO-Revision-Date: 2020-02-01 02:37-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:3 src/aboutDialog.ui:14
+msgid "Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:8
+msgid "A permissions manager for Flatpak"
+msgstr "Un administrador de permisos para Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+msgid "com.github.tchx84.Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10 src/aboutDialog.ui:12
+msgid ""
+"Flatseal is a graphical utility to review and modify basic permissions from "
+"your Flatpak applications."
+msgstr ""
+"Flatseal es una utilidad gráfica para revisar y modificar permisos básicos "
+"de sus aplicaciones Flatpak."
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
+msgid "Martin Abente Lahaye"
+msgstr ""
+
+#: src/aboutDialog.ui:11
+msgid "Copyright © 2020 - Martín Abente Lahaye"
+msgstr ""
+
+#: src/applicationRow.ui:57
+msgid "Application"
+msgstr "Aplicación"
+
+#: src/applicationRow.ui:74 src/permissionEntryRow.ui:45
+#: src/permissionSwitchRow.ui:45
+msgid "Description"
+msgstr "Descripción"
+
+#: src/permissionEntryRow.ui:29 src/permissionSwitchRow.ui:29
+msgid "Pemission"
+msgstr "Permiso"
+
+#: src/view.ui:36
+msgid "No applications found."
+msgstr "No se encontraron aplicaciones."
+
+#: src/window.ui:41
+msgid "Reset"
+msgstr "Restablecer"
+
+#: src/window.ui:47
+msgid "Reset this application permisions"
+msgstr "Restablecer los permisos de esta aplicación"
+
+#: src/model.js:35
+msgid "Access network"
+msgstr "Acceso a la red"
+
+#: src/model.js:40
+msgid "Access inter-process communications"
+msgstr "Acceso a comunicaciones entre procesos"
+
+#: src/model.js:45
+msgid "Access X11 windowing system"
+msgstr "Acceso al sistema de ventanas X11"
+
+#: src/model.js:50
+msgid "Access X11 windowing system (as fallback)"
+msgstr "Acceso al sistema de ventanas X11 (como respaldo)"
+
+#: src/model.js:55
+msgid "Access Wayland windowing system"
+msgstr "Acceso al sistema de ventanas Wayland"
+
+#: src/model.js:60
+msgid "Access PulseAudio sound server"
+msgstr "Acceso al servidor de sonido PulseAudio"
+
+#: src/model.js:65
+msgid "Access D-Bus system bus (unrestricted)"
+msgstr "Acceso al bus del sistema D-Bus (sin restricciones)"
+
+#: src/model.js:70
+msgid "Access D-Bus session bus (unrestricted)"
+msgstr "Acceso al bus de sesión D-Bus (sin restricciones)"
+
+#: src/model.js:75
+msgid "Access Secure Shell agent"
+msgstr "Acceso al agente Secure Shell"
+
+#: src/model.js:80
+msgid "Access printing system"
+msgstr "Acceso al sistema de impresión"
+
+#: src/model.js:85
+msgid "Access GPU acceleration"
+msgstr "Acceso a aceleración de gráficos"
+
+#: src/model.js:90
+msgid "Access all devices (e.g. webcam)"
+msgstr "Acceso a todos los dispositivos (ej. cámara web)"
+
+#: src/model.js:95
+msgid "Access all system directories (unrestricted)"
+msgstr "Acceso a todos los directorios del sistema (sin restricciones)"
+
+#: src/model.js:100
+msgid "Access home directory (unrestricted)"
+msgstr "Acceso al directorio hogar (sin restricciones)"
+
+#: src/model.js:105
+msgid "Access bluetooth"
+msgstr "Acceso al bluetooth"
+
+#: src/model.js:110
+msgid "Access other syscalls (e.g. ptrace)"
+msgstr "Acceso a otras llamadas al sistema (ej. ptrace)"
+
+#: src/model.js:115
+msgid "Access programs from other architectures"
+msgstr "Acceso a programas de otras arquitecturas"
+
+#: src/model.js:120
+msgid "Access other directories"
+msgstr "Acceso a otros directorios"
+
+#: src/menu.ui:7
+msgid "Help"
+msgstr "Ayuda"
+
+#: src/menu.ui:11
+msgid "About Flatseal"
+msgstr "Acerca de Flatseal"

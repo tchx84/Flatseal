@@ -77,7 +77,7 @@ var FlatsealModel = GObject.registerClass({
         'sockets-cups': GObject.ParamSpec.boolean(
             'sockets-cups',
             'sockets-cups',
-            _('Access  printing system'),
+            _('Access printing system'),
             _propFlags, false),
         'devices-dri': GObject.ParamSpec.boolean(
             'devices-dri',

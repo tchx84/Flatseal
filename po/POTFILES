@@ -1,10 +1,11 @@
 data/com.github.tchx84.Flatseal.desktop.in
 data/com.github.tchx84.Flatseal.appdata.xml.in
 data/com.github.tchx84.Flatseal.gschema.xml
+src/aboutDialog.ui
 src/applicationRow.ui
 src/permissionEntryRow.ui
 src/permissionSwitchRow.ui
 src/view.ui
 src/window.ui
 src/model.js
-
+src/menu.ui

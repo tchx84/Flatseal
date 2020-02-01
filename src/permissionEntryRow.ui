@@ -28,7 +28,7 @@
                 <property name="halign">start</property>
                 <property name="label" translatable="yes">Pemission</property>
                 <property name="ellipsize">end</property>
-                <property name="max_width_chars">40</property>
+                <property name="single_line_mode">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -44,7 +44,7 @@
                 <property name="halign">start</property>
                 <property name="label" translatable="yes">Description</property>
                 <property name="ellipsize">end</property>
-                <property name="max_width_chars">40</property>
+                <property name="single_line_mode">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>

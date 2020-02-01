@@ -3,6 +3,7 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.34",
     "sdk": "org.gnome.Sdk",
+    "separate-locales": false,
     "command": "com.github.tchx84.Flatseal",
     "finish-args": [
         "--share=ipc",
