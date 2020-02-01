@@ -20,7 +20,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:3
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:3 src/aboutDialog.ui:14
 msgid "Flatseal"
-msgstr "Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:9
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:8
@@ -29,7 +29,7 @@ msgstr "Um gerenciador de permissões para aplicativos Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 msgid "com.github.tchx84.Flatseal"
-msgstr "com.github.tchx84.Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:10 src/aboutDialog.ui:12
 msgid ""
@@ -41,11 +41,11 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Martin Abente Lahaye"
-msgstr "Martin Abente Lahaye"
+msgstr ""
 
 #: src/aboutDialog.ui:11
 msgid "Copyright © 2020 - Martín Abente Lahaye"
-msgstr "Copyright © 2020 - Martín Abente Lahaye"
+msgstr ""
 
 #: src/applicationRow.ui:57
 msgid "Application"
@@ -114,7 +114,7 @@ msgstr "Acesso ao sistema de impressão"
 
 #: src/model.js:85
 msgid "Access GPU acceleration"
-msgstr "Aceleração de acesso à GPU"
+msgstr "Acesso a aceleração da GPU"
 
 #: src/model.js:90
 msgid "Access all devices (e.g. webcam)"
@@ -138,7 +138,7 @@ msgstr "Acesse outros syscalls (por exemplo, ptrace)"
 
 #: src/model.js:115
 msgid "Access programs from other architectures"
-msgstr "Acessar programas de outras arquiteturas"
+msgstr "Acesse programas de outras arquiteturas"
 
 #: src/model.js:120
 msgid "Access other directories"
