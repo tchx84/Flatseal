@@ -20,7 +20,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:3
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:3 src/aboutDialog.ui:14
 msgid "Flatseal"
-msgstr "Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:9
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:8
