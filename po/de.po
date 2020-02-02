@@ -140,7 +140,7 @@ msgstr "Zugriff auf andere Systemaufrufe (z.B. ptrace)"
 
 #: src/model.js:115
 msgid "Access programs from other architectures"
-msgstr "Zuriff auf Programme anderer Architekturen"
+msgstr "Zugriff auf Programme anderer Architekturen"
 
 #: src/model.js:120
 msgid "Access other directories"
