@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-01 03:47-0300\n"
+"POT-Creation-Date: 2020-02-02 22:58-0300\n"
 "PO-Revision-Date: 2020-02-01 03:47-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -43,19 +43,6 @@ msgstr ""
 
 #: src/aboutDialog.ui:11
 msgid "Copyright © 2020 - Martín Abente Lahaye"
-msgstr ""
-
-#: src/applicationRow.ui:57
-msgid "Application"
-msgstr ""
-
-#: src/applicationRow.ui:74 src/permissionEntryRow.ui:45
-#: src/permissionSwitchRow.ui:45
-msgid "Description"
-msgstr ""
-
-#: src/permissionEntryRow.ui:29 src/permissionSwitchRow.ui:29
-msgid "Pemission"
 msgstr ""
 
 #: src/view.ui:36
