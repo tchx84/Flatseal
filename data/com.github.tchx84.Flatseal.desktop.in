@@ -1,4 +1,5 @@
 [Desktop Entry]
+# TRANSLATORS: Don't translate this text
 Name=Flatseal
 Exec=com.github.tchx84.Flatseal
 Terminal=false
@@ -6,4 +7,5 @@ Type=Application
 Categories=Utility;
 StartupNotify=true
 Comment=A permissions manager for Flatpak
+# TRANSLATORS: Don't translate this text
 Icon=com.github.tchx84.Flatseal
