@@ -105,7 +105,7 @@ msgstr "A D-Bus munkamenet busz hozzáférése (korlátlan)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
-msgstr "A biztonsági héj ügynök hozzáférése"
+msgstr "A Secure Shell ügynök hozzáférése"
 
 #: src/model.js:80
 msgid "Access printing system"
