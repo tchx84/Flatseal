@@ -8,11 +8,11 @@
     <property name="type_hint">dialog</property>
     <property name="program_name">Flatseal</property>
     <property name="version">1.2.2</property>
-    <property name="copyright" translatable="yes">Copyright © 2020 - Martín Abente Lahaye</property>
+    <property name="copyright">Copyright © 2020 - Martin Abente Lahaye</property>
     <property name="comments" translatable="yes">Flatseal is a graphical utility to review and modify basic permissions from your Flatpak applications.</property>
     <property name="website">https://github.com/tchx84/flatseal</property>
-    <property name="website_label" translatable="yes">Flatseal</property>
-    <property name="authors">Martín Abente Lahaye</property>
+    <property name="website_label">Flatseal</property>
+    <property name="authors">Martin Abente Lahaye</property>
     <property name="logo_icon_name">com.github.tchx84.Flatseal</property>
     <property name="license_type">gpl-3-0</property>
     <child>

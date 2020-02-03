@@ -8,41 +8,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-02 22:58-0300\n"
+"POT-Creation-Date: 2020-02-03 17:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: data/com.github.tchx84.Flatseal.desktop.in:3
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:3 src/aboutDialog.ui:14
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.desktop.in:9
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:8
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "A permissions manager for Flatpak"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.desktop.in:10
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:12
 msgid "com.github.tchx84.Flatseal"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:10 src/aboutDialog.ui:12
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:12
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr ""
-
-#: src/aboutDialog.ui:11
-msgid "Copyright © 2020 - Martín Abente Lahaye"
 msgstr ""
 
 #: src/view.ui:36

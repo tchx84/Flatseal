@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
+  <!-- TRANSLATORS: Don't translate this text -->
   <name>Flatseal</name>
   <id>com.github.tchx84.Flatseal.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
@@ -26,6 +27,7 @@
     </screenshot>
   </screenshots>
   <update_contact>martin.abente.lahaye@gmail.com</update_contact>
+  <!-- TRANSLATORS: Don't translate this text -->
   <developer_name>Martin Abente Lahaye</developer_name>
   <url type="homepage">https://github.com/tchx84/flatseal</url>
   <url type="bugtracker">https://github.com/tchx84/flatseal/issues</url>

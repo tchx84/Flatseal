@@ -1,23 +1,23 @@
-# German translation for flatseal package.
+# Czech translation for flatseal package.
 # Copyright (C) 2020 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Automatically generated, 2020.
 #
-# Tim Rieck <tim.rieck@gmail.com>, 2020.
+# Daniel Rusek <mail@asciiwolf.com>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-03 17:54+0100\n"
-"PO-Revision-Date: 2020-02-01 11:35-0200\n"
-"Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
+"PO-Revision-Date: 2020-02-03 14:58+0100\n"
+"Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
-"Language: de\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -28,7 +28,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "A permissions manager for Flatpak"
-msgstr "Ein Berechtigungsmanager für Flatpak"
+msgstr "Správce oprávnění pro Flatpak"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
@@ -40,8 +40,8 @@ msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
 msgstr ""
-"Flatseal ist ein grafisches Dienstprogramm zum Überprüfen und Ändern von "
-"Basisberechtigungen Ihre Flatpak-Anwendungen."
+"Flatseal je grafický nástroj pro prohlížení a úpravu základních oprávnění "
+"vašich Flatpak aplikací."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -50,92 +50,92 @@ msgstr ""
 
 #: src/view.ui:36
 msgid "No applications found."
-msgstr "Keine Anwendungen gefunden."
+msgstr "Nenalezeny žádné aplikace."
 
 #: src/window.ui:41
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Resetovat"
 
 #: src/window.ui:47
 msgid "Reset this application permisions"
-msgstr "Berechtigung dieser Anwendung zurücksetzen"
+msgstr "Resetovat oprávnění této aplikace"
 
 #: src/model.js:35
 msgid "Access network"
-msgstr "Zugriff auf das Netzwerk"
+msgstr "Přístup k síti"
 
 #: src/model.js:40
 msgid "Access inter-process communications"
-msgstr "Zugriff zu die prozessübergreifende Kommunikation"
+msgstr "Přístup k meziprocesové komunikaci"
 
 #: src/model.js:45
 msgid "Access X11 windowing system"
-msgstr "Zugriff auf den X11-Fenstermanager"
+msgstr "Přístup k okennímu systému X11"
 
 #: src/model.js:50
 msgid "Access X11 windowing system (as fallback)"
-msgstr "Zugriff auf den X11-Fenstermanager (als Fallback)"
+msgstr "Přístup k okennímu systému X11 (jako rezerva)"
 
 #: src/model.js:55
 msgid "Access Wayland windowing system"
-msgstr "Zugriff auf den Wayland-Fenstermanager"
+msgstr "Přístup k okennímu systému Wayland"
 
 #: src/model.js:60
 msgid "Access PulseAudio sound server"
-msgstr "Zugriff auf den PulseAudio-Soundserver"
+msgstr "Přístup ke zvukovému serveru PulseAudio"
 
 #: src/model.js:65
 msgid "Access D-Bus system bus (unrestricted)"
-msgstr "Zugriff auf den D-Bus-Systembus (uneingeschränkt)"
+msgstr "Přístup k systémové sběrnici D-Bus (neomezený)"
 
 #: src/model.js:70
 msgid "Access D-Bus session bus (unrestricted)"
-msgstr "Zugriff auf den D-Bus-Sitzungsbus (uneingeschränkt)"
+msgstr "Přístup ke sběrnici sezení D-Bus (neomezený)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
-msgstr "Zugriff auf den Secure Shell Agent"
+msgstr "Přístup k agentu Zabezpečeného Shellu"
 
 #: src/model.js:80
 msgid "Access printing system"
-msgstr "Zugriff auf die Druckerverwaltung"
+msgstr "Přístup k tiskovému systému"
 
 #: src/model.js:85
 msgid "Access GPU acceleration"
-msgstr "Zugriff auf GPU-Beschleunigung"
+msgstr "Přístup k akceleraci GPU"
 
 #: src/model.js:90
 msgid "Access all devices (e.g. webcam)"
-msgstr "Zugriff auf alle Geräte (z.B. Webcam)"
+msgstr "Přístup ke všem zařízením (např. webkameře)"
 
 #: src/model.js:95
 msgid "Access all system directories (unrestricted)"
-msgstr "Zugriff auf alle Systemverzeichnisse (uneingeschränkt)"
+msgstr "Přístup ke všem systémovým adresářům (neomezený)"
 
 #: src/model.js:100
 msgid "Access home directory (unrestricted)"
-msgstr "Zugriff auf das Benutzerverzeichnis (uneingeschränkt)"
+msgstr "Přístup k domovskému adresáři (neomezený)"
 
 #: src/model.js:105
 msgid "Access bluetooth"
-msgstr "Zugriff auf Bluetooth"
+msgstr "Přístup k bluetooth"
 
 #: src/model.js:110
 msgid "Access other syscalls (e.g. ptrace)"
-msgstr "Zugriff auf andere Systemaufrufe (z.B. ptrace)"
+msgstr "Přístup k jiným systémovým voláním (např. ptrace)"
 
 #: src/model.js:115
 msgid "Access programs from other architectures"
-msgstr "Zugriff auf Programme anderer Architekturen"
+msgstr "Přístup k programům z jiných architektur"
 
 #: src/model.js:120
 msgid "Access other directories"
-msgstr "Zugriff auf andere Verzeichnisse"
+msgstr "Přístup k jiným adresářům"
 
 #: src/menu.ui:7
 msgid "Help"
-msgstr "Hilfe"
+msgstr "Nápověda"
 
 #: src/menu.ui:11
 msgid "About Flatseal"
-msgstr "Über Flatseal"
+msgstr "O aplikaci Flatseal"
