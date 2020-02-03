@@ -54,7 +54,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
-                <property name="label" translatable="yes">Application</property>
+                <property name="label">Application</property>
                 <property name="ellipsize">end</property>
                 <property name="single_line_mode">True</property>
               </object>
@@ -71,7 +71,7 @@
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
-                <property name="label" translatable="yes">Description</property>
+                <property name="label">Description</property>
                 <property name="ellipsize">end</property>
                 <property name="single_line_mode">True</property>
               </object>
