@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-03 17:54+0100\n"
+"POT-Creation-Date: 2020-02-04 17:48-0300\n"
 "PO-Revision-Date: 2020-02-01 02:37-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -46,17 +46,17 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/view.ui:36
-msgid "No applications found."
-msgstr "No se encontraron aplicaciones."
-
-#: src/window.ui:41
+#: src/window.ui:34
 msgid "Reset"
 msgstr "Restablecer"
 
-#: src/window.ui:47
+#: src/window.ui:40
 msgid "Reset this application permisions"
 msgstr "Restablecer los permisos de esta aplicación"
+
+#: src/window.ui:80
+msgid "No applications found."
+msgstr "No se encontraron aplicaciones."
 
 #: src/model.js:35
 msgid "Access network"
