@@ -8,7 +8,6 @@
     <file>model.js</file>
     <file>permissionEntryRow.js</file>
     <file>permissionSwitchRow.js</file>
-    <file>view.js</file>
     <file>window.js</file>
   </gresource>
 </gresources>

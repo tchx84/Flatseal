@@ -384,7 +384,7 @@ var FlatsealModel = GObject.registerClass({
         return list;
     }
 
-    setApplicationId(appId) {
+    setAppId(appId) {
         this._lastAppId = appId;
         this._updatePropertiesForAppId(appId);
     }

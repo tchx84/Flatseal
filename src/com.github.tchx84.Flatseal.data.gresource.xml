@@ -7,7 +7,6 @@
     <file>menu.ui</file>
     <file>permissionEntryRow.ui</file>
     <file>permissionSwitchRow.ui</file>
-    <file>view.ui</file>
     <file>window.ui</file>
   </gresource>
 </gresources>
