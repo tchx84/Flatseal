@@ -22,12 +22,20 @@ const {FlatsealModel} = imports.model;
 const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.permissionSwitchRow;
 
-const flags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
+const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
+const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
 
 var FlatsealView = GObject.registerClass({
     GTypeName: 'FlatsealView',
     Template: 'resource:///com/github/tchx84/Flatseal/view.ui',
+    Properties: {
+        'app-id': GObject.ParamSpec.string(
+            'app-id',
+            'app-id',
+            'app-id',
+            _propFlags, ''),
+    },
     InternalChildren: [
         'applicationsSearchEntry',
         'applicationsStack',
@@ -36,14 +44,15 @@ var FlatsealView = GObject.registerClass({
         'permissionsBox',
     ],
 }, class FlatsealView extends Gtk.Box {
-    _init(resetButton, headerBarLabel) {
+    _init() {
         super._init({});
-        this._headerBarLabel = headerBarLabel;
         this._model = new FlatsealModel();
         const applications = this._model.listApplications();
         const permissions = this._model.listPermissions();
+        const iconTheme = Gtk.IconTheme.get_default();
 
         applications.forEach(appId => {
+            iconTheme.append_search_path(this._model.getIconThemePathForAppId(appId));
             const row = new FlatsealApplicationRow(appId);
             this._applicationsListBox.add(row);
         });
@@ -68,7 +77,7 @@ var FlatsealView = GObject.registerClass({
             this._model.bind_property(
                 permission.property,
                 row._permissionContent,
-                permission.type, flags);
+                permission.type, _bindFlags);
         });
 
         if (applications.length <= 0 || permissions.length <= 0)
@@ -83,20 +92,13 @@ var FlatsealView = GObject.registerClass({
         this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
         this._applicationsSearchEntry.connect(
             'search-changed', this._invalidateSearch.bind(this));
-
-        resetButton.set_sensitive(true);
-        resetButton.connect('clicked', this._resetApplication.bind(this));
     }
 
     _updateApplication() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.setApplicationId(row.appId);
-        this._headerBarLabel.set_text(row.appId);
-    }
-
-    _resetApplication() {
-        const row = this._applicationsListBox.get_selected_row();
-        this._model._resetPermissionsForAppId(row.appId);
+        this.app_id = row.appId;
+        this.notify('app-id');
     }
 
     _filterApplications(application) {
@@ -114,5 +116,10 @@ var FlatsealView = GObject.registerClass({
 
     _cancelSearch() {
         this._applicationsSearchEntry.set_text('');
+    }
+
+    resetApplication() {
+        const row = this._applicationsListBox.get_selected_row();
+        this._model.resetPermissionsForAppId(row.appId);
     }
 });

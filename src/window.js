@@ -23,10 +23,27 @@ const {FlatsealView} = imports.view;
 var FlatsealWindow = GObject.registerClass({
     GTypeName: 'FlatsealWindow',
     Template: 'resource:///com/github/tchx84/Flatseal/window.ui',
-    InternalChildren: ['headerBarLabel', 'resetButton', 'menu'],
+    InternalChildren: ['resetButton', 'menu'],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
         super._init({application});
-        this.add(new FlatsealView(this._resetButton, this._headerBarLabel));
+
+        this._view = new FlatsealView();
+        this._view.connect('notify::app-id', this._updateApplication.bind(this));
+        this.add(this._view);
+
+        this._resetButton.connect('clicked', this._resetApplication.bind(this));
+
+        const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
+        this._menu.set_menu_model(builder.get_object('menu'));
+    }
+
+    _updateApplication() {
+        this.set_title(this._view.app_id);
+        this._resetButton.set_sensitive(!!this._view.app_id);
+    }
+
+    _resetApplication() {
+        this._view.resetApplication();
     }
 });

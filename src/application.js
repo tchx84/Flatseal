@@ -43,7 +43,7 @@ var FlatsealApplication = GObject.registerClass({
         dialog.present();
     }
 
-    _setupMenu() {
+    _setupActions() {
         const help_action = new Gio.SimpleAction({name: 'help', state: null});
         help_action.connect('activate', this._displayHelp.bind(this));
 
@@ -52,9 +52,6 @@ var FlatsealApplication = GObject.registerClass({
 
         this.add_action(help_action);
         this.add_action(about_action);
-
-        const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
-        this._menu = builder.get_object('menu');
     }
 
     _setupStylesheet() {
@@ -65,16 +62,15 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     vfunc_activate() {
-        if (this._window === null) {
+        if (this._window === null)
             this._window = new FlatsealWindow(this);
-            this._window._menu.set_menu_model(this._menu);
-        }
+
         this._window.present();
     }
 
     vfunc_startup() {
         super.vfunc_startup();
-        this._setupMenu();
+        this._setupActions();
         this._setupStylesheet();
     }
 });

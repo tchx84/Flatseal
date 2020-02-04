@@ -17,7 +17,7 @@
  */
 
 const Gettext = imports.gettext;
-const {GObject, Gio, Gtk, GLib} = imports.gi;
+const {GObject, Gio, GLib} = imports.gi;
 
 const _ = Gettext.gettext;
 
@@ -166,12 +166,6 @@ var FlatsealModel = GObject.registerClass({
         return GLib.build_filenamev([this._getBundlePathForAppId(appId), 'metadata']);
     }
 
-    _getIconThemePathForAppId(appId) {
-        return GLib.build_filenamev([
-            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
-        ]);
-    }
-
     _getPermissionsForPath(path) {
         const list = [];
 
@@ -244,12 +238,6 @@ var FlatsealModel = GObject.registerClass({
             GLib.unlink(path);
         else
             keyFile.save_to_file(path);
-    }
-
-    _resetPermissionsForAppId(appId) {
-        const path = this._getOverridesPathForAppId(appId);
-        GLib.unlink(path);
-        this._updatePropertiesForAppId(appId);
     }
 
     _updatePropertiesForAppId(appId) {
@@ -372,13 +360,6 @@ var FlatsealModel = GObject.registerClass({
 
         list.sort();
 
-        /* XXX Register applications icons path */
-        const iconTheme = Gtk.IconTheme.get_default();
-
-        list.forEach(appId => {
-            iconTheme.append_search_path(this._getIconThemePathForAppId(appId));
-        });
-
         return list;
     }
 
@@ -406,5 +387,17 @@ var FlatsealModel = GObject.registerClass({
     setApplicationId(appId) {
         this._lastAppId = appId;
         this._updatePropertiesForAppId(appId);
+    }
+
+    resetPermissionsForAppId(appId) {
+        const path = this._getOverridesPathForAppId(appId);
+        GLib.unlink(path);
+        this._updatePropertiesForAppId(appId);
+    }
+
+    getIconThemePathForAppId(appId) {
+        return GLib.build_filenamev([
+            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
+        ]);
     }
 });
