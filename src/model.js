@@ -125,15 +125,23 @@ var FlatsealModel = GObject.registerClass({
         super._init({});
         this._lastAppId = '';
         this._delayedHandlerId = 0;
+
+        this._systemInstallationPath = GLib.build_filenamev([
+            GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak',
+        ]);
+        this._userInstallationPath = GLib.build_filenamev([
+            GLib.get_home_dir(), '.local', 'share', 'flatpak',
+        ]);
+
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
 
     _getSystemInstallationPath() {
-        return GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak']);
+        return this._systemInstallationPath;
     }
 
     _getUserInstallationPath() {
-        return GLib.build_filenamev([GLib.get_home_dir(), '.local', 'share', 'flatpak']);
+        return this._userInstallationPath;
     }
 
     _getUserApplicationsPath() {
@@ -384,6 +392,14 @@ var FlatsealModel = GObject.registerClass({
     setAppId(appId) {
         this._lastAppId = appId;
         this._updatePropertiesForAppId(appId);
+    }
+
+    setSystemInstallationPath(path) {
+        this._systemInstallationPath = path;
+    }
+
+    setUserInstallationPath(path) {
+        this._userInstallationPath = path;
     }
 
     resetPermissionsForAppId(appId) {

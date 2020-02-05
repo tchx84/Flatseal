@@ -1,0 +1,6 @@
+[Context]
+shared=!network;!ipc;
+sockets=!x11;!fallback-x11;!wayland;!pulseaudio;!system-bus;!session-bus;!ssh-auth;!cups;
+devices=!dri;!all;
+features=!bluetooth;!devel;!multiarch;
+filesystems=!host;!home;!~/test;
