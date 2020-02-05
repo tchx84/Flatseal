@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
@@ -26,7 +26,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "A permissions manager for Flatpak"
-msgstr ""
+msgstr "Um gerenciador de permissões para Flatpak"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
@@ -37,7 +37,8 @@ msgstr ""
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
-msgstr ""
+msgstr "O Flatseal é um utilitário gráfico para revisar e modificar "
+"permissões básicas de seus aplicativos Flatpak."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -46,92 +47,92 @@ msgstr ""
 
 #: src/window.ui:33
 msgid "Reset"
-msgstr ""
+msgstr "Restaurar"
 
 #: src/window.ui:38
 msgid "Reset this application permisions"
-msgstr ""
+msgstr "Restaurar as permissões deste aplicativo"
 
 #: src/window.ui:76
 msgid "No applications found."
-msgstr ""
+msgstr "Nenhum aplicativo encontrado."
 
 #: src/model.js:35
 msgid "Access network"
-msgstr ""
+msgstr "Acesso à rede"
 
 #: src/model.js:40
 msgid "Access inter-process communications"
-msgstr ""
+msgstr "Acesso a comunicações entre processos"
 
 #: src/model.js:45
 msgid "Access X11 windowing system"
-msgstr ""
+msgstr "Acesso ao sistema de janelas X11"
 
 #: src/model.js:50
 msgid "Access X11 windowing system (as fallback)"
-msgstr ""
+msgstr "Acesso ao sistema de janelas X11 (como substituto)"
 
 #: src/model.js:55
 msgid "Access Wayland windowing system"
-msgstr ""
+msgstr "Acesso ao sistema de janelas Wayland"
 
 #: src/model.js:60
 msgid "Access PulseAudio sound server"
-msgstr ""
+msgstr "Acesso ao servidor de som PulseAudio"
 
 #: src/model.js:65
 msgid "Access D-Bus system bus (unrestricted)"
-msgstr ""
+msgstr "Acesso ao barramento do sistema D-Bus (sem restrições)"
 
 #: src/model.js:70
 msgid "Access D-Bus session bus (unrestricted)"
-msgstr ""
+msgstr "Acesso ao barramento de sessão do D-Bus (sem restrições)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
-msgstr ""
+msgstr "Acesso ao agente Secure Shell"
 
 #: src/model.js:80
 msgid "Access printing system"
-msgstr ""
+msgstr "Acesso ao sistema de impressão"
 
 #: src/model.js:85
 msgid "Access GPU acceleration"
-msgstr ""
+msgstr "Acesso à aceleração de GPU"
 
 #: src/model.js:90
 msgid "Access all devices (e.g. webcam)"
-msgstr ""
+msgstr "Acesso a todos os dispositivos (p. ex. webcam)"
 
 #: src/model.js:95
 msgid "Access all system directories (unrestricted)"
-msgstr ""
+msgstr "Acesso a todos os diretórios do sistema (sem restrições)"
 
 #: src/model.js:100
 msgid "Access home directory (unrestricted)"
-msgstr ""
+msgstr "Acesso ao diretório do usuário (sem restrições)"
 
 #: src/model.js:105
 msgid "Access bluetooth"
-msgstr ""
+msgstr "Acesso ao Bluetooth"
 
 #: src/model.js:110
 msgid "Access other syscalls (e.g. ptrace)"
-msgstr ""
+msgstr "Acesso a outras chamadas do sistema (p. ex. ptrace)"
 
 #: src/model.js:115
 msgid "Access programs from other architectures"
-msgstr ""
+msgstr "Acesso a programas de outras arquiteturas"
 
 #: src/model.js:120
 msgid "Access other directories"
-msgstr ""
+msgstr "Acesso a outros diretórios"
 
 #: src/menu.ui:7
 msgid "Help"
-msgstr ""
+msgstr "Ajuda"
 
 #: src/menu.ui:11
 msgid "About Flatseal"
-msgstr ""
+msgstr "Sobre Flatseal"
