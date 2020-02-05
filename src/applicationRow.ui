@@ -3,7 +3,6 @@
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="FlatsealApplicationRow" parent="GtkListBoxRow">
-    <property name="name">FlatsealApplicationRow</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <child>
@@ -18,8 +17,7 @@
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkImage" id="applicationIcon">
-                <property name="name">applicationIcon</property>
+              <object class="GtkImage" id="icon">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">center</property>
@@ -27,6 +25,9 @@
                 <property name="pixel_size">40</property>
                 <property name="icon_name">com.github.tchx84.Flatseal</property>
                 <property name="icon_size">0</property>
+                <style>
+                  <class name="icon"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -48,15 +49,16 @@
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkLabel" id="applicationLabel">
-                <property name="name">applicationLabel</property>
+              <object class="GtkLabel" id="name">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
-                <property name="label">Application</property>
                 <property name="ellipsize">end</property>
                 <property name="single_line_mode">True</property>
+                <style>
+                  <class name="name"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -65,15 +67,16 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="applicationDescription">
-                <property name="name">applicationDescription</property>
+              <object class="GtkLabel" id="appId">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
-                <property name="label">Description</property>
                 <property name="ellipsize">end</property>
                 <property name="single_line_mode">True</property>
+                <style>
+                  <class name="app-id"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -90,5 +93,8 @@
         </child>
       </object>
     </child>
+    <style>
+      <class name="row"/>
+    </style>
   </template>
 </interface>

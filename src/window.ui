@@ -13,7 +13,6 @@
         <property name="show_close_button">True</property>
         <child>
           <object class="GtkMenuButton" id="menu">
-            <property name="name">menu</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -32,7 +31,6 @@
         <child>
           <object class="GtkButton" id="resetButton">
             <property name="label" translatable="yes">Reset</property>
-            <property name="name">resetButton</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can_focus">True</property>
@@ -60,7 +58,6 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkStack" id="applicationsStack">
-                <property name="name">applicationsStack</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -74,7 +71,6 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkLabel" id="noApplicaitonsLabel">
-                        <property name="name">noApplicaitonsLabel</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">No applications found.</property>
@@ -106,18 +102,19 @@
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkBox" id="applicationsBox">
-                                <property name="name">applicationsBox</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkSearchEntry" id="applicationsSearchEntry">
-                                    <property name="name">applicationsSearchEntry</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="primary_icon_name">edit-find-symbolic</property>
                                     <property name="primary_icon_activatable">False</property>
                                     <property name="primary_icon_sensitive">False</property>
+                                    <style>
+                                      <class name="search-entry"/>
+                                    </style>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -127,7 +124,6 @@
                                 </child>
                                 <child>
                                   <object class="GtkListBox" id="applicationsListBox">
-                                    <property name="name">applicationsListBox</property>
                                     <property name="visible">True</property>
                                     <property name="can_focus">True</property>
                                     <property name="has_focus">True</property>
@@ -139,6 +135,9 @@
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
+                                <style>
+                                  <class name="box"/>
+                                </style>
                               </object>
                             </child>
                           </object>
@@ -163,6 +162,9 @@
                 <property name="position">1</property>
               </packing>
             </child>
+            <style>
+              <class name="applications"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -190,7 +192,6 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkStack" id="permissionsStack">
-                <property name="name">permissionsStack</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
@@ -222,13 +223,15 @@
                             <property name="can_focus">False</property>
                             <child>
                               <object class="GtkBox" id="permissionsBox">
-                                <property name="name">permissionsBox</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="orientation">vertical</property>
                                 <child>
                                   <placeholder/>
                                 </child>
+                                <style>
+                                  <class name="box"/>
+                                </style>
                               </object>
                             </child>
                           </object>
@@ -253,6 +256,9 @@
                 <property name="position">0</property>
               </packing>
             </child>
+            <style>
+              <class name="permissions"/>
+            </style>
           </object>
           <packing>
             <property name="expand">True</property>

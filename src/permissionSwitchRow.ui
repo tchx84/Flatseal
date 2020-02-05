@@ -3,7 +3,6 @@
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="FlatsealPermissionSwitchRow" parent="GtkBox">
-    <property name="name">FlatsealPermissionSwitchRow</property>
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
@@ -21,14 +20,15 @@
             <property name="orientation">vertical</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="permissionLabel">
-                <property name="name">permissionLabel</property>
+              <object class="GtkLabel" id="description">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
-                <property name="label">Permission</property>
                 <property name="ellipsize">end</property>
                 <property name="single_line_mode">True</property>
+                <style>
+                  <class name="description"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -37,14 +37,15 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="permissionDescription">
-                <property name="name">permissionDescription</property>
+              <object class="GtkLabel" id="permission">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="halign">start</property>
-                <property name="label">Description</property>
                 <property name="ellipsize">end</property>
                 <property name="single_line_mode">True</property>
+                <style>
+                  <class name="permission"/>
+                </style>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -60,12 +61,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkSwitch" id="permissionContent">
-            <property name="name">permissionContent</property>
+          <object class="GtkSwitch" id="content">
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
+            <style>
+              <class name="content"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -80,5 +83,8 @@
         <property name="position">0</property>
       </packing>
     </child>
+    <style>
+      <class name="row"/>
+    </style>
   </template>
 </interface>

@@ -1,48 +1,50 @@
-#applicationsBox {
+.applications .box {
    background-color: @theme_base_color;
 }
 
-#applicationsSearchEntry {
+.applications .search-entry {
     margin: 10px;
 }
 
-#applicationIcon,
-#applicationLabel,
-#applicationDescription {
+.applications .icon,
+.applications .name,
+.applications .app-id {
    padding-left: 5px;
 }
 
-#applicationDescription {
+.applications .app-id {
     font-style: italic;
     font-size: 14px;
 }
 
-#permissionsBox {
+.permissions .box {
     padding-left: 50px;
     padding-right: 50px;
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-#FlatsealPermissionSwitchRow,
-#FlatsealPermissionEntryRow {
+.permissions .row {
    margin-top: 10px;
    background-color: @theme_base_color;
    border-style: solid;
    border-width: 0.2px;
 }
 
-#permissionLabel {
-    margin-left: 15px;
+.permissions .description,
+.permissions .permission {
+   margin-left: 15px;
+}
+
+.permissions .description {
     font-weight: bold;
 }
 
-#permissionDescription {
-    margin-left: 15px;
+.permissions .permission {
     font-style: italic;
     font-size: 14px;
 }
 
-#permissionContent {
+.permissions .content {
    margin-right: 15px;
 }

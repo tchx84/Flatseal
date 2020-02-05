@@ -22,12 +22,16 @@ const {GObject, Gtk} = imports.gi;
 var FlatsealPermissionSwitchRow = GObject.registerClass({
     GTypeName: 'FlatsealPermissionSwitchRow',
     Template: 'resource:///com/github/tchx84/Flatseal/permissionSwitchRow.ui',
-    InternalChildren: ['permissionLabel', 'permissionDescription', 'permissionContent'],
+    InternalChildren: ['description', 'permission', 'content'],
 }, class FlatsealPermissionSwitchRow extends Gtk.Box {
-    _init(description, permission, state) {
+    _init(description, permission, content) {
         super._init({});
-        this._permissionLabel.set_text(description);
-        this._permissionDescription.set_text(permission);
-        this._permissionContent.set_state(state);
+        this._description.set_text(description);
+        this._permission.set_text(permission);
+        this._content.set_state(content);
+    }
+
+    get content() {
+        return this._content;
     }
 });

@@ -40,90 +40,81 @@ var FlatsealWindow = GObject.registerClass({
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
         super._init({application});
-        this._setupView();
+        this._setup();
     }
 
-    _setupView() {
+    _setup() {
+        const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
+        this._menu.set_menu_model(builder.get_object('menu'));
+
         this._model = new FlatsealModel();
         const applications = this._model.listApplications();
         const permissions = this._model.listPermissions();
 
-        if (applications.length <= 0 || permissions.length <= 0)
+        if (applications.length === 0 || permissions.length === 0)
             return;
 
         const iconTheme = Gtk.IconTheme.get_default();
-        applications.forEach(appId => {
-            iconTheme.append_search_path(this._model.getIconThemePathForAppId(appId));
-            const row = new FlatsealApplicationRow(appId);
+
+        applications.forEach(id => {
+            iconTheme.append_search_path(this._model.getIconThemePathForAppId(id));
+            const row = new FlatsealApplicationRow(id);
             this._applicationsListBox.add(row);
         });
 
-        permissions.forEach(permission => {
+        permissions.forEach(p => {
             var row;
 
-            if (permission.type === 'text') {
-                row = new FlatsealPermissionEntryRow(
-                    permission.description,
-                    permission.permission,
-                    permission.value);
-            } else {
-                row = new FlatsealPermissionSwitchRow(
-                    permission.description,
-                    permission.permission,
-                    permission.value);
-            }
+            if (p.type === 'text')
+                row = new FlatsealPermissionEntryRow(p.description, p.permission, p.value);
+            else
+                row = new FlatsealPermissionSwitchRow(p.description, p.permission, p.value);
 
             this._permissionsBox.add(row);
-            this._model.bind_property(
-                permission.property,
-                row._permissionContent,
-                permission.type, _bindFlags);
+            this._model.bind_property(p.property, row.content, p.type, _bindFlags);
         });
 
-        this._applicationsStack.visibleChildName = 'withApplicationsPage';
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
+        this._applicationsStack.visibleChildName = 'withApplicationsPage';
 
-        this._applicationsListBox.connect('row-selected', this._updateApplication.bind(this));
-        this._applicationsListBox.set_filter_func(this._filterApplications.bind(this));
-        this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
-        this._applicationsSearchEntry.connect(
-            'search-changed', this._invalidateSearch.bind(this));
+        this._applicationsListBox.connect('row-selected', this._update.bind(this));
+        this._applicationsListBox.set_filter_func(this._filter.bind(this));
+
+        this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
+        this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
 
         this._resetButton.set_sensitive(true);
-        this._resetButton.connect('clicked', this._resetApplication.bind(this));
+        this._resetButton.connect('clicked', this._reset.bind(this));
 
-        const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
-        this._menu.set_menu_model(builder.get_object('menu'));
-
-        /* XXX shouldn't this be automatically ? */
-        this._applicationsListBox.select_row(this._applicationsListBox.get_row_at_index(0));
+        /* XXX shouldn't do this automatically ? */
+        const row = this._applicationsListBox.get_row_at_index(0);
+        this._applicationsListBox.select_row(row);
     }
 
-    _updateApplication() {
+    _update() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.setAppId(row.appId);
         this.set_title(row.appId);
     }
 
-    _resetApplication() {
+    _reset() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.resetPermissionsForAppId(row.appId);
     }
 
-    _filterApplications(application) {
+    _filter(row) {
         const text = this._applicationsSearchEntry.get_text();
-
         if (text.length === 0)
             return true;
 
-        return application.appId.toLowerCase().includes(text.toLowerCase());
+        return row.appId.toLowerCase().includes(text.toLowerCase());
     }
 
-    _invalidateSearch() {
+    _invalidate() {
         this._applicationsListBox.invalidate_filter();
     }
 
-    _cancelSearch() {
+    _cancel() {
         this._applicationsSearchEntry.set_text('');
     }
 });
