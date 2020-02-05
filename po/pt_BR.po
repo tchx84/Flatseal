@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 14:06-0300\n"
+"POT-Creation-Date: 2020-02-05 17:18-0300\n"
 "PO-Revision-Date: 2020-02-05 14:06-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -37,8 +37,9 @@ msgstr ""
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
-msgstr "O Flatseal é um utilitário gráfico para revisar e modificar "
-"permissões básicas de seus aplicativos Flatpak."
+msgstr ""
+"O Flatseal é um utilitário gráfico para revisar e modificar permissões "
+"básicas de seus aplicativos Flatpak."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -50,7 +51,7 @@ msgid "Reset"
 msgstr "Restaurar"
 
 #: src/window.ui:38
-msgid "Reset this application permisions"
+msgid "Reset this application permissions"
 msgstr "Restaurar as permissões deste aplicativo"
 
 #: src/window.ui:76
@@ -114,7 +115,7 @@ msgid "Access home directory (unrestricted)"
 msgstr "Acesso ao diretório do usuário (sem restrições)"
 
 #: src/model.js:105
-msgid "Access bluetooth"
+msgid "Access Bluetooth"
 msgstr "Acesso ao Bluetooth"
 
 #: src/model.js:110

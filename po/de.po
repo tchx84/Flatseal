@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-04 17:48-0300\n"
+"POT-Creation-Date: 2020-02-05 17:18-0300\n"
 "PO-Revision-Date: 2020-02-01 11:35-0200\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -35,7 +35,7 @@ msgstr "Ein Berechtigungsmanager für Flatpak"
 msgid "com.github.tchx84.Flatseal"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:12
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
@@ -48,15 +48,15 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/window.ui:34
+#: src/window.ui:33
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: src/window.ui:40
-msgid "Reset this application permisions"
+#: src/window.ui:38
+msgid "Reset this application permissions"
 msgstr "Berechtigung dieser Anwendung zurücksetzen"
 
-#: src/window.ui:80
+#: src/window.ui:76
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 
@@ -117,7 +117,7 @@ msgid "Access home directory (unrestricted)"
 msgstr "Zugriff auf das Benutzerverzeichnis (uneingeschränkt)"
 
 #: src/model.js:105
-msgid "Access bluetooth"
+msgid "Access Bluetooth"
 msgstr "Zugriff auf Bluetooth"
 
 #: src/model.js:110

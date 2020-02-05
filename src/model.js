@@ -102,7 +102,7 @@ var FlatsealModel = GObject.registerClass({
         'features-bluetooth': GObject.ParamSpec.boolean(
             'features-bluetooth',
             'features-bluetooth',
-            _('Access bluetooth'),
+            _('Access Bluetooth'),
             _propFlags, false),
         'features-devel': GObject.ParamSpec.boolean(
             'features-devel',
