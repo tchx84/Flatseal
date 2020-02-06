@@ -17,12 +17,15 @@
  */
 
 const {GObject, Gtk} = imports.gi;
+const {Leaflet, TitleBar} = imports.gi.Handy;
+
 const {FlatsealApplicationRow} = imports.applicationRow;
 const {FlatsealModel} = imports.model;
 const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.permissionSwitchRow;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
+const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
 
 var FlatsealWindow = GObject.registerClass({
@@ -32,10 +35,15 @@ var FlatsealWindow = GObject.registerClass({
         'applicationsSearchEntry',
         'applicationsStack',
         'applicationsListBox',
+        'applicationsHeaderBar',
+        'permissionsHeaderBar',
         'permissionsStack',
         'permissionsBox',
         'resetButton',
-        'menu',
+        'menuButton',
+        'backButton',
+        'headerLeaflet',
+        'contentLeaflet',
     ],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
@@ -45,7 +53,7 @@ var FlatsealWindow = GObject.registerClass({
 
     _setup() {
         const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
-        this._menu.set_menu_model(builder.get_object('menu'));
+        this._menuButton.set_menu_model(builder.get_object('menu'));
 
         this._model = new FlatsealModel();
         const applications = this._model.listApplications();
@@ -86,6 +94,14 @@ var FlatsealWindow = GObject.registerClass({
         this._resetButton.set_sensitive(true);
         this._resetButton.connect('clicked', this._reset.bind(this));
 
+        this._backButton.connect('clicked', this._showApplications.bind(this));
+        this._contentLeaflet.connect('notify::folded', this._showPermissions.bind(this));
+
+        this._headerLeaflet.bind_property(
+            'folded', this._backButton, 'visible', _bindReadFlags);
+        this._headerLeaflet.bind_property(
+            'folded', this._applicationsHeaderBar, 'show-close-button', _bindReadFlags);
+
         /* XXX shouldn't do this automatically ? */
         const row = this._applicationsListBox.get_row_at_index(0);
         this._applicationsListBox.select_row(row);
@@ -94,7 +110,9 @@ var FlatsealWindow = GObject.registerClass({
     _update() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.setAppId(row.appId);
+        this._permissionsHeaderBar.set_title(row.appId);
         this.set_title(row.appId);
+        this._showPermissions();
     }
 
     _reset() {
@@ -116,5 +134,16 @@ var FlatsealWindow = GObject.registerClass({
 
     _cancel() {
         this._applicationsSearchEntry.set_text('');
+    }
+
+    _showApplications() {
+        this._headerLeaflet.set_visible_child_name('applications');
+        this._contentLeaflet.set_visible_child_name('applications');
+        this._backButton.active = false;
+    }
+
+    _showPermissions() {
+        this._headerLeaflet.set_visible_child_name('permissions');
+        this._contentLeaflet.set_visible_child_name('permissions');
     }
 });
