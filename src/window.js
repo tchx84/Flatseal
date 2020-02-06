@@ -55,6 +55,11 @@ var FlatsealWindow = GObject.registerClass({
         const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
         this._menuButton.set_menu_model(builder.get_object('menu'));
 
+        this._headerLeaflet.bind_property(
+            'folded', this._backButton, 'visible', _bindReadFlags);
+        this._headerLeaflet.bind_property(
+            'folded', this._applicationsHeaderBar, 'show-close-button', _bindReadFlags);
+
         this._model = new FlatsealModel();
         const applications = this._model.listApplications();
         const permissions = this._model.listPermissions();
@@ -96,11 +101,6 @@ var FlatsealWindow = GObject.registerClass({
 
         this._backButton.connect('clicked', this._showApplications.bind(this));
         this._contentLeaflet.connect('notify::folded', this._showPermissions.bind(this));
-
-        this._headerLeaflet.bind_property(
-            'folded', this._backButton, 'visible', _bindReadFlags);
-        this._headerLeaflet.bind_property(
-            'folded', this._applicationsHeaderBar, 'show-close-button', _bindReadFlags);
 
         /* XXX shouldn't do this automatically ? */
         const row = this._applicationsListBox.get_row_at_index(0);
