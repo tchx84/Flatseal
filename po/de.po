@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 17:18-0300\n"
+"POT-Creation-Date: 2020-02-06 16:37-0300\n"
 "PO-Revision-Date: 2020-02-01 11:35-0200\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -48,15 +48,19 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/window.ui:33
+#: src/window.ui:27
+msgid "Applications"
+msgstr "Anwendungen"
+
+#: src/window.ui:84
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: src/window.ui:38
+#: src/window.ui:89
 msgid "Reset this application permissions"
 msgstr "Berechtigung dieser Anwendung zurücksetzen"
 
-#: src/window.ui:76
+#: src/window.ui:135
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 

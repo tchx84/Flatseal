@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-05 17:18-0300\n"
+"POT-Creation-Date: 2020-02-06 16:37-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,15 +44,19 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/window.ui:33
+#: src/window.ui:27
+msgid "Applications"
+msgstr ""
+
+#: src/window.ui:84
 msgid "Reset"
 msgstr ""
 
-#: src/window.ui:38
+#: src/window.ui:89
 msgid "Reset this application permissions"
 msgstr ""
 
-#: src/window.ui:76
+#: src/window.ui:135
 msgid "No applications found."
 msgstr ""
 
