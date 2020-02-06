@@ -61,19 +61,31 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry" id="content">
-            <property name="width_request">300</property>
+          <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="halign">end</property>
+            <property name="can_focus">False</property>
             <property name="valign">center</property>
-            <style>
-              <class name="content"/>
-            </style>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkEntry" id="content">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="valign">center</property>
+                <property name="xalign">1</property>
+                <style>
+                  <class name="content"/>
+                </style>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
           </object>
           <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
             <property name="position">1</property>
           </packing>
         </child>
