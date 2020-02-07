@@ -16,8 +16,7 @@
             <property name="can_focus">False</property>
             <property name="hhomogeneous_folded">False</property>
             <property name="vhomogeneous_unfolded">True</property>
-            <property name="mode_transition_type">slide</property>
-            <property name="child_transition_type">slide</property>
+            <property name="transition-type">over</property>
             <property name="interpolate_size">True</property>
             <child>
               <object class="GtkHeaderBar" id="applicationsHeaderBar">
@@ -53,6 +52,9 @@
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
               </object>
+              <packing>
+                  <property name="allow-visible">False</property>
+              </packing>
             </child>
             <child>
               <object class="GtkHeaderBar" id="permissionsHeaderBar">
@@ -108,9 +110,10 @@
         <property name="can_focus">False</property>
         <property name="hhomogeneous_folded">False</property>
         <property name="vhomogeneous_unfolded">True</property>
-        <property name="mode_transition_type">slide</property>
-        <property name="child_transition_type">slide</property>
+        <property name="transition_type">over</property>
         <property name="interpolate_size">True</property>
+        <property name="can-swipe-back">True</property>
+        <property name="can-swipe-forward">True</property>
         <child>
           <object class="GtkBox">
             <property name="width_request">250</property>
@@ -234,6 +237,9 @@
             <property name="can_focus">False</property>
             <property name="orientation">vertical</property>
           </object>
+          <packing>
+              <property name="allow-visible">False</property>
+          </packing>
         </child>
         <child>
           <object class="GtkBox">
@@ -320,4 +326,10 @@
       </object>
     </child>
   </template>
+  <object class="HdySwipeGroup" id="swipeGroup">
+      <swipeables>
+          <swipeable name="headerLeaflet"/>
+          <swipeable name="contentLeaflet"/>
+      </swipeables>
+  </object>
 </interface>

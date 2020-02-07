@@ -17,7 +17,7 @@
  */
 
 const {GObject, Gtk} = imports.gi;
-const {Leaflet, TitleBar} = imports.gi.Handy;
+const {Leaflet, TitleBar, SwipeGroup} = imports.gi.Handy;
 
 const {FlatsealApplicationRow} = imports.applicationRow;
 const {FlatsealModel} = imports.model;
@@ -44,6 +44,7 @@ var FlatsealWindow = GObject.registerClass({
         'backButton',
         'headerLeaflet',
         'contentLeaflet',
+        'swipeGroup',
     ],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
@@ -137,13 +138,11 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _showApplications() {
-        this._headerLeaflet.set_visible_child_name('applications');
         this._contentLeaflet.set_visible_child_name('applications');
         this._backButton.active = false;
     }
 
     _showPermissions() {
-        this._headerLeaflet.set_visible_child_name('permissions');
         this._contentLeaflet.set_visible_child_name('permissions');
     }
 });
