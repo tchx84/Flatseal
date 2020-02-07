@@ -25,6 +25,8 @@ const _group = 'Context';
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
+var DELAY = 500;
+
 
 var FlatsealModel = GObject.registerClass({
     GTypeName: 'FlatsealModel',
@@ -281,7 +283,7 @@ var FlatsealModel = GObject.registerClass({
             GLib.Source.remove(this._delayedHandlerId);
 
         this._delayedHandlerId = GLib.timeout_add(
-            GLib.PRIORITY_HIGH, 500, this._findChangesAndUpdate.bind(this));
+            GLib.PRIORITY_HIGH, DELAY, this._findChangesAndUpdate.bind(this));
     }
 
     _findChangesAndUpdate() {

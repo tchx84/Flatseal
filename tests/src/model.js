@@ -1,6 +1,6 @@
 const {GLib} = imports.gi;
 
-const {FlatsealModel} = imports.src.model;
+const {FlatsealModel, DELAY} = imports.src.model;
 
 const _appId = 'com.test.Example';
 
@@ -9,6 +9,13 @@ const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _override = GLib.build_filenamev([_tmp, 'overrides', _appId]);
+
+
+function updateContext() {
+    const context = GLib.MainContext.default();
+    while (context.pending())
+        context.iterate(true);
+}
 
 
 describe('Model', function() {
@@ -76,33 +83,28 @@ describe('Model', function() {
         expect(model.filesystems_custom).toEqual('');
     });
 
-    it('writes overrides', function() {
-        expect(GLib.access(_override, 0)).toEqual(-1);
-
+    it('creates overrides when properties changed', function(done) {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
 
-        expect(model.shared_network).toBeTruthy();
-        expect(model.sockets_x11).toBeTruthy();
-        expect(model.devices_dri).toBeTruthy();
-        expect(model.features_bluetooth).toBeTruthy();
-        expect(model.filesystems_host).toBeTruthy();
-        expect(model.filesystems_custom).toEqual('~/test');
+        model.set_property('shared-network', false);
+        model.set_property('sockets_x11', false);
+        model.set_property('devices_dri', false);
+        model.set_property('shared-network', false);
+        model.set_property('features-bluetooth', false);
+        model.set_property('filesystems-host', false);
+        model.set_property('filesystems-custom', '~/tset');
 
-        model.shared_network = false;
-        model.sockets_x11 = false;
-        model.devices_dri = false;
-        model.features_bluetooth = false;
-        model.filesystems_host = false;
-        model.filesystems_custom = '~/tset';
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(GLib.access(_override, 0)).toEqual(0);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
 
-        /* XXX Skip delay mechanism */
-        model._findChangesAndUpdate();
-
-        expect(GLib.access(_override, 0)).toEqual(0);
+        updateContext();
     });
 
-    it('reloads overrides', function() {
+    it('reloads overrides later on', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
 
@@ -124,5 +126,35 @@ describe('Model', function() {
         expect(model.filesystems_host).not.toBeTruthy();
         expect(model.filesystems_home).toBeTruthy();
         expect(model.filesystems_custom).toEqual('~/tset');
+    });
+
+    it('resets overrides', function() {
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_appId);
+
+        model.resetPermissionsForAppId(_appId);
+
+        expect(GLib.access(_override, 0)).toEqual(-1);
+    });
+
+    it('creates overrides only when properties changed', function() {
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_appId);
+
+        model.set_property('shared-network', true);
+        model.set_property('sockets_x11', true);
+        model.set_property('devices_dri', true);
+        model.set_property('shared-network', true);
+        model.set_property('features-bluetooth', true);
+        model.set_property('filesystems-host', true);
+        model.set_property('filesystems-custom', '~/test');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(GLib.access(_override, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        updateContext();
     });
 });
