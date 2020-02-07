@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 16:37-0300\n"
-"PO-Revision-Date: 2020-02-03 14:58+0100\n"
+"PO-Revision-Date: 2020-02-07 20:48+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: src/window.ui:27
 msgid "Applications"
-msgstr "Aplikací"
+msgstr "Aplikace"
 
 #: src/window.ui:84
 msgid "Reset"
