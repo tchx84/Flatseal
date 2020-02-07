@@ -113,7 +113,6 @@
         <property name="transition_type">over</property>
         <property name="interpolate_size">True</property>
         <property name="can-swipe-back">True</property>
-        <property name="can-swipe-forward">True</property>
         <child>
           <object class="GtkBox">
             <property name="width_request">250</property>
