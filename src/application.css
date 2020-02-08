@@ -6,15 +6,23 @@
     margin: 10px;
 }
 
-.applications .icon,
+.applications .icon {
+   padding-left: 5px;
+}
+
 .applications .name,
 .applications .app-id {
-   padding-left: 5px;
+   padding-left: 10px;
+   padding-right: 10px;
 }
 
 .applications .app-id {
     font-style: italic;
     font-size: 14px;
+}
+
+.applications .frame {
+    border-width: 0px;
 }
 
 .permissions .box {
@@ -47,4 +55,13 @@
 
 .permissions .content {
    margin-right: 15px;
+}
+
+.permissions .frame {
+    border-width: 0px;
+}
+
+separator {
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
