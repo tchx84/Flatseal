@@ -17,7 +17,7 @@
  */
 
 const {GObject, Gtk} = imports.gi;
-const {Leaflet, TitleBar, SwipeGroup} = imports.gi.Handy;
+const {Leaflet, TitleBar, SwipeGroup, HdyColumn} = imports.gi.Handy;
 
 const {FlatsealApplicationRow} = imports.applicationRow;
 const {FlatsealModel} = imports.model;
