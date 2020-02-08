@@ -12,6 +12,7 @@
         <property name="can_focus">False</property>
         <child>
           <object class="HdyLeaflet" id="headerLeaflet">
+            <property name="width_request">525</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="hhomogeneous_folded">False</property>
