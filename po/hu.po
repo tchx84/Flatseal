@@ -26,7 +26,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "A permissions manager for Flatpak"
-msgstr ""
+msgstr "A Flatpak engedélykezelője"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
@@ -37,7 +37,8 @@ msgstr ""
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
-msgstr ""
+msgstr "A Flatseal egy grafikus segédprogram, amely áttekintheti és "
+"módosíthatja a Flatpak-alkalmazások alapvető engedélyeit."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -46,96 +47,96 @@ msgstr ""
 
 #: src/window.ui:27
 msgid "Applications"
-msgstr ""
+msgstr "Alkalmazás"
 
 #: src/window.ui:84
 msgid "Reset"
-msgstr ""
+msgstr "Visszaállítás"
 
 #: src/window.ui:89
 msgid "Reset this application permissions"
-msgstr ""
+msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
 
 #: src/window.ui:135
 msgid "No applications found."
-msgstr ""
+msgstr "Alkalmazás nem található."
 
 #: src/model.js:35
 msgid "Access network"
-msgstr ""
+msgstr "A hálózat hozzáférése"
 
 #: src/model.js:40
 msgid "Access inter-process communications"
-msgstr ""
+msgstr "A folyamatok közötti kommunikáció hozzáférése"
 
 #: src/model.js:45
 msgid "Access X11 windowing system"
-msgstr ""
+msgstr "Az X11 ablakrendszer hozzáférése"
 
 #: src/model.js:50
 msgid "Access X11 windowing system (as fallback)"
-msgstr ""
+msgstr "Az X11 ablakrendszer hozzáférése (tartalékként)"
 
 #: src/model.js:55
 msgid "Access Wayland windowing system"
-msgstr ""
+msgstr "A Wayland ablakrendszer hozzáférése"
 
 #: src/model.js:60
 msgid "Access PulseAudio sound server"
-msgstr ""
+msgstr "A PulseAudio hangkiszolgáló hozzáférése"
 
 #: src/model.js:65
 msgid "Access D-Bus system bus (unrestricted)"
-msgstr ""
+msgstr "A D-Bus rendszer busz hozzáférése (korlátlan)"
 
 #: src/model.js:70
 msgid "Access D-Bus session bus (unrestricted)"
-msgstr ""
+msgstr "A D-Bus munkamenet busz hozzáférése (korlátlan)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
-msgstr ""
+msgstr "A Secure Shell ügynök hozzáférése"
 
 #: src/model.js:80
 msgid "Access printing system"
-msgstr ""
+msgstr "A nyomtatási rendszer hozzáférése"
 
 #: src/model.js:85
 msgid "Access GPU acceleration"
-msgstr ""
+msgstr "GPU gyorsítási hozzáférése"
 
 #: src/model.js:90
 msgid "Access all devices (e.g. webcam)"
-msgstr ""
+msgstr "Az összes eszköz hozzáférése (pl. webkamera)"
 
 #: src/model.js:95
 msgid "Access all system directories (unrestricted)"
-msgstr ""
+msgstr "Az összes rendszerkönyvtár hozzáférése (korlátlan)"
 
 #: src/model.js:100
 msgid "Access home directory (unrestricted)"
-msgstr ""
+msgstr "Az otthoni könyvtár hozzáférése (korlátlan)"
 
 #: src/model.js:105
 msgid "Access Bluetooth"
-msgstr ""
+msgstr "Bluetooth hozzáférése"
 
 #: src/model.js:110
 msgid "Access other syscalls (e.g. ptrace)"
-msgstr ""
+msgstr "Más rendszerhívások hozzáférése (pl. ptrace)"
 
 #: src/model.js:115
 msgid "Access programs from other architectures"
-msgstr ""
+msgstr "Más architektúrák programjaihoz hozzáférése"
 
 #: src/model.js:120
 msgid "Access other directories"
-msgstr ""
+msgstr "Egyéb könyvtárak hozzáférése"
 
 #: src/menu.ui:7
 msgid "Help"
-msgstr ""
+msgstr "Súgó"
 
 #: src/menu.ui:11
 msgid "About Flatseal"
-msgstr ""
+msgstr "A Flatseal névjegye"
