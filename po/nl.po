@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-06 16:37-0300\n"
+"PO-Revision-Date: 2020-02-09 18:03+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "A permissions manager for Flatpak"
+msgstr "Een toepassing om Flatpak-machtigingen te beheren"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:12
+msgid "com.github.tchx84.Flatseal"
+msgstr "com.github.tchx84.Flatseal"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify basic permissions from "
+"your Flatpak applications."
+msgstr ""
+"Flatseal is een grafisch hulpmiddel om basismachtigingen van elke Flatpak-"
+"toepassing te bekijken en aan te passen."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/window.ui:27
+msgid "Applications"
+msgstr "Toepassingen"
+
+#: src/window.ui:84
+msgid "Reset"
+msgstr "Standaardwaarden"
+
+#: src/window.ui:89
+msgid "Reset this application permissions"
+msgstr "Herstel alle toepassingsmachtigingen"
+
+#: src/window.ui:135
+msgid "No applications found."
+msgstr "Geen toepassingen aangetroffen."
+
+#: src/model.js:35
+msgid "Access network"
+msgstr "Toegang tot het netwerk"
+
+#: src/model.js:40
+msgid "Access inter-process communications"
+msgstr "Toegang tot procesuitwisselingscommunicatie"
+
+#: src/model.js:45
+msgid "Access X11 windowing system"
+msgstr "Toegang tot het X11-venstersysteem"
+
+#: src/model.js:50
+msgid "Access X11 windowing system (as fallback)"
+msgstr "Toegang tot het X11-venstersysteem (terugvallen op)"
+
+#: src/model.js:55
+msgid "Access Wayland windowing system"
+msgstr "Toegang tot het Wayland-venstersysteem"
+
+#: src/model.js:60
+msgid "Access PulseAudio sound server"
+msgstr "Toegang tot de PulseAudio-geluidsserver"
+
+#: src/model.js:65
+msgid "Access D-Bus system bus (unrestricted)"
+msgstr "Toegang tot de D-Bus-systeembus (ongelimiteerd)"
+
+#: src/model.js:70
+msgid "Access D-Bus session bus (unrestricted)"
+msgstr "Toegang tot de D-Bus-sessiebus (ongelimiteerd)"
+
+#: src/model.js:75
+msgid "Access Secure Shell agent"
+msgstr "Toegang tot de Secure Shell-agent"
+
+#: src/model.js:80
+msgid "Access printing system"
+msgstr "Toegang tot het afdruksysteem"
+
+#: src/model.js:85
+msgid "Access GPU acceleration"
+msgstr "Toegang tot GPU-versnelling"
+
+#: src/model.js:90
+msgid "Access all devices (e.g. webcam)"
+msgstr "Toegang tot alle apparaten (bijv. webcam)"
+
+#: src/model.js:95
+msgid "Access all system directories (unrestricted)"
+msgstr "Toegang tot alle systeemmappen (ongelimiteerd)"
+
+#: src/model.js:100
+msgid "Access home directory (unrestricted)"
+msgstr "Toegang tot je persoonlijke map (ongelimiteerd)"
+
+#: src/model.js:105
+msgid "Access Bluetooth"
+msgstr "Toegang tot Bluetooth"
+
+#: src/model.js:110
+msgid "Access other syscalls (e.g. ptrace)"
+msgstr "Toegang tot andere systeemaanroepingen (bijv. ptrace)"
+
+#: src/model.js:115
+msgid "Access programs from other architectures"
+msgstr "Toegang tot toepassingen van andere architecturen"
+
+#: src/model.js:120
+msgid "Access other directories"
+msgstr "Toegang tot overige mappen"
+
+#: src/menu.ui:7
+msgid "Help"
+msgstr "Hulp"
+
+#: src/menu.ui:11
+msgid "About Flatseal"
+msgstr "Over Flatseal"
