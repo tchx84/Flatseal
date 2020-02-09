@@ -25,6 +25,21 @@ const _group = 'Context';
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
+/*
+ * List of BaseApps can be found by searching for 'BaseApp' in the flathub project
+ * https://github.com/flathub?utf8=%E2%9C%93&q=baseApp&type=&language=
+ */
+const _blacklist = [
+    'io.elementary.BaseApp ',
+    'io.qt.qtwebkit.BaseApp',
+    'io.liri.BaseApp',
+    'io.qt.qtwebengine.BaseApp',
+    'org.electronjs.Electron.BaseApp',
+    'org.electronjs.Electron2.BaseApp',
+    'org.godotengine.godot.BaseApp',
+    'org.mozilla.Firefox.BaseApp'
+]
+
 var DELAY = 500;
 
 
@@ -348,7 +363,7 @@ var FlatsealModel = GObject.registerClass({
             const appId = GLib.path_get_basename(file.get_path());
             const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
 
-            if (GLib.access(activePath, 0) === 0)
+            if (GLib.access(activePath, 0) === 0 && _blacklist.includes(appId) == false)
                 list.push(appId);
 
             info = enumerator.next_file(null);
