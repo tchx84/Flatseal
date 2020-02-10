@@ -62,6 +62,43 @@
     border-width: 0px;
 }
 
+.permissions .toolbox {
+    margin-right: 15px;
+}
+
+.permissions .content .path {
+    color: @theme_fg_color;
+    border-style: solid;
+    border-width: 0.5px;
+    border-radius: 8px;
+    border-color: @borders;
+    margin-bottom: 10px;
+}
+
+.permissions .content .path entry,
+.permissions .content .path button,
+.permissions .content .path button:hover,
+.permissions .content .path button:focus,
+.permissions .content .path button:selected {
+   background-image: none;
+   background-color: transparent;
+   border: none;
+   box-shadow: none;
+}
+
+.permissions .content .path button image {
+    color: @theme_fg_color;
+}
+
+.permissions .content .path.read-only {
+    background-color: @theme_bg_color;
+}
+
+.permissions .content .path.create,
+.permissions .content .path.read-write  {
+    background-color: @theme_bg_color;
+}
+
 separator {
     margin-bottom: 0px;
     margin-top: 0px;

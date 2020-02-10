@@ -18,17 +18,33 @@
 
 const {GObject, Gtk} = imports.gi;
 
+const {FlatsealPathsViewer} = imports.pathsViewer;
+
 
 var FlatsealPermissionEntryRow = GObject.registerClass({
     GTypeName: 'FlatsealPermissionEntryRow',
     Template: 'resource:///com/github/tchx84/Flatseal/permissionEntryRow.ui',
-    InternalChildren: ['description', 'permission', 'content'],
+    InternalChildren: [
+        'description',
+        'permission',
+        'box',
+        'button',
+    ],
 }, class FlatsealpermissionEntryRow extends Gtk.Box {
     _init(description, permission, content) {
         super._init({});
         this._description.set_text(description);
         this._permission.set_text(permission);
-        this._content.set_text(content);
+
+        this._content = new FlatsealPathsViewer();
+        this._content.text = content;
+        this._box.add(this._content);
+
+        this._button.connect('clicked', this._add.bind(this));
+    }
+
+    _add() {
+        this._content.add('');
     }
 
     get content() {

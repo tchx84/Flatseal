@@ -6,6 +6,8 @@
     <file>applicationRow.js</file>
     <file>main.js</file>
     <file>model.js</file>
+    <file>pathRow.js</file>
+    <file>pathsViewer.js</file>
     <file>permissionEntryRow.js</file>
     <file>permissionSwitchRow.js</file>
     <file>window.js</file>
