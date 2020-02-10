@@ -22,7 +22,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr "Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
@@ -32,7 +32,7 @@ msgstr "Een toepassing om Flatpak-machtigingen te beheren"
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
 msgid "com.github.tchx84.Flatseal"
-msgstr "com.github.tchx84.Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
 msgid ""
@@ -45,7 +45,7 @@ msgstr ""
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr "Martin Abente Lahaye"
+msgstr ""
 
 #: src/window.ui:27
 msgid "Applications"
