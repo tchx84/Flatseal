@@ -50,6 +50,7 @@ var FlatsealWindow = GObject.registerClass({
     _init(application) {
         super._init({application});
         this._setup();
+        this.maximize();
     }
 
     _setup() {
