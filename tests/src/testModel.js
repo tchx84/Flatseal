@@ -1,21 +1,16 @@
 const {GLib} = imports.gi;
 
-const {FlatsealModel, DELAY} = imports.src.model;
+const {setup, update} = imports.utils;
+setup();
+
+const {FlatsealModel, DELAY} = imports.model;
 
 const _appId = 'com.test.Example';
-
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _override = GLib.build_filenamev([_tmp, 'overrides', _appId]);
-
-
-function updateContext() {
-    const context = GLib.MainContext.default();
-    while (context.pending())
-        context.iterate(true);
-}
 
 
 describe('Model', function() {
@@ -101,7 +96,7 @@ describe('Model', function() {
             return GLib.SOURCE_REMOVE;
         });
 
-        updateContext();
+        update();
     });
 
     it('reloads overrides later on', function() {
@@ -155,6 +150,6 @@ describe('Model', function() {
             return GLib.SOURCE_REMOVE;
         });
 
-        updateContext();
+        update();
     });
 });
