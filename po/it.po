@@ -23,7 +23,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr "Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
@@ -33,7 +33,7 @@ msgstr "Un gestore di permessi per Flatpak"
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
 msgid "com.github.tchx84.Flatseal"
-msgstr "com.github.tchx84.Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
 msgid ""
