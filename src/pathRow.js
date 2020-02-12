@@ -43,11 +43,19 @@ var FlatsealPathRow = GObject.registerClass({
             'mode',
             _propFlags, mode.READONLY),
     },
+    Signals: {
+        'remove-requested': {},
+    },
 }, class FlatsealPathRow extends Gtk.Box {
     _init() {
         this._mode = mode.READONLY;
         super._init({});
         this._entry.connect('notify::text', this._changed.bind(this));
+        this._button.connect('clicked', this._remove.bind(this));
+    }
+
+    _remove() {
+        this.emit('remove-requested');
     }
 
     _changed() {
@@ -105,9 +113,5 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._mode = value;
         this.notify('mode');
-    }
-
-    get button() {
-        return this._button;
     }
 });

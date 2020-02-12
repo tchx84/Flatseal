@@ -84,7 +84,7 @@ var FlatsealPathsViewer = GObject.registerClass({
     add(path) {
         const row = new FlatsealPathRow();
         row.text = path;
-        row.button.connect('clicked', this._remove.bind(this, row));
+        row.connect('remove-requested', this._remove.bind(this, row));
         row.connect('notify::text', this._changed.bind(this));
         row.show();
 
