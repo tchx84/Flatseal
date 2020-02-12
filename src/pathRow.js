@@ -20,7 +20,7 @@ const {GObject, Gtk} = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
-const mode = {
+var mode = {
     READONLY: 'read-only',
     READWRITE: 'read-write',
     CREATE: 'create',
