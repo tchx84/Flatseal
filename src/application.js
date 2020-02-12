@@ -38,6 +38,11 @@ var FlatsealApplication = GObject.registerClass({
         Gio.AppInfo.launch_default_for_uri('https://github.com/tchx84/flatseal', null);
     }
 
+    _displayReferences() {
+        Gio.AppInfo.launch_default_for_uri(
+            'https://docs.flatpak.org/page/sandbox-permissions-reference.html', null);
+    }
+
     _displayAbout() {
         const dialog = new FlatsealAboutDialog({transient_for: this._window, modal: true});
         dialog.present();
@@ -47,10 +52,14 @@ var FlatsealApplication = GObject.registerClass({
         const help_action = new Gio.SimpleAction({name: 'help', state: null});
         help_action.connect('activate', this._displayHelp.bind(this));
 
+        const references_action = new Gio.SimpleAction({name: 'references', state: null});
+        references_action.connect('activate', this._displayReferences.bind(this));
+
         const about_action = new Gio.SimpleAction({name: 'about', state: null});
         about_action.connect('activate', this._displayAbout.bind(this));
 
         this.add_action(help_action);
+        this.add_action(references_action);
         this.add_action(about_action);
     }
 

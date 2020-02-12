@@ -7,6 +7,10 @@
         <attribute name="label" translatable="yes">Help</attribute>
       </item>
       <item>
+        <attribute name="action">app.references</attribute>
+        <attribute name="label" translatable="yes">References</attribute>
+      </item>
+      <item>
         <attribute name="action">app.about</attribute>
         <attribute name="label" translatable="yes">About Flatseal</attribute>
       </item>
