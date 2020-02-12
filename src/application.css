@@ -99,6 +99,15 @@
     background-color: @theme_bg_color;
 }
 
+/* XXX Navigate through xdg options without the popup  */
+.permissions .content .path window {
+   opacity: 0;
+   background-image: none;
+   background-color: transparent;
+   border: none;
+   box-shadow: none;
+}
+
 separator {
     margin-bottom: 0px;
     margin-top: 0px;

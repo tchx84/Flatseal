@@ -2,6 +2,58 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkListStore" id="xdg-options">
+    <columns>
+      <!-- column-name option -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0">xdg-desktop</col>
+      </row>
+      <row>
+        <col id="0">xdg-documents</col>
+      </row>
+      <row>
+        <col id="0">xdg-download</col>
+      </row>
+      <row>
+        <col id="0">xdg-music</col>
+      </row>
+      <row>
+        <col id="0">xdg-pictures</col>
+      </row>
+      <row>
+        <col id="0">xdg-public-share</col>
+      </row>
+      <row>
+        <col id="0">xdg-videos</col>
+      </row>
+      <row>
+        <col id="0">xdg-templates</col>
+      </row>
+      <row>
+        <col id="0">xdg-config</col>
+      </row>
+      <row>
+        <col id="0">xdg-cache</col>
+      </row>
+      <row>
+        <col id="0">xdg-data</col>
+      </row>
+      <row>
+        <col id="0">xdg-run</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkEntryCompletion" id="completion">
+    <property name="model">xdg-options</property>
+    <property name="text_column">0</property>
+    <property name="inline_completion">True</property>
+    <property name="popup_set_width">False</property>
+    <property name="popup_single_match">False</property>
+    <property name="inline_selection">True</property>
+  </object>
   <template class="FlatsealPathRow" parent="GtkBox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -16,6 +68,7 @@
             <property name="can_focus">True</property>
             <property name="valign">center</property>
             <property name="xalign">1</property>
+            <property name="completion">completion</property>
           </object>
           <packing>
             <property name="expand">True</property>
