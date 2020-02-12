@@ -46,7 +46,7 @@ msgstr ""
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr "Martin Abente Lahaye"
+msgstr ""
 
 #: src/window.ui:27
 msgid "Applications"
