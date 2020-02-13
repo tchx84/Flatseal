@@ -21,10 +21,9 @@ const {GObject, Gio, GLib} = imports.gi;
 
 const _ = Gettext.gettext;
 
-const _group = 'Context';
-
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
+var GROUP = 'Context';
 var DELAY = 500;
 
 
@@ -185,13 +184,13 @@ var FlatsealModel = GObject.registerClass({
         const keyFile = new GLib.KeyFile();
         keyFile.load_from_file(path, 0);
 
-        if (!keyFile.has_group(_group))
+        if (!keyFile.has_group(GROUP))
             return list;
 
-        const [keys] = keyFile.get_keys(_group);
+        const [keys] = keyFile.get_keys(GROUP);
 
         keys.forEach(key => {
-            const values = keyFile.get_value(_group, key).split(';');
+            const values = keyFile.get_value(GROUP, key).split(';');
             values.forEach(value => {
                 if (value.length === 0)
                     return;
@@ -251,12 +250,12 @@ var FlatsealModel = GObject.registerClass({
             var [key, value] = override.split('=');
 
             try {
-                var _value = keyFile.get_value(_group, key);
+                var _value = keyFile.get_value(GROUP, key);
                 value = `${_value}${value};`;
             } catch (err) {
                 value = `${value};`;
             }
-            keyFile.set_value(_group, key, value);
+            keyFile.set_value(GROUP, key, value);
         });
 
         const [, length] = keyFile.to_data();

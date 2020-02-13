@@ -29,3 +29,12 @@ function update() {
     while (Gtk.events_pending())
         Gtk.main_iteration();
 }
+
+
+function has(path, group, key, value) {
+    const keyFile = new GLib.KeyFile();
+    keyFile.load_from_file(path, 0);
+
+    const values = keyFile.get_value(group, key);
+    return values.split(';').indexOf(value) !== -1;
+}

@@ -1,16 +1,25 @@
 const {GLib} = imports.gi;
 
-const {setup, update} = imports.utils;
+const {setup, update, has} = imports.utils;
 setup();
 
-const {FlatsealModel, DELAY} = imports.model;
+const {FlatsealModel, DELAY, GROUP} = imports.model;
 
 const _appId = 'com.test.Example';
+const _oldAppId = 'com.test.Old';
+const _reduceAppId = 'com.test.Reduce';
+const _increaseAppId = 'com.test.Increase';
+
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
-const _override = GLib.build_filenamev([_tmp, 'overrides', _appId]);
+const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
+const _override = GLib.build_filenamev([_overrides, _appId]);
+const _oldOverride = GLib.build_filenamev([_overrides, _oldAppId]);
+const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
+const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
+const _key = 'filesystems';
 
 
 describe('Model', function() {
@@ -18,17 +27,24 @@ describe('Model', function() {
 
     beforeAll(function() {
         GLib.unlink(_override);
-        GLib.mkdir_with_parents(GLib.path_get_dirname(_override), 448);
+        GLib.mkdir_with_parents(_overrides, 0o755);
     });
 
     beforeEach(function() {
         model = new FlatsealModel();
         model.setSystemInstallationPath(_system);
         model.setUserInstallationPath(_none);
+
+        GLib.unlink(_oldOverride);
+        GLib.unlink(_reduceOverride);
+        GLib.unlink(_increaseOverride);
     });
 
     it('loads applications', function() {
         expect(model.listApplications()).toContain(_appId);
+        expect(model.listApplications()).toContain(_oldAppId);
+        expect(model.listApplications()).toContain(_reduceAppId);
+        expect(model.listApplications()).toContain(_increaseAppId);
     });
 
     it('loads permissions', function() {
@@ -146,6 +162,67 @@ describe('Model', function() {
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(GLib.access(_override, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('loads old filesystems overrides', function() {
+        model.setUserInstallationPath(_user);
+        model.setAppId(_oldAppId);
+
+        expect(model.filesystems_custom).toEqual('xdg-pictures:ro');
+    });
+
+    it('reduces filesystems permission', function(done) {
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_reduceAppId);
+
+        expect(model.filesystems_custom).toEqual('xdg-downloads');
+
+        model.set_property('filesystems-custom', 'xdg-downloads:ro');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(has(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBeTruthy();
+            expect(has(_reduceOverride, GROUP, _key, '!xdg-downloads')).not.toBeTruthy();
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('increases filesystems permission', function(done) {
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_increaseAppId);
+
+        expect(model.filesystems_custom).toEqual('xdg-pictures:ro');
+
+        model.set_property('filesystems-custom', 'xdg-pictures:rw');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(has(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBeTruthy();
+            expect(has(_increaseOverride, GROUP, _key, '!xdg-pictures:ro')).not.toBeTruthy();
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('increases filesystems permission (default)', function(done) {
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_increaseAppId);
+
+        expect(model.filesystems_custom).toEqual('xdg-pictures:ro');
+
+        model.set_property('filesystems-custom', 'xdg-pictures');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(has(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBeTruthy();
+            expect(has(_increaseOverride, GROUP, _key, '!xdg-pictures:ro')).not.toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
