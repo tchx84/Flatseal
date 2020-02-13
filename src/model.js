@@ -347,6 +347,7 @@ var FlatsealModel = GObject.registerClass({
             const appId = GLib.path_get_basename(file.get_path());
             const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
 
+            /* XXX will only work with app-ids that follow the .BaseApp convention */
             if (GLib.access(activePath, 0) === 0 && appId.endsWith(".BaseApp") == false)
                 list.push(appId);
 
