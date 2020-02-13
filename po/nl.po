@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 16:37-0300\n"
+"POT-Creation-Date: 2020-02-13 10:26-0300\n"
 "PO-Revision-Date: 2020-02-09 18:03+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -51,87 +51,87 @@ msgstr ""
 msgid "Applications"
 msgstr "Toepassingen"
 
-#: src/window.ui:84
+#: src/window.ui:87
 msgid "Reset"
 msgstr "Standaardwaarden"
 
-#: src/window.ui:89
+#: src/window.ui:92
 msgid "Reset this application permissions"
 msgstr "Herstel alle toepassingsmachtigingen"
 
-#: src/window.ui:135
+#: src/window.ui:139
 msgid "No applications found."
 msgstr "Geen toepassingen aangetroffen."
 
-#: src/model.js:35
+#: src/model.js:37
 msgid "Access network"
 msgstr "Toegang tot het netwerk"
 
-#: src/model.js:40
+#: src/model.js:42
 msgid "Access inter-process communications"
 msgstr "Toegang tot procesuitwisselingscommunicatie"
 
-#: src/model.js:45
+#: src/model.js:47
 msgid "Access X11 windowing system"
 msgstr "Toegang tot het X11-venstersysteem"
 
-#: src/model.js:50
+#: src/model.js:52
 msgid "Access X11 windowing system (as fallback)"
 msgstr "Toegang tot het X11-venstersysteem (terugvallen op)"
 
-#: src/model.js:55
+#: src/model.js:57
 msgid "Access Wayland windowing system"
 msgstr "Toegang tot het Wayland-venstersysteem"
 
-#: src/model.js:60
+#: src/model.js:62
 msgid "Access PulseAudio sound server"
 msgstr "Toegang tot de PulseAudio-geluidsserver"
 
-#: src/model.js:65
+#: src/model.js:67
 msgid "Access D-Bus system bus (unrestricted)"
 msgstr "Toegang tot de D-Bus-systeembus (ongelimiteerd)"
 
-#: src/model.js:70
+#: src/model.js:72
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "Toegang tot de D-Bus-sessiebus (ongelimiteerd)"
 
-#: src/model.js:75
+#: src/model.js:77
 msgid "Access Secure Shell agent"
 msgstr "Toegang tot de Secure Shell-agent"
 
-#: src/model.js:80
+#: src/model.js:82
 msgid "Access printing system"
 msgstr "Toegang tot het afdruksysteem"
 
-#: src/model.js:85
+#: src/model.js:87
 msgid "Access GPU acceleration"
 msgstr "Toegang tot GPU-versnelling"
 
-#: src/model.js:90
+#: src/model.js:92
 msgid "Access all devices (e.g. webcam)"
 msgstr "Toegang tot alle apparaten (bijv. webcam)"
 
-#: src/model.js:95
+#: src/model.js:97
 msgid "Access all system directories (unrestricted)"
 msgstr "Toegang tot alle systeemmappen (ongelimiteerd)"
 
-#: src/model.js:100
+#: src/model.js:102
 msgid "Access home directory (unrestricted)"
 msgstr "Toegang tot je persoonlijke map (ongelimiteerd)"
 
-#: src/model.js:105
+#: src/model.js:107
 msgid "Access Bluetooth"
 msgstr "Toegang tot Bluetooth"
 
-#: src/model.js:110
+#: src/model.js:112
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Toegang tot andere systeemaanroepingen (bijv. ptrace)"
 
-#: src/model.js:115
+#: src/model.js:117
 msgid "Access programs from other architectures"
 msgstr "Toegang tot toepassingen van andere architecturen"
 
-#: src/model.js:120
+#: src/model.js:122
 msgid "Access other directories"
 msgstr "Toegang tot overige mappen"
 
@@ -140,5 +140,9 @@ msgid "Help"
 msgstr "Hulp"
 
 #: src/menu.ui:11
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "Over Flatseal"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 16:37-0300\n"
+"POT-Creation-Date: 2020-02-13 10:26-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,87 +48,87 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: src/window.ui:84
+#: src/window.ui:87
 msgid "Reset"
 msgstr ""
 
-#: src/window.ui:89
+#: src/window.ui:92
 msgid "Reset this application permissions"
 msgstr ""
 
-#: src/window.ui:135
+#: src/window.ui:139
 msgid "No applications found."
 msgstr ""
 
-#: src/model.js:35
+#: src/model.js:37
 msgid "Access network"
 msgstr ""
 
-#: src/model.js:40
+#: src/model.js:42
 msgid "Access inter-process communications"
 msgstr ""
 
-#: src/model.js:45
+#: src/model.js:47
 msgid "Access X11 windowing system"
 msgstr ""
 
-#: src/model.js:50
+#: src/model.js:52
 msgid "Access X11 windowing system (as fallback)"
 msgstr ""
 
-#: src/model.js:55
+#: src/model.js:57
 msgid "Access Wayland windowing system"
 msgstr ""
 
-#: src/model.js:60
+#: src/model.js:62
 msgid "Access PulseAudio sound server"
 msgstr ""
 
-#: src/model.js:65
+#: src/model.js:67
 msgid "Access D-Bus system bus (unrestricted)"
 msgstr ""
 
-#: src/model.js:70
+#: src/model.js:72
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr ""
 
-#: src/model.js:75
+#: src/model.js:77
 msgid "Access Secure Shell agent"
 msgstr ""
 
-#: src/model.js:80
+#: src/model.js:82
 msgid "Access printing system"
 msgstr ""
 
-#: src/model.js:85
+#: src/model.js:87
 msgid "Access GPU acceleration"
 msgstr ""
 
-#: src/model.js:90
+#: src/model.js:92
 msgid "Access all devices (e.g. webcam)"
 msgstr ""
 
-#: src/model.js:95
+#: src/model.js:97
 msgid "Access all system directories (unrestricted)"
 msgstr ""
 
-#: src/model.js:100
+#: src/model.js:102
 msgid "Access home directory (unrestricted)"
 msgstr ""
 
-#: src/model.js:105
+#: src/model.js:107
 msgid "Access Bluetooth"
 msgstr ""
 
-#: src/model.js:110
+#: src/model.js:112
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr ""
 
-#: src/model.js:115
+#: src/model.js:117
 msgid "Access programs from other architectures"
 msgstr ""
 
-#: src/model.js:120
+#: src/model.js:122
 msgid "Access other directories"
 msgstr ""
 
@@ -137,5 +137,9 @@ msgid "Help"
 msgstr ""
 
 #: src/menu.ui:11
+msgid "Documentation"
+msgstr ""
+
+#: src/menu.ui:15
 msgid "About Flatseal"
 msgstr ""

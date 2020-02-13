@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 16:37-0300\n"
+"POT-Creation-Date: 2020-02-13 10:26-0300\n"
 "PO-Revision-Date: 2020-02-01 11:35-0200\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -52,87 +52,87 @@ msgstr ""
 msgid "Applications"
 msgstr "Anwendungen"
 
-#: src/window.ui:84
+#: src/window.ui:87
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: src/window.ui:89
+#: src/window.ui:92
 msgid "Reset this application permissions"
 msgstr "Berechtigung dieser Anwendung zurücksetzen"
 
-#: src/window.ui:135
+#: src/window.ui:139
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 
-#: src/model.js:35
+#: src/model.js:37
 msgid "Access network"
 msgstr "Zugriff auf das Netzwerk"
 
-#: src/model.js:40
+#: src/model.js:42
 msgid "Access inter-process communications"
 msgstr "Zugriff zu die prozessübergreifende Kommunikation"
 
-#: src/model.js:45
+#: src/model.js:47
 msgid "Access X11 windowing system"
 msgstr "Zugriff auf den X11-Fenstermanager"
 
-#: src/model.js:50
+#: src/model.js:52
 msgid "Access X11 windowing system (as fallback)"
 msgstr "Zugriff auf den X11-Fenstermanager (als Fallback)"
 
-#: src/model.js:55
+#: src/model.js:57
 msgid "Access Wayland windowing system"
 msgstr "Zugriff auf den Wayland-Fenstermanager"
 
-#: src/model.js:60
+#: src/model.js:62
 msgid "Access PulseAudio sound server"
 msgstr "Zugriff auf den PulseAudio-Soundserver"
 
-#: src/model.js:65
+#: src/model.js:67
 msgid "Access D-Bus system bus (unrestricted)"
 msgstr "Zugriff auf den D-Bus-Systembus (uneingeschränkt)"
 
-#: src/model.js:70
+#: src/model.js:72
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "Zugriff auf den D-Bus-Sitzungsbus (uneingeschränkt)"
 
-#: src/model.js:75
+#: src/model.js:77
 msgid "Access Secure Shell agent"
 msgstr "Zugriff auf den Secure Shell Agent"
 
-#: src/model.js:80
+#: src/model.js:82
 msgid "Access printing system"
 msgstr "Zugriff auf die Druckerverwaltung"
 
-#: src/model.js:85
+#: src/model.js:87
 msgid "Access GPU acceleration"
 msgstr "Zugriff auf GPU-Beschleunigung"
 
-#: src/model.js:90
+#: src/model.js:92
 msgid "Access all devices (e.g. webcam)"
 msgstr "Zugriff auf alle Geräte (z.B. Webcam)"
 
-#: src/model.js:95
+#: src/model.js:97
 msgid "Access all system directories (unrestricted)"
 msgstr "Zugriff auf alle Systemverzeichnisse (uneingeschränkt)"
 
-#: src/model.js:100
+#: src/model.js:102
 msgid "Access home directory (unrestricted)"
 msgstr "Zugriff auf das Benutzerverzeichnis (uneingeschränkt)"
 
-#: src/model.js:105
+#: src/model.js:107
 msgid "Access Bluetooth"
 msgstr "Zugriff auf Bluetooth"
 
-#: src/model.js:110
+#: src/model.js:112
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Zugriff auf andere Systemaufrufe (z.B. ptrace)"
 
-#: src/model.js:115
+#: src/model.js:117
 msgid "Access programs from other architectures"
 msgstr "Zugriff auf Programme anderer Architekturen"
 
-#: src/model.js:120
+#: src/model.js:122
 msgid "Access other directories"
 msgstr "Zugriff auf andere Verzeichnisse"
 
@@ -141,5 +141,9 @@ msgid "Help"
 msgstr "Hilfe"
 
 #: src/menu.ui:11
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "Über Flatseal"

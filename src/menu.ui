@@ -7,8 +7,8 @@
         <attribute name="label" translatable="yes">Help</attribute>
       </item>
       <item>
-        <attribute name="action">app.references</attribute>
-        <attribute name="label" translatable="yes">References</attribute>
+        <attribute name="action">app.documentation</attribute>
+        <attribute name="label" translatable="yes">Documentation</attribute>
       </item>
       <item>
         <attribute name="action">app.about</attribute>
