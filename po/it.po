@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-06 16:37-0300\n"
-"PO-Revision-Date: 2020-02-10 21:08+0100\n"
+"PO-Revision-Date: 2020-02-13 09:12+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -94,7 +94,7 @@ msgstr "Accesso al bus di sistema D-Bus (senza restrizioni)"
 
 #: src/model.js:70
 msgid "Access D-Bus session bus (unrestricted)"
-msgstr "Accesso al bus di sistema D-Bus (senza restrizioni)"
+msgstr "Accesso al bus di sessione D-Bus (senza restrizioni)"
 
 #: src/model.js:75
 msgid "Access Secure Shell agent"
