@@ -132,7 +132,7 @@ describe('Model', function() {
         expect(GLib.access(_override, 0)).toEqual(-1);
     });
 
-    it('creates overrides only when properties changed', function() {
+    it('creates overrides only when properties changed', function(done) {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
 
