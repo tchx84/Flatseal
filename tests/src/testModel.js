@@ -115,7 +115,7 @@ describe('Model', function() {
         update();
     });
 
-    it('reloads overrides later on', function() {
+    it('reloads previous overrides later on', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
 
