@@ -9,6 +9,7 @@ const _appId = 'com.test.Example';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
+const _baseAppId = 'com.test.BaseApp';
 
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
@@ -45,6 +46,15 @@ describe('Model', function() {
         expect(model.listApplications()).toContain(_oldAppId);
         expect(model.listApplications()).toContain(_reduceAppId);
         expect(model.listApplications()).toContain(_increaseAppId);
+    });
+
+    it('ignores BaseApp bundles', function() {
+        const path = GLib.build_filenamev([
+            _system, 'app', _baseAppId, 'current', 'active', 'metadata',
+        ]);
+
+        expect(GLib.access(path, 0)).toEqual(0);
+        expect(model.listApplications()).not.toContain(_baseAppId);
     });
 
     it('loads permissions', function() {

@@ -353,6 +353,11 @@ var FlatsealModel = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
+    _isBaseApp(appId) {
+        /* XXX this only covers cases that follow the flathub convention */
+        return appId.endsWith('.BaseApp');
+    }
+
     _listApplicationsForPath(path) {
         const list = [];
 
@@ -368,7 +373,7 @@ var FlatsealModel = GObject.registerClass({
             const appId = GLib.path_get_basename(file.get_path());
             const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
 
-            if (GLib.access(activePath, 0) === 0)
+            if (!this._isBaseApp(appId) && GLib.access(activePath, 0) === 0)
                 list.push(appId);
 
             info = enumerator.next_file(null);

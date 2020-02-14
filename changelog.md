@@ -10,3 +10,4 @@
 - Fixed window size in mobile mode.
 - Fixed modifying existing filesystems permissions.
 - Fixed test for detecting no changes condition.
+- Fixed showing BaseApp bundles.
