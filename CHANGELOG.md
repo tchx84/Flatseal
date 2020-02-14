@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased] - 2020-02-14
+## [1.4.0] - 2020-02-14
 - Added Hungarian, Dutch and Italian translations by the community.
 - Added new editor for custom filesystems permissions.
 - Added autocompletion for xdg directories in custom filesystems permissions.
