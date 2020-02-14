@@ -211,12 +211,32 @@ var FlatsealModel = GObject.registerClass({
         return this._getPermissionsForPath(this._getOverridesPathForAppId(appId));
     }
 
+    _isOverridenPath(overrides, permission) {
+        if (!permission.startsWith('filesystems='))
+            return false;
+
+        const [_permission] = permission.split(':');
+
+        if (overrides.has(_permission))
+            return true;
+        else if (overrides.has(`${_permission}:ro`))
+            return true;
+        else if (overrides.has(`${_permission}:rw`))
+            return true;
+        else if (overrides.has(`${_permission}:create`))
+            return true;
+
+        return false;
+    }
+
     _getCurrentPermissionsForAppId(appId) {
         const permissions = this._getPermissionsForAppId(appId);
         const overrides = new Set(this._getOverridesForAppId(appId));
 
-        /* Remove permission if overriden with negation values */
-        const current = new Set(permissions.filter(p => !overrides.has(p.replace('=', '=!'))));
+        /* Remove permission if overriden already */
+        const current = new Set(permissions
+            .filter(p => !overrides.has(p.replace('=', '=!')))
+            .filter(p => !this._isOverridenPath(overrides, p)));
 
         /* Add permission if a) not a negation b) doesn't exists */
         [...overrides].filter(p => p.indexOf('=!') === -1).forEach(p => current.add(p));
@@ -326,6 +346,7 @@ var FlatsealModel = GObject.registerClass({
         const removed = new Set([...existing]
             .filter(p => supportedState.has(p) || supportedText.has(p.split('=')[0]))
             .filter(p => !selected.has(p))
+            .filter(p => !this._isOverridenPath(added, p))
             .map(p => p.replace('=', '=!')));
 
         this._setOverridesForAppId(this._lastAppId, [...added, ...removed]);
