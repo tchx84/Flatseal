@@ -210,7 +210,7 @@ var FlatsealModel = GObject.registerClass({
         return this._getPermissionsForPath(this._getOverridesPathForAppId(appId));
     }
 
-    _isOverridenPath(overrides, permission) {
+    _realIsOverridenPath(overrides, permission) {
         if (!permission.startsWith('filesystems='))
             return false;
 
@@ -228,17 +228,34 @@ var FlatsealModel = GObject.registerClass({
         return false;
     }
 
+    _isOverridenPath(overrides, permission) {
+        return this._realIsOverridenPath(overrides, permission) ||
+               this._realIsOverridenPath(overrides, this._negatePermission(permission));
+    }
+
+    _isNegatedPermission(permission) {
+        return permission.indexOf('=!') !== -1;
+    }
+
+    _negatePermission(permission) {
+        if (this._isNegatedPermission(permission))
+            return permission.replace('=!', '=');
+        return permission.replace('=', '=!');
+    }
+
     _getCurrentPermissionsForAppId(appId) {
         const permissions = this._getPermissionsForAppId(appId);
         const overrides = new Set(this._getOverridesForAppId(appId));
 
         /* Remove permission if overriden already */
         const current = new Set(permissions
-            .filter(p => !overrides.has(p.replace('=', '=!')))
+            .filter(p => !overrides.has(this._negatePermission(p)))
             .filter(p => !this._isOverridenPath(overrides, p)));
 
         /* Add permission if a) not a negation b) doesn't exists */
-        [...overrides].filter(p => p.indexOf('=!') === -1).forEach(p => current.add(p));
+        [...overrides]
+            .filter(p => !this._isNegatedPermission(p))
+            .forEach(p => current.add(p));
 
         return [...current];
     }
@@ -346,7 +363,7 @@ var FlatsealModel = GObject.registerClass({
             .filter(p => supportedState.has(p) || supportedText.has(p.split('=')[0]))
             .filter(p => !selected.has(p))
             .filter(p => !this._isOverridenPath(added, p))
-            .map(p => p.replace('=', '=!')));
+            .map(p => this._negatePermission(p)));
 
         this._setOverridesForAppId(this._lastAppId, [...added, ...removed]);
         this._delayedHandlerId = 0;
