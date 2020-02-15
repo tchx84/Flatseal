@@ -21,7 +21,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr "Documentación"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
