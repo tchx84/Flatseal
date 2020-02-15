@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.4.1] - 2020-02-15
 - Fixed handling negated filesystems permissions
 - Fixed unintended Spanish translation.
 
