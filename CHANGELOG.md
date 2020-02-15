@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+- Fixed handling negated filesystems permissions
+- Fixed unintended Spanish translation.
+
 ## [1.4.0] - 2020-02-14
 - Added Hungarian, Dutch and Italian translations by the community.
 - Added new editor for custom filesystems permissions.
