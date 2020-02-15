@@ -370,8 +370,8 @@ var FlatsealModel = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
+    /* XXX this only covers cases that follow the flathub convention */
     _isBaseApp(appId) {
-        /* XXX this only covers cases that follow the flathub convention */
         return appId.endsWith('.BaseApp');
     }
 
