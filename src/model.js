@@ -268,9 +268,9 @@ var FlatsealModel = GObject.registerClass({
 
             try {
                 var _value = keyFile.get_value(GROUP, key);
-                value = `${_value}${value};`;
+                value = `${_value};${value}`;
             } catch (err) {
-                value = `${value};`;
+                value = `${value}`;
             }
             keyFile.set_value(GROUP, key, value);
         });
