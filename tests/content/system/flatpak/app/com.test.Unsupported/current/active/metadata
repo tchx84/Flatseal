@@ -1,0 +1,4 @@
+[Context]
+shared=unsupported
+unsupported=all
+filesystems=~/unsupported

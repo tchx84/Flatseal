@@ -1,6 +1,6 @@
 const {GLib} = imports.gi;
 
-const {setup, update, has} = imports.utils;
+const {setup, update, has, hasOnly} = imports.utils;
 setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
@@ -11,6 +11,7 @@ const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
 const _baseAppId = 'com.test.BaseApp';
 const _negationAppId = 'com.test.Negation';
+const _unsupportedAppId = 'com.test.Unsupported';
 
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
@@ -22,6 +23,7 @@ const _oldOverride = GLib.build_filenamev([_overrides, _oldAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
 const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
+const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId]);
 const _key = 'filesystems';
 
 
@@ -42,6 +44,7 @@ describe('Model', function() {
         GLib.unlink(_reduceOverride);
         GLib.unlink(_increaseOverride);
         GLib.unlink(_negationOverride);
+        GLib.unlink(_unsupportedOverride);
     });
 
     it('loads applications', function() {
@@ -312,6 +315,23 @@ describe('Model', function() {
             expect(has(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
             expect(has(_negationOverride, GROUP, _key, '!~/negative')).not.toBeTruthy();
             expect(has(_negationOverride, GROUP, _key, '!!~/negative')).not.toBeTruthy();
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('ignores unsupported permissions', function(done) {
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_unsupportedAppId);
+
+        expect(model.filesystems_custom).toEqual('~/unsupported');
+
+        model.set_property('filesystems-custom', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(hasOnly(_unsupportedOverride, GROUP, _key, '!~/unsupported')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
