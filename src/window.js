@@ -124,8 +124,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _reset() {
-        const row = this._applicationsListBox.get_selected_row();
-        this._model.resetPermissionsForAppId(row.appId);
+        this._model.resetPermissions();
     }
 
     _filter(row) {

@@ -122,14 +122,14 @@ var FlatsealModel = GObject.registerClass({
             _propFlags, ''),
     },
     Signals: {
-        'changed': {
+        changed: {
             param_types: [GObject.TYPE_BOOLEAN],
         },
     },
 }, class FlatsealModel extends GObject.Object {
     _init() {
         super._init({});
-        this._lastAppId = '';
+        this._appId = '';
         this._delayedHandlerId = 0;
 
         this._systemInstallationPath = GLib.build_filenamev([
@@ -158,8 +158,10 @@ var FlatsealModel = GObject.registerClass({
         return GLib.build_filenamev([this._getSystemInstallationPath(), 'app']);
     }
 
-    _getOverridesPathForAppId(appId) {
-        return GLib.build_filenamev([this._getUserInstallationPath(), 'overrides', appId]);
+    _getOverridesPath() {
+        return GLib.build_filenamev([
+            this._getUserInstallationPath(), 'overrides', this._appId,
+        ]);
     }
 
     _getBundlePathForAppId(appId) {
@@ -176,11 +178,11 @@ var FlatsealModel = GObject.registerClass({
         ]);
     }
 
-    _getMetadataPathForAppId(appId) {
-        return GLib.build_filenamev([this._getBundlePathForAppId(appId), 'metadata']);
+    _getMetadataPath() {
+        return GLib.build_filenamev([this._getBundlePathForAppId(this._appId), 'metadata']);
     }
 
-    _getPermissionsForPath(path) {
+    static _getPermissionsForPath(path) {
         const list = [];
 
         if (GLib.access(path, 0) !== 0)
@@ -207,20 +209,20 @@ var FlatsealModel = GObject.registerClass({
         return list;
     }
 
-    _getPermissionsForAppId(appId) {
-        return this._getPermissionsForPath(this._getMetadataPathForAppId(appId));
+    _getPermissions() {
+        return this.constructor._getPermissionsForPath(this._getMetadataPath());
     }
 
-    _getOverridesForAppId(appId) {
-        return this._getPermissionsForPath(this._getOverridesPathForAppId(appId));
+    _getOverrides() {
+        return this.constructor._getPermissionsForPath(this._getOverridesPath());
     }
 
     _checkIfChanged() {
-        const exists = GLib.access(this._getOverridesPathForAppId(this._lastAppId), 0) === 0;
+        const exists = GLib.access(this._getOverridesPath(), 0) === 0;
         this.emit('changed', exists);
     }
 
-    _realIsOverridenPath(overrides, permission) {
+    static _realIsOverridenPath(overrides, permission) {
         if (!permission.startsWith('filesystems='))
             return false;
 
@@ -238,39 +240,39 @@ var FlatsealModel = GObject.registerClass({
         return false;
     }
 
-    _isOverridenPath(overrides, permission) {
+    static _isOverridenPath(overrides, permission) {
         return this._realIsOverridenPath(overrides, permission) ||
                this._realIsOverridenPath(overrides, this._negatePermission(permission));
     }
 
-    _isNegatedPermission(permission) {
+    static _isNegatedPermission(permission) {
         return permission.indexOf('=!') !== -1;
     }
 
-    _negatePermission(permission) {
+    static _negatePermission(permission) {
         if (this._isNegatedPermission(permission))
             return permission.replace('=!', '=');
         return permission.replace('=', '=!');
     }
 
-    _getCurrentPermissionsForAppId(appId) {
-        const permissions = this._getPermissionsForAppId(appId);
-        const overrides = new Set(this._getOverridesForAppId(appId));
+    _getCurrentPermissions() {
+        const permissions = this._getPermissions();
+        const overrides = new Set(this._getOverrides());
 
         /* Remove permission if overriden already */
         const current = new Set(permissions
-            .filter(p => !overrides.has(this._negatePermission(p)))
-            .filter(p => !this._isOverridenPath(overrides, p)));
+            .filter(p => !overrides.has(this.constructor._negatePermission(p)))
+            .filter(p => !this.constructor._isOverridenPath(overrides, p)));
 
         /* Add permission if a) not a negation b) doesn't exists */
         [...overrides]
-            .filter(p => !this._isNegatedPermission(p))
+            .filter(p => !this.constructor._isNegatedPermission(p))
             .forEach(p => current.add(p));
 
         return [...current];
     }
 
-    _setOverridesForAppId(appId, overrides) {
+    _setOverrides(overrides) {
         const keyFile = new GLib.KeyFile();
 
         overrides.forEach(override => {
@@ -286,7 +288,7 @@ var FlatsealModel = GObject.registerClass({
         });
 
         const [, length] = keyFile.to_data();
-        const path = this._getOverridesPathForAppId(appId);
+        const path = this._getOverridesPath();
 
         if (length === 0)
             GLib.unlink(path);
@@ -296,10 +298,10 @@ var FlatsealModel = GObject.registerClass({
         this._checkIfChanged();
     }
 
-    _updatePropertiesForAppId(appId) {
+    _updateProperties() {
         GObject.signal_handler_block(this, this._notifyHandlerId);
 
-        const permissions = this._getCurrentPermissionsForAppId(appId);
+        const permissions = this._getCurrentPermissions();
         const props = GObject.Object.list_properties.call(this.constructor.$gtype);
 
         props.forEach(pspec => {
@@ -338,7 +340,7 @@ var FlatsealModel = GObject.registerClass({
 
     _findChangesAndUpdate() {
         const selected = new Set();
-        const existing = new Set(this._getPermissionsForAppId(this._lastAppId));
+        const existing = new Set(this._getPermissions());
         const props = GObject.Object.list_properties.call(this.constructor.$gtype);
 
         props.forEach(pspec => {
@@ -376,16 +378,16 @@ var FlatsealModel = GObject.registerClass({
         const removed = new Set([...existing]
             .filter(p => supportedState.has(p) || supportedText.has(p.split('=')[0]))
             .filter(p => !selected.has(p))
-            .filter(p => !this._isOverridenPath(added, p))
-            .map(p => this._negatePermission(p)));
+            .filter(p => !this.constructor._isOverridenPath(added, p))
+            .map(p => this.constructor._negatePermission(p)));
 
-        this._setOverridesForAppId(this._lastAppId, [...added, ...removed]);
+        this._setOverrides([...added, ...removed]);
         this._delayedHandlerId = 0;
         return GLib.SOURCE_REMOVE;
     }
 
     /* XXX this only covers cases that follow the flathub convention */
-    _isBaseApp(appId) {
+    static _isBaseApp(appId) {
         return appId.endsWith('.BaseApp');
     }
 
@@ -404,7 +406,7 @@ var FlatsealModel = GObject.registerClass({
             const appId = GLib.path_get_basename(file.get_path());
             const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
 
-            if (!this._isBaseApp(appId) && GLib.access(activePath, 0) === 0)
+            if (!this.constructor._isBaseApp(appId) && GLib.access(activePath, 0) === 0)
                 list.push(appId);
 
             info = enumerator.next_file(null);
@@ -448,8 +450,14 @@ var FlatsealModel = GObject.registerClass({
     }
 
     setAppId(appId) {
-        this._lastAppId = appId;
-        this._updatePropertiesForAppId(appId);
+        this._appId = appId;
+        this._updateProperties();
+    }
+
+    resetPermissions() {
+        const path = this._getOverridesPath();
+        GLib.unlink(path);
+        this._updateProperties();
     }
 
     setSystemInstallationPath(path) {
@@ -458,12 +466,6 @@ var FlatsealModel = GObject.registerClass({
 
     setUserInstallationPath(path) {
         this._userInstallationPath = path;
-    }
-
-    resetPermissionsForAppId(appId) {
-        const path = this._getOverridesPathForAppId(appId);
-        GLib.unlink(path);
-        this._updatePropertiesForAppId(appId);
     }
 
     getIconThemePathForAppId(appId) {

@@ -159,7 +159,7 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
 
-        model.resetPermissionsForAppId(_appId);
+        model.resetPermissions();
 
         expect(GLib.access(_override, 0)).toEqual(-1);
     });
@@ -360,7 +360,7 @@ describe('Model', function() {
 
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
-        model.resetPermissionsForAppId(_appId);
+        model.resetPermissions();
 
         expect(model.emit).toHaveBeenCalledWith('changed', false);
     });
