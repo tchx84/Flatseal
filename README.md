@@ -6,7 +6,7 @@ Flatseal is a graphical utility to review and modify basic permissions from your
 
 ## Usage
 
-Simply launch Flatseal and modify your applications permissions. Restart your application after making the changes. If anything goes wrong just press the reset button.
+Simply launch Flatseal, select an application and modify its permissions. Restart the application after making the changes. If anything goes wrong just press the reset button.
 
 ## Get it
 
