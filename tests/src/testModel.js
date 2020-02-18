@@ -338,4 +338,30 @@ describe('Model', function() {
 
         update();
     });
+
+    it('signals changes with overrides', function(done) {
+        spyOn(model, 'emit');
+
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_appId);
+        model.set_property('shared-network', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(model.emit).toHaveBeenCalledWith('changed', true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('signals changes with no overrides', function() {
+        spyOn(model, 'emit');
+
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_appId);
+        model.resetPermissionsForAppId(_appId);
+
+        expect(model.emit).toHaveBeenCalledWith('changed', false);
+    });
 });

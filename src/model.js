@@ -121,6 +121,11 @@ var FlatsealModel = GObject.registerClass({
             _('Access other directories'),
             _propFlags, ''),
     },
+    Signals: {
+        'changed': {
+            param_types: [GObject.TYPE_BOOLEAN],
+        },
+    },
 }, class FlatsealModel extends GObject.Object {
     _init() {
         super._init({});
@@ -210,6 +215,11 @@ var FlatsealModel = GObject.registerClass({
         return this._getPermissionsForPath(this._getOverridesPathForAppId(appId));
     }
 
+    _checkIfChanged() {
+        const exists = GLib.access(this._getOverridesPathForAppId(this._lastAppId), 0) === 0;
+        this.emit('changed', exists);
+    }
+
     _realIsOverridenPath(overrides, permission) {
         if (!permission.startsWith('filesystems='))
             return false;
@@ -282,6 +292,8 @@ var FlatsealModel = GObject.registerClass({
             GLib.unlink(path);
         else
             keyFile.save_to_file(path);
+
+        this._checkIfChanged();
     }
 
     _updatePropertiesForAppId(appId) {
@@ -310,6 +322,8 @@ var FlatsealModel = GObject.registerClass({
             this[property.replace(/-/g, '_')] = value;
             this.notify(property);
         });
+
+        this._checkIfChanged();
 
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
