@@ -2,6 +2,7 @@
 
 ## [unreleased]
 - Added enabling reset button only when permissions are overriden.
+- Fixed processing pending updates before switching applications.
 
 ## [1.4.1] - 2020-02-15
 - Fixed handling negated filesystems permissions.

@@ -364,4 +364,26 @@ describe('Model', function() {
 
         expect(model.emit).toHaveBeenCalledWith('changed', false);
     });
+
+    it('processes pending updates before switch applications', function(done) {
+        GLib.unlink(_override);
+
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_appId);
+
+        expect(model.shared_network).toEqual(true);
+
+        model.set_property('shared-network', false);
+
+        model.setAppId(_unsupportedAppId);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(GLib.access(_override, 0)).toEqual(0);
+            expect(GLib.access(_unsupportedOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
 });

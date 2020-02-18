@@ -338,6 +338,13 @@ var FlatsealModel = GObject.registerClass({
             GLib.PRIORITY_HIGH, DELAY, this._findChangesAndUpdate.bind(this));
     }
 
+    _processPendingUpdates() {
+        if (this._delayedHandlerId !== 0)
+            GLib.Source.remove(this._delayedHandlerId);
+
+        this._findChangesAndUpdate();
+    }
+
     _findChangesAndUpdate() {
         const selected = new Set();
         const existing = new Set(this._getPermissions());
@@ -450,6 +457,7 @@ var FlatsealModel = GObject.registerClass({
     }
 
     setAppId(appId) {
+        this._processPendingUpdates();
         this._appId = appId;
         this._updateProperties();
     }
