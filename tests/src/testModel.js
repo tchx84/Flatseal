@@ -340,6 +340,8 @@ describe('Model', function() {
     });
 
     it('signals changes with overrides', function(done) {
+        GLib.unlink(_override);
+
         spyOn(model, 'emit');
 
         model.setUserInstallationPath(_tmp);
@@ -347,7 +349,7 @@ describe('Model', function() {
         model.set_property('shared-network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(model.emit).toHaveBeenCalledWith('changed', true);
+            expect(model.emit.calls.mostRecent().args).toEqual(['changed', true]);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -356,13 +358,15 @@ describe('Model', function() {
     });
 
     it('signals changes with no overrides', function() {
+        GLib.unlink(_override);
+
         spyOn(model, 'emit');
 
         model.setUserInstallationPath(_tmp);
         model.setAppId(_appId);
         model.resetPermissions();
 
-        expect(model.emit).toHaveBeenCalledWith('changed', false);
+        expect(model.emit.calls.mostRecent().args).toEqual(['changed', false]);
     });
 
     it('processes pending updates before switch applications', function(done) {
