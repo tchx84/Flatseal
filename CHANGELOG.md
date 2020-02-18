@@ -1,8 +1,8 @@
 # Changelog
 
 ## [unreleased]
-- Added enabling reset button only when permissions are overriden.
-- Fixed processing pending updates before selecting other apps or shutting the app down.
+- Added disabling reset button when no permissions changed.
+- Fixed saving pending changes when selecting apps or shutting the app down very quickly.
 
 ## [1.4.1] - 2020-02-15
 - Fixed handling negated filesystems permissions.
