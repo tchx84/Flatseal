@@ -89,6 +89,7 @@ var FlatsealWindow = GObject.registerClass({
             this._model.bind_property(p.property, row.content, p.type, _bindFlags);
         });
 
+        this.connect('destroy', this._shutdown.bind(this));
         this._model.connect('changed', this._changed.bind(this));
 
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
@@ -109,6 +110,10 @@ var FlatsealWindow = GObject.registerClass({
         /* XXX shouldn't do this automatically ? */
         const row = this._applicationsListBox.get_row_at_index(0);
         this._applicationsListBox.select_row(row);
+    }
+
+    _shutdown() {
+        this._model.shutdown();
     }
 
     _changed(model, overriden) {

@@ -339,9 +339,10 @@ var FlatsealModel = GObject.registerClass({
     }
 
     _processPendingUpdates() {
-        if (this._delayedHandlerId !== 0)
-            GLib.Source.remove(this._delayedHandlerId);
+        if (this._delayedHandlerId === 0)
+            return;
 
+        GLib.Source.remove(this._delayedHandlerId);
         this._findChangesAndUpdate();
     }
 
@@ -466,6 +467,10 @@ var FlatsealModel = GObject.registerClass({
         const path = this._getOverridesPath();
         GLib.unlink(path);
         this._updateProperties();
+    }
+
+    shutdown() {
+        this._processPendingUpdates();
     }
 
     setSystemInstallationPath(path) {

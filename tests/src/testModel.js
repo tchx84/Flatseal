@@ -390,4 +390,25 @@ describe('Model', function() {
 
         update();
     });
+
+    it('processes pending updates before shutting down', function(done) {
+        GLib.unlink(_override);
+
+        model.setUserInstallationPath(_tmp);
+        model.setAppId(_appId);
+
+        expect(model.shared_network).toEqual(true);
+
+        model.set_property('shared-network', false);
+
+        model.shutdown();
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(GLib.access(_override, 0)).toEqual(0);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
 });
