@@ -1,7 +1,10 @@
 # Changelog
 
+## [unreleased]
+- Added enabling reset button only when permissions are overriden.
+
 ## [1.4.1] - 2020-02-15
-- Fixed handling negated filesystems permissions
+- Fixed handling negated filesystems permissions.
 - Fixed unintended Spanish translation.
 
 ## [1.4.0] - 2020-02-14
