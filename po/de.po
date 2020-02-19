@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 10:26-0300\n"
+"POT-Creation-Date: 2020-02-19 16:05-0300\n"
 "PO-Revision-Date: 2020-02-01 11:35-0200\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -52,87 +52,79 @@ msgstr ""
 msgid "Applications"
 msgstr "Anwendungen"
 
-#: src/window.ui:87
-msgid "Reset"
-msgstr "Zurücksetzen"
-
-#: src/window.ui:92
-msgid "Reset this application permissions"
-msgstr "Berechtigung dieser Anwendung zurücksetzen"
-
-#: src/window.ui:139
+#: src/window.ui:151
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 
-#: src/model.js:37
+#: src/model.js:36
 msgid "Access network"
 msgstr "Zugriff auf das Netzwerk"
 
-#: src/model.js:42
+#: src/model.js:41
 msgid "Access inter-process communications"
 msgstr "Zugriff zu die prozessübergreifende Kommunikation"
 
-#: src/model.js:47
+#: src/model.js:46
 msgid "Access X11 windowing system"
 msgstr "Zugriff auf den X11-Fenstermanager"
 
-#: src/model.js:52
+#: src/model.js:51
 msgid "Access X11 windowing system (as fallback)"
 msgstr "Zugriff auf den X11-Fenstermanager (als Fallback)"
 
-#: src/model.js:57
+#: src/model.js:56
 msgid "Access Wayland windowing system"
 msgstr "Zugriff auf den Wayland-Fenstermanager"
 
-#: src/model.js:62
+#: src/model.js:61
 msgid "Access PulseAudio sound server"
 msgstr "Zugriff auf den PulseAudio-Soundserver"
 
-#: src/model.js:67
+#: src/model.js:66
 msgid "Access D-Bus system bus (unrestricted)"
 msgstr "Zugriff auf den D-Bus-Systembus (uneingeschränkt)"
 
-#: src/model.js:72
+#: src/model.js:71
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "Zugriff auf den D-Bus-Sitzungsbus (uneingeschränkt)"
 
-#: src/model.js:77
+#: src/model.js:76
 msgid "Access Secure Shell agent"
 msgstr "Zugriff auf den Secure Shell Agent"
 
-#: src/model.js:82
+#: src/model.js:81
 msgid "Access printing system"
 msgstr "Zugriff auf die Druckerverwaltung"
 
-#: src/model.js:87
+#: src/model.js:86
 msgid "Access GPU acceleration"
 msgstr "Zugriff auf GPU-Beschleunigung"
 
-#: src/model.js:92
+#: src/model.js:91
 msgid "Access all devices (e.g. webcam)"
 msgstr "Zugriff auf alle Geräte (z.B. Webcam)"
 
-#: src/model.js:97
+#: src/model.js:96
 msgid "Access all system directories (unrestricted)"
 msgstr "Zugriff auf alle Systemverzeichnisse (uneingeschränkt)"
 
-#: src/model.js:102
+#: src/model.js:101
 msgid "Access home directory (unrestricted)"
 msgstr "Zugriff auf das Benutzerverzeichnis (uneingeschränkt)"
 
-#: src/model.js:107
+#: src/model.js:106
 msgid "Access Bluetooth"
 msgstr "Zugriff auf Bluetooth"
 
-#: src/model.js:112
+#: src/model.js:111
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Zugriff auf andere Systemaufrufe (z.B. ptrace)"
 
-#: src/model.js:117
+#: src/model.js:116
 msgid "Access programs from other architectures"
 msgstr "Zugriff auf Programme anderer Architekturen"
 
-#: src/model.js:122
+#: src/model.js:121
 msgid "Access other directories"
 msgstr "Zugriff auf andere Verzeichnisse"
 
@@ -147,3 +139,15 @@ msgstr "Dokumentation"
 #: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "Über Flatseal"
+
+#: src/resetButton.js:33
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: src/resetButton.js:41
+msgid "Reset this application permissions"
+msgstr "Berechtigung dieser Anwendung zurücksetzen"
+
+#: src/resetButton.js:43
+msgid "No changes made to this application"
+msgstr "An dieser Anwendung wurden keine Änderungen vorgenommen"

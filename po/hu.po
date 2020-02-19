@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-13 10:26-0300\n"
+"POT-Creation-Date: 2020-02-19 16:05-0300\n"
 "PO-Revision-Date: 2020-02-01 03:47-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -50,87 +50,79 @@ msgstr ""
 msgid "Applications"
 msgstr "Alkalmazás"
 
-#: src/window.ui:87
-msgid "Reset"
-msgstr "Visszaállítás"
-
-#: src/window.ui:92
-msgid "Reset this application permissions"
-msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
-
-#: src/window.ui:139
+#: src/window.ui:151
 msgid "No applications found."
 msgstr "Alkalmazás nem található."
 
-#: src/model.js:37
+#: src/model.js:36
 msgid "Access network"
 msgstr "A hálózat hozzáférése"
 
-#: src/model.js:42
+#: src/model.js:41
 msgid "Access inter-process communications"
 msgstr "A folyamatok közötti kommunikáció hozzáférése"
 
-#: src/model.js:47
+#: src/model.js:46
 msgid "Access X11 windowing system"
 msgstr "Az X11 ablakrendszer hozzáférése"
 
-#: src/model.js:52
+#: src/model.js:51
 msgid "Access X11 windowing system (as fallback)"
 msgstr "Az X11 ablakrendszer hozzáférése (tartalékként)"
 
-#: src/model.js:57
+#: src/model.js:56
 msgid "Access Wayland windowing system"
 msgstr "A Wayland ablakrendszer hozzáférése"
 
-#: src/model.js:62
+#: src/model.js:61
 msgid "Access PulseAudio sound server"
 msgstr "A PulseAudio hangkiszolgáló hozzáférése"
 
-#: src/model.js:67
+#: src/model.js:66
 msgid "Access D-Bus system bus (unrestricted)"
 msgstr "A D-Bus rendszer busz hozzáférése (korlátlan)"
 
-#: src/model.js:72
+#: src/model.js:71
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "A D-Bus munkamenet busz hozzáférése (korlátlan)"
 
-#: src/model.js:77
+#: src/model.js:76
 msgid "Access Secure Shell agent"
 msgstr "A Secure Shell ügynök hozzáférése"
 
-#: src/model.js:82
+#: src/model.js:81
 msgid "Access printing system"
 msgstr "A nyomtatási rendszer hozzáférése"
 
-#: src/model.js:87
+#: src/model.js:86
 msgid "Access GPU acceleration"
 msgstr "GPU gyorsítási hozzáférése"
 
-#: src/model.js:92
+#: src/model.js:91
 msgid "Access all devices (e.g. webcam)"
 msgstr "Az összes eszköz hozzáférése (pl. webkamera)"
 
-#: src/model.js:97
+#: src/model.js:96
 msgid "Access all system directories (unrestricted)"
 msgstr "Az összes rendszerkönyvtár hozzáférése (korlátlan)"
 
-#: src/model.js:102
+#: src/model.js:101
 msgid "Access home directory (unrestricted)"
 msgstr "Az otthoni könyvtár hozzáférése (korlátlan)"
 
-#: src/model.js:107
+#: src/model.js:106
 msgid "Access Bluetooth"
 msgstr "Bluetooth hozzáférése"
 
-#: src/model.js:112
+#: src/model.js:111
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Más rendszerhívások hozzáférése (pl. ptrace)"
 
-#: src/model.js:117
+#: src/model.js:116
 msgid "Access programs from other architectures"
 msgstr "Más architektúrák programjaihoz hozzáférése"
 
-#: src/model.js:122
+#: src/model.js:121
 msgid "Access other directories"
 msgstr "Egyéb könyvtárak hozzáférése"
 
@@ -145,3 +137,15 @@ msgstr "Dokumentáció"
 #: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "A Flatseal névjegye"
+
+#: src/resetButton.js:33
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: src/resetButton.js:41
+msgid "Reset this application permissions"
+msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
+
+#: src/resetButton.js:43
+msgid "No changes made to this application"
+msgstr "Az alkalmazásban nem történt változás"
