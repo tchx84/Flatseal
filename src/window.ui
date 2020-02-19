@@ -82,6 +82,17 @@
                     <property name="position">1</property>
                   </packing>
                 </child>
+                <child type="title">
+                  <object class="GtkLabel" id="title">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="ellipsize">start</property>
+                    <property name="single_line_mode">True</property>
+                    <style>
+                      <class name="title"/>
+                    </style>
+                  </object>
+                </child>
                 <child>
                   <object class="GtkButton" id="resetButton">
                     <property name="label" translatable="yes">Reset</property>

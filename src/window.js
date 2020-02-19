@@ -45,6 +45,7 @@ var FlatsealWindow = GObject.registerClass({
         'headerLeaflet',
         'contentLeaflet',
         'swipeGroup',
+        'title',
     ],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
@@ -123,7 +124,7 @@ var FlatsealWindow = GObject.registerClass({
     _update() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.setAppId(row.appId);
-        this._permissionsHeaderBar.set_title(row.appId);
+        this._title.set_text(row.appId);
         this.set_title(row.appId);
         this._showPermissions();
     }
