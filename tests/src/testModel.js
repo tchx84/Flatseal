@@ -5,7 +5,7 @@ setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
 
-const _appId = 'com.test.Example';
+const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
@@ -19,7 +19,7 @@ const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
-const _override = GLib.build_filenamev([_overrides, _appId]);
+const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
 const _oldOverride = GLib.build_filenamev([_overrides, _oldAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
@@ -33,7 +33,6 @@ describe('Model', function() {
     var model;
 
     beforeAll(function() {
-        GLib.unlink(_override);
         GLib.unlink(_overridenOverride);
         GLib.mkdir_with_parents(_overrides, 0o755);
     });
@@ -43,6 +42,7 @@ describe('Model', function() {
         model.setSystemInstallationPath(_system);
         model.setUserInstallationPath(_none);
 
+        GLib.unlink(_basicOverride);
         GLib.unlink(_oldOverride);
         GLib.unlink(_reduceOverride);
         GLib.unlink(_increaseOverride);
@@ -51,7 +51,7 @@ describe('Model', function() {
     });
 
     it('loads applications', function() {
-        expect(model.listApplications()).toContain(_appId);
+        expect(model.listApplications()).toContain(_basicAppId);
         expect(model.listApplications()).toContain(_oldAppId);
         expect(model.listApplications()).toContain(_reduceAppId);
         expect(model.listApplications()).toContain(_increaseAppId);
@@ -69,7 +69,7 @@ describe('Model', function() {
     });
 
     it('loads permissions', function() {
-        model.setAppId(_appId);
+        model.setAppId(_basicAppId);
 
         expect(model.shared_network).toBeTruthy();
         expect(model.shared_ipc).toBeTruthy();
@@ -93,7 +93,7 @@ describe('Model', function() {
 
     it('loads overrides', function() {
         model.setUserInstallationPath(_user);
-        model.setAppId(_appId);
+        model.setAppId(_basicAppId);
 
         expect(model.shared_network).not.toBeTruthy();
         expect(model.shared_ipc).not.toBeTruthy();
@@ -345,12 +345,11 @@ describe('Model', function() {
     });
 
     it('signals changes with overrides', function(done) {
-        GLib.unlink(_override);
-
         spyOn(model, 'emit');
 
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_basicAppId);
+
         model.set_property('shared-network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
@@ -363,22 +362,19 @@ describe('Model', function() {
     });
 
     it('signals changes with no overrides', function() {
-        GLib.unlink(_override);
-
         spyOn(model, 'emit');
 
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_basicAppId);
+
         model.resetPermissions();
 
         expect(model.emit.calls.mostRecent().args).toEqual(['changed', false]);
     });
 
     it('processes pending updates before switch applications', function(done) {
-        GLib.unlink(_override);
-
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_basicAppId);
 
         expect(model.shared_network).toEqual(true);
 
@@ -387,7 +383,7 @@ describe('Model', function() {
         model.setAppId(_unsupportedAppId);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(GLib.access(_override, 0)).toEqual(0);
+            expect(GLib.access(_basicOverride, 0)).toEqual(0);
             expect(GLib.access(_unsupportedOverride, 0)).toEqual(-1);
             done();
             return GLib.SOURCE_REMOVE;
@@ -397,10 +393,8 @@ describe('Model', function() {
     });
 
     it('processes pending updates before shutting down', function(done) {
-        GLib.unlink(_override);
-
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_basicAppId);
 
         expect(model.shared_network).toEqual(true);
 
@@ -409,7 +403,7 @@ describe('Model', function() {
         model.shutdown();
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(GLib.access(_override, 0)).toEqual(0);
+            expect(GLib.access(_basicOverride, 0)).toEqual(0);
             done();
             return GLib.SOURCE_REMOVE;
         });
