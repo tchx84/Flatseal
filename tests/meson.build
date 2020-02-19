@@ -5,7 +5,7 @@ if jasmine.found()
 
   tests = join_paths(meson.current_source_dir(), 'src')
 
-  test('Unit tests', jasmine,
+  test('Jasmine tests', jasmine,
     env: env,
     args: ['--no-config', '--verbose', '--no-color', tests])
 endif
