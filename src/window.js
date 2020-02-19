@@ -23,6 +23,7 @@ const {FlatsealApplicationRow} = imports.applicationRow;
 const {FlatsealModel} = imports.model;
 const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.permissionSwitchRow;
+const {FlatsealResetButton} = imports.resetButton;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
@@ -39,7 +40,7 @@ var FlatsealWindow = GObject.registerClass({
         'permissionsHeaderBar',
         'permissionsStack',
         'permissionsBox',
-        'resetButton',
+        'resetBox',
         'menuButton',
         'backButton',
         'headerLeaflet',
@@ -57,6 +58,9 @@ var FlatsealWindow = GObject.registerClass({
     _setup() {
         const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
         this._menuButton.set_menu_model(builder.get_object('menu'));
+
+        this._resetButton = new FlatsealResetButton();
+        this._resetBox.add(this._resetButton);
 
         this._headerLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);

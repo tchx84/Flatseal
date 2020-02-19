@@ -94,13 +94,14 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkButton" id="resetButton">
-                    <property name="label" translatable="yes">Reset</property>
+                  <object class="GtkBox" id="resetBox">
                     <property name="visible">True</property>
-                    <property name="sensitive">False</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="tooltip_text" translatable="yes">Reset this application permissions</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <property name="orientation">vertical</property>
+                    <child>
+                      <placeholder/>
+                    </child>
                   </object>
                   <packing>
                     <property name="pack_type">end</property>
