@@ -370,7 +370,7 @@ describe('Model', function() {
         expect(model.emit.calls.mostRecent().args).toEqual(['changed', false]);
     });
 
-    it('processes pending updates before switch applications', function(done) {
+    it('saves pending updates before selecting other application', function(done) {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_basicAppId);
 
@@ -390,7 +390,7 @@ describe('Model', function() {
         update();
     });
 
-    it('processes pending updates before shutting down', function(done) {
+    it('saves pending updates before shutting down', function(done) {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_basicAppId);
 
