@@ -20,7 +20,6 @@ const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
-const _oldOverride = GLib.build_filenamev([_overrides, _oldAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
 const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
@@ -43,7 +42,6 @@ describe('Model', function() {
         model.setUserInstallationPath(_none);
 
         GLib.unlink(_basicOverride);
-        GLib.unlink(_oldOverride);
         GLib.unlink(_reduceOverride);
         GLib.unlink(_increaseOverride);
         GLib.unlink(_negationOverride);
