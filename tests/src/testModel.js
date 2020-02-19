@@ -52,6 +52,8 @@ describe('Model', function() {
         expect(model.listApplications()).toContain(_oldAppId);
         expect(model.listApplications()).toContain(_reduceAppId);
         expect(model.listApplications()).toContain(_increaseAppId);
+        expect(model.listApplications()).toContain(_negationAppId);
+        expect(model.listApplications()).toContain(_unsupportedAppId);
     });
 
     it('ignores BaseApp bundles', function() {
