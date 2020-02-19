@@ -12,6 +12,7 @@ const _increaseAppId = 'com.test.Increase';
 const _baseAppId = 'com.test.BaseApp';
 const _negationAppId = 'com.test.Negation';
 const _unsupportedAppId = 'com.test.Unsupported';
+const _overridenAppId = 'com.test.Overriden';
 
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
@@ -24,6 +25,7 @@ const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
 const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
 const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId]);
+const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _key = 'filesystems';
 
 
@@ -32,6 +34,7 @@ describe('Model', function() {
 
     beforeAll(function() {
         GLib.unlink(_override);
+        GLib.unlink(_overridenOverride);
         GLib.mkdir_with_parents(_overrides, 0o755);
     });
 
@@ -114,7 +117,7 @@ describe('Model', function() {
 
     it('creates overrides when properties changed', function(done) {
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_overridenAppId);
 
         model.set_property('shared-network', false);
         model.set_property('sockets_x11', false);
@@ -125,7 +128,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '~/tset');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(GLib.access(_override, 0)).toEqual(0);
+            expect(GLib.access(_overridenOverride, 0)).toEqual(0);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -135,7 +138,7 @@ describe('Model', function() {
 
     it('reloads previous overrides later on', function() {
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_overridenAppId);
 
         expect(model.shared_network).not.toBeTruthy();
         expect(model.shared_ipc).toBeTruthy();
@@ -159,16 +162,16 @@ describe('Model', function() {
 
     it('resets overrides', function() {
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_overridenAppId);
 
         model.resetPermissions();
 
-        expect(GLib.access(_override, 0)).toEqual(-1);
+        expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
     });
 
     it('creates overrides only when properties changed', function(done) {
         model.setUserInstallationPath(_tmp);
-        model.setAppId(_appId);
+        model.setAppId(_overridenAppId);
 
         model.set_property('shared-network', true);
         model.set_property('sockets_x11', true);
@@ -179,7 +182,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '~/test');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(GLib.access(_override, 0)).toEqual(-1);
+            expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
             done();
             return GLib.SOURCE_REMOVE;
         });
