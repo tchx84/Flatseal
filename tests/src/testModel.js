@@ -1,6 +1,6 @@
 const {GLib} = imports.gi;
 
-const {setup, update, has, hasOnly} = imports.utils;
+const {setup, update, hasOnly} = imports.utils;
 setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
@@ -199,8 +199,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', 'xdg-downloads:ro');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBeTruthy();
-            expect(has(_reduceOverride, GROUP, _key, '!xdg-downloads')).not.toBeTruthy();
+            expect(hasOnly(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -217,8 +216,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', 'xdg-pictures:rw');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBeTruthy();
-            expect(has(_increaseOverride, GROUP, _key, '!xdg-pictures:ro')).not.toBeTruthy();
+            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -235,8 +233,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', 'xdg-pictures');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBeTruthy();
-            expect(has(_increaseOverride, GROUP, _key, '!xdg-pictures:ro')).not.toBeTruthy();
+            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -253,9 +250,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '!~/negative');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_negationOverride, GROUP, _key, '~/negative')).not.toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!~/negative')).not.toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!!~/negative')).not.toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -272,9 +267,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!~/negative')).not.toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!!~/negative')).not.toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -291,9 +284,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '!~/negative;!~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_negationOverride, GROUP, _key, '~/positive')).not.toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!~/positive')).toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!!~/postive')).not.toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -310,9 +301,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '~/negative;~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!~/negative')).not.toBeTruthy();
-            expect(has(_negationOverride, GROUP, _key, '!!~/negative')).not.toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
             done();
             return GLib.SOURCE_REMOVE;
         });
