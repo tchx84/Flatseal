@@ -167,17 +167,12 @@ describe('Model', function() {
         expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
     });
 
-    it('creates overrides only when properties changed', function(done) {
+    it('creates overrides only when properties values changed', function(done) {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_overridenAppId);
 
+        model.set_property('shared-network', false);
         model.set_property('shared-network', true);
-        model.set_property('sockets_x11', true);
-        model.set_property('devices_dri', true);
-        model.set_property('shared-network', true);
-        model.set_property('features-bluetooth', true);
-        model.set_property('filesystems-host', true);
-        model.set_property('filesystems-custom', '~/test');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
