@@ -25,5 +25,10 @@ var FlatsealAboutDialog = GObject.registerClass({
 }, class FlatsealAboutDialog extends Gtk.AboutDialog {
     _init(props) {
         super._init(props);
+        this.connect('response', this.response.bind(this));
+    }
+
+    response() {
+        this.destroy();
     }
 });
