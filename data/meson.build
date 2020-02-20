@@ -29,17 +29,11 @@ if appstream_util.found()
   )
 endif
 
-install_data('com.github.tchx84.Flatseal.gschema.xml',
-  install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
-)
-
-install_data('com.github.tchx84.Flatseal.svg',
-  install_dir: join_paths(get_option('datadir'), 'icons/hicolor/scalable/apps')
-)
-
 compile_schemas = find_program('glib-compile-schemas', required: false)
 if compile_schemas.found()
   test('Validate schema file', compile_schemas,
     args: ['--strict', '--dry-run', meson.current_source_dir()]
   )
 endif
+
+subdir('icons')
