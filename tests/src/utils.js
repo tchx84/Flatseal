@@ -1,10 +1,14 @@
 imports.gi.versions.Gtk = '3.0';
 
+const {gettext} = imports;
+
 const {Gio, GLib, Gtk} = imports.gi;
 
 
 function setup() {
     Gtk.init(null);
+
+    window._ = gettext.gettext;
 
     const src = GLib.build_filenamev([
         GLib.get_current_dir(),
