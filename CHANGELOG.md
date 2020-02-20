@@ -2,10 +2,10 @@
 
 ## [unreleased]
 - Added disabling reset button when no permissions changed.
-- Added New icon from J.P. MacDonald and Tobias Bernard.
+- Added new icon from J.P. MacDonald and Tobias Bernard.
 - Fixed saving pending changes when selecting apps or shutting the app down very quickly.
 - Fixed hiding meaningful section of the app id in mobile mode headerbar title.
-- Fixed not being able to close the about me dialog when the close button is forcibly shown.
+- Fixed not being able to close the about-me dialog when the close button is forcibly shown.
 - Fixed font relative sizes not being preserved in custom themes.
 
 ## [1.4.1] - 2020-02-15
