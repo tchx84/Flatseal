@@ -18,7 +18,7 @@
 
 .applications .app-id {
     font-style: italic;
-    font-size: 14px;
+    font-size: small;
 }
 
 .applications .frame {
@@ -50,7 +50,7 @@
 
 .permissions .permission {
     font-style: italic;
-    font-size: 14px;
+    font-size: small;
 }
 
 .permissions .content {
