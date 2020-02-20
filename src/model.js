@@ -16,10 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const Gettext = imports.gettext;
-const {GObject, Gio, GLib} = imports.gi;
-
-const _ = Gettext.gettext;
+const {GObject, GLib, Gio} = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
