@@ -67,7 +67,6 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="valign">center</property>
-            <property name="xalign">1</property>
             <property name="completion">completion</property>
           </object>
           <packing>
