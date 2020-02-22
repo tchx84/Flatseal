@@ -1,5 +1,8 @@
 # Changelog
 
+## [unreleased]
+- Added aligning custom filesystems text to the left.
+
 ## [1.4.2] - 2020-02-21
 - Added disabling reset button when no permissions changed.
 - Added new icon from J.P. MacDonald and Tobias Bernard.
