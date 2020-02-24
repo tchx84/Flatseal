@@ -29,92 +29,92 @@ var FlatsealModel = GObject.registerClass({
     Properties: {
         'shared-network': GObject.ParamSpec.boolean(
             'shared-network',
-            'shared-network',
+            '0.4.0',
             _('Access network'),
             _propFlags, false),
         'shared-ipc': GObject.ParamSpec.boolean(
             'shared-ipc',
-            'shared-ipc',
+            '0.4.0',
             _('Access inter-process communications'),
             _propFlags, false),
         'sockets-x11': GObject.ParamSpec.boolean(
             'sockets-x11',
-            'sockets-x11',
+            '0.4.0',
             _('Access X11 windowing system'),
             _propFlags, false),
         'sockets-fallback-x11': GObject.ParamSpec.boolean(
             'sockets-fallback-x11',
-            'sockets-fallback-x11',
+            '0.11.1',
             _('Access X11 windowing system (as fallback)'),
             _propFlags, false),
         'sockets-wayland': GObject.ParamSpec.boolean(
             'sockets-wayland',
-            'sockets-wayland',
+            '0.4.0',
             _('Access Wayland windowing system'),
             _propFlags, false),
         'sockets-pulseaudio': GObject.ParamSpec.boolean(
             'sockets-pulseaudio',
-            'sockets-pulseaudio',
+            '0.4.0',
             _('Access PulseAudio sound server'),
             _propFlags, false),
         'sockets-system-bus': GObject.ParamSpec.boolean(
             'sockets-system-bus',
-            'sockets-system-bus',
+            '0.4.0',
             _('Access D-Bus system bus (unrestricted)'),
             _propFlags, false),
         'sockets-session-bus': GObject.ParamSpec.boolean(
             'sockets-session-bus',
-            'sockets-session-bus',
+            '0.4.0',
             _('Access D-Bus session bus (unrestricted)'),
             _propFlags, false),
         'sockets-ssh-auth': GObject.ParamSpec.boolean(
             'sockets-ssh-auth',
-            'sockets-ssh-auth',
+            '0.99.0',
             _('Access Secure Shell agent'),
             _propFlags, false),
         'sockets-cups': GObject.ParamSpec.boolean(
             'sockets-cups',
-            'sockets-cups',
+            '1.5.2',
             _('Access printing system'),
             _propFlags, false),
         'devices-dri': GObject.ParamSpec.boolean(
             'devices-dri',
-            'devices-dri',
+            '0.4.0',
             _('Access GPU acceleration'),
             _propFlags, false),
         'devices-all': GObject.ParamSpec.boolean(
             'devices-all',
-            'devices-all',
+            '0.6.6',
             _('Access all devices (e.g. webcam)'),
             _propFlags, false),
         'filesystems-host': GObject.ParamSpec.boolean(
             'filesystems-host',
-            'filesystems-host',
+            '0.4.0',
             _('Access all system directories (unrestricted)'),
             _propFlags, false),
         'filesystems-home': GObject.ParamSpec.boolean(
             'filesystems-home',
-            'filesystems-home',
+            '0.4.0',
             _('Access home directory (unrestricted)'),
             _propFlags, false),
         'features-bluetooth': GObject.ParamSpec.boolean(
             'features-bluetooth',
-            'features-bluetooth',
+            '0.11.8',
             _('Access Bluetooth'),
             _propFlags, false),
         'features-devel': GObject.ParamSpec.boolean(
             'features-devel',
-            'features-devel',
+            '0.6.10',
             _('Access other syscalls (e.g. ptrace)'),
             _propFlags, false),
         'features-multiarch': GObject.ParamSpec.boolean(
             'features-multiarch',
-            'features-multiarch',
+            '0.6.12',
             _('Access programs from other architectures'),
             _propFlags, false),
         'filesystems-custom': GObject.ParamSpec.string(
             'filesystems-custom',
-            'filesystems-custom',
+            '0.4.0',
             _('Access other directories'),
             _propFlags, ''),
     },
@@ -128,6 +128,7 @@ var FlatsealModel = GObject.registerClass({
         super._init({});
         this._appId = '';
         this._delayedHandlerId = 0;
+        this._flatpakVersion = null;
 
         this._systemInstallationPath = GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak',
@@ -135,8 +136,38 @@ var FlatsealModel = GObject.registerClass({
         this._userInstallationPath = GLib.build_filenamev([
             GLib.get_home_dir(), '.local', 'share', 'flatpak',
         ]);
+        this._flatpakInfoPath = GLib.build_filenamev([
+            GLib.DIR_SEPARATOR_S, '.flatpak-info',
+        ]);
 
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
+    }
+
+    _isSupported(appVersion) {
+        if (this._flatpakVersion === null)
+            this._flatpakVersion = this._getFlatpakVersion();
+
+        const flatpakVersions = this._flatpakVersion.split('.');
+        const appVersions = appVersion.split('.');
+        const components = Math.max(flatpakVersions.length, appVersions.length);
+
+        for (var index = 0; index < components; index++) {
+            const _flatpakVersion = parseInt(flatpakVersions[index] || 0, 10);
+            const _appVersion = parseInt(appVersions[index] || 0, 10);
+
+            if (_flatpakVersion < _appVersion)
+                return false;
+            if (_flatpakVersion > _appVersion)
+                return true;
+        }
+
+        return true;
+    }
+
+    _getFlatpakVersion() {
+        const keyFile = new GLib.KeyFile();
+        keyFile.load_from_file(this._flatpakInfoPath, 0);
+        return keyFile.get_value('Instance', 'flatpak-version');
     }
 
     _getSystemInstallationPath() {
@@ -441,12 +472,14 @@ var FlatsealModel = GObject.registerClass({
             const property = pspec.get_name();
             const entry = {};
             const isText = typeof pspec.get_default_value() === 'string';
+            const appVersion = pspec.get_nick();
 
             entry['property'] = property;
             entry['description'] = pspec.get_blurb();
             entry['value'] = this[pspec.get_name().replace(/-/g, '_')];
             entry['type'] = isText ? 'text' : 'state';
             entry['permission'] = property.replace(/-/, '=');
+            entry['supported'] = this._isSupported(appVersion);
 
             list.push(entry);
         });
@@ -476,6 +509,10 @@ var FlatsealModel = GObject.registerClass({
 
     setUserInstallationPath(path) {
         this._userInstallationPath = path;
+    }
+
+    setFlatpakInfoPath(path) {
+        this._flatpakInfoPath = path;
     }
 
     getIconThemePathForAppId(appId) {

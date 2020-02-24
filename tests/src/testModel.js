@@ -14,6 +14,10 @@ const _negationAppId = 'com.test.Negation';
 const _unsupportedAppId = 'com.test.Unsupported';
 const _overridenAppId = 'com.test.Overriden';
 
+const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
+const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
+const _flatpakInfoNew = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.new']);
+
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
@@ -38,6 +42,7 @@ describe('Model', function() {
 
     beforeEach(function() {
         model = new FlatsealModel();
+        model.setFlatpakInfoPath(_flatpakInfo);
         model.setSystemInstallationPath(_system);
         model.setUserInstallationPath(_none);
 
@@ -391,5 +396,31 @@ describe('Model', function() {
         });
 
         update();
+    });
+
+    it('disables all permissions with old flatpak version', function() {
+        model.setFlatpakInfoPath(_flatpakInfoOld);
+        model.setAppId(_basicAppId);
+
+        const permissions = model.listPermissions().filter(p => p.supported);
+
+        expect(permissions.length).toEqual(0);
+    });
+
+    it('enables all permissions with new flatpak version', function() {
+        model.setFlatpakInfoPath(_flatpakInfoNew);
+        model.setAppId(_basicAppId);
+
+        const permissions = model.listPermissions().filter(p => p.supported);
+
+        expect(permissions.length).toEqual(18);
+    });
+
+    it('disables permissions with stable flatpak version', function() {
+        model.setAppId(_basicAppId);
+
+        const permissions = model.listPermissions().filter(p => p.supported);
+
+        expect(permissions.length).toEqual(17);
     });
 });
