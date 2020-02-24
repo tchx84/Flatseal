@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 16:05-0300\n"
+"POT-Creation-Date: 2020-02-24 13:07-0300\n"
 "PO-Revision-Date: 2020-02-01 11:35-0200\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -56,75 +56,75 @@ msgstr "Anwendungen"
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 
-#: src/model.js:36
+#: src/model.js:33
 msgid "Access network"
 msgstr "Zugriff auf das Netzwerk"
 
-#: src/model.js:41
+#: src/model.js:38
 msgid "Access inter-process communications"
 msgstr "Zugriff zu die prozessübergreifende Kommunikation"
 
-#: src/model.js:46
+#: src/model.js:43
 msgid "Access X11 windowing system"
 msgstr "Zugriff auf den X11-Fenstermanager"
 
-#: src/model.js:51
+#: src/model.js:48
 msgid "Access X11 windowing system (as fallback)"
 msgstr "Zugriff auf den X11-Fenstermanager (als Fallback)"
 
-#: src/model.js:56
+#: src/model.js:53
 msgid "Access Wayland windowing system"
 msgstr "Zugriff auf den Wayland-Fenstermanager"
 
-#: src/model.js:61
+#: src/model.js:58
 msgid "Access PulseAudio sound server"
 msgstr "Zugriff auf den PulseAudio-Soundserver"
 
-#: src/model.js:66
+#: src/model.js:63
 msgid "Access D-Bus system bus (unrestricted)"
 msgstr "Zugriff auf den D-Bus-Systembus (uneingeschränkt)"
 
-#: src/model.js:71
+#: src/model.js:68
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "Zugriff auf den D-Bus-Sitzungsbus (uneingeschränkt)"
 
-#: src/model.js:76
+#: src/model.js:73
 msgid "Access Secure Shell agent"
 msgstr "Zugriff auf den Secure Shell Agent"
 
-#: src/model.js:81
+#: src/model.js:78
 msgid "Access printing system"
 msgstr "Zugriff auf die Druckerverwaltung"
 
-#: src/model.js:86
+#: src/model.js:83
 msgid "Access GPU acceleration"
 msgstr "Zugriff auf GPU-Beschleunigung"
 
-#: src/model.js:91
+#: src/model.js:88
 msgid "Access all devices (e.g. webcam)"
 msgstr "Zugriff auf alle Geräte (z.B. Webcam)"
 
-#: src/model.js:96
+#: src/model.js:93
 msgid "Access all system directories (unrestricted)"
 msgstr "Zugriff auf alle Systemverzeichnisse (uneingeschränkt)"
 
-#: src/model.js:101
+#: src/model.js:98
 msgid "Access home directory (unrestricted)"
 msgstr "Zugriff auf das Benutzerverzeichnis (uneingeschränkt)"
 
-#: src/model.js:106
+#: src/model.js:103
 msgid "Access Bluetooth"
 msgstr "Zugriff auf Bluetooth"
 
-#: src/model.js:111
+#: src/model.js:108
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Zugriff auf andere Systemaufrufe (z.B. ptrace)"
 
-#: src/model.js:116
+#: src/model.js:113
 msgid "Access programs from other architectures"
 msgstr "Zugriff auf Programme anderer Architekturen"
 
-#: src/model.js:121
+#: src/model.js:118
 msgid "Access other directories"
 msgstr "Zugriff auf andere Verzeichnisse"
 
@@ -139,6 +139,10 @@ msgstr "Dokumentation"
 #: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "Über Flatseal"
+
+#: src/permissionSwitchRow.js:37
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Wird von der installierten Version von Flatpak nicht unterstützt"
 
 #: src/resetButton.js:33
 msgid "Reset"

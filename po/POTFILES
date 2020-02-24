@@ -5,4 +5,5 @@ src/aboutDialog.ui
 src/window.ui
 src/model.js
 src/menu.ui
+src/permissionSwitchRow.js
 src/resetButton.js
