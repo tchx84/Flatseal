@@ -90,6 +90,7 @@ var FlatsealWindow = GObject.registerClass({
             else
                 row = new FlatsealPermissionSwitchRow(p.description, p.permission, p.value);
 
+            row.sensitive = p.supported;
             this._permissionsBox.add(row);
             this._model.bind_property(p.property, row.content, p.type, _bindFlags);
         });
