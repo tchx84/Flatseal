@@ -2,6 +2,7 @@
 
 ## [unreleased]
 - Added aligning custom filesystems text to the left.
+- Added disabling permissions not supported by the installed version of Flatpak.
 
 ## [1.4.2] - 2020-02-21
 - Added disabling reset button when no permissions changed.
