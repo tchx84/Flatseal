@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-24 13:07-0300\n"
-"PO-Revision-Date: 2020-02-07 20:48+0100\n"
+"PO-Revision-Date: 2020-02-25 00:40+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -142,7 +142,7 @@ msgstr "O aplikaci Flatseal"
 
 #: src/permissionSwitchRow.js:37
 msgid "Not supported by the installed version of Flatpak"
-msgstr "Nainstalovaná verze Flatpak není podporována"
+msgstr "Není podporováno nainstalovanou verzí Flatpaku"
 
 #: src/resetButton.js:33
 msgid "Reset"
