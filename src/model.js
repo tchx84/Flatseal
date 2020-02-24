@@ -144,8 +144,13 @@ var FlatsealModel = GObject.registerClass({
     }
 
     _isSupported(appVersion) {
-        if (this._flatpakVersion === null)
-            this._flatpakVersion = this._getFlatpakVersion();
+        if (this._flatpakVersion === null) {
+            try {
+                this._flatpakVersion = this._getFlatpakVersion();
+            } catch (err) {
+                return true;
+            }
+        }
 
         const flatpakVersions = this._flatpakVersion.split('.');
         const appVersions = appVersion.split('.');

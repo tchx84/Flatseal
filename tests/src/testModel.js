@@ -423,4 +423,13 @@ describe('Model', function() {
 
         expect(permissions.length).toEqual(17);
     });
+
+    it('handles missing .flatpak-info', function() {
+        model.setFlatpakInfoPath(_none);
+        model.setAppId(_basicAppId);
+
+        const permissions = model.listPermissions().filter(p => p.supported);
+
+        expect(permissions.length).toEqual(18);
+    });
 });
