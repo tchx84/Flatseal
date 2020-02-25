@@ -69,7 +69,7 @@ var FlatsealModel = GObject.registerClass({
             _propFlags, false),
         'sockets-ssh-auth': GObject.ParamSpec.boolean(
             'sockets-ssh-auth',
-            '0.99.0',
+            '0.99.1',
             _('Access Secure Shell agent'),
             _propFlags, false),
         'sockets-pcsc': GObject.ParamSpec.boolean(
@@ -134,7 +134,7 @@ var FlatsealModel = GObject.registerClass({
             _propFlags, false),
         'filesystems-custom': GObject.ParamSpec.string(
             'filesystems-custom',
-            '0.4.0',
+            '0.6.14',
             _('Access other directories'),
             _propFlags, ''),
     },
