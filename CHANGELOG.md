@@ -1,8 +1,13 @@
 # Changelog
 
 ## [unreleased]
-- Added aligning custom filesystems text to the left.
 - Added disabling permissions not supported by the installed version of Flatpak.
+- Added CAN bus permission.
+- Added smart cards permission.
+- Added virtualization permission.
+- Added shared memory permission.
+- Changed order of permissions to follow the same order as in Flatpak docs.
+- Changed alignment of custom filesystems text to the left.
 
 ## [1.4.2] - 2020-02-21
 - Added disabling reset button when no permissions changed.
