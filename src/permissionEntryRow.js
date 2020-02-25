@@ -41,10 +41,18 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         this._box.add(this._content);
 
         this._button.connect('clicked', this._add.bind(this));
+        this.connect('notify::sensitive', this._update.bind(this));
     }
 
     _add() {
         this._content.add('');
+    }
+
+    _update() {
+        if (this.sensitive === false)
+            this.set_tooltip_text(_('Not supported by the installed version of Flatpak'));
+        else
+            this.set_tooltip_text('');
     }
 
     get content() {

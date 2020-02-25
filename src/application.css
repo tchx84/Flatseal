@@ -90,6 +90,10 @@
     color: @theme_fg_color;
 }
 
+.permissions .content .path button image:disabled {
+    color: @insensitive_fg_color;
+}
+
 .permissions .content .path.read-only {
     background-color: @theme_bg_color;
 }
