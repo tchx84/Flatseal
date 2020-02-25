@@ -42,45 +42,45 @@ var FlatsealModel = GObject.registerClass({
             '0.4.0',
             _('Access X11 windowing system'),
             _propFlags, false),
-        'sockets-fallback-x11': GObject.ParamSpec.boolean(
-            'sockets-fallback-x11',
-            '0.11.1',
-            _('Access X11 windowing system (as fallback)'),
-            _propFlags, false),
         'sockets-wayland': GObject.ParamSpec.boolean(
             'sockets-wayland',
             '0.4.0',
             _('Access Wayland windowing system'),
+            _propFlags, false),
+        'sockets-fallback-x11': GObject.ParamSpec.boolean(
+            'sockets-fallback-x11',
+            '0.11.1',
+            _('Access X11 windowing system (as fallback)'),
             _propFlags, false),
         'sockets-pulseaudio': GObject.ParamSpec.boolean(
             'sockets-pulseaudio',
             '0.4.0',
             _('Access PulseAudio sound server'),
             _propFlags, false),
-        'sockets-system-bus': GObject.ParamSpec.boolean(
-            'sockets-system-bus',
-            '0.4.0',
-            _('Access D-Bus system bus (unrestricted)'),
-            _propFlags, false),
         'sockets-session-bus': GObject.ParamSpec.boolean(
             'sockets-session-bus',
             '0.4.0',
             _('Access D-Bus session bus (unrestricted)'),
+            _propFlags, false),
+        'sockets-system-bus': GObject.ParamSpec.boolean(
+            'sockets-system-bus',
+            '0.4.0',
+            _('Access D-Bus system bus (unrestricted)'),
             _propFlags, false),
         'sockets-ssh-auth': GObject.ParamSpec.boolean(
             'sockets-ssh-auth',
             '0.99.0',
             _('Access Secure Shell agent'),
             _propFlags, false),
-        'sockets-cups': GObject.ParamSpec.boolean(
-            'sockets-cups',
-            '1.5.2',
-            _('Access printing system'),
-            _propFlags, false),
         'sockets-pcsc': GObject.ParamSpec.boolean(
             'sockets-pcsc',
             '1.3.2',
             _('Access smart cards'),
+            _propFlags, false),
+        'sockets-cups': GObject.ParamSpec.boolean(
+            'sockets-cups',
+            '1.5.2',
+            _('Access printing system'),
             _propFlags, false),
         'devices-dri': GObject.ParamSpec.boolean(
             'devices-dri',
@@ -112,11 +112,6 @@ var FlatsealModel = GObject.registerClass({
             '0.4.0',
             _('Access home directory (unrestricted)'),
             _propFlags, false),
-        'features-bluetooth': GObject.ParamSpec.boolean(
-            'features-bluetooth',
-            '0.11.8',
-            _('Access Bluetooth'),
-            _propFlags, false),
         'features-devel': GObject.ParamSpec.boolean(
             'features-devel',
             '0.6.10',
@@ -126,6 +121,11 @@ var FlatsealModel = GObject.registerClass({
             'features-multiarch',
             '0.6.12',
             _('Access programs from other architectures'),
+            _propFlags, false),
+        'features-bluetooth': GObject.ParamSpec.boolean(
+            'features-bluetooth',
+            '0.11.8',
+            _('Access Bluetooth'),
             _propFlags, false),
         'features-canbus': GObject.ParamSpec.boolean(
             'features-canbus',
