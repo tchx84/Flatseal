@@ -6,4 +6,5 @@ src/window.ui
 src/model.js
 src/menu.ui
 src/permissionSwitchRow.js
+src/permissionEntryRow.js
 src/resetButton.js
