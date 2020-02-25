@@ -5,6 +5,8 @@ setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
 
+const _totalPermissions = 22;
+
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
@@ -83,12 +85,16 @@ describe('Model', function() {
         expect(model.sockets_system_bus).toBeTruthy();
         expect(model.sockets_session_bus).toBeTruthy();
         expect(model.sockets_ssh_auth).toBeTruthy();
+        expect(model.sockets_pcsc).toBeTruthy();
         expect(model.sockets_cups).toBeTruthy();
         expect(model.devices_dri).toBeTruthy();
+        expect(model.devices_kvm).toBeTruthy();
+        expect(model.devices_shm).toBeTruthy();
         expect(model.devices_all).toBeTruthy();
         expect(model.features_bluetooth).toBeTruthy();
         expect(model.features_devel).toBeTruthy();
         expect(model.features_multiarch).toBeTruthy();
+        expect(model.features_canbus).toBeTruthy();
         expect(model.filesystems_host).toBeTruthy();
         expect(model.filesystems_home).toBeTruthy();
         expect(model.filesystems_custom).toEqual('~/test');
@@ -107,12 +113,16 @@ describe('Model', function() {
         expect(model.sockets_system_bus).not.toBeTruthy();
         expect(model.sockets_session_bus).not.toBeTruthy();
         expect(model.sockets_ssh_auth).not.toBeTruthy();
+        expect(model.sockets_pcsc).not.toBeTruthy();
         expect(model.sockets_cups).not.toBeTruthy();
         expect(model.devices_dri).not.toBeTruthy();
+        expect(model.devices_kvm).not.toBeTruthy();
+        expect(model.devices_shm).not.toBeTruthy();
         expect(model.devices_all).not.toBeTruthy();
         expect(model.features_bluetooth).not.toBeTruthy();
         expect(model.features_devel).not.toBeTruthy();
         expect(model.features_multiarch).not.toBeTruthy();
+        expect(model.features_canbus).not.toBeTruthy();
         expect(model.filesystems_host).not.toBeTruthy();
         expect(model.filesystems_home).not.toBeTruthy();
         expect(model.filesystems_custom).toEqual('');
@@ -413,7 +423,7 @@ describe('Model', function() {
 
         const permissions = model.listPermissions().filter(p => p.supported);
 
-        expect(permissions.length).toEqual(18);
+        expect(permissions.length).toEqual(_totalPermissions);
     });
 
     it('disables permissions with stable flatpak version', function() {
@@ -421,7 +431,7 @@ describe('Model', function() {
 
         const permissions = model.listPermissions().filter(p => p.supported);
 
-        expect(permissions.length).toEqual(17);
+        expect(permissions.length).toEqual(_totalPermissions - 4);
     });
 
     it('handles missing .flatpak-info', function() {
@@ -430,6 +440,6 @@ describe('Model', function() {
 
         const permissions = model.listPermissions().filter(p => p.supported);
 
-        expect(permissions.length).toEqual(18);
+        expect(permissions.length).toEqual(_totalPermissions);
     });
 });
