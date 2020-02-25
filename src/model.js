@@ -77,6 +77,11 @@ var FlatsealModel = GObject.registerClass({
             '1.5.2',
             _('Access printing system'),
             _propFlags, false),
+        'sockets-pcsc': GObject.ParamSpec.boolean(
+            'sockets-pcsc',
+            '1.3.2',
+            _('Access smart cards'),
+            _propFlags, false),
         'devices-dri': GObject.ParamSpec.boolean(
             'devices-dri',
             '0.4.0',
