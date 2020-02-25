@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-24 13:07-0300\n"
+"POT-Creation-Date: 2020-02-25 13:00-0300\n"
 "PO-Revision-Date: 2020-02-25 00:40+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
@@ -69,62 +69,78 @@ msgid "Access X11 windowing system"
 msgstr "Přístup k okennímu systému X11"
 
 #: src/model.js:48
-msgid "Access X11 windowing system (as fallback)"
-msgstr "Přístup k okennímu systému X11 (jako rezerva)"
-
-#: src/model.js:53
 msgid "Access Wayland windowing system"
 msgstr "Přístup k okennímu systému Wayland"
+
+#: src/model.js:53
+msgid "Access X11 windowing system (as fallback)"
+msgstr "Přístup k okennímu systému X11 (jako rezerva)"
 
 #: src/model.js:58
 msgid "Access PulseAudio sound server"
 msgstr "Přístup ke zvukovému serveru PulseAudio"
 
 #: src/model.js:63
-msgid "Access D-Bus system bus (unrestricted)"
-msgstr "Přístup k systémové sběrnici D-Bus (neomezený)"
-
-#: src/model.js:68
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "Přístup ke sběrnici sezení D-Bus (neomezený)"
+
+#: src/model.js:68
+msgid "Access D-Bus system bus (unrestricted)"
+msgstr "Přístup k systémové sběrnici D-Bus (neomezený)"
 
 #: src/model.js:73
 msgid "Access Secure Shell agent"
 msgstr "Přístup k agentu Zabezpečeného Shellu"
 
 #: src/model.js:78
+msgid "Access smart cards"
+msgstr "Přístup k chytrým kartám"
+
+#: src/model.js:83
 msgid "Access printing system"
 msgstr "Přístup k tiskovému systému"
 
-#: src/model.js:83
+#: src/model.js:88
 msgid "Access GPU acceleration"
 msgstr "Přístup k akceleraci GPU"
 
-#: src/model.js:88
+#: src/model.js:93
+msgid "Access virtualization"
+msgstr "Přístup k virtualizaci"
+
+#: src/model.js:98
+msgid "Access shared memory (e.g. JACK sound server)"
+msgstr "Přístup ke sdílené paměti (např. Zvukový server JACK)"
+
+#: src/model.js:103
 msgid "Access all devices (e.g. webcam)"
 msgstr "Přístup ke všem zařízením (např. webkameře)"
 
-#: src/model.js:93
+#: src/model.js:108
 msgid "Access all system directories (unrestricted)"
 msgstr "Přístup ke všem systémovým adresářům (neomezený)"
 
-#: src/model.js:98
+#: src/model.js:113
 msgid "Access home directory (unrestricted)"
 msgstr "Přístup k domovskému adresáři (neomezený)"
 
-#: src/model.js:103
-msgid "Access Bluetooth"
-msgstr "Přístup k Bluetooth"
-
-#: src/model.js:108
+#: src/model.js:118
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Přístup k jiným systémovým voláním (např. ptrace)"
 
-#: src/model.js:113
+#: src/model.js:123
 msgid "Access programs from other architectures"
 msgstr "Přístup k programům z jiných architektur"
 
-#: src/model.js:118
+#: src/model.js:128
+msgid "Access Bluetooth"
+msgstr "Přístup k Bluetooth"
+
+#: src/model.js:133
+msgid "Access CAN bus"
+msgstr "Přístup na sběrnici CAN"
+
+#: src/model.js:138
 msgid "Access other directories"
 msgstr "Přístup k jiným adresářům"
 
@@ -140,7 +156,7 @@ msgstr "Dokumentace"
 msgid "About Flatseal"
 msgstr "O aplikaci Flatseal"
 
-#: src/permissionSwitchRow.js:37
+#: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Není podporováno nainstalovanou verzí Flatpaku"
 

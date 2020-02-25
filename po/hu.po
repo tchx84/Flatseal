@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-24 13:07-0300\n"
+"POT-Creation-Date: 2020-02-25 13:00-0300\n"
 "PO-Revision-Date: 2020-02-01 03:47-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -67,62 +67,78 @@ msgid "Access X11 windowing system"
 msgstr "Az X11 ablakrendszer hozzáférése"
 
 #: src/model.js:48
-msgid "Access X11 windowing system (as fallback)"
-msgstr "Az X11 ablakrendszer hozzáférése (tartalékként)"
-
-#: src/model.js:53
 msgid "Access Wayland windowing system"
 msgstr "A Wayland ablakrendszer hozzáférése"
+
+#: src/model.js:53
+msgid "Access X11 windowing system (as fallback)"
+msgstr "Az X11 ablakrendszer hozzáférése (tartalékként)"
 
 #: src/model.js:58
 msgid "Access PulseAudio sound server"
 msgstr "A PulseAudio hangkiszolgáló hozzáférése"
 
 #: src/model.js:63
-msgid "Access D-Bus system bus (unrestricted)"
-msgstr "A D-Bus rendszer busz hozzáférése (korlátlan)"
-
-#: src/model.js:68
 msgid "Access D-Bus session bus (unrestricted)"
 msgstr "A D-Bus munkamenet busz hozzáférése (korlátlan)"
+
+#: src/model.js:68
+msgid "Access D-Bus system bus (unrestricted)"
+msgstr "A D-Bus rendszer busz hozzáférése (korlátlan)"
 
 #: src/model.js:73
 msgid "Access Secure Shell agent"
 msgstr "A Secure Shell ügynök hozzáférése"
 
 #: src/model.js:78
+msgid "Access smart cards"
+msgstr "Hozzáférés az intelligens kártyákhoz"
+
+#: src/model.js:83
 msgid "Access printing system"
 msgstr "A nyomtatási rendszer hozzáférése"
 
-#: src/model.js:83
+#: src/model.js:88
 msgid "Access GPU acceleration"
 msgstr "GPU gyorsítási hozzáférése"
 
-#: src/model.js:88
+#: src/model.js:93
+msgid "Access virtualization"
+msgstr "Hozzáférés a virtualizációhoz"
+
+#: src/model.js:98
+msgid "Access shared memory (e.g. JACK sound server)"
+msgstr "Hozzáférés a megosztott memóriához (pl. JACK hangszerver)"
+
+#: src/model.js:103
 msgid "Access all devices (e.g. webcam)"
 msgstr "Az összes eszköz hozzáférése (pl. webkamera)"
 
-#: src/model.js:93
+#: src/model.js:108
 msgid "Access all system directories (unrestricted)"
 msgstr "Az összes rendszerkönyvtár hozzáférése (korlátlan)"
 
-#: src/model.js:98
+#: src/model.js:113
 msgid "Access home directory (unrestricted)"
 msgstr "Az otthoni könyvtár hozzáférése (korlátlan)"
 
-#: src/model.js:103
-msgid "Access Bluetooth"
-msgstr "Bluetooth hozzáférése"
-
-#: src/model.js:108
+#: src/model.js:118
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Más rendszerhívások hozzáférése (pl. ptrace)"
 
-#: src/model.js:113
+#: src/model.js:123
 msgid "Access programs from other architectures"
 msgstr "Más architektúrák programjaihoz hozzáférése"
 
-#: src/model.js:118
+#: src/model.js:128
+msgid "Access Bluetooth"
+msgstr "Bluetooth hozzáférése"
+
+#: src/model.js:133
+msgid "Access CAN bus"
+msgstr "Hozzáférés a CAN buszhoz"
+
+#: src/model.js:138
 msgid "Access other directories"
 msgstr "Egyéb könyvtárak hozzáférése"
 
@@ -138,7 +154,7 @@ msgstr "Dokumentáció"
 msgid "About Flatseal"
 msgstr "A Flatseal névjegye"
 
-#: src/permissionSwitchRow.js:37
+#: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
 msgid "Not supported by the installed version of Flatpak"
 msgstr "A Flatpak telepített verziója nem támogatja"
 
