@@ -92,6 +92,11 @@ var FlatsealModel = GObject.registerClass({
             '0.6.12',
             _('Access virtualization'),
             _propFlags, false),
+        'devices-shm': GObject.ParamSpec.boolean(
+            'devices-shm',
+            '1.6.1',
+            _('Access shared memory (e.g. JACK sound server)'),
+            _propFlags, false),
         'devices-all': GObject.ParamSpec.boolean(
             'devices-all',
             '0.6.6',
