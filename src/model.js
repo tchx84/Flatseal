@@ -87,6 +87,11 @@ var FlatsealModel = GObject.registerClass({
             '0.4.0',
             _('Access GPU acceleration'),
             _propFlags, false),
+        'devices-kvm': GObject.ParamSpec.boolean(
+            'devices-kvm',
+            '0.6.12',
+            _('Access virtualization'),
+            _propFlags, false),
         'devices-all': GObject.ParamSpec.boolean(
             'devices-all',
             '0.6.6',
