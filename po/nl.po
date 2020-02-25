@@ -109,7 +109,7 @@ msgstr "Toegang tot virtualisatie"
 
 #: src/model.js:98
 msgid "Access shared memory (e.g. JACK sound server)"
-msgstr "Toegang tot gedeeld geheugen (bijv. JACK sound server)"
+msgstr "Toegang tot gedeeld geheugen (bijv. JACK-geluidsserver)"
 
 #: src/model.js:103
 msgid "Access all devices (e.g. webcam)"
@@ -169,4 +169,4 @@ msgstr "Herstel alle toepassingsmachtigingen"
 
 #: src/resetButton.js:43
 msgid "No changes made to this application"
-msgstr "Geen wijzigingen aangebracht in deze applicatie"
+msgstr "Geen wijzigingen aangebracht aan deze toepassing"
