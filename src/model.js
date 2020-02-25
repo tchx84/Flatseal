@@ -112,6 +112,11 @@ var FlatsealModel = GObject.registerClass({
             '0.6.12',
             _('Access programs from other architectures'),
             _propFlags, false),
+        'features-canbus': GObject.ParamSpec.boolean(
+            'features-canbus',
+            '1.0.3',
+            _('Access CAN bus'),
+            _propFlags, false),
         'filesystems-custom': GObject.ParamSpec.string(
             'filesystems-custom',
             '0.4.0',
