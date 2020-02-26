@@ -76,25 +76,25 @@ describe('Model', function() {
     it('loads permissions', function() {
         model.setAppId(_basicAppId);
 
-        expect(model.shared_network).toBeTruthy();
-        expect(model.shared_ipc).toBeTruthy();
-        expect(model.sockets_x11).toBeTruthy();
-        expect(model.sockets_fallback_x11).toBeTruthy();
-        expect(model.sockets_wayland).toBeTruthy();
-        expect(model.sockets_pulseaudio).toBeTruthy();
-        expect(model.sockets_system_bus).toBeTruthy();
-        expect(model.sockets_session_bus).toBeTruthy();
-        expect(model.sockets_ssh_auth).toBeTruthy();
-        expect(model.sockets_pcsc).toBeTruthy();
-        expect(model.sockets_cups).toBeTruthy();
-        expect(model.devices_dri).toBeTruthy();
-        expect(model.devices_kvm).toBeTruthy();
-        expect(model.devices_shm).toBeTruthy();
-        expect(model.devices_all).toBeTruthy();
-        expect(model.features_bluetooth).toBeTruthy();
-        expect(model.features_devel).toBeTruthy();
-        expect(model.features_multiarch).toBeTruthy();
-        expect(model.features_canbus).toBeTruthy();
+        expect(model.shared_network).toBe(true);
+        expect(model.shared_ipc).toBe(true);
+        expect(model.sockets_x11).toBe(true);
+        expect(model.sockets_fallback_x11).toBe(true);
+        expect(model.sockets_wayland).toBe(true);
+        expect(model.sockets_pulseaudio).toBe(true);
+        expect(model.sockets_system_bus).toBe(true);
+        expect(model.sockets_session_bus).toBe(true);
+        expect(model.sockets_ssh_auth).toBe(true);
+        expect(model.sockets_pcsc).toBe(true);
+        expect(model.sockets_cups).toBe(true);
+        expect(model.devices_dri).toBe(true);
+        expect(model.devices_kvm).toBe(true);
+        expect(model.devices_shm).toBe(true);
+        expect(model.devices_all).toBe(true);
+        expect(model.features_bluetooth).toBe(true);
+        expect(model.features_devel).toBe(true);
+        expect(model.features_multiarch).toBe(true);
+        expect(model.features_canbus).toBe(true);
         expect(model.filesystems_custom).toEqual('host;home;~/test');
     });
 
@@ -102,25 +102,25 @@ describe('Model', function() {
         model.setUserInstallationPath(_user);
         model.setAppId(_basicAppId);
 
-        expect(model.shared_network).not.toBeTruthy();
-        expect(model.shared_ipc).not.toBeTruthy();
-        expect(model.sockets_x11).not.toBeTruthy();
-        expect(model.sockets_fallback_x11).not.toBeTruthy();
-        expect(model.sockets_wayland).not.toBeTruthy();
-        expect(model.sockets_pulseaudio).not.toBeTruthy();
-        expect(model.sockets_system_bus).not.toBeTruthy();
-        expect(model.sockets_session_bus).not.toBeTruthy();
-        expect(model.sockets_ssh_auth).not.toBeTruthy();
-        expect(model.sockets_pcsc).not.toBeTruthy();
-        expect(model.sockets_cups).not.toBeTruthy();
-        expect(model.devices_dri).not.toBeTruthy();
-        expect(model.devices_kvm).not.toBeTruthy();
-        expect(model.devices_shm).not.toBeTruthy();
-        expect(model.devices_all).not.toBeTruthy();
-        expect(model.features_bluetooth).not.toBeTruthy();
-        expect(model.features_devel).not.toBeTruthy();
-        expect(model.features_multiarch).not.toBeTruthy();
-        expect(model.features_canbus).not.toBeTruthy();
+        expect(model.shared_network).toBe(false);
+        expect(model.shared_ipc).toBe(false);
+        expect(model.sockets_x11).toBe(false);
+        expect(model.sockets_fallback_x11).toBe(false);
+        expect(model.sockets_wayland).toBe(false);
+        expect(model.sockets_pulseaudio).toBe(false);
+        expect(model.sockets_system_bus).toBe(false);
+        expect(model.sockets_session_bus).toBe(false);
+        expect(model.sockets_ssh_auth).toBe(false);
+        expect(model.sockets_pcsc).toBe(false);
+        expect(model.sockets_cups).toBe(false);
+        expect(model.devices_dri).toBe(false);
+        expect(model.devices_kvm).toBe(false);
+        expect(model.devices_shm).toBe(false);
+        expect(model.devices_all).toBe(false);
+        expect(model.features_bluetooth).toBe(false);
+        expect(model.features_devel).toBe(false);
+        expect(model.features_multiarch).toBe(false);
+        expect(model.features_canbus).toBe(false);
         expect(model.filesystems_custom).toEqual('');
     });
 
@@ -148,21 +148,21 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_overridenAppId);
 
-        expect(model.shared_network).not.toBeTruthy();
-        expect(model.shared_ipc).toBeTruthy();
-        expect(model.sockets_x11).not.toBeTruthy();
-        expect(model.sockets_fallback_x11).toBeTruthy();
-        expect(model.sockets_wayland).toBeTruthy();
-        expect(model.sockets_pulseaudio).toBeTruthy();
-        expect(model.sockets_system_bus).toBeTruthy();
-        expect(model.sockets_session_bus).toBeTruthy();
-        expect(model.sockets_ssh_auth).toBeTruthy();
-        expect(model.sockets_cups).toBeTruthy();
-        expect(model.devices_dri).not.toBeTruthy();
-        expect(model.devices_all).toBeTruthy();
-        expect(model.features_bluetooth).not.toBeTruthy();
-        expect(model.features_devel).toBeTruthy();
-        expect(model.features_multiarch).toBeTruthy();
+        expect(model.shared_network).toBe(false);
+        expect(model.shared_ipc).toBe(true);
+        expect(model.sockets_x11).toBe(false);
+        expect(model.sockets_fallback_x11).toBe(true);
+        expect(model.sockets_wayland).toBe(true);
+        expect(model.sockets_pulseaudio).toBe(true);
+        expect(model.sockets_system_bus).toBe(true);
+        expect(model.sockets_session_bus).toBe(true);
+        expect(model.sockets_ssh_auth).toBe(true);
+        expect(model.sockets_cups).toBe(true);
+        expect(model.devices_dri).toBe(false);
+        expect(model.devices_all).toBe(true);
+        expect(model.features_bluetooth).toBe(false);
+        expect(model.features_devel).toBe(true);
+        expect(model.features_multiarch).toBe(true);
         expect(model.filesystems_custom).toEqual('~/tset');
     });
 
@@ -207,7 +207,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', 'xdg-downloads:ro');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBeTruthy();
+            expect(hasOnly(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -224,7 +224,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', 'xdg-pictures:rw');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBeTruthy();
+            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -241,7 +241,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', 'xdg-pictures');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBeTruthy();
+            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -258,7 +258,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '!~/negative');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -275,7 +275,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -292,7 +292,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '!~/negative;!~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -309,7 +309,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '~/negative;~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBeTruthy();
+            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -326,7 +326,7 @@ describe('Model', function() {
         model.set_property('filesystems-custom', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_unsupportedOverride, GROUP, _key, '!~/unsupported')).toBeTruthy();
+            expect(hasOnly(_unsupportedOverride, GROUP, _key, '!~/unsupported')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });

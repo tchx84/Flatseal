@@ -26,35 +26,35 @@ describe('FlatsealPathRow', function() {
         row.text = 'home:ro';
         const context = row.get_style_context();
 
-        expect(context.has_class(mode.READONLY)).toBeTruthy();
-        expect(context.has_class(mode.READWRITE)).not.toBeTruthy();
-        expect(context.has_class(mode.CREATE)).not.toBeTruthy();
+        expect(context.has_class(mode.READONLY)).toBe(true);
+        expect(context.has_class(mode.READWRITE)).toBe(false);
+        expect(context.has_class(mode.CREATE)).toBe(false);
     });
 
     it('sets ready-write style class', function() {
         row.text = 'home:rw';
         const context = row.get_style_context();
 
-        expect(context.has_class(mode.READONLY)).not.toBeTruthy();
-        expect(context.has_class(mode.READWRITE)).toBeTruthy();
-        expect(context.has_class(mode.CREATE)).not.toBeTruthy();
+        expect(context.has_class(mode.READONLY)).toBe(false);
+        expect(context.has_class(mode.READWRITE)).toBe(true);
+        expect(context.has_class(mode.CREATE)).toBe(false);
     });
 
     it('sets ready-write style class (default)', function() {
         row.text = 'home';
         const context = row.get_style_context();
 
-        expect(context.has_class(mode.READONLY)).not.toBeTruthy();
-        expect(context.has_class(mode.READWRITE)).toBeTruthy();
-        expect(context.has_class(mode.CREATE)).not.toBeTruthy();
+        expect(context.has_class(mode.READONLY)).toBe(false);
+        expect(context.has_class(mode.READWRITE)).toBe(true);
+        expect(context.has_class(mode.CREATE)).toBe(false);
     });
 
     it('sets create style class', function() {
         row.text = 'home:create';
         const context = row.get_style_context();
 
-        expect(context.has_class(mode.READONLY)).not.toBeTruthy();
-        expect(context.has_class(mode.READWRITE)).not.toBeTruthy();
-        expect(context.has_class(mode.CREATE)).toBeTruthy();
+        expect(context.has_class(mode.READONLY)).toBe(false);
+        expect(context.has_class(mode.READWRITE)).toBe(false);
+        expect(context.has_class(mode.CREATE)).toBe(true);
     });
 });
