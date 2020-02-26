@@ -93,6 +93,11 @@
     background-image: -gtk-icontheme("dialog-question-symbolic");
 }
 
+.permissions .content .path.not-valid .info {
+    color: @warning_color;
+    background-image: -gtk-icontheme("dialog-warning-symbolic");
+}
+
 .permissions .content .path button image {
     color: @theme_fg_color;
 }
