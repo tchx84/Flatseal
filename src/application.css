@@ -86,6 +86,13 @@
    box-shadow: none;
 }
 
+.permissions .content .path .info {
+    margin-left: 10px;
+    color: @theme_selected_bg_color;
+    background-color: transparent;
+    background-image: -gtk-icontheme("dialog-question-symbolic");
+}
+
 .permissions .content .path button image {
     color: @theme_fg_color;
 }
