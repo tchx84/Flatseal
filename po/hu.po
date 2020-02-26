@@ -64,7 +64,7 @@ msgstr "A folyamatok közötti kommunikáció hozzáférése"
 
 #: src/model.js:43
 msgid "Access X11 windowing system"
-msgstr "Az X11 ablakrendszer hozzáférése"
+msgstr "A X11 ablakrendszer hozzáférése"
 
 #: src/model.js:48
 msgid "Access Wayland windowing system"
@@ -72,7 +72,7 @@ msgstr "A Wayland ablakrendszer hozzáférése"
 
 #: src/model.js:53
 msgid "Access X11 windowing system (as fallback)"
-msgstr "Az X11 ablakrendszer hozzáférése (tartalékként)"
+msgstr "A X11 ablakrendszer hozzáférése (tartalékként)"
 
 #: src/model.js:58
 msgid "Access PulseAudio sound server"
@@ -92,7 +92,7 @@ msgstr "A Secure Shell ügynök hozzáférése"
 
 #: src/model.js:78
 msgid "Access smart cards"
-msgstr "Hozzáférés az intelligens kártyákhoz"
+msgstr "Az intelligens kártyák hozzáférése"
 
 #: src/model.js:83
 msgid "Access printing system"
@@ -104,11 +104,11 @@ msgstr "GPU gyorsítási hozzáférése"
 
 #: src/model.js:93
 msgid "Access virtualization"
-msgstr "Hozzáférés a virtualizációhoz"
+msgstr "A virtualizáció hozzáférése"
 
 #: src/model.js:98
 msgid "Access shared memory (e.g. JACK sound server)"
-msgstr "Hozzáférés a megosztott memóriához (pl. JACK hangszerver)"
+msgstr "A megosztott memória hozzáférése (pl. JACK hang kiszolgáló)"
 
 #: src/model.js:103
 msgid "Access all devices (e.g. webcam)"
@@ -136,7 +136,7 @@ msgstr "Bluetooth hozzáférése"
 
 #: src/model.js:133
 msgid "Access CAN bus"
-msgstr "Hozzáférés a CAN buszhoz"
+msgstr "A CAN-busz hozzáférése"
 
 #: src/model.js:138
 msgid "Access other directories"
