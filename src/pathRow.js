@@ -20,17 +20,41 @@ const {GObject, Gtk} = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
+const _options = {
+    '/': _('this arbitrary absolute path'),
+    '~/': _('this arbitrary path relative to the home directory'),
+    host: _('all system files'),
+    home: _('all user files'),
+    'xdg-desktop': _('the desktop directory'),
+    'xdg-documents': _('the documents directory'),
+    'xdg-download': _('the download directory'),
+    'xdg-music': _('the music directory'),
+    'xdg-pictures': _('the pictures directory'),
+    'xdg-public-share': _('the public directory'),
+    'xdg-videos': _('the videos directory'),
+    'xdg-templates': _('the templates directory'),
+    'xdg-config': _('the config directory'),
+    'xdg-cache': _('the cache directory'),
+    'xdg-data': _('the data directory'),
+    'xdg-run': _('the runtime directory'),
+};
+
 var mode = {
     READONLY: 'read-only',
     READWRITE: 'read-write',
     CREATE: 'create',
 };
 
+const _modeDescription = {
+    'read-only': _('Can read: %s'),
+    'read-write': _('Can modify and read: %s'),
+    create: _('Can create, modify and read: %s'),
+};
 
 var FlatsealPathRow = GObject.registerClass({
     GTypeName: 'FlatsealPathRow',
     Template: 'resource:///com/github/tchx84/Flatseal/pathRow.ui',
-    InternalChildren: ['entry', 'button'],
+    InternalChildren: ['entry', 'button', 'store', 'image'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
@@ -50,6 +74,14 @@ var FlatsealPathRow = GObject.registerClass({
     _init() {
         this._mode = mode.READONLY;
         super._init({});
+        this._setup();
+    }
+
+    _setup() {
+        Object.keys(_options).forEach(option => {
+            this._store.set(this._store.append(), [0], [option]);
+        });
+
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
     }
@@ -64,12 +96,27 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _update() {
+        var modeMsg = '';
+        var optionMsg = '';
+
         if (this.text.endsWith(':ro'))
             this.mode = mode.READONLY;
         else if (this.text.endsWith(':create'))
             this.mode = mode.CREATE;
         else
             this.mode = mode.READWRITE;
+
+        modeMsg = _modeDescription[this.mode];
+
+        Object.keys(_options).some(option => {
+            if (this.text.startsWith(option)) {
+                optionMsg = _options[option];
+                return true;
+            }
+            return false;
+        });
+
+        this._image.set_tooltip_text(modeMsg.format(optionMsg));
     }
 
     get text() {
