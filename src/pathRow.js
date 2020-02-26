@@ -45,11 +45,17 @@ var mode = {
     CREATE: 'create',
 };
 
+var validity = {
+    VALID: 'valid',
+    NOTVALID: 'not-valid',
+};
+
 const _modeDescription = {
     'read-only': _('Can read: %s'),
     'read-write': _('Can modify and read: %s'),
     create: _('Can create, modify and read: %s'),
 };
+
 
 var FlatsealPathRow = GObject.registerClass({
     GTypeName: 'FlatsealPathRow',
@@ -92,6 +98,7 @@ var FlatsealPathRow = GObject.registerClass({
 
     _changed() {
         this._update();
+        this._validate();
         this.notify('text');
     }
 
@@ -119,6 +126,32 @@ var FlatsealPathRow = GObject.registerClass({
         this._image.set_tooltip_text(modeMsg.format(optionMsg));
     }
 
+    _validate() {
+        const context = this.get_style_context();
+
+        if (context.has_class(validity.VALID))
+            context.remove_class(validity.VALID);
+        else if (context.has_class(validity.NOTVALID))
+            context.remove_class(validity.NOTVALID);
+
+        const paths = Object.keys(_options).slice(0, 2).join('|');
+        const pathRE = new RegExp(`^(${paths})([^/ ]+(/)?)+$`);
+
+        const options = Object.keys(_options).slice(2).join('|');
+        const optionRE = new RegExp(`^(${options})((:.*)|((/)[^/ ]+)*)$`);
+
+        const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');
+        const modeRE = new RegExp(modes);
+
+        if ((pathRE.test(this.text) || optionRE.test(this.text)) && modeRE.test(this.text)) {
+            context.add_class(validity.VALID);
+            return;
+        }
+
+        context.add_class(validity.NOTVALID);
+        this._image.set_tooltip_text(_('This is not a valid option'));
+    }
+
     get text() {
         if (!this._entry)
             return '';
@@ -132,6 +165,7 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._entry.set_text(text);
         this._update();
+        this._validate();
     }
 
     get mode() {
