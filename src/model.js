@@ -125,7 +125,7 @@ var FlatsealModel = GObject.registerClass({
         'filesystems-custom': GObject.ParamSpec.string(
             'filesystems-custom',
             '0.6.14',
-            _('Access other directories'),
+            _('Access files'),
             _propFlags, ''),
     },
     Signals: {
