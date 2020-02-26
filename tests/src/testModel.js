@@ -5,7 +5,7 @@ setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
 
-const _totalPermissions = 22;
+const _totalPermissions = 20;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -95,9 +95,7 @@ describe('Model', function() {
         expect(model.features_devel).toBeTruthy();
         expect(model.features_multiarch).toBeTruthy();
         expect(model.features_canbus).toBeTruthy();
-        expect(model.filesystems_host).toBeTruthy();
-        expect(model.filesystems_home).toBeTruthy();
-        expect(model.filesystems_custom).toEqual('~/test');
+        expect(model.filesystems_custom).toEqual('host;home;~/test');
     });
 
     it('loads overrides', function() {
@@ -123,8 +121,6 @@ describe('Model', function() {
         expect(model.features_devel).not.toBeTruthy();
         expect(model.features_multiarch).not.toBeTruthy();
         expect(model.features_canbus).not.toBeTruthy();
-        expect(model.filesystems_host).not.toBeTruthy();
-        expect(model.filesystems_home).not.toBeTruthy();
         expect(model.filesystems_custom).toEqual('');
     });
 
@@ -137,7 +133,6 @@ describe('Model', function() {
         model.set_property('devices_dri', false);
         model.set_property('shared-network', false);
         model.set_property('features-bluetooth', false);
-        model.set_property('filesystems-host', false);
         model.set_property('filesystems-custom', '~/tset');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
@@ -168,8 +163,6 @@ describe('Model', function() {
         expect(model.features_bluetooth).not.toBeTruthy();
         expect(model.features_devel).toBeTruthy();
         expect(model.features_multiarch).toBeTruthy();
-        expect(model.filesystems_host).not.toBeTruthy();
-        expect(model.filesystems_home).toBeTruthy();
         expect(model.filesystems_custom).toEqual('~/tset');
     });
 
