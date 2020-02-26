@@ -102,16 +102,6 @@ var FlatsealModel = GObject.registerClass({
             '0.6.6',
             _('Access all devices (e.g. webcam)'),
             _propFlags, false),
-        'filesystems-host': GObject.ParamSpec.boolean(
-            'filesystems-host',
-            '0.4.0',
-            _('Access all system directories (unrestricted)'),
-            _propFlags, false),
-        'filesystems-home': GObject.ParamSpec.boolean(
-            'filesystems-home',
-            '0.4.0',
-            _('Access home directory (unrestricted)'),
-            _propFlags, false),
         'features-devel': GObject.ParamSpec.boolean(
             'features-devel',
             '0.6.10',
@@ -368,7 +358,6 @@ var FlatsealModel = GObject.registerClass({
                 value = permissions
                     .filter(p => p.startsWith(`${key}=`))
                     .map(p => p.split('=')[1])
-                    .filter(p => ['home', 'host'].indexOf(p) === -1)
                     .join(';');
             } else {
                 value = permissions.indexOf(permission) !== -1;
