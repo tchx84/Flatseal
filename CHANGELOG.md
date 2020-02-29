@@ -6,8 +6,12 @@
 - Added smart cards permission.
 - Added virtualization permission.
 - Added shared memory permission.
+- Added displaying human-readable description for filesystem permissions.
+- Added validating filesystem permission paths.
+- Removed switch options for home and host filesystem permisions.
 - Changed order of permissions to follow the same order as in Flatpak docs.
 - Changed alignment of custom filesystems text to the left.
+- Fix constrast in applications icons.
 
 ## [1.4.2] - 2020-02-21
 - Added disabling reset button when no permissions changed.
