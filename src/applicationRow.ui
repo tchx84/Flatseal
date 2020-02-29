@@ -27,6 +27,7 @@
                 <property name="icon_size">0</property>
                 <style>
                   <class name="icon"/>
+                  <class name="lowres-icon"/>
                 </style>
               </object>
               <packing>
