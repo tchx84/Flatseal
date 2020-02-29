@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 13:00-0300\n"
+"POT-Creation-Date: 2020-02-29 17:39-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,31 +113,23 @@ msgid "Access all devices (e.g. webcam)"
 msgstr ""
 
 #: src/model.js:108
-msgid "Access all system directories (unrestricted)"
-msgstr ""
-
-#: src/model.js:113
-msgid "Access home directory (unrestricted)"
-msgstr ""
-
-#: src/model.js:118
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr ""
 
-#: src/model.js:123
+#: src/model.js:113
 msgid "Access programs from other architectures"
 msgstr ""
 
-#: src/model.js:128
+#: src/model.js:118
 msgid "Access Bluetooth"
 msgstr ""
 
-#: src/model.js:133
+#: src/model.js:123
 msgid "Access CAN bus"
 msgstr ""
 
-#: src/model.js:138
-msgid "Access other directories"
+#: src/model.js:128
+msgid "Access files"
 msgstr ""
 
 #: src/menu.ui:7
@@ -150,6 +142,85 @@ msgstr ""
 
 #: src/menu.ui:15
 msgid "About Flatseal"
+msgstr ""
+
+#: src/pathRow.js:24
+msgid "this arbitrary absolute path"
+msgstr ""
+
+#: src/pathRow.js:25
+msgid "this arbitrary path relative to the home directory"
+msgstr ""
+
+#: src/pathRow.js:26
+msgid "all system files"
+msgstr ""
+
+#: src/pathRow.js:27
+msgid "all user files"
+msgstr ""
+
+#: src/pathRow.js:28
+msgid "the desktop directory"
+msgstr ""
+
+#: src/pathRow.js:29
+msgid "the documents directory"
+msgstr ""
+
+#: src/pathRow.js:30
+msgid "the download directory"
+msgstr ""
+
+#: src/pathRow.js:31
+msgid "the music directory"
+msgstr ""
+
+#: src/pathRow.js:32
+msgid "the pictures directory"
+msgstr ""
+
+#: src/pathRow.js:33
+msgid "the public directory"
+msgstr ""
+
+#: src/pathRow.js:34
+msgid "the videos directory"
+msgstr ""
+
+#: src/pathRow.js:35
+msgid "the templates directory"
+msgstr ""
+
+#: src/pathRow.js:36
+msgid "the config directory"
+msgstr ""
+
+#: src/pathRow.js:37
+msgid "the cache directory"
+msgstr ""
+
+#: src/pathRow.js:38
+msgid "the data directory"
+msgstr ""
+
+#: src/pathRow.js:39
+msgid "the runtime directory"
+msgstr ""
+
+#: src/pathRow.js:54
+#, javascript-format
+msgid "Can read: %s"
+msgstr ""
+
+#: src/pathRow.js:55
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr ""
+
+#: src/pathRow.js:56
+#, javascript-format
+msgid "Can create, modify and read: %s"
 msgstr ""
 
 #: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53

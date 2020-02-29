@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 13:00-0300\n"
+"POT-Creation-Date: 2020-02-29 17:39-0300\n"
 "PO-Revision-Date: 2020-02-09 18:03+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -116,32 +116,24 @@ msgid "Access all devices (e.g. webcam)"
 msgstr "Toegang tot alle apparaten (bijv. webcam)"
 
 #: src/model.js:108
-msgid "Access all system directories (unrestricted)"
-msgstr "Toegang tot alle systeemmappen (ongelimiteerd)"
-
-#: src/model.js:113
-msgid "Access home directory (unrestricted)"
-msgstr "Toegang tot je persoonlijke map (ongelimiteerd)"
-
-#: src/model.js:118
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Toegang tot andere systeemaanroepingen (bijv. ptrace)"
 
-#: src/model.js:123
+#: src/model.js:113
 msgid "Access programs from other architectures"
 msgstr "Toegang tot toepassingen van andere architecturen"
 
-#: src/model.js:128
+#: src/model.js:118
 msgid "Access Bluetooth"
 msgstr "Toegang tot Bluetooth"
 
-#: src/model.js:133
+#: src/model.js:123
 msgid "Access CAN bus"
 msgstr "Toegang tot de CAN-bus"
 
-#: src/model.js:138
-msgid "Access other directories"
-msgstr "Toegang tot overige mappen"
+#: src/model.js:128
+msgid "Access files"
+msgstr "Toegang tot bestanden"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -154,6 +146,85 @@ msgstr "Documentatie"
 #: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "Over Flatseal"
+
+#: src/pathRow.js:24
+msgid "this arbitrary absolute path"
+msgstr "dit willekeurige absolute pad"
+
+#: src/pathRow.js:25
+msgid "this arbitrary path relative to the home directory"
+msgstr "dit willekeurige pad ten opzichte van de basismap"
+
+#: src/pathRow.js:26
+msgid "all system files"
+msgstr "alle systeembestanden"
+
+#: src/pathRow.js:27
+msgid "all user files"
+msgstr "alle gebruikersbestanden"
+
+#: src/pathRow.js:28
+msgid "the desktop directory"
+msgstr "de bureaubladmap"
+
+#: src/pathRow.js:29
+msgid "the documents directory"
+msgstr "de documentenmap"
+
+#: src/pathRow.js:30
+msgid "the download directory"
+msgstr "de downloadmap"
+
+#: src/pathRow.js:31
+msgid "the music directory"
+msgstr "de muziekmap"
+
+#: src/pathRow.js:32
+msgid "the pictures directory"
+msgstr "de afbeeldingenmap"
+
+#: src/pathRow.js:33
+msgid "the public directory"
+msgstr "de openbare map"
+
+#: src/pathRow.js:34
+msgid "the videos directory"
+msgstr "de map met video's"
+
+#: src/pathRow.js:35
+msgid "the templates directory"
+msgstr "de map met sjablonen"
+
+#: src/pathRow.js:36
+msgid "the config directory"
+msgstr "de configuratiemap"
+
+#: src/pathRow.js:37
+msgid "the cache directory"
+msgstr "de cachemap"
+
+#: src/pathRow.js:38
+msgid "the data directory"
+msgstr "de gegevensmap"
+
+#: src/pathRow.js:39
+msgid "the runtime directory"
+msgstr "de runtime-directory"
+
+#: src/pathRow.js:54
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Kan lezen: %s"
+
+#: src/pathRow.js:55
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Kan wijzigen en lezen: %s"
+
+#: src/pathRow.js:56
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Kan maken, wijzigen en lezen: %s"
 
 #: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
 msgid "Not supported by the installed version of Flatpak"

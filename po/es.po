@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-25 13:00-0300\n"
+"POT-Creation-Date: 2020-02-29 17:39-0300\n"
 "PO-Revision-Date: 2020-02-01 02:37-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -115,32 +115,24 @@ msgid "Access all devices (e.g. webcam)"
 msgstr "Acceso a todos los dispositivos (ej. cámara web)"
 
 #: src/model.js:108
-msgid "Access all system directories (unrestricted)"
-msgstr "Acceso a todos los directorios del sistema (sin restricciones)"
-
-#: src/model.js:113
-msgid "Access home directory (unrestricted)"
-msgstr "Acceso al directorio hogar (sin restricciones)"
-
-#: src/model.js:118
 msgid "Access other syscalls (e.g. ptrace)"
 msgstr "Acceso a otras llamadas al sistema (ej. ptrace)"
 
-#: src/model.js:123
+#: src/model.js:113
 msgid "Access programs from other architectures"
 msgstr "Acceso a programas de otras arquitecturas"
 
-#: src/model.js:128
+#: src/model.js:118
 msgid "Access Bluetooth"
 msgstr "Acceso al Bluetooth"
 
-#: src/model.js:133
+#: src/model.js:123
 msgid "Access CAN bus"
 msgstr "Acceso al bus CAN"
 
-#: src/model.js:138
-msgid "Access other directories"
-msgstr "Acceso a otros directorios"
+#: src/model.js:128
+msgid "Access files"
+msgstr "Acceso a archivos"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -153,6 +145,85 @@ msgstr "Documentación"
 #: src/menu.ui:15
 msgid "About Flatseal"
 msgstr "Acerca de Flatseal"
+
+#: src/pathRow.js:24
+msgid "this arbitrary absolute path"
+msgstr "esta ruta absoluta arbitraria"
+
+#: src/pathRow.js:25
+msgid "this arbitrary path relative to the home directory"
+msgstr "esta ruta arbitraria relativa al directorio de usuario"
+
+#: src/pathRow.js:26
+msgid "all system files"
+msgstr "todos los archivos del sistema"
+
+#: src/pathRow.js:27
+msgid "all user files"
+msgstr "todos los archivos de usuario"
+
+#: src/pathRow.js:28
+msgid "the desktop directory"
+msgstr "el directorio de escritorio"
+
+#: src/pathRow.js:29
+msgid "the documents directory"
+msgstr "el directorio de documentos"
+
+#: src/pathRow.js:30
+msgid "the download directory"
+msgstr "el directorio de descargas"
+
+#: src/pathRow.js:31
+msgid "the music directory"
+msgstr "el directorio musical"
+
+#: src/pathRow.js:32
+msgid "the pictures directory"
+msgstr "el directorio de fotos"
+
+#: src/pathRow.js:33
+msgid "the public directory"
+msgstr "el directorio público"
+
+#: src/pathRow.js:34
+msgid "the videos directory"
+msgstr "el directorio de videos"
+
+#: src/pathRow.js:35
+msgid "the templates directory"
+msgstr "el directorio de plantillas"
+
+#: src/pathRow.js:36
+msgid "the config directory"
+msgstr "el directorio de configuración"
+
+#: src/pathRow.js:37
+msgid "the cache directory"
+msgstr "el directorio de caché"
+
+#: src/pathRow.js:38
+msgid "the data directory"
+msgstr "el directorio de datos"
+
+#: src/pathRow.js:39
+msgid "the runtime directory"
+msgstr "el directorio de tiempo de ejecución"
+
+#: src/pathRow.js:54
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Puede leer: %s"
+
+#: src/pathRow.js:55
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Puede modificar y leer: %s"
+
+#: src/pathRow.js:56
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Puede crear, modificar y leer: %s"
 
 #: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
 msgid "Not supported by the installed version of Flatpak"
