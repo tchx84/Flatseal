@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 17:39-0300\n"
+"POT-Creation-Date: 2020-02-29 19:43-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,6 +221,10 @@ msgstr ""
 #: src/pathRow.js:56
 #, javascript-format
 msgid "Can create, modify and read: %s"
+msgstr ""
+
+#: src/pathRow.js:59
+msgid "This is not a valid option"
 msgstr ""
 
 #: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53

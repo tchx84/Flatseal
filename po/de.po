@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 17:39-0300\n"
+"POT-Creation-Date: 2020-02-29 19:43-0300\n"
 "PO-Revision-Date: 2020-02-01 11:35-0200\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -226,6 +226,10 @@ msgstr "Kann ändern und lesen: %s"
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Kann erstellen, ändern und lesen: %s"
+
+#: src/pathRow.js:59
+msgid "This is not a valid option"
+msgstr "Dies ist keine gültige Option"
 
 #: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
 msgid "Not supported by the installed version of Flatpak"

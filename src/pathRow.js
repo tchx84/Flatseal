@@ -56,6 +56,8 @@ const _modeDescription = {
     create: _('Can create, modify and read: %s'),
 };
 
+const _notValidMsg = _('This is not a valid option');
+
 
 var FlatsealPathRow = GObject.registerClass({
     GTypeName: 'FlatsealPathRow',
@@ -149,7 +151,7 @@ var FlatsealPathRow = GObject.registerClass({
         }
 
         context.add_class(validity.NOTVALID);
-        this._image.set_tooltip_text(_('This is not a valid option'));
+        this._image.set_tooltip_text(_notValidMsg);
     }
 
     get text() {
