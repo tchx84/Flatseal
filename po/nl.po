@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 19:43-0300\n"
+"POT-Creation-Date: 2020-03-01 01:00-0300\n"
 "PO-Revision-Date: 2020-02-09 18:03+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -148,12 +148,12 @@ msgid "About Flatseal"
 msgstr "Over Flatseal"
 
 #: src/pathRow.js:24
-msgid "this arbitrary absolute path"
-msgstr "dit willekeurige absolute pad"
+msgid "this absolute path"
+msgstr "dit absolute pad"
 
 #: src/pathRow.js:25
-msgid "this arbitrary path relative to the home directory"
-msgstr "dit willekeurige pad ten opzichte van de basismap"
+msgid "this path relative to the home directory"
+msgstr "dit pad ten opzichte van de basismap"
 
 #: src/pathRow.js:26
 msgid "all system files"

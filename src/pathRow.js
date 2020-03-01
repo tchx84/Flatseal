@@ -21,8 +21,8 @@ const {GObject, Gtk} = imports.gi;
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
 const _options = {
-    '/': _('this arbitrary absolute path'),
-    '~/': _('this arbitrary path relative to the home directory'),
+    '/': _('this absolute path'),
+    '~/': _('this path relative to the home directory'),
     host: _('all system files'),
     home: _('all user files'),
     'xdg-desktop': _('the desktop directory'),
