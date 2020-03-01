@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 19:43-0300\n"
+"POT-Creation-Date: 2020-03-01 01:00-0300\n"
 "PO-Revision-Date: 2020-02-01 03:47-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -147,12 +147,12 @@ msgid "About Flatseal"
 msgstr "A Flatseal névjegye"
 
 #: src/pathRow.js:24
-msgid "this arbitrary absolute path"
-msgstr "ez az önkényes abszolút út"
+msgid "this absolute path"
+msgstr "ezt az abszolút utat"
 
 #: src/pathRow.js:25
-msgid "this arbitrary path relative to the home directory"
-msgstr "ez a tetszőleges út az otthoni könyvtárhoz képest"
+msgid "this path relative to the home directory"
+msgstr "ez az út az otthoni könyvtárhoz képest"
 
 #: src/pathRow.js:26
 msgid "all system files"

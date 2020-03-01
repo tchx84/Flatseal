@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-29 19:43-0300\n"
+"POT-Creation-Date: 2020-03-01 01:00-0300\n"
 "PO-Revision-Date: 2020-02-13 09:12+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -149,12 +149,12 @@ msgid "About Flatseal"
 msgstr "Informazioni su Flatseal"
 
 #: src/pathRow.js:24
-msgid "this arbitrary absolute path"
-msgstr "questo percorso assoluto arbitrario"
+msgid "this absolute path"
+msgstr "questo percorso assoluto"
 
 #: src/pathRow.js:25
-msgid "this arbitrary path relative to the home directory"
-msgstr "questo percorso arbitrario relativo alla home directory"
+msgid "this path relative to the home directory"
+msgstr "questo percorso relativo alla home directory"
 
 #: src/pathRow.js:26
 msgid "all system files"
