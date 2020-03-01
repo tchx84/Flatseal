@@ -20,6 +20,14 @@ const {GObject, GLib, Gio} = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
+const _groupDescriptions = {
+    shared: _('List of subsystems shared with the host system'),
+    sockets: _('List of well-known sockets available in the sandbox'),
+    devices: _('List of devices available in the sandbox'),
+    features: _('List of features available to the application'),
+    filesystems: _('List of filesystem subsets available to the application'),
+};
+
 var GROUP = 'Context';
 var DELAY = 500;
 
@@ -30,102 +38,102 @@ var FlatsealModel = GObject.registerClass({
         'shared-network': GObject.ParamSpec.boolean(
             'shared-network',
             '0.4.0',
-            _('Access network'),
+            _('Network'),
             _propFlags, false),
         'shared-ipc': GObject.ParamSpec.boolean(
             'shared-ipc',
             '0.4.0',
-            _('Access inter-process communications'),
+            _('Inter-process communications'),
             _propFlags, false),
         'sockets-x11': GObject.ParamSpec.boolean(
             'sockets-x11',
             '0.4.0',
-            _('Access X11 windowing system'),
+            _('X11 windowing system'),
             _propFlags, false),
         'sockets-wayland': GObject.ParamSpec.boolean(
             'sockets-wayland',
             '0.4.0',
-            _('Access Wayland windowing system'),
+            _('Wayland windowing system'),
             _propFlags, false),
         'sockets-fallback-x11': GObject.ParamSpec.boolean(
             'sockets-fallback-x11',
             '0.11.1',
-            _('Access X11 windowing system (as fallback)'),
+            _('Fallback to X11 windowing system'),
             _propFlags, false),
         'sockets-pulseaudio': GObject.ParamSpec.boolean(
             'sockets-pulseaudio',
             '0.4.0',
-            _('Access PulseAudio sound server'),
+            _('PulseAudio sound server'),
             _propFlags, false),
         'sockets-session-bus': GObject.ParamSpec.boolean(
             'sockets-session-bus',
             '0.4.0',
-            _('Access D-Bus session bus (unrestricted)'),
+            _('D-Bus session bus'),
             _propFlags, false),
         'sockets-system-bus': GObject.ParamSpec.boolean(
             'sockets-system-bus',
             '0.4.0',
-            _('Access D-Bus system bus (unrestricted)'),
+            _('D-Bus system bus'),
             _propFlags, false),
         'sockets-ssh-auth': GObject.ParamSpec.boolean(
             'sockets-ssh-auth',
             '0.99.1',
-            _('Access Secure Shell agent'),
+            _('Secure Shell agent'),
             _propFlags, false),
         'sockets-pcsc': GObject.ParamSpec.boolean(
             'sockets-pcsc',
             '1.3.2',
-            _('Access smart cards'),
+            _('Smart cards'),
             _propFlags, false),
         'sockets-cups': GObject.ParamSpec.boolean(
             'sockets-cups',
             '1.5.2',
-            _('Access printing system'),
+            _('Printing system'),
             _propFlags, false),
         'devices-dri': GObject.ParamSpec.boolean(
             'devices-dri',
             '0.4.0',
-            _('Access GPU acceleration'),
+            _('GPU acceleration'),
             _propFlags, false),
         'devices-kvm': GObject.ParamSpec.boolean(
             'devices-kvm',
             '0.6.12',
-            _('Access virtualization'),
+            _('Virtualization'),
             _propFlags, false),
         'devices-shm': GObject.ParamSpec.boolean(
             'devices-shm',
             '1.6.1',
-            _('Access shared memory (e.g. JACK sound server)'),
+            _('Shared memory (e.g. JACK sound server)'),
             _propFlags, false),
         'devices-all': GObject.ParamSpec.boolean(
             'devices-all',
             '0.6.6',
-            _('Access all devices (e.g. webcam)'),
+            _('All devices (e.g. webcam)'),
             _propFlags, false),
         'features-devel': GObject.ParamSpec.boolean(
             'features-devel',
             '0.6.10',
-            _('Access other syscalls (e.g. ptrace)'),
+            _('Development syscalls (e.g. ptrace)'),
             _propFlags, false),
         'features-multiarch': GObject.ParamSpec.boolean(
             'features-multiarch',
             '0.6.12',
-            _('Access programs from other architectures'),
+            _('Programs from other architectures'),
             _propFlags, false),
         'features-bluetooth': GObject.ParamSpec.boolean(
             'features-bluetooth',
             '0.11.8',
-            _('Access Bluetooth'),
+            _('Bluetooth'),
             _propFlags, false),
         'features-canbus': GObject.ParamSpec.boolean(
             'features-canbus',
             '1.0.3',
-            _('Access CAN bus'),
+            _('Controller Area Network bus'),
             _propFlags, false),
         'filesystems-custom': GObject.ParamSpec.string(
             'filesystems-custom',
             '0.6.14',
-            _('Access files'),
+            _('Files'),
             _propFlags, ''),
     },
     Signals: {
@@ -487,6 +495,7 @@ var FlatsealModel = GObject.registerClass({
             const entry = {};
             const isText = typeof pspec.get_default_value() === 'string';
             const appVersion = pspec.get_nick();
+            const [group] = property.split('-');
 
             entry['property'] = property;
             entry['description'] = pspec.get_blurb();
@@ -494,6 +503,8 @@ var FlatsealModel = GObject.registerClass({
             entry['type'] = isText ? 'text' : 'state';
             entry['permission'] = property.replace(/-/, '=');
             entry['supported'] = this._isSupported(appVersion);
+            entry['group'] = group;
+            entry['groupDescription'] = _groupDescriptions[group];
 
             list.push(entry);
         });

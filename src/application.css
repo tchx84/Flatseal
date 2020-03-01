@@ -28,45 +28,59 @@
 .permissions .box {
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.permissions .row {
-   margin-top: 10px;
-   background-color: @theme_base_color;
-   border-style: solid;
-   border-width: 0.2px;
+.permissions .group {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.permissions .group .title {
+    font-weight: bold;
+}
+.permissions .group .description {
+    margin-top: 5px;
+    color: @insensitive_fg_color;
 }
 
-.permissions .description,
-.permissions .permission {
+.permissions .row {
+    background-color: @theme_base_color;
+    border-style: solid;
+    border-width: 0.2px;
+}
+
+.permissions .row.shared ~ .shared,
+.permissions .row.sockets ~ .sockets,
+.permissions .row.devices ~ .devices,
+.permissions .row.features ~ .features,
+.permissions .row.filesystems ~ .filesystems {
+    border-style: none solid solid solid;
+}
+
+.permissions .row .description,
+.permissions .row .permission {
    margin-left: 15px;
 }
 
-.permissions .description {
-    font-weight: bold;
-}
-
-.permissions .permission {
+.permissions .row .permission {
     font-style: italic;
     font-size: small;
 }
 
-.permissions .content {
+.permissions .row .content {
    margin-left: 15px;
    margin-right: 15px;
 }
 
-.permissions .frame {
+.permissions .row .frame {
     border-width: 0px;
 }
 
-.permissions .toolbox {
+.permissions .row .toolbox {
     margin-right: 15px;
 }
 
-.permissions .content .path {
+.permissions .row .content .path {
     color: @theme_fg_color;
     border-style: solid;
     border-width: 0.5px;
@@ -75,48 +89,45 @@
     margin-bottom: 10px;
 }
 
-.permissions .content .path entry,
-.permissions .content .path button,
-.permissions .content .path button:hover,
-.permissions .content .path button:focus,
-.permissions .content .path button:selected {
+.permissions .row .content .path.read-only,
+.permissions .row .content .path.create,
+.permissions .row .content .path.read-write  {
+    background-color: @theme_bg_color;
+}
+
+.permissions .row .content .path entry,
+.permissions .row .content .path button,
+.permissions .row .content .path button:hover,
+.permissions .row .content .path button:focus,
+.permissions .row .content .path button:selected {
    background-image: none;
    background-color: transparent;
    border: none;
    box-shadow: none;
 }
 
-.permissions .content .path .info {
+.permissions .row .content .path .info {
     margin-left: 10px;
     color: @theme_selected_bg_color;
     background-color: transparent;
     background-image: -gtk-icontheme("dialog-question-symbolic");
 }
 
-.permissions .content .path.not-valid .info {
+.permissions .row .content .path.not-valid .info {
     color: @warning_color;
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
 
-.permissions .content .path button image {
+.permissions .row .content .path button image {
     color: @theme_fg_color;
 }
 
-.permissions .content .path button image:disabled {
+.permissions .row .content .path button image:disabled {
     color: @insensitive_fg_color;
 }
 
-.permissions .content .path.read-only {
-    background-color: @theme_bg_color;
-}
-
-.permissions .content .path.create,
-.permissions .content .path.read-write  {
-    background-color: @theme_bg_color;
-}
-
 /* XXX Navigate through xdg options without the popup  */
-.permissions .content .path window {
+.permissions .row .content .path window {
    opacity: 0;
    background-image: none;
    background-color: transparent;
