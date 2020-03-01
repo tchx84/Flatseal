@@ -176,7 +176,7 @@ msgstr "el directorio de descargas"
 
 #: src/pathRow.js:31
 msgid "the music directory"
-msgstr "el directorio musical"
+msgstr "el directorio de músicas"
 
 #: src/pathRow.js:32
 msgid "the pictures directory"
