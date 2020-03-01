@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-01 01:00-0300\n"
-"PO-Revision-Date: 2020-02-25 00:40+0100\n"
+"PO-Revision-Date: 2020-03-01 13:28+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -154,7 +154,7 @@ msgstr "tato absolutní cesta"
 
 #: src/pathRow.js:25
 msgid "this path relative to the home directory"
-msgstr "tato cesta vzhledem k domovskému adresáři"
+msgstr "tato cesta relativní k domovskému adresáři"
 
 #: src/pathRow.js:26
 msgid "all system files"
@@ -166,7 +166,7 @@ msgstr "všechny uživatelské soubory"
 
 #: src/pathRow.js:28
 msgid "the desktop directory"
-msgstr "adresář na ploše"
+msgstr "adresář plochy"
 
 #: src/pathRow.js:29
 msgid "the documents directory"
@@ -174,11 +174,11 @@ msgstr "adresář dokumentů"
 
 #: src/pathRow.js:30
 msgid "the download directory"
-msgstr "adresář ke stažení"
+msgstr "adresář stahování"
 
 #: src/pathRow.js:31
 msgid "the music directory"
-msgstr "hudební adresář"
+msgstr "adresář hudby"
 
 #: src/pathRow.js:32
 msgid "the pictures directory"
@@ -210,17 +210,17 @@ msgstr "datový adresář"
 
 #: src/pathRow.js:39
 msgid "the runtime directory"
-msgstr "adresář runtime"
+msgstr "adresář prostředí"
 
 #: src/pathRow.js:54
 #, javascript-format
 msgid "Can read: %s"
-msgstr "Umí číst: %s"
+msgstr "Může číst: %s"
 
 #: src/pathRow.js:55
 #, javascript-format
 msgid "Can modify and read: %s"
-msgstr "Lze upravovat a číst: %s"
+msgstr "Může upravovat a číst: %s"
 
 #: src/pathRow.js:56
 #, javascript-format
