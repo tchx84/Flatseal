@@ -20,6 +20,7 @@ const {GObject, Gtk} = imports.gi;
 const {Leaflet, TitleBar, SwipeGroup, Column} = imports.gi.Handy;
 
 const {FlatsealApplicationRow} = imports.applicationRow;
+const {FlatsealGroupRow} = imports.groupRow;
 const {FlatsealModel} = imports.model;
 const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.permissionSwitchRow;
@@ -82,6 +83,8 @@ var FlatsealWindow = GObject.registerClass({
             this._applicationsListBox.add(row);
         });
 
+        var lastGroup = '';
+
         permissions.forEach(p => {
             var row;
 
@@ -89,6 +92,15 @@ var FlatsealWindow = GObject.registerClass({
                 row = new FlatsealPermissionEntryRow(p.description, p.permission, p.value);
             else
                 row = new FlatsealPermissionSwitchRow(p.description, p.permission, p.value);
+
+            const context = row.get_style_context();
+            context.add_class(p.group);
+
+            if (p.group !== lastGroup) {
+                const groupRow = new FlatsealGroupRow(p.group, p.groupDescription);
+                this._permissionsBox.add(groupRow);
+                lastGroup = p.group;
+            }
 
             row.sensitive = p.supported;
             this._permissionsBox.add(row);

@@ -4,6 +4,7 @@
     <file>aboutDialog.js</file>
     <file>application.js</file>
     <file>applicationRow.js</file>
+    <file>groupRow.js</file>
     <file>main.js</file>
     <file>model.js</file>
     <file>pathRow.js</file>

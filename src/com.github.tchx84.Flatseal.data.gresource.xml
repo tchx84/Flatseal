@@ -4,6 +4,7 @@
     <file>aboutDialog.ui</file>
     <file>application.css</file>
     <file>applicationRow.ui</file>
+    <file>groupRow.ui</file>
     <file>menu.ui</file>
     <file>pathRow.ui</file>
     <file>pathsViewer.ui</file>
