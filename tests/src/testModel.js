@@ -5,7 +5,7 @@ setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
 
-const _totalPermissions = 20;
+const _totalPermissions = 22;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -95,7 +95,9 @@ describe('Model', function() {
         expect(model.features_devel).toBe(true);
         expect(model.features_multiarch).toBe(true);
         expect(model.features_canbus).toBe(true);
-        expect(model.filesystems_custom).toEqual('host;home;~/test');
+        expect(model.filesystems_host).toBe(true);
+        expect(model.filesystems_home).toBe(true);
+        expect(model.filesystems_custom).toEqual('~/test');
     });
 
     it('loads overrides', function() {
@@ -121,6 +123,8 @@ describe('Model', function() {
         expect(model.features_devel).toBe(false);
         expect(model.features_multiarch).toBe(false);
         expect(model.features_canbus).toBe(false);
+        expect(model.filesystems_host).toBe(false);
+        expect(model.filesystems_home).toBe(false);
         expect(model.filesystems_custom).toEqual('');
     });
 
@@ -133,6 +137,7 @@ describe('Model', function() {
         model.set_property('devices_dri', false);
         model.set_property('shared-network', false);
         model.set_property('features-bluetooth', false);
+        model.set_property('filesystems-host', false);
         model.set_property('filesystems-custom', '~/tset');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
@@ -163,6 +168,8 @@ describe('Model', function() {
         expect(model.features_bluetooth).toBe(false);
         expect(model.features_devel).toBe(true);
         expect(model.features_multiarch).toBe(true);
+        expect(model.filesystems_host).toBe(false);
+        expect(model.filesystems_home).toBe(true);
         expect(model.filesystems_custom).toEqual('~/tset');
     });
 
