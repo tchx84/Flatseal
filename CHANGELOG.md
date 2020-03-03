@@ -8,7 +8,7 @@
 - Added shared memory permission.
 - Added displaying human-readable description for filesystem permissions.
 - Added validating filesystem permission paths.
-- Removed switch options for home and host filesystem permisions.
+- Added grouping permissions as per existent Flatpak-defined groups.
 - Changed order of permissions to follow the same order as in Flatpak docs.
 - Changed alignment of custom filesystems text to the left.
 - Fix contrast in applications icons.
