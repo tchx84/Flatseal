@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-03 12:59-0300\n"
-"PO-Revision-Date: 2020-02-09 18:03+0100\n"
+"PO-Revision-Date: 2020-03-03 18:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -57,131 +57,112 @@ msgstr "Geen toepassingen aangetroffen."
 
 #: src/model.js:24
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "Lijst met subsystemen die gedeeld zijn met het hostsysteem"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr ""
+msgstr "Lijst met bekende sockets die beschikbaar zijn in de sandbox"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "Lijst met apparaten die beschikbaar zijn in de sandbox"
 
 #: src/model.js:27
-#, fuzzy
 msgid "List of features available to the application"
-msgstr "Geen wijzigingen aangebracht aan deze toepassing"
+msgstr "Lijst met functies die beschikbaar zijn voor de toepassing"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
 msgstr ""
+"Lijst met bestandssysteem-subsets die beschikbaar zijn voor de toepassing"
 
 #: src/model.js:41
 msgid "Network"
-msgstr ""
+msgstr "Netwerk"
 
 #: src/model.js:46
-#, fuzzy
 msgid "Inter-process communications"
-msgstr "Toegang tot procesuitwisselingscommunicatie"
+msgstr "Procesuitwisselingscommunicatie"
 
 #: src/model.js:51
-#, fuzzy
 msgid "X11 windowing system"
-msgstr "Toegang tot het X11-venstersysteem"
+msgstr "X11-venstersysteem"
 
 #: src/model.js:56
-#, fuzzy
 msgid "Wayland windowing system"
-msgstr "Toegang tot het Wayland-venstersysteem"
+msgstr "Wayland-venstersysteem"
 
 #: src/model.js:61
-#, fuzzy
 msgid "Fallback to X11 windowing system"
-msgstr "Toegang tot het X11-venstersysteem"
+msgstr "Terugvallen op X11-venstersysteem"
 
 #: src/model.js:66
-#, fuzzy
 msgid "PulseAudio sound server"
-msgstr "Toegang tot de PulseAudio-geluidsserver"
+msgstr "PulseAudio-geluidsserver"
 
 #: src/model.js:71
-#, fuzzy
 msgid "D-Bus session bus"
-msgstr "Toegang tot de D-Bus-sessiebus (ongelimiteerd)"
+msgstr "D-Bus-sessiebus"
 
 #: src/model.js:76
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "D-Bus-systeembus"
 
 #: src/model.js:81
-#, fuzzy
 msgid "Secure Shell agent"
-msgstr "Toegang tot de Secure Shell-agent"
+msgstr "Secure Shell-agent"
 
 #: src/model.js:86
-#, fuzzy
 msgid "Smart cards"
-msgstr "Toegang tot smartcards"
+msgstr "Smartcards"
 
 #: src/model.js:91
-#, fuzzy
 msgid "Printing system"
-msgstr "Toegang tot het afdruksysteem"
+msgstr "Afdruksysteem"
 
 #: src/model.js:96
-#, fuzzy
 msgid "GPU acceleration"
-msgstr "Toegang tot GPU-versnelling"
+msgstr "GPU-versnelling"
 
 #: src/model.js:101
-#, fuzzy
 msgid "Virtualization"
-msgstr "Toegang tot virtualisatie"
+msgstr "Virtualisatie"
 
 #: src/model.js:106
-#, fuzzy
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Toegang tot gedeeld geheugen (bijv. JACK-geluidsserver)"
+msgstr "Gedeeld geheugen (bijv. JACK-geluidsserver)"
 
 #: src/model.js:111
-#, fuzzy
 msgid "All devices (e.g. webcam)"
-msgstr "Toegang tot alle apparaten (bijv. webcam)"
+msgstr "Alle apparaten (bijv. webcam)"
 
 #: src/model.js:116
-#, fuzzy
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Toegang tot andere systeemaanroepingen (bijv. ptrace)"
+msgstr "Systeemaanroepingen (bijv. ptrace)"
 
 #: src/model.js:121
-#, fuzzy
 msgid "Programs from other architectures"
-msgstr "Toegang tot toepassingen van andere architecturen"
+msgstr "Toepassingen van andere architecturen"
 
 #: src/model.js:126
-#, fuzzy
 msgid "Bluetooth"
-msgstr "Toegang tot Bluetooth"
+msgstr "Bluetooth"
 
 #: src/model.js:131
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Controller Area Network-bus"
 
 #: src/model.js:136
-#, fuzzy
 msgid "All system files"
-msgstr "alle systeembestanden"
+msgstr "Alle systeembestanden"
 
 #: src/model.js:141
-#, fuzzy
 msgid "All user files"
-msgstr "alle gebruikersbestanden"
+msgstr "Alle gebruikersbestanden"
 
 #: src/model.js:146
-#, fuzzy
 msgid "Other files"
-msgstr "alle gebruikersbestanden"
+msgstr "Overige bestanden"
 
 #: src/menu.ui:7
 msgid "Help"
