@@ -110,16 +110,6 @@ var FlatsealModel = GObject.registerClass({
             '0.6.6',
             _('All devices (e.g. webcam)'),
             _propFlags, false),
-        'filesystems-host': GObject.ParamSpec.boolean(
-            'filesystems-host',
-            '0.4.0',
-            _('Access all system directories (unrestricted)'),
-            _propFlags, false),
-        'filesystems-home': GObject.ParamSpec.boolean(
-            'filesystems-home',
-            '0.4.0',
-            _('Access home directory (unrestricted)'),
-            _propFlags, false),
         'features-devel': GObject.ParamSpec.boolean(
             'features-devel',
             '0.6.10',
@@ -140,10 +130,20 @@ var FlatsealModel = GObject.registerClass({
             '1.0.3',
             _('Controller Area Network bus'),
             _propFlags, false),
+        'filesystems-host': GObject.ParamSpec.boolean(
+            'filesystems-host',
+            '0.4.0',
+            _('All system files'),
+            _propFlags, false),
+        'filesystems-home': GObject.ParamSpec.boolean(
+            'filesystems-home',
+            '0.4.0',
+            _('All user files'),
+            _propFlags, false),
         'filesystems-custom': GObject.ParamSpec.string(
             'filesystems-custom',
             '0.6.14',
-            _('Files'),
+            _('Other files'),
             _propFlags, ''),
     },
     Signals: {
