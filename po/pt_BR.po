@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-01 01:00-0300\n"
+"POT-Creation-Date: 2020-03-03 12:59-0300\n"
 "PO-Revision-Date: 2020-02-05 14:06-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -54,85 +54,133 @@ msgstr "Aplicativos"
 msgid "No applications found."
 msgstr "Nenhum aplicativo encontrado."
 
-#: src/model.js:33
-msgid "Access network"
-msgstr "Acesso à rede"
+#: src/model.js:24
+msgid "List of subsystems shared with the host system"
+msgstr ""
 
-#: src/model.js:38
-msgid "Access inter-process communications"
+#: src/model.js:25
+msgid "List of well-known sockets available in the sandbox"
+msgstr ""
+
+#: src/model.js:26
+msgid "List of devices available in the sandbox"
+msgstr ""
+
+#: src/model.js:27
+#, fuzzy
+msgid "List of features available to the application"
+msgstr "Nenhuma alteração feita neste aplicativo"
+
+#: src/model.js:28
+msgid "List of filesystem subsets available to the application"
+msgstr ""
+
+#: src/model.js:41
+msgid "Network"
+msgstr ""
+
+#: src/model.js:46
+#, fuzzy
+msgid "Inter-process communications"
 msgstr "Acesso a comunicações entre processos"
 
-#: src/model.js:43
-msgid "Access X11 windowing system"
+#: src/model.js:51
+#, fuzzy
+msgid "X11 windowing system"
 msgstr "Acesso ao sistema de janelas X11"
 
-#: src/model.js:48
-msgid "Access Wayland windowing system"
+#: src/model.js:56
+#, fuzzy
+msgid "Wayland windowing system"
 msgstr "Acesso ao sistema de janelas Wayland"
 
-#: src/model.js:53
-msgid "Access X11 windowing system (as fallback)"
-msgstr "Acesso ao sistema de janelas X11 (como substituto)"
+#: src/model.js:61
+#, fuzzy
+msgid "Fallback to X11 windowing system"
+msgstr "Acesso ao sistema de janelas X11"
 
-#: src/model.js:58
-msgid "Access PulseAudio sound server"
+#: src/model.js:66
+#, fuzzy
+msgid "PulseAudio sound server"
 msgstr "Acesso ao servidor de som PulseAudio"
 
-#: src/model.js:63
-msgid "Access D-Bus session bus (unrestricted)"
+#: src/model.js:71
+#, fuzzy
+msgid "D-Bus session bus"
 msgstr "Acesso ao barramento de sessão do D-Bus (sem restrições)"
 
-#: src/model.js:68
-msgid "Access D-Bus system bus (unrestricted)"
-msgstr "Acesso ao barramento do sistema D-Bus (sem restrições)"
+#: src/model.js:76
+msgid "D-Bus system bus"
+msgstr ""
 
-#: src/model.js:73
-msgid "Access Secure Shell agent"
+#: src/model.js:81
+#, fuzzy
+msgid "Secure Shell agent"
 msgstr "Acesso ao agente Secure Shell"
 
-#: src/model.js:78
-msgid "Access smart cards"
+#: src/model.js:86
+#, fuzzy
+msgid "Smart cards"
 msgstr "Acesso a cartões inteligentes"
 
-#: src/model.js:83
-msgid "Access printing system"
+#: src/model.js:91
+#, fuzzy
+msgid "Printing system"
 msgstr "Acesso ao sistema de impressão"
 
-#: src/model.js:88
-msgid "Access GPU acceleration"
+#: src/model.js:96
+#, fuzzy
+msgid "GPU acceleration"
 msgstr "Acesso à aceleração de GPU"
 
-#: src/model.js:93
-msgid "Access virtualization"
+#: src/model.js:101
+#, fuzzy
+msgid "Virtualization"
 msgstr "Acesso à virtualização"
 
-#: src/model.js:98
-msgid "Access shared memory (e.g. JACK sound server)"
+#: src/model.js:106
+#, fuzzy
+msgid "Shared memory (e.g. JACK sound server)"
 msgstr "Acesso à memória compartilhada (p. ex. servidor de som JACK)"
 
-#: src/model.js:103
-msgid "Access all devices (e.g. webcam)"
+#: src/model.js:111
+#, fuzzy
+msgid "All devices (e.g. webcam)"
 msgstr "Acesso a todos os dispositivos (p. ex. webcam)"
 
-#: src/model.js:108
-msgid "Access other syscalls (e.g. ptrace)"
+#: src/model.js:116
+#, fuzzy
+msgid "Development syscalls (e.g. ptrace)"
 msgstr "Acesso a outras chamadas do sistema (p. ex. ptrace)"
 
-#: src/model.js:113
-msgid "Access programs from other architectures"
+#: src/model.js:121
+#, fuzzy
+msgid "Programs from other architectures"
 msgstr "Acesso a programas de outras arquiteturas"
 
-#: src/model.js:118
-msgid "Access Bluetooth"
+#: src/model.js:126
+#, fuzzy
+msgid "Bluetooth"
 msgstr "Acesso ao Bluetooth"
 
-#: src/model.js:123
-msgid "Access CAN bus"
-msgstr "Acesso ao barramento CAN"
+#: src/model.js:131
+msgid "Controller Area Network bus"
+msgstr ""
 
-#: src/model.js:128
-msgid "Access files"
-msgstr "Acesso a arquivos"
+#: src/model.js:136
+#, fuzzy
+msgid "All system files"
+msgstr "todos os arquivos do sistema"
+
+#: src/model.js:141
+#, fuzzy
+msgid "All user files"
+msgstr "todos os arquivos do usuário"
+
+#: src/model.js:146
+#, fuzzy
+msgid "Other files"
+msgstr "todos os arquivos do usuário"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -244,3 +292,18 @@ msgstr "Restaurar as permissões deste aplicativo"
 #: src/resetButton.js:43
 msgid "No changes made to this application"
 msgstr "Nenhuma alteração feita neste aplicativo"
+
+#~ msgid "Access network"
+#~ msgstr "Acesso à rede"
+
+#~ msgid "Access X11 windowing system (as fallback)"
+#~ msgstr "Acesso ao sistema de janelas X11 (como substituto)"
+
+#~ msgid "Access D-Bus system bus (unrestricted)"
+#~ msgstr "Acesso ao barramento do sistema D-Bus (sem restrições)"
+
+#~ msgid "Access CAN bus"
+#~ msgstr "Acesso ao barramento CAN"
+
+#~ msgid "Access files"
+#~ msgstr "Acesso a arquivos"

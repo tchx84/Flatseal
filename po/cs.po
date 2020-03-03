@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-01 01:00-0300\n"
+"POT-Creation-Date: 2020-03-03 12:59-0300\n"
 "PO-Revision-Date: 2020-03-01 13:28+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
@@ -56,85 +56,133 @@ msgstr "Aplikace"
 msgid "No applications found."
 msgstr "Nenalezeny žádné aplikace."
 
-#: src/model.js:33
-msgid "Access network"
-msgstr "Přístup k síti"
+#: src/model.js:24
+msgid "List of subsystems shared with the host system"
+msgstr ""
 
-#: src/model.js:38
-msgid "Access inter-process communications"
+#: src/model.js:25
+msgid "List of well-known sockets available in the sandbox"
+msgstr ""
+
+#: src/model.js:26
+msgid "List of devices available in the sandbox"
+msgstr ""
+
+#: src/model.js:27
+#, fuzzy
+msgid "List of features available to the application"
+msgstr "V této aplikaci nebyly provedeny žádné změny"
+
+#: src/model.js:28
+msgid "List of filesystem subsets available to the application"
+msgstr ""
+
+#: src/model.js:41
+msgid "Network"
+msgstr ""
+
+#: src/model.js:46
+#, fuzzy
+msgid "Inter-process communications"
 msgstr "Přístup k meziprocesové komunikaci"
 
-#: src/model.js:43
-msgid "Access X11 windowing system"
+#: src/model.js:51
+#, fuzzy
+msgid "X11 windowing system"
 msgstr "Přístup k okennímu systému X11"
 
-#: src/model.js:48
-msgid "Access Wayland windowing system"
+#: src/model.js:56
+#, fuzzy
+msgid "Wayland windowing system"
 msgstr "Přístup k okennímu systému Wayland"
 
-#: src/model.js:53
-msgid "Access X11 windowing system (as fallback)"
-msgstr "Přístup k okennímu systému X11 (jako rezerva)"
+#: src/model.js:61
+#, fuzzy
+msgid "Fallback to X11 windowing system"
+msgstr "Přístup k okennímu systému X11"
 
-#: src/model.js:58
-msgid "Access PulseAudio sound server"
+#: src/model.js:66
+#, fuzzy
+msgid "PulseAudio sound server"
 msgstr "Přístup ke zvukovému serveru PulseAudio"
 
-#: src/model.js:63
-msgid "Access D-Bus session bus (unrestricted)"
+#: src/model.js:71
+#, fuzzy
+msgid "D-Bus session bus"
 msgstr "Přístup ke sběrnici sezení D-Bus (neomezený)"
 
-#: src/model.js:68
-msgid "Access D-Bus system bus (unrestricted)"
-msgstr "Přístup k systémové sběrnici D-Bus (neomezený)"
+#: src/model.js:76
+msgid "D-Bus system bus"
+msgstr ""
 
-#: src/model.js:73
-msgid "Access Secure Shell agent"
+#: src/model.js:81
+#, fuzzy
+msgid "Secure Shell agent"
 msgstr "Přístup k agentu Zabezpečeného Shellu"
 
-#: src/model.js:78
-msgid "Access smart cards"
+#: src/model.js:86
+#, fuzzy
+msgid "Smart cards"
 msgstr "Přístup k chytrým kartám"
 
-#: src/model.js:83
-msgid "Access printing system"
+#: src/model.js:91
+#, fuzzy
+msgid "Printing system"
 msgstr "Přístup k tiskovému systému"
 
-#: src/model.js:88
-msgid "Access GPU acceleration"
+#: src/model.js:96
+#, fuzzy
+msgid "GPU acceleration"
 msgstr "Přístup k akceleraci GPU"
 
-#: src/model.js:93
-msgid "Access virtualization"
+#: src/model.js:101
+#, fuzzy
+msgid "Virtualization"
 msgstr "Přístup k virtualizaci"
 
-#: src/model.js:98
-msgid "Access shared memory (e.g. JACK sound server)"
+#: src/model.js:106
+#, fuzzy
+msgid "Shared memory (e.g. JACK sound server)"
 msgstr "Přístup ke sdílené paměti (např. Zvukový server JACK)"
 
-#: src/model.js:103
-msgid "Access all devices (e.g. webcam)"
+#: src/model.js:111
+#, fuzzy
+msgid "All devices (e.g. webcam)"
 msgstr "Přístup ke všem zařízením (např. webkameře)"
 
-#: src/model.js:108
-msgid "Access other syscalls (e.g. ptrace)"
+#: src/model.js:116
+#, fuzzy
+msgid "Development syscalls (e.g. ptrace)"
 msgstr "Přístup k jiným systémovým voláním (např. ptrace)"
 
-#: src/model.js:113
-msgid "Access programs from other architectures"
+#: src/model.js:121
+#, fuzzy
+msgid "Programs from other architectures"
 msgstr "Přístup k programům z jiných architektur"
 
-#: src/model.js:118
-msgid "Access Bluetooth"
+#: src/model.js:126
+#, fuzzy
+msgid "Bluetooth"
 msgstr "Přístup k Bluetooth"
 
-#: src/model.js:123
-msgid "Access CAN bus"
-msgstr "Přístup na sběrnici CAN"
+#: src/model.js:131
+msgid "Controller Area Network bus"
+msgstr ""
 
-#: src/model.js:128
-msgid "Access files"
-msgstr "Přístup k souborům"
+#: src/model.js:136
+#, fuzzy
+msgid "All system files"
+msgstr "všechny systémové soubory"
+
+#: src/model.js:141
+#, fuzzy
+msgid "All user files"
+msgstr "všechny uživatelské soubory"
+
+#: src/model.js:146
+#, fuzzy
+msgid "Other files"
+msgstr "všechny uživatelské soubory"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -246,3 +294,18 @@ msgstr "Resetovat oprávnění této aplikace"
 #: src/resetButton.js:43
 msgid "No changes made to this application"
 msgstr "V této aplikaci nebyly provedeny žádné změny"
+
+#~ msgid "Access network"
+#~ msgstr "Přístup k síti"
+
+#~ msgid "Access X11 windowing system (as fallback)"
+#~ msgstr "Přístup k okennímu systému X11 (jako rezerva)"
+
+#~ msgid "Access D-Bus system bus (unrestricted)"
+#~ msgstr "Přístup k systémové sběrnici D-Bus (neomezený)"
+
+#~ msgid "Access CAN bus"
+#~ msgstr "Přístup na sběrnici CAN"
+
+#~ msgid "Access files"
+#~ msgstr "Přístup k souborům"
