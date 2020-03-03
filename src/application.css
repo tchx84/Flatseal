@@ -95,6 +95,10 @@
     background-color: @theme_bg_color;
 }
 
+.permissions .row .content .path entry {
+    margin-left: -8px;
+}
+
 .permissions .row .content .path entry,
 .permissions .row .content .path button,
 .permissions .row .content .path button:hover,
@@ -107,10 +111,13 @@
 }
 
 .permissions .row .content .path .info {
-    margin-left: 10px;
+    padding: 8px;
     color: @theme_selected_bg_color;
     background-color: transparent;
     background-image: -gtk-icontheme("dialog-question-symbolic");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
 }
 
 .permissions .row .content .path.not-valid .info {
