@@ -56,15 +56,15 @@ msgstr "Alkalmazás nem található."
 
 #: src/model.js:24
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "A gazdarendszerrel megosztott alrendszerek felsorolása"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr ""
+msgstr "A homokozóban elérhető közismert csatlakozó aljzat felsorolása"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "A homokozóban elérhető eszközök felsorolása"
 
 #: src/model.js:27
 #, fuzzy
@@ -73,114 +73,114 @@ msgstr "Az alkalmazásban nem történt változás"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
-msgstr ""
+msgstr "Az alkalmazás számára elérhető fájlrendszer-alkészletek felsorolása"
 
 #: src/model.js:41
 msgid "Network"
-msgstr ""
+msgstr "Hálózat"
 
 #: src/model.js:46
 #, fuzzy
 msgid "Inter-process communications"
-msgstr "A folyamatok közötti kommunikáció hozzáférése"
+msgstr "Folyamatok közötti kommunikáció"
 
 #: src/model.js:51
 #, fuzzy
 msgid "X11 windowing system"
-msgstr "A X11 ablakrendszer hozzáférése"
+msgstr "A X11 ablakrendszer"
 
 #: src/model.js:56
 #, fuzzy
 msgid "Wayland windowing system"
-msgstr "A Wayland ablakrendszer hozzáférése"
+msgstr "Wayland ablakrendszer"
 
 #: src/model.js:61
 #, fuzzy
 msgid "Fallback to X11 windowing system"
-msgstr "A X11 ablakrendszer hozzáférése"
+msgstr "Tartalék X11 ablakrendszer"
 
 #: src/model.js:66
 #, fuzzy
 msgid "PulseAudio sound server"
-msgstr "A PulseAudio hangkiszolgáló hozzáférése"
+msgstr "PulseAudio hangkiszolgáló"
 
 #: src/model.js:71
 #, fuzzy
 msgid "D-Bus session bus"
-msgstr "A D-Bus munkamenet busz hozzáférése (korlátlan)"
+msgstr "D-Bus munkamenet busz (korlátlan)"
 
 #: src/model.js:76
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "D-Bus rendszer busz"
 
 #: src/model.js:81
 #, fuzzy
 msgid "Secure Shell agent"
-msgstr "A Secure Shell ügynök hozzáférése"
+msgstr "Secure Shell ügynök"
 
 #: src/model.js:86
 #, fuzzy
 msgid "Smart cards"
-msgstr "Az intelligens kártyák hozzáférése"
+msgstr "Intelligens kártyák"
 
 #: src/model.js:91
 #, fuzzy
 msgid "Printing system"
-msgstr "A nyomtatási rendszer hozzáférése"
+msgstr "Nyomtatási rendszer"
 
 #: src/model.js:96
 #, fuzzy
 msgid "GPU acceleration"
-msgstr "GPU gyorsítási hozzáférése"
+msgstr "GPU gyorsítás"
 
 #: src/model.js:101
 #, fuzzy
 msgid "Virtualization"
-msgstr "A virtualizáció hozzáférése"
+msgstr "Virtualizáció"
 
 #: src/model.js:106
 #, fuzzy
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "A megosztott memória hozzáférése (pl. JACK hang kiszolgáló)"
+msgstr "Megosztott memória (pl. JACK hang kiszolgáló)"
 
 #: src/model.js:111
 #, fuzzy
 msgid "All devices (e.g. webcam)"
-msgstr "Az összes eszköz hozzáférése (pl. webkamera)"
+msgstr "Minden eszköz (pl. webkamera)"
 
 #: src/model.js:116
 #, fuzzy
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Más rendszerhívások hozzáférése (pl. ptrace)"
+msgstr "Fejlesztési rendszerhívások (pl. ptrace)"
 
 #: src/model.js:121
 #, fuzzy
 msgid "Programs from other architectures"
-msgstr "Más architektúrák programjaihoz hozzáférése"
+msgstr "Más architektúrák programjai"
 
 #: src/model.js:126
 #, fuzzy
 msgid "Bluetooth"
-msgstr "Bluetooth hozzáférése"
+msgstr "Bluetooth"
 
 #: src/model.js:131
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Vezérlőhálózati busz"
 
 #: src/model.js:136
 #, fuzzy
 msgid "All system files"
-msgstr "az összes rendszerfájl"
+msgstr "Minden rendszerfájl"
 
 #: src/model.js:141
 #, fuzzy
 msgid "All user files"
-msgstr "minden felhasználói fájl"
+msgstr "Minden felhasználói fájl"
 
 #: src/model.js:146
 #, fuzzy
 msgid "Other files"
-msgstr "minden felhasználói fájl"
+msgstr "Egyéb fájlok"
 
 #: src/menu.ui:7
 msgid "Help"
