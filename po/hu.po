@@ -204,7 +204,7 @@ msgstr "ez az út az otthoni könyvtárhoz képest"
 
 #: src/pathRow.js:26
 msgid "all system files"
-msgstr "az összes rendszerfájl"
+msgstr "minden rendszerfájl"
 
 #: src/pathRow.js:27
 msgid "all user files"
