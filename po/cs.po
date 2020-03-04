@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-03 12:59-0300\n"
-"PO-Revision-Date: 2020-03-01 13:28+0100\n"
+"PO-Revision-Date: 2020-03-04 16:22+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -58,131 +58,111 @@ msgstr "Nenalezeny žádné aplikace."
 
 #: src/model.js:24
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "Seznam subsystémů sdílených s hostitelským systémem"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr ""
+msgstr "Seznam dobře známých soketů dostupných v sandboxu"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "Seznam zařízení dostupných v sandboxu"
 
 #: src/model.js:27
-#, fuzzy
 msgid "List of features available to the application"
-msgstr "V této aplikaci nebyly provedeny žádné změny"
+msgstr "Seznam funkcí dostupných v sandboxu"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
-msgstr ""
+msgstr "Seznam podmnožin souborového systému dostupných pro aplikaci"
 
 #: src/model.js:41
 msgid "Network"
-msgstr ""
+msgstr "Síť"
 
 #: src/model.js:46
-#, fuzzy
 msgid "Inter-process communications"
-msgstr "Přístup k meziprocesové komunikaci"
+msgstr "Meziprocesová komunikace"
 
 #: src/model.js:51
-#, fuzzy
 msgid "X11 windowing system"
-msgstr "Přístup k okennímu systému X11"
+msgstr "Okenní systém X11"
 
 #: src/model.js:56
-#, fuzzy
 msgid "Wayland windowing system"
-msgstr "Přístup k okennímu systému Wayland"
+msgstr "Okenní systém Wayland"
 
 #: src/model.js:61
-#, fuzzy
 msgid "Fallback to X11 windowing system"
-msgstr "Přístup k okennímu systému X11"
+msgstr "Záložní přístup k okennímu systému X11"
 
 #: src/model.js:66
-#, fuzzy
 msgid "PulseAudio sound server"
-msgstr "Přístup ke zvukovému serveru PulseAudio"
+msgstr "Zvukový server PulseAudio"
 
 #: src/model.js:71
-#, fuzzy
 msgid "D-Bus session bus"
-msgstr "Přístup ke sběrnici sezení D-Bus (neomezený)"
+msgstr "Sběrnice sezení D-Bus"
 
 #: src/model.js:76
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "Systémová sběrnice D-Bus"
 
 #: src/model.js:81
-#, fuzzy
 msgid "Secure Shell agent"
-msgstr "Přístup k agentu Zabezpečeného Shellu"
+msgstr "Agent Zabezpečeného Shellu"
 
 #: src/model.js:86
-#, fuzzy
 msgid "Smart cards"
-msgstr "Přístup k chytrým kartám"
+msgstr "Chytré karty"
 
 #: src/model.js:91
-#, fuzzy
 msgid "Printing system"
-msgstr "Přístup k tiskovému systému"
+msgstr "Tiskový systém"
 
 #: src/model.js:96
-#, fuzzy
 msgid "GPU acceleration"
-msgstr "Přístup k akceleraci GPU"
+msgstr "Akcelerace GPU"
 
 #: src/model.js:101
-#, fuzzy
 msgid "Virtualization"
-msgstr "Přístup k virtualizaci"
+msgstr "Virtualizace"
 
 #: src/model.js:106
-#, fuzzy
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Přístup ke sdílené paměti (např. Zvukový server JACK)"
+msgstr "Sdílená paměť (např. Zvukový server JACK)"
 
 #: src/model.js:111
-#, fuzzy
 msgid "All devices (e.g. webcam)"
-msgstr "Přístup ke všem zařízením (např. webkameře)"
+msgstr "Všechna zařízení (např. webkamera)"
 
 #: src/model.js:116
-#, fuzzy
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Přístup k jiným systémovým voláním (např. ptrace)"
+msgstr "Vývojová systémová volání (např. ptrace)"
 
 #: src/model.js:121
-#, fuzzy
 msgid "Programs from other architectures"
-msgstr "Přístup k programům z jiných architektur"
+msgstr "Programy z jiných architektur"
 
 #: src/model.js:126
-#, fuzzy
 msgid "Bluetooth"
-msgstr "Přístup k Bluetooth"
+msgstr "Bluetooth"
 
 #: src/model.js:131
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Sběrnice Controller Area Network"
 
 #: src/model.js:136
-#, fuzzy
 msgid "All system files"
-msgstr "všechny systémové soubory"
+msgstr "Všechny systémové soubory"
 
 #: src/model.js:141
-#, fuzzy
 msgid "All user files"
-msgstr "všechny uživatelské soubory"
+msgstr "Všechny uživatelské soubory"
 
 #: src/model.js:146
-#, fuzzy
 msgid "Other files"
-msgstr "všechny uživatelské soubory"
+msgstr "Ostatní soubory"
 
 #: src/menu.ui:7
 msgid "Help"
