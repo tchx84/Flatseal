@@ -56,131 +56,111 @@ msgstr "No se encontraron aplicaciones."
 
 #: src/model.js:24
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "Lista de subsistemas compartidos con el sistema"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr ""
+msgstr "Lista de zócalos conocidos disponibles en el sandbox"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "Lista de dispositivos disponibles en el sandbox"
 
 #: src/model.js:27
-#, fuzzy
 msgid "List of features available to the application"
-msgstr "No se hicieron cambios a esta aplicación"
+msgstr "Lista de funciones disponibles para la aplicación"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
-msgstr ""
+msgstr "Lista de archivos disponibles para la aplicación"
 
 #: src/model.js:41
 msgid "Network"
-msgstr ""
+msgstr "Red"
 
 #: src/model.js:46
-#, fuzzy
 msgid "Inter-process communications"
-msgstr "Acceso a comunicaciones entre procesos"
+msgstr "Comunicaciones entre procesos"
 
 #: src/model.js:51
-#, fuzzy
 msgid "X11 windowing system"
-msgstr "Acceso al sistema de ventanas X11"
+msgstr "Sistema de ventanas X11"
 
 #: src/model.js:56
-#, fuzzy
 msgid "Wayland windowing system"
-msgstr "Acceso al sistema de ventanas Wayland"
+msgstr "Sistema de ventanas Wayland"
 
 #: src/model.js:61
-#, fuzzy
 msgid "Fallback to X11 windowing system"
-msgstr "Acceso al sistema de ventanas X11"
+msgstr "Sistema de ventanas X11 como respaldo"
 
 #: src/model.js:66
-#, fuzzy
 msgid "PulseAudio sound server"
-msgstr "Acceso al servidor de sonido PulseAudio"
+msgstr "Servidor de sonido PulseAudio"
 
 #: src/model.js:71
-#, fuzzy
 msgid "D-Bus session bus"
-msgstr "Acceso al bus de sesión D-Bus (sin restricciones)"
+msgstr "Bus de sesión D-Bus"
 
 #: src/model.js:76
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "Bus de sistema D-Bus"
 
 #: src/model.js:81
-#, fuzzy
 msgid "Secure Shell agent"
-msgstr "Acceso al agente Secure Shell"
+msgstr "Agente de Shell seguro"
 
 #: src/model.js:86
-#, fuzzy
 msgid "Smart cards"
-msgstr "Acceso a tarjetas inteligentes"
+msgstr "Tarjetas inteligentes"
 
 #: src/model.js:91
-#, fuzzy
 msgid "Printing system"
-msgstr "Acceso al sistema de impresión"
+msgstr "Sistema de impresión"
 
 #: src/model.js:96
-#, fuzzy
 msgid "GPU acceleration"
-msgstr "Acceso a aceleración de gráficos"
+msgstr "Aceleración de gráficos"
 
 #: src/model.js:101
-#, fuzzy
 msgid "Virtualization"
-msgstr "Acceso a virtualización"
+msgstr "Virtualización"
 
 #: src/model.js:106
-#, fuzzy
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Acceso a memoria compartida (ej. servidor de sonido JACK)"
+msgstr "Memoria compartida (ej. servidor de sonido JACK)"
 
 #: src/model.js:111
-#, fuzzy
 msgid "All devices (e.g. webcam)"
-msgstr "Acceso a todos los dispositivos (ej. cámara web)"
+msgstr "Todos los dispositivos (ej. cámara web)"
 
 #: src/model.js:116
-#, fuzzy
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Acceso a otras llamadas al sistema (ej. ptrace)"
+msgstr "Llamadas de sistema de desarrollo (ej. ptrace)"
 
 #: src/model.js:121
-#, fuzzy
 msgid "Programs from other architectures"
-msgstr "Acceso a programas de otras arquitecturas"
+msgstr "Programas de otras arquitecturas"
 
 #: src/model.js:126
-#, fuzzy
 msgid "Bluetooth"
-msgstr "Acceso al Bluetooth"
+msgstr "Bluetooth"
 
 #: src/model.js:131
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Bus de la red de área de controlador"
 
 #: src/model.js:136
-#, fuzzy
 msgid "All system files"
-msgstr "todos los archivos del sistema"
+msgstr "Todos los archivos del sistema"
 
 #: src/model.js:141
-#, fuzzy
 msgid "All user files"
-msgstr "todos los archivos de usuario"
+msgstr "Todos los archivos de usuario"
 
 #: src/model.js:146
-#, fuzzy
 msgid "Other files"
-msgstr "todos los archivos de usuario"
+msgstr "Otros archivos"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -228,7 +208,7 @@ msgstr "el directorio de músicas"
 
 #: src/pathRow.js:32
 msgid "the pictures directory"
-msgstr "el directorio de fotos"
+msgstr "el directorio de imágenes"
 
 #: src/pathRow.js:33
 msgid "the public directory"
@@ -292,18 +272,3 @@ msgstr "Restablecer los permisos de esta aplicación"
 #: src/resetButton.js:43
 msgid "No changes made to this application"
 msgstr "No se hicieron cambios a esta aplicación"
-
-#~ msgid "Access network"
-#~ msgstr "Acceso a la red"
-
-#~ msgid "Access X11 windowing system (as fallback)"
-#~ msgstr "Acceso al sistema de ventanas X11 (como respaldo)"
-
-#~ msgid "Access D-Bus system bus (unrestricted)"
-#~ msgstr "Acceso al bus del sistema D-Bus (sin restricciones)"
-
-#~ msgid "Access CAN bus"
-#~ msgstr "Acceso al bus CAN"
-
-#~ msgid "Access files"
-#~ msgstr "Acceso a archivos"
