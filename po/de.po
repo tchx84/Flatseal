@@ -58,131 +58,111 @@ msgstr "Keine Anwendungen gefunden."
 
 #: src/model.js:24
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "Liste der mit dem Hostsystem gemeinsam genutzten Subsysteme"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr ""
+msgstr "Liste bekannter Steckdosen im Sandkasten"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "Liste der in der Sandbox verfügbaren Geräte"
 
 #: src/model.js:27
-#, fuzzy
 msgid "List of features available to the application"
-msgstr "An dieser Anwendung wurden keine Änderungen vorgenommen"
+msgstr "Liste der Funktionen, die der Anwendung zur Verfügung stehen"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
-msgstr ""
+msgstr "Liste der für die Anwendung verfügbaren Dateisystem-Teilmengen"
 
 #: src/model.js:41
 msgid "Network"
-msgstr ""
+msgstr "Netzwerk"
 
 #: src/model.js:46
-#, fuzzy
 msgid "Inter-process communications"
-msgstr "Zugriff zu die prozessübergreifende Kommunikation"
+msgstr "Kommunikation zwischen Prozessen"
 
 #: src/model.js:51
-#, fuzzy
 msgid "X11 windowing system"
-msgstr "Zugriff auf den X11-Fenstermanager"
+msgstr "X11-Fenstermanager"
 
 #: src/model.js:56
-#, fuzzy
 msgid "Wayland windowing system"
-msgstr "Zugriff auf den Wayland-Fenstermanager"
+msgstr "Wayland-Fenstermanager"
 
 #: src/model.js:61
-#, fuzzy
 msgid "Fallback to X11 windowing system"
-msgstr "Zugriff auf den X11-Fenstermanager"
+msgstr "Fallback auf das X11-Fenstersystem"
 
 #: src/model.js:66
-#, fuzzy
 msgid "PulseAudio sound server"
-msgstr "Zugriff auf den PulseAudio-Soundserver"
+msgstr "PulseAudio-Soundserver"
 
 #: src/model.js:71
-#, fuzzy
 msgid "D-Bus session bus"
-msgstr "Zugriff auf den D-Bus-Sitzungsbus (uneingeschränkt)"
+msgstr "D-Bus-Sitzungsbus"
 
 #: src/model.js:76
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "D-Bus-Systembus"
 
 #: src/model.js:81
-#, fuzzy
 msgid "Secure Shell agent"
-msgstr "Zugriff auf den Secure Shell Agent"
+msgstr "Secure Shell Agent"
 
 #: src/model.js:86
-#, fuzzy
 msgid "Smart cards"
-msgstr "Zugriff auf Smartcards"
+msgstr "Smartcards"
 
 #: src/model.js:91
-#, fuzzy
 msgid "Printing system"
-msgstr "Zugriff auf die Druckerverwaltung"
+msgstr "Druckerverwaltung"
 
 #: src/model.js:96
-#, fuzzy
 msgid "GPU acceleration"
-msgstr "Zugriff auf GPU-Beschleunigung"
+msgstr "GPU-Beschleunigung"
 
 #: src/model.js:101
-#, fuzzy
 msgid "Virtualization"
-msgstr "Zugriff auf Virtualisierung"
+msgstr "Virtualisierung"
 
 #: src/model.js:106
-#, fuzzy
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Zugriff auf gemeinsam genutzten Speicher (z.B. JACK-Soundserver)"
+msgstr "Gemeinsam genutzten Speicher (z.B. JACK-Soundserver)"
 
 #: src/model.js:111
-#, fuzzy
 msgid "All devices (e.g. webcam)"
-msgstr "Zugriff auf alle Geräte (z.B. Webcam)"
+msgstr "Alle Geräte (z.B. Webcam)"
 
 #: src/model.js:116
-#, fuzzy
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Zugriff auf andere Systemaufrufe (z.B. ptrace)"
+msgstr "System fordert Entwicklung (z. B. ptrace)"
 
 #: src/model.js:121
-#, fuzzy
 msgid "Programs from other architectures"
-msgstr "Zugriff auf Programme anderer Architekturen"
+msgstr "Programme anderer Architekturen"
 
 #: src/model.js:126
-#, fuzzy
 msgid "Bluetooth"
-msgstr "Zugriff auf Bluetooth"
+msgstr "Bluetooth"
 
 #: src/model.js:131
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Controller Area Netzwerkbus"
 
 #: src/model.js:136
-#, fuzzy
 msgid "All system files"
-msgstr "alle Systemdateien"
+msgstr "Alle Systemdateien"
 
 #: src/model.js:141
-#, fuzzy
 msgid "All user files"
-msgstr "alle Benutzerdateien"
+msgstr "Alle Benutzerdateien"
 
 #: src/model.js:146
-#, fuzzy
 msgid "Other files"
-msgstr "alle Benutzerdateien"
+msgstr "Andere Dateien"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -294,18 +274,3 @@ msgstr "Berechtigung dieser Anwendung zurücksetzen"
 #: src/resetButton.js:43
 msgid "No changes made to this application"
 msgstr "An dieser Anwendung wurden keine Änderungen vorgenommen"
-
-#~ msgid "Access network"
-#~ msgstr "Zugriff auf das Netzwerk"
-
-#~ msgid "Access X11 windowing system (as fallback)"
-#~ msgstr "Zugriff auf den X11-Fenstermanager (als Fallback)"
-
-#~ msgid "Access D-Bus system bus (unrestricted)"
-#~ msgstr "Zugriff auf den D-Bus-Systembus (uneingeschränkt)"
-
-#~ msgid "Access CAN bus"
-#~ msgstr "Zugriff auf den CAN-Bus"
-
-#~ msgid "Access files"
-#~ msgstr "Zugriff auf Dateien"

@@ -274,18 +274,3 @@ msgstr "Resetovat oprávnění této aplikace"
 #: src/resetButton.js:43
 msgid "No changes made to this application"
 msgstr "V této aplikaci nebyly provedeny žádné změny"
-
-#~ msgid "Access network"
-#~ msgstr "Přístup k síti"
-
-#~ msgid "Access X11 windowing system (as fallback)"
-#~ msgstr "Přístup k okennímu systému X11 (jako rezerva)"
-
-#~ msgid "Access D-Bus system bus (unrestricted)"
-#~ msgstr "Přístup k systémové sběrnici D-Bus (neomezený)"
-
-#~ msgid "Access CAN bus"
-#~ msgstr "Přístup na sběrnici CAN"
-
-#~ msgid "Access files"
-#~ msgstr "Přístup k souborům"

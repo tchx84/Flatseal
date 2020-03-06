@@ -58,131 +58,111 @@ msgstr "Non è stata trovata alcuna applicazione."
 
 #: src/model.js:24
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "Elenco dei sottosistemi condivisi con il sistema"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr ""
+msgstr "Elenco di socket noti disponibili nella sandbox"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "Elenco dei dispositivi disponibili nella sandbox"
 
 #: src/model.js:27
-#, fuzzy
 msgid "List of features available to the application"
-msgstr "Nessuna modifica apportata a questa applicazione"
+msgstr "Elenco delle funzionalità disponibili per l'applicazione"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
-msgstr ""
+msgstr "Elenco dei sottoinsiemi di filesystem disponibili per l'applicazione"
 
 #: src/model.js:41
 msgid "Network"
-msgstr ""
+msgstr "Rete"
 
 #: src/model.js:46
-#, fuzzy
 msgid "Inter-process communications"
-msgstr "Accesso alle comunicazioni intra-processi"
+msgstr "Comunicazioni intra-processi"
 
 #: src/model.js:51
-#, fuzzy
 msgid "X11 windowing system"
-msgstr "Accesso al sistema X11"
+msgstr "Sistema X11"
 
 #: src/model.js:56
-#, fuzzy
 msgid "Wayland windowing system"
-msgstr "Accesso al sistema Wayland"
+msgstr "Sistema Wayland"
 
 #: src/model.js:61
-#, fuzzy
 msgid "Fallback to X11 windowing system"
-msgstr "Accesso al sistema X11"
+msgstr "Fallback al sistema X11"
 
 #: src/model.js:66
-#, fuzzy
 msgid "PulseAudio sound server"
-msgstr "Accesso al server audio PulseAudio"
+msgstr "Server audio PulseAudio"
 
 #: src/model.js:71
-#, fuzzy
 msgid "D-Bus session bus"
-msgstr "Accesso al bus di sessione D-Bus (senza restrizioni)"
+msgstr "Bus di sessione D-Bus"
 
 #: src/model.js:76
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "Bus di sistema D-Bus"
 
 #: src/model.js:81
-#, fuzzy
 msgid "Secure Shell agent"
-msgstr "Accesso all'agente Secure Shell"
+msgstr "Agente Secure Shell"
 
 #: src/model.js:86
-#, fuzzy
 msgid "Smart cards"
-msgstr "Accesso alle smart card"
+msgstr "Smart card"
 
 #: src/model.js:91
-#, fuzzy
 msgid "Printing system"
-msgstr "Accesso al sistema di stampa"
+msgstr "Sistema di stampa"
 
 #: src/model.js:96
-#, fuzzy
 msgid "GPU acceleration"
-msgstr "Accesso all'accelerazione tramite GPU"
+msgstr "Accelerazione tramite GPU"
 
 #: src/model.js:101
-#, fuzzy
 msgid "Virtualization"
-msgstr "Accesso alla virtualizzazione"
+msgstr "Virtualizzazione"
 
 #: src/model.js:106
-#, fuzzy
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Accesso alla memoria condivisa (per esempio server audio JACK)"
+msgstr "Memoria condivisa (ad es. Server audio JACK)"
 
 #: src/model.js:111
-#, fuzzy
 msgid "All devices (e.g. webcam)"
-msgstr "Accesso a tutti i dispositivi (per esempio fotocamera)"
+msgstr "Tutti i dispositivi (ad es. fotocamera)"
 
 #: src/model.js:116
-#, fuzzy
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Accesso ad altre chiamate di sistema (per esempio ptrace)"
+msgstr "Chiamate di sistema di sviluppo (ad es. Ptrace)"
 
 #: src/model.js:121
-#, fuzzy
 msgid "Programs from other architectures"
-msgstr "Accesso ai programmi da altre architetture"
+msgstr "Programmi da altre architetture"
 
 #: src/model.js:126
-#, fuzzy
 msgid "Bluetooth"
-msgstr "Accesso al Bluetooth"
+msgstr "Bluetooth"
 
 #: src/model.js:131
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Bus di rete dell'area controller"
 
 #: src/model.js:136
-#, fuzzy
 msgid "All system files"
-msgstr "tutti i file di sistema"
+msgstr "Tutti i file di sistema"
 
 #: src/model.js:141
-#, fuzzy
 msgid "All user files"
-msgstr "tutti i file utente"
+msgstr "Tutti i file utente"
 
 #: src/model.js:146
-#, fuzzy
 msgid "Other files"
-msgstr "tutti i file utente"
+msgstr "Altri file"
 
 #: src/menu.ui:7
 msgid "Help"
@@ -294,18 +274,3 @@ msgstr "Ripristina i permessi di questa applicazione"
 #: src/resetButton.js:43
 msgid "No changes made to this application"
 msgstr "Nessuna modifica apportata a questa applicazione"
-
-#~ msgid "Access network"
-#~ msgstr "Accesso alla rete"
-
-#~ msgid "Access X11 windowing system (as fallback)"
-#~ msgstr "Accesso al sistema X11 (come ripiego)"
-
-#~ msgid "Access D-Bus system bus (unrestricted)"
-#~ msgstr "Accesso al bus di sistema D-Bus (senza restrizioni)"
-
-#~ msgid "Access CAN bus"
-#~ msgstr "Accesso al bus CAN"
-
-#~ msgid "Access files"
-#~ msgstr "Accesso ai file"
