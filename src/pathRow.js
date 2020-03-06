@@ -90,6 +90,15 @@ var FlatsealPathRow = GObject.registerClass({
             this._store.set(this._store.append(), [0], [option]);
         });
 
+        const paths = Object.keys(_options).slice(0, 2).join('|');
+        this._pathRE = new RegExp(`^(${paths})([^/ ]+(/)?)+$`);
+
+        const options = Object.keys(_options).slice(2).join('|');
+        this._optionRE = new RegExp(`^(${options})((:.*)|((/)[^/ ]+)*)$`);
+
+        const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');
+        this._modeRE = new RegExp(modes);
+
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
     }
@@ -136,16 +145,9 @@ var FlatsealPathRow = GObject.registerClass({
         else if (context.has_class(validity.NOTVALID))
             context.remove_class(validity.NOTVALID);
 
-        const paths = Object.keys(_options).slice(0, 2).join('|');
-        const pathRE = new RegExp(`^(${paths})([^/ ]+(/)?)+$`);
-
-        const options = Object.keys(_options).slice(2).join('|');
-        const optionRE = new RegExp(`^(${options})((:.*)|((/)[^/ ]+)*)$`);
-
-        const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');
-        const modeRE = new RegExp(modes);
-
-        if ((pathRE.test(this.text) || optionRE.test(this.text)) && modeRE.test(this.text)) {
+        if ((this._pathRE.test(this.text) ||
+            this._optionRE.test(this.text)) &&
+            this._modeRE.test(this.text)) {
             context.add_class(validity.VALID);
             return;
         }
