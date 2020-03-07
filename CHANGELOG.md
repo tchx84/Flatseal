@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.5.0] - 2020-03-07
 - Added disabling permissions not supported by the installed version of Flatpak.
 - Added CAN bus permission.
 - Added smart cards permission.
