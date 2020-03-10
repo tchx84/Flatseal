@@ -140,8 +140,8 @@ var FlatsealModel = GObject.registerClass({
             '0.4.0',
             _('All user files'),
             _propFlags, false),
-        'filesystems-custom': GObject.ParamSpec.string(
-            'filesystems-custom',
+        'filesystems-other': GObject.ParamSpec.string(
+            'filesystems-other',
             '0.6.14',
             _('Other files'),
             _propFlags, ''),

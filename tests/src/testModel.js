@@ -97,7 +97,7 @@ describe('Model', function() {
         expect(model.features_canbus).toBe(true);
         expect(model.filesystems_host).toBe(true);
         expect(model.filesystems_home).toBe(true);
-        expect(model.filesystems_custom).toEqual('~/test');
+        expect(model.filesystems_other).toEqual('~/test');
     });
 
     it('loads overrides', function() {
@@ -125,7 +125,7 @@ describe('Model', function() {
         expect(model.features_canbus).toBe(false);
         expect(model.filesystems_host).toBe(false);
         expect(model.filesystems_home).toBe(false);
-        expect(model.filesystems_custom).toEqual('');
+        expect(model.filesystems_other).toEqual('');
     });
 
     it('creates overrides when properties changed', function(done) {
@@ -138,7 +138,7 @@ describe('Model', function() {
         model.set_property('shared-network', false);
         model.set_property('features-bluetooth', false);
         model.set_property('filesystems-host', false);
-        model.set_property('filesystems-custom', '~/tset');
+        model.set_property('filesystems-other', '~/tset');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(0);
@@ -170,7 +170,7 @@ describe('Model', function() {
         expect(model.features_multiarch).toBe(true);
         expect(model.filesystems_host).toBe(false);
         expect(model.filesystems_home).toBe(true);
-        expect(model.filesystems_custom).toEqual('~/tset');
+        expect(model.filesystems_other).toEqual('~/tset');
     });
 
     it('resets overrides', function() {
@@ -202,16 +202,16 @@ describe('Model', function() {
         model.setUserInstallationPath(_user);
         model.setAppId(_oldAppId);
 
-        expect(model.filesystems_custom).toEqual('xdg-pictures:ro');
+        expect(model.filesystems_other).toEqual('xdg-pictures:ro');
     });
 
     it('reduces filesystems permission', function(done) {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_reduceAppId);
 
-        expect(model.filesystems_custom).toEqual('xdg-downloads');
+        expect(model.filesystems_other).toEqual('xdg-downloads');
 
-        model.set_property('filesystems-custom', 'xdg-downloads:ro');
+        model.set_property('filesystems-other', 'xdg-downloads:ro');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBe(true);
@@ -226,9 +226,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_increaseAppId);
 
-        expect(model.filesystems_custom).toEqual('xdg-pictures:ro');
+        expect(model.filesystems_other).toEqual('xdg-pictures:ro');
 
-        model.set_property('filesystems-custom', 'xdg-pictures:rw');
+        model.set_property('filesystems-other', 'xdg-pictures:rw');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBe(true);
@@ -243,9 +243,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_increaseAppId);
 
-        expect(model.filesystems_custom).toEqual('xdg-pictures:ro');
+        expect(model.filesystems_other).toEqual('xdg-pictures:ro');
 
-        model.set_property('filesystems-custom', 'xdg-pictures');
+        model.set_property('filesystems-other', 'xdg-pictures');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBe(true);
@@ -260,9 +260,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_negationAppId);
 
-        expect(model.filesystems_custom).toEqual('!~/negative;~/positive');
+        expect(model.filesystems_other).toEqual('!~/negative;~/positive');
 
-        model.set_property('filesystems-custom', '!~/negative');
+        model.set_property('filesystems-other', '!~/negative');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBe(true);
@@ -277,9 +277,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_negationAppId);
 
-        expect(model.filesystems_custom).toEqual('!~/negative;~/positive');
+        expect(model.filesystems_other).toEqual('!~/negative;~/positive');
 
-        model.set_property('filesystems-custom', '~/positive');
+        model.set_property('filesystems-other', '~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBe(true);
@@ -294,9 +294,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_negationAppId);
 
-        expect(model.filesystems_custom).toEqual('!~/negative;~/positive');
+        expect(model.filesystems_other).toEqual('!~/negative;~/positive');
 
-        model.set_property('filesystems-custom', '!~/negative;!~/positive');
+        model.set_property('filesystems-other', '!~/negative;!~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBe(true);
@@ -311,9 +311,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_negationAppId);
 
-        expect(model.filesystems_custom).toEqual('!~/negative;~/positive');
+        expect(model.filesystems_other).toEqual('!~/negative;~/positive');
 
-        model.set_property('filesystems-custom', '~/negative;~/positive');
+        model.set_property('filesystems-other', '~/negative;~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBe(true);
@@ -328,9 +328,9 @@ describe('Model', function() {
         model.setUserInstallationPath(_tmp);
         model.setAppId(_unsupportedAppId);
 
-        expect(model.filesystems_custom).toEqual('~/unsupported');
+        expect(model.filesystems_other).toEqual('~/unsupported');
 
-        model.set_property('filesystems-custom', '');
+        model.set_property('filesystems-other', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(hasOnly(_unsupportedOverride, GROUP, _key, '!~/unsupported')).toBe(true);
