@@ -47,7 +47,6 @@ var FlatsealWindow = GObject.registerClass({
         'headerLeaflet',
         'contentLeaflet',
         'swipeGroup',
-        'title',
     ],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
@@ -77,9 +76,9 @@ var FlatsealWindow = GObject.registerClass({
 
         const iconTheme = Gtk.IconTheme.get_default();
 
-        applications.forEach(id => {
-            iconTheme.append_search_path(this._model.getIconThemePathForAppId(id));
-            const row = new FlatsealApplicationRow(id);
+        applications.forEach(app => {
+            iconTheme.append_search_path(app.appThemePath);
+            const row = new FlatsealApplicationRow(app.appId, app.appName);
             this._applicationsListBox.add(row);
         });
 
@@ -141,8 +140,8 @@ var FlatsealWindow = GObject.registerClass({
     _update() {
         const row = this._applicationsListBox.get_selected_row();
         this._model.setAppId(row.appId);
-        this._title.set_text(row.appId);
-        this.set_title(row.appId);
+        this._permissionsHeaderBar.set_title(row.appName);
+        this.set_title(row.appName);
         this._showPermissions();
     }
 

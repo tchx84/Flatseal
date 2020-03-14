@@ -24,20 +24,18 @@ var FlatsealApplicationRow = GObject.registerClass({
     Template: 'resource:///com/github/tchx84/Flatseal/applicationRow.ui',
     InternalChildren: ['icon', 'name', 'appId'],
 }, class FlatsealApplicationRow extends Gtk.ListBoxRow {
-    _init(appId) {
+    _init(appId, appName) {
         super._init();
         this._icon.set_from_icon_name(appId, Gtk.IconSize.INVALID);
-        this._name.set_text(this._getName(appId));
+        this._name.set_text(appName);
         this._appId.set_text(appId);
-    }
-
-    /* XXX not accurate, but one less file to access for now */
-    _getName(appId) {
-        const name = appId.split('.').pop();
-        return name.replace(/^\w/, c => c.toUpperCase());
     }
 
     get appId() {
         return this._appId.get_text();
+    }
+
+    get appName() {
+        return this._name.get_text();
     }
 });

@@ -455,6 +455,37 @@ var FlatsealModel = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
+    _getIconThemePathForAppId(appId) {
+        return GLib.build_filenamev([
+            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
+        ]);
+    }
+
+    static _getApproximateNameForAppId(appId) {
+        const name = appId.split('.').pop();
+        return name.replace(/^\w/, c => c.toUpperCase());
+    }
+
+    _getNameForAppId(appId) {
+        const key = 'Name';
+        const group = 'Desktop Entry';
+        const path = GLib.build_filenamev([
+            this._getBundlePathForAppId(appId),
+            'files', 'share', 'applications', `${appId}.desktop`,
+        ]);
+
+        if (GLib.access(path, 0) !== 0)
+            return this.constructor._getApproximateNameForAppId(appId);
+
+        const keyFile = new GLib.KeyFile();
+        keyFile.load_from_file(path, 0);
+
+        if (!keyFile.has_group(group))
+            return this.constructor._getApproximateNameForAppId(appId);
+
+        return keyFile.get_value(group, key);
+    }
+
     /* XXX this only covers cases that follow the flathub convention */
     static _isBaseApp(appId) {
         return appId.endsWith('.BaseApp');
@@ -494,7 +525,13 @@ var FlatsealModel = GObject.registerClass({
 
         list.sort();
 
-        return list;
+        return list.map(appId => {
+            return {
+                appId: appId,
+                appThemePath: this._getIconThemePathForAppId(appId),
+                appName: this._getNameForAppId(appId),
+            };
+        });
     }
 
     listPermissions() {
@@ -549,11 +586,5 @@ var FlatsealModel = GObject.registerClass({
 
     setFlatpakInfoPath(path) {
         this._flatpakInfoPath = path;
-    }
-
-    getIconThemePathForAppId(appId) {
-        return GLib.build_filenamev([
-            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
-        ]);
     }
 });

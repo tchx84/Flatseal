@@ -56,12 +56,14 @@ describe('Model', function() {
     });
 
     it('loads applications', function() {
-        expect(model.listApplications()).toContain(_basicAppId);
-        expect(model.listApplications()).toContain(_oldAppId);
-        expect(model.listApplications()).toContain(_reduceAppId);
-        expect(model.listApplications()).toContain(_increaseAppId);
-        expect(model.listApplications()).toContain(_negationAppId);
-        expect(model.listApplications()).toContain(_unsupportedAppId);
+        const appIds = model.listApplications().map(a => a.appId);
+
+        expect(appIds).toContain(_basicAppId);
+        expect(appIds).toContain(_oldAppId);
+        expect(appIds).toContain(_reduceAppId);
+        expect(appIds).toContain(_increaseAppId);
+        expect(appIds).toContain(_negationAppId);
+        expect(appIds).toContain(_unsupportedAppId);
     });
 
     it('ignores BaseApp bundles', function() {
@@ -70,7 +72,9 @@ describe('Model', function() {
         ]);
 
         expect(GLib.access(path, 0)).toEqual(0);
-        expect(model.listApplications()).not.toContain(_baseAppId);
+
+        const appIds = model.listApplications().map(a => a.appId);
+        expect(appIds).not.toContain(_baseAppId);
     });
 
     it('loads permissions', function() {
