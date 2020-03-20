@@ -4,6 +4,7 @@
 
 - Changed using the term "other" instead of "custom".
 - Fixed displaying the real application name.
+- Fixed visually-annoying borders around permissions view.
 - Fixed segfault on aarch64 by bumping runtime version to 3.36.
 
 ## [1.5.0] - 2020-03-07
