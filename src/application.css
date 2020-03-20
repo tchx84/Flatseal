@@ -25,6 +25,11 @@
     border-width: 0px;
 }
 
+.permissions .frame {
+    border-style: none;
+    border-width: 0px;
+}
+
 .permissions .box {
     padding-left: 10px;
     padding-right: 10px;
