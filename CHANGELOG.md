@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.5.1] - 2020-03-21
 
 - Changed using the term "other" instead of "custom".
 - Fixed displaying the real application name.
