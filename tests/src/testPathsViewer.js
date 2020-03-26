@@ -27,4 +27,10 @@ describe('FlatsealPathsViewer', function() {
         viewer.add('~/Steam');
         expect(viewer.text).toEqual(`${_paths};~/Steam`);
     });
+
+    it('resets paths', function() {
+        viewer.add('');
+        viewer.text = '';
+        expect(viewer.text).toEqual('');
+    });
 });
