@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed clearing the custom filesystems viewer when no custom files.
+- Fixed properly showing the close button to the left corner.
+
 ## [1.5.1] - 2020-03-21
 
 - Changed using the term "other" instead of "custom".
