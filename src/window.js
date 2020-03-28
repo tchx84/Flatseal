@@ -64,8 +64,7 @@ var FlatsealWindow = GObject.registerClass({
 
         this._headerLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
-        this._headerLeaflet.bind_property(
-            'folded', this._applicationsHeaderBar, 'show-close-button', _bindReadFlags);
+        this._setupHeaders();
 
         this._model = new FlatsealModel();
         const applications = this._model.listApplications();
@@ -172,5 +171,29 @@ var FlatsealWindow = GObject.registerClass({
 
     _showPermissions() {
         this._contentLeaflet.set_visible_child_name('permissions');
+    }
+
+    /* XXX Is there better way to do this? */
+    _setupHeaders() {
+        const settings = Gtk.Settings.get_default();
+        if (this._layoutNotifyId)
+            settings.disconnect(this._layoutNotifyId);
+        this._layoutNotifyId = settings.connect(
+            'notify::gtk-decoration-layout', this._setupHeaders.bind(this));
+
+        var mainBar = this._permissionsHeaderBar;
+        var secondaryBar = this._applicationsHeaderBar;
+        if (settings.gtk_decoration_layout.startsWith('close')) {
+            mainBar = this._applicationsHeaderBar;
+            secondaryBar = this._permissionsHeaderBar;
+        }
+
+        mainBar.show_close_button = true;
+        secondaryBar.show_close_button = false;
+
+        if (this._headerBinding)
+            this._headerBinding.unbind();
+        this._headerBinding = this._headerLeaflet.bind_property(
+            'folded', secondaryBar, 'show-close-button', _bindReadFlags);
     }
 });
