@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 12:59-0300\n"
+"POT-Creation-Date: 2020-03-30 20:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Applications"
 msgstr ""
 
-#: src/window.ui:151
+#: src/window.ui:140
 msgid "No applications found."
 msgstr ""
 
@@ -153,10 +153,18 @@ msgid "All system files"
 msgstr ""
 
 #: src/model.js:141
-msgid "All user files"
+msgid "All system libraries, executables and static data"
 msgstr ""
 
 #: src/model.js:146
+msgid "All system configurations"
+msgstr ""
+
+#: src/model.js:151
+msgid "All user files"
+msgstr ""
+
+#: src/model.js:156
 msgid "Other files"
 msgstr ""
 
@@ -181,77 +189,85 @@ msgid "this path relative to the home directory"
 msgstr ""
 
 #: src/pathRow.js:26
-msgid "all system files"
+msgid "all system configurations"
 msgstr ""
 
 #: src/pathRow.js:27
-msgid "all user files"
+msgid "all system libraries, executables and static data"
 msgstr ""
 
 #: src/pathRow.js:28
-msgid "the desktop directory"
+msgid "all system files"
 msgstr ""
 
 #: src/pathRow.js:29
-msgid "the documents directory"
+msgid "all user files"
 msgstr ""
 
 #: src/pathRow.js:30
-msgid "the download directory"
+msgid "the desktop directory"
 msgstr ""
 
 #: src/pathRow.js:31
-msgid "the music directory"
+msgid "the documents directory"
 msgstr ""
 
 #: src/pathRow.js:32
-msgid "the pictures directory"
+msgid "the download directory"
 msgstr ""
 
 #: src/pathRow.js:33
-msgid "the public directory"
+msgid "the music directory"
 msgstr ""
 
 #: src/pathRow.js:34
-msgid "the videos directory"
+msgid "the pictures directory"
 msgstr ""
 
 #: src/pathRow.js:35
-msgid "the templates directory"
+msgid "the public directory"
 msgstr ""
 
 #: src/pathRow.js:36
-msgid "the config directory"
+msgid "the videos directory"
 msgstr ""
 
 #: src/pathRow.js:37
-msgid "the cache directory"
+msgid "the templates directory"
 msgstr ""
 
 #: src/pathRow.js:38
-msgid "the data directory"
+msgid "the config directory"
 msgstr ""
 
 #: src/pathRow.js:39
+msgid "the cache directory"
+msgstr ""
+
+#: src/pathRow.js:40
+msgid "the data directory"
+msgstr ""
+
+#: src/pathRow.js:41
 msgid "the runtime directory"
-msgstr ""
-
-#: src/pathRow.js:54
-#, javascript-format
-msgid "Can read: %s"
-msgstr ""
-
-#: src/pathRow.js:55
-#, javascript-format
-msgid "Can modify and read: %s"
 msgstr ""
 
 #: src/pathRow.js:56
 #, javascript-format
+msgid "Can read: %s"
+msgstr ""
+
+#: src/pathRow.js:57
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr ""
+
+#: src/pathRow.js:58
+#, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr ""
 
-#: src/pathRow.js:59
+#: src/pathRow.js:61
 msgid "This is not a valid option"
 msgstr ""
 
