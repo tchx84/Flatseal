@@ -2,6 +2,7 @@
 
 ## [unreleased]
 
+- Added host-os and host-etc filesystems permissions.
 - Fixed clearing the custom filesystems viewer when no custom files.
 - Fixed properly showing the close button to the left corner.
 
