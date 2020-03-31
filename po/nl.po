@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-30 20:13-0400\n"
-"PO-Revision-Date: 2020-03-03 18:14+0100\n"
+"PO-Revision-Date: 2020-03-31 13:38+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -158,12 +158,11 @@ msgstr "Alle systeembestanden"
 
 #: src/model.js:141
 msgid "All system libraries, executables and static data"
-msgstr ""
+msgstr "Alle systeembibliotheken, uitvoerbare bestanden en statische gegevens"
 
 #: src/model.js:146
-#, fuzzy
 msgid "All system configurations"
-msgstr "Alle systeembestanden"
+msgstr "Alle systeemconfiguraties"
 
 #: src/model.js:151
 msgid "All user files"
@@ -194,13 +193,12 @@ msgid "this path relative to the home directory"
 msgstr "dit pad ten opzichte van de basismap"
 
 #: src/pathRow.js:26
-#, fuzzy
 msgid "all system configurations"
-msgstr "alle systeembestanden"
+msgstr "alle systeemconfiguraties"
 
 #: src/pathRow.js:27
 msgid "all system libraries, executables and static data"
-msgstr ""
+msgstr "alle systeembibliotheken, uitvoerbare bestanden en statische gegevens"
 
 #: src/pathRow.js:28
 msgid "all system files"
