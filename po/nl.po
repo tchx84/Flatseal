@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 12:59-0300\n"
+"POT-Creation-Date: 2020-03-30 20:13-0400\n"
 "PO-Revision-Date: 2020-03-03 18:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Applications"
 msgstr "Toepassingen"
 
-#: src/window.ui:151
+#: src/window.ui:140
 msgid "No applications found."
 msgstr "Geen toepassingen aangetroffen."
 
@@ -157,10 +157,19 @@ msgid "All system files"
 msgstr "Alle systeembestanden"
 
 #: src/model.js:141
+msgid "All system libraries, executables and static data"
+msgstr ""
+
+#: src/model.js:146
+#, fuzzy
+msgid "All system configurations"
+msgstr "Alle systeembestanden"
+
+#: src/model.js:151
 msgid "All user files"
 msgstr "Alle gebruikersbestanden"
 
-#: src/model.js:146
+#: src/model.js:156
 msgid "Other files"
 msgstr "Overige bestanden"
 
@@ -185,77 +194,86 @@ msgid "this path relative to the home directory"
 msgstr "dit pad ten opzichte van de basismap"
 
 #: src/pathRow.js:26
-msgid "all system files"
+#, fuzzy
+msgid "all system configurations"
 msgstr "alle systeembestanden"
 
 #: src/pathRow.js:27
+msgid "all system libraries, executables and static data"
+msgstr ""
+
+#: src/pathRow.js:28
+msgid "all system files"
+msgstr "alle systeembestanden"
+
+#: src/pathRow.js:29
 msgid "all user files"
 msgstr "alle gebruikersbestanden"
 
-#: src/pathRow.js:28
+#: src/pathRow.js:30
 msgid "the desktop directory"
 msgstr "de bureaubladmap"
 
-#: src/pathRow.js:29
+#: src/pathRow.js:31
 msgid "the documents directory"
 msgstr "de documentenmap"
 
-#: src/pathRow.js:30
+#: src/pathRow.js:32
 msgid "the download directory"
 msgstr "de downloadmap"
 
-#: src/pathRow.js:31
+#: src/pathRow.js:33
 msgid "the music directory"
 msgstr "de muziekmap"
 
-#: src/pathRow.js:32
+#: src/pathRow.js:34
 msgid "the pictures directory"
 msgstr "de afbeeldingenmap"
 
-#: src/pathRow.js:33
+#: src/pathRow.js:35
 msgid "the public directory"
 msgstr "de openbare map"
 
-#: src/pathRow.js:34
+#: src/pathRow.js:36
 msgid "the videos directory"
 msgstr "de map met video's"
 
-#: src/pathRow.js:35
+#: src/pathRow.js:37
 msgid "the templates directory"
 msgstr "de map met sjablonen"
 
-#: src/pathRow.js:36
+#: src/pathRow.js:38
 msgid "the config directory"
 msgstr "de configuratiemap"
 
-#: src/pathRow.js:37
+#: src/pathRow.js:39
 msgid "the cache directory"
 msgstr "de cachemap"
 
-#: src/pathRow.js:38
+#: src/pathRow.js:40
 msgid "the data directory"
 msgstr "de gegevensmap"
 
-#: src/pathRow.js:39
+#: src/pathRow.js:41
 msgid "the runtime directory"
 msgstr "de runtime-directory"
 
-#: src/pathRow.js:54
+#: src/pathRow.js:56
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Kan lezen: %s"
 
-#: src/pathRow.js:55
+#: src/pathRow.js:57
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Kan wijzigen en lezen: %s"
 
-#: src/pathRow.js:56
+#: src/pathRow.js:58
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Kan maken, wijzigen en lezen: %s"
 
-#: src/pathRow.js:59
+#: src/pathRow.js:61
 msgid "This is not a valid option"
 msgstr "Dit is geen geldige optie"
 

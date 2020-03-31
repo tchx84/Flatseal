@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 12:59-0300\n"
+"POT-Creation-Date: 2020-03-30 20:13-0400\n"
 "PO-Revision-Date: 2020-03-04 16:22+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Applications"
 msgstr "Aplikace"
 
-#: src/window.ui:151
+#: src/window.ui:140
 msgid "No applications found."
 msgstr "Nenalezeny žádné aplikace."
 
@@ -157,10 +157,19 @@ msgid "All system files"
 msgstr "Všechny systémové soubory"
 
 #: src/model.js:141
+msgid "All system libraries, executables and static data"
+msgstr ""
+
+#: src/model.js:146
+#, fuzzy
+msgid "All system configurations"
+msgstr "Všechny systémové soubory"
+
+#: src/model.js:151
 msgid "All user files"
 msgstr "Všechny uživatelské soubory"
 
-#: src/model.js:146
+#: src/model.js:156
 msgid "Other files"
 msgstr "Ostatní soubory"
 
@@ -185,77 +194,86 @@ msgid "this path relative to the home directory"
 msgstr "tato cesta relativní k domovskému adresáři"
 
 #: src/pathRow.js:26
-msgid "all system files"
+#, fuzzy
+msgid "all system configurations"
 msgstr "všechny systémové soubory"
 
 #: src/pathRow.js:27
+msgid "all system libraries, executables and static data"
+msgstr ""
+
+#: src/pathRow.js:28
+msgid "all system files"
+msgstr "všechny systémové soubory"
+
+#: src/pathRow.js:29
 msgid "all user files"
 msgstr "všechny uživatelské soubory"
 
-#: src/pathRow.js:28
+#: src/pathRow.js:30
 msgid "the desktop directory"
 msgstr "adresář plochy"
 
-#: src/pathRow.js:29
+#: src/pathRow.js:31
 msgid "the documents directory"
 msgstr "adresář dokumentů"
 
-#: src/pathRow.js:30
+#: src/pathRow.js:32
 msgid "the download directory"
 msgstr "adresář stahování"
 
-#: src/pathRow.js:31
+#: src/pathRow.js:33
 msgid "the music directory"
 msgstr "adresář hudby"
 
-#: src/pathRow.js:32
+#: src/pathRow.js:34
 msgid "the pictures directory"
 msgstr "adresář obrázků"
 
-#: src/pathRow.js:33
+#: src/pathRow.js:35
 msgid "the public directory"
 msgstr "veřejný adresář"
 
-#: src/pathRow.js:34
+#: src/pathRow.js:36
 msgid "the videos directory"
 msgstr "adresář videí"
 
-#: src/pathRow.js:35
+#: src/pathRow.js:37
 msgid "the templates directory"
 msgstr "adresář šablon"
 
-#: src/pathRow.js:36
+#: src/pathRow.js:38
 msgid "the config directory"
 msgstr "konfigurační adresář"
 
-#: src/pathRow.js:37
+#: src/pathRow.js:39
 msgid "the cache directory"
 msgstr "adresář mezipaměti"
 
-#: src/pathRow.js:38
+#: src/pathRow.js:40
 msgid "the data directory"
 msgstr "datový adresář"
 
-#: src/pathRow.js:39
+#: src/pathRow.js:41
 msgid "the runtime directory"
 msgstr "adresář prostředí"
 
-#: src/pathRow.js:54
+#: src/pathRow.js:56
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Může číst: %s"
 
-#: src/pathRow.js:55
+#: src/pathRow.js:57
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Může upravovat a číst: %s"
 
-#: src/pathRow.js:56
+#: src/pathRow.js:58
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Může vytvářet, upravovat a číst: %s"
 
-#: src/pathRow.js:59
+#: src/pathRow.js:61
 msgid "This is not a valid option"
 msgstr "Toto není platná možnost"
 
