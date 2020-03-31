@@ -23,6 +23,8 @@ const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 const _options = {
     '/': _('this absolute path'),
     '~/': _('this path relative to the home directory'),
+    'host-etc': _('all system configurations'),
+    'host-os': _('all system libraries, executables and static data'),
     host: _('all system files'),
     home: _('all user files'),
     'xdg-desktop': _('the desktop directory'),

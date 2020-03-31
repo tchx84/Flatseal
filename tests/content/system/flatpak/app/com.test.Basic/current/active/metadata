@@ -3,4 +3,4 @@ shared=network;ipc;
 sockets=x11;fallback-x11;wayland;pulseaudio;system-bus;session-bus;ssh-auth;pcsc;cups;
 devices=dri;kvm;shm;all;
 features=bluetooth;devel;multiarch;canbus;
-filesystems=host;home;~/test;
+filesystems=host;host-os;host-etc;home;~/test;
