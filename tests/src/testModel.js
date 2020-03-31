@@ -5,7 +5,7 @@ setup();
 
 const {FlatsealModel, DELAY, GROUP} = imports.model;
 
-const _totalPermissions = 22;
+const _totalPermissions = 24;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -100,6 +100,8 @@ describe('Model', function() {
         expect(model.features_multiarch).toBe(true);
         expect(model.features_canbus).toBe(true);
         expect(model.filesystems_host).toBe(true);
+        expect(model.filesystems_host_os).toBe(true);
+        expect(model.filesystems_host_etc).toBe(true);
         expect(model.filesystems_home).toBe(true);
         expect(model.filesystems_other).toEqual('~/test');
     });
@@ -128,6 +130,8 @@ describe('Model', function() {
         expect(model.features_multiarch).toBe(false);
         expect(model.features_canbus).toBe(false);
         expect(model.filesystems_host).toBe(false);
+        expect(model.filesystems_host_os).toBe(false);
+        expect(model.filesystems_host_etc).toBe(false);
         expect(model.filesystems_home).toBe(false);
         expect(model.filesystems_other).toEqual('');
     });
@@ -173,6 +177,8 @@ describe('Model', function() {
         expect(model.features_devel).toBe(true);
         expect(model.features_multiarch).toBe(true);
         expect(model.filesystems_host).toBe(false);
+        expect(model.filesystems_host_os).toBe(false);
+        expect(model.filesystems_host_etc).toBe(false);
         expect(model.filesystems_home).toBe(true);
         expect(model.filesystems_other).toEqual('~/tset');
     });
@@ -435,7 +441,7 @@ describe('Model', function() {
 
         const permissions = model.listPermissions().filter(p => p.supported);
 
-        expect(permissions.length).toEqual(_totalPermissions - 4);
+        expect(permissions.length).toEqual(_totalPermissions - 6);
     });
 
     it('handles missing .flatpak-info', function() {

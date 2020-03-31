@@ -135,6 +135,16 @@ var FlatsealModel = GObject.registerClass({
             '0.4.0',
             _('All system files'),
             _propFlags, false),
+        'filesystems-host-os': GObject.ParamSpec.boolean(
+            'filesystems-host-os',
+            '1.7.1',
+            _('All system libraries, executables and static data'),
+            _propFlags, false),
+        'filesystems-host-etc': GObject.ParamSpec.boolean(
+            'filesystems-host-etc',
+            '1.7.1',
+            _('All system configurations'),
+            _propFlags, false),
         'filesystems-home': GObject.ParamSpec.boolean(
             'filesystems-home',
             '0.4.0',
@@ -376,7 +386,7 @@ var FlatsealModel = GObject.registerClass({
                 value = permissions
                     .filter(p => p.startsWith(`${key}=`))
                     .map(p => p.split('=')[1])
-                    .filter(p => ['home', 'host'].indexOf(p) === -1)
+                    .filter(p => ['home', 'host', 'host-os', 'host-etc'].indexOf(p) === -1)
                     .join(';');
             } else {
                 value = permissions.indexOf(permission) !== -1;
