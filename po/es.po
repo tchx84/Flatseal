@@ -156,12 +156,11 @@ msgstr "Todos los archivos del sistema"
 
 #: src/model.js:141
 msgid "All system libraries, executables and static data"
-msgstr ""
+msgstr "Todas las librerias, ejecutables y datos estáticos"
 
 #: src/model.js:146
-#, fuzzy
 msgid "All system configurations"
-msgstr "Todos los archivos del sistema"
+msgstr "Todas las configuraciones del sistema"
 
 #: src/model.js:151
 msgid "All user files"
@@ -192,13 +191,12 @@ msgid "this path relative to the home directory"
 msgstr "esta ruta relativa al directorio de usuario"
 
 #: src/pathRow.js:26
-#, fuzzy
 msgid "all system configurations"
-msgstr "todos los archivos del sistema"
+msgstr "todas las configuraciones del sistema"
 
 #: src/pathRow.js:27
 msgid "all system libraries, executables and static data"
-msgstr ""
+msgstr "todas las librerias, ejecutables y datos estáticos"
 
 #: src/pathRow.js:28
 msgid "all system files"
