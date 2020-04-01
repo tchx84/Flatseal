@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-30 20:13-0400\n"
-"PO-Revision-Date: 2020-02-01 11:35-0200\n"
+"PO-Revision-Date: 2020-04-01 21:25-0300\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -41,7 +41,7 @@ msgid ""
 "your Flatpak applications."
 msgstr ""
 "Flatseal ist ein grafisches Dienstprogramm zum Überprüfen und Ändern von "
-"Basisberechtigungen Ihre Flatpak-Anwendungen."
+"Basisberechtigungen Ihrer Flatpak-Anwendungen."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -62,7 +62,7 @@ msgstr "Liste der mit dem Hostsystem gemeinsam genutzten Subsysteme"
 
 #: src/model.js:25
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Liste bekannter Steckdosen im Sandkasten"
+msgstr "Liste der in der Sandbox verfügbaren Sockets"
 
 #: src/model.js:26
 msgid "List of devices available in the sandbox"
@@ -74,7 +74,7 @@ msgstr "Liste der Funktionen, die der Anwendung zur Verfügung stehen"
 
 #: src/model.js:28
 msgid "List of filesystem subsets available to the application"
-msgstr "Liste der für die Anwendung verfügbaren Dateisystem-Teilmengen"
+msgstr "Liste der für die Anwendung verfügbaren Dateisysteme"
 
 #: src/model.js:41
 msgid "Network"
@@ -130,7 +130,7 @@ msgstr "Virtualisierung"
 
 #: src/model.js:106
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Gemeinsam genutzten Speicher (z.B. JACK-Soundserver)"
+msgstr "Gemeinsam genutzter Speicher (z.B. JACK-Soundserver)"
 
 #: src/model.js:111
 msgid "All devices (e.g. webcam)"
@@ -138,7 +138,7 @@ msgstr "Alle Geräte (z.B. Webcam)"
 
 #: src/model.js:116
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "System fordert Entwicklung (z. B. ptrace)"
+msgstr "Entwicklungs-Systemaufrufe (z.B. ptrace)"
 
 #: src/model.js:121
 msgid "Programs from other architectures"
@@ -158,12 +158,12 @@ msgstr "Alle Systemdateien"
 
 #: src/model.js:141
 msgid "All system libraries, executables and static data"
-msgstr ""
+msgstr "Alle Systembibliotheken, ausführbaren Dateien sowie statische Daten"
 
 #: src/model.js:146
 #, fuzzy
 msgid "All system configurations"
-msgstr "Alle Systemdateien"
+msgstr "Alle Systemkonfigurationen"
 
 #: src/model.js:151
 msgid "All user files"
@@ -187,7 +187,7 @@ msgstr "Über Flatseal"
 
 #: src/pathRow.js:24
 msgid "this absolute path"
-msgstr "dieser absolute Weg"
+msgstr "dieser absoluter Dateipfad"
 
 #: src/pathRow.js:25
 msgid "this path relative to the home directory"
@@ -196,11 +196,11 @@ msgstr "dieser Pfad relativ zum Ausgangsverzeichnis"
 #: src/pathRow.js:26
 #, fuzzy
 msgid "all system configurations"
-msgstr "alle Systemdateien"
+msgstr "alle Systemkonfigurationen"
 
 #: src/pathRow.js:27
 msgid "all system libraries, executables and static data"
-msgstr ""
+msgstr "alle Systembibliotheken, ausführbaren Dateien sowie statische Daten"
 
 #: src/pathRow.js:28
 msgid "all system files"
@@ -275,7 +275,7 @@ msgstr "Kann erstellen, ändern und lesen: %s"
 
 #: src/pathRow.js:61
 msgid "This is not a valid option"
-msgstr "Dies ist keine gültige Option"
+msgstr "Dies ist eine ungültige Einstellung"
 
 #: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
 msgid "Not supported by the installed version of Flatpak"
