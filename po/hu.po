@@ -156,12 +156,11 @@ msgstr "Minden rendszerfájl"
 
 #: src/model.js:141
 msgid "All system libraries, executables and static data"
-msgstr ""
+msgstr "Minden rendszerkönyvtár, végrehajtható fájl és statikus adat"
 
 #: src/model.js:146
-#, fuzzy
 msgid "All system configurations"
-msgstr "Minden rendszerfájl"
+msgstr "Minden rendszerkonfiguráció"
 
 #: src/model.js:151
 msgid "All user files"
@@ -192,13 +191,12 @@ msgid "this path relative to the home directory"
 msgstr "ez az út az otthoni könyvtárhoz képest"
 
 #: src/pathRow.js:26
-#, fuzzy
 msgid "all system configurations"
-msgstr "minden rendszerfájl"
+msgstr "minden rendszerkonfiguráció"
 
 #: src/pathRow.js:27
 msgid "all system libraries, executables and static data"
-msgstr ""
+msgstr "minden rendszerkönyvtár, végrehajtható fájl és statikus adat"
 
 #: src/pathRow.js:28
 msgid "all system files"
