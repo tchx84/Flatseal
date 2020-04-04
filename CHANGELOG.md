@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.5.2] - 2020-04-04
 
 - Added host-os and host-etc filesystems permissions.
 - Fixed clearing the custom filesystems viewer when no custom files.
