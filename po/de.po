@@ -161,7 +161,6 @@ msgid "All system libraries, executables and static data"
 msgstr "Alle Systembibliotheken, ausführbaren Dateien sowie statische Daten"
 
 #: src/model.js:146
-#, fuzzy
 msgid "All system configurations"
 msgstr "Alle Systemkonfigurationen"
 
@@ -194,7 +193,6 @@ msgid "this path relative to the home directory"
 msgstr "dieser Pfad relativ zum Ausgangsverzeichnis"
 
 #: src/pathRow.js:26
-#, fuzzy
 msgid "all system configurations"
 msgstr "alle Systemkonfigurationen"
 
