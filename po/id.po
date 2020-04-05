@@ -1,0 +1,291 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-30 20:13-0400\n"
+"PO-Revision-Date: 2020-04-05 18:36+0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
+"Plural-Forms: nplurals=2; plural= n!=1;\n"
+"Language: id\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "A permissions manager for Flatpak"
+msgstr "Pengelola izin untuk Flatpak"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:12
+msgid "com.github.tchx84.Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify basic permissions from "
+"your Flatpak applications."
+msgstr ""
+"Flatseal adalah utilitas grafis untuk meninjau dan memodifikasi izin dasar "
+"dari aplikasi Flatpak Anda."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr ""
+
+#: src/window.ui:27
+msgid "Applications"
+msgstr "Aplikasi"
+
+#: src/window.ui:140
+msgid "No applications found."
+msgstr "Tidak ada aplikasi yang ditemukan."
+
+#: src/model.js:24
+msgid "List of subsystems shared with the host system"
+msgstr "Daftar subsistem yang berbagi dengan sistem host"
+
+#: src/model.js:25
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Daftar soket yang tersedia di sandbox"
+
+#: src/model.js:26
+msgid "List of devices available in the sandbox"
+msgstr "Daftar perangkat yang tersedia di sandbox"
+
+#: src/model.js:27
+msgid "List of features available to the application"
+msgstr "Daftar fitur yang tersedia untuk aplikasi"
+
+#: src/model.js:28
+msgid "List of filesystem subsets available to the application"
+msgstr "Daftar subset sistem berkas yang tersedia untuk aplikasi"
+
+#: src/model.js:41
+msgid "Network"
+msgstr "Jaringan"
+
+#: src/model.js:46
+msgid "Inter-process communications"
+msgstr "Komunikasi antar proses"
+
+#: src/model.js:51
+msgid "X11 windowing system"
+msgstr "Sistem jendela X11"
+
+#: src/model.js:56
+msgid "Wayland windowing system"
+msgstr "Sistem jendela Wayland"
+
+#: src/model.js:61
+msgid "Fallback to X11 windowing system"
+msgstr "Fallback ke sistem jendela X11"
+
+#: src/model.js:66
+msgid "PulseAudio sound server"
+msgstr "Peladen suara PulseAudio"
+
+#: src/model.js:71
+msgid "D-Bus session bus"
+msgstr "Bus sesi D-Bus"
+
+#: src/model.js:76
+msgid "D-Bus system bus"
+msgstr "Bus sistem D-Bus"
+
+#: src/model.js:81
+msgid "Secure Shell agent"
+msgstr "Agen Secure Shell"
+
+#: src/model.js:86
+msgid "Smart cards"
+msgstr "Kartu pintar (Smart card)"
+
+#: src/model.js:91
+msgid "Printing system"
+msgstr "Sistem pencetakan"
+
+#: src/model.js:96
+msgid "GPU acceleration"
+msgstr "Akselerasi GPU"
+
+#: src/model.js:101
+msgid "Virtualization"
+msgstr "Virtualisasi"
+
+#: src/model.js:106
+msgid "Shared memory (e.g. JACK sound server)"
+msgstr "Berbagi memori (mis. Peladen suara JACK)"
+
+#: src/model.js:111
+msgid "All devices (e.g. webcam)"
+msgstr "Semua perangkat (mis. kamera web)"
+
+#: src/model.js:116
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Syscalls pengembangan (mis. ptrace)"
+
+#: src/model.js:121
+msgid "Programs from other architectures"
+msgstr "Program dari arsitektur lain"
+
+#: src/model.js:126
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/model.js:131
+msgid "Controller Area Network bus"
+msgstr "Bus Controller Area Network"
+
+#: src/model.js:136
+msgid "All system files"
+msgstr "Semua berkas sistem"
+
+#: src/model.js:141
+msgid "All system libraries, executables and static data"
+msgstr "Semua pustaka sistem, data yang dapat dieksekusi, dan data statis"
+
+#: src/model.js:146
+msgid "All system configurations"
+msgstr "Semua konfigurasi sistem"
+
+#: src/model.js:151
+msgid "All user files"
+msgstr "Semua berkas pengguna"
+
+#: src/model.js:156
+msgid "Other files"
+msgstr "Berkas lainnya"
+
+#: src/menu.ui:7
+msgid "Help"
+msgstr "Bantuan"
+
+#: src/menu.ui:11
+msgid "Documentation"
+msgstr "Dokumentasi"
+
+#: src/menu.ui:15
+msgid "About Flatseal"
+msgstr "Tentang Flatseal"
+
+#: src/pathRow.js:24
+msgid "this absolute path"
+msgstr "path absolut ini"
+
+#: src/pathRow.js:25
+msgid "this path relative to the home directory"
+msgstr "path ini relatif terhadap direktori rumah"
+
+#: src/pathRow.js:26
+msgid "all system configurations"
+msgstr "semua konfigurasi sistem"
+
+#: src/pathRow.js:27
+msgid "all system libraries, executables and static data"
+msgstr "semua pustaka sistem, data yang dapat dieksekusi, dan data statis"
+
+#: src/pathRow.js:28
+msgid "all system files"
+msgstr "semua berkas sistem"
+
+#: src/pathRow.js:29
+msgid "all user files"
+msgstr "semua berkas pengguna"
+
+#: src/pathRow.js:30
+msgid "the desktop directory"
+msgstr "direktori destop"
+
+#: src/pathRow.js:31
+msgid "the documents directory"
+msgstr "direktori dokumen"
+
+#: src/pathRow.js:32
+msgid "the download directory"
+msgstr "direktori unduhan"
+
+#: src/pathRow.js:33
+msgid "the music directory"
+msgstr "direktori musik"
+
+#: src/pathRow.js:34
+msgid "the pictures directory"
+msgstr "direktori gambar"
+
+#: src/pathRow.js:35
+msgid "the public directory"
+msgstr "direktori publik"
+
+#: src/pathRow.js:36
+msgid "the videos directory"
+msgstr "direktori video"
+
+#: src/pathRow.js:37
+msgid "the templates directory"
+msgstr "direktori templat"
+
+#: src/pathRow.js:38
+msgid "the config directory"
+msgstr "direktori konfigurasi"
+
+#: src/pathRow.js:39
+msgid "the cache directory"
+msgstr "direktori singgahan"
+
+#: src/pathRow.js:40
+msgid "the data directory"
+msgstr "direktori data"
+
+#: src/pathRow.js:41
+msgid "the runtime directory"
+msgstr "direktori runtime"
+
+#: src/pathRow.js:56
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Dapat membaca: %s"
+
+#: src/pathRow.js:57
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Dapat memodifikasi dan membaca: %s"
+
+#: src/pathRow.js:58
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Dapat membuat, memodifikasi dan membaca: %s"
+
+#: src/pathRow.js:61
+msgid "This is not a valid option"
+msgstr "Ini bukan opsi yang valid"
+
+#: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Tidak didukung oleh versi Flatpak yang diinstal"
+
+#: src/resetButton.js:33
+msgid "Reset"
+msgstr "Atur Ulang"
+
+#: src/resetButton.js:41
+msgid "Reset this application permissions"
+msgstr "Atur ulang izin aplikasi ini"
+
+#: src/resetButton.js:43
+msgid "No changes made to this application"
+msgstr "Tidak ada perubahan pada aplikasi ini"
