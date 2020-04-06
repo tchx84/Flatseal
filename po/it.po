@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-30 20:13-0400\n"
-"PO-Revision-Date: 2020-02-13 09:12+0100\n"
+"PO-Revision-Date: 2020-04-06 08:59+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -130,15 +130,15 @@ msgstr "Virtualizzazione"
 
 #: src/model.js:106
 msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Memoria condivisa (ad es. Server audio JACK)"
+msgstr "Memoria condivisa (per es. Server audio JACK)"
 
 #: src/model.js:111
 msgid "All devices (e.g. webcam)"
-msgstr "Tutti i dispositivi (ad es. fotocamera)"
+msgstr "Tutti i dispositivi (per es. fotocamera)"
 
 #: src/model.js:116
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Chiamate di sistema di sviluppo (ad es. Ptrace)"
+msgstr "Chiamate di sistema di sviluppo (per es. Ptrace)"
 
 #: src/model.js:121
 msgid "Programs from other architectures"
@@ -218,11 +218,11 @@ msgstr "la directory dei documenti"
 
 #: src/pathRow.js:32
 msgid "the download directory"
-msgstr "la directory di download"
+msgstr "la directory degli scaricamenti"
 
 #: src/pathRow.js:33
 msgid "the music directory"
-msgstr "la directory musicale"
+msgstr "la directory della musica"
 
 #: src/pathRow.js:34
 msgid "the pictures directory"
