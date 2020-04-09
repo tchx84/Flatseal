@@ -15,6 +15,7 @@ const _baseAppId = 'com.test.BaseApp';
 const _negationAppId = 'com.test.Negation';
 const _unsupportedAppId = 'com.test.Unsupported';
 const _overridenAppId = 'com.test.Overriden';
+const _extraAppId = 'com.test.Extra';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -32,6 +33,8 @@ const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
 const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId]);
 const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _key = 'filesystems';
+
+const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content', 'installations.d']);
 
 
 describe('Model', function() {
@@ -451,5 +454,21 @@ describe('Model', function() {
         const permissions = model.listPermissions().filter(p => p.supported);
 
         expect(permissions.length).toEqual(_totalPermissions);
+    });
+
+    it('loads extra applications', function() {
+        model.setFlatpakConfigPath(_flatpakConfig);
+
+        const appIds = model.listApplications().map(a => a.appId);
+        expect(appIds).toContain(_extraAppId);
+    });
+
+    it('preserves installation priorities', function() {
+        model.setUserInstallationPath(_user);
+        model.setFlatpakConfigPath(_flatpakConfig);
+        model.setAppId(_extraAppId);
+
+        expect(model.shared_network).toBe(false);
+        expect(model.shared_ipc).toBe(true);
     });
 });

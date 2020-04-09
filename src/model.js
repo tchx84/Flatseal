@@ -167,6 +167,7 @@ var FlatsealModel = GObject.registerClass({
         this._appId = '';
         this._delayedHandlerId = 0;
         this._flatpakVersion = null;
+        this._installationsPaths = null;
 
         this._systemInstallationPath = GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak',
@@ -176,6 +177,9 @@ var FlatsealModel = GObject.registerClass({
         ]);
         this._flatpakInfoPath = GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, '.flatpak-info',
+        ]);
+        this._flatpakConfigPath = GLib.build_filenamev([
+            GLib.DIR_SEPARATOR_S, 'run', 'host', 'etc', 'flatpak', 'installations.d',
         ]);
 
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
@@ -213,20 +217,64 @@ var FlatsealModel = GObject.registerClass({
         return keyFile.get_value('Instance', 'flatpak-version');
     }
 
-    _getSystemInstallationPath() {
-        return this._systemInstallationPath;
+    static _getCustomInsllations(path) {
+        const installations = [];
+        const keyFile = new GLib.KeyFile();
+
+        keyFile.load_from_file(path, 0);
+
+        const [groups] = keyFile.get_groups();
+        groups.forEach(group => {
+            const installation = {};
+            installation['path'] = keyFile.get_value(group, 'Path');
+
+            try {
+                installation['priority'] = keyFile.get_value(group, 'Priority');
+            } catch (err) {
+                installation['priority'] = 0;
+            }
+
+            installations.push(installation);
+        });
+
+        return installations;
+    }
+
+    _getCustomInstallationsPaths() {
+        var custom = [];
+
+        if (GLib.access(this._flatpakConfigPath, 0) !== 0)
+            return custom;
+
+        const directory = Gio.File.new_for_path(this._flatpakConfigPath);
+        const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
+        var info = enumerator.next_file(null);
+
+        while (info !== null) {
+            const file = enumerator.get_child(info);
+            custom = [...custom, ...this.constructor._getCustomInsllations(file.get_path())];
+            info = enumerator.next_file(null);
+        }
+
+        return custom
+            .sort((a, b) => b.priority - a.priority)
+            .map(e => e.path);
+    }
+
+    _getInstallationsPaths() {
+        if (this._installationsPaths !== null)
+            return this._installationsPaths;
+
+        /* Installation priority is handled by this list order */
+        this._installationsPaths = this._getCustomInstallationsPaths();
+        this._installationsPaths.unshift(this._userInstallationPath);
+        this._installationsPaths.push(this._systemInstallationPath);
+
+        return this._installationsPaths;
     }
 
     _getUserInstallationPath() {
         return this._userInstallationPath;
-    }
-
-    _getUserApplicationsPath() {
-        return GLib.build_filenamev([this._getUserInstallationPath(), 'app']);
-    }
-
-    _getSystemApplicationsPath() {
-        return GLib.build_filenamev([this._getSystemInstallationPath(), 'app']);
     }
 
     _getOverridesPath() {
@@ -236,17 +284,9 @@ var FlatsealModel = GObject.registerClass({
     }
 
     _getBundlePathForAppId(appId) {
-        const path = GLib.build_filenamev([
-            this._getUserApplicationsPath(), appId, 'current', 'active',
-        ]);
-
-        /* XXX Assume user installation takes precedence */
-        if (GLib.access(path, 0) === 0)
-            return path;
-
-        return GLib.build_filenamev([
-            this._getSystemApplicationsPath(), appId, 'current', 'active',
-        ]);
+        return this._getInstallationsPaths()
+            .map(p => GLib.build_filenamev([p, 'app', appId, 'current', 'active']))
+            .find(p => GLib.access(p, 0) === 0);
     }
 
     _getMetadataPath() {
@@ -521,16 +561,19 @@ var FlatsealModel = GObject.registerClass({
 
             info = enumerator.next_file(null);
         }
-
         return list;
     }
 
     listApplications() {
-        const userApplications = this._listApplicationsForPath(
-            this._getUserApplicationsPath());
-        const systemApplications = this._listApplicationsForPath(
-            this._getSystemApplicationsPath());
-        const union = new Set([...userApplications, ...systemApplications]);
+        const installations = this._getInstallationsPaths();
+        var applications = [];
+
+        installations.forEach(path => {
+            const app = GLib.build_filenamev([path, 'app']);
+            applications = [...applications, ...this._listApplicationsForPath(app)];
+        });
+
+        const union = new Set(applications);
         const list = [...union];
 
         list.sort();
@@ -596,5 +639,9 @@ var FlatsealModel = GObject.registerClass({
 
     setFlatpakInfoPath(path) {
         this._flatpakInfoPath = path;
+    }
+
+    setFlatpakConfigPath(path) {
+        this._flatpakConfigPath = path;
     }
 });
