@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+- Added Indonesian translation.
+- Added support for custom installations paths.
+- Added TIPSANDTRICKS.md with common tricks.
+
 ## [1.5.2] - 2020-04-04
 
 - Added host-os and host-etc filesystems permissions.
