@@ -14,13 +14,13 @@ To test Flatseal in a different language:
 
 ```
 $ flatpak config --set extra-languages es
-$ flatpak update org.gnome.Platform//3.36
+$ flatpak update org.gnome.Platform
 $ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal
 ```
 
 ## Enable custom installations
 
-To enable a custom installation, e.g, applications installed in `/xusr/custom/flatpak`.
+To enable a custom installation, e.g, `/xusr/custom/flatpak`.
 
 ### Flatpak 1.7.1 or newer:
 
