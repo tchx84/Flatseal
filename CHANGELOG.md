@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.5.3] - 2020-05-02
 
 - Added Indonesian translation.
 - Added support for custom installations paths.
