@@ -1,0 +1,292 @@
+# Swedish translation for Flatseal.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-30 20:13-0400\n"
+"PO-Revision-Date: 2020-05-04 07:00+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sv\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "A permissions manager for Flatpak"
+msgstr "En behörighetshanterare för Flatpak"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:12
+msgid "com.github.tchx84.Flatseal"
+msgstr "com.github.tchx84.Flatseal"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify basic permissions from "
+"your Flatpak applications."
+msgstr ""
+"Flatseal är ett grafiskt verktyg för att granska och ändra grundläggande "
+"behörigheter för dina Flatpak-program."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/window.ui:27
+msgid "Applications"
+msgstr "Program"
+
+#: src/window.ui:140
+msgid "No applications found."
+msgstr "Inga program hittades."
+
+#: src/model.js:24
+msgid "List of subsystems shared with the host system"
+msgstr "Lista över undersystem som delas med värdsystemet"
+
+#: src/model.js:25
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Lista över välkända uttag som finns i sandlådan"
+
+#: src/model.js:26
+msgid "List of devices available in the sandbox"
+msgstr "Lista över enheter som är tillgängliga i sandlådan"
+
+#: src/model.js:27
+msgid "List of features available to the application"
+msgstr "Lista över funktioner som är tillgängliga för programmet"
+
+#: src/model.js:28
+msgid "List of filesystem subsets available to the application"
+msgstr ""
+"Lista över filsystemets undergrupper som är tillgängliga för programmet"
+
+#: src/model.js:41
+msgid "Network"
+msgstr "Nätverk"
+
+#: src/model.js:46
+msgid "Inter-process communications"
+msgstr "Kommunikation mellan processer"
+
+#: src/model.js:51
+msgid "X11 windowing system"
+msgstr "X11 fönstersystem"
+
+#: src/model.js:56
+msgid "Wayland windowing system"
+msgstr "Wayland fönstersystem"
+
+#: src/model.js:61
+msgid "Fallback to X11 windowing system"
+msgstr "Fall tillbaka på X11 fönstersystem"
+
+#: src/model.js:66
+msgid "PulseAudio sound server"
+msgstr "PulseAudio ljudserver"
+
+#: src/model.js:71
+msgid "D-Bus session bus"
+msgstr "D-Bus session bus"
+
+#: src/model.js:76
+msgid "D-Bus system bus"
+msgstr "D-Bus system bus"
+
+#: src/model.js:81
+msgid "Secure Shell agent"
+msgstr "Secure Shell agent"
+
+#: src/model.js:86
+msgid "Smart cards"
+msgstr "Smartkort"
+
+#: src/model.js:91
+msgid "Printing system"
+msgstr "Utskriftssystem"
+
+#: src/model.js:96
+msgid "GPU acceleration"
+msgstr "GPU-acceleration"
+
+#: src/model.js:101
+msgid "Virtualization"
+msgstr "Virtualisering"
+
+#: src/model.js:106
+msgid "Shared memory (e.g. JACK sound server)"
+msgstr "Delat minne (t.ex. JACK ljudserver)"
+
+#: src/model.js:111
+msgid "All devices (e.g. webcam)"
+msgstr "Alla enheter (t.ex. webbkamera)"
+
+#: src/model.js:116
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Development syscalls (t.ex. ptrace)"
+
+#: src/model.js:121
+msgid "Programs from other architectures"
+msgstr "Program från andra arkitekturer"
+
+#: src/model.js:126
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/model.js:131
+msgid "Controller Area Network bus"
+msgstr "Controller Area Network bus"
+
+#: src/model.js:136
+msgid "All system files"
+msgstr "Alla systemfiler"
+
+#: src/model.js:141
+msgid "All system libraries, executables and static data"
+msgstr "Alla systemets bibliotek, exekverbara och statisk data"
+
+#: src/model.js:146
+msgid "All system configurations"
+msgstr "Alla systemkonfigurationer"
+
+#: src/model.js:151
+msgid "All user files"
+msgstr "Alla användarfiler"
+
+#: src/model.js:156
+msgid "Other files"
+msgstr "Andra filer"
+
+#: src/menu.ui:7
+msgid "Help"
+msgstr "Hjälp"
+
+#: src/menu.ui:11
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: src/menu.ui:15
+msgid "About Flatseal"
+msgstr "Om Flatseal"
+
+#: src/pathRow.js:24
+msgid "this absolute path"
+msgstr "Denna absoluta sökväg"
+
+#: src/pathRow.js:25
+msgid "this path relative to the home directory"
+msgstr "Denna sökväg relativt till hemkatalogen"
+
+#: src/pathRow.js:26
+msgid "all system configurations"
+msgstr "Alla systemkonfigurationer"
+
+#: src/pathRow.js:27
+msgid "all system libraries, executables and static data"
+msgstr "Alla systemets bibliotek, exekverbara och statisk data"
+
+#: src/pathRow.js:28
+msgid "all system files"
+msgstr "Alla systemfiler"
+
+#: src/pathRow.js:29
+msgid "all user files"
+msgstr "Alla användarfiler"
+
+#: src/pathRow.js:30
+msgid "the desktop directory"
+msgstr "Skrivbord"
+
+#: src/pathRow.js:31
+msgid "the documents directory"
+msgstr "Dokument"
+
+#: src/pathRow.js:32
+msgid "the download directory"
+msgstr "Nedladdningar"
+
+#: src/pathRow.js:33
+msgid "the music directory"
+msgstr "Musik"
+
+#: src/pathRow.js:34
+msgid "the pictures directory"
+msgstr "Bilder"
+
+#: src/pathRow.js:35
+msgid "the public directory"
+msgstr "Publikt"
+
+#: src/pathRow.js:36
+msgid "the videos directory"
+msgstr "Video"
+
+#: src/pathRow.js:37
+msgid "the templates directory"
+msgstr "Mallar"
+
+#: src/pathRow.js:38
+msgid "the config directory"
+msgstr "Konfigurationsmappen"
+
+#: src/pathRow.js:39
+msgid "the cache directory"
+msgstr "Cachemappen"
+
+#: src/pathRow.js:40
+msgid "the data directory"
+msgstr "Datamappen"
+
+#: src/pathRow.js:41
+msgid "the runtime directory"
+msgstr "Körtidsmappen"
+
+#: src/pathRow.js:56
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Kan läsa: %s"
+
+#: src/pathRow.js:57
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Kan ändra och läsa: %s"
+
+#: src/pathRow.js:58
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Kan skapa, ändra och läsa: %s"
+
+#: src/pathRow.js:61
+msgid "This is not a valid option"
+msgstr "Detta är inte ett giltigt alternativ"
+
+#: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Stöds inte av den installerade Flatpak-versionen"
+
+#: src/resetButton.js:33
+msgid "Reset"
+msgstr "Återställ"
+
+#: src/resetButton.js:41
+msgid "Reset this application permissions"
+msgstr "Återställ det här programmets behörigheter"
+
+#: src/resetButton.js:43
+msgid "No changes made to this application"
+msgstr "Inga ändringar gjorda för det här programmet"
