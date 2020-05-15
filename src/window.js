@@ -19,9 +19,11 @@
 const {GObject, Gtk} = imports.gi;
 const {Leaflet, TitleBar, SwipeGroup, Column} = imports.gi.Handy;
 
+const {FlatpakApplicationsModel} = imports.models.applications;
+const {FlatpakPermissionsModel} = imports.models.permissions;
+
 const {FlatsealApplicationRow} = imports.applicationRow;
 const {FlatsealGroupRow} = imports.groupRow;
-const {FlatsealModel} = imports.model;
 const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.permissionSwitchRow;
 const {FlatsealResetButton} = imports.resetButton;
@@ -66,9 +68,11 @@ var FlatsealWindow = GObject.registerClass({
             'folded', this._backButton, 'visible', _bindReadFlags);
         this._setupHeaders();
 
-        this._model = new FlatsealModel();
-        const applications = this._model.listApplications();
-        const permissions = this._model.listPermissions();
+        this._permissions = new FlatpakPermissionsModel();
+        this._applications = new FlatpakApplicationsModel();
+
+        const applications = this._applications.getAll();
+        const permissions = this._permissions.getAll();
 
         if (applications.length === 0 || permissions.length === 0)
             return;
@@ -102,11 +106,11 @@ var FlatsealWindow = GObject.registerClass({
 
             row.sensitive = p.supported;
             this._permissionsBox.add(row);
-            this._model.bind_property(p.property, row.content, p.type, _bindFlags);
+            this._permissions.bind_property(p.property, row.content, p.type, _bindFlags);
         });
 
         this.connect('destroy', this._shutdown.bind(this));
-        this._model.connect('changed', this._changed.bind(this));
+        this._permissions.connect('changed', this._changed.bind(this));
 
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
         this._applicationsStack.visibleChildName = 'withApplicationsPage';
@@ -129,7 +133,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _shutdown() {
-        this._model.shutdown();
+        this._permissions.shutdown();
     }
 
     _changed(model, overriden) {
@@ -138,14 +142,14 @@ var FlatsealWindow = GObject.registerClass({
 
     _update() {
         const row = this._applicationsListBox.get_selected_row();
-        this._model.setAppId(row.appId);
+        this._permissions.appId = row.appId;
         this._permissionsHeaderBar.set_title(row.appName);
         this.set_title(row.appName);
         this._showPermissions();
     }
 
     _reset() {
-        this._model.resetPermissions();
+        this._permissions.reset();
     }
 
     _filter(row) {
