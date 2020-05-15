@@ -14,5 +14,6 @@
     <file>resetButton.js</file>
     <file>window.js</file>
     <file>models/applications.js</file>
+    <file>models/info.js</file>
   </gresource>
 </gresources>
