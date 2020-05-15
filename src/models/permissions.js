@@ -1,4 +1,4 @@
-/* model.js
+/* permissions.js
  *
  * Copyright 2020 Martin Abente Lahaye
  *
@@ -16,7 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib, Gio} = imports.gi;
+const {GObject, GLib} = imports.gi;
+
+const {FlatpakInfoModel} = imports.models.info;
+const {FlatpakApplicationsModel} = imports.models.applications;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -32,8 +35,8 @@ var GROUP = 'Context';
 var DELAY = 500;
 
 
-var FlatsealModel = GObject.registerClass({
-    GTypeName: 'FlatsealModel',
+var FlatpakPermissionsModel = GObject.registerClass({
+    GTypeName: 'FlatpakPermissionsModel',
     Properties: {
         'shared-network': GObject.ParamSpec.boolean(
             'shared-network',
@@ -161,136 +164,20 @@ var FlatsealModel = GObject.registerClass({
             param_types: [GObject.TYPE_BOOLEAN],
         },
     },
-}, class FlatsealModel extends GObject.Object {
+}, class FlatpakPermissionsModel extends GObject.Object {
     _init() {
         super._init({});
         this._appId = '';
         this._delayedHandlerId = 0;
-        this._flatpakVersion = null;
-        this._installationsPaths = null;
 
-        this._systemInstallationPath = GLib.build_filenamev([
-            GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak',
-        ]);
-        this._userInstallationPath = GLib.build_filenamev([
-            GLib.get_home_dir(), '.local', 'share', 'flatpak',
-        ]);
-        this._flatpakInfoPath = GLib.build_filenamev([
-            GLib.DIR_SEPARATOR_S, '.flatpak-info',
-        ]);
-        this._flatpakConfigPath = GLib.build_filenamev([
-            GLib.DIR_SEPARATOR_S, 'run', 'host', 'etc', 'flatpak', 'installations.d',
-        ]);
+        this._info = new FlatpakInfoModel();
+        this._applications = new FlatpakApplicationsModel();
 
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
 
-    _isSupported(appVersion) {
-        if (this._flatpakVersion === null) {
-            try {
-                this._flatpakVersion = this._getFlatpakVersion();
-            } catch (err) {
-                return true;
-            }
-        }
-
-        const flatpakVersions = this._flatpakVersion.split('.');
-        const appVersions = appVersion.split('.');
-        const components = Math.max(flatpakVersions.length, appVersions.length);
-
-        for (var index = 0; index < components; index++) {
-            const _flatpakVersion = parseInt(flatpakVersions[index] || 0, 10);
-            const _appVersion = parseInt(appVersions[index] || 0, 10);
-
-            if (_flatpakVersion < _appVersion)
-                return false;
-            if (_flatpakVersion > _appVersion)
-                return true;
-        }
-
-        return true;
-    }
-
-    _getFlatpakVersion() {
-        const keyFile = new GLib.KeyFile();
-        keyFile.load_from_file(this._flatpakInfoPath, 0);
-        return keyFile.get_value('Instance', 'flatpak-version');
-    }
-
-    static _getCustomInsllations(path) {
-        const installations = [];
-        const keyFile = new GLib.KeyFile();
-
-        keyFile.load_from_file(path, 0);
-
-        const [groups] = keyFile.get_groups();
-        groups.forEach(group => {
-            const installation = {};
-            installation['path'] = keyFile.get_value(group, 'Path');
-
-            try {
-                installation['priority'] = keyFile.get_value(group, 'Priority');
-            } catch (err) {
-                installation['priority'] = 0;
-            }
-
-            installations.push(installation);
-        });
-
-        return installations;
-    }
-
-    _getCustomInstallationsPaths() {
-        var custom = [];
-
-        if (GLib.access(this._flatpakConfigPath, 0) !== 0)
-            return custom;
-
-        const directory = Gio.File.new_for_path(this._flatpakConfigPath);
-        const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
-        var info = enumerator.next_file(null);
-
-        while (info !== null) {
-            const file = enumerator.get_child(info);
-            custom = [...custom, ...this.constructor._getCustomInsllations(file.get_path())];
-            info = enumerator.next_file(null);
-        }
-
-        return custom
-            .sort((a, b) => b.priority - a.priority)
-            .map(e => e.path);
-    }
-
-    _getInstallationsPaths() {
-        if (this._installationsPaths !== null)
-            return this._installationsPaths;
-
-        /* Installation priority is handled by this list order */
-        this._installationsPaths = this._getCustomInstallationsPaths();
-        this._installationsPaths.unshift(this._userInstallationPath);
-        this._installationsPaths.push(this._systemInstallationPath);
-
-        return this._installationsPaths;
-    }
-
-    _getUserInstallationPath() {
-        return this._userInstallationPath;
-    }
-
     _getOverridesPath() {
-        return GLib.build_filenamev([
-            this._getUserInstallationPath(), 'overrides', this._appId,
-        ]);
-    }
-
-    _getBundlePathForAppId(appId) {
-        return this._getInstallationsPaths()
-            .map(p => GLib.build_filenamev([p, 'app', appId, 'current', 'active']))
-            .find(p => GLib.access(p, 0) === 0);
-    }
-
-    _getMetadataPath() {
-        return GLib.build_filenamev([this._getBundlePathForAppId(this._appId), 'metadata']);
+        return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
     }
 
     static _getPermissionsForPath(path) {
@@ -321,7 +208,8 @@ var FlatsealModel = GObject.registerClass({
     }
 
     _getPermissions() {
-        return this.constructor._getPermissionsForPath(this._getMetadataPath());
+        return this.constructor._getPermissionsForPath(
+            this._applications.getMetadataPathForAppId(this._appId));
     }
 
     _getOverrides() {
@@ -333,7 +221,7 @@ var FlatsealModel = GObject.registerClass({
         this.emit('changed', exists);
     }
 
-    static _realIsOverridenPath(overrides, permission) {
+    static _doIsOverridenPath(overrides, permission) {
         if (!permission.startsWith('filesystems='))
             return false;
 
@@ -352,8 +240,8 @@ var FlatsealModel = GObject.registerClass({
     }
 
     static _isOverridenPath(overrides, permission) {
-        return this._realIsOverridenPath(overrides, permission) ||
-               this._realIsOverridenPath(overrides, this._negatePermission(permission));
+        return this._doIsOverridenPath(overrides, permission) ||
+               this._doIsOverridenPath(overrides, this._negatePermission(permission));
     }
 
     static _isNegatedPermission(permission) {
@@ -486,10 +374,10 @@ var FlatsealModel = GObject.registerClass({
         const added = new Set([...selected].filter(p => !existing.has(p)));
 
         /* Don't mess with permissions we don't support */
-        const supportedState = new Set(this.listPermissions()
+        const supportedState = new Set(this.getAll()
             .filter(p => p.type !== 'text')
             .map(p => p.permission));
-        const supportedText = new Set(this.listPermissions()
+        const supportedText = new Set(this.getAll()
             .filter(p => p.type === 'text')
             .map(p => p.permission.split('=')[0]));
 
@@ -505,89 +393,7 @@ var FlatsealModel = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
-    _getIconThemePathForAppId(appId) {
-        return GLib.build_filenamev([
-            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
-        ]);
-    }
-
-    static _getApproximateNameForAppId(appId) {
-        const name = appId.split('.').pop();
-        return name.replace(/^\w/, c => c.toUpperCase());
-    }
-
-    _getNameForAppId(appId) {
-        const key = 'Name';
-        const group = 'Desktop Entry';
-        const path = GLib.build_filenamev([
-            this._getBundlePathForAppId(appId),
-            'files', 'share', 'applications', `${appId}.desktop`,
-        ]);
-
-        if (GLib.access(path, 0) !== 0)
-            return this.constructor._getApproximateNameForAppId(appId);
-
-        const keyFile = new GLib.KeyFile();
-        keyFile.load_from_file(path, 0);
-
-        if (!keyFile.has_group(group))
-            return this.constructor._getApproximateNameForAppId(appId);
-
-        return keyFile.get_value(group, key);
-    }
-
-    /* XXX this only covers cases that follow the flathub convention */
-    static _isBaseApp(appId) {
-        return appId.endsWith('.BaseApp');
-    }
-
-    _listApplicationsForPath(path) {
-        const list = [];
-
-        if (GLib.access(path, 0) !== 0)
-            return list;
-
-        const directory = Gio.File.new_for_path(path);
-        const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
-        var info = enumerator.next_file(null);
-
-        while (info !== null) {
-            const file = enumerator.get_child(info);
-            const appId = GLib.path_get_basename(file.get_path());
-            const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
-
-            if (!this.constructor._isBaseApp(appId) && GLib.access(activePath, 0) === 0)
-                list.push(appId);
-
-            info = enumerator.next_file(null);
-        }
-        return list;
-    }
-
-    listApplications() {
-        const installations = this._getInstallationsPaths();
-        var applications = [];
-
-        installations.forEach(path => {
-            const app = GLib.build_filenamev([path, 'app']);
-            applications = [...applications, ...this._listApplicationsForPath(app)];
-        });
-
-        const union = new Set(applications);
-        const list = [...union];
-
-        list.sort();
-
-        return list.map(appId => {
-            return {
-                appId: appId,
-                appThemePath: this._getIconThemePathForAppId(appId),
-                appName: this._getNameForAppId(appId),
-            };
-        });
-    }
-
-    listPermissions() {
+    getAll() {
         const list = [];
         const props = GObject.Object.list_properties.call(this.constructor.$gtype);
 
@@ -595,7 +401,7 @@ var FlatsealModel = GObject.registerClass({
             const property = pspec.get_name();
             const entry = {};
             const isText = typeof pspec.get_default_value() === 'string';
-            const appVersion = pspec.get_nick();
+            const version = pspec.get_nick();
             const [group] = property.split('-');
 
             entry['property'] = property;
@@ -603,7 +409,7 @@ var FlatsealModel = GObject.registerClass({
             entry['value'] = this[pspec.get_name().replace(/-/g, '_')];
             entry['type'] = isText ? 'text' : 'state';
             entry['permission'] = property.replace(/-/, '=');
-            entry['supported'] = this._isSupported(appVersion);
+            entry['supported'] = this._info.supports(version);
             entry['group'] = group;
             entry['groupDescription'] = _groupDescriptions[group];
 
@@ -613,13 +419,7 @@ var FlatsealModel = GObject.registerClass({
         return list;
     }
 
-    setAppId(appId) {
-        this._processPendingUpdates();
-        this._appId = appId;
-        this._updateProperties();
-    }
-
-    resetPermissions() {
+    reset() {
         const path = this._getOverridesPath();
         GLib.unlink(path);
         this._updateProperties();
@@ -629,19 +429,19 @@ var FlatsealModel = GObject.registerClass({
         this._processPendingUpdates();
     }
 
-    setSystemInstallationPath(path) {
-        this._systemInstallationPath = path;
+    set appId(appId) {
+        this._processPendingUpdates();
+        this._appId = appId;
+        this._updateProperties();
     }
 
-    setUserInstallationPath(path) {
-        this._userInstallationPath = path;
+    /* testing */
+
+    set info(info) {
+        this._info = info;
     }
 
-    setFlatpakInfoPath(path) {
-        this._flatpakInfoPath = path;
-    }
-
-    setFlatpakConfigPath(path) {
-        this._flatpakConfigPath = path;
+    set applications(applications) {
+        this._applications = applications;
     }
 });

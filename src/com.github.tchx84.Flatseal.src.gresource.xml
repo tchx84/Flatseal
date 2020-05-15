@@ -6,7 +6,6 @@
     <file>applicationRow.js</file>
     <file>groupRow.js</file>
     <file>main.js</file>
-    <file>model.js</file>
     <file>pathRow.js</file>
     <file>pathsViewer.js</file>
     <file>permissionEntryRow.js</file>
@@ -15,5 +14,6 @@
     <file>window.js</file>
     <file>models/applications.js</file>
     <file>models/info.js</file>
+    <file>models/permissions.js</file>
   </gresource>
 </gresources>
