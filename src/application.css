@@ -36,7 +36,7 @@
     margin-bottom: 25px;
 }
 
-.permissions .group {
+.permissions .group ~ .group {
     margin-top: 25px;
     margin-bottom: 10px;
 }
@@ -150,4 +150,42 @@
 separator {
     margin-bottom: 0px;
     margin-top: 0px;
+}
+
+.permissions .app-info {
+    margin-top: 15px;
+}
+.permissions .app-info.compact {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.permissions .app-info .icon {
+    margin: 25px 25px 25px 0px;
+}
+.permissions .app-info.compact .icon {
+    margin: 5px 0px 5px 0px;
+}
+
+.permissions .app-info .name {
+    font-size: xx-large;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.permissions .app-info .author {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.permissions .app-info.compact .author {
+    margin-bottom: 25px;
+}
+
+.permissions .app-info .description {
+    color: @insensitive_fg_color;
+    margin-bottom: 5px;
+}
+
+.permissions .app-info .value {
+    margin-bottom: 5px;
 }
