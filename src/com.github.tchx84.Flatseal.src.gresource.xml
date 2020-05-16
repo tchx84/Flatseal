@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/com/github/tchx84/Flatseal/js">
     <file>aboutDialog.js</file>
+    <file>appInfoViewer.js</file>
     <file>application.js</file>
     <file>applicationRow.js</file>
     <file>groupRow.js</file>

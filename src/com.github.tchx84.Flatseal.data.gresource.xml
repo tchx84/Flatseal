@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/com/github/tchx84/Flatseal">
     <file>aboutDialog.ui</file>
+    <file>appInfoViewer.ui</file>
     <file>application.css</file>
     <file>applicationRow.ui</file>
     <file>groupRow.ui</file>

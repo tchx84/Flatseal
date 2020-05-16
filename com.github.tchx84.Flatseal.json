@@ -48,6 +48,29 @@
             ]
         },
         {
+            "name": "appstream-glib",
+            "buildsystem": "meson",
+            "config-opts": [
+		"-Ddep11=false",
+		"-Dbuilder=false",
+		"-Drpm=false",
+		"-Dalpm=false",
+		"-Dfonts=false",
+		"-Dstemmer=false",
+		"-Dman=false",
+		"-Dstemmer=false",
+		"-Dgtk-doc=false",
+		"-Dintrospection=true"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_17.tar.gz",
+                    "sha256": "cb612c9e634275e574fa639737cf63711358cd10b9d0d377f70025653fefdd16"
+                }
+            ]
+        },
+        {
             "name": "flatseal",
             "buildsystem": "meson",
             "sources": [

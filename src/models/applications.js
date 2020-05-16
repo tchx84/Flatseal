@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib, Gio} = imports.gi;
+const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
 
 
 var FlatpakApplicationsModel = GObject.registerClass({
@@ -107,31 +107,6 @@ var FlatpakApplicationsModel = GObject.registerClass({
             .find(p => GLib.access(p, 0) === 0);
     }
 
-    static _getApproximateNameForAppId(appId) {
-        const name = appId.split('.').pop();
-        return name.replace(/^\w/, c => c.toUpperCase());
-    }
-
-    _getNameForAppId(appId) {
-        const key = 'Name';
-        const group = 'Desktop Entry';
-        const path = GLib.build_filenamev([
-            this._getBundlePathForAppId(appId),
-            'files', 'share', 'applications', `${appId}.desktop`,
-        ]);
-
-        if (GLib.access(path, 0) !== 0)
-            return this.constructor._getApproximateNameForAppId(appId);
-
-        const keyFile = new GLib.KeyFile();
-        keyFile.load_from_file(path, 0);
-
-        if (!keyFile.has_group(group))
-            return this.constructor._getApproximateNameForAppId(appId);
-
-        return keyFile.get_value(group, key);
-    }
-
     _getIconThemePathForAppId(appId) {
         return GLib.build_filenamev([
             this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
@@ -166,6 +141,77 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return list;
     }
 
+    static _getApproximateNameForAppId(appId) {
+        const name = appId.split('.').pop();
+        return name.replace(/^\w/, c => c.toUpperCase());
+    }
+
+    getMetadataForAppId(appId) {
+        const data = {
+            runtime: _('Unknown'),
+        };
+
+        const group = 'Application';
+        const path = this.getMetadataPathForAppId(appId);
+
+        if (GLib.access(path, 0) !== 0)
+            return data;
+
+        const keyFile = new GLib.KeyFile();
+        keyFile.load_from_file(path, 0);
+
+        try {
+            data.runtime = keyFile.get_value(group, 'runtime');
+        } catch (err) {
+            data.runtime = '';
+        }
+
+        return data;
+    }
+
+    getAppDataForAppId(appId) {
+        const appdata = {
+            name: this.constructor._getApproximateNameForAppId(appId),
+            author: _('Unknown'),
+            version: _('Unknown'),
+            date: _('Unknown'),
+        };
+
+        const path = GLib.build_filenamev([
+            this._getBundlePathForAppId(appId),
+            'files', 'share', 'appdata', `${appId}.appdata.xml`,
+        ]);
+
+        if (GLib.access(path, 0) !== 0)
+            return appdata;
+
+        const app = new AppStreamGlib.App();
+        app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+        if (app === null)
+            return appdata;
+
+        if (app.get_name(null) !== null)
+            appdata.name = app.get_name(null);
+
+        if (app.get_developer_name(null) !== null)
+            appdata.author = app.get_developer_name(null);
+
+        const release = app.get_release_default();
+        if (release === null)
+            return appdata;
+
+        if (release.get_version() !== null)
+            appdata.version = `${release.get_version()}`;
+
+        if (release.get_timestamp() !== null) {
+            const ts = release.get_timestamp();
+            const date = new Date(ts * 1000);
+            appdata.date = date.toISOString().substring(0, 10);
+        }
+
+        return appdata;
+    }
+
     getAll() {
         const installations = this._getInstallationsPaths();
         var applications = [];
@@ -181,10 +227,12 @@ var FlatpakApplicationsModel = GObject.registerClass({
         list.sort();
 
         return list.map(appId => {
+            const appdata = this.getAppDataForAppId(appId);
+
             return {
                 appId: appId,
                 appThemePath: this._getIconThemePathForAppId(appId),
-                appName: this._getNameForAppId(appId),
+                appName: appdata.name,
             };
         });
     }

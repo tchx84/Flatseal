@@ -22,6 +22,7 @@ const {Leaflet, TitleBar, SwipeGroup, Column} = imports.gi.Handy;
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakPermissionsModel} = imports.models.permissions;
 
+const {FlatsealAppInfoViewer} = imports.appInfoViewer;
 const {FlatsealApplicationRow} = imports.applicationRow;
 const {FlatsealGroupRow} = imports.groupRow;
 const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
@@ -85,6 +86,12 @@ var FlatsealWindow = GObject.registerClass({
             this._applicationsListBox.add(row);
         });
 
+        this._appInfoViewer = new FlatsealAppInfoViewer();
+        this._appInfoViewer.show();
+        this._permissionsBox.add(this._appInfoViewer);
+        this._headerLeaflet.bind_property(
+            'folded', this._appInfoViewer, 'compact', _bindReadFlags);
+
         var lastGroup = '';
 
         permissions.forEach(p => {
@@ -145,6 +152,7 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions.appId = row.appId;
         this._permissionsHeaderBar.set_title(row.appName);
         this.set_title(row.appName);
+        this._appInfoViewer.appId = row.appId;
         this._showPermissions();
     }
 
