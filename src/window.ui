@@ -1,111 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <requires lib="libhandy" version="0.0"/>
   <template class="FlatsealWindow" parent="GtkApplicationWindow">
+    <property name="can_focus">False</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
-    <property name="can_focus">False</property>
-    <child type="titlebar">
-      <object class="HdyTitleBar">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <child>
-          <object class="HdyLeaflet" id="headerLeaflet">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="hhomogeneous_folded">False</property>
-            <property name="vhomogeneous_unfolded">True</property>
-            <property name="transition-type">over</property>
-            <property name="interpolate_size">True</property>
-            <child>
-              <object class="GtkHeaderBar" id="applicationsHeaderBar">
-                <property name="width_request">275</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="title" translatable="yes">Applications</property>
-                <child>
-                  <object class="GtkMenuButton" id="menuButton">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="icon_name">open-menu-symbolic</property>
-                      </object>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="pack_type">end</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="name">applications</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSeparator">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="orientation">vertical</property>
-              </object>
-              <packing>
-                  <property name="allow-visible">False</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkHeaderBar" id="permissionsHeaderBar">
-                <property name="width_request">360</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="show_close_button">True</property>
-                <child>
-                  <object class="GtkMenuButton" id="backButton">
-                    <property name="can_focus">True</property>
-                    <property name="sensitive">True</property>
-                    <property name="receives_default">True</property>
-                    <child>
-                      <object class="GtkImage">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="icon_name">go-previous-symbolic</property>
-                        <property name="use_fallback">True</property>
-                      </object>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkBox" id="resetBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="valign">center</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <placeholder/>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="pack_type">end</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="name">permissions</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
     <child>
       <object class="HdyLeaflet" id="contentLeaflet">
         <property name="width_request">360</property>
@@ -115,7 +16,7 @@
         <property name="vhomogeneous_unfolded">True</property>
         <property name="transition_type">over</property>
         <property name="interpolate_size">True</property>
-        <property name="can-swipe-back">True</property>
+        <property name="can_swipe_back">True</property>
         <child>
           <object class="GtkBox">
             <property name="width_request">275</property>
@@ -240,7 +141,7 @@
             <property name="orientation">vertical</property>
           </object>
           <packing>
-              <property name="allow-visible">False</property>
+            <property name="allow_visible">False</property>
           </packing>
         </child>
         <child>
@@ -284,10 +185,11 @@
                             <property name="can_focus">False</property>
                             <child>
                               <object class="HdyColumn">
-                                <property name="visible">True</property>
                                 <property name="width_request">300</property>
-                                <property name="linear-growth-width">500</property>
-                                <property name="maximum-width">700</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="maximum_width">700</property>
+                                <property name="linear_growth_width">500</property>
                                 <child>
                                   <object class="GtkBox" id="permissionsBox">
                                     <property name="visible">True</property>
@@ -310,6 +212,45 @@
                         <property name="expand">True</property>
                         <property name="fill">True</property>
                         <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkActionBar" id="actionBar">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <child>
+                          <object class="GtkBox" id="startActionBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="valign">center</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="endActionBox">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="valign">center</property>
+                            <child>
+                              <placeholder/>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="pack_type">end</property>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
                       </packing>
                     </child>
                   </object>
@@ -335,11 +276,122 @@
         </child>
       </object>
     </child>
+    <child type="titlebar">
+      <object class="HdyTitleBar">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="HdyLeaflet" id="headerLeaflet">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hhomogeneous_folded">False</property>
+            <property name="vhomogeneous_unfolded">True</property>
+            <property name="transition_type">over</property>
+            <property name="interpolate_size">True</property>
+            <child>
+              <object class="GtkHeaderBar" id="applicationsHeaderBar">
+                <property name="width_request">275</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="title" translatable="yes">Applications</property>
+                <child>
+                  <object class="GtkMenuButton" id="menuButton">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="icon_name">open-menu-symbolic</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack_type">end</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">applications</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="orientation">vertical</property>
+              </object>
+              <packing>
+                <property name="allow_visible">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkHeaderBar" id="permissionsHeaderBar">
+                <property name="width_request">360</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="hexpand">True</property>
+                <property name="show_close_button">True</property>
+                <child>
+                  <object class="GtkBox" id="startHeaderBox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <child>
+                      <object class="GtkMenuButton" id="backButton">
+                        <property name="sensitive">False</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                        <property name="valign">center</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="icon_name">go-previous-symbolic</property>
+                            <property name="use_fallback">True</property>
+                          </object>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="endHeaderBox">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack_type">end</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="name">permissions</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
   </template>
   <object class="HdySwipeGroup" id="swipeGroup">
-      <swipeables>
-          <swipeable name="headerLeaflet"/>
-          <swipeable name="contentLeaflet"/>
-      </swipeables>
+    <swipeables>
+      <swipeable name="headerLeaflet"/>
+      <swipeable name="contentLeaflet"/>
+    </swipeables>
   </object>
 </interface>
