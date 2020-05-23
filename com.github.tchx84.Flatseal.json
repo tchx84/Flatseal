@@ -11,7 +11,8 @@
         "--socket=wayland",
         "--filesystem=/var/lib/flatpak/app:ro",
         "--filesystem=~/.local/share/flatpak/app:ro",
-        "--filesystem=~/.local/share/flatpak/overrides:create"
+        "--filesystem=~/.local/share/flatpak/overrides:create",
+        "--talk-name=org.gnome.Software"
     ],
     "cleanup": [
         "/include",
