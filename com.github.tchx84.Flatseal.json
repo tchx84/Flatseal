@@ -9,6 +9,7 @@
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
+        "--device=dri",
         "--filesystem=/var/lib/flatpak/app:ro",
         "--filesystem=~/.local/share/flatpak/app:ro",
         "--filesystem=~/.local/share/flatpak/overrides:create",
