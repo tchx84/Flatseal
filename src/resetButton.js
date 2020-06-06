@@ -32,10 +32,21 @@ var FlatsealResetButton = GObject.registerClass({
         this._permissions = permissions;
         this._permissions.connect('changed', this._update.bind(this));
 
+        this._image = new Gtk.Image();
+        this._image.icon_name = 'dialog-warning-symbolic';
+        this._image.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+        this._image.image_position = Gtk.PositionType.LEFT;
+        this._image.visible = true;
+        this.set_image(this._image);
+
         this.set_label(_('Reset'));
+        this.always_show_image = true;
         this.sensitive = false;
         this.can_focus = false;
         this.visible = true;
+
+        this.get_style_context().add_class('reset-button');
+
         this.connect('clicked', this._clicked.bind(this));
     }
 
@@ -43,11 +54,17 @@ var FlatsealResetButton = GObject.registerClass({
         this._permissions.reset();
     }
 
-    _update(permissions, overriden) {
+    _update(widget, overriden, unsupported) {
         this.sensitive = overriden;
-        if (this.sensitive)
-            this.set_tooltip_text(_('Reset this application permissions'));
-        else
-            this.set_tooltip_text(_('No changes made to this application'));
+        this._image.visible = unsupported;
+
+        var text = _('No changes made to this application');
+
+        if (overriden)
+            text = _('Reset this application permissions');
+        if (unsupported)
+            text += _(', including changes not made with Flatseal');
+
+        this.set_tooltip_text(text);
     }
 });

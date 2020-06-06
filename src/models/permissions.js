@@ -20,6 +20,7 @@ const {GObject, GLib} = imports.gi;
 
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakApplicationsModel} = imports.models.applications;
+const {FlatpakUnsupportedModel} = imports.models.unsupported;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -31,7 +32,14 @@ const _groupDescriptions = {
     filesystems: _('List of filesystem subsets available to the application'),
 };
 
-var GROUP = 'Context';
+var _groupsSupported = {
+    shared: 'Context',
+    sockets: 'Context',
+    devices: 'Context',
+    features: 'Context',
+    filesystems: 'Context',
+};
+
 var DELAY = 500;
 
 
@@ -161,7 +169,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     },
     Signals: {
         changed: {
-            param_types: [GObject.TYPE_BOOLEAN],
+            param_types: [GObject.TYPE_BOOLEAN, GObject.TYPE_BOOLEAN],
         },
     },
 }, class FlatpakPermissionsModel extends GObject.Object {
@@ -172,6 +180,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         this._info = new FlatpakInfoModel();
         this._applications = new FlatpakApplicationsModel();
+        this._unsupported = new FlatpakUnsupportedModel();
 
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
@@ -180,7 +189,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
     }
 
-    static _getPermissionsForPath(path) {
+    _getPermissionsForPath(path, backup) {
         const list = [];
 
         if (GLib.access(path, 0) !== 0)
@@ -189,18 +198,22 @@ var FlatpakPermissionsModel = GObject.registerClass({
         const keyFile = new GLib.KeyFile();
         keyFile.load_from_file(path, 0);
 
-        if (!keyFile.has_group(GROUP))
-            return list;
+        const [groups] = keyFile.get_groups();
 
-        const [keys] = keyFile.get_keys(GROUP);
+        groups.forEach(group => {
+            const [keys] = keyFile.get_keys(group);
 
-        keys.forEach(key => {
-            const values = keyFile.get_value(GROUP, key).split(';');
-            values.forEach(value => {
-                if (value.length === 0)
-                    return;
+            keys.forEach(key => {
+                const values = keyFile.get_value(group, key).split(';');
+                values.forEach(value => {
+                    if (value.length === 0)
+                        return;
 
-                list.push(`${key}=${value}`);
+                    if (key in _groupsSupported)
+                        list.push(`${key}=${value}`);
+                    else if (backup)
+                        this._unsupported.backup(group, key, value);
+                });
             });
         });
 
@@ -208,17 +221,18 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _getPermissions() {
-        return this.constructor._getPermissionsForPath(
-            this._applications.getMetadataPathForAppId(this._appId));
+        return this._getPermissionsForPath(
+            this._applications.getMetadataPathForAppId(this._appId), false);
     }
 
     _getOverrides() {
-        return this.constructor._getPermissionsForPath(this._getOverridesPath());
+        return this._getPermissionsForPath(this._getOverridesPath(), true);
     }
 
     _checkIfChanged() {
         const exists = GLib.access(this._getOverridesPath(), 0) === 0;
-        this.emit('changed', exists);
+        const unsupported = !this._unsupported.isEmpty();
+        this.emit('changed', exists, unsupported);
     }
 
     static _doIsOverridenPath(overrides, permission) {
@@ -276,15 +290,18 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         overrides.forEach(override => {
             var [key, value] = override.split('=');
+            const group = _groupsSupported[key];
 
             try {
-                var _value = keyFile.get_value(GROUP, key);
+                var _value = keyFile.get_value(group, key);
                 value = `${_value};${value}`;
             } catch (err) {
                 value = `${value}`;
             }
-            keyFile.set_value(GROUP, key, value);
+            keyFile.set_value(group, key, value);
         });
+
+        this._unsupported.restore(keyFile);
 
         const [, length] = keyFile.to_data();
         const path = this._getOverridesPath();
@@ -422,6 +439,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     reset() {
         const path = this._getOverridesPath();
         GLib.unlink(path);
+        this._unsupported.reset();
         this._updateProperties();
     }
 
@@ -430,6 +448,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     set appId(appId) {
+        this._unsupported.reset();
         this._processPendingUpdates();
         this._appId = appId;
         this._updateProperties();
@@ -440,6 +459,11 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     /* testing */
+
+    static getGroupForProperty(property) {
+        const [group] = property.split('-');
+        return _groupsSupported[group];
+    }
 
     set info(info) {
         this._info = info;
