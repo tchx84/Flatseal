@@ -189,3 +189,11 @@ separator {
 .permissions .app-info .value {
     margin-bottom: 5px;
 }
+
+.reset-button label {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.reset-button image {
+    color: @warning_color;
+}

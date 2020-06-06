@@ -5,7 +5,7 @@ setup();
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakInfoModel} = imports.models.info;
-const {FlatpakPermissionsModel, DELAY, GROUP} = imports.models.permissions;
+const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
 const _totalPermissions = 24;
 
@@ -235,7 +235,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', 'xdg-downloads:ro');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_reduceOverride, GROUP, _key, 'xdg-downloads:ro')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_reduceOverride, group, _key, 'xdg-downloads:ro')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -252,7 +253,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', 'xdg-pictures:rw');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures:rw')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_increaseOverride, group, _key, 'xdg-pictures:rw')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -269,7 +271,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', 'xdg-pictures');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_increaseOverride, GROUP, _key, 'xdg-pictures')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_increaseOverride, group, _key, 'xdg-pictures')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -286,7 +289,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', '!~/negative');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_negationOverride, group, _key, '!~/positive')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -303,7 +307,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', '~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_negationOverride, group, _key, '~/negative')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -320,7 +325,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', '!~/negative;!~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '!~/positive')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_negationOverride, group, _key, '!~/positive')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -337,7 +343,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', '~/negative;~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_negationOverride, GROUP, _key, '~/negative')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_negationOverride, group, _key, '~/negative')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -354,7 +361,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(hasOnly(_unsupportedOverride, GROUP, _key, '!~/unsupported')).toBe(true);
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(hasOnly(_unsupportedOverride, group, _key, '!~/unsupported')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -371,7 +379,7 @@ describe('Model', function() {
         permissions.set_property('shared-network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true]);
+            expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -387,7 +395,29 @@ describe('Model', function() {
 
         permissions.reset();
 
-        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false]);
+        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
+    });
+
+    it('signals changes with unsupported', function() {
+        spyOn(permissions, 'emit');
+
+        applications.userPath = _user;
+        permissions.appId = _unsupportedAppId;
+
+        permissions.set_property('shared-network', false);
+
+        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, true]);
+    });
+
+    it('signals changes with reset unsupported', function() {
+        spyOn(permissions, 'emit');
+
+        applications.userPath = _user;
+        permissions.appId = _unsupportedAppId;
+
+        permissions.reset();
+
+        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
     });
 
     it('saves pending updates before selecting other application', function(done) {

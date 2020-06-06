@@ -16,6 +16,7 @@
     <file>window.js</file>
     <file>models/applications.js</file>
     <file>models/info.js</file>
+    <file>models/unsupported.js</file>
     <file>models/permissions.js</file>
   </gresource>
 </gresources>
