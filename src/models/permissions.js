@@ -21,152 +21,70 @@ const {GObject, GLib} = imports.gi;
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakUnsupportedModel} = imports.models.unsupported;
+const {FlatpakDevicesModel} = imports.models.devices;
+const {FlatpakSharedModel} = imports.models.shared;
+const {FlatpakSocketsModel} = imports.models.sockets;
+const {FlatpakFeaturesModel} = imports.models.features;
+const {FlatpakFilesystemsModel} = imports.models.filesystems;
+const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 
-const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
+const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
-const _groupDescriptions = {
-    shared: _('List of subsystems shared with the host system'),
-    sockets: _('List of well-known sockets available in the sandbox'),
-    devices: _('List of devices available in the sandbox'),
-    features: _('List of features available to the application'),
-    filesystems: _('List of filesystem subsets available to the application'),
+const MODELS = {
+    shared: new FlatpakSharedModel(),
+    sockets: new FlatpakSocketsModel(),
+    devices: new FlatpakDevicesModel(),
+    features: new FlatpakFeaturesModel(),
+    filesystems: new FlatpakFilesystemsModel(),
+    'filesystems-other': new FlatpakFilesystemsOtherModel(),
+    unsupported: new FlatpakUnsupportedModel(),
 };
 
-var _groupsSupported = {
-    shared: 'Context',
-    sockets: 'Context',
-    devices: 'Context',
-    features: 'Context',
-    filesystems: 'Context',
+const PERMISSIONS = {
+    'shared-network': MODELS['shared'],
+    'shared-ipc': MODELS['shared'],
+    'sockets-x11': MODELS['sockets'],
+    'sockets-wayland': MODELS['sockets'],
+    'sockets-fallback-x11': MODELS['sockets'],
+    'sockets-pulseaudio': MODELS['sockets'],
+    'sockets-session-bus': MODELS['sockets'],
+    'sockets-system-bus': MODELS['sockets'],
+    'sockets-ssh-auth': MODELS['sockets'],
+    'sockets-pcsc': MODELS['sockets'],
+    'sockets-cups': MODELS['sockets'],
+    'devices-dri': MODELS['devices'],
+    'devices-kvm': MODELS['devices'],
+    'devices-shm': MODELS['devices'],
+    'devices-all': MODELS['devices'],
+    'features-devel': MODELS['features'],
+    'features-multiarch': MODELS['features'],
+    'features-bluetooth': MODELS['features'],
+    'features-canbus': MODELS['features'],
+    'filesystems-host': MODELS['filesystems'],
+    'filesystems-host-os': MODELS['filesystems'],
+    'filesystems-host-etc': MODELS['filesystems'],
+    'filesystems-home': MODELS['filesystems'],
+    'filesystems-other': MODELS['filesystems-other'],
 };
+
+function generate() {
+    const properties = {};
+
+    Object.entries(PERMISSIONS).forEach(([property, model]) => {
+        const type = model.constructor.getType() === 'text' ? 'string' : 'boolean';
+        const value = model.constructor.getDefault();
+        properties[property] = GObject.ParamSpec[type](
+            property, property, property, FLAGS, value);
+    });
+
+    return properties;
+}
 
 var DELAY = 500;
 
-
 var FlatpakPermissionsModel = GObject.registerClass({
     GTypeName: 'FlatpakPermissionsModel',
-    Properties: {
-        'shared-network': GObject.ParamSpec.boolean(
-            'shared-network',
-            '0.4.0',
-            _('Network'),
-            _propFlags, false),
-        'shared-ipc': GObject.ParamSpec.boolean(
-            'shared-ipc',
-            '0.4.0',
-            _('Inter-process communications'),
-            _propFlags, false),
-        'sockets-x11': GObject.ParamSpec.boolean(
-            'sockets-x11',
-            '0.4.0',
-            _('X11 windowing system'),
-            _propFlags, false),
-        'sockets-wayland': GObject.ParamSpec.boolean(
-            'sockets-wayland',
-            '0.4.0',
-            _('Wayland windowing system'),
-            _propFlags, false),
-        'sockets-fallback-x11': GObject.ParamSpec.boolean(
-            'sockets-fallback-x11',
-            '0.11.1',
-            _('Fallback to X11 windowing system'),
-            _propFlags, false),
-        'sockets-pulseaudio': GObject.ParamSpec.boolean(
-            'sockets-pulseaudio',
-            '0.4.0',
-            _('PulseAudio sound server'),
-            _propFlags, false),
-        'sockets-session-bus': GObject.ParamSpec.boolean(
-            'sockets-session-bus',
-            '0.4.0',
-            _('D-Bus session bus'),
-            _propFlags, false),
-        'sockets-system-bus': GObject.ParamSpec.boolean(
-            'sockets-system-bus',
-            '0.4.0',
-            _('D-Bus system bus'),
-            _propFlags, false),
-        'sockets-ssh-auth': GObject.ParamSpec.boolean(
-            'sockets-ssh-auth',
-            '0.99.1',
-            _('Secure Shell agent'),
-            _propFlags, false),
-        'sockets-pcsc': GObject.ParamSpec.boolean(
-            'sockets-pcsc',
-            '1.3.2',
-            _('Smart cards'),
-            _propFlags, false),
-        'sockets-cups': GObject.ParamSpec.boolean(
-            'sockets-cups',
-            '1.5.2',
-            _('Printing system'),
-            _propFlags, false),
-        'devices-dri': GObject.ParamSpec.boolean(
-            'devices-dri',
-            '0.4.0',
-            _('GPU acceleration'),
-            _propFlags, false),
-        'devices-kvm': GObject.ParamSpec.boolean(
-            'devices-kvm',
-            '0.6.12',
-            _('Virtualization'),
-            _propFlags, false),
-        'devices-shm': GObject.ParamSpec.boolean(
-            'devices-shm',
-            '1.6.1',
-            _('Shared memory (e.g. JACK sound server)'),
-            _propFlags, false),
-        'devices-all': GObject.ParamSpec.boolean(
-            'devices-all',
-            '0.6.6',
-            _('All devices (e.g. webcam)'),
-            _propFlags, false),
-        'features-devel': GObject.ParamSpec.boolean(
-            'features-devel',
-            '0.6.10',
-            _('Development syscalls (e.g. ptrace)'),
-            _propFlags, false),
-        'features-multiarch': GObject.ParamSpec.boolean(
-            'features-multiarch',
-            '0.6.12',
-            _('Programs from other architectures'),
-            _propFlags, false),
-        'features-bluetooth': GObject.ParamSpec.boolean(
-            'features-bluetooth',
-            '0.11.8',
-            _('Bluetooth'),
-            _propFlags, false),
-        'features-canbus': GObject.ParamSpec.boolean(
-            'features-canbus',
-            '1.0.3',
-            _('Controller Area Network bus'),
-            _propFlags, false),
-        'filesystems-host': GObject.ParamSpec.boolean(
-            'filesystems-host',
-            '0.4.0',
-            _('All system files'),
-            _propFlags, false),
-        'filesystems-host-os': GObject.ParamSpec.boolean(
-            'filesystems-host-os',
-            '1.7.1',
-            _('All system libraries, executables and static data'),
-            _propFlags, false),
-        'filesystems-host-etc': GObject.ParamSpec.boolean(
-            'filesystems-host-etc',
-            '1.7.1',
-            _('All system configurations'),
-            _propFlags, false),
-        'filesystems-home': GObject.ParamSpec.boolean(
-            'filesystems-home',
-            '0.4.0',
-            _('All user files'),
-            _propFlags, false),
-        'filesystems-other': GObject.ParamSpec.string(
-            'filesystems-other',
-            '0.6.14',
-            _('Other files'),
-            _propFlags, ''),
-    },
+    Properties: generate(),
     Signals: {
         changed: {
             param_types: [GObject.TYPE_BOOLEAN, GObject.TYPE_BOOLEAN],
@@ -180,7 +98,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         this._info = new FlatpakInfoModel();
         this._applications = new FlatpakApplicationsModel();
-        this._unsupported = new FlatpakUnsupportedModel();
 
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
@@ -189,11 +106,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
     }
 
-    _getPermissionsForPath(path, backup) {
-        const list = [];
-
+    static _loadPermissionsForPath(path, overrides) {
         if (GLib.access(path, 0) !== 0)
-            return list;
+            return;
 
         const keyFile = new GLib.KeyFile();
         keyFile.load_from_file(path, 0);
@@ -209,99 +124,50 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (value.length === 0)
                         return;
 
-                    if (key in _groupsSupported)
-                        list.push(`${key}=${value}`);
-                    else if (backup)
-                        this._unsupported.backup(group, key, value);
+                    var permission = value.replace('!', '');
+                    var property = `${key}-${permission}`;
+
+                    /* Handle custom filesystem permissions */
+                    const target = 'filesystems';
+                    if (key === target && !(permission in MODELS[target].getPermissions()))
+                        property = 'filesystems-other';
+
+                    var model = PERMISSIONS[property];
+
+                    if (typeof model === 'undefined' && overrides)
+                        model = MODELS.unsupported;
+
+                    /* Non-permission related metadata */
+                    if (typeof model === 'undefined')
+                        return;
+
+                    model.loadFromKeyFile(group, key, value, overrides);
                 });
             });
         });
-
-        return list;
     }
 
-    _getPermissions() {
-        return this._getPermissionsForPath(
+    _loadPermissions() {
+        return this.constructor._loadPermissionsForPath(
             this._applications.getMetadataPathForAppId(this._appId), false);
     }
 
-    _getOverrides() {
-        return this._getPermissionsForPath(this._getOverridesPath(), true);
+    _loadOverrides() {
+        return this.constructor._loadPermissionsForPath(this._getOverridesPath(), true);
     }
 
     _checkIfChanged() {
         const exists = GLib.access(this._getOverridesPath(), 0) === 0;
-        const unsupported = !this._unsupported.isEmpty();
+        const unsupported = !MODELS['unsupported'].isEmpty();
         this.emit('changed', exists, unsupported);
     }
 
-    static _doIsOverridenPath(overrides, permission) {
-        if (!permission.startsWith('filesystems='))
-            return false;
-
-        const [_permission] = permission.split(':');
-
-        if (overrides.has(_permission))
-            return true;
-        else if (overrides.has(`${_permission}:ro`))
-            return true;
-        else if (overrides.has(`${_permission}:rw`))
-            return true;
-        else if (overrides.has(`${_permission}:create`))
-            return true;
-
-        return false;
-    }
-
-    static _isOverridenPath(overrides, permission) {
-        return this._doIsOverridenPath(overrides, permission) ||
-               this._doIsOverridenPath(overrides, this._negatePermission(permission));
-    }
-
-    static _isNegatedPermission(permission) {
-        return permission.indexOf('=!') !== -1;
-    }
-
-    static _negatePermission(permission) {
-        if (this._isNegatedPermission(permission))
-            return permission.replace('=!', '=');
-        return permission.replace('=', '=!');
-    }
-
-    _getCurrentPermissions() {
-        const permissions = this._getPermissions();
-        const overrides = new Set(this._getOverrides());
-
-        /* Remove permission if overriden already */
-        const current = new Set(permissions
-            .filter(p => !overrides.has(this.constructor._negatePermission(p)))
-            .filter(p => !this.constructor._isOverridenPath(overrides, p)));
-
-        /* Add permission if a) not a negation b) doesn't exists */
-        [...overrides]
-            .filter(p => !this.constructor._isNegatedPermission(p))
-            .forEach(p => current.add(p));
-
-        return [...current];
-    }
-
-    _setOverrides(overrides) {
+    _saveOverrides() {
         const keyFile = new GLib.KeyFile();
 
-        overrides.forEach(override => {
-            var [key, value] = override.split('=');
-            const group = _groupsSupported[key];
+        for (const [, model] of Object.entries(MODELS))
+            model.saveToKeyFile(keyFile);
 
-            try {
-                var _value = keyFile.get_value(group, key);
-                value = `${_value};${value}`;
-            } catch (err) {
-                value = `${value}`;
-            }
-            keyFile.set_value(group, key, value);
-        });
-
-        this._unsupported.restore(keyFile);
 
         const [, length] = keyFile.to_data();
         const path = this._getOverridesPath();
@@ -317,29 +183,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
     _updateProperties() {
         GObject.signal_handler_block(this, this._notifyHandlerId);
 
-        const permissions = this._getCurrentPermissions();
-        const props = GObject.Object.list_properties.call(this.constructor.$gtype);
+        for (const [, model] of Object.entries(MODELS))
+            model.updateProxyProperty(this);
 
-        props.forEach(pspec => {
-            var value;
-            const property = pspec.get_name();
-            const permission = property.replace(/-/, '=');
-            const [key] = permission.split('=');
-            const isText = typeof pspec.get_default_value() === 'string';
-
-            if (isText) {
-                value = permissions
-                    .filter(p => p.startsWith(`${key}=`))
-                    .map(p => p.split('=')[1])
-                    .filter(p => ['home', 'host', 'host-os', 'host-etc'].indexOf(p) === -1)
-                    .join(';');
-            } else {
-                value = permissions.indexOf(permission) !== -1;
-            }
-
-            this[property.replace(/-/g, '_')] = value;
-            this.notify(property);
-        });
 
         this._checkIfChanged();
 
@@ -351,7 +197,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
             GLib.Source.remove(this._delayedHandlerId);
 
         this._delayedHandlerId = GLib.timeout_add(
-            GLib.PRIORITY_HIGH, DELAY, this._findChangesAndUpdate.bind(this));
+            GLib.PRIORITY_HIGH, DELAY, this._updateModels.bind(this));
     }
 
     _processPendingUpdates() {
@@ -359,76 +205,47 @@ var FlatpakPermissionsModel = GObject.registerClass({
             return;
 
         GLib.Source.remove(this._delayedHandlerId);
-        this._findChangesAndUpdate();
+        this._updateModels();
     }
 
-    _findChangesAndUpdate() {
-        const selected = new Set();
-        const existing = new Set(this._getPermissions());
-        const props = GObject.Object.list_properties.call(this.constructor.$gtype);
-
-        props.forEach(pspec => {
-            const property = pspec.get_name();
-            const attribute = property.replace(/-/g, '_');
-            const permission = property.replace(/-/, '=');
-
-            if (typeof pspec.get_default_value() === 'boolean' && this[attribute]) {
-                selected.add(permission);
-            } else if (typeof pspec.get_default_value() === 'string') {
-                const [real_permission] = permission.split('=');
-                var values = this[attribute].split(';');
-
-                values.forEach(value => {
-                    if (value.length === 0)
-                        return;
-
-                    selected.add(`${real_permission}=${value}`);
-                });
-            }
+    _updateModels() {
+        Object.entries(PERMISSIONS).forEach(([property, model]) => {
+            model.updateFromProxyProperty(
+                property,
+                this[property.replace(/-/g, '_')]);
         });
 
-        /* Add overrides that didn't exist in the original permissions */
-        const added = new Set([...selected].filter(p => !existing.has(p)));
+        this._saveOverrides();
 
-        /* Don't mess with permissions we don't support */
-        const supportedState = new Set(this.getAll()
-            .filter(p => p.type !== 'text')
-            .map(p => p.permission));
-        const supportedText = new Set(this.getAll()
-            .filter(p => p.type === 'text')
-            .map(p => p.permission.split('=')[0]));
-
-        /* Add overrides that explicitly negate original permissions */
-        const removed = new Set([...existing]
-            .filter(p => supportedState.has(p) || supportedText.has(p.split('=')[0]))
-            .filter(p => !selected.has(p))
-            .filter(p => !this.constructor._isOverridenPath(added, p))
-            .map(p => this.constructor._negatePermission(p)));
-
-        this._setOverrides([...added, ...removed]);
         this._delayedHandlerId = 0;
         return GLib.SOURCE_REMOVE;
     }
 
+    _setup() {
+        for (const [, model] of Object.entries(MODELS))
+            model.reset();
+
+        this._loadPermissions();
+        this._loadOverrides();
+        this._updateProperties();
+    }
+
     getAll() {
         const list = [];
-        const props = GObject.Object.list_properties.call(this.constructor.$gtype);
 
-        props.forEach(pspec => {
-            const property = pspec.get_name();
+        Object.entries(PERMISSIONS).forEach(([property, model]) => {
             const entry = {};
-            const isText = typeof pspec.get_default_value() === 'string';
-            const version = pspec.get_nick();
-            const [group] = property.split('-');
+            const key = property.replace(/\w+-/, '');
+            const permission = model.getPermissions()[key];
 
             entry['property'] = property;
-            entry['description'] = pspec.get_blurb();
-            entry['value'] = this[pspec.get_name().replace(/-/g, '_')];
-            entry['type'] = isText ? 'text' : 'state';
+            entry['description'] = permission.description;
+            entry['value'] = this[property.replace(/-/g, '_')];
+            entry['type'] = model.constructor.getType();
             entry['permission'] = property.replace(/-/, '=');
-            entry['supported'] = this._info.supports(version);
-            entry['group'] = group;
-            entry['groupDescription'] = _groupDescriptions[group];
+            entry['supported'] = this._info.supports(permission.version);
+            entry['group'] = model.constructor.getKey();
+            entry['groupDescription'] = model.constructor.getDescription();
 
             list.push(entry);
         });
@@ -439,8 +256,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     reset() {
         const path = this._getOverridesPath();
         GLib.unlink(path);
-        this._unsupported.reset();
-        this._updateProperties();
+        this._setup();
     }
 
     shutdown() {
@@ -448,10 +264,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     set appId(appId) {
-        this._unsupported.reset();
         this._processPendingUpdates();
         this._appId = appId;
-        this._updateProperties();
+        this._setup();
     }
 
     get appId() {
@@ -462,7 +277,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     static getGroupForProperty(property) {
         const [group] = property.split('-');
-        return _groupsSupported[group];
+        return MODELS[group].constructor.getGroup();
     }
 
     set info(info) {
