@@ -18,5 +18,11 @@
     <file>models/info.js</file>
     <file>models/unsupported.js</file>
     <file>models/permissions.js</file>
+    <file>models/devices.js</file>
+    <file>models/features.js</file>
+    <file>models/filesystems.js</file>
+    <file>models/filesystemsOther.js</file>
+    <file>models/shared.js</file>
+    <file>models/sockets.js</file>
   </gresource>
 </gresources>

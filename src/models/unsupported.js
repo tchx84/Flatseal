@@ -27,13 +27,20 @@ var FlatpakUnsupportedModel = GObject.registerClass({
         this.reset();
     }
 
-    backup(group, key, value) {
-        if (this._permissions.has([group, key, value]))
-            return;
-        this._permissions.add([group, key, value]);
+    updateFromProxyProperty() { // eslint-disable-line class-methods-use-this
+        return false;
     }
 
-    restore(keyFile) {
+    updateProxyProperty() { // eslint-disable-line class-methods-use-this
+        return false;
+    }
+
+    loadFromKeyFile(group, key, value) {
+        this._permissions.add([group, key, value]);
+        return true;
+    }
+
+    saveToKeyFile(keyFile) {
         this._permissions.forEach(([group, key, value]) => {
             var _value;
 
@@ -53,6 +60,6 @@ var FlatpakUnsupportedModel = GObject.registerClass({
     }
 
     isEmpty() {
-        return this._permissions.size === 0
+        return this._permissions.size === 0;
     }
 });
