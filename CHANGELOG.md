@@ -1,5 +1,13 @@
 # Changelog
 
+## [unreleased]
+
+- Added Swedish translation.
+- Added showing applications basic information.
+- Added showing details button to re-direct user to software manager application page.
+- Fixed handling unsupported permissions, so flatpak-override CLI can be used in parallel.
+- Changed permissions model implementation, to possibly allow more permissions in the future.
+
 ## [1.5.3] - 2020-05-02
 
 - Added Indonesian translation.
