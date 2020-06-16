@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/tchx84/Flatseal/js">
-    <file>aboutDialog.js</file>
-    <file>appInfoViewer.js</file>
     <file>application.js</file>
-    <file>applicationRow.js</file>
-    <file>detailsButton.js</file>
-    <file>groupRow.js</file>
     <file>main.js</file>
-    <file>pathRow.js</file>
-    <file>pathsViewer.js</file>
-    <file>permissionEntryRow.js</file>
-    <file>permissionSwitchRow.js</file>
-    <file>resetButton.js</file>
-    <file>window.js</file>
+    <file>widgets/aboutDialog.js</file>
+    <file>widgets/appInfoViewer.js</file>
+    <file>widgets/applicationRow.js</file>
+    <file>widgets/detailsButton.js</file>
+    <file>widgets/groupRow.js</file>
+    <file>widgets/pathRow.js</file>
+    <file>widgets/pathsViewer.js</file>
+    <file>widgets/permissionEntryRow.js</file>
+    <file>widgets/permissionSwitchRow.js</file>
+    <file>widgets/resetButton.js</file>
+    <file>widgets/window.js</file>
     <file>models/applications.js</file>
     <file>models/info.js</file>
     <file>models/unsupported.js</file>

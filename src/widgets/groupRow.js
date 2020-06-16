@@ -21,7 +21,7 @@ const {GObject, Gtk} = imports.gi;
 
 var FlatsealGroupRow = GObject.registerClass({
     GTypeName: 'FlatsealGroupRow',
-    Template: 'resource:///com/github/tchx84/Flatseal/groupRow.ui',
+    Template: 'resource:///com/github/tchx84/Flatseal/widgets/groupRow.ui',
     InternalChildren: ['title', 'description'],
 }, class FlatsealGroupRow extends Gtk.Box {
     _init(title, description) {

@@ -1,7 +1,7 @@
 const {setup} = imports.utils;
 setup();
 
-const {FlatsealPathRow, mode, validity} = imports.pathRow;
+const {FlatsealPathRow, mode, validity} = imports.widgets.pathRow;
 
 
 describe('FlatsealPathRow', function() {

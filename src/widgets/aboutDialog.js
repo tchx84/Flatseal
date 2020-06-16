@@ -1,4 +1,4 @@
-/* applicationRow.js
+/* aboutDialog.js
  *
  * Copyright 2020 Martin Abente Lahaye
  *
@@ -19,23 +19,16 @@
 const {GObject, Gtk} = imports.gi;
 
 
-var FlatsealApplicationRow = GObject.registerClass({
-    GTypeName: 'FlatsealApplicationRow',
-    Template: 'resource:///com/github/tchx84/Flatseal/applicationRow.ui',
-    InternalChildren: ['icon', 'name', 'appId'],
-}, class FlatsealApplicationRow extends Gtk.ListBoxRow {
-    _init(appId, appName) {
-        super._init();
-        this._icon.set_from_icon_name(appId, Gtk.IconSize.INVALID);
-        this._name.set_text(appName);
-        this._appId.set_text(appId);
+var FlatsealAboutDialog = GObject.registerClass({
+    GTypeName: 'FlatsealAboutDialog',
+    Template: 'resource:///com/github/tchx84/Flatseal/widgets/aboutDialog.ui',
+}, class FlatsealAboutDialog extends Gtk.AboutDialog {
+    _init(props) {
+        super._init(props);
+        this.connect('response', this.response.bind(this));
     }
 
-    get appId() {
-        return this._appId.get_text();
-    }
-
-    get appName() {
-        return this._name.get_text();
+    response() {
+        this.destroy();
     }
 });

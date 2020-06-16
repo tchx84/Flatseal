@@ -1,7 +1,7 @@
 const {setup} = imports.utils;
 setup();
 
-const {FlatsealPathsViewer} = imports.pathsViewer;
+const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
 
 const _paths = 'home;host;xdg-desktop';
 

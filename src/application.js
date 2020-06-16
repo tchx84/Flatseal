@@ -18,8 +18,8 @@
 
 const {GObject, Gtk, Gdk, Gio} = imports.gi;
 
-const {FlatsealWindow} = imports.window;
-const {FlatsealAboutDialog} = imports.aboutDialog;
+const {FlatsealWindow} = imports.widgets.window;
+const {FlatsealAboutDialog} = imports.widgets.aboutDialog;
 
 
 var FlatsealApplication = GObject.registerClass({

@@ -1,4 +1,4 @@
-/* permissionEntryRow.js
+/* permissionSwitchRow.js
  *
  * Copyright 2020 Martin Abente Lahaye
  *
@@ -18,34 +18,18 @@
 
 const {GObject, Gtk} = imports.gi;
 
-const {FlatsealPathsViewer} = imports.pathsViewer;
 
-
-var FlatsealPermissionEntryRow = GObject.registerClass({
-    GTypeName: 'FlatsealPermissionEntryRow',
-    Template: 'resource:///com/github/tchx84/Flatseal/permissionEntryRow.ui',
-    InternalChildren: [
-        'description',
-        'permission',
-        'box',
-        'button',
-    ],
-}, class FlatsealpermissionEntryRow extends Gtk.Box {
+var FlatsealPermissionSwitchRow = GObject.registerClass({
+    GTypeName: 'FlatsealPermissionSwitchRow',
+    Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionSwitchRow.ui',
+    InternalChildren: ['description', 'permission', 'content'],
+}, class FlatsealPermissionSwitchRow extends Gtk.Box {
     _init(description, permission, content) {
         super._init({});
         this._description.set_text(description);
         this._permission.set_text(permission);
-
-        this._content = new FlatsealPathsViewer();
-        this._content.text = content;
-        this._box.add(this._content);
-
-        this._button.connect('clicked', this._add.bind(this));
+        this._content.set_state(content);
         this.connect('notify::sensitive', this._update.bind(this));
-    }
-
-    _add() {
-        this._content.add('');
     }
 
     _update() {
