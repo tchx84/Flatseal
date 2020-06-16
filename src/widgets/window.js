@@ -22,22 +22,24 @@ const {Leaflet, TitleBar, SwipeGroup, Column} = imports.gi.Handy;
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakPermissionsModel} = imports.models.permissions;
 
-const {FlatsealAppInfoViewer} = imports.appInfoViewer;
-const {FlatsealApplicationRow} = imports.applicationRow;
-const {FlatsealGroupRow} = imports.groupRow;
-const {FlatsealPermissionEntryRow} = imports.permissionEntryRow;
-const {FlatsealPermissionSwitchRow} = imports.permissionSwitchRow;
-const {FlatsealResetButton} = imports.resetButton;
-const {FlatsealDetailsButton} = imports.detailsButton;
+const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
+const {FlatsealApplicationRow} = imports.widgets.applicationRow;
+const {FlatsealGroupRow} = imports.widgets.groupRow;
+const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
+const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
+const {FlatsealResetButton} = imports.widgets.resetButton;
+const {FlatsealDetailsButton} = imports.widgets.detailsButton;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 const _bindInvertFlags = _bindReadFlags | GObject.BindingFlags.INVERT_BOOLEAN;
 
+const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
+
 
 var FlatsealWindow = GObject.registerClass({
     GTypeName: 'FlatsealWindow',
-    Template: 'resource:///com/github/tchx84/Flatseal/window.ui',
+    Template: 'resource:///com/github/tchx84/Flatseal/widgets/window.ui',
     InternalChildren: [
         'actionBar',
         'applicationsSearchEntry',
@@ -65,7 +67,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _setup() {
-        const builder = Gtk.Builder.new_from_resource('/com/github/tchx84/Flatseal/menu.ui');
+        const builder = Gtk.Builder.new_from_resource(menuResource);
         this._menuButton.set_menu_model(builder.get_object('menu'));
 
         this._permissions = new FlatpakPermissionsModel();

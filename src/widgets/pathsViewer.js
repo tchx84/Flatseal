@@ -18,14 +18,14 @@
 
 const {GObject, Gtk} = imports.gi;
 
-const {FlatsealPathRow} = imports.pathRow;
+const {FlatsealPathRow} = imports.widgets.pathRow;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
 
 var FlatsealPathsViewer = GObject.registerClass({
     GTypeName: 'FlatsealPathsViewer',
-    Template: 'resource:///com/github/tchx84/Flatseal/pathsViewer.ui',
+    Template: 'resource:///com/github/tchx84/Flatseal/widgets/pathsViewer.ui',
     InternalChildren: ['box'],
     Properties: {
         text: GObject.ParamSpec.string(

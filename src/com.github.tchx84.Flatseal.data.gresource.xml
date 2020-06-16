@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/tchx84/Flatseal">
-    <file>aboutDialog.ui</file>
-    <file>appInfoViewer.ui</file>
     <file>application.css</file>
-    <file>applicationRow.ui</file>
-    <file>groupRow.ui</file>
-    <file>menu.ui</file>
-    <file>pathRow.ui</file>
-    <file>pathsViewer.ui</file>
-    <file>permissionEntryRow.ui</file>
-    <file>permissionSwitchRow.ui</file>
-    <file>window.ui</file>
+    <file>widgets/aboutDialog.ui</file>
+    <file>widgets/appInfoViewer.ui</file>
+    <file>widgets/applicationRow.ui</file>
+    <file>widgets/groupRow.ui</file>
+    <file>widgets/menu.ui</file>
+    <file>widgets/pathRow.ui</file>
+    <file>widgets/pathsViewer.ui</file>
+    <file>widgets/permissionEntryRow.ui</file>
+    <file>widgets/permissionSwitchRow.ui</file>
+    <file>widgets/window.ui</file>
   </gresource>
 </gresources>
