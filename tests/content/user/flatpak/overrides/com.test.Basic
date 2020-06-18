@@ -4,3 +4,6 @@ sockets=!x11;!fallback-x11;!wayland;!pulseaudio;!system-bus;!session-bus;!ssh-au
 devices=!dri;!kvm;!shm;!all;
 features=!bluetooth;!devel;!multiarch;!canbus;
 filesystems=!host;!host-os;!host-etc;!home;!~/test;
+
+[Environment]
+TEST=no

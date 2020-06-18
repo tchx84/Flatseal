@@ -29,6 +29,7 @@ const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
 const {FlatsealResetButton} = imports.widgets.resetButton;
 const {FlatsealDetailsButton} = imports.widgets.detailsButton;
+const {FlatsealVariableEntryRow} = imports.widgets.variableEntryRow;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
@@ -117,11 +118,16 @@ var FlatsealWindow = GObject.registerClass({
 
         permissions.forEach(p => {
             var row;
+            var property = 'text';
 
-            if (p.type === 'text')
+            if (p.type === 'path') {
                 row = new FlatsealPermissionEntryRow(p.description, p.permission, p.value);
-            else
+            } else if (p.type === 'variable') {
+                row = new FlatsealVariableEntryRow(p.value);
+            } else {
                 row = new FlatsealPermissionSwitchRow(p.description, p.permission, p.value);
+                property = 'state';
+            }
 
             const context = row.get_style_context();
             context.add_class(p.group);
@@ -134,7 +140,7 @@ var FlatsealWindow = GObject.registerClass({
 
             row.sensitive = p.supported;
             this._permissionsBox.add(row);
-            this._permissions.bind_property(p.property, row.content, p.type, _bindFlags);
+            this._permissions.bind_property(p.property, row.content, property, _bindFlags);
         });
 
         this.connect('destroy', this._shutdown.bind(this));

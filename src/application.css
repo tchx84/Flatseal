@@ -85,6 +85,7 @@
     margin-right: 15px;
 }
 
+.permissions .row .content .variable,
 .permissions .row .content .path {
     color: @theme_fg_color;
     border-style: solid;
@@ -94,16 +95,25 @@
     margin-bottom: 10px;
 }
 
-.permissions .row .content .path.read-only,
-.permissions .row .content .path.create,
-.permissions .row .content .path.read-write  {
+.permissions .row .description.warning {
+    font-weight: bold;
+}
+
+.permissions .row .content .variable,
+.permissions .row .content .path {
     background-color: @theme_bg_color;
 }
 
+.permissions .row .content .variable entry,
 .permissions .row .content .path entry {
     margin-left: -8px;
 }
 
+.permissions .row .content .variable entry,
+.permissions .row .content .variable button,
+.permissions .row .content .variable button:hover,
+.permissions .row .content .variable button:focus,
+.permissions .row .content .variable button:selected,
 .permissions .row .content .path entry,
 .permissions .row .content .path button,
 .permissions .row .content .path button:hover,
@@ -115,6 +125,7 @@
    box-shadow: none;
 }
 
+.permissions .row .content .variable .info,
 .permissions .row .content .path .info {
     padding: 8px;
     color: @theme_selected_bg_color;
@@ -125,20 +136,28 @@
     background-size: 16px;
 }
 
+.permissions .row .content .variable .info {
+    background-image: -gtk-icontheme("emblem-ok-symbolic");
+}
+
+.permissions .row .content .variable.not-valid .info,
 .permissions .row .content .path.not-valid .info {
     color: @warning_color;
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
 
+.permissions .row .content .variable button image,
 .permissions .row .content .path button image {
     color: @theme_fg_color;
 }
 
+.permissions .row .content .variable button image:disabled,
 .permissions .row .content .path button image:disabled {
     color: @insensitive_fg_color;
 }
 
 /* XXX Navigate through xdg options without the popup  */
+.permissions .row .content .variable window,
 .permissions .row .content .path window {
    opacity: 0;
    background-image: none;

@@ -7,7 +7,7 @@ const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
-const _totalPermissions = 24;
+const _totalPermissions = 25;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -18,6 +18,7 @@ const _negationAppId = 'com.test.Negation';
 const _unsupportedAppId = 'com.test.Unsupported';
 const _overridenAppId = 'com.test.Overriden';
 const _extraAppId = 'com.test.Extra';
+const _environmentAppId = 'com.test.Environment';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -34,6 +35,7 @@ const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
 const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
 const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId]);
 const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
+const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
 const _key = 'filesystems';
 
 const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content', 'installations.d']);
@@ -64,6 +66,7 @@ describe('Model', function() {
         GLib.unlink(_increaseOverride);
         GLib.unlink(_negationOverride);
         GLib.unlink(_unsupportedOverride);
+        GLib.unlink(_environmentOverride);
     });
 
     it('loads applications', function() {
@@ -115,6 +118,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(true);
         expect(permissions.filesystems_home).toBe(true);
         expect(permissions.filesystems_other).toEqual('~/test');
+        expect(permissions.variables).toEqual('TEST=yes');
     });
 
     it('loads overrides', function() {
@@ -145,6 +149,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(false);
         expect(permissions.filesystems_other).toEqual('');
+        expect(permissions.variables).toEqual('TEST=no');
     });
 
     it('creates overrides when properties changed', function(done) {
@@ -158,6 +163,8 @@ describe('Model', function() {
         permissions.set_property('features-bluetooth', false);
         permissions.set_property('filesystems-host', false);
         permissions.set_property('filesystems-other', '~/tset');
+        permissions.set_property('variables', 'TEST=maybe');
+
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(0);
@@ -192,6 +199,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(true);
         expect(permissions.filesystems_other).toEqual('~/tset');
+        expect(permissions.variables).toEqual('TEST=maybe');
     });
 
     it('resets overrides', function() {
@@ -508,5 +516,73 @@ describe('Model', function() {
 
         expect(permissions.shared_network).toBe(false);
         expect(permissions.shared_ipc).toBe(true);
+    });
+
+    it('add new environment variable', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _environmentAppId;
+
+        expect(permissions.variables).toEqual('TEST=yes');
+
+        permissions.set_property('variables', 'TEST=yes;TEST2=no');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(hasOnly(_environmentOverride, 'Environment', 'TEST2', 'no')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('override original environment variable', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _environmentAppId;
+
+        expect(permissions.variables).toEqual('TEST=yes');
+
+        permissions.set_property('variables', 'TEST=no');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(hasOnly(_environmentOverride, 'Environment', 'TEST', 'no')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('remove original environment variable', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _environmentAppId;
+
+        expect(permissions.variables).toEqual('TEST=yes');
+
+        permissions.set_property('variables', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(hasOnly(_environmentOverride, 'Environment', 'TEST', '')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles non-valid environment variable', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _environmentAppId;
+
+        expect(permissions.variables).toEqual('TEST=yes');
+
+        permissions.set_property('variables', 'TEST=yes;TE ST=no');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(GLib.access(_environmentOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
     });
 });

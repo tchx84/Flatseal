@@ -18,8 +18,6 @@
 
 const {GObject, Gtk} = imports.gi;
 
-const {FlatsealPathRow} = imports.widgets.pathRow;
-
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
 
@@ -35,8 +33,9 @@ var FlatsealPathsViewer = GObject.registerClass({
             _propFlags, ''),
     },
 }, class FlatsealPathsViewer extends Gtk.Box {
-    _init() {
+    _init(rowClass) {
         super._init({});
+        this._rowClass = rowClass;
     }
 
     _changed() {
@@ -87,7 +86,7 @@ var FlatsealPathsViewer = GObject.registerClass({
     }
 
     add(path) {
-        const row = new FlatsealPathRow();
+        const row = new this._rowClass();
         row.text = path;
         row.connect('remove-requested', this._remove.bind(this, row));
         row.connect('notify::text', this._changed.bind(this));

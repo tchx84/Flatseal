@@ -11,6 +11,8 @@
     <file>widgets/pathsViewer.ui</file>
     <file>widgets/permissionEntryRow.ui</file>
     <file>widgets/permissionSwitchRow.ui</file>
+    <file>widgets/variableEntryRow.ui</file>
+    <file>widgets/variableRow.ui</file>
     <file>widgets/window.ui</file>
   </gresource>
 </gresources>

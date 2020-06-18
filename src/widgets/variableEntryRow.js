@@ -1,4 +1,4 @@
-/* permissionEntryRow.js
+/* variableEntryRow.js
  *
  * Copyright 2020 Martin Abente Lahaye
  *
@@ -19,27 +19,31 @@
 const {GObject, Gtk} = imports.gi;
 
 const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
-const {FlatsealPathRow} = imports.widgets.pathRow;
+const {FlatsealVariableRow} = imports.widgets.variableRow;
 
 
-var FlatsealPermissionEntryRow = GObject.registerClass({
-    GTypeName: 'FlatsealPermissionEntryRow',
-    Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionEntryRow.ui',
+var FlatsealVariableEntryRow = GObject.registerClass({
+    GTypeName: 'FlatsealVariableEntryRow',
+    Template: 'resource:///com/github/tchx84/Flatseal/widgets/variableEntryRow.ui',
     InternalChildren: [
-        'description',
-        'permission',
         'box',
         'button',
+        'description',
+        'permission',
     ],
-}, class FlatsealpermissionEntryRow extends Gtk.Box {
-    _init(description, permission, content) {
+}, class FlatsealVariableEntryRow extends Gtk.Box {
+    _init(text) {
         super._init({});
-        this._description.set_text(description);
-        this._permission.set_text(permission);
+        this._setup(text);
+    }
 
-        this._content = new FlatsealPathsViewer(FlatsealPathRow);
-        this._content.text = content;
+    _setup(text) {
+        this._content = new FlatsealPathsViewer(FlatsealVariableRow);
+        this._content.text = text;
         this._box.add(this._content);
+
+        this._description.set_label(_('Beware'));
+        this._permission.set_label(_('Changing these could break the application'));
 
         this._button.connect('clicked', this._add.bind(this));
         this.connect('notify::sensitive', this._update.bind(this));

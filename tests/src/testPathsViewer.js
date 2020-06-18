@@ -2,6 +2,7 @@ const {setup} = imports.utils;
 setup();
 
 const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
+const {FlatsealPathRow} = imports.widgets.pathRow;
 
 const _paths = 'home;host;xdg-desktop';
 
@@ -10,7 +11,7 @@ describe('FlatsealPathsViewer', function() {
     var viewer;
 
     beforeEach(function() {
-        viewer = new FlatsealPathsViewer();
+        viewer = new FlatsealPathsViewer(FlatsealPathRow);
     });
 
     it('starts empty', function() {
