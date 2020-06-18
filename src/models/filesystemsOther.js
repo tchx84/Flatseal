@@ -51,7 +51,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     static getType() {
-        return 'text';
+        return 'path';
     }
 
     static getDefault() {
@@ -112,6 +112,9 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     loadFromKeyFile(group, key, value, overrides) {
+        if (value.length === 0)
+            return;
+
         const set = overrides ? this._overrides : this._originals;
         set.add(value);
     }

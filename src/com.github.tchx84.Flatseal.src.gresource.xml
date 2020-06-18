@@ -13,6 +13,8 @@
     <file>widgets/permissionEntryRow.js</file>
     <file>widgets/permissionSwitchRow.js</file>
     <file>widgets/resetButton.js</file>
+    <file>widgets/variableEntryRow.js</file>
+    <file>widgets/variableRow.js</file>
     <file>widgets/window.js</file>
     <file>models/applications.js</file>
     <file>models/info.js</file>
@@ -24,5 +26,6 @@
     <file>models/filesystemsOther.js</file>
     <file>models/shared.js</file>
     <file>models/sockets.js</file>
+    <file>models/variables.js</file>
   </gresource>
 </gresources>

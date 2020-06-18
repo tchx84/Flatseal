@@ -27,6 +27,7 @@ const {FlatpakSocketsModel} = imports.models.sockets;
 const {FlatpakFeaturesModel} = imports.models.features;
 const {FlatpakFilesystemsModel} = imports.models.filesystems;
 const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
+const {FlatpakVariablesModel} = imports.models.variables;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -37,6 +38,7 @@ const MODELS = {
     features: new FlatpakFeaturesModel(),
     filesystems: new FlatpakFilesystemsModel(),
     'filesystems-other': new FlatpakFilesystemsOtherModel(),
+    variables: new FlatpakVariablesModel(),
     unsupported: new FlatpakUnsupportedModel(),
 };
 
@@ -65,13 +67,14 @@ const PERMISSIONS = {
     'filesystems-host-etc': MODELS['filesystems'],
     'filesystems-home': MODELS['filesystems'],
     'filesystems-other': MODELS['filesystems-other'],
+    variables: MODELS['variables'],
 };
 
 function generate() {
     const properties = {};
 
     Object.entries(PERMISSIONS).forEach(([property, model]) => {
-        const type = model.constructor.getType() === 'text' ? 'string' : 'boolean';
+        const type = model.constructor.getType() === 'state' ? 'boolean' : 'string';
         const value = model.constructor.getDefault();
         properties[property] = GObject.ParamSpec[type](
             property, property, property, FLAGS, value);
@@ -121,9 +124,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
             keys.forEach(key => {
                 const values = keyFile.get_value(group, key).split(';');
                 values.forEach(value => {
-                    if (value.length === 0)
-                        return;
-
                     var permission = value.replace('!', '');
                     var property = `${key}-${permission}`;
 
@@ -133,6 +133,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
                         property = 'filesystems-other';
 
                     var model = PERMISSIONS[property];
+
+                    /* Handle environment variables */
+                    if (group === MODELS.variables.constructor.getGroup())
+                        model = MODELS.variables;
 
                     if (typeof model === 'undefined' && overrides)
                         model = MODELS.unsupported;
