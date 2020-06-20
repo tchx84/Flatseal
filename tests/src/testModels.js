@@ -7,7 +7,7 @@ const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
-const _totalPermissions = 25;
+const _totalPermissions = 26;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -118,6 +118,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(true);
         expect(permissions.filesystems_home).toBe(true);
         expect(permissions.filesystems_other).toEqual('~/test');
+        expect(permissions.persistent).toEqual('.test');
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
@@ -148,7 +149,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_os).toBe(false);
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(false);
-        expect(permissions.filesystems_other).toEqual('');
+        expect(permissions.persistent).toEqual('.test;tset.');
         expect(permissions.variables).toEqual('TEST=no');
     });
 
@@ -163,6 +164,7 @@ describe('Model', function() {
         permissions.set_property('features-bluetooth', false);
         permissions.set_property('filesystems-host', false);
         permissions.set_property('filesystems-other', '~/tset');
+        permissions.set_property('persistent', 'tset.');
         permissions.set_property('variables', 'TEST=maybe');
 
 
@@ -199,6 +201,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(true);
         expect(permissions.filesystems_other).toEqual('~/tset');
+        expect(permissions.persistent).toEqual('tset.');
         expect(permissions.variables).toEqual('TEST=maybe');
     });
 

@@ -58,7 +58,9 @@
 .permissions .row.sockets ~ .sockets,
 .permissions .row.devices ~ .devices,
 .permissions .row.features ~ .features,
-.permissions .row.filesystems ~ .filesystems {
+.permissions .row.filesystems ~ .filesystems,
+.permissions .row.persistent ~ .persistent,
+.permissions .row.environment ~ .environment {
     border-style: none solid solid solid;
 }
 
@@ -132,6 +134,7 @@
     background-size: 16px;
 }
 
+.permissions .row .content .relative.path .info,
 .permissions .row .content .variable .info {
     background-image: -gtk-icontheme("emblem-ok-symbolic");
 }
