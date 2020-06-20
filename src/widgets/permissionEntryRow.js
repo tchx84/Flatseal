@@ -19,7 +19,6 @@
 const {GObject, Gtk} = imports.gi;
 
 const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
-const {FlatsealPathRow} = imports.widgets.pathRow;
 
 
 var FlatsealPermissionEntryRow = GObject.registerClass({
@@ -30,16 +29,19 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         'permission',
         'box',
         'button',
+        'image',
     ],
 }, class FlatsealpermissionEntryRow extends Gtk.Box {
-    _init(description, permission, content) {
+    _init(description, permission, content, rowClass, iconName) {
         super._init({});
         this._description.set_text(description);
         this._permission.set_text(permission);
 
-        this._content = new FlatsealPathsViewer(FlatsealPathRow);
+        this._content = new FlatsealPathsViewer(rowClass);
         this._content.text = content;
         this._box.add(this._content);
+
+        this._image.icon_name = iconName;
 
         this._button.connect('clicked', this._add.bind(this));
         this.connect('notify::sensitive', this._update.bind(this));

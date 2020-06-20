@@ -29,7 +29,9 @@ const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
 const {FlatsealResetButton} = imports.widgets.resetButton;
 const {FlatsealDetailsButton} = imports.widgets.detailsButton;
-const {FlatsealVariableEntryRow} = imports.widgets.variableEntryRow;
+const {FlatsealPathRow} = imports.widgets.pathRow;
+const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
+const {FlatsealVariableRow} = imports.widgets.variableRow;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
@@ -121,12 +123,32 @@ var FlatsealWindow = GObject.registerClass({
             var property = 'text';
 
             if (p.type === 'path') {
-                row = new FlatsealPermissionEntryRow(p.description, p.permission, p.value);
+                row = new FlatsealPermissionEntryRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    FlatsealPathRow,
+                    'folder-new-symbolic');
+            } else if (p.type === 'relativePath') {
+                row = new FlatsealPermissionEntryRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    FlatsealRelativePathRow,
+                    'folder-new-symbolic');
             } else if (p.type === 'variable') {
-                row = new FlatsealVariableEntryRow(p.description, p.permission, p.value);
+                row = new FlatsealPermissionEntryRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    FlatsealVariableRow,
+                    'list-add-symbolic');
             } else {
-                row = new FlatsealPermissionSwitchRow(p.description, p.permission, p.value);
                 property = 'state';
+                row = new FlatsealPermissionSwitchRow(
+                    p.description,
+                    p.permission,
+                    p.value);
             }
 
             const context = row.get_style_context();

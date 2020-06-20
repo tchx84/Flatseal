@@ -12,13 +12,14 @@
     <file>widgets/pathsViewer.js</file>
     <file>widgets/permissionEntryRow.js</file>
     <file>widgets/permissionSwitchRow.js</file>
+    <file>widgets/relativePathRow.js</file>
     <file>widgets/resetButton.js</file>
-    <file>widgets/variableEntryRow.js</file>
     <file>widgets/variableRow.js</file>
     <file>widgets/window.js</file>
     <file>models/applications.js</file>
     <file>models/info.js</file>
     <file>models/unsupported.js</file>
+    <file>models/persistent.js</file>
     <file>models/permissions.js</file>
     <file>models/devices.js</file>
     <file>models/features.js</file>

@@ -28,6 +28,7 @@ const {FlatpakFeaturesModel} = imports.models.features;
 const {FlatpakFilesystemsModel} = imports.models.filesystems;
 const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
+const {persistent} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -38,6 +39,7 @@ const MODELS = {
     features: new FlatpakFeaturesModel(),
     filesystems: new FlatpakFilesystemsModel(),
     'filesystems-other': new FlatpakFilesystemsOtherModel(),
+    persistent: persistent.getDefault(),
     variables: new FlatpakVariablesModel(),
     unsupported: new FlatpakUnsupportedModel(),
 };
@@ -67,6 +69,7 @@ const PERMISSIONS = {
     'filesystems-host-etc': MODELS['filesystems'],
     'filesystems-home': MODELS['filesystems'],
     'filesystems-other': MODELS['filesystems-other'],
+    persistent: MODELS['persistent'],
     variables: MODELS['variables'],
 };
 
@@ -131,6 +134,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     const target = 'filesystems';
                     if (key === target && !(permission in MODELS[target].getPermissions()))
                         property = 'filesystems-other';
+
+                    /* Handle persistent permissions */
+                    if (key === 'persistent')
+                        property = 'persistent';
 
                     var model = PERMISSIONS[property];
 
