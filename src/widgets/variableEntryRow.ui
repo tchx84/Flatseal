@@ -33,7 +33,6 @@
                     <property name="single_line_mode">True</property>
                     <style>
                       <class name="description"/>
-                      <class name="warning"/>
                     </style>
                   </object>
                   <packing>
@@ -51,7 +50,6 @@
                     <property name="single_line_mode">True</property>
                     <style>
                       <class name="permission"/>
-                      <class name="warning"/>
                     </style>
                   </object>
                   <packing>

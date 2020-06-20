@@ -34,46 +34,55 @@ var FlatpakSocketsModel = GObject.registerClass({
                 version: '0.4.0',
                 description: _('X11 windowing system'),
                 value: this.constructor.getDefault(),
+                example: 'socket=x11',
             },
             wayland: {
                 version: '0.4.0',
                 description: _('Wayland windowing system'),
                 value: this.constructor.getDefault(),
+                example: 'socket=wayland',
             },
             'fallback-x11': {
                 version: '0.11.1',
                 description: _('Fallback to X11 windowing system'),
                 value: this.constructor.getDefault(),
+                example: 'socket=fallback-x11',
             },
             pulseaudio: {
                 version: '0.4.0',
                 description: _('PulseAudio sound server'),
                 value: this.constructor.getDefault(),
+                example: 'socket=pulseaudio',
             },
             'session-bus': {
                 version: '0.4.0',
                 description: _('D-Bus session bus'),
                 value: this.constructor.getDefault(),
+                example: 'socket=session-bus',
             },
             'system-bus': {
                 version: '0.4.0',
                 description: _('D-Bus system bus'),
                 value: this.constructor.getDefault(),
+                example: 'socket=system-bus',
             },
             'ssh-auth': {
                 version: '0.99.1',
                 description: _('Secure Shell agent'),
                 value: this.constructor.getDefault(),
+                example: 'socket=ssh-auth',
             },
             pcsc: {
                 version: '1.3.2',
                 description: _('Smart cards'),
                 value: this.constructor.getDefault(),
+                example: 'socket=pcsc',
             },
             cups: {
                 version: '1.5.2',
                 description: _('Printing system'),
                 value: this.constructor.getDefault(),
+                example: 'socket=cups',
             },
         };
     }

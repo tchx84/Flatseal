@@ -32,18 +32,18 @@ var FlatsealVariableEntryRow = GObject.registerClass({
         'permission',
     ],
 }, class FlatsealVariableEntryRow extends Gtk.Box {
-    _init(text) {
+    _init(description, permission, text) {
         super._init({});
-        this._setup(text);
+        this._setup(description, permission, text);
     }
 
-    _setup(text) {
+    _setup(description, permission, text) {
         this._content = new FlatsealPathsViewer(FlatsealVariableRow);
         this._content.text = text;
         this._box.add(this._content);
 
-        this._description.set_label(_('Beware'));
-        this._permission.set_label(_('Changing these could break the application'));
+        this._description.set_label(description);
+        this._permission.set_label(permission);
 
         this._button.connect('clicked', this._add.bind(this));
         this.connect('notify::sensitive', this._update.bind(this));

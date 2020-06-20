@@ -95,10 +95,6 @@
     margin-bottom: 10px;
 }
 
-.permissions .row .description.warning {
-    font-weight: bold;
-}
-
 .permissions .row .content .variable,
 .permissions .row .content .path {
     background-color: @theme_bg_color;

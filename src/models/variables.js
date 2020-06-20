@@ -33,8 +33,9 @@ var FlatpakVariablesModel = GObject.registerClass({
         return {
             variables: {
                 version: '0.4.0',
-                description: _('Environment variables'),
+                description: _('Variables'),
                 value: this.constructor.getDefault(),
+                example: _(`e.g. GTK_DEBUG=interactive`)
             },
         };
     }
