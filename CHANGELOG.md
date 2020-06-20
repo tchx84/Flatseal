@@ -5,8 +5,8 @@
 - Added Swedish translation.
 - Added showing applications basic information.
 - Added showing details button to re-direct user to software manager application page.
+- Added support for environment variables overrides.
 - Fixed handling unsupported permissions, so flatpak-override CLI can be used in parallel.
-- Changed permissions model implementation, to possibly allow more permissions in the future.
 - Changed reset button layout in mobile mode, for improved ergonomics.
 
 ## [1.5.3] - 2020-05-02
