@@ -33,11 +33,13 @@ var FlatpakSharedModel = GObject.registerClass({
                 version: '0.4.0',
                 description: _('Network'),
                 value: this.constructor.getDefault(),
+                example: 'share=network',
             },
             ipc: {
                 version: '0.4.0',
                 description: _('Inter-process communications'),
                 value: this.constructor.getDefault(),
+                example: 'share=ipc',
             },
         };
     }

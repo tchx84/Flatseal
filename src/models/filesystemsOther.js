@@ -34,6 +34,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
                 version: '0.6.14',
                 description: _('Other files'),
                 value: this.constructor.getDefault(),
+                example: _('e.g. ~/games:ro, xdg-pictures, etc'),
             },
         };
     }

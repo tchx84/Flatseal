@@ -123,7 +123,7 @@ var FlatsealWindow = GObject.registerClass({
             if (p.type === 'path') {
                 row = new FlatsealPermissionEntryRow(p.description, p.permission, p.value);
             } else if (p.type === 'variable') {
-                row = new FlatsealVariableEntryRow(p.value);
+                row = new FlatsealVariableEntryRow(p.description, p.permission, p.value);
             } else {
                 row = new FlatsealPermissionSwitchRow(p.description, p.permission, p.value);
                 property = 'state';

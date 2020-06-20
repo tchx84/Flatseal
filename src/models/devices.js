@@ -34,21 +34,25 @@ var FlatpakDevicesModel = GObject.registerClass({
                 version: '0.4.0',
                 description: _('GPU acceleration'),
                 value: this.constructor.getDefault(),
+                example: 'device=dri',
             },
             kvm: {
                 version: '0.6.12',
                 description: _('Virtualization'),
                 value: this.constructor.getDefault(),
+                example: 'device=kvm',
             },
             shm: {
                 version: '1.6.1',
                 description: _('Shared memory (e.g. JACK sound server)'),
                 value: this.constructor.getDefault(),
+                example: 'device=shm',
             },
             all: {
                 version: '0.6.6',
                 description: _('All devices (e.g. webcam)'),
                 value: this.constructor.getDefault(),
+                example: 'device=all',
             },
         };
     }
