@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const {GObject, GLib, Gtk} = imports.gi;
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 
@@ -44,6 +44,18 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         this._appId = '';
         this._compact = false;
         this._applications = new FlatpakApplicationsModel();
+        this._validator = new RegExp(/^(\d+)-(\d+)-(\d+)$/);
+    }
+
+    _get_formatted_date(string) {
+        if (!this._validator.test(string))
+            return string;
+
+        const [, year, month, day] = string.match(this._validator);
+        const date = GLib.DateTime.new(GLib.TimeZone.new_local(), year, month, day, 0, 0, 0);
+
+        /* TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century> */
+        return date.format(_('%B %e, %Y'));
     }
 
     _setup() {
@@ -53,7 +65,7 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         this._name.set_label(appdata.name);
         this._author.set_label(appdata.author);
         this._version.set_label(appdata.version);
-        this._released.set_label(appdata.date);
+        this._released.set_label(this._get_formatted_date(appdata.date));
 
         const metadata = this._applications.getMetadataForAppId(this._appId);
         this._runtime.set_label(metadata.runtime);
