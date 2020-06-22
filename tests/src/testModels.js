@@ -409,24 +409,20 @@ describe('Model', function() {
         expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
     });
 
-    it('signals changes with unsupported', function() {
+    it('signals changes with unsupported overrides', function() {
         spyOn(permissions, 'emit');
 
         applications.userPath = _user;
         permissions.appId = _unsupportedAppId;
-
-        permissions.set_property('shared-network', false);
 
         expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, true]);
     });
 
-    it('signals changes with reset unsupported', function() {
+    it('signals changes without unsupported overrides', function() {
         spyOn(permissions, 'emit');
 
-        applications.userPath = _user;
+        applications.userPath = _tmp;
         permissions.appId = _unsupportedAppId;
-
-        permissions.reset();
 
         expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
     });
