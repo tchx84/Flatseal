@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 20:13-0400\n"
-"PO-Revision-Date: 2020-05-04 07:00+0200\n"
+"POT-Creation-Date: 2020-06-22 20:28-0400\n"
+"PO-Revision-Date: 2020-06-23 07:19+0200\n"
+"Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.6\n"
-"Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: sv\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -34,7 +34,8 @@ msgstr "En behörighetshanterare för Flatpak"
 msgid "com.github.tchx84.Flatseal"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/aboutDialog.ui:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
 msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
@@ -47,246 +48,317 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/window.ui:27
-msgid "Applications"
-msgstr "Program"
+#: src/models/applications.js:151 src/models/applications.js:175
+#: src/models/applications.js:176 src/models/applications.js:177
+msgid "Unknown"
+msgstr "Okänd"
 
-#: src/window.ui:140
-msgid "No applications found."
-msgstr "Inga program hittades."
+#: src/models/devices.js:35
+msgid "GPU acceleration"
+msgstr "GPU-acceleration"
 
-#: src/model.js:24
-msgid "List of subsystems shared with the host system"
-msgstr "Lista över undersystem som delas med värdsystemet"
+#: src/models/devices.js:41
+msgid "Virtualization"
+msgstr "Virtualisering"
 
-#: src/model.js:25
-msgid "List of well-known sockets available in the sandbox"
-msgstr "Lista över välkända uttag som finns i sandlådan"
+#: src/models/devices.js:47
+msgid "Shared memory (e.g. JACK sound server)"
+msgstr "Delat minne (t.ex. JACK ljudserver)"
 
-#: src/model.js:26
+#: src/models/devices.js:53
+msgid "All devices (e.g. webcam)"
+msgstr "Alla enheter (t.ex. webbkamera)"
+
+#: src/models/devices.js:69
 msgid "List of devices available in the sandbox"
 msgstr "Lista över enheter som är tillgängliga i sandlådan"
 
-#: src/model.js:27
+#: src/models/features.js:35
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Development syscalls (t.ex. ptrace)"
+
+#: src/models/features.js:41
+msgid "Programs from other architectures"
+msgstr "Program från andra arkitekturer"
+
+#: src/models/features.js:47
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:53
+msgid "Controller Area Network bus"
+msgstr "Controller Area Network bus"
+
+#: src/models/features.js:69
 msgid "List of features available to the application"
 msgstr "Lista över funktioner som är tillgängliga för programmet"
 
-#: src/model.js:28
+#: src/models/filesystems.js:35
+msgid "All system files"
+msgstr "Alla systemfiler"
+
+#: src/models/filesystems.js:41
+msgid "All system libraries, executables and static data"
+msgstr "Alla systemets bibliotek, exekverbara och statisk data"
+
+#: src/models/filesystems.js:47
+msgid "All system configurations"
+msgstr "Alla systemkonfigurationer"
+
+#: src/models/filesystems.js:53
+msgid "All user files"
+msgstr "Alla användarfiler"
+
+#: src/models/filesystems.js:69 src/models/filesystemsOther.js:51
 msgid "List of filesystem subsets available to the application"
 msgstr ""
 "Lista över filsystemets undergrupper som är tillgängliga för programmet"
 
-#: src/model.js:41
-msgid "Network"
-msgstr "Nätverk"
-
-#: src/model.js:46
-msgid "Inter-process communications"
-msgstr "Kommunikation mellan processer"
-
-#: src/model.js:51
-msgid "X11 windowing system"
-msgstr "X11 fönstersystem"
-
-#: src/model.js:56
-msgid "Wayland windowing system"
-msgstr "Wayland fönstersystem"
-
-#: src/model.js:61
-msgid "Fallback to X11 windowing system"
-msgstr "Fall tillbaka på X11 fönstersystem"
-
-#: src/model.js:66
-msgid "PulseAudio sound server"
-msgstr "PulseAudio ljudserver"
-
-#: src/model.js:71
-msgid "D-Bus session bus"
-msgstr "D-Bus session bus"
-
-#: src/model.js:76
-msgid "D-Bus system bus"
-msgstr "D-Bus system bus"
-
-#: src/model.js:81
-msgid "Secure Shell agent"
-msgstr "Secure Shell agent"
-
-#: src/model.js:86
-msgid "Smart cards"
-msgstr "Smartkort"
-
-#: src/model.js:91
-msgid "Printing system"
-msgstr "Utskriftssystem"
-
-#: src/model.js:96
-msgid "GPU acceleration"
-msgstr "GPU-acceleration"
-
-#: src/model.js:101
-msgid "Virtualization"
-msgstr "Virtualisering"
-
-#: src/model.js:106
-msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Delat minne (t.ex. JACK ljudserver)"
-
-#: src/model.js:111
-msgid "All devices (e.g. webcam)"
-msgstr "Alla enheter (t.ex. webbkamera)"
-
-#: src/model.js:116
-msgid "Development syscalls (e.g. ptrace)"
-msgstr "Development syscalls (t.ex. ptrace)"
-
-#: src/model.js:121
-msgid "Programs from other architectures"
-msgstr "Program från andra arkitekturer"
-
-#: src/model.js:126
-msgid "Bluetooth"
-msgstr "Bluetooth"
-
-#: src/model.js:131
-msgid "Controller Area Network bus"
-msgstr "Controller Area Network bus"
-
-#: src/model.js:136
-msgid "All system files"
-msgstr "Alla systemfiler"
-
-#: src/model.js:141
-msgid "All system libraries, executables and static data"
-msgstr "Alla systemets bibliotek, exekverbara och statisk data"
-
-#: src/model.js:146
-msgid "All system configurations"
-msgstr "Alla systemkonfigurationer"
-
-#: src/model.js:151
-msgid "All user files"
-msgstr "Alla användarfiler"
-
-#: src/model.js:156
+#: src/models/filesystemsOther.js:35
 msgid "Other files"
 msgstr "Andra filer"
 
-#: src/menu.ui:7
+#: src/models/filesystemsOther.js:37
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "t.ex. ~/games:ro, xdg-pictures, etc"
+
+#: src/models/persistent.js:35
+msgid "Files"
+msgstr "Filer"
+
+#: src/models/persistent.js:37
+msgid "e.g. .thunderbird"
+msgstr "t.ex. .thunderbird"
+
+#: src/models/persistent.js:51
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Lista över sökvägar, relativt hemkatalogen, som skapats i sandlådan"
+
+#: src/models/shared.js:34
+msgid "Network"
+msgstr "Nätverk"
+
+#: src/models/shared.js:40
+msgid "Inter-process communications"
+msgstr "Kommunikation mellan processer"
+
+#: src/models/shared.js:68
+msgid "List of subsystems shared with the host system"
+msgstr "Lista över undersystem som delas med värdsystemet"
+
+#: src/models/sockets.js:35
+msgid "X11 windowing system"
+msgstr "X11 fönstersystem"
+
+#: src/models/sockets.js:41
+msgid "Wayland windowing system"
+msgstr "Wayland fönstersystem"
+
+#: src/models/sockets.js:47
+msgid "Fallback to X11 windowing system"
+msgstr "Fall tillbaka på X11 fönstersystem"
+
+#: src/models/sockets.js:53
+msgid "PulseAudio sound server"
+msgstr "PulseAudio ljudserver"
+
+#: src/models/sockets.js:59
+msgid "D-Bus session bus"
+msgstr "D-Bus session bus"
+
+#: src/models/sockets.js:65
+msgid "D-Bus system bus"
+msgstr "D-Bus system bus"
+
+#: src/models/sockets.js:71
+msgid "Secure Shell agent"
+msgstr "Secure Shell agent"
+
+#: src/models/sockets.js:77
+msgid "Smart cards"
+msgstr "Smartkort"
+
+#: src/models/sockets.js:83
+msgid "Printing system"
+msgstr "Utskriftssystem"
+
+#: src/models/sockets.js:99
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Lista över välkända uttag som finns i sandlådan"
+
+#: src/models/variables.js:36
+msgid "Variables"
+msgstr "Variabler"
+
+#: src/models/variables.js:38
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "t.ex. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:60
+msgid "List of variables exported to the application"
+msgstr "Lista över varibler som som exporterats till programmet"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:58
+msgid "%B %e, %Y"
+msgstr "%e %B %Y"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "Version"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "Senast uppdaterad"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "Körtid"
+
+#: src/widgets/detailsButton.js:55
+msgid "Show Details"
+msgstr "Visa detaljerad info"
+
+#: src/widgets/detailsButton.js:84
+msgid "Show application in a software manager"
+msgstr "Visa program i en programhanterare"
+
+#: src/widgets/detailsButton.js:86
+msgid "No software manager found"
+msgstr "Ingen programhanterare hittades"
+
+#: src/widgets/menu.ui:7
 msgid "Help"
 msgstr "Hjälp"
 
-#: src/menu.ui:11
+#: src/widgets/menu.ui:11
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: src/menu.ui:15
+#: src/widgets/menu.ui:15
 msgid "About Flatseal"
 msgstr "Om Flatseal"
 
-#: src/pathRow.js:24
+#: src/widgets/pathRow.js:24
 msgid "this absolute path"
 msgstr "Denna absoluta sökväg"
 
-#: src/pathRow.js:25
+#: src/widgets/pathRow.js:25
 msgid "this path relative to the home directory"
 msgstr "Denna sökväg relativt till hemkatalogen"
 
-#: src/pathRow.js:26
+#: src/widgets/pathRow.js:26
 msgid "all system configurations"
 msgstr "Alla systemkonfigurationer"
 
-#: src/pathRow.js:27
+#: src/widgets/pathRow.js:27
 msgid "all system libraries, executables and static data"
 msgstr "Alla systemets bibliotek, exekverbara och statisk data"
 
-#: src/pathRow.js:28
+#: src/widgets/pathRow.js:28
 msgid "all system files"
 msgstr "Alla systemfiler"
 
-#: src/pathRow.js:29
+#: src/widgets/pathRow.js:29
 msgid "all user files"
 msgstr "Alla användarfiler"
 
-#: src/pathRow.js:30
+#: src/widgets/pathRow.js:30
 msgid "the desktop directory"
 msgstr "Skrivbord"
 
-#: src/pathRow.js:31
+#: src/widgets/pathRow.js:31
 msgid "the documents directory"
 msgstr "Dokument"
 
-#: src/pathRow.js:32
+#: src/widgets/pathRow.js:32
 msgid "the download directory"
 msgstr "Nedladdningar"
 
-#: src/pathRow.js:33
+#: src/widgets/pathRow.js:33
 msgid "the music directory"
 msgstr "Musik"
 
-#: src/pathRow.js:34
+#: src/widgets/pathRow.js:34
 msgid "the pictures directory"
 msgstr "Bilder"
 
-#: src/pathRow.js:35
+#: src/widgets/pathRow.js:35
 msgid "the public directory"
 msgstr "Publikt"
 
-#: src/pathRow.js:36
+#: src/widgets/pathRow.js:36
 msgid "the videos directory"
 msgstr "Video"
 
-#: src/pathRow.js:37
+#: src/widgets/pathRow.js:37
 msgid "the templates directory"
 msgstr "Mallar"
 
-#: src/pathRow.js:38
+#: src/widgets/pathRow.js:38
 msgid "the config directory"
 msgstr "Konfigurationsmappen"
 
-#: src/pathRow.js:39
+#: src/widgets/pathRow.js:39
 msgid "the cache directory"
 msgstr "Cachemappen"
 
-#: src/pathRow.js:40
+#: src/widgets/pathRow.js:40
 msgid "the data directory"
 msgstr "Datamappen"
 
-#: src/pathRow.js:41
+#: src/widgets/pathRow.js:41
 msgid "the runtime directory"
 msgstr "Körtidsmappen"
 
-#: src/pathRow.js:56
+#: src/widgets/pathRow.js:56
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Kan läsa: %s"
 
-#: src/pathRow.js:57
+#: src/widgets/pathRow.js:57
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Kan ändra och läsa: %s"
 
-#: src/pathRow.js:58
+#: src/widgets/pathRow.js:58
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Kan skapa, ändra och läsa: %s"
 
-#: src/pathRow.js:61
+#: src/widgets/pathRow.js:61 src/widgets/relativePathRow.js:30
+#: src/widgets/variableRow.js:28
 msgid "This is not a valid option"
 msgstr "Detta är inte ett giltigt alternativ"
 
-#: src/permissionSwitchRow.js:37 src/permissionEntryRow.js:53
+#: src/widgets/permissionEntryRow.js:56 src/widgets/permissionSwitchRow.js:37
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Stöds inte av den installerade Flatpak-versionen"
 
-#: src/resetButton.js:33
+#: src/widgets/relativePathRow.js:76
+msgid "Default paths can't be removed"
+msgstr "Standardsökvägar kan inte tas bort"
+
+#: src/widgets/resetButton.js:42
 msgid "Reset"
 msgstr "Återställ"
 
-#: src/resetButton.js:41
+#: src/widgets/resetButton.js:61
+msgid "No changes made to this application"
+msgstr "Inga ändringar gjorda för det här programmet"
+
+#: src/widgets/resetButton.js:64
 msgid "Reset this application permissions"
 msgstr "Återställ det här programmets behörigheter"
 
-#: src/resetButton.js:43
-msgid "No changes made to this application"
-msgstr "Inga ändringar gjorda för det här programmet"
+#: src/widgets/resetButton.js:66
+msgid ", including changes not made with Flatseal"
+msgstr ", inklusive ändringar som inte gjorts med Flatseal"
+
+#: src/widgets/window.ui:41
+msgid "No applications found."
+msgstr "Inga program hittades."
+
+#: src/widgets/window.ui:296
+msgid "Applications"
+msgstr "Program"
