@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 20:28-0400\n"
-"PO-Revision-Date: 2020-04-05 18:36+0700\n"
+"PO-Revision-Date: 2020-06-23 11:46+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr ""
+msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
@@ -32,7 +32,7 @@ msgstr "Pengelola izin untuk Flatpak"
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
 msgid "com.github.tchx84.Flatseal"
-msgstr ""
+msgstr "com.github.tchx84.Flatseal"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -46,12 +46,12 @@ msgstr ""
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr ""
+msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:151 src/models/applications.js:175
 #: src/models/applications.js:176 src/models/applications.js:177
 msgid "Unknown"
-msgstr ""
+msgstr "Tidak dikenal"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
@@ -119,20 +119,19 @@ msgstr "Berkas lainnya"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "misalnya ~/games:ro, xdg-pictures, dll"
 
 #: src/models/persistent.js:35
 msgid "Files"
-msgstr ""
+msgstr "Berkas"
 
 #: src/models/persistent.js:37
 msgid "e.g. .thunderbird"
-msgstr ""
+msgstr "misalnya .thunderbird"
 
 #: src/models/persistent.js:51
-#, fuzzy
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Daftar perangkat yang tersedia di sandbox"
+msgstr "Daftar path homedir relatif yang dibuat di sandbox"
 
 #: src/models/shared.js:34
 msgid "Network"
@@ -188,45 +187,44 @@ msgstr "Daftar soket yang tersedia di sandbox"
 
 #: src/models/variables.js:36
 msgid "Variables"
-msgstr ""
+msgstr "Variabel"
 
 #: src/models/variables.js:38
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr ""
+msgstr "misalnya GTK_DEBUG=interactive"
 
 #: src/models/variables.js:60
-#, fuzzy
 msgid "List of variables exported to the application"
-msgstr "Daftar fitur yang tersedia untuk aplikasi"
+msgstr "Daftar variabel yang diekspor ke aplikasi"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
 msgid "%B %e, %Y"
-msgstr ""
+msgstr "%e %b %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr ""
+msgstr "Versi"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr ""
+msgstr "Terakhir Diperbarui"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr ""
+msgstr "Runtime"
 
 #: src/widgets/detailsButton.js:55
 msgid "Show Details"
-msgstr ""
+msgstr "Tampilkan Detail"
 
 #: src/widgets/detailsButton.js:84
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "Tampilkan aplikasi dalam manajer perangkat lunak"
 
 #: src/widgets/detailsButton.js:86
 msgid "No software manager found"
-msgstr ""
+msgstr "Tidak ditemukan manajer perangkat lunak"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -338,7 +336,7 @@ msgstr "Tidak didukung oleh versi Flatpak yang diinstal"
 
 #: src/widgets/relativePathRow.js:76
 msgid "Default paths can't be removed"
-msgstr ""
+msgstr "Path bawaan tidak dapat dihapus"
 
 #: src/widgets/resetButton.js:42
 msgid "Reset"
@@ -354,7 +352,7 @@ msgstr "Atur ulang izin aplikasi ini"
 
 #: src/widgets/resetButton.js:66
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr ", termasuk perubahan yang tidak dilakukan dengan Flatseal"
 
 #: src/widgets/window.ui:41
 msgid "No applications found."
