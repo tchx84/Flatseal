@@ -8,9 +8,17 @@ If permissions are removed and is no longer possible to reset, run the following
 $ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal
 ```
 
-## Testing translations
+## Translations
 
-To test Flatseal in a different language:
+Add a new language and update translations:
+
+```
+$ echo "es" >> po/LINGUAS
+$ ninja flatseal-pot
+$ ninja flatseal-update-po
+```
+
+To test the translation language:
 
 ```
 $ flatpak config --set extra-languages es
