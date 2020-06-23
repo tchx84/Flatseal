@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 20:28-0400\n"
-"PO-Revision-Date: 2020-03-31 14:24+0200\n"
+"PO-Revision-Date: 2020-06-23 15:20+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -52,7 +52,7 @@ msgstr ""
 #: src/models/applications.js:151 src/models/applications.js:175
 #: src/models/applications.js:176 src/models/applications.js:177
 msgid "Unknown"
-msgstr ""
+msgstr "neznámé"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
@@ -120,20 +120,19 @@ msgstr "Ostatní soubory"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "např. ~/hry:ro, xdg-pictures atd."
 
 #: src/models/persistent.js:35
 msgid "Files"
-msgstr ""
+msgstr "Soubory"
 
 #: src/models/persistent.js:37
 msgid "e.g. .thunderbird"
-msgstr ""
+msgstr "např. .thunderbird"
 
 #: src/models/persistent.js:51
-#, fuzzy
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Seznam zařízení dostupných v sandboxu"
+msgstr "Seznam cest relativních k domovskému adresáři vytvořených v sandboxu"
 
 #: src/models/shared.js:34
 msgid "Network"
@@ -189,45 +188,44 @@ msgstr "Seznam dobře známých soketů dostupných v sandboxu"
 
 #: src/models/variables.js:36
 msgid "Variables"
-msgstr ""
+msgstr "Proměnné"
 
 #: src/models/variables.js:38
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr ""
+msgstr "např. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:60
-#, fuzzy
 msgid "List of variables exported to the application"
-msgstr "Seznam funkcí dostupných v sandboxu"
+msgstr "Seznam proměnných exportovaných aplikaci"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
 msgid "%B %e, %Y"
-msgstr ""
+msgstr "%e. %B %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr ""
+msgstr "Verze"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr ""
+msgstr "Aktualizováno"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr ""
+msgstr "Prostředí"
 
 #: src/widgets/detailsButton.js:55
 msgid "Show Details"
-msgstr ""
+msgstr "Zobrazit podrobnosti"
 
 #: src/widgets/detailsButton.js:84
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "Zobrazit aplikaci ve správci softwaru"
 
 #: src/widgets/detailsButton.js:86
 msgid "No software manager found"
-msgstr ""
+msgstr "Nebyl nalezen žádný správce softwaru"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -339,7 +337,7 @@ msgstr "Není podporováno nainstalovanou verzí Flatpaku"
 
 #: src/widgets/relativePathRow.js:76
 msgid "Default paths can't be removed"
-msgstr ""
+msgstr "Výchozí cesty nemohou být odstraněny"
 
 #: src/widgets/resetButton.js:42
 msgid "Reset"
@@ -355,7 +353,7 @@ msgstr "Resetovat oprávnění této aplikace"
 
 #: src/widgets/resetButton.js:66
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr ", včetně změn neprovedených v aplikaci Flatseal"
 
 #: src/widgets/window.ui:41
 msgid "No applications found."
