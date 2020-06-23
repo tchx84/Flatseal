@@ -118,7 +118,7 @@ msgstr "Egyéb fájlok"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "pl. ~/games:ro, xdg-pictures, stb."
+msgstr "pl. ~/játékok:ro, xdg-pictures, stb."
 
 #: src/models/persistent.js:35
 msgid "Files"
