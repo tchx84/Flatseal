@@ -39,7 +39,7 @@ msgid ""
 "Flatseal is a graphical utility to review and modify basic permissions from "
 "your Flatpak applications."
 msgstr ""
-"A Flatseal egy grafikus segédprogram, amely áttekintheti és módosíthatja a "
+"Flatseal egy grafikus segédprogram, amellyel áttekintheti és módosíthatja a "
 "Flatpak-alkalmazások alapvető engedélyeit."
 
 #. TRANSLATORS: Don't translate this text
@@ -50,7 +50,7 @@ msgstr ""
 #: src/models/applications.js:151 src/models/applications.js:175
 #: src/models/applications.js:176 src/models/applications.js:177
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
@@ -58,7 +58,7 @@ msgstr "GPU gyorsítás"
 
 #: src/models/devices.js:41
 msgid "Virtualization"
-msgstr "Virtualizáció"
+msgstr "Virtualizálás"
 
 #: src/models/devices.js:47
 msgid "Shared memory (e.g. JACK sound server)"
@@ -70,7 +70,7 @@ msgstr "Minden eszköz (pl. webkamera)"
 
 #: src/models/devices.js:69
 msgid "List of devices available in the sandbox"
-msgstr "A homokozóban elérhető eszközök felsorolása"
+msgstr "A védőfalban elérhető eszközök felsorolása"
 
 #: src/models/features.js:35
 msgid "Development syscalls (e.g. ptrace)"
@@ -86,11 +86,11 @@ msgstr "Bluetooth"
 
 #: src/models/features.js:53
 msgid "Controller Area Network bus"
-msgstr "Vezérlőhálózati busz"
-
+msgstr "Vezérlő terület hálózati busz"
+ 
 #: src/models/features.js:69
 msgid "List of features available to the application"
-msgstr "Az alkalmazásban nem történt változás"
+msgstr "Az alkalmazás számára elérhető szolgáltatások listája"
 
 #: src/models/filesystems.js:35
 msgid "All system files"
@@ -118,20 +118,19 @@ msgstr "Egyéb fájlok"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "pl. ~/games:ro, xdg-pictures, stb."
 
 #: src/models/persistent.js:35
 msgid "Files"
-msgstr ""
+msgstr "Fájlok"
 
 #: src/models/persistent.js:37
 msgid "e.g. .thunderbird"
-msgstr ""
+msgstr "pl. .thunderbird"
 
 #: src/models/persistent.js:51
-#, fuzzy
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "A homokozóban elérhető eszközök felsorolása"
+msgstr "A védőfalban elérhető eszközök felsorolása"
 
 #: src/models/shared.js:34
 msgid "Network"
@@ -147,7 +146,7 @@ msgstr "A gazdarendszerrel megosztott alrendszerek felsorolása"
 
 #: src/models/sockets.js:35
 msgid "X11 windowing system"
-msgstr "A X11 ablakrendszer"
+msgstr "Az X11 ablakrendszer"
 
 #: src/models/sockets.js:41
 msgid "Wayland windowing system"
@@ -183,49 +182,48 @@ msgstr "Nyomtatási rendszer"
 
 #: src/models/sockets.js:99
 msgid "List of well-known sockets available in the sandbox"
-msgstr "A homokozóban elérhető közismert csatlakozó aljzat felsorolása"
+msgstr "A védőfalban elérhető közismert csatlakozó aljzat felsorolása"
 
 #: src/models/variables.js:36
 msgid "Variables"
-msgstr ""
+msgstr "Változók"
 
 #: src/models/variables.js:38
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr ""
+msgstr "pl. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:60
-#, fuzzy
 msgid "List of variables exported to the application"
-msgstr "Az alkalmazásban nem történt változás"
+msgstr "Az alkalmazásba exportált változók listája"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
 msgid "%B %e, %Y"
-msgstr ""
+msgstr "%Y. %B %e."
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr ""
+msgstr "Változat"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr ""
+msgstr "Utolsó frissítés"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr ""
+msgstr "Futtatás ideje"
 
 #: src/widgets/detailsButton.js:55
 msgid "Show Details"
-msgstr ""
+msgstr "Részletek mutatása"
 
 #: src/widgets/detailsButton.js:84
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "Az alkalmazás megjelenítése a szoftverkezelőben"
 
 #: src/widgets/detailsButton.js:86
 msgid "No software manager found"
-msgstr ""
+msgstr "Nem található szoftverkezelő"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -337,7 +335,7 @@ msgstr "A Flatpak telepített verziója nem támogatja"
 
 #: src/widgets/relativePathRow.js:76
 msgid "Default paths can't be removed"
-msgstr ""
+msgstr "Az alapértelmezett útvonalakat nem lehet eltávolítani"
 
 #: src/widgets/resetButton.js:42
 msgid "Reset"
@@ -353,7 +351,7 @@ msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
 
 #: src/widgets/resetButton.js:66
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr "beleértve a nem a Flatseal használatával végrehajtott változtatásokat"
 
 #: src/widgets/window.ui:41
 msgid "No applications found."
@@ -361,4 +359,4 @@ msgstr "Alkalmazás nem található."
 
 #: src/widgets/window.ui:296
 msgid "Applications"
-msgstr "Alkalmazás"
+msgstr "Alkalmazások"
