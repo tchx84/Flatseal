@@ -50,7 +50,7 @@ msgstr ""
 #: src/models/applications.js:151 src/models/applications.js:175
 #: src/models/applications.js:176 src/models/applications.js:177
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecida"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
@@ -118,20 +118,19 @@ msgstr "Outros arquivos"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "p. ex. ~/jogos:ro, xdg-pictures, etc"
 
 #: src/models/persistent.js:35
 msgid "Files"
-msgstr ""
+msgstr "Arquivos"
 
 #: src/models/persistent.js:37
 msgid "e.g. .thunderbird"
-msgstr ""
+msgstr "p. ex. .thunderbird"
 
 #: src/models/persistent.js:51
-#, fuzzy
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Lista de dispositivos disponíveis na sandbox"
+msgstr "Lista de caminhos relativos ao diretório do usuário criados na sandbox"
 
 #: src/models/shared.js:34
 msgid "Network"
@@ -187,45 +186,44 @@ msgstr "Lista de soquetes conhecidos disponíveis na sandbox"
 
 #: src/models/variables.js:36
 msgid "Variables"
-msgstr ""
+msgstr "Variáveis"
 
 #: src/models/variables.js:38
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr ""
+msgstr "p. ex. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:60
-#, fuzzy
 msgid "List of variables exported to the application"
-msgstr "Lista de recursos disponíveis para o aplicativo"
+msgstr "Lista de variáveis exportadas para o aplicativo"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
 msgid "%B %e, %Y"
-msgstr ""
+msgstr "%e de %B de %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr ""
+msgstr "Versão"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr ""
+msgstr "Ultima atualização"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr ""
+msgstr "Biblioteca de execução"
 
 #: src/widgets/detailsButton.js:55
 msgid "Show Details"
-msgstr ""
+msgstr "Mostrar detalhes"
 
 #: src/widgets/detailsButton.js:84
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "Mostrar aplicativo em um gerenciador de software"
 
 #: src/widgets/detailsButton.js:86
 msgid "No software manager found"
-msgstr ""
+msgstr "Nenhum gerenciador de software encontrado"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -337,7 +335,7 @@ msgstr "Não é suportado pela versão instalada do Flatpak"
 
 #: src/widgets/relativePathRow.js:76
 msgid "Default paths can't be removed"
-msgstr ""
+msgstr "Caminhos padrão não podem ser removidos"
 
 #: src/widgets/resetButton.js:42
 msgid "Reset"
@@ -353,7 +351,7 @@ msgstr "Restaurar as permissões deste aplicativo"
 
 #: src/widgets/resetButton.js:66
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr ", incluindo alterações não feitas com o Flatseal"
 
 #: src/widgets/window.ui:41
 msgid "No applications found."
