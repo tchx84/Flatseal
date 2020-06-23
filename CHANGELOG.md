@@ -4,8 +4,9 @@
 
 - Added Swedish translation.
 - Added showing applications basic information.
-- Added showing details button to re-direct user to software manager application page.
+- Added showing details button to re-direct the user to a software manager application page.
 - Added support for environment variables overrides.
+- Added support for persistent overrides.
 - Fixed handling unsupported permissions, so flatpak-override CLI can be used in parallel.
 - Changed reset button layout in mobile mode, for improved ergonomics.
 
