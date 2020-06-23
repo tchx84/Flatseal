@@ -81,7 +81,7 @@ var FlatsealDetailsButton = GObject.registerClass({
 
     _update() {
         if (this.sensitive)
-            this.set_tooltip_text(_('Show application in your software manager'));
+            this.set_tooltip_text(_('Show application in a software manager'));
         else
             this.set_tooltip_text(_('No software manager found'));
     }
