@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 20:28-0400\n"
-"PO-Revision-Date: 2020-04-06 08:59+0200\n"
+"PO-Revision-Date: 2020-06-24 09:31+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -52,7 +52,7 @@ msgstr ""
 #: src/models/applications.js:151 src/models/applications.js:175
 #: src/models/applications.js:176 src/models/applications.js:177
 msgid "Unknown"
-msgstr ""
+msgstr "Sconosciuto"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
@@ -120,20 +120,19 @@ msgstr "Altri file"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "per esempio, ~/giochi:ro, xdg-pictures, ecc."
 
 #: src/models/persistent.js:35
 msgid "Files"
-msgstr ""
+msgstr "File"
 
 #: src/models/persistent.js:37
 msgid "e.g. .thunderbird"
-msgstr ""
+msgstr "per esempio .thunderbird"
 
 #: src/models/persistent.js:51
-#, fuzzy
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Elenco dei dispositivi disponibili nella sandbox"
+msgstr "Elenco di percorsi relativi alla home creati nella sandbox"
 
 #: src/models/shared.js:34
 msgid "Network"
@@ -189,45 +188,44 @@ msgstr "Elenco di socket noti disponibili nella sandbox"
 
 #: src/models/variables.js:36
 msgid "Variables"
-msgstr ""
+msgstr "Variabili"
 
 #: src/models/variables.js:38
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr ""
+msgstr "per esempio GTK_DEBUG=interactive"
 
 #: src/models/variables.js:60
-#, fuzzy
 msgid "List of variables exported to the application"
-msgstr "Elenco delle funzionalità disponibili per l'applicazione"
+msgstr "Elenco di variabili esportate nell'applicazione"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
 msgid "%B %e, %Y"
-msgstr ""
+msgstr "%e %B %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr ""
+msgstr "Versione"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr ""
+msgstr "Ultimo aggiornamento"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr ""
+msgstr "Runtime"
 
 #: src/widgets/detailsButton.js:55
 msgid "Show Details"
-msgstr ""
+msgstr "Mostra dettagli"
 
 #: src/widgets/detailsButton.js:84
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "Mostra applicazione in un gestore software"
 
 #: src/widgets/detailsButton.js:86
 msgid "No software manager found"
-msgstr ""
+msgstr "Nessun gestore software trovato"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -339,7 +337,7 @@ msgstr "Non supportato dalla versione installata di Flatpak"
 
 #: src/widgets/relativePathRow.js:76
 msgid "Default paths can't be removed"
-msgstr ""
+msgstr "I percorsi predefiniti non possono essere rimossi"
 
 #: src/widgets/resetButton.js:42
 msgid "Reset"
@@ -355,7 +353,7 @@ msgstr "Ripristina i permessi di questa applicazione"
 
 #: src/widgets/resetButton.js:66
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr ", comprese le modifiche non effettuate con Flatseal"
 
 #: src/widgets/window.ui:41
 msgid "No applications found."
