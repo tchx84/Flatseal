@@ -51,7 +51,7 @@ msgstr ""
 #: src/models/applications.js:151 src/models/applications.js:175
 #: src/models/applications.js:176 src/models/applications.js:177
 msgid "Unknown"
-msgstr ""
+msgstr "Onbekend"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
@@ -120,20 +120,19 @@ msgstr "Overige bestanden"
 
 #: src/models/filesystemsOther.js:37
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "b.v. ~/spellen:ro, xdg-pictures, enz"
 
 #: src/models/persistent.js:35
 msgid "Files"
-msgstr ""
+msgstr "Bestanden"
 
 #: src/models/persistent.js:37
 msgid "e.g. .thunderbird"
-msgstr ""
+msgstr "b.v. .thunderbird"
 
 #: src/models/persistent.js:51
-#, fuzzy
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Lijst met apparaten die beschikbaar zijn in de sandbox"
+msgstr "Lijst met homedir-relatieve paden die in de sandbox zijn gemaakt"
 
 #: src/models/shared.js:34
 msgid "Network"
@@ -189,45 +188,44 @@ msgstr "Lijst met bekende sockets die beschikbaar zijn in de sandbox"
 
 #: src/models/variables.js:36
 msgid "Variables"
-msgstr ""
+msgstr "Variabelen"
 
 #: src/models/variables.js:38
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr ""
+msgstr "b.v. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:60
-#, fuzzy
 msgid "List of variables exported to the application"
-msgstr "Lijst met functies die beschikbaar zijn voor de toepassing"
+msgstr "Lijst met variabelen die naar de applicatie zijn geëxporteerd"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
 msgid "%B %e, %Y"
-msgstr ""
+msgstr "%e %B %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr ""
+msgstr "Versie"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr ""
+msgstr "Laatst bijgewerkt"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr ""
+msgstr "Runtime"
 
 #: src/widgets/detailsButton.js:55
 msgid "Show Details"
-msgstr ""
+msgstr "Toon details"
 
 #: src/widgets/detailsButton.js:84
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "Toon applicatie in een softwaremanager"
 
 #: src/widgets/detailsButton.js:86
 msgid "No software manager found"
-msgstr ""
+msgstr "Geen softwaremanager gevonden"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -339,7 +337,7 @@ msgstr "Niet ondersteund door de geïnstalleerde versie van Flatpak"
 
 #: src/widgets/relativePathRow.js:76
 msgid "Default paths can't be removed"
-msgstr ""
+msgstr "Standaardpaden kunnen niet worden verwijderd"
 
 #: src/widgets/resetButton.js:42
 msgid "Reset"
@@ -355,7 +353,7 @@ msgstr "Herstel alle toepassingsmachtigingen"
 
 #: src/widgets/resetButton.js:66
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr ", inclusief wijzigingen die niet zijn aangebracht met Flatseal"
 
 #: src/widgets/window.ui:41
 msgid "No applications found."
@@ -364,18 +362,3 @@ msgstr "Geen toepassingen aangetroffen."
 #: src/widgets/window.ui:296
 msgid "Applications"
 msgstr "Toepassingen"
-
-#~ msgid "Access network"
-#~ msgstr "Toegang tot het netwerk"
-
-#~ msgid "Access X11 windowing system (as fallback)"
-#~ msgstr "Toegang tot het X11-venstersysteem (terugvallen op)"
-
-#~ msgid "Access D-Bus system bus (unrestricted)"
-#~ msgstr "Toegang tot de D-Bus-systeembus (ongelimiteerd)"
-
-#~ msgid "Access CAN bus"
-#~ msgstr "Toegang tot de CAN-bus"
-
-#~ msgid "Access files"
-#~ msgstr "Toegang tot bestanden"
