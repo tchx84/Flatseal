@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.0] - 2020-06-25
 
 - Added Swedish translation.
 - Added showing applications basic information.
