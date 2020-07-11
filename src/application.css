@@ -87,6 +87,7 @@
     margin-right: 15px;
 }
 
+.permissions .row .content .bus,
 .permissions .row .content .variable,
 .permissions .row .content .path {
     color: @theme_fg_color;
@@ -97,16 +98,23 @@
     margin-bottom: 10px;
 }
 
+.permissions .row .content .bus,
 .permissions .row .content .variable,
 .permissions .row .content .path {
     background-color: @theme_bg_color;
 }
 
+.permissions .row .content .bus entry,
 .permissions .row .content .variable entry,
 .permissions .row .content .path entry {
     margin-left: -8px;
 }
 
+.permissions .row .content .bus entry,
+.permissions .row .content .bus button,
+.permissions .row .content .bus button:hover,
+.permissions .row .content .bus button:focus,
+.permissions .row .content .bus button:selected,
 .permissions .row .content .variable entry,
 .permissions .row .content .variable button,
 .permissions .row .content .variable button:hover,
@@ -123,6 +131,7 @@
    box-shadow: none;
 }
 
+.permissions .row .content .bus .info,
 .permissions .row .content .variable .info,
 .permissions .row .content .path .info {
     padding: 8px;
@@ -135,27 +144,32 @@
 }
 
 .permissions .row .content .relative.path .info,
+.permissions .row .content .bus .info,
 .permissions .row .content .variable .info {
     background-image: -gtk-icontheme("emblem-ok-symbolic");
 }
 
+.permissions .row .content .bus.not-valid .info,
 .permissions .row .content .variable.not-valid .info,
 .permissions .row .content .path.not-valid .info {
     color: @warning_color;
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
 
+.permissions .row .content .bus button image,
 .permissions .row .content .variable button image,
 .permissions .row .content .path button image {
     color: @theme_fg_color;
 }
 
+.permissions .row .content .bus button image:disabled,
 .permissions .row .content .variable button image:disabled,
 .permissions .row .content .path button image:disabled {
     color: @insensitive_fg_color;
 }
 
 /* XXX Navigate through xdg options without the popup  */
+.permissions .row .content .bus window,
 .permissions .row .content .variable window,
 .permissions .row .content .path window {
    opacity: 0;

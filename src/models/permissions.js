@@ -28,6 +28,7 @@ const {FlatpakFeaturesModel} = imports.models.features;
 const {FlatpakFilesystemsModel} = imports.models.filesystems;
 const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
+const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {persistent} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -41,6 +42,7 @@ const MODELS = {
     'filesystems-other': new FlatpakFilesystemsOtherModel(),
     persistent: persistent.getDefault(),
     variables: new FlatpakVariablesModel(),
+    session: new FlatpakSessionBusModel(),
     unsupported: new FlatpakUnsupportedModel(),
 };
 
@@ -69,6 +71,8 @@ const PERMISSIONS = {
     'filesystems-host-etc': MODELS['filesystems'],
     'filesystems-home': MODELS['filesystems'],
     'filesystems-other': MODELS['filesystems-other'],
+    'session-talk': MODELS['session'],
+    'session-own': MODELS['session'],
     persistent: MODELS['persistent'],
     variables: MODELS['variables'],
 };
@@ -144,6 +148,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     /* Handle environment variables */
                     if (group === MODELS.variables.constructor.getGroup())
                         model = MODELS.variables;
+
+                    /* Handle session bus */
+                    if (group === MODELS.session.constructor.getGroup())
+                        model = MODELS.session;
 
                     if (typeof model === 'undefined' && overrides)
                         model = MODELS.unsupported;
