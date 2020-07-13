@@ -1,0 +1,3 @@
+[Session Bus Policy]
+org.test.Service-1=talk
+org.test.Service-2=own
