@@ -7,7 +7,7 @@ const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
-const _totalPermissions = 28;
+const _totalPermissions = 30;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -125,6 +125,8 @@ describe('Model', function() {
         expect(permissions.filesystems_other).toEqual('~/test');
         expect(permissions.session_talk).toEqual('org.test.Service-1');
         expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissions.system_talk).toEqual('org.test.Service-3');
+        expect(permissions.system_own).toEqual('org.test.Service-4');
         expect(permissions.persistent).toEqual('.test');
         expect(permissions.variables).toEqual('TEST=yes');
     });
@@ -158,6 +160,8 @@ describe('Model', function() {
         expect(permissions.filesystems_home).toBe(false);
         expect(permissions.session_talk).toEqual('');
         expect(permissions.session_own).toEqual('');
+        expect(permissions.system_talk).toEqual('');
+        expect(permissions.system_own).toEqual('');
         expect(permissions.persistent).toEqual('.test;tset.');
         expect(permissions.variables).toEqual('TEST=no');
     });
@@ -175,6 +179,8 @@ describe('Model', function() {
         permissions.set_property('filesystems-other', '~/tset');
         permissions.set_property('session_talk', 'org.test.Service-3');
         permissions.set_property('session_own', 'org.test.Service-4');
+        permissions.set_property('system_talk', 'org.test.Service-5');
+        permissions.set_property('system_own', 'org.test.Service-6');
         permissions.set_property('persistent', 'tset.');
         permissions.set_property('variables', 'TEST=maybe');
 
@@ -214,6 +220,8 @@ describe('Model', function() {
         expect(permissions.filesystems_other).toEqual('~/tset');
         expect(permissions.session_talk).toEqual('org.test.Service-3');
         expect(permissions.session_own).toEqual('org.test.Service-4');
+        expect(permissions.system_talk).toEqual('org.test.Service-5');
+        expect(permissions.system_own).toEqual('org.test.Service-6');
         expect(permissions.persistent).toEqual('tset.');
         expect(permissions.variables).toEqual('TEST=maybe');
     });

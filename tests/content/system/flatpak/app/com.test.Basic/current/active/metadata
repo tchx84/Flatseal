@@ -12,3 +12,7 @@ TEST=yes
 [Session Bus Policy]
 org.test.Service-1=talk
 org.test.Service-2=own
+
+[System Bus Policy]
+org.test.Service-3=talk
+org.test.Service-4=own
