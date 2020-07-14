@@ -71,10 +71,10 @@ const PERMISSIONS = {
     'filesystems-host-etc': MODELS['filesystems'],
     'filesystems-home': MODELS['filesystems'],
     'filesystems-other': MODELS['filesystems-other'],
-    'session-talk': MODELS['session'],
-    'session-own': MODELS['session'],
     persistent: MODELS['persistent'],
     variables: MODELS['variables'],
+    'session-talk': MODELS['session'],
+    'session-own': MODELS['session'],
 };
 
 function generate() {
