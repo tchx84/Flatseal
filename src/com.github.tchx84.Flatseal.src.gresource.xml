@@ -29,6 +29,7 @@
     <file>models/sessionBus.js</file>
     <file>models/shared.js</file>
     <file>models/sockets.js</file>
+    <file>models/systemBus.js</file>
     <file>models/variables.js</file>
   </gresource>
 </gresources>
