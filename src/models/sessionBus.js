@@ -30,13 +30,13 @@ var FlatpakSessionBusModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            'talk': {
+            talk: {
                 version: '0.4.0',
                 description: _('Talks'),
                 value: this.constructor.getDefault(),
                 example: 'e.g. org.freedesktop.Notifications',
             },
-            'own': {
+            own: {
                 version: '0.4.0',
                 description: _('Owns'),
                 value: this.constructor.getDefault(),
@@ -46,7 +46,7 @@ var FlatpakSessionBusModel = GObject.registerClass({
     }
 
     static getDefault() {
-        return ''
+        return '';
     }
 
     static getType() {
@@ -73,12 +73,17 @@ var FlatpakSessionBusModel = GObject.registerClass({
         if (option === 'talk')
             this._overrides = {};
 
-        names.forEach(name => this._overrides[name] = option);
+        names.forEach(name => {
+            this._overrides[name] = option;
+        });
 
-        if (option === 'own')
+        if (option === 'own') {
             Object.entries(this._originals)
-                .filter(([name, option]) => !(name in this._overrides))
-                .forEach(([name, option]) => this._overrides[name] = 'none');
+                .filter(([name]) => !(name in this._overrides))
+                .forEach(([name]) => {
+                    this._overrides[name] = 'none';
+                });
+        }
     }
 
     updateProxyProperty(proxy) {
@@ -86,13 +91,13 @@ var FlatpakSessionBusModel = GObject.registerClass({
 
         Object.entries(permissions).forEach(([key]) => {
             const originals = Object.entries(this._originals)
-                .filter(([name, option]) => option == key)
-                .filter(([name, option]) => !(name in this._overrides))
-                .map(([name, option]) => name);
+                .filter(([, option]) => option === key)
+                .filter(([name]) => !(name in this._overrides))
+                .map(([name]) => name);
 
             const overrides = Object.entries(this._overrides)
-                .filter(([name, option]) => option == key)
-                .map(([name, option]) => name);
+                .filter(([, option]) => option === key)
+                .map(([name]) => name);
 
             const values = [...new Set([...originals, ...overrides])];
             const property = `${this.constructor.getKey()}-${key}`;

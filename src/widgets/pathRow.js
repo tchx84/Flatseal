@@ -92,10 +92,14 @@ var FlatsealPathRow = GObject.registerClass({
             this._store.set(this._store.append(), [0], [option]);
         });
 
-        const paths = Object.keys(_options).slice(0, 2).join('|');
+        const paths = Object.keys(_options)
+            .slice(0, 2)
+            .join('|');
         this._pathRE = new RegExp(`^(${paths})([^/ ]+(/)?)+$`);
 
-        const options = Object.keys(_options).slice(2).join('|');
+        const options = Object.keys(_options)
+            .slice(2)
+            .join('|');
         this._optionRE = new RegExp(`^(${options})((:.*)|((/)[^/ ]+)*)$`);
 
         const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');

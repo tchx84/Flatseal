@@ -20,6 +20,7 @@ const {GObject, Gtk} = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
+/* https://dbus.freedesktop.org/doc/dbus-specification.html */
 const EXP = /^(([A-Z]|[a-z]|[0-9]|_|-)+)(\.(([A-Z]|[a-z]|[0-9]|_|-)+))+(\.\*){0,1}$/;
 
 var validity = {
@@ -51,7 +52,6 @@ var FlatsealBusNameRow = GObject.registerClass({
     }
 
     _setup() {
-        /* https://dbus.freedesktop.org/doc/dbus-specification.html */
         this._expression = new RegExp(EXP);
 
         this._entry.connect('notify::text', this._changed.bind(this));
