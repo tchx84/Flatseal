@@ -61,7 +61,8 @@
 .permissions .row.filesystems ~ .filesystems,
 .permissions .row.persistent ~ .persistent,
 .permissions .row.environment ~ .environment,
-.permissions .row.session ~ .session {
+.permissions .row.session ~ .session,
+.permissions .row.system ~ .system {
     border-style: none solid solid solid;
 }
 
