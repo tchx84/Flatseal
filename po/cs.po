@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-22 20:28-0400\n"
-"PO-Revision-Date: 2020-06-23 15:20+0200\n"
+"PO-Revision-Date: 2020-07-18 18:34+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -176,7 +176,7 @@ msgstr "Agent Zabezpečeného Shellu"
 
 #: src/models/sockets.js:77
 msgid "Smart cards"
-msgstr "Chytré karty"
+msgstr "Čipové karty"
 
 #: src/models/sockets.js:83
 msgid "Printing system"
