@@ -70,53 +70,65 @@ var FlatpakSessionBusModel = GObject.registerClass({
         const option = property.replace(prefix, '');
         const names = value.split(';');
 
-        if (option === 'talk')
-            this._overrides = {};
-
-        names
+        /* Separate overrides from originals */
+        const overrides = names
             .filter(name => name.length !== 0)
-            .forEach(name => {
-                this._overrides[name] = option;
-            });
+            .filter(name => !this._originals[option].has(name));
 
-        if (option === 'own') {
-            Object.entries(this._originals)
-                .filter(name => name.length !== 0)
-                .filter(([name]) => !(name in this._overrides))
-                .forEach(([name]) => {
-                    this._overrides[name] = 'none';
-                });
-        }
+        /* Find originals no longer present */
+        const missing = [...this._originals[option]]
+            .filter(name => name.length !== 0)
+            .filter(name => !names.includes(name));
+
+        print(option, 'overrides', overrides);
+        print(option, 'missing', missing);
+
+        this._overrides[option] = new Set(overrides);
+        this._missing[option] = new Set(missing);
     }
 
     updateProxyProperty(proxy) {
-        const permissions = this.getPermissions();
+        ['talk', 'own'].forEach(option => {
+            const originals = [...this._originals[option]]
+                .filter(name => !this._overrides['talk'].has(name))
+                .filter(name => !this._overrides['own'].has(name))
+                .filter(name => !this._overrides['none'].has(name));
 
-        Object.entries(permissions).forEach(([key]) => {
-            const originals = Object.entries(this._originals)
-                .filter(([, option]) => option === key)
-                .filter(([name]) => !(name in this._overrides))
-                .map(([name]) => name);
-
-            const overrides = Object.entries(this._overrides)
-                .filter(([, option]) => option === key)
-                .map(([name]) => name);
-
-            const values = [...new Set([...originals, ...overrides])];
-            const property = `${this.constructor.getKey()}-${key}`;
-
+            const values = [...originals, ...this._overrides[option]];
+            const property = `${this.constructor.getKey()}-${option}`;
             proxy.set_property(property, values.join(';'));
         });
     }
 
-    loadFromKeyFile(group, key, value, override) {
+    loadFromKeyFile(group, name, option, override) {
         const dictionary = override ? this._overrides : this._originals;
-        dictionary[key] = value;
+        dictionary[option].add(name);
     }
 
     saveToKeyFile(keyFile) {
+        const overrides = {};
+
+        /* Populate all overrides */
+        ['talk', 'own'].forEach(option => {
+            this._overrides[option].forEach(name => {
+                overrides[name] = option;
+            });
+        });
+
+        /* Find original names that are really missing */
+        ['talk', 'own'].forEach(option => {
+            this._missing[option].forEach(name => {
+                print(name, name in overrides);
+                if (name in overrides)
+                    return;
+                overrides[name] = 'none';
+            });
+        });
+
+        /* Write to overrides file */
         const group = this.constructor.getGroup();
-        Object.entries(this._overrides).forEach(([key, value]) => {
+        Object.entries(overrides).forEach(([key, value]) => {
+            print('writing', key, value);
             keyFile.set_value(group, key, value);
         });
     }
@@ -124,5 +136,13 @@ var FlatpakSessionBusModel = GObject.registerClass({
     reset() {
         this._overrides = {};
         this._originals = {};
+        this._missing = {};
+
+        /* Sets for every possible value */
+        ['talk', 'own', 'none'].forEach(option => {
+            this._overrides[option] = new Set();
+            this._originals[option] = new Set();
+            this._missing[option] = new Set();
+        });
     }
 });
