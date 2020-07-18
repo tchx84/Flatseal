@@ -28,6 +28,8 @@ const {FlatpakFeaturesModel} = imports.models.features;
 const {FlatpakFilesystemsModel} = imports.models.filesystems;
 const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
+const {FlatpakSessionBusModel} = imports.models.sessionBus;
+const {FlatpakSystemBusModel} = imports.models.systemBus;
 const {persistent} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -41,6 +43,8 @@ const MODELS = {
     'filesystems-other': new FlatpakFilesystemsOtherModel(),
     persistent: persistent.getDefault(),
     variables: new FlatpakVariablesModel(),
+    session: new FlatpakSessionBusModel(),
+    system: new FlatpakSystemBusModel(),
     unsupported: new FlatpakUnsupportedModel(),
 };
 
@@ -71,6 +75,10 @@ const PERMISSIONS = {
     'filesystems-other': MODELS['filesystems-other'],
     persistent: MODELS['persistent'],
     variables: MODELS['variables'],
+    'session-talk': MODELS['session'],
+    'session-own': MODELS['session'],
+    'system-talk': MODELS['system'],
+    'system-own': MODELS['system'],
 };
 
 function generate() {
@@ -144,6 +152,14 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     /* Handle environment variables */
                     if (group === MODELS.variables.constructor.getGroup())
                         model = MODELS.variables;
+
+                    /* Handle session bus */
+                    if (group === MODELS.session.constructor.getGroup())
+                        model = MODELS.session;
+
+                    /* Handle system bus */
+                    if (group === MODELS.system.constructor.getGroup())
+                        model = MODELS.system;
 
                     if (typeof model === 'undefined' && overrides)
                         model = MODELS.unsupported;

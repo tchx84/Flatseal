@@ -1,13 +1,13 @@
 const {GLib} = imports.gi;
 
-const {setup, update, hasOnly} = imports.utils;
+const {setup, update, has, hasOnly} = imports.utils;
 setup();
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
-const _totalPermissions = 26;
+const _totalPermissions = 30;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -19,6 +19,7 @@ const _unsupportedAppId = 'com.test.Unsupported';
 const _overridenAppId = 'com.test.Overriden';
 const _extraAppId = 'com.test.Extra';
 const _environmentAppId = 'com.test.Environment';
+const _busAppId = 'com.test.Bus';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -36,6 +37,9 @@ const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
 const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId]);
 const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
+const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
+
+const _sessionGroup = 'Session Bus Policy';
 const _key = 'filesystems';
 
 const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content', 'installations.d']);
@@ -67,6 +71,7 @@ describe('Model', function() {
         GLib.unlink(_negationOverride);
         GLib.unlink(_unsupportedOverride);
         GLib.unlink(_environmentOverride);
+        GLib.unlink(_busOverride);
     });
 
     it('loads applications', function() {
@@ -118,6 +123,10 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(true);
         expect(permissions.filesystems_home).toBe(true);
         expect(permissions.filesystems_other).toEqual('~/test');
+        expect(permissions.session_talk).toEqual('org.test.Service-1');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissions.system_talk).toEqual('org.test.Service-3');
+        expect(permissions.system_own).toEqual('org.test.Service-4');
         expect(permissions.persistent).toEqual('.test');
         expect(permissions.variables).toEqual('TEST=yes');
     });
@@ -149,6 +158,10 @@ describe('Model', function() {
         expect(permissions.filesystems_host_os).toBe(false);
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(false);
+        expect(permissions.session_talk).toEqual('');
+        expect(permissions.session_own).toEqual('');
+        expect(permissions.system_talk).toEqual('');
+        expect(permissions.system_own).toEqual('');
         expect(permissions.persistent).toEqual('.test;tset.');
         expect(permissions.variables).toEqual('TEST=no');
     });
@@ -164,6 +177,10 @@ describe('Model', function() {
         permissions.set_property('features-bluetooth', false);
         permissions.set_property('filesystems-host', false);
         permissions.set_property('filesystems-other', '~/tset');
+        permissions.set_property('session_talk', 'org.test.Service-3');
+        permissions.set_property('session_own', 'org.test.Service-4');
+        permissions.set_property('system_talk', 'org.test.Service-5');
+        permissions.set_property('system_own', 'org.test.Service-6');
         permissions.set_property('persistent', 'tset.');
         permissions.set_property('variables', 'TEST=maybe');
 
@@ -201,6 +218,10 @@ describe('Model', function() {
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(true);
         expect(permissions.filesystems_other).toEqual('~/tset');
+        expect(permissions.session_talk).toEqual('org.test.Service-3');
+        expect(permissions.session_own).toEqual('org.test.Service-4');
+        expect(permissions.system_talk).toEqual('org.test.Service-5');
+        expect(permissions.system_own).toEqual('org.test.Service-6');
         expect(permissions.persistent).toEqual('tset.');
         expect(permissions.variables).toEqual('TEST=maybe');
     });
@@ -578,6 +599,68 @@ describe('Model', function() {
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(GLib.access(_environmentOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('Add new well-known names', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _busAppId;
+
+        expect(permissions.session_talk).toEqual('org.test.Service-1');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+
+        permissions.set_property('session-talk', 'org.test.Service-1;org.test.Service-3');
+        permissions.set_property('session-own', 'org.test.Service-2;org.test.Service-4');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'talk')).toBe(false);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'own')).toBe(false);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-3', 'talk')).toBe(true);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-4', 'own')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('Remove well-known names', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _busAppId;
+
+        expect(permissions.session_talk).toEqual('org.test.Service-1');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+
+        permissions.set_property('session-talk', '');
+        permissions.set_property('session-own', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'none')).toBe(true);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'none')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('Modify well-known names', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _busAppId;
+
+        expect(permissions.session_talk).toEqual('org.test.Service-1');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+
+        permissions.set_property('session-talk', 'org.test.Service-2');
+        permissions.set_property('session-own', 'org.test.Service-1');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'own')).toBe(true);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'talk')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });

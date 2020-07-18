@@ -32,6 +32,7 @@ const {FlatsealDetailsButton} = imports.widgets.detailsButton;
 const {FlatsealPathRow} = imports.widgets.pathRow;
 const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
+const {FlatsealBusNameRow} = imports.widgets.busNameRow;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
@@ -142,6 +143,13 @@ var FlatsealWindow = GObject.registerClass({
                     p.permission,
                     p.value,
                     FlatsealVariableRow,
+                    'list-add-symbolic');
+            } else if (p.type === 'bus') {
+                row = new FlatsealPermissionEntryRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    FlatsealBusNameRow,
                     'list-add-symbolic');
             } else {
                 property = 'state';
