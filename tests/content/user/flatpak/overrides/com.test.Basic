@@ -8,3 +8,11 @@ persistent=tset.
 
 [Environment]
 TEST=no
+
+[Session Bus Policy]
+org.test.Service-1=none
+org.test.Service-2=none
+
+[System Bus Policy]
+org.test.Service-3=none
+org.test.Service-4=none
