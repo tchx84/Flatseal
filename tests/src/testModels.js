@@ -617,8 +617,8 @@ describe('Model', function() {
         permissions.set_property('session-own', 'org.test.Service-2;org.test.Service-4');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
-            expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'talk')).toBe(true);
-            expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'own')).toBe(true);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'talk')).toBe(false);
+            expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'own')).toBe(false);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-3', 'talk')).toBe(true);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-4', 'own')).toBe(true);
             done();

@@ -39,6 +39,10 @@ function has(path, group, key, value) {
     const keyFile = new GLib.KeyFile();
     keyFile.load_from_file(path, 0);
 
+    const [keys] = keyFile.get_keys(group);
+    if (!keys.includes(key))
+        return false;
+
     const values = keyFile.get_value(group, key);
     return values.split(';').indexOf(value) !== -1;
 }
