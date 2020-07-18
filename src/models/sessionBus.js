@@ -73,12 +73,15 @@ var FlatpakSessionBusModel = GObject.registerClass({
         if (option === 'talk')
             this._overrides = {};
 
-        names.forEach(name => {
-            this._overrides[name] = option;
-        });
+        names
+            .filter(name => name.length !== 0)
+            .forEach(name => {
+                this._overrides[name] = option;
+            });
 
         if (option === 'own') {
             Object.entries(this._originals)
+                .filter(name => name.length !== 0)
                 .filter(([name]) => !(name in this._overrides))
                 .forEach(([name]) => {
                     this._overrides[name] = 'none';
