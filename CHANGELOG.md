@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- Added support for session and system bus overrides.
+
 ## [1.6.0] - 2020-06-25
 
 - Added Swedish translation.
