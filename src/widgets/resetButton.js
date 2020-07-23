@@ -36,11 +36,10 @@ var FlatsealResetButton = GObject.registerClass({
         this._image.icon_name = 'dialog-warning-symbolic';
         this._image.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
         this._image.image_position = Gtk.PositionType.LEFT;
-        this._image.visible = true;
+        this._image.visible = false;
         this.set_image(this._image);
 
         this.set_label(_('Reset'));
-        this.always_show_image = true;
         this.sensitive = false;
         this.can_focus = false;
         this.visible = true;
