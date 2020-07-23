@@ -51,11 +51,13 @@ var FlatsealDetailsButton = GObject.registerClass({
 
     _setup(permissions) {
         this._permissions = permissions;
+        this._permissions.connect('changed', this._update.bind(this));
+
+        this._found_manager = this.constructor._has_software_manager();
 
         this.set_label(_('Show Details'));
         this.can_focus = false;
         this.visible = true;
-        this.sensitive = this.constructor._has_software_manager();
 
         if (this.sensitive)
             this.connect('clicked', this._clicked.bind(this));
@@ -80,6 +82,8 @@ var FlatsealDetailsButton = GObject.registerClass({
     }
 
     _update() {
+        this.sensitive = this._found_manager && this._permissions.appId;
+
         if (this.sensitive)
             this.set_tooltip_text(_('Show application in a software manager'));
         else
