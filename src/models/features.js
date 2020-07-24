@@ -65,6 +65,14 @@ var FlatpakFeaturesModel = GObject.registerClass({
         return 'features';
     }
 
+    static getStyle() {
+        return 'features';
+    }
+
+    static getTitle() {
+        return 'Allow';
+    }
+
     static getDescription() {
         return _('List of features available to the application');
     }

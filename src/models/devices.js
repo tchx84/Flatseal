@@ -65,6 +65,14 @@ var FlatpakDevicesModel = GObject.registerClass({
         return 'devices';
     }
 
+    static getStyle() {
+        return 'devices';
+    }
+
+    static getTitle() {
+        return 'Device';
+    }
+
     static getDescription() {
         return _('List of devices available in the sandbox');
     }

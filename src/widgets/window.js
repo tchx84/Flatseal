@@ -160,12 +160,12 @@ var FlatsealWindow = GObject.registerClass({
             }
 
             const context = row.get_style_context();
-            context.add_class(p.group);
+            context.add_class(p.groupStyle);
 
-            if (p.group !== lastGroup) {
-                const groupRow = new FlatsealGroupRow(p.group, p.groupDescription);
+            if (p.groupStyle !== lastGroup) {
+                const groupRow = new FlatsealGroupRow(p.groupTitle, p.groupDescription);
                 this._permissionsBox.add(groupRow);
-                lastGroup = p.group;
+                lastGroup = p.groupStyle;
             }
 
             row.sensitive = p.supported;

@@ -56,6 +56,14 @@ var FlatpakVariablesModel = GObject.registerClass({
         return 'environment';
     }
 
+    static getStyle() {
+        return 'environment';
+    }
+
+    static getTitle() {
+        return 'Environment';
+    }
+
     static getDescription() {
         return _('List of variables exported to the application');
     }

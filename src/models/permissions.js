@@ -271,7 +271,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
             entry['type'] = model.constructor.getType();
             entry['permission'] = permission.example;
             entry['supported'] = this._info.supports(permission.version);
-            entry['group'] = model.constructor.getKey();
+            entry['groupTitle'] = model.constructor.getTitle();
+            entry['groupStyle'] = model.constructor.getStyle();
             entry['groupDescription'] = model.constructor.getDescription();
 
             list.push(entry);

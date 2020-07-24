@@ -47,6 +47,14 @@ var FlatpakPersistentModel = GObject.registerClass({
         return 'persistent';
     }
 
+    static getStyle() {
+        return 'persistent';
+    }
+
+    static getTitle() {
+        return 'Persistent';
+    }
+
     static getDescription() {
         return _('List of homedir-relative paths created in the sandbox');
     }
