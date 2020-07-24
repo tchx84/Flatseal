@@ -65,6 +65,14 @@ var FlatpakFilesystemsModel = GObject.registerClass({
         return 'filesystems';
     }
 
+    static getStyle() {
+        return 'filesystems';
+    }
+
+    static getTitle() {
+        return 'Filesystem';
+    }
+
     static getDescription() {
         return _('List of filesystem subsets available to the application');
     }

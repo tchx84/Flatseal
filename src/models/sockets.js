@@ -95,6 +95,14 @@ var FlatpakSocketsModel = GObject.registerClass({
         return 'sockets';
     }
 
+    static getStyle() {
+        return 'sockets';
+    }
+
+    static getTitle() {
+        return 'Socket';
+    }
+
     static getDescription() {
         return _('List of well-known sockets available in the sandbox');
     }
