@@ -30,9 +30,10 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            other: {
+            'filesystems-other': {
                 version: '0.6.14',
                 description: _('Other files'),
+                option: null,
                 value: this.constructor.getDefault(),
                 example: _('e.g. ~/games:ro, xdg-pictures, etc'),
             },

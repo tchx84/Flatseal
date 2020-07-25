@@ -30,15 +30,17 @@ var FlatpakSessionBusModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            talk: {
+            'session-talk': {
                 version: '0.4.0',
                 description: _('Talk'),
+                option: 'talk',
                 value: this.constructor.getDefault(),
                 example: 'e.g. org.freedesktop.Notifications',
             },
-            own: {
+            'session-own': {
                 version: '0.4.0',
                 description: _('Own'),
+                option: 'own',
                 value: this.constructor.getDefault(),
                 example: 'e.g. org.gnome.Contacts.SearchProvider',
             },

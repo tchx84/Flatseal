@@ -40,55 +40,26 @@ const MODELS = {
     devices: new FlatpakDevicesModel(),
     features: new FlatpakFeaturesModel(),
     filesystems: new FlatpakFilesystemsModel(),
-    'filesystems-other': new FlatpakFilesystemsOtherModel(),
+    filesystemsOther: new FlatpakFilesystemsOtherModel(),
     persistent: persistent.getDefault(),
     variables: new FlatpakVariablesModel(),
     session: new FlatpakSessionBusModel(),
     system: new FlatpakSystemBusModel(),
-    unsupported: new FlatpakUnsupportedModel(),
 };
 
-const PERMISSIONS = {
-    'shared-network': MODELS['shared'],
-    'shared-ipc': MODELS['shared'],
-    'sockets-x11': MODELS['sockets'],
-    'sockets-wayland': MODELS['sockets'],
-    'sockets-fallback-x11': MODELS['sockets'],
-    'sockets-pulseaudio': MODELS['sockets'],
-    'sockets-session-bus': MODELS['sockets'],
-    'sockets-system-bus': MODELS['sockets'],
-    'sockets-ssh-auth': MODELS['sockets'],
-    'sockets-pcsc': MODELS['sockets'],
-    'sockets-cups': MODELS['sockets'],
-    'devices-dri': MODELS['devices'],
-    'devices-kvm': MODELS['devices'],
-    'devices-shm': MODELS['devices'],
-    'devices-all': MODELS['devices'],
-    'features-devel': MODELS['features'],
-    'features-multiarch': MODELS['features'],
-    'features-bluetooth': MODELS['features'],
-    'features-canbus': MODELS['features'],
-    'filesystems-host': MODELS['filesystems'],
-    'filesystems-host-os': MODELS['filesystems'],
-    'filesystems-host-etc': MODELS['filesystems'],
-    'filesystems-home': MODELS['filesystems'],
-    'filesystems-other': MODELS['filesystems-other'],
-    persistent: MODELS['persistent'],
-    variables: MODELS['variables'],
-    'session-talk': MODELS['session'],
-    'session-own': MODELS['session'],
-    'system-talk': MODELS['system'],
-    'system-own': MODELS['system'],
-};
+const MODEL_UNSUPPORTED = new FlatpakUnsupportedModel();
 
 function generate() {
     const properties = {};
 
-    Object.entries(PERMISSIONS).forEach(([property, model]) => {
-        const type = model.constructor.getType() === 'state' ? 'boolean' : 'string';
-        const value = model.constructor.getDefault();
-        properties[property] = GObject.ParamSpec[type](
-            property, property, property, FLAGS, value);
+    Object.entries(MODELS).forEach(([, model]) => {
+        Object.entries(model.getPermissions()).forEach(([property]) => {
+            const model_type = model.constructor.getType();
+            const type = model_type === 'state' ? 'boolean' : 'string';
+            const value = model.constructor.getDefault();
+            properties[property] = GObject.ParamSpec[type](
+                property, property, property, FLAGS, value);
+        });
     });
 
     return properties;
@@ -148,7 +119,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                             continue;
 
                         const options = _model.getOptions();
-                        if (options !== null && options.has(option)) {
+                        if (options !== null && options.includes(option)) {
                             model = _model;
                             break;
                         } else if (options === null) {
@@ -161,7 +132,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     }
 
                     if (model === null && overrides)
-                        model = MODELS.unsupported;
+                        model = MODEL_UNSUPPORTED;
 
                     if (model !== null)
                         model.loadFromKeyFile(group, key, value, overrides);
@@ -181,7 +152,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     _checkIfChanged() {
         const exists = GLib.access(this._getOverridesPath(), 0) === 0;
-        const unsupported = !MODELS['unsupported'].isEmpty();
+        const unsupported = !MODEL_UNSUPPORTED.isEmpty();
         this.emit('changed', exists, unsupported);
     }
 
@@ -190,6 +161,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         for (const [, model] of Object.entries(MODELS))
             model.saveToKeyFile(keyFile);
+
+        MODEL_UNSUPPORTED.saveToKeyFile(keyFile);
 
         const [, length] = keyFile.to_data();
         const path = this._getOverridesPath();
@@ -207,6 +180,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         for (const [, model] of Object.entries(MODELS))
             model.updateProxyProperty(this);
+
+        MODEL_UNSUPPORTED.updateProxyProperty(this);
 
         this._checkIfChanged();
 
@@ -230,10 +205,12 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _updateModels() {
-        Object.entries(PERMISSIONS).forEach(([property, model]) => {
-            model.updateFromProxyProperty(
-                property,
-                this[property.replace(/-/g, '_')]);
+        Object.entries(MODELS).forEach(([, model]) => {
+            Object.entries(model.getPermissions()).forEach(([property]) => {
+                model.updateFromProxyProperty(
+                    property,
+                    this[property.replace(/-/g, '_')]);
+            });
         });
 
         this._saveOverrides();
@@ -246,6 +223,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
         for (const [, model] of Object.entries(MODELS))
             model.reset();
 
+        MODEL_UNSUPPORTED.reset();
+
         this._loadPermissions();
         this._loadOverrides();
         this._updateProperties();
@@ -254,22 +233,22 @@ var FlatpakPermissionsModel = GObject.registerClass({
     getAll() {
         const list = [];
 
-        Object.entries(PERMISSIONS).forEach(([property, model]) => {
-            const entry = {};
-            const key = property.replace(/\w+-/, '');
-            const permission = model.getPermissions()[key];
+        Object.entries(MODELS).forEach(([, model]) => {
+            Object.entries(model.getPermissions()).forEach(([property, permission]) => {
+                const entry = {};
 
-            entry['property'] = property;
-            entry['description'] = permission.description;
-            entry['value'] = this[property.replace(/-/g, '_')];
-            entry['type'] = model.constructor.getType();
-            entry['permission'] = permission.example;
-            entry['supported'] = this._info.supports(permission.version);
-            entry['groupTitle'] = model.constructor.getTitle();
-            entry['groupStyle'] = model.constructor.getStyle();
-            entry['groupDescription'] = model.constructor.getDescription();
+                entry['property'] = property;
+                entry['description'] = permission.description;
+                entry['value'] = this[property.replace(/-/g, '_')];
+                entry['type'] = model.constructor.getType();
+                entry['permission'] = permission.example;
+                entry['supported'] = this._info.supports(permission.version);
+                entry['groupTitle'] = model.constructor.getTitle();
+                entry['groupStyle'] = model.constructor.getStyle();
+                entry['groupDescription'] = model.constructor.getDescription();
 
-            list.push(entry);
+                list.push(entry);
+            });
         });
 
         return list;

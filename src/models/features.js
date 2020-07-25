@@ -30,27 +30,31 @@ var FlatpakFeaturesModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            devel: {
+            'features-devel': {
                 version: '0.6.10',
                 description: _('Development syscalls (e.g. ptrace)'),
+                option: 'devel',
                 value: this.constructor.getDefault(),
                 example: 'allow=devel',
             },
-            multiarch: {
+            'features-multiarch': {
                 version: '0.6.12',
                 description: _('Programs from other architectures'),
+                option: 'multiarch',
                 value: this.constructor.getDefault(),
                 example: 'allow=multiarch',
             },
-            bluetooth: {
+            'features-bluetooth': {
                 version: '0.11.8',
                 description: _('Bluetooth'),
+                option: 'bluetooth',
                 value: this.constructor.getDefault(),
                 example: 'allow=bluetooth',
             },
-            canbus: {
+            'features-canbus': {
                 version: '1.0.3',
                 description: _('Controller Area Network bus'),
+                option: 'canbus',
                 value: this.constructor.getDefault(),
                 example: 'allow=canbus',
             },

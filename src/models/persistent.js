@@ -33,6 +33,7 @@ var FlatpakPersistentModel = GObject.registerClass({
             persistent: {
                 version: '0.4.0',
                 description: _('Files'),
+                option: null,
                 value: this.constructor.getDefault(),
                 example: _('e.g. .thunderbird'),
             },
