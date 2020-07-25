@@ -30,57 +30,66 @@ var FlatpakSocketsModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            x11: {
+            'sockets-x11': {
                 version: '0.4.0',
                 description: _('X11 windowing system'),
+                option: 'x11',
                 value: this.constructor.getDefault(),
                 example: 'socket=x11',
             },
-            wayland: {
+            'sockets-wayland': {
                 version: '0.4.0',
                 description: _('Wayland windowing system'),
+                option: 'wayland',
                 value: this.constructor.getDefault(),
                 example: 'socket=wayland',
             },
-            'fallback-x11': {
+            'sockets-fallback-x11': {
                 version: '0.11.1',
                 description: _('Fallback to X11 windowing system'),
+                option: 'fallback-x11',
                 value: this.constructor.getDefault(),
                 example: 'socket=fallback-x11',
             },
-            pulseaudio: {
+            'sockets-pulseaudio': {
                 version: '0.4.0',
                 description: _('PulseAudio sound server'),
+                option: 'pulseaudio',
                 value: this.constructor.getDefault(),
                 example: 'socket=pulseaudio',
             },
-            'session-bus': {
+            'sockets-session-bus': {
                 version: '0.4.0',
                 description: _('D-Bus session bus'),
+                option: 'session-bus',
                 value: this.constructor.getDefault(),
                 example: 'socket=session-bus',
             },
-            'system-bus': {
+            'sockets-system-bus': {
                 version: '0.4.0',
                 description: _('D-Bus system bus'),
+                option: 'system-bus',
                 value: this.constructor.getDefault(),
                 example: 'socket=system-bus',
             },
-            'ssh-auth': {
+            'sockets-ssh-auth': {
                 version: '0.99.1',
                 description: _('Secure Shell agent'),
+                option: 'ssh-auth',
                 value: this.constructor.getDefault(),
                 example: 'socket=ssh-auth',
             },
-            pcsc: {
+            'sockets-pcsc': {
                 version: '1.3.2',
                 description: _('Smart cards'),
+                option: 'pcsc',
                 value: this.constructor.getDefault(),
                 example: 'socket=pcsc',
             },
-            cups: {
+            'sockets-cups': {
                 version: '1.5.2',
                 description: _('Printing system'),
+                option: 'cups',
                 value: this.constructor.getDefault(),
                 example: 'socket=cups',
             },

@@ -29,15 +29,17 @@ var FlatpakSharedModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            network: {
+            'shared-network': {
                 version: '0.4.0',
                 description: _('Network'),
+                option: 'network',
                 value: this.constructor.getDefault(),
                 example: 'share=network',
             },
-            ipc: {
+            'shared-ipc': {
                 version: '0.4.0',
                 description: _('Inter-process communications'),
+                option: 'ipc',
                 value: this.constructor.getDefault(),
                 example: 'share=ipc',
             },
@@ -73,11 +75,13 @@ var FlatpakSharedModel = GObject.registerClass({
     }
 
     getOptions() {
-        return new Set(Object.keys(this.getPermissions()));
+        return Object.entries(this.getPermissions())
+            .map(([, permission]) => permission.option);
     }
 
     updateFromProxyProperty(property, value) {
-        const option = property.replace(/\w+-/, '');
+        const permission = this.getPermissions()[property];
+        const {option} = permission;
         const negated = !value;
         const override = negated ? `!${option}` : option;
 
@@ -93,18 +97,16 @@ var FlatpakSharedModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
-        const key = this.constructor.getKey();
-
         const originals = [...this._originals]
             .filter(o => !this._overrides.has(o))
             .filter(o => !this._overrides.has(`!${o}`));
 
         var permissions = new Set([...originals, ...this._overrides]);
 
-        Object.entries(this.getPermissions()).forEach(([option, permission]) => {
-            const property = `${key}-${option}`;
+        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
+            var value = this.constructor.getDefault();
 
-            var {value} = permission;
+            const {option} = permission;
             if (permissions.has(option))
                 value = true;
             if (permissions.has(`!${option}`))

@@ -28,6 +28,25 @@ var FlatpakSystemBusModel = GObject.registerClass({
         super._init({});
     }
 
+    getPermissions() {
+        return {
+            'system-talk': {
+                version: '0.4.0',
+                description: _('Talk'),
+                option: 'talk',
+                value: this.constructor.getDefault(),
+                example: 'e.g. org.freedesktop.Accounts',
+            },
+            'system-own': {
+                version: '0.4.0',
+                description: _('Own'),
+                option: 'own',
+                value: this.constructor.getDefault(),
+                example: 'e.g. org.freedesktop.GeoClue2',
+            },
+        };
+    }
+
     static getGroup() {
         return 'System Bus Policy';
     }

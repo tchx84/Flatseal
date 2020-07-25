@@ -30,27 +30,31 @@ var FlatpakDevicesModel = GObject.registerClass({
 
     getPermissions() {
         return {
-            dri: {
+            'devices-dri': {
                 version: '0.4.0',
                 description: _('GPU acceleration'),
+                option: 'dri',
                 value: this.constructor.getDefault(),
                 example: 'device=dri',
             },
-            kvm: {
+            'devices-kvm': {
                 version: '0.6.12',
                 description: _('Virtualization'),
+                option: 'kvm',
                 value: this.constructor.getDefault(),
                 example: 'device=kvm',
             },
-            shm: {
+            'devices-shm': {
                 version: '1.6.1',
                 description: _('Shared memory (e.g. JACK sound server)'),
+                option: 'shm',
                 value: this.constructor.getDefault(),
                 example: 'device=shm',
             },
-            all: {
+            'devices-all': {
                 version: '0.6.6',
                 description: _('All devices (e.g. webcam)'),
+                option: 'all',
                 value: this.constructor.getDefault(),
                 example: 'device=all',
             },
