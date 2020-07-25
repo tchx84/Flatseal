@@ -134,41 +134,37 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
             keys.forEach(key => {
                 const values = keyFile.get_value(group, key).split(';');
+
                 values.forEach(value => {
-                    var permission = value.replace('!', '');
-                    var property = `${key}-${permission}`;
+                    var model = null;
+                    const option = value.replace('!', '');
 
-                    /* Handle custom filesystem permissions */
-                    const target = 'filesystems';
-                    if (key === target && !(permission in MODELS[target].getPermissions()))
-                        property = 'filesystems-other';
+                    for (const [, _model] of Object.entries(MODELS)) {
+                        if (_model.constructor.getGroup() !== group)
+                            continue;
 
-                    /* Handle persistent permissions */
-                    if (key === 'persistent')
-                        property = 'persistent';
+                        const _key = _model.constructor.getKey();
+                        if (_key !== null && _key !== key)
+                            continue;
 
-                    var model = PERMISSIONS[property];
+                        const options = _model.getOptions();
+                        if (options !== null && options.has(option)) {
+                            model = _model;
+                            break;
+                        } else if (options === null) {
+                            model = _model;
+                            break;
+                        } else {
 
-                    /* Handle environment variables */
-                    if (group === MODELS.variables.constructor.getGroup())
-                        model = MODELS.variables;
+                            /* unsupported */
+                        }
+                    }
 
-                    /* Handle session bus */
-                    if (group === MODELS.session.constructor.getGroup())
-                        model = MODELS.session;
-
-                    /* Handle system bus */
-                    if (group === MODELS.system.constructor.getGroup())
-                        model = MODELS.system;
-
-                    if (typeof model === 'undefined' && overrides)
+                    if (model === null && overrides)
                         model = MODELS.unsupported;
 
-                    /* Non-permission related metadata */
-                    if (typeof model === 'undefined')
-                        return;
-
-                    model.loadFromKeyFile(group, key, value, overrides);
+                    if (model !== null)
+                        model.loadFromKeyFile(group, key, value, overrides);
                 });
             });
         });
@@ -195,7 +191,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
         for (const [, model] of Object.entries(MODELS))
             model.saveToKeyFile(keyFile);
 
-
         const [, length] = keyFile.to_data();
         const path = this._getOverridesPath();
 
@@ -212,7 +207,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         for (const [, model] of Object.entries(MODELS))
             model.updateProxyProperty(this);
-
 
         this._checkIfChanged();
 

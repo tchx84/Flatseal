@@ -58,6 +58,10 @@ var FlatpakSessionBusModel = GObject.registerClass({
     }
 
     static getKey() {
+        return null;
+    }
+
+    static getPrefix() {
         return 'session';
     }
 
@@ -73,8 +77,12 @@ var FlatpakSessionBusModel = GObject.registerClass({
         return _('List of well-known names on the session bus');
     }
 
+    getOptions() { // eslint-disable-line class-methods-use-this
+        return null;
+    }
+
     updateFromProxyProperty(property, value) {
-        const prefix = `${this.constructor.getKey()}-`;
+        const prefix = `${this.constructor.getPrefix()}-`;
         const option = property.replace(prefix, '');
         const names = value.split(';');
 
@@ -100,7 +108,7 @@ var FlatpakSessionBusModel = GObject.registerClass({
                 .filter(name => !this._overrides['none'].has(name));
 
             const values = [...originals, ...this._overrides[option]];
-            const property = `${this.constructor.getKey()}-${option}`;
+            const property = `${this.constructor.getPrefix()}-${option}`;
             proxy.set_property(property, values.join(';'));
         });
     }
