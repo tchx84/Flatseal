@@ -33,6 +33,10 @@ var FlatpakSystemBusModel = GObject.registerClass({
     }
 
     static getKey() {
+        return null;
+    }
+
+    static getPrefix() {
         return 'system';
     }
 

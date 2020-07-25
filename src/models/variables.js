@@ -53,7 +53,7 @@ var FlatpakVariablesModel = GObject.registerClass({
     }
 
     static getKey() {
-        return 'environment';
+        return null;
     }
 
     static getStyle() {
@@ -66,6 +66,10 @@ var FlatpakVariablesModel = GObject.registerClass({
 
     static getDescription() {
         return _('List of variables exported to the application');
+    }
+
+    getOptions() { // eslint-disable-line class-methods-use-this
+        return null;
     }
 
     updateFromProxyProperty(property, value) {

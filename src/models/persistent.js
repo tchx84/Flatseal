@@ -67,6 +67,10 @@ var FlatpakPersistentModel = GObject.registerClass({
         return '';
     }
 
+    getOptions() { // eslint-disable-line class-methods-use-this
+        return null;
+    }
+
     updateFromProxyProperty(property, value) {
         const paths = value.split(';')
             .filter(p => p.length !== 0)

@@ -27,6 +27,14 @@ var FlatpakUnsupportedModel = GObject.registerClass({
         this.reset();
     }
 
+    static getGroup() {
+        return null;
+    }
+
+    static getKey() {
+        return null;
+    }
+
     updateFromProxyProperty() { // eslint-disable-line class-methods-use-this
         return false;
     }

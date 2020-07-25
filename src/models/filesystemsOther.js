@@ -67,6 +67,10 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         return '';
     }
 
+    getOptions() { // eslint-disable-line class-methods-use-this
+        return null;
+    }
+
     static isNegated(value) {
         return value.startsWith('!');
     }
