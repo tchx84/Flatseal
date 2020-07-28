@@ -24,9 +24,9 @@ var FlatsealApplicationRow = GObject.registerClass({
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/applicationRow.ui',
     InternalChildren: ['icon', 'name', 'appId'],
 }, class FlatsealApplicationRow extends Gtk.ListBoxRow {
-    _init(appId, appName) {
+    _init(appId, appName, appIconName) {
         super._init();
-        this._icon.set_from_icon_name(appId, Gtk.IconSize.INVALID);
+        this._icon.set_from_icon_name(appIconName, Gtk.IconSize.INVALID);
         this._name.set_text(appName);
         this._appId.set_text(appId);
     }

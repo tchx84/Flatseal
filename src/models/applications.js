@@ -109,7 +109,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
     _getIconThemePathForAppId(appId) {
         return GLib.build_filenamev([
-            this._getBundlePathForAppId(appId), 'files', 'share', 'icons',
+            this._getBundlePathForAppId(appId), 'export', 'share', 'icons',
         ]);
     }
 
@@ -169,12 +169,43 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return data;
     }
 
+    getDesktopForAppData(appdata) {
+        const desktop = {
+            icon: appdata.appId,
+        };
+
+        const path = GLib.build_filenamev([
+            this._getBundlePathForAppId(appdata.appId),
+            'export', 'share', 'applications', appdata.launchable,
+        ]);
+
+        if (GLib.access(path, 0) !== 0)
+            return desktop;
+
+        const app = new AppStreamGlib.App();
+        app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+        if (app === null)
+            return desktop;
+
+        const icon = app.get_icon_default();
+        if (icon === null)
+            return desktop;
+
+        const iconName = icon.get_name();
+        if (iconName !== null)
+            desktop.icon = iconName;
+
+        return desktop;
+    }
+
     getAppDataForAppId(appId) {
         const appdata = {
+            appId: appId,
             name: this.constructor._getApproximateNameForAppId(appId),
             author: _('Unknown'),
             version: _('Unknown'),
             date: _('Unknown'),
+            launchable: `${appId}.desktop`,
         };
 
         const path = GLib.build_filenamev([
@@ -195,6 +226,10 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         if (app.get_developer_name(null) !== null)
             appdata.author = app.get_developer_name(null);
+
+        const launchable = app.get_launchable_default();
+        if (launchable !== null && launchable.get_value())
+            appdata.launchable = launchable.get_value();
 
         const release = app.get_release_default();
         if (release === null)
@@ -228,11 +263,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         return list.map(appId => {
             const appdata = this.getAppDataForAppId(appId);
+            const desktop = this.getDesktopForAppData(appdata);
 
             return {
                 appId: appId,
                 appThemePath: this._getIconThemePathForAppId(appId),
                 appName: appdata.name,
+                appIconName: desktop.icon,
             };
         });
     }
