@@ -107,7 +107,7 @@ var FlatsealWindow = GObject.registerClass({
 
         applications.forEach(app => {
             iconTheme.append_search_path(app.appThemePath);
-            const row = new FlatsealApplicationRow(app.appId, app.appName);
+            const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
             this._applicationsListBox.add(row);
         });
 

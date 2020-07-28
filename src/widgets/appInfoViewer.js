@@ -59,13 +59,15 @@ var FlatsealAppInfoViewer = GObject.registerClass({
     }
 
     _setup() {
-        this._icon.set_from_icon_name(this._appId, Gtk.IconSize.INVALID);
-
         const appdata = this._applications.getAppDataForAppId(this._appId);
+        const desktop = this._applications.getDesktopForAppData(appdata);
+
         this._name.set_label(appdata.name);
         this._author.set_label(appdata.author);
         this._version.set_label(appdata.version);
         this._released.set_label(this._get_formatted_date(appdata.date));
+
+        this._icon.set_from_icon_name(desktop.icon, Gtk.IconSize.INVALID);
 
         const metadata = this._applications.getMetadataForAppId(this._appId);
         this._runtime.set_label(metadata.runtime);
