@@ -21,6 +21,7 @@ pkg.initFormat();
 pkg.require({
     Gio: '2.0',
     Gtk: '3.0',
+    Handy: '0.0',
 });
 
 const {FlatsealApplication} = imports.application;
