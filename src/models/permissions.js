@@ -43,8 +43,8 @@ const MODELS = {
     filesystemsOther: new FlatpakFilesystemsOtherModel(),
     persistent: persistent.getDefault(),
     variables: new FlatpakVariablesModel(),
-    session: new FlatpakSessionBusModel(),
     system: new FlatpakSystemBusModel(),
+    session: new FlatpakSessionBusModel(),
 };
 
 const MODEL_UNSUPPORTED = new FlatpakUnsupportedModel();
