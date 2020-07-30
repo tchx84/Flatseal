@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-22 20:28-0400\n"
+"POT-Creation-Date: 2020-07-30 09:20-0400\n"
 "PO-Revision-Date: 2020-02-01 03:47-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,28 +47,46 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:151 src/models/applications.js:175
-#: src/models/applications.js:176 src/models/applications.js:177
+#: src/models/applications.js:151 src/models/applications.js:205
+#: src/models/applications.js:206 src/models/applications.js:207
 msgid "Unknown"
 msgstr "Ismeretlen"
+
+#: src/models/sessionBus.js:35 src/models/systemBus.js:35
+msgid "Talks"
+msgstr ""
+
+#: src/models/sessionBus.js:42 src/models/systemBus.js:42
+msgid "Owns"
+msgstr ""
+
+#: src/models/sessionBus.js:79
+#, fuzzy
+msgid "List of well-known names on the session bus"
+msgstr "A védőfalban elérhető közismert csatlakozó aljzat felsorolása"
+
+#: src/models/systemBus.js:71
+#, fuzzy
+msgid "List of well-known names on the system bus"
+msgstr "A védőfalban elérhető közismert csatlakozó aljzat felsorolása"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
 msgstr "GPU gyorsítás"
 
-#: src/models/devices.js:41
+#: src/models/devices.js:42
 msgid "Virtualization"
 msgstr "Virtualizálás"
 
-#: src/models/devices.js:47
+#: src/models/devices.js:49
 msgid "Shared memory (e.g. JACK sound server)"
 msgstr "Megosztott memória (pl. JACK hang kiszolgáló)"
 
-#: src/models/devices.js:53
+#: src/models/devices.js:56
 msgid "All devices (e.g. webcam)"
 msgstr "Minden eszköz (pl. webkamera)"
 
-#: src/models/devices.js:69
+#: src/models/devices.js:81
 msgid "List of devices available in the sandbox"
 msgstr "A védőfalban elérhető eszközök felsorolása"
 
@@ -76,19 +94,19 @@ msgstr "A védőfalban elérhető eszközök felsorolása"
 msgid "Development syscalls (e.g. ptrace)"
 msgstr "Fejlesztési rendszerhívások (pl. ptrace)"
 
-#: src/models/features.js:41
+#: src/models/features.js:42
 msgid "Programs from other architectures"
 msgstr "Más architektúrák programjai"
 
-#: src/models/features.js:47
+#: src/models/features.js:49
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/models/features.js:53
+#: src/models/features.js:56
 msgid "Controller Area Network bus"
 msgstr "Vezérlő terület hálózati busz"
- 
-#: src/models/features.js:69
+
+#: src/models/features.js:81
 msgid "List of features available to the application"
 msgstr "Az alkalmazás számára elérhető szolgáltatások listája"
 
@@ -96,19 +114,19 @@ msgstr "Az alkalmazás számára elérhető szolgáltatások listája"
 msgid "All system files"
 msgstr "Minden rendszerfájl"
 
-#: src/models/filesystems.js:41
+#: src/models/filesystems.js:42
 msgid "All system libraries, executables and static data"
 msgstr "Minden rendszerkönyvtár, végrehajtható fájl és statikus adat"
 
-#: src/models/filesystems.js:47
+#: src/models/filesystems.js:49
 msgid "All system configurations"
 msgstr "Minden rendszerkonfiguráció"
 
-#: src/models/filesystems.js:53
+#: src/models/filesystems.js:56
 msgid "All user files"
 msgstr "Minden felhasználói fájl"
 
-#: src/models/filesystems.js:69 src/models/filesystemsOther.js:51
+#: src/models/filesystems.js:81 src/models/filesystemsOther.js:60
 msgid "List of filesystem subsets available to the application"
 msgstr "Az alkalmazás számára elérhető fájlrendszer-alkészletek felsorolása"
 
@@ -116,7 +134,7 @@ msgstr "Az alkalmazás számára elérhető fájlrendszer-alkészletek felsorol�
 msgid "Other files"
 msgstr "Egyéb fájlok"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:38
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "pl. ~/játékok:ro, xdg-pictures, stb."
 
@@ -124,11 +142,11 @@ msgstr "pl. ~/játékok:ro, xdg-pictures, stb."
 msgid "Files"
 msgstr "Fájlok"
 
-#: src/models/persistent.js:37
+#: src/models/persistent.js:38
 msgid "e.g. .thunderbird"
 msgstr "pl. .thunderbird"
 
-#: src/models/persistent.js:51
+#: src/models/persistent.js:60
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr "A védőfalban elérhető eszközök felsorolása"
 
@@ -136,11 +154,11 @@ msgstr "A védőfalban elérhető eszközök felsorolása"
 msgid "Network"
 msgstr "Hálózat"
 
-#: src/models/shared.js:40
+#: src/models/shared.js:41
 msgid "Inter-process communications"
 msgstr "Folyamatok közötti kommunikáció"
 
-#: src/models/shared.js:68
+#: src/models/shared.js:74
 msgid "List of subsystems shared with the host system"
 msgstr "A gazdarendszerrel megosztott alrendszerek felsorolása"
 
@@ -148,39 +166,39 @@ msgstr "A gazdarendszerrel megosztott alrendszerek felsorolása"
 msgid "X11 windowing system"
 msgstr "Az X11 ablakrendszer"
 
-#: src/models/sockets.js:41
+#: src/models/sockets.js:42
 msgid "Wayland windowing system"
 msgstr "Wayland ablakrendszer"
 
-#: src/models/sockets.js:47
+#: src/models/sockets.js:49
 msgid "Fallback to X11 windowing system"
 msgstr "Tartalék X11 ablakrendszer"
 
-#: src/models/sockets.js:53
+#: src/models/sockets.js:56
 msgid "PulseAudio sound server"
 msgstr "PulseAudio hangkiszolgáló"
 
-#: src/models/sockets.js:59
+#: src/models/sockets.js:63
 msgid "D-Bus session bus"
 msgstr "D-Bus munkamenet busz"
 
-#: src/models/sockets.js:65
+#: src/models/sockets.js:70
 msgid "D-Bus system bus"
 msgstr "D-Bus rendszer busz"
 
-#: src/models/sockets.js:71
+#: src/models/sockets.js:77
 msgid "Secure Shell agent"
 msgstr "Secure Shell ügynök"
 
-#: src/models/sockets.js:77
+#: src/models/sockets.js:84
 msgid "Smart cards"
 msgstr "Intelligens kártyák"
 
-#: src/models/sockets.js:83
+#: src/models/sockets.js:91
 msgid "Printing system"
 msgstr "Nyomtatási rendszer"
 
-#: src/models/sockets.js:99
+#: src/models/sockets.js:116
 msgid "List of well-known sockets available in the sandbox"
 msgstr "A védőfalban elérhető közismert csatlakozó aljzat felsorolása"
 
@@ -188,11 +206,11 @@ msgstr "A védőfalban elérhető közismert csatlakozó aljzat felsorolása"
 msgid "Variables"
 msgstr "Változók"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "pl. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:60
+#: src/models/variables.js:69
 msgid "List of variables exported to the application"
 msgstr "Az alkalmazásba exportált változók listája"
 
@@ -213,15 +231,20 @@ msgstr "Utolsó frissítés"
 msgid "Runtime"
 msgstr "Futtatás ideje"
 
-#: src/widgets/detailsButton.js:55
+#: src/widgets/busNameRow.js:31 src/widgets/pathRow.js:61
+#: src/widgets/relativePathRow.js:30 src/widgets/variableRow.js:28
+msgid "This is not a valid option"
+msgstr "Ez nem érvényes opció"
+
+#: src/widgets/detailsButton.js:58
 msgid "Show Details"
 msgstr "Részletek mutatása"
 
-#: src/widgets/detailsButton.js:84
+#: src/widgets/detailsButton.js:88
 msgid "Show application in a software manager"
 msgstr "Az alkalmazás megjelenítése a szoftverkezelőben"
 
-#: src/widgets/detailsButton.js:86
+#: src/widgets/detailsButton.js:90
 msgid "No software manager found"
 msgstr "Nem található szoftverkezelő"
 
@@ -324,11 +347,6 @@ msgstr "Módosíthatja és olvashatja: %s"
 msgid "Can create, modify and read: %s"
 msgstr "Létrehozhat, módosíthat és olvashat: %s"
 
-#: src/widgets/pathRow.js:61 src/widgets/relativePathRow.js:30
-#: src/widgets/variableRow.js:28
-msgid "This is not a valid option"
-msgstr "Ez nem érvényes opció"
-
 #: src/widgets/permissionEntryRow.js:56 src/widgets/permissionSwitchRow.js:37
 msgid "Not supported by the installed version of Flatpak"
 msgstr "A Flatpak telepített verziója nem támogatja"
@@ -341,15 +359,15 @@ msgstr "Az alapértelmezett útvonalakat nem lehet eltávolítani"
 msgid "Reset"
 msgstr "Visszaállítás"
 
-#: src/widgets/resetButton.js:61
+#: src/widgets/resetButton.js:60
 msgid "No changes made to this application"
 msgstr "Az alkalmazásban nem történt változás"
 
-#: src/widgets/resetButton.js:64
+#: src/widgets/resetButton.js:63
 msgid "Reset this application permissions"
 msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
 
-#: src/widgets/resetButton.js:66
+#: src/widgets/resetButton.js:65
 msgid ", including changes not made with Flatseal"
 msgstr "beleértve a nem a Flatseal használatával végrehajtott változtatásokat"
 
