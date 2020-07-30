@@ -4,6 +4,8 @@ data/com.github.tchx84.Flatseal.gschema.xml
 src/application.js
 src/main.js
 src/models/applications.js
+src/models/sessionBus.js
+src/models/systemBus.js
 src/models/devices.js
 src/models/features.js
 src/models/filesystems.js
@@ -21,6 +23,8 @@ src/widgets/appInfoViewer.js
 src/widgets/appInfoViewer.ui
 src/widgets/applicationRow.js
 src/widgets/applicationRow.ui
+src/widgets/busNameRow.js
+src/widgets/busNameRow.ui
 src/widgets/detailsButton.js
 src/widgets/groupRow.js
 src/widgets/groupRow.ui
