@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-30 09:20-0400\n"
-"PO-Revision-Date: 2020-06-23 07:19+0200\n"
+"PO-Revision-Date: 2020-08-01 08:44+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -55,21 +55,19 @@ msgstr "Okänd"
 
 #: src/models/sessionBus.js:35 src/models/systemBus.js:35
 msgid "Talks"
-msgstr ""
+msgstr "Talar"
 
 #: src/models/sessionBus.js:42 src/models/systemBus.js:42
 msgid "Owns"
-msgstr ""
+msgstr "Äger"
 
 #: src/models/sessionBus.js:79
-#, fuzzy
 msgid "List of well-known names on the session bus"
-msgstr "Lista över välkända uttag som finns i sandlådan"
+msgstr "Lista över välkända namn på sessionsbussen"
 
 #: src/models/systemBus.js:71
-#, fuzzy
 msgid "List of well-known names on the system bus"
-msgstr "Lista över välkända uttag som finns i sandlådan"
+msgstr "Lista över välkända namn på systembussen"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
