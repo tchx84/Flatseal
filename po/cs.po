@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-30 09:20-0400\n"
-"PO-Revision-Date: 2020-07-18 18:34+0200\n"
+"PO-Revision-Date: 2020-08-01 14:10+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -56,21 +56,19 @@ msgstr "neznámé"
 
 #: src/models/sessionBus.js:35 src/models/systemBus.js:35
 msgid "Talks"
-msgstr ""
+msgstr "Komunikuje"
 
 #: src/models/sessionBus.js:42 src/models/systemBus.js:42
 msgid "Owns"
-msgstr ""
+msgstr "Vlastní"
 
 #: src/models/sessionBus.js:79
-#, fuzzy
 msgid "List of well-known names on the session bus"
-msgstr "Seznam dobře známých soketů dostupných v sandboxu"
+msgstr "Seznam dobře známých jmen dostupných na sběrnici sezení"
 
 #: src/models/systemBus.js:71
-#, fuzzy
 msgid "List of well-known names on the system bus"
-msgstr "Seznam dobře známých soketů dostupných v sandboxu"
+msgstr "Seznam dobře známých jmen dostupných na systémové sběrnici"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
