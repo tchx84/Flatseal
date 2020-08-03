@@ -2,6 +2,10 @@
 
 ## [unreleased]
 
+- Changed group names to mimic permissions names, e.g. "allow" instead of "features".
+- Fixed crashing when multiple libhandy versions available.
+- Fixed missing icons for some applications, e.g. LibreOffice.
+- Fixed enabling header bar buttons when no applications found.
 - Added support for session and system bus overrides.
 
 ## [1.6.0] - 2020-06-25
