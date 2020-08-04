@@ -56,21 +56,19 @@ msgstr "Sconosciuto"
 
 #: src/models/sessionBus.js:35 src/models/systemBus.js:35
 msgid "Talks"
-msgstr ""
+msgstr "Parla a"
 
 #: src/models/sessionBus.js:42 src/models/systemBus.js:42
 msgid "Owns"
-msgstr ""
+msgstr "Possiede"
 
 #: src/models/sessionBus.js:79
-#, fuzzy
 msgid "List of well-known names on the session bus"
-msgstr "Elenco di socket noti disponibili nella sandbox"
+msgstr "Elenco di nomi noti sul bus di sessione"
 
 #: src/models/systemBus.js:71
-#, fuzzy
 msgid "List of well-known names on the system bus"
-msgstr "Elenco di socket noti disponibili nella sandbox"
+msgstr "Elenco di nomi noti sul bus di sistema"
 
 #: src/models/devices.js:35
 msgid "GPU acceleration"
