@@ -183,7 +183,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
             return desktop;
 
         const app = new AppStreamGlib.App();
-        app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+
+        try {
+            app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+        } catch (err) {
+            return desktop;
+        }
+
         if (app === null)
             return desktop;
 
@@ -217,7 +223,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
             return appdata;
 
         const app = new AppStreamGlib.App();
-        app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+
+        try {
+            app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+        } catch (err) {
+            return appdata;
+        }
+
         if (app === null)
             return appdata;
 
