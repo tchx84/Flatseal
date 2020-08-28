@@ -4,7 +4,7 @@
 
 - Fixed crash on possibly malformed desktop files.
 
-## [1.6.1] 2020-08-07
+## [1.6.1] - 2020-08-07
 
 - Changed group names to mimic permissions names, e.g. "allow" instead of "features".
 - Fixed crashing when multiple libhandy versions available.
