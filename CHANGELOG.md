@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.2] - 2020-08-28
 
 - Fixed crash on possibly malformed desktop files.
 
