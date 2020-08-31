@@ -231,3 +231,9 @@ separator {
 .reset-button image {
     color: @warning_color;
 }
+
+/* Menu */
+
+window .menu.background label {
+    padding: 7.5px 0px;
+}
