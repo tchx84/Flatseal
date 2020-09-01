@@ -178,6 +178,10 @@ var FlatsealWindow = GObject.registerClass({
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
         this._applicationsStack.visibleChildName = 'withApplicationsPage';
 
+        const row = this._applicationsListBox.get_row_at_index(0);
+        this._applicationsListBox.select_row(row);
+        this._update(false);
+
         this._applicationsListBox.connect('row-selected', this._update.bind(this));
         this._applicationsListBox.set_filter_func(this._filter.bind(this));
 
@@ -185,26 +189,21 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
 
         this._backButton.set_sensitive(true);
-
         this._backButton.connect('clicked', this._showApplications.bind(this));
-        this._contentLeaflet.connect('notify::folded', this._showPermissions.bind(this));
-
-        /* XXX shouldn't do this automatically ? */
-        const row = this._applicationsListBox.get_row_at_index(0);
-        this._applicationsListBox.select_row(row);
     }
 
     _shutdown() {
         this._permissions.shutdown();
     }
 
-    _update() {
+    _update(switchPage = true) {
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
         this._permissionsHeaderBar.set_title(row.appName);
         this.set_title(row.appName);
         this._appInfoViewer.appId = row.appId;
-        this._showPermissions();
+        if (switchPage)
+            this._showPermissions();
     }
 
     _filter(row) {
