@@ -17,6 +17,23 @@ Name | Permission(s) | Type | Description
 Network | `--share=network` and `--unshare=network` | Toggle | Access the network (`--share=network`); do not access the network (`--unshare=network`).
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | `--share=ipc` and `--unshare=ipc` | Toggle | Share IPC namespace with the host (`--share=ipc`); unshare IPC namespace with the host (`--unshare=ipc`).
 
+#### Socket
+
+List of well-known sockets available in the sandbox.
+
+Name | Permission(s) | Type | Description
+--- | --- | --- | ---
+X11 windowing system | `--socket=x11` and `--nosocket=x11` | Toggle | Show windows using X11 (`--socket=x11`); do not show windows using X11 (`--nosocket=x11`).
+Wayland windowing system | `--socket=wayland` and `--nosocket=wayland` | Toggle | Show windows using Wayland (`--socket=wayland`); do not show windows using Wayland (`--nosocket=wayland`).
+Fallback to X11 windowing system | `--socket=fallback-x11` and `--nosocket=fallback-x11` | Toggle | Show windows using X11 if Wayland is not available. This overrides `--socket=x11`.
+PulseAudio sound server | `--socket=pulseaudio` and `--nosocket=pulseaudio` | Toggle | Play sounds using PulseAudio (`--socket=pulseaudio`); do not play sounds using PulseAudio (`--nosocket=pulseaudio`).
+D-Bus session bus | `--socket=session-dbus` and `--nosocket=session-dbus` | Toggle | Access the entire session bus (`--socket=session-dbus`); do not access the entire session bus (`--nosocket=session-dbus`)
+D-Bus system bus | `--socket=system-dbus` and `--nosocket=system-dbus` | Toggle | Access the entire system bus (`--socket=session-dbus`); do not access the entire system bus (`--nosocket=session-dbus`)
+Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Access SSH authentication (`--socket=ssh-auth`); do not access SSH authentication (`--nosocket=pcsc`)
+Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Access smart cards (`--socket=pcsc`); do not access smart cards (`--nosocket=pcsc`)
+Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Access printing system (`--socket=cups`); do not access printing system (`--nosocket=cups`)
+
+
 ## Tips and Tricks
 
 ### Manually reset Flatseal permissions
