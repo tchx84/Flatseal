@@ -33,6 +33,17 @@ Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Ac
 Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Access smart cards (`--socket=pcsc`); do not access smart cards (`--nosocket=pcsc`)
 Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Access printing system (`--socket=cups`); do not access printing system (`--nosocket=cups`)
 
+#### Device
+
+List of devices available in the sandbox.
+
+Name | Permission(s) | Type | Description
+--- | --- | --- | ---
+GPU acceleration | `--device=dri` and `--nodevice=dri` | Toggle | Access graphics direct rendering located at `/dev/dri` (`--device=dri`); do not access graphics direct rendering (`--nodevice=dri`).
+Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Access virtualization (`--device=kvm`); do not access virtualization (`--nodevice=kvm`).
+Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Access shared memory (`--device=shm`); do not access shared memory (`--nodevice=shm`).
+All devices | `--device=all` and `--nodevice=all` | Toggle | Access all devices (`--device=all`); do not access all devices (`--nodevice=all`).
+
 
 ## Tips and Tricks
 
