@@ -44,7 +44,7 @@ Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Permit access to
 Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Permit access to the application to shared memory (`--device=shm`); prohibit access to the application to shared memory (`--nodevice=shm`).
 All devices | `--device=all` and `--nodevice=all` | Toggle | Permit access to the application to all devices (`--device=all`); prohibit access to the application to all devices (`--nodevice=all`).
 
-### Allow
+#### Allow
 
 List of features available to the application.
 
