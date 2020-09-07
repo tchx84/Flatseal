@@ -51,26 +51,27 @@ var FlatsealDetailsButton = GObject.registerClass({
 
     _setup(permissions) {
         this._permissions = permissions;
-        this._permissions.connect('changed', this._update.bind(this));
-
-        this._found_manager = this.constructor._has_software_manager();
 
         this.set_label(_('Show Details'));
         this.can_focus = false;
         this.visible = true;
 
-        if (this.sensitive)
-            this.connect('clicked', this._clicked.bind(this));
-
-        this._update();
+        this.connect('clicked', this._clicked.bind(this));
+        this._checkSoftwareManager();
     }
 
-    static _has_software_manager() {
-        const DBListNamesProxy = Gio.DBusProxy.makeProxyWrapper(DBListNamesIface);
-        const proxy = new DBListNamesProxy(
-            Gio.DBus.session, 'org.freedesktop.DBus', '/org/freedesktop/DBus');
-        const [services] = proxy.ListActivatableNamesSync();
-        return services.indexOf('org.gnome.Software') !== -1;
+    _checkSoftwareManager() {
+        try {
+            const DBListNamesProxy = Gio.DBusProxy.makeProxyWrapper(DBListNamesIface);
+            const proxy = new DBListNamesProxy(
+                Gio.DBus.session, 'org.freedesktop.DBus', '/org/freedesktop/DBus');
+            proxy.ListActivatableNamesRemote(([services], err) => {
+                const found = !err && services.indexOf('org.gnome.Software') !== -1;
+                this._update(found);
+            });
+        } catch (err) {
+            this._update(false);
+        }
     }
 
     _clicked() {
@@ -81,8 +82,8 @@ var FlatsealDetailsButton = GObject.registerClass({
         proxy.ActivateSync('details', [args], null);
     }
 
-    _update() {
-        this.sensitive = this._found_manager && this._permissions.appId;
+    _update(foundManager) {
+        this.sensitive = foundManager && this._permissions.appId;
 
         if (this.sensitive)
             this.set_tooltip_text(_('Show application in a software manager'));
