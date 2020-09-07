@@ -44,6 +44,17 @@ Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Permit access to
 Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Permit access to the application to shared memory (`--device=shm`); prohibit access to the application to shared memory (`--nodevice=shm`).
 All devices | `--device=all` and `--nodevice=all` | Toggle | Permit access to the application to all devices (`--device=all`); prohibit access to the application to all devices (`--nodevice=all`).
 
+### Allow
+
+List of features available to the application.
+
+Name | Permission(s) | Type | Description
+--- | --- | --- | ---
+Development syscalls | `--allow=devel` and `--disallow=devel` | Toggle | [NEEDS DESCRIPTION]
+Programs from other architectures | `--allow=multiarch` and `--disallow=multiarch` | Toggle | [NEEDS DESCRIPTION]
+Bluetooth | `--allow=bluetooth` and `--disallow=bluetooth` | Toggle | Permit access to use bluetooth (`--allow=bluetooth`); prohibit access to use bluetooth (`--disallow=bluetooth`).
+Controller Area Network bus | `--allow=canbus` and `--disallow=canbus` | Toggle | [NEEDS DESCRIPTION]
+
 
 ## Tips and Tricks
 
