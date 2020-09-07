@@ -29,7 +29,7 @@ Fallback to X11 windowing system | `--socket=fallback-x11` and `--nosocket=fallb
 PulseAudio sound server | `--socket=pulseaudio` and `--nosocket=pulseaudio` | Toggle | Permit the application to play sounds that use PulseAudio (`--socket=pulseaudio`); prohibit the application from playing sounds that use PulseAudio (`--nosocket=pulseaudio`).
 D-Bus session bus | `--socket=session-dbus` and `--nosocket=session-dbus` | Toggle | Permit access to the application to the entire session bus (`--socket=session-dbus`); prohibit access to the application to the entire session bus (`--nosocket=session-dbus`).
 D-Bus system bus | `--socket=system-dbus` and `--nosocket=system-dbus` | Toggle | Permit access to the application to the entire system bus (`--socket=session-dbus`); prohibit access to the application to the entire system bus (`--nosocket=session-dbus`).
-Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Permit access to the application to SSH authentications (`--socket=ssh-auth`); prohibit access to the application to SSH authentications (`--nosocket=pcsc`).
+Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Permit access to the application to SSH authentications (`--socket=ssh-auth`); prohibit access to the application to SSH authentications (`--nosocket=ssh-auth`).
 Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Permit access to the application to smart cards (`--socket=pcsc`); prohibit access to the application to smart cards (`--nosocket=pcsc`).
 Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Permit access to the application to printing systems (`--socket=cups`); prohibit access to the application to printing systems (`--nosocket=cups`).
 
