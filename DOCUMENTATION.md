@@ -14,7 +14,7 @@ List of subsystems shared with the host system.
 
 Name | Permission(s) | Type | Description
 --- | --- | --- | ---
-Network | `--share=network` and `--unshare=network` | Toggle | Access the network (`--share=network`); do not access the network (`--unshare=network`).
+Network | `--share=network` and `--unshare=network` | Toggle | Permit access to the network (`--share=network`); prohibit access to the network (`--unshare=network`).
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | `--share=ipc` and `--unshare=ipc` | Toggle | Share IPC namespace with the host (`--share=ipc`); unshare IPC namespace with the host (`--unshare=ipc`).
 
 #### Socket
@@ -23,15 +23,15 @@ List of well-known sockets available in the sandbox.
 
 Name | Permission(s) | Type | Description
 --- | --- | --- | ---
-X11 windowing system | `--socket=x11` and `--nosocket=x11` | Toggle | Show windows using X11 (`--socket=x11`); do not show windows using X11 (`--nosocket=x11`).
-Wayland windowing system | `--socket=wayland` and `--nosocket=wayland` | Toggle | Show windows using Wayland (`--socket=wayland`); do not show windows using Wayland (`--nosocket=wayland`).
-Fallback to X11 windowing system | `--socket=fallback-x11` and `--nosocket=fallback-x11` | Toggle | Show windows using X11 if Wayland is not available. This overrides `--socket=x11`.
-PulseAudio sound server | `--socket=pulseaudio` and `--nosocket=pulseaudio` | Toggle | Play sounds using PulseAudio (`--socket=pulseaudio`); do not play sounds using PulseAudio (`--nosocket=pulseaudio`).
-D-Bus session bus | `--socket=session-dbus` and `--nosocket=session-dbus` | Toggle | Access the entire session bus (`--socket=session-dbus`); do not access the entire session bus (`--nosocket=session-dbus`)
-D-Bus system bus | `--socket=system-dbus` and `--nosocket=system-dbus` | Toggle | Access the entire system bus (`--socket=session-dbus`); do not access the entire system bus (`--nosocket=session-dbus`)
-Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Access SSH authentication (`--socket=ssh-auth`); do not access SSH authentication (`--nosocket=pcsc`)
-Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Access smart cards (`--socket=pcsc`); do not access smart cards (`--nosocket=pcsc`)
-Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Access printing system (`--socket=cups`); do not access printing system (`--nosocket=cups`)
+X11 windowing system | `--socket=x11` and `--nosocket=x11` | Toggle | Permit access to the application to show windows using X11 (`--socket=x11`); prohibit access to the application from showing windows using X11 (`--nosocket=x11`).
+Wayland windowing system | `--socket=wayland` and `--nosocket=wayland` | Toggle | Permit access to the application to show windows using Wayland (`--socket=wayland`); prohibit access to the application from showing windows using Wayland (`--nosocket=wayland`).
+Fallback to X11 windowing system | `--socket=fallback-x11` and `--nosocket=fallback-x11` | Toggle | Permit access to the application to show windows using X11 if Wayland is not available, this overrides `--socket=x11` when used.
+PulseAudio sound server | `--socket=pulseaudio` and `--nosocket=pulseaudio` | Toggle | Permit the application to play sounds that use PulseAudio (`--socket=pulseaudio`); prohibit the application from playing sounds that use PulseAudio (`--nosocket=pulseaudio`).
+D-Bus session bus | `--socket=session-dbus` and `--nosocket=session-dbus` | Toggle | Permit access to the application to the entire session bus (`--socket=session-dbus`); prohibit access to the application to the entire session bus (`--nosocket=session-dbus`).
+D-Bus system bus | `--socket=system-dbus` and `--nosocket=system-dbus` | Toggle | Permit access to the application to the entire system bus (`--socket=session-dbus`); prohibit access to the application to the entire system bus (`--nosocket=session-dbus`).
+Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Permit access to the application to SSH authentications (`--socket=ssh-auth`); prohibit access to the application to SSH authentications (`--nosocket=pcsc`).
+Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Permit access to the application to smart cards (`--socket=pcsc`); prohibit access to the application to smart cards (`--nosocket=pcsc`).
+Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Permit access to the application to printing systems (`--socket=cups`); prohibit access to the application to printing systems (`--nosocket=cups`).
 
 #### Device
 
@@ -39,10 +39,10 @@ List of devices available in the sandbox.
 
 Name | Permission(s) | Type | Description
 --- | --- | --- | ---
-GPU acceleration | `--device=dri` and `--nodevice=dri` | Toggle | Access graphics direct rendering located at `/dev/dri` (`--device=dri`); do not access graphics direct rendering (`--nodevice=dri`).
-Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Access virtualization (`--device=kvm`); do not access virtualization (`--nodevice=kvm`).
-Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Access shared memory (`--device=shm`); do not access shared memory (`--nodevice=shm`).
-All devices | `--device=all` and `--nodevice=all` | Toggle | Access all devices (`--device=all`); do not access all devices (`--nodevice=all`).
+GPU acceleration | `--device=dri` and `--nodevice=dri` | Toggle | Permit access to the application to graphics direct rendering located at `/dev/dri` (`--device=dri`); prohibit access to the application to graphics direct rendering (`--nodevice=dri`).
+Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Permit access to the application to virtualization (`--device=kvm`); prohibit access to the application to virtualization (`--nodevice=kvm`).
+Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Permit access to the application to shared memory (`--device=shm`); prohibit access to the application to shared memory (`--nodevice=shm`).
+All devices | `--device=all` and `--nodevice=all` | Toggle | Permit access to the application to all devices (`--device=all`); prohibit access to the application to all devices (`--nodevice=all`).
 
 
 ## Tips and Tricks
