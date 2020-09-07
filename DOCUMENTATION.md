@@ -55,6 +55,18 @@ Programs from other architectures | `--allow=multiarch` and `--disallow=multiarc
 Bluetooth | `--allow=bluetooth` and `--disallow=bluetooth` | Toggle | Permit access to use bluetooth (`--allow=bluetooth`); prohibit access to use bluetooth (`--disallow=bluetooth`).
 Controller Area Network bus | `--allow=canbus` and `--disallow=canbus` | Toggle | [NEEDS DESCRIPTION]
 
+#### Filesystem
+
+List of filesystem subsets available to the application.
+
+Name | Permission(s) | Type | Description
+--- | --- | --- | ---
+All filesystem files | `--filesystem=host` and `--nofilesystem=host` | Toggle | Permit read-write access to the application to the whole filesystem (excluding directories or files owned by other groups) (`--filesystem=host`); prohibit read-write acess to the application to the whole filesystem (`--nofilesystem=host`). 
+All system libraries, executables and static data | `--filesystem=host-os` and `--nofilesystem=host-os` | Toggle | [NEEDS DESCRIPTION]
+All system configurations | `--filesystem=host-etc` and `--nofilesystem=host-etc` | Toggle | [NEEDS DESCRIPTION]
+All user files | `--filesystem=home` and `--nofilesystem=home` | Toggle | Permit read-write access to the application to the user directory (`$HOME`) (`filesystem=home`); prohibit read-write access to the application to the user directory (`$HOME`) (`--nofilesystem=home`). 
+Other files | `--filesystem=[DIRECTORY]`, `--filesystem=[DIRECTORY]:ro` and `--nofilesystem=[DIRECTORY]` | Input | [NEEDS DESCRIPTION]
+
 
 ## Tips and Tricks
 
