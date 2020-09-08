@@ -10,6 +10,7 @@ If you want to read more into Flatseal's permissions, you can look at the [Permi
 
 If you want to read more into `flatpak override`, you can look at the [`FLATPAK OVERRIDE(1)` manpage](https://manpages.debian.org/testing/flatpak/flatpak-override.1.en.html).
 
+
 ### Permissions
 
 #### Share
