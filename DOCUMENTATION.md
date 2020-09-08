@@ -17,59 +17,59 @@ If you want to read more into `flatpak override`, you can look at the [`FLATPAK 
 
 List of subsystems shared with the host system.
 
-Name | Permission(s) | Type | Description
+Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
-Network | `--share=network` and `--unshare=network` | Toggle | Permit access to the network (`--share=network`); prohibit access to the network (`--unshare=network`).
-[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | `--share=ipc` and `--unshare=ipc` | Toggle | Share IPC namespace with the host (`--share=ipc`); unshare IPC namespace with the host (`--unshare=ipc`).
+Network | `--share=network` and `--unshare=network` | Toggle | Permit (`--share=network`) or prohibit (`--unshare=network`) access to the network.
+[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | `--share=ipc` and `--unshare=ipc` | Toggle | Share (`--share=ipc`) or unshare (`--unshare=ipc`) IPC namespace with the host.
 
 #### Socket
 
 List of well-known sockets available in the sandbox.
 
-Name | Permission(s) | Type | Description
+Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
-X11 windowing system | `--socket=x11` and `--nosocket=x11` | Toggle | Permit access to the application to show windows using X11 (`--socket=x11`); prohibit access to the application from showing windows using X11 (`--nosocket=x11`).
-Wayland windowing system | `--socket=wayland` and `--nosocket=wayland` | Toggle | Permit access to the application to show windows using Wayland (`--socket=wayland`); prohibit access to the application from showing windows using Wayland (`--nosocket=wayland`).
-Fallback to X11 windowing system | `--socket=fallback-x11` and `--nosocket=fallback-x11` | Toggle | Permit access to the application to show windows using X11 if Wayland is not available, this overrides `--socket=x11` when used.
-PulseAudio sound server | `--socket=pulseaudio` and `--nosocket=pulseaudio` | Toggle | Permit the application to play sounds that use PulseAudio (`--socket=pulseaudio`); prohibit the application from playing sounds that use PulseAudio (`--nosocket=pulseaudio`).
+X11 windowing system | `--socket=x11` and `--nosocket=x11` | Toggle | Permit (`--socket=x11`) or prohibit (`--nosocket=x11`) access to the application to show windows using X11 (`--socket=x11`).
+Wayland windowing system | `--socket=wayland` and `--nosocket=wayland` | Toggle | Permit (`--socket=wayland`) or prohibit (`--nosocket=wayland`) access to the application to show windows using Wayland.
+Fallback to X11 windowing system | `--socket=fallback-x11` and `--nosocket=fallback-x11` | Toggle | Permit (`--socket=fallback-x11`) or prohibit (`--nosocket=fallback-x11`) access to the application to show windows using X11 if Wayland is not available. **This overrides `--socket=x11` when used.**
+PulseAudio sound server | `--socket=pulseaudio` and `--nosocket=pulseaudio` | Toggle | Permit (`--socket=pulseaudio`) or prohibit (`--nosocket=pulseaudio`) the application to play sounds that use PulseAudio.
 D-Bus session bus | `--socket=session-dbus` and `--nosocket=session-dbus` | Toggle | Permit access to the application to the entire session bus (`--socket=session-dbus`); prohibit access to the application to the entire session bus (`--nosocket=session-dbus`).
-D-Bus system bus | `--socket=system-dbus` and `--nosocket=system-dbus` | Toggle | Permit access to the application to the entire system bus (`--socket=session-dbus`); prohibit access to the application to the entire system bus (`--nosocket=session-dbus`).
-Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Permit access to the application to SSH authentications (`--socket=ssh-auth`); prohibit access to the application to SSH authentications (`--nosocket=ssh-auth`).
-Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Permit access to the application to smart cards (`--socket=pcsc`); prohibit access to the application to smart cards (`--nosocket=pcsc`).
-Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Permit access to the application to printing systems (`--socket=cups`); prohibit access to the application to printing systems (`--nosocket=cups`).
+D-Bus system bus | `--socket=system-dbus` and `--nosocket=system-dbus` | Toggle | Permit (`--socket=session-dbus`) or prohibit (`--nosocket=session-dbus`) access to the application to the entire system bus.
+Secure Shell agent | `--socket=ssh-auth` and `--nosocket=ssh-auth` | Toggle | Permit (`--socket=ssh-auth`) or prohibit (`--nosocket=ssh-auth`) access to the application to SSH authentications.
+Smart cards | `--socket=pcsc` and `--nosocket=pcsc` | Toggle | Permit (`--socket=pcsc`) or prohibit (`--nosocket=pcsc`) access to the application to smart cards.
+Printing system | `--socket=cups` and `--nosocket=cups` | Toggle | Permit (`--socket=cups`) or prohibit (`--nosocket=cups`) access to the application to printing systems.
 
 #### Device
 
 List of devices available in the sandbox.
 
-Name | Permission(s) | Type | Description
+Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
-GPU acceleration | `--device=dri` and `--nodevice=dri` | Toggle | Permit access to the application to graphics direct rendering located at `/dev/dri` (`--device=dri`); prohibit access to the application to graphics direct rendering (`--nodevice=dri`).
-Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Permit access to the application to virtualization (`--device=kvm`); prohibit access to the application to virtualization (`--nodevice=kvm`).
-Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Permit access to the application to shared memory (`--device=shm`); prohibit access to the application to shared memory (`--nodevice=shm`).
-All devices | `--device=all` and `--nodevice=all` | Toggle | Permit access to the application to all devices (`--device=all`); prohibit access to the application to all devices (`--nodevice=all`).
+GPU acceleration | `--device=dri` and `--nodevice=dri` | Toggle | Permit (`--device=dri`) or prohibit (`--nodevice=dri`) access to the application to graphics direct rendering located at `/dev/dri`.
+Virtualization | `--device=kvm` and `--nodevice=kvm` | Toggle | Permit (`--device=kvm`) or prohibit (`--nodevice=kvm`) access to the application to virtualization.
+Shared memory | `--device=shm` and `--nodevice=shm` | Toggle | Permit (`--device=shm`) or prohibit (`--nodevice=shm`) access to the application to shared memory.
+All devices | `--device=all` and `--nodevice=all` | Toggle | Permit (`--device=all`) or prohibit (`--nodevice=all`) access to the application to all devices.
 
 #### Allow
 
 List of features available to the application.
 
-Name | Permission(s) | Type | Description
+Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
 Development syscalls | `--allow=devel` and `--disallow=devel` | Toggle | [NEEDS DESCRIPTION]
 Programs from other architectures | `--allow=multiarch` and `--disallow=multiarch` | Toggle | [NEEDS DESCRIPTION]
-Bluetooth | `--allow=bluetooth` and `--disallow=bluetooth` | Toggle | Permit access to use bluetooth (`--allow=bluetooth`); prohibit access to use bluetooth (`--disallow=bluetooth`).
+Bluetooth | `--allow=bluetooth` and `--disallow=bluetooth` | Toggle | Permit (`--allow=bluetooth`) or prohibit (`--disallow=bluetooth`) access to the application to use bluetooth.
 Controller Area Network bus | `--allow=canbus` and `--disallow=canbus` | Toggle | [NEEDS DESCRIPTION]
 
 #### Filesystem
 
 List of filesystem subsets available to the application.
 
-Name | Permission(s) | Type | Description
+Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
-All filesystem files | `--filesystem=host` and `--nofilesystem=host` | Toggle | Permit read-write access to the application to the whole filesystem (excluding directories or files owned by other groups) (`--filesystem=host`); prohibit read-write acess to the application to the whole filesystem (`--nofilesystem=host`). 
+All filesystem files | `--filesystem=host` and `--nofilesystem=host` | Toggle | Permit (`--filesystem=host`) or prohibit (`--nofilesystem=host`) read-write access to the application to the whole filesystem. If it is permitted, the application has read-write access to every file and folder owned by you, the user. The rest will be read-only.
 All system libraries, executables and static data | `--filesystem=host-os` and `--nofilesystem=host-os` | Toggle | [NEEDS DESCRIPTION]
 All system configurations | `--filesystem=host-etc` and `--nofilesystem=host-etc` | Toggle | [NEEDS DESCRIPTION]
-All user files | `--filesystem=home` and `--nofilesystem=home` | Toggle | Permit read-write access to the application to the user directory (`$HOME`) (`filesystem=home`); prohibit read-write access to the application to the user directory (`$HOME`) (`--nofilesystem=home`). 
+All user files | `--filesystem=home` and `--nofilesystem=home` | Toggle | Permit (`filesystem=home`) or prohibit (`--nofilesystem=home`) read-write access to the application to the user directory (`$HOME`).
 Other files | `--filesystem=[DIRECTORY]`, `--filesystem=[DIRECTORY]:ro` and `--nofilesystem=[DIRECTORY]` | Input | [NEEDS DESCRIPTION]
 
 
