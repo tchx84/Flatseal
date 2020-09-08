@@ -3,6 +3,7 @@
 ## [unreleased]
 
 - Fixed starting at permissions page in compact mode.
+- Fixed failing to start when session-bus is missing.
 - Change spacing between menu items to improve touchscreen ergonomics.
 
 ## [1.6.2] - 2020-08-28
