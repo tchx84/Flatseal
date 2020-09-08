@@ -8,7 +8,7 @@ Flatseal follows the same concept as `flatpak-override`: overriding the default 
 
 If you want to read more into Flatseal's permissions, you can look at the [Permissions section](#permissions).
 
-If you want to read more into `flatpak override`, you can look at the [`FLATPAK OVERRIDE(1)` manpage](https://manpages.debian.org/testing/flatpak/flatpak-override.1.en.html).
+If you want to read more into `flatpak override`, you can look at the [`flatpak-override` documentation](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-override).
 
 
 ### Permissions
