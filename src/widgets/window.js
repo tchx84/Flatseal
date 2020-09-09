@@ -17,7 +17,7 @@
  */
 
 const {GObject, Gtk} = imports.gi;
-const {Leaflet, TitleBar, SwipeGroup, Column} = imports.gi.Handy;
+const {Leaflet, TitleBar, SwipeGroup, Clamp} = imports.gi.Handy;
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakPermissionsModel} = imports.models.permissions;
