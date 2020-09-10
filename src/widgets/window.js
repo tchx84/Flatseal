@@ -90,15 +90,16 @@ var FlatsealWindow = GObject.registerClass({
         const resetActionButton = new FlatsealResetButton(this._permissions);
         this._endActionBox.add(resetActionButton);
 
-        this._headerLeaflet.bind_property(
+        this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
-        this._headerLeaflet.bind_property(
+        this._contentLeaflet.bind_property(
             'folded', this._actionBar, 'visible', _bindReadFlags);
-        this._headerLeaflet.bind_property(
+        this._contentLeaflet.bind_property(
             'folded', detailsHeaderButton, 'visible', _bindInvertFlags);
-        this._headerLeaflet.bind_property(
+        this._contentLeaflet.bind_property(
             'folded', resetHeaderButton, 'visible', _bindInvertFlags);
-        this._setupHeaders();
+        this._contentLeaflet.bind_property(
+            'folded', this._applicationsHeaderBar, 'show-close-button', _bindReadFlags);
 
         if (applications.length === 0 || permissions.length === 0)
             return;
@@ -114,7 +115,7 @@ var FlatsealWindow = GObject.registerClass({
         this._appInfoViewer = new FlatsealAppInfoViewer();
         this._appInfoViewer.show();
         this._permissionsBox.add(this._appInfoViewer);
-        this._headerLeaflet.bind_property(
+        this._contentLeaflet.bind_property(
             'folded', this._appInfoViewer, 'compact', _bindReadFlags);
 
         var lastGroup = '';
@@ -188,6 +189,7 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
 
+        this._showApplications();
         this._backButton.set_sensitive(true);
         this._backButton.connect('clicked', this._showApplications.bind(this));
     }
@@ -223,35 +225,13 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _showApplications() {
+        this._headerLeaflet.set_visible_child_name('applications');
         this._contentLeaflet.set_visible_child_name('applications');
         this._backButton.active = false;
     }
 
     _showPermissions() {
+        this._headerLeaflet.set_visible_child_name('permissions');
         this._contentLeaflet.set_visible_child_name('permissions');
-    }
-
-    /* XXX Is there better way to do this? */
-    _setupHeaders() {
-        const settings = Gtk.Settings.get_default();
-        if (this._layoutNotifyId)
-            settings.disconnect(this._layoutNotifyId);
-        this._layoutNotifyId = settings.connect(
-            'notify::gtk-decoration-layout', this._setupHeaders.bind(this));
-
-        var mainBar = this._permissionsHeaderBar;
-        var secondaryBar = this._applicationsHeaderBar;
-        if (settings.gtk_decoration_layout.startsWith('close')) {
-            mainBar = this._applicationsHeaderBar;
-            secondaryBar = this._permissionsHeaderBar;
-        }
-
-        mainBar.show_close_button = true;
-        secondaryBar.show_close_button = false;
-
-        if (this._headerBinding)
-            this._headerBinding.unbind();
-        this._headerBinding = this._headerLeaflet.bind_property(
-            'folded', secondaryBar, 'show-close-button', _bindReadFlags);
     }
 });
