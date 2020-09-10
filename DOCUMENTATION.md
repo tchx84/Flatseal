@@ -67,10 +67,10 @@ List of filesystem subsets available to the application.
 Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
 All filesystem files | `--filesystem=host` and `--nofilesystem=host` | Toggle | Permit (`--filesystem=host`) or prohibit (`--nofilesystem=host`) read-write access to the application to the whole filesystem. If it is permitted, the application has read-write access to every file and folder owned by you, the user. The rest will be read-only.
-All system libraries, executables and static data | `--filesystem=host-os` and `--nofilesystem=host-os` | Toggle | [NEEDS DESCRIPTION]
-All system configurations | `--filesystem=host-etc` and `--nofilesystem=host-etc` | Toggle | [NEEDS DESCRIPTION]
+All system libraries, executables and static data | `--filesystem=host-os` and `--nofilesystem=host-os` | Toggle | Permit (`--filesystem=host-os`) or prohibit (`--nofilesystem=host-os`) read-write access to the application to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only.
+All system configurations | `--filesystem=host-etc` and `--nofilesystem=host-etc` | Toggle | Permit (`--filesystem=host-etc`) or prohibit (`--nofilesystem=host-etc`) read-write access to the application to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only.
 All user files | `--filesystem=home` and `--nofilesystem=home` | Toggle | Permit (`filesystem=home`) or prohibit (`--nofilesystem=home`) read-write access to the application to the user directory (`$HOME`).
-Other files | `--filesystem=[DIRECTORY]`, `--filesystem=[DIRECTORY]:ro` and `--nofilesystem=[DIRECTORY]` | Input | [NEEDS DESCRIPTION]
+Other files | `--filesystem=[DIRECTORY]`, `--filesystem=[DIRECTORY]:ro` and `--nofilesystem=[DIRECTORY]` | Input | Permit (`--filesystem=[DIRECTORY]`) or prohibit `--nofilesystem=[DIRECTORY]` read-write access to the application to the directory you desire, for example in Flatseal, you would put `~/games` (`--filesystem=~/games` using `flatpak override`) in the box if you want read-write access to `~/games`. If you want read-only access (`ro`), then you want append `:ro`, for example in Flatseal, you would put `~/games:ro` (`--filesystem=~/games:ro` using `flatpak override`) if you want read-only access to `~/games`.
 
 
 ## Tips and Tricks
