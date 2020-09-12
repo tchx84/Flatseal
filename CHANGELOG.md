@@ -2,6 +2,7 @@
 
 ## [unreleased]
 
+- Fixed Leaflet geddan-meme effect when resizing window.
 - Fixed starting at permissions page in compact mode.
 - Fixed failing to start when session-bus is missing.
 - Change spacing between menu items to improve touchscreen ergonomics.
