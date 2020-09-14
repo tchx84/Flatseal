@@ -56,7 +56,7 @@ List of features available to the application.
 Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
 Development syscalls | `--allow=devel` and `--disallow=devel` | Toggle | [NEEDS DESCRIPTION]
-Programs from other architectures | `--allow=multiarch` and `--disallow=multiarch` | Toggle | [NEEDS DESCRIPTION]
+Programs from other architectures | `--allow=multiarch` and `--disallow=multiarch` | Toggle | Permit (`--allow=multiarch`) or prohibit (`--disallow=multiarch`) access to the application to execute programs for an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) other than the one supported natively by the system.
 Bluetooth | `--allow=bluetooth` and `--disallow=bluetooth` | Toggle | Permit (`--allow=bluetooth`) or prohibit (`--disallow=bluetooth`) access to the application to use bluetooth.
 Controller Area Network bus | `--allow=canbus` and `--disallow=canbus` | Toggle | [NEEDS DESCRIPTION]
 
