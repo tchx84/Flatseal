@@ -55,7 +55,7 @@ List of features available to the application.
 
 Name | `flatpak override` equivalent | Type | Description
 --- | --- | --- | ---
-Development syscalls | `--allow=devel` and `--disallow=devel` | Toggle | [NEEDS DESCRIPTION]
+Development syscalls | `--allow=devel` and `--disallow=devel` | Toggle | Permit (`--allow=devel`) or prohibit (`--disallow=devel`) access to the application to certain syscalls such as [`ptrace()`](https://en.wikipedia.org/wiki/Ptrace) and [`perf_event_open()`](https://en.wikipedia.org/wiki/Perf_(Linux)).
 Programs from other architectures | `--allow=multiarch` and `--disallow=multiarch` | Toggle | Permit (`--allow=multiarch`) or prohibit (`--disallow=multiarch`) access to the application to execute programs for an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) other than the one supported natively by the system.
 Bluetooth | `--allow=bluetooth` and `--disallow=bluetooth` | Toggle | Permit (`--allow=bluetooth`) or prohibit (`--disallow=bluetooth`) access to the application to use bluetooth.
 Controller Area Network bus | `--allow=canbus` and `--disallow=canbus` | Toggle | [NEEDS DESCRIPTION]
