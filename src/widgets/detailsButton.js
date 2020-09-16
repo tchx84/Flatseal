@@ -75,11 +75,15 @@ var FlatsealDetailsButton = GObject.registerClass({
     }
 
     _clicked() {
-        const GSProxy = Gio.DBusProxy.makeProxyWrapper(GSActivateIface);
-        const proxy = new GSProxy(
-            Gio.DBus.session, 'org.gnome.Software', '/org/gnome/Software');
-        const args = GLib.Variant.new('(ss)', [this._permissions.appId, '']);
-        proxy.ActivateSync('details', [args], null);
+        try {
+            const GSProxy = Gio.DBusProxy.makeProxyWrapper(GSActivateIface);
+            const proxy = new GSProxy(
+                Gio.DBus.session, 'org.gnome.Software', '/org/gnome/Software');
+            const args = GLib.Variant.new('(ss)', [this._permissions.appId, '']);
+            proxy.ActivateRemote('details', [args], null);
+        } catch (err) {
+            logError(err);
+        }
     }
 
     _update(foundManager) {
