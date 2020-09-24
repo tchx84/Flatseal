@@ -29,8 +29,20 @@ var FlatpakApplicationsModel = GObject.registerClass({
         this._systemPath = GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak',
         ]);
+        var userDataDir = GLib.get_user_data_dir();
+        if (GLib.getenv("FLATPAK_ID")) {
+            /* Inside flatpak, Glib.get_user_data_dir() would return
+             * the application's data directory. The host data directory
+             * is instead stored in HOST_XDG_DATA_HOME environment variable. */
+            userDataDir = GLib.getenv("HOST_XDG_DATA_HOME")
+            if (!userDataDir) {
+                userDataDir = GLib.build_filenamev([
+                    GLib.get_home_dir(), '.local', 'share',
+                ]);
+            }
+        }
         this._userPath = GLib.build_filenamev([
-            GLib.get_home_dir(), '.local', 'share', 'flatpak',
+            userDataDir, 'flatpak',
         ]);
         this._configPath = GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, 'run', 'host', 'etc', 'flatpak', 'installations.d',
