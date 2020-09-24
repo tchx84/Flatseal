@@ -11,8 +11,8 @@
         "--socket=wayland",
         "--device=dri",
         "--filesystem=/var/lib/flatpak/app:ro",
-        "--filesystem=~/.local/share/flatpak/app:ro",
-        "--filesystem=~/.local/share/flatpak/overrides:create",
+        "--filesystem=xdg-data/flatpak/app:ro",
+        "--filesystem=xdg-data/flatpak/overrides:create",
         "--talk-name=org.gnome.Software"
     ],
     "cleanup": [
