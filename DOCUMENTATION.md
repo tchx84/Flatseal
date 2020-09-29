@@ -77,6 +77,7 @@ Other files | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesyste
 List of the homedir-relative paths created in the sandbox.
 
 Name | `flatpak-override` equivalent | Type | Description
+--- | --- | --- | ---
 Files | `--persist=[FILENAME]` | Input | If the application doesn't have access to the real homedir, make the (homedir-relative) path FILENAME a bind mount to the corresponding path in the per-application directory, allowing that location to be used for persistent data. This updates the [Context] group in the metadata. This option can be used multiple times. 
 
 #### Environment
@@ -84,6 +85,7 @@ Files | `--persist=[FILENAME]` | Input | If the application doesn't have access 
 List of variables exported to the application.
 
 Name | `flatpak-override` equivalent | Type | Description
+--- | --- | --- | ---
 Variables | `--env=[VAR]=[VALUE]` | Input | Set an environment variable in the application. This updates the [Environment] group in the metadata. This overrides to the Context section from the application metadata. This option can be used multiple times. 
 
 
