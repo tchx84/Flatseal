@@ -72,6 +72,20 @@ All system configurations | `--filesystem=host-etc` and `--nofilesystem=host-etc
 All user files | `--filesystem=home` and `--nofilesystem=home` | Toggle | Permit (`filesystem=home`) or prohibit (`--nofilesystem=home`) read-write access to the application to the user directory (`$HOME`).
 Other files | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]` | Input | Permit (`--filesystem=[PATH]`) or prohibit `--nofilesystem=[PATH]` read-write access to the application to the directory you desire, for example in Flatseal, you would put `~/games` (`--filesystem=~/games` using `flatpak override`) in the box if you want read-write access to `~/games`. If you want read-only access (`ro`), then you want append `:ro`, for example in Flatseal, you would put `~/games:ro` (`--filesystem=~/games:ro` using `flatpak override`) if you want read-only access to `~/games`.
 
+#### Persistent
+
+List of the homedir-relative paths created in the sandbox.
+
+Name | `flatpak-override` equivalent | Type | Description
+Files | `--persist=[FILENAME]` | Input | If the application doesn't have access to the real homedir, make the (homedir-relative) path FILENAME a bind mount to the corresponding path in the per-application directory, allowing that location to be used for persistent data. This updates the [Context] group in the metadata. This option can be used multiple times. 
+
+#### Environment
+
+List of variables exported to the application.
+
+Name | `flatpak-override` equivalent | Type | Description
+Variables | `--env=[VAR]=[VALUE]` | Input | Set an environment variable in the application. This updates the [Environment] group in the metadata. This overrides to the Context section from the application metadata. This option can be used multiple times. 
+
 
 ## Tips and Tricks
 
