@@ -86,7 +86,7 @@ List of variables exported to the application.
 
 Name | `flatpak-override` equivalent | Type | Description
 --- | --- | --- | ---
-Variables | `--env=[VAR]=[VALUE]` | Input | Set an environment variable in the application. This updates the [Environment] group in the metadata. This overrides to the Context section from the application metadata. This option can be used multiple times. 
+Variables | `--env=[VAR]=[VALUE]` | Input | Set an environment variable in the application.
 
 
 ## Tips and Tricks
