@@ -2,10 +2,12 @@
 
 ## [unreleased]
 
+- Added support for changing user-installation directory with XDG_DATA_HOME.
 - Fixed Leaflet geddan-meme effect when resizing window.
 - Fixed starting at permissions page in compact mode.
 - Fixed failing to start when session-bus is missing.
-- Change spacing between menu items to improve touchscreen ergonomics.
+- Changed spacing between menu items to improve touchscreen ergonomics.
+- Changed to latest versions of all libraries and runtimes.
 
 ## [1.6.2] - 2020-08-28
 
