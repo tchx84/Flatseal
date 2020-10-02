@@ -78,7 +78,7 @@ List of the homedir-relative paths created in the sandbox.
 
 Name | `flatpak-override` equivalent | Type | Description
 --- | --- | --- | ---
-Files | `--persist=[FILENAME]` | Input | If the application doesn't have access to the real homedir, make the (homedir-relative) path FILENAME a bind mount to the corresponding path in the per-application directory, allowing that location to be used for persistent data. This updates the [Context] group in the metadata. This option can be used multiple times. 
+Files | `--persist=[FILENAME]` | Input | Permit only to the application to have access to the targeted directory while restricting other applications from accessing it. <br /> The targeted directory will be remapped to the Flatpak program's directory (~/.var/app/$FLATPAK_APP_ID/[PATH]) if it has no write access to the targeted directory. <br /> For example, persisting .mozilla will map ~/.mozilla to ~/.var/app/org.mozilla.Firefox/.mozilla if the Firefox Flatpak has no write access to ~/.mozilla.
 
 #### Environment
 
