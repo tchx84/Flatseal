@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 09:20-0400\n"
+"POT-Creation-Date: 2020-10-03 14:55-0400\n"
 "PO-Revision-Date: 2020-08-01 14:10+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
@@ -49,8 +49,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:151 src/models/applications.js:205
-#: src/models/applications.js:206 src/models/applications.js:207
+#: src/models/applications.js:163 src/models/applications.js:223
+#: src/models/applications.js:224 src/models/applications.js:225
 msgid "Unknown"
 msgstr "neznámé"
 
@@ -236,15 +236,15 @@ msgstr "Prostředí"
 msgid "This is not a valid option"
 msgstr "Toto není platná možnost"
 
-#: src/widgets/detailsButton.js:58
+#: src/widgets/detailsButton.js:55
 msgid "Show Details"
 msgstr "Zobrazit podrobnosti"
 
-#: src/widgets/detailsButton.js:88
+#: src/widgets/detailsButton.js:93
 msgid "Show application in a software manager"
 msgstr "Zobrazit aplikaci ve správci softwaru"
 
-#: src/widgets/detailsButton.js:90
+#: src/widgets/detailsButton.js:95
 msgid "No software manager found"
 msgstr "Nebyl nalezen žádný správce softwaru"
 
@@ -371,10 +371,18 @@ msgstr "Resetovat oprávnění této aplikace"
 msgid ", including changes not made with Flatseal"
 msgstr ", včetně změn neprovedených v aplikaci Flatseal"
 
-#: src/widgets/window.ui:41
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr ""
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr ""
+
+#: src/widgets/window.ui:40
 msgid "No applications found."
 msgstr "Nenalezeny žádné aplikace."
 
-#: src/widgets/window.ui:296
+#: src/widgets/window.ui:439
 msgid "Applications"
 msgstr "Aplikace"

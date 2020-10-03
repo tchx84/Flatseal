@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 09:20-0400\n"
+"POT-Creation-Date: 2020-10-03 14:55-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:151 src/models/applications.js:205
-#: src/models/applications.js:206 src/models/applications.js:207
+#: src/models/applications.js:163 src/models/applications.js:223
+#: src/models/applications.js:224 src/models/applications.js:225
 msgid "Unknown"
 msgstr ""
 
@@ -232,15 +232,15 @@ msgstr ""
 msgid "This is not a valid option"
 msgstr ""
 
-#: src/widgets/detailsButton.js:58
+#: src/widgets/detailsButton.js:55
 msgid "Show Details"
 msgstr ""
 
-#: src/widgets/detailsButton.js:88
+#: src/widgets/detailsButton.js:93
 msgid "Show application in a software manager"
 msgstr ""
 
-#: src/widgets/detailsButton.js:90
+#: src/widgets/detailsButton.js:95
 msgid "No software manager found"
 msgstr ""
 
@@ -367,10 +367,18 @@ msgstr ""
 msgid ", including changes not made with Flatseal"
 msgstr ""
 
-#: src/widgets/window.ui:41
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr ""
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr ""
+
+#: src/widgets/window.ui:40
 msgid "No applications found."
 msgstr ""
 
-#: src/widgets/window.ui:296
+#: src/widgets/window.ui:439
 msgid "Applications"
 msgstr ""

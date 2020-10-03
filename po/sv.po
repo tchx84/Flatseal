@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 09:20-0400\n"
+"POT-Creation-Date: 2020-10-03 14:55-0400\n"
 "PO-Revision-Date: 2020-08-01 08:44+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
@@ -48,8 +48,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:151 src/models/applications.js:205
-#: src/models/applications.js:206 src/models/applications.js:207
+#: src/models/applications.js:163 src/models/applications.js:223
+#: src/models/applications.js:224 src/models/applications.js:225
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -236,15 +236,15 @@ msgstr "Körtid"
 msgid "This is not a valid option"
 msgstr "Detta är inte ett giltigt alternativ"
 
-#: src/widgets/detailsButton.js:58
+#: src/widgets/detailsButton.js:55
 msgid "Show Details"
 msgstr "Visa detaljerad info"
 
-#: src/widgets/detailsButton.js:88
+#: src/widgets/detailsButton.js:93
 msgid "Show application in a software manager"
 msgstr "Visa program i en programhanterare"
 
-#: src/widgets/detailsButton.js:90
+#: src/widgets/detailsButton.js:95
 msgid "No software manager found"
 msgstr "Ingen programhanterare hittades"
 
@@ -371,10 +371,18 @@ msgstr "Återställ det här programmets behörigheter"
 msgid ", including changes not made with Flatseal"
 msgstr ", inklusive ändringar som inte gjorts med Flatseal"
 
-#: src/widgets/window.ui:41
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr ""
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr ""
+
+#: src/widgets/window.ui:40
 msgid "No applications found."
 msgstr "Inga program hittades."
 
-#: src/widgets/window.ui:296
+#: src/widgets/window.ui:439
 msgid "Applications"
 msgstr "Program"
