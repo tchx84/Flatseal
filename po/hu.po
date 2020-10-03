@@ -371,11 +371,11 @@ msgstr "beleértve a nem a Flatseal használatával végrehajtott változtatáso
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
-msgstr ""
+msgstr "Engedélyeket visszaállításra kerültek"
 
 #: src/widgets/undoPopup.ui:36
 msgid "Undo"
-msgstr ""
+msgstr "Visszavonás"
 
 #: src/widgets/window.ui:40
 msgid "No applications found."
