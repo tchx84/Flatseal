@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-30 09:20-0400\n"
+"POT-Creation-Date: 2020-10-03 14:55-0400\n"
 "PO-Revision-Date: 2020-04-01 21:25-0300\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -49,8 +49,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:151 src/models/applications.js:205
-#: src/models/applications.js:206 src/models/applications.js:207
+#: src/models/applications.js:163 src/models/applications.js:223
+#: src/models/applications.js:224 src/models/applications.js:225
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -236,15 +236,15 @@ msgstr "Runtime"
 msgid "This is not a valid option"
 msgstr "Dies ist eine ungültige Einstellung"
 
-#: src/widgets/detailsButton.js:58
+#: src/widgets/detailsButton.js:55
 msgid "Show Details"
 msgstr "Zeige Details"
 
-#: src/widgets/detailsButton.js:88
+#: src/widgets/detailsButton.js:93
 msgid "Show application in a software manager"
 msgstr "Anwendung in einem Software-Manager anzeigen"
 
-#: src/widgets/detailsButton.js:90
+#: src/widgets/detailsButton.js:95
 msgid "No software manager found"
 msgstr "Kein Software-Manager gefunden"
 
@@ -371,10 +371,18 @@ msgstr "Berechtigung dieser Anwendung zurücksetzen"
 msgid ", including changes not made with Flatseal"
 msgstr ", einschließlich Änderungen, die nicht mit Flatseal vorgenommen wurden"
 
-#: src/widgets/window.ui:41
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr ""
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr ""
+
+#: src/widgets/window.ui:40
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 
-#: src/widgets/window.ui:296
+#: src/widgets/window.ui:439
 msgid "Applications"
 msgstr "Anwendungen"
