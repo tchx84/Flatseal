@@ -420,14 +420,15 @@ describe('Model', function() {
     });
 
     it('signals changes with no overrides', function() {
-        spyOn(permissions, 'emit');
-
         applications.userPath = _tmp;
         permissions.appId = _basicAppId;
 
+        spyOn(permissions, 'emit');
+
         permissions.reset();
 
-        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
+        expect(permissions.emit.calls.first().args).toEqual(['changed', false, false]);
+        expect(permissions.emit.calls.count()).toEqual(2); // including reset signal
     });
 
     it('signals changes with unsupported overrides', function() {
@@ -661,6 +662,40 @@ describe('Model', function() {
         GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'own')).toBe(true);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'talk')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('signals reset when done explicitly', function() {
+        spyOn(permissions, 'emit');
+
+        applications.userPath = _tmp;
+        permissions.appId = _basicAppId;
+
+        permissions.reset();
+
+        expect(permissions.emit.calls.mostRecent().args).toEqual(['reset']);
+    });
+
+    it('restores overrides when undo', function(done) {
+        applications.userPath = _tmp;
+        permissions.appId = _basicAppId;
+
+        expect(permissions.shared_network).toEqual(true);
+        permissions.set_property('shared_network', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+            expect(permissions.shared_network).toBe(false);
+
+            permissions.reset();
+            expect(permissions.shared_network).toBe(true);
+
+            permissions.undo();
+            expect(permissions.shared_network).toBe(false);
+
             done();
             return GLib.SOURCE_REMOVE;
         });
