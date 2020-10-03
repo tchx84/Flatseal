@@ -304,7 +304,15 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._info = info;
     }
 
+    get info() {
+        return this._info;
+    }
+
     set applications(applications) {
         this._applications = applications;
+    }
+
+    get applications() {
+        return this._applications;
     }
 });
