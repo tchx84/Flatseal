@@ -74,6 +74,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         changed: {
             param_types: [GObject.TYPE_BOOLEAN, GObject.TYPE_BOOLEAN],
         },
+        reset: {},
     },
 }, class FlatpakPermissionsModel extends GObject.Object {
     _init() {
@@ -254,10 +255,27 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return list;
     }
 
+    undo() {
+        const path = this._getOverridesPath();
+        this._backup.save_to_file(path);
+        this._setup();
+    }
+
+    backup() {
+        this._backup = new GLib.KeyFile();
+
+        for (const [, model] of Object.entries(MODELS))
+            model.saveToKeyFile(this._backup);
+
+        MODEL_UNSUPPORTED.saveToKeyFile(this._backup);
+    }
+
     reset() {
+        this.backup();
         const path = this._getOverridesPath();
         GLib.unlink(path);
         this._setup();
+        this.emit('reset');
     }
 
     shutdown() {
@@ -265,6 +283,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     set appId(appId) {
+        this._backup = null;
         this._processPendingUpdates();
         this._appId = appId;
         this._setup();

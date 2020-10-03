@@ -13,6 +13,7 @@
     <file>widgets/permissionEntryRow.ui</file>
     <file>widgets/permissionSwitchRow.ui</file>
     <file>widgets/relativePathRow.ui</file>
+    <file>widgets/undoPopup.ui</file>
     <file>widgets/variableRow.ui</file>
     <file>widgets/window.ui</file>
   </gresource>
