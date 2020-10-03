@@ -31,6 +31,7 @@ const {FlatsealResetButton} = imports.widgets.resetButton;
 const {FlatsealDetailsButton} = imports.widgets.detailsButton;
 const {FlatsealPathRow} = imports.widgets.pathRow;
 const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
+const {FlatsealUndoPopup} = imports.widgets.undoPopup;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
 const {FlatsealBusNameRow} = imports.widgets.busNameRow;
 
@@ -62,6 +63,7 @@ var FlatsealWindow = GObject.registerClass({
         'headerLeaflet',
         'contentLeaflet',
         'swipeGroup',
+        'undoPopupBox',
     ],
 }, class FlatsealWindow extends Gtk.ApplicationWindow {
     _init(application) {
@@ -89,6 +91,9 @@ var FlatsealWindow = GObject.registerClass({
         this._startActionBox.add(detailsActionButton);
         const resetActionButton = new FlatsealResetButton(this._permissions);
         this._endActionBox.add(resetActionButton);
+
+        this._undoPopup = new FlatsealUndoPopup(this._permissions);
+        this._undoPopupBox.add(this._undoPopup);
 
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
@@ -204,6 +209,7 @@ var FlatsealWindow = GObject.registerClass({
         this._permissionsHeaderBar.set_title(row.appName);
         this.set_title(row.appName);
         this._appInfoViewer.appId = row.appId;
+        this._undoPopup.close();
         if (switchPage)
             this._showPermissions();
     }

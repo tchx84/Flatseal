@@ -237,3 +237,12 @@ separator {
 window .menu.background label {
     padding: 7.5px 0px;
 }
+
+/* Undo popup */
+
+.app-notification .undo-label {
+  margin-right: 10px;
+}
+.app-notification .undo-button {
+  margin-right: 5px;
+}
