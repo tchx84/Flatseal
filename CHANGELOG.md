@@ -3,6 +3,7 @@
 ## [unreleased]
 
 - Added support for changing user-installation directory with XDG_DATA_HOME.
+- Added support for undo reset.
 - Fixed Leaflet geddan-meme effect when resizing window.
 - Fixed starting at permissions page in compact mode.
 - Fixed failing to start when session-bus is missing.
