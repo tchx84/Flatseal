@@ -373,11 +373,11 @@ msgstr ", inklusive ändringar som inte gjorts med Flatseal"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
-msgstr ""
+msgstr "Behörigheter har återställts"
 
 #: src/widgets/undoPopup.ui:36
 msgid "Undo"
-msgstr ""
+msgstr "Ångra"
 
 #: src/widgets/window.ui:40
 msgid "No applications found."
