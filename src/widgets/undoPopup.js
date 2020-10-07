@@ -18,7 +18,7 @@
 
 const {GLib, GObject, Gtk} = imports.gi;
 
-const POPUP_ACTIVE_TIME = 5 * 1000;
+const POPUP_ACTIVE_TIME = 3 * 1000;
 
 
 var FlatsealUndoPopup = GObject.registerClass({
