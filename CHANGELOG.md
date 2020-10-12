@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.3] - 2020-10-12
 
 - Added support for changing user-installation directory with XDG_DATA_HOME.
 - Added support for undo reset.
