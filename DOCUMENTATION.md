@@ -97,6 +97,16 @@ Name | `flatpak-override` equivalent | Type | Description
 Talks | `--system-talk-name=NAME` | Input | Allow the application to talk to the well known name NAME on the session bus. If NAME ends with .*, it allows the application to talk to all matching names. This updates the [Session Bus Policy] group in the metadata. This option can be used multiple times. 
 Owns | `--system-own-name=NAME` | Input | Allow the application to own the well known name NAME on the session bus. If NAME ends with .*, it allows the application to own all matching names. This updates the [Session Bus Policy] group in the metadata. This option can be used multiple times. 
 
+#### Session Bus
+
+List of well-known names on the session bus.
+
+Name | `flatpak-override` equivalent | Type | Description
+--- | --- | --- | ---
+Talks | `--talk-name=NAME` | Input | Allow the application to talk to the well known name NAME on the session bus. If NAME ends with .*, it allows the application to talk to all matching names. This updates the [Session Bus Policy] group in the metadata. This option can be used multiple times. 
+Owns | `--own-name=NAME` | Input | Allow the application to own the well known name NAME on the session bus. If NAME ends with .*, it allows the application to own all matching names. This updates the [Session Bus Policy] group in the metadata. This option can be used multiple times. 
+
+
 ## Tips and Tricks
 
 ### Manually reset Flatseal permissions
