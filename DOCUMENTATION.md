@@ -70,7 +70,7 @@ All filesystem files | `--filesystem=host` and `--nofilesystem=host` | Toggle | 
 All system libraries, executables and static data | `--filesystem=host-os` and `--nofilesystem=host-os` | Toggle | Permit (`--filesystem=host-os`) or prohibit (`--nofilesystem=host-os`) read-write access to the application to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only.
 All system configurations | `--filesystem=host-etc` and `--nofilesystem=host-etc` | Toggle | Permit (`--filesystem=host-etc`) or prohibit (`--nofilesystem=host-etc`) read-write access to the application to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only.
 All user files | `--filesystem=home` and `--nofilesystem=home` | Toggle | Permit (`filesystem=home`) or prohibit (`--nofilesystem=home`) read-write access to the application to the user directory (`$HOME`).
-Other files | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]` | Input | Permit (`--filesystem=[PATH]`) or prohibit `--nofilesystem=[PATH]` read-write access to the application to the directory you desire, for example in Flatseal, you would put `~/games` (`--filesystem=~/games` using `flatpak override`) in the box if you want read-write access to `~/games`. If you want read-only access (`ro`), then you want append `:ro`, for example in Flatseal, you would put `~/games:ro` (`--filesystem=~/games:ro` using `flatpak override`) if you want read-only access to `~/games`.
+Other files | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]` | Input | Permit (`--filesystem=[PATH]`) or prohibit (`--nofilesystem=[PATH]`) read-write access to the application to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only (`ro`) access to `~/games`, then it will be `~/games:ro`.
 
 #### Persistent
 
@@ -78,7 +78,7 @@ List of the homedir-relative paths created in the sandbox.
 
 Name | `flatpak-override` equivalent | Type | Description
 --- | --- | --- | ---
-Files | `--persist=[FILENAME]` | Input | If the application doesn't have access to the real homedir, make the (homedir-relative) path FILENAME a bind mount to the corresponding path in the per-application directory, allowing that location to be used for persistent data. This updates the [Context] group in the metadata. This option can be used multiple times. 
+Files | `--persist=[PATH]` | Input | Permit only to the application to have access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from `$HOME`, the targeted directory will be remapped to the Flatpak program's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla` if the Firefox Flatpak has no write access to `~/.mozilla`.
 
 #### Environment
 
