@@ -95,7 +95,7 @@ List of well-known names on the system bus.
 Name | `flatpak-override` equivalent | Type | Description
 --- | --- | --- | ---
 Talks | `--system-talk-name=[NAME]` | Input | Permit the application to talk to system services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications.
-Owns | `--system-own-name=[NAME]` | Input | Permit the application to own system services.
+Owns | `--system-own-name=[NAME]` | Input | Permit the application to own system services under the given name.
 
 #### Session Bus
 
@@ -104,7 +104,7 @@ List of well-known names on the session bus.
 Name | `flatpak-override` equivalent | Type | Description
 --- | --- | --- | ---
 Talks | `--talk-name=[NAME]` | Input | Permit the application to talk to session services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications.
-Owns | `--own-name=[NAME]` | Input | Permit the application to own session services.
+Owns | `--own-name=[NAME]` | Input | Permit the application to own session services under the given name.
 
 
 ## Tips and Tricks
