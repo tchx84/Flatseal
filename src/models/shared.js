@@ -62,10 +62,6 @@ var FlatpakSharedModel = GObject.registerClass({
         return false;
     }
 
-    static getStyle() {
-        return 'shared';
-    }
-
     static getTitle() {
         return 'Share';
     }

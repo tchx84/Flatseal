@@ -59,10 +59,6 @@ var FlatpakSystemBusModel = GObject.registerClass({
         return 'system';
     }
 
-    static getStyle() {
-        return 'system';
-    }
-
     static getTitle() {
         return 'System Bus';
     }

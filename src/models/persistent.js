@@ -48,10 +48,6 @@ var FlatpakPersistentModel = GObject.registerClass({
         return 'persistent';
     }
 
-    static getStyle() {
-        return 'persistent';
-    }
-
     static getTitle() {
         return 'Persistent';
     }

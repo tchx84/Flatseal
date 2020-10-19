@@ -104,10 +104,6 @@ var FlatpakSocketsModel = GObject.registerClass({
         return 'sockets';
     }
 
-    static getStyle() {
-        return 'sockets';
-    }
-
     static getTitle() {
         return 'Socket';
     }

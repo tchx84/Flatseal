@@ -48,10 +48,6 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         return 'filesystems';
     }
 
-    static getStyle() {
-        return 'filesystems';
-    }
-
     static getTitle() {
         return 'Filesystem';
     }

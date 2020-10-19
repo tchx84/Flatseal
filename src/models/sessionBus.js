@@ -67,10 +67,6 @@ var FlatpakSessionBusModel = GObject.registerClass({
         return 'session';
     }
 
-    static getStyle() {
-        return 'session';
-    }
-
     static getTitle() {
         return 'Session Bus';
     }

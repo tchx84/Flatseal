@@ -124,6 +124,7 @@ var FlatsealWindow = GObject.registerClass({
             'folded', this._appInfoViewer, 'compact', _bindReadFlags);
 
         var lastGroup = '';
+        var lastGroupBox;
 
         permissions.forEach(p => {
             var row;
@@ -165,17 +166,25 @@ var FlatsealWindow = GObject.registerClass({
                     p.value);
             }
 
-            const context = row.get_style_context();
-            context.add_class(p.groupStyle);
-
-            if (p.groupStyle !== lastGroup) {
+            if (p.groupTitle !== lastGroup) {
                 const groupRow = new FlatsealGroupRow(p.groupTitle, p.groupDescription);
                 this._permissionsBox.add(groupRow);
-                lastGroup = p.groupStyle;
+
+                lastGroupBox = new Gtk.Box();
+                lastGroupBox.visible = true;
+                lastGroupBox.orientation = Gtk.Orientation.VERTICAL;
+                lastGroupBox.get_style_context().add_class('group-box');
+                this._permissionsBox.add(lastGroupBox)
+
+                lastGroup = p.groupTitle;
+            } else {
+                const separator = new Gtk.Separator();
+                separator.visible = true;
+                lastGroupBox.add(separator);
             }
 
             row.sensitive = p.supported;
-            this._permissionsBox.add(row);
+            lastGroupBox.add(row);
             this._permissions.bind_property(p.property, row.content, property, _bindFlags);
         });
 

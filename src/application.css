@@ -48,22 +48,18 @@
     color: @insensitive_fg_color;
 }
 
-.permissions .row {
-    background-color: @theme_base_color;
+.permissions .group-box {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
     border-style: solid;
-    border-width: 0.2px;
+    border-width: 1px;
+    border-color: @borders;
 }
 
-.permissions .row.shared ~ .shared,
-.permissions .row.sockets ~ .sockets,
-.permissions .row.devices ~ .devices,
-.permissions .row.features ~ .features,
-.permissions .row.filesystems ~ .filesystems,
-.permissions .row.persistent ~ .persistent,
-.permissions .row.environment ~ .environment,
-.permissions .row.session ~ .session,
-.permissions .row.system ~ .system {
-    border-style: none solid solid solid;
+.permissions .row  {
+    background-color: @theme_base_color;
 }
 
 .permissions .row .description,

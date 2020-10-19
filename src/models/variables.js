@@ -57,10 +57,6 @@ var FlatpakVariablesModel = GObject.registerClass({
         return null;
     }
 
-    static getStyle() {
-        return 'environment';
-    }
-
     static getTitle() {
         return 'Environment';
     }
