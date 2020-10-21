@@ -1,0 +1,20 @@
+on:
+  push:
+    branches: [master]
+  pull_request:
+name: CI
+jobs:
+  flatpak-builder:
+    name: "Flatpak Builder"
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/bilelmoussaoui/flatpak-github-actions
+      options: --privileged
+    steps:
+    - uses: actions/checkout@master
+    - uses: bilelmoussaoui/flatpak-github-actions@master
+      with:
+        bundle: "flatseal-dev.flatpak"
+        manifest-path: "com.github.tchx84.Flatseal.json"
+        app-id: "com.github.tchx84.Flatseal"
+        flatpak-module: "flatseal"
