@@ -51,7 +51,8 @@
 .permissions .row {
     background-color: @theme_base_color;
     border-style: solid;
-    border-width: 0.2px;
+    border-width: 0.7px;
+    border-color: @borders;
 }
 
 .permissions .row.shared ~ .shared,
