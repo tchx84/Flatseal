@@ -1,4 +1,4 @@
-# Flatseal
+# Flatseal ![CI](https://github.com/tchx84/Flatseal/workflows/CI/badge.svg)
 
 <img height="100" src="https://github.com/tchx84/Flatseal/blob/master/data/icons/com.github.tchx84.Flatseal.svg">
 
