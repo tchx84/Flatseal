@@ -73,6 +73,18 @@
             ]
         },
         {
+            "name": "jasmine-gjs",
+            "buildsystem": "meson",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/ptomato/jasmine-gjs/releases/download/2.6.4/jasmine-gjs-2.6.4.tar.xz",
+                    "sha256": "66f52852d14c81411e6a1cee04c78f313b3bdae44ee55bce3a9d116650f6a384"
+                }
+            ]
+        },
+        {
             "name": "flatseal",
             "buildsystem": "meson",
             "sources": [

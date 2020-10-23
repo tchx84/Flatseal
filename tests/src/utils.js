@@ -8,6 +8,10 @@ const {Gio, GLib, Gtk} = imports.gi;
 function setup() {
     Gtk.init(null);
 
+    /* XXX this shouldn't be needed */
+    const format = imports.format;
+    String.prototype.format = format.format;
+
     window._ = gettext.gettext;
 
     const src = GLib.build_filenamev([
