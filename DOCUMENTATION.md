@@ -30,7 +30,7 @@ Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 X11 windowing system | Toggle | Allow or prohibit access to the application to show windows using X11. | `--socket=x11` and `--nosocket=x11`
 Wayland windowing system | Toggle | Allow or prohibit access to the application to show windows using Wayland. | `--socket=wayland` and `--nosocket=wayland`
-Fallback to X11 windowing system | Toggle | Allow or prohibit access to the application to show windows using X11 if Wayland is not available. **This overrides `--socket=x11` when used.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
+Fallback to X11 windowing system | Toggle | Allow or prohibit access to the application to show windows using X11 if Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
 PulseAudio sound server | Toggle | Allow or prohibit the application to play sounds that use PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
 D-Bus session bus | Toggle | Allow or prohibit access to the application to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
 D-Bus system bus | Toggle | Allow or prohibit access to the application to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
