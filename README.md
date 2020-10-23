@@ -24,6 +24,10 @@ $ flatpak install flatseal.flatpak
 
 Or just use [Builder](https://flathub.org/apps/details/org.gnome.Builder)
 
+## Documentation
+
+For a detailed description of supported permissions, see the [documentation](./DOCUMENTATION.md) page.
+
 ## Contribute
 
 If you are interested in contributing to this utility just send a pull request to [this](https://github.com/tchx84/Flatseal) repo.
