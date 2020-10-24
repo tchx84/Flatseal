@@ -21,7 +21,7 @@ List of subsystems shared with the host system.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Network | Toggle | Allow the program to have access to the network. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to browse the internet. | `--share=network` and `--unshare=network`
+Network | Toggle | Allow the application to have access to the network. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to browse the internet. | `--share=network` and `--unshare=network`
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. Even if it's enabled, this will not make it any more dangerous. | `--share=ipc` and `--unshare=ipc`
 
 #### Socket
@@ -30,15 +30,15 @@ List of well-known sockets available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-X11 windowing system | Toggle | Open the program in an X11 window. | `--socket=x11` and `--nosocket=x11`
-Wayland windowing system | Toggle | Open the program in a Wayland window. | `--socket=wayland` and `--nosocket=wayland`
-Fallback to X11 windowing system | Toggle | Open the program in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
-PulseAudio sound server | Toggle | Allow the program to play sounds when using PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
-D-Bus session bus | Toggle | Allow the program to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
-D-Bus system bus | Toggle | Allow the program to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
-Secure Shell agent | Toggle | Allow the program to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
-[Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the program to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
-Printing system | Toggle | Allow the program to use printing systems. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to print. | `--socket=cups` and `--nosocket=cups`
+X11 windowing system | Toggle | Open the application in an X11 window. | `--socket=x11` and `--nosocket=x11`
+Wayland windowing system | Toggle | Open the application in a Wayland window. | `--socket=wayland` and `--nosocket=wayland`
+Fallback to X11 windowing system | Toggle | Open the application in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
+PulseAudio sound server | Toggle | Allow the application to play sounds when using PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
+D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
+D-Bus system bus | Toggle | Allow the application to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
+Secure Shell agent | Toggle | Allow the application to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
+[Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the application to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
+Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to print. | `--socket=cups` and `--nosocket=cups`
 
 #### Device
 
@@ -46,10 +46,10 @@ List of devices available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-GPU acceleration | Toggle | Allow or prohibit access to the application to graphics direct rendering located at `/dev/dri`. | `--device=dri` and `--nodevice=dri`
-Virtualization | Toggle | Allow or prohibit access to the application to virtualization. | `--device=kvm` and `--nodevice=kvm`
-Shared memory | Toggle | Allow or prohibit access to the application to shared memory. | `--device=shm` and `--nodevice=shm`
-All devices | Toggle | Allow or prohibit access to the application to all devices. | `--device=all` and `--nodevice=all`
+GPU acceleration | Toggle | Allow the application to access the graphics direct rendering located at `/dev/dri` to take advantage of GPU acceleration. | `--device=dri` and `--nodevice=dri`
+Virtualization | Toggle | Allow the application to support virtualization. | `--device=kvm` and `--nodevice=kvm`
+Shared memory | Toggle | Allow the application to access shared memory. | `--device=shm` and `--nodevice=shm`
+All devices | Toggle | Allow the application to access to all devices, such as webcam and external devices. | `--device=all` and `--nodevice=all`
 
 #### Allow
 
@@ -57,10 +57,10 @@ List of features available to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Development syscalls | Toggle | Allow or prohibit access to the application to certain syscalls such as [`ptrace()`](https://en.wikipedia.org/wiki/Ptrace) and [`perf_event_open()`](https://en.wikipedia.org/wiki/Perf_(Linux)). | `--allow=devel` and `--disallow=devel`
-Programs from other architectures | Toggle | Allow or prohibit access to the application to execute programs for an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) other than the one supported natively by the system. | `--allow=multiarch` and `--disallow=multiarch`
-Bluetooth | Toggle | Allow or prohibit access to the application to use bluetooth. | `--allow=bluetooth` and `--disallow=bluetooth`
-Controller Area Network bus | Toggle | Allow or prohibit access to the application to use canbus sockets. You must also have network access for this to work. | `--allow=canbus` and `--disallow=canbus`
+Development syscalls | Toggle | Allow the application to access to certain syscalls, such as [`ptrace()`](https://en.wikipedia.org/wiki/Ptrace) and [`perf_event_open()`](https://en.wikipedia.org/wiki/Perf_(Linux)). | `--allow=devel` and `--disallow=devel`
+Programs from other architectures | Toggle | Allow the application to execute programs for an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) other than the one supported natively by the system. | `--allow=multiarch` and `--disallow=multiarch`
+Bluetooth | Toggle | Allow the application to use Bluetooth. | `--allow=bluetooth` and `--disallow=bluetooth`
+Controller Area Network bus | Toggle | Allow the application to use canbus sockets. You must also have network access for this to work. | `--allow=canbus` and `--disallow=canbus`
 
 #### Filesystem
 
@@ -68,11 +68,11 @@ List of filesystem subsets available to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-All filesystem files | Toggle | Allow or prohibit read-write access to the application to the whole filesystem. If it is allowed, the application has read-write access to every file and folder owned by you, the user. The rest will be read-only. | `--filesystem=host` and `--nofilesystem=host`
-All system libraries, executables and static data | Toggle | Allow or prohibit read-write access to the application to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
-All system configurations | Toggle | Allow or prohibit read-write access to the application to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-etc` and `--nofilesystem=host-etc`
-All user files | Toggle | Allow or prohibit read-write access to the application to the user directory (`$HOME`). | `--filesystem=home` and `--nofilesystem=home`
-Other files | Input | Allow or prohibit read-write access to the application to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only (`ro`) access to `~/games`, then it will be `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
+All filesystem files | Toggle | Give read-write access to the application to the whole filesystem. Everything that isn't writeable by the user will be read-only | `--filesystem=host` and `--nofilesystem=host`
+All system libraries, executables and static data | Toggle | Give read-write access to the application to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
+All system configurations | Toggle | Give read-write access to the application to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-etc` and `--nofilesystem=host-etc`
+All user files | Toggle | Give read-write access to the application to the user directory (`$HOME` or `~/`). | `--filesystem=home` and `--nofilesystem=home`
+Other files | Input | Give read-write access to the application to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only access to `~/games`, then you would put `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
 
 #### Persistent
 
@@ -80,7 +80,7 @@ List of the homedir-relative paths created in the sandbox.
 
 Name | Type | Description | `flatpak-override` equivalent
 --- | --- | --- | ---
-Files | Input | Allow only to the application to have access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from `$HOME`, the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla` if the Firefox Flatpak has no write access to `~/.mozilla`. | `--persist=[PATH]`
+Files | Input | Allow only to the application to have access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (`$HOME` or `~/`), the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla`. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to `~/`. | `--persist=[PATH]`
 
 #### Environment
 
@@ -88,7 +88,7 @@ List of variables exported to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Variables | Input | Set an environment variable in the application. | `--env=[VAR]=[VALUE]`
+Variables | Input | Set an environment variable in the application to make it run everytime you launch it. <br /> <br /> For example, you put `MOZ_ENABLE_WAYLAND=1` for Firefox to enable the Wayland back-end. | `--env=[VAR]=[VALUE]`
 
 #### System Bus
 
