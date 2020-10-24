@@ -19,7 +19,7 @@ List of subsystems shared with the host system.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Network | Toggle | Allow or prohibit access to the network. | `--share=network` and `--unshare=network`
+Network | Toggle | Allow or prohibit access to the network. <br /> <br /> Most programs will have this feature enabled as they require network connection. Toggling it off will prevent the program to have access to the network, therefore it won't be able to connect online. | `--share=network` and `--unshare=network`
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share or unshare IPC namespace with the host. | `--share=ipc` and `--unshare=ipc`
 
 #### Socket
