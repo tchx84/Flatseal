@@ -21,7 +21,7 @@ List of subsystems shared with the host system.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Network | Toggle | Allow the program to have access to the network, e.g. if it's disabled for Firefox, you will no longer be able to browse the internet. | `--share=network` and `--unshare=network`
+Network | Toggle | Allow the program to have access to the network. <br /> <br /> If it's disabled for Firefox, you will no longer be able to browse the internet. | `--share=network` and `--unshare=network`
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. Even if it's enabled, this will not make it any more dangerous. | `--share=ipc` and `--unshare=ipc`
 
 #### Socket
@@ -38,7 +38,7 @@ D-Bus session bus | Toggle | Allow the program to have access to the entire sess
 D-Bus system bus | Toggle | Allow the program to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
 Secure Shell agent | Toggle | Allow the program to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
 [Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the program to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
-Printing system | Toggle | Allow the program to use printing systems, e.g. if it's disabled in Firefox, you will no longer be able to print. | `--socket=cups` and `--nosocket=cups`
+Printing system | Toggle | Allow the program to use printing systems. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to print. | `--socket=cups` and `--nosocket=cups`
 
 #### Device
 
