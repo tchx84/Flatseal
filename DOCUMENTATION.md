@@ -13,14 +13,16 @@ If you want to read more into `flatpak override`, you can look at the [`flatpak-
 
 ### Permissions
 
+This is a list of permissions configurable in Flatseal. The descriptions below will assume that the option is enabled (toggled on), if it's a toggle.
+
 #### Share
 
 List of subsystems shared with the host system.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Network | Toggle | Allow or prohibit access to the network. <br /> <br /> Most programs will have this feature enabled as they require network connection. Toggling it off will prevent the program to have access to the network, therefore it won't be able to connect online. | `--share=network` and `--unshare=network`
-[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share or unshare IPC namespace with the host. | `--share=ipc` and `--unshare=ipc`
+Network | Toggle | Allow the program to have access to the network, e.g. if it's disabled for Firefox, you will no longer be able to browse the internet. | `--share=network` and `--unshare=network`
+[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. Even if it's enabled, this will not make it any more dangerous. | `--share=ipc` and `--unshare=ipc`
 
 #### Socket
 
@@ -28,15 +30,15 @@ List of well-known sockets available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-X11 windowing system | Toggle | Allow or prohibit access to the application to show windows using X11. | `--socket=x11` and `--nosocket=x11`
-Wayland windowing system | Toggle | Allow or prohibit access to the application to show windows using Wayland. | `--socket=wayland` and `--nosocket=wayland`
-Fallback to X11 windowing system | Toggle | Allow or prohibit access to the application to show windows using X11 if Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
-PulseAudio sound server | Toggle | Allow or prohibit the application to play sounds that use PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
-D-Bus session bus | Toggle | Allow or prohibit access to the application to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
-D-Bus system bus | Toggle | Allow or prohibit access to the application to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
-Secure Shell agent | Toggle | Allow or prohibit access to the application to SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
-Smart cards | Toggle | Allow or prohibit access to the application to smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
-Printing system | Toggle | Allow or prohibit access to the application to printing systems. | `--socket=cups` and `--nosocket=cups`
+X11 windowing system | Toggle | Open the program in an X11 window. | `--socket=x11` and `--nosocket=x11`
+Wayland windowing system | Toggle | Open the program in a Wayland window. | `--socket=wayland` and `--nosocket=wayland`
+Fallback to X11 windowing system | Toggle | Open the program in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
+PulseAudio sound server | Toggle | Allow the program to play sounds when using PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
+D-Bus session bus | Toggle | Allow the program to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
+D-Bus system bus | Toggle | Allow the program to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
+Secure Shell agent | Toggle | Allow the program to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
+[Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the program to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
+Printing system | Toggle | Allow the program to use printing systems, e.g. if it's disabled in Firefox, you will no longer be able to print. | `--socket=cups` and `--nosocket=cups`
 
 #### Device
 
