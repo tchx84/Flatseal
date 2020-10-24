@@ -30,9 +30,9 @@ List of well-known sockets available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-X11 windowing system | Toggle | Open the application in an X11 window. | `--socket=x11` and `--nosocket=x11`
-Wayland windowing system | Toggle | Open the application in a Wayland window. | `--socket=wayland` and `--nosocket=wayland`
-Fallback to X11 windowing system | Toggle | Open the application in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
+X11 windowing system | Toggle | Allow the application to open in an X11 window. | `--socket=x11` and `--nosocket=x11`
+Wayland windowing system | Toggle | Allow the the application top open in a Wayland window. | `--socket=wayland` and `--nosocket=wayland`
+Fallback to X11 windowing system | Toggle | Allow the application to open in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
 PulseAudio sound server | Toggle | Allow the application to play sounds when using PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
 D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
 D-Bus system bus | Toggle | Allow the application to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
@@ -88,7 +88,7 @@ List of variables exported to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Variables | Input | Set an environment variable in the application to make it run everytime you launch it. <br /> <br /> For example, you put `MOZ_ENABLE_WAYLAND=1` for Firefox to enable the Wayland back-end. | `--env=[VAR]=[VALUE]`
+Variables | Input | Set an environment variable in the application to make it run everytime you launch it. <br /> <br /> For example, adding `MOZ_ENABLE_WAYLAND=1` for Firefox to enable the Wayland back-end. | `--env=[VAR]=[VALUE]`
 
 #### System Bus
 
