@@ -13,7 +13,9 @@ If you want to read more into `flatpak override`, you can look at the [`flatpak-
 
 ### Permissions
 
-This is a list of permissions configurable in Flatseal. The descriptions below will assume that the option is enabled (toggled on), if it's a toggle.
+This is a list of permissions that can be configured using Flatseal. The descriptions below assume that the options are enabled (toggled on) when it's a toggle.
+
+There is also a "`flatpak override` equivalent" row for those that want to get started on the CLI of Flatpak permissions.
 
 #### Share
 
