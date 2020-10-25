@@ -29,7 +29,6 @@ If you want to read more into Flatseal's permissions, you can look at the [Permi
 
 If you want to read more into `flatpak override`, you can look at the [`flatpak-override` documentation](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-override).
 
-
 ### Permissions
 
 This is a list of permissions that can be configured using Flatseal. The descriptions below assume that the options are enabled (toggled on) when it's a toggle.
@@ -162,7 +161,7 @@ $ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal
 
 To enable a custom installation, e.g, `/xusr/custom/flatpak`.
 
-#### Flatpak 1.7.1 or newer:
+#### Flatpak 1.7.1 or newer
 
 1. Launch Flatseal and select it to edit its own permissions.
 2. Enable `host-etc`, or type in `host-etc:ro` in the other option.
