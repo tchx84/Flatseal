@@ -214,7 +214,7 @@ msgstr "Lista de variáveis exportadas para o aplicativo"
 
 #: src/widgets/aboutDialog.js:36
 msgid "Contributions by"
-msgstr ""
+msgstr "Contribuições por"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
