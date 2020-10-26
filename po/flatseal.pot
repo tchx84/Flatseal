@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-03 14:55-0400\n"
+"POT-Creation-Date: 2020-10-26 19:20-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,6 +208,10 @@ msgstr ""
 
 #: src/models/variables.js:69
 msgid "List of variables exported to the application"
+msgstr ""
+
+#: src/widgets/aboutDialog.js:36
+msgid "Contributions by"
 msgstr ""
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
