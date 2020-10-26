@@ -21,10 +21,19 @@ const {GObject, Gtk} = imports.gi;
 
 var FlatsealAboutDialog = GObject.registerClass({
     GTypeName: 'FlatsealAboutDialog',
+    Properties: {
+        contributors: GObject.ParamSpec.string(
+            'contributors',
+            'contributors',
+            'contributors',
+            GObject.ParamFlags.READWRITE, ''),
+    },
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/aboutDialog.ui',
 }, class FlatsealAboutDialog extends Gtk.AboutDialog {
     _init(props) {
         super._init(props);
+        const contributors = this.contributors.split('\n');
+        this.add_credit_section(_('Contributions by'), contributors);
         this.connect('response', this.response.bind(this));
     }
 
