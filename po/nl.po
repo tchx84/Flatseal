@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-03 14:55-0400\n"
+"POT-Creation-Date: 2020-10-26 19:20-0300\n"
 "PO-Revision-Date: 2020-10-04 13:08+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
@@ -213,6 +213,10 @@ msgstr "b.v. GTK_DEBUG=interactive"
 #: src/models/variables.js:69
 msgid "List of variables exported to the application"
 msgstr "Lijst met variabelen die naar de applicatie zijn geëxporteerd"
+
+#: src/widgets/aboutDialog.js:36
+msgid "Contributions by"
+msgstr ""
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
