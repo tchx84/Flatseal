@@ -183,7 +183,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
     getDesktopForAppData(appdata) {
         const desktop = {
-            icon: appdata.appId,
+            icon: 'application-x-executable-symbolic',
         };
 
         const path = GLib.build_filenamev([
