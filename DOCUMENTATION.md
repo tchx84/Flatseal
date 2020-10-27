@@ -50,8 +50,8 @@ List of well-known sockets available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-X11 windowing system | Toggle | Allow the application to open in an X11 window. | `--socket=x11` and `--nosocket=x11`
-Wayland windowing system | Toggle | Allow the application top open in a Wayland window. | `--socket=wayland` and `--nosocket=wayland`
+X11 windowing system | Toggle | Allow the application to open in an X11 window. <br /> <br /> Most applications typically use X11 as it is a more mature display protocol. | `--socket=x11` and `--nosocket=x11`
+Wayland windowing system | Toggle | Allow the application to open in a Wayland window. <br /> <br /> Many applications do not use Wayland as it is a newer display protocol unlike X11. Most of the ones written in GTK are natively compatible with Wayland. Some require the user to use an environment variable to enable Wayland; `MOZ_ENABLE_WAYLAND=1` in Firefox's case. | `--socket=wayland` and `--nosocket=wayland`
 Fallback to X11 windowing system | Toggle | Allow the application to open in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
 PulseAudio sound server | Toggle | Allow the application to play sounds when using PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
 D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
