@@ -21,13 +21,9 @@
 
 ## Flatseal permissions
 
-This section indicates the permissions of Flatpak with better integration with Flatseal. It is based on the official [Sandbox Permissions Reference](https://docs.flatpak.org/en/latest/sandbox-permissions-reference.html).
+This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak's [official documentation](https://docs.flatpak.org/en/latest/sandbox-permissions-reference.html) and extended with examples and references to make it easier for newcomers to understand.
 
-Flatseal follows the same concept as `flatpak-override`: overriding the default permissions that the Flatpak program originally shipped with. Every change the user does will trigger Flatseal to output the overriden permissions in the `~/.local/share/flatpak/overrides` directory.
-
-If you want to read more into Flatseal's permissions, you can look at the [Permissions section](#permissions).
-
-If you want to read more into `flatpak override`, you can look at the [`flatpak-override` documentation](https://docs.flatpak.org/en/latest/flatpak-command-reference.html#flatpak-override).
+Both Flatseal and `flatpak override` CLI, use the same overrides backend e.g. both write to `~/.local/share/flatpak/overrides`. A `flatpak override` equivalent column is added for those experienced with this CLI tool.
 
 ### Permissions
 
