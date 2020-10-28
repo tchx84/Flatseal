@@ -48,13 +48,13 @@ Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 X11 windowing system | Toggle | Allow the application to open in an X11 window. <br /> <br /> Most applications use X11 for historical reasons, but is considered less secure. | `--socket=x11` and `--nosocket=x11`
 Wayland windowing system | Toggle | Allow the application to open in a Wayland window. <br /> <br /> Many applications do not use Wayland as it is a newer display protocol unlike X11, and is considered more secure, but either some applications require extra steps to use it (see [environment variables](#environment) example for Firefox), or do not support Wayland at all. | `--socket=wayland` and `--nosocket=wayland`
-Fallback to X11 windowing system | Toggle | Allow the application to open in an X11 window when Wayland is not available. **This overrides the X11 windowing system option when enabled.** | `--socket=fallback-x11` and `--nosocket=fallback-x11`
+Fallback to X11 windowing system | Toggle | Allow the application to open in an X11 window when Wayland is not available. This overrides the X11 windowing system option when enabled. | `--socket=fallback-x11` and `--nosocket=fallback-x11`
 PulseAudio sound server | Toggle | Allow the application to play sounds when using PulseAudio. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
 D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
 D-Bus system bus | Toggle | Allow the application to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
 Secure Shell agent | Toggle | Allow the application to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
 [Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the application to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
-Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to print. | `--socket=cups` and `--nosocket=cups`
+Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for Firefox, it will no longer possible to browse the internet with this application. | `--socket=cups` and `--nosocket=cups`
 
 #### Device
 
@@ -62,7 +62,7 @@ List of devices available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-GPU acceleration | Toggle | Allow the application to access the graphics direct rendering located at `/dev/dri` to take advantage of GPU acceleration. | `--device=dri` and `--nodevice=dri`
+GPU acceleration | Toggle | Allow the application to access the graphics direct rendering to take advantage of GPU acceleration. | `--device=dri` and `--nodevice=dri`
 Virtualization | Toggle | Allow the application to support virtualization. | `--device=kvm` and `--nodevice=kvm`
 Shared memory | Toggle | Allow the application to access shared memory. | `--device=shm` and `--nodevice=shm`
 All devices | Toggle | Allow the application to access to all devices, such as webcam and external devices. | `--device=all` and `--nodevice=all`
@@ -84,11 +84,11 @@ List of filesystem subsets available to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-All filesystem files | Toggle | Allow read-write access to the application to the whole filesystem. Everything that isn't writeable by the user will be read-only | `--filesystem=host` and `--nofilesystem=host`
-All system libraries, executables and static data | Toggle | Allow read-write access to the application to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
-All system configurations | Toggle | Allow read-write access to the application to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-etc` and `--nofilesystem=host-etc`
-All user files | Toggle | Allow read-write access to the application to the user directory (`$HOME` or `~/`). | `--filesystem=home` and `--nofilesystem=home`
-Other files | Input | Allow read-write access to the application to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only access to `~/games`, then you would put `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
+All filesystem files | Toggle | Allow read-write access to the whole filesystem. Everything that isn't writeable by the user will be read-only | `--filesystem=host` and `--nofilesystem=host`
+All system libraries, executables and static data | Toggle | Allow read-write access to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
+All system configurations | Toggle | Allow read-write access to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-etc` and `--nofilesystem=host-etc`
+All user files | Toggle | Allow read-write access to the user directory (`$HOME` or `~/`). | `--filesystem=home` and `--nofilesystem=home`
+Other files | Input | Allow read-write access to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only access to `~/games`, then you would put `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
 
 #### Persistent
 
@@ -96,7 +96,7 @@ List of the homedir-relative paths created in the sandbox.
 
 Name | Type | Description | `flatpak-override` equivalent
 --- | --- | --- | ---
-Files | Input | Allow only to the application to have access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (`$HOME` or `~/`), the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla`. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to `~/`. | `--persist=[PATH]`
+Files | Input | Allow the application to only to access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (`$HOME` or `~/`), the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla`. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to `~/`. | `--persist=[PATH]`
 
 #### Environment
 
@@ -104,7 +104,7 @@ List of variables exported to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Variables | Input | Set an environment variable in the application to make it run everytime you launch it. <br /> <br /> For example, adding `MOZ_ENABLE_WAYLAND=1` for Firefox to enable the Wayland back-end. | `--env=[VAR]=[VALUE]`
+Variables | Input | Set an environment variable in the application to make the variable available to application when it runs. <br /> <br /> For example, adding `MOZ_ENABLE_WAYLAND=1` for Firefox to enable the Wayland back-end. | `--env=[VAR]=[VALUE]`
 
 #### System Bus
 
