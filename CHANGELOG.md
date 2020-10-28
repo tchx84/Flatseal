@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+- Added latest contributors to credits.
+- Fixed border colors in dark mode.
+- Fixed default applications icon on high-DPI.
+
 ## [1.6.3] - 2020-10-12
 
 - Added support for changing user-installation directory with XDG_DATA_HOME.
