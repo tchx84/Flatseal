@@ -38,7 +38,7 @@ List of subsystems shared with the host system.
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Network | Toggle | Allow the application to have access to the network. <br /> <br /> For example, if it's disabled for Firefox, you will no longer be able to browse the internet. | `--share=network` and `--unshare=network`
-[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. Even if it's enabled, this will not make it any more dangerous. | `--share=ipc` and `--unshare=ipc`
+[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. | `--share=ipc` and `--unshare=ipc`
 
 #### Socket
 
