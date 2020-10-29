@@ -27,10 +27,6 @@ Both Flatseal and `flatpak override` CLI, use the same overrides backend e.g. bo
 
 ### Permissions
 
-This is a list of permissions that can be configured using Flatseal. The descriptions below assume that the options are enabled (toggled on) when it's a toggle.
-
-There is also a "`flatpak override` equivalent" row for those that want to get started on the CLI of Flatpak permissions.
-
 #### Share
 
 List of subsystems shared with the host system.
