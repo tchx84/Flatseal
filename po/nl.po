@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-26 19:20-0300\n"
-"PO-Revision-Date: 2020-10-04 13:08+0200\n"
+"PO-Revision-Date: 2020-10-31 13:32+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -216,7 +216,7 @@ msgstr "Lijst met variabelen die naar de applicatie zijn geëxporteerd"
 
 #: src/widgets/aboutDialog.js:36
 msgid "Contributions by"
-msgstr ""
+msgstr "Met bijdragen van"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
