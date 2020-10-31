@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-26 19:20-0300\n"
-"PO-Revision-Date: 2020-08-01 08:44+0200\n"
+"PO-Revision-Date: 2020-10-31 08:44+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -216,7 +216,7 @@ msgstr "Lista över varibler som som exporterats till programmet"
 
 #: src/widgets/aboutDialog.js:36
 msgid "Contributions by"
-msgstr ""
+msgstr "Bidrag av"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
