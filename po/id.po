@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-26 19:20-0300\n"
-"PO-Revision-Date: 2020-07-31 22:42+0700\n"
+"PO-Revision-Date: 2020-10-31 18:25+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4\n"
+"X-Generator: Poedit 2.4.1\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -215,7 +215,7 @@ msgstr "Daftar variabel yang diekspor ke aplikasi"
 
 #: src/widgets/aboutDialog.js:36
 msgid "Contributions by"
-msgstr ""
+msgstr "Kontribusi oleh"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
