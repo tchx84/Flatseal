@@ -214,7 +214,7 @@ msgstr "Az alkalmazásba exportált változók listája"
 
 #: src/widgets/aboutDialog.js:36
 msgid "Contributions by"
-msgstr ""
+msgstr "Közreműködők:"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:58
