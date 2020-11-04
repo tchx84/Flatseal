@@ -5,6 +5,7 @@
 - Added latest contributors to credits.
 - Fixed border colors in dark mode.
 - Fixed default applications icon on high-DPI.
+- Changed to latest libhandy.
 
 ## [1.6.3] - 2020-10-12
 
