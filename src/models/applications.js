@@ -25,28 +25,49 @@ var FlatpakApplicationsModel = GObject.registerClass({
     _init() {
         super._init({});
         this._paths = null;
+    }
 
-        this._systemPath = GLib.build_filenamev([
+    static _getSystemPath() {
+        var systemPath = GLib.getenv('FLATPAK_SYSTEM_DIR');
+        if (systemPath)
+            return systemPath;
+
+        return GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, 'var', 'lib', 'flatpak',
         ]);
+    }
+
+    static _getUserPath() {
+        var userPath = GLib.getenv('FLATPAK_USER_DIR');
+        if (userPath)
+            return userPath;
+
         var userDataDir = GLib.get_user_data_dir();
-        if (GLib.getenv("FLATPAK_ID")) {
-            /* Inside flatpak, Glib.get_user_data_dir() would return
-             * the application's data directory. The host data directory
-             * is instead stored in HOST_XDG_DATA_HOME environment variable. */
-            userDataDir = GLib.getenv("HOST_XDG_DATA_HOME")
-            if (!userDataDir) {
-                userDataDir = GLib.build_filenamev([
-                    GLib.get_home_dir(), '.local', 'share',
-                ]);
-            }
+        if (GLib.getenv('FLATPAK_ID'))
+            userDataDir = GLib.getenv('HOST_XDG_DATA_HOME');
+
+        if (!userDataDir) {
+            userDataDir = GLib.build_filenamev([
+                GLib.get_home_dir(), '.local', 'share',
+            ]);
         }
-        this._userPath = GLib.build_filenamev([
-            userDataDir, 'flatpak',
-        ]);
-        this._configPath = GLib.build_filenamev([
-            GLib.DIR_SEPARATOR_S, 'run', 'host', 'etc', 'flatpak', 'installations.d',
-        ]);
+
+        return GLib.build_filenamev([userDataDir, 'flatpak']);
+    }
+
+    static _getConfigPath() {
+        var configPath = GLib.getenv('FLATPAK_CONFIG_DIR');
+        if (configPath)
+            return configPath;
+
+        configPath = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'etc', 'flatpak']);
+        if (GLib.getenv('FLATPAK_ID')) {
+            configPath = GLib.build_filenamev([
+                GLib.DIR_SEPARATOR_S, 'run', 'host', 'etc', 'flatpak',
+            ]);
+        }
+
+        return configPath;
     }
 
     static _parseCustomInstallation(path) {
@@ -80,10 +101,15 @@ var FlatpakApplicationsModel = GObject.registerClass({
     _getCustomInstallationsPaths() {
         var installations = [];
 
-        if (GLib.access(this._configPath, 0) !== 0)
+        const configPath = GLib.build_filenamev([
+            this.constructor._getConfigPath(),
+            'installations.d',
+        ]);
+
+        if (GLib.access(configPath, 0) !== 0)
             return installations;
 
-        const directory = Gio.File.new_for_path(this._configPath);
+        const directory = Gio.File.new_for_path(configPath);
         const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
         var info = enumerator.next_file(null);
 
@@ -107,8 +133,8 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         /* Installation priority is handled by this list order */
         this._paths = this._getCustomInstallationsPaths();
-        this._paths.unshift(this._userPath);
-        this._paths.push(this._systemPath);
+        this._paths.unshift(this.constructor._getUserPath());
+        this._paths.push(this.constructor._getSystemPath());
 
         return this._paths;
     }
@@ -303,20 +329,6 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     get userPath() {
-        return this._userPath;
-    }
-
-    /* testing */
-
-    set userPath(path) {
-        this._userPath = path;
-    }
-
-    set systemPath(path) {
-        this._systemPath = path;
-    }
-
-    set configPath(path) {
-        this._configPath = path;
+        return this.constructor._getUserPath();
     }
 });
