@@ -15,6 +15,7 @@
 	- [Session Bus](#system-bus)
 - [Tips and Tricks](#tips-and-tricks)
 	- [Manually reset Flatseal permissions](#manually-reset-flatseal-permissions)
+	- [Enable custom installations](#enable-custom-installations)
 	- [Flatpak 1.7.1 or newer](#flatpak-171-or-newer)
 	- [All versions](#all-versions)
 
@@ -147,6 +148,10 @@ $ flatpak config --set extra-languages es
 $ flatpak update org.gnome.Platform
 $ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal
 ```
+
+### Enable custom installations
+
+To enable a custom installation, e.g, `/xusr/custom/flatpak`.
 
 #### Flatpak 1.7.1 or newer
 
