@@ -16,8 +16,6 @@
 - [Tips and Tricks](#tips-and-tricks)
 	- [Manually reset Flatseal permissions](#manually-reset-flatseal-permissions)
 	- [Enable custom installations](#enable-custom-installations)
-		- [Flatpak 1.7.1 or newer](#flatpak-171-or-newer)
-		- [All versions](#all-versions)
 
 ## Flatseal permissions
 
