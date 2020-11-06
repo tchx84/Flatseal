@@ -31,4 +31,8 @@
   <developer_name>Martin Abente Lahaye</developer_name>
   <url type="homepage">https://github.com/tchx84/flatseal</url>
   <url type="bugtracker">https://github.com/tchx84/flatseal/issues</url>
+  <custom>
+    <value key="Purism::form_factor">workstation</value>
+    <value key="Purism::form_factor">mobile</value>
+  </custom>
 </component>
