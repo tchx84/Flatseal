@@ -9,3 +9,5 @@ StartupNotify=true
 Comment=A permissions manager for Flatpak
 # TRANSLATORS: Don't translate this text
 Icon=com.github.tchx84.Flatseal
+# Translators: Do NOT translate or transliterate this text (these are enum types)!
+X-Purism-FormFactor=Workstation;Mobile;
