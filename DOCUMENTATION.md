@@ -70,7 +70,7 @@ Name | Type | Description | `flatpak override` equivalent
 Development syscalls | Toggle | Allow the application to access to certain syscalls, such as [`ptrace()`](https://en.wikipedia.org/wiki/Ptrace) and [`perf_event_open()`](https://en.wikipedia.org/wiki/Perf_(Linux)). | `--allow=devel` and `--disallow=devel`
 Programs from other architectures | Toggle | Allow the application to execute programs for an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) other than the one supported natively by the system. | `--allow=multiarch` and `--disallow=multiarch`
 Bluetooth | Toggle | Allow the application to use Bluetooth. | `--allow=bluetooth` and `--disallow=bluetooth`
-Controller Area Network bus | Toggle | Allow the application to use canbus sockets. You must also have network access for this to work. | `--allow=canbus` and `--disallow=canbus`
+Controller Area Network bus | Toggle | Allow the application to use canbus sockets. You must also have [network access](#share) for this to work. | `--allow=canbus` and `--disallow=canbus`
 
 #### Filesystem
 
