@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-26 19:20-0300\n"
+"POT-Creation-Date: 2020-11-10 08:50-0300\n"
 "PO-Revision-Date: 2020-10-31 08:44+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
-msgid "A permissions manager for Flatpak"
+msgid "Manage Flatpak permissions"
 msgstr "En behörighetshanterare för Flatpak"
 
 #. TRANSLATORS: Don't translate this text
@@ -37,8 +37,8 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
 msgid ""
-"Flatseal is a graphical utility to review and modify basic permissions from "
-"your Flatpak applications."
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
 msgstr ""
 "Flatseal är ett grafiskt verktyg för att granska och ändra grundläggande "
 "behörigheter för dina Flatpak-program."
@@ -48,8 +48,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:163 src/models/applications.js:223
-#: src/models/applications.js:224 src/models/applications.js:225
+#: src/models/applications.js:189 src/models/applications.js:249
+#: src/models/applications.js:250 src/models/applications.js:251
 msgid "Unknown"
 msgstr "Okänd"
 
