@@ -6,10 +6,10 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
-  <summary>A permissions manager for Flatpak</summary>
+  <summary>Manage Flatpak permissions</summary>
   <description>
     <p>
-      Flatseal is a graphical utility to review and modify basic permissions from your Flatpak applications.
+      Flatseal is a graphical utility to review and modify permissions from your Flatpak applications.
     </p>
   </description>
   <releases>
