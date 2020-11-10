@@ -6,7 +6,7 @@ Terminal=false
 Type=Application
 Categories=Utility;
 StartupNotify=true
-Comment=A permissions manager for Flatpak
+Comment=Manage Flatpak permissions
 # TRANSLATORS: Don't translate this text
 Icon=com.github.tchx84.Flatseal
 # Translators: Do NOT translate or transliterate this text (these are enum types)!

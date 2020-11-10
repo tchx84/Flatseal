@@ -2,7 +2,7 @@
 
 <img height="100" src="https://github.com/tchx84/Flatseal/blob/master/data/icons/com.github.tchx84.Flatseal.svg">
 
-Flatseal is a graphical utility to review and modify basic permissions from your [Flatpak](https://flatpak.org/) applications.
+Flatseal is a graphical utility to review and modify permissions from your [Flatpak](https://flatpak.org/) applications.
 
 ## Usage
 
