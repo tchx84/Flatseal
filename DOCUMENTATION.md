@@ -27,16 +27,12 @@ Both Flatseal and `flatpak override` CLI, use the same overrides backend e.g. bo
 
 #### Share
 
-List of subsystems shared with the host system.
-
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Network | Toggle | Allow the application to have access to the network. <br /> <br /> For example, if it's disabled for Firefox, it will no longer be possible to browse the internet with this application. | `--share=network` and `--unshare=network`
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. | `--share=ipc` and `--unshare=ipc`
 
 #### Socket
-
-List of well-known sockets available in the sandbox.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -52,8 +48,6 @@ Printing system | Toggle | Allow the application to use printing systems. <br />
 
 #### Device
 
-List of devices available in the sandbox.
-
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 GPU acceleration | Toggle | Allow the application to access the graphics direct rendering to take advantage of GPU acceleration. | `--device=dri` and `--nodevice=dri`
@@ -63,8 +57,6 @@ All devices | Toggle | Allow the application to access to all devices, such as w
 
 #### Allow
 
-List of features available to the application.
-
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Development syscalls | Toggle | Allow the application to access to certain syscalls, such as [`ptrace()`](https://en.wikipedia.org/wiki/Ptrace) and [`perf_event_open()`](https://en.wikipedia.org/wiki/Perf_(Linux)). | `--allow=devel` and `--disallow=devel`
@@ -73,8 +65,6 @@ Bluetooth | Toggle | Allow the application to use Bluetooth. | `--allow=bluetoot
 Controller Area Network bus | Toggle | Allow the application to use canbus sockets. You must also have [network access](#share) for this to work. | `--allow=canbus` and `--disallow=canbus`
 
 #### Filesystem
-
-List of filesystem subsets available to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -86,15 +76,11 @@ Other files | Input | Allow read-write access to the directory you desire. <br /
 
 #### Persistent
 
-List of the homedir-relative paths created in the sandbox.
-
 Name | Type | Description | `flatpak-override` equivalent
 --- | --- | --- | ---
 Files | Input | Allow the application to only to access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (`$HOME` or `~/`), the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla`. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to `~/`. | `--persist=[PATH]`
 
 #### Environment
-
-List of variables exported to the application.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -102,16 +88,12 @@ Variables | Input | Set an environment variable in the application to make the v
 
 #### System Bus
 
-List of well-known names on the system bus.
-
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Talks | Input | Allow the application to talk to system services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications. | `--system-talk-name=[NAME]`
 Owns | Input | Allow the application to own system services under the given name. | `--system-own-name=[NAME]`
 
 #### Session Bus
-
-List of well-known names on the session bus.
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
