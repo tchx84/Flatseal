@@ -30,6 +30,7 @@ const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
+const {FlatpakPortalsModel} = imports.models.portals;
 const {persistent} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -45,14 +46,14 @@ const MODELS = {
     variables: new FlatpakVariablesModel(),
     system: new FlatpakSystemBusModel(),
     session: new FlatpakSessionBusModel(),
+    portals: new FlatpakPortalsModel(),
+    unsupported: new FlatpakUnsupportedModel(),
 };
-
-const MODEL_UNSUPPORTED = new FlatpakUnsupportedModel();
 
 function generate() {
     const properties = {};
 
-    Object.entries(MODELS).forEach(([, model]) => {
+    Object.values(MODELS).forEach(model => {
         Object.entries(model.getPermissions()).forEach(([property]) => {
             const model_type = model.constructor.getType();
             const type = model_type === 'state' ? 'boolean' : 'string';
@@ -111,7 +112,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     var model = null;
                     const option = value.replace('!', '');
 
-                    for (const [, _model] of Object.entries(MODELS)) {
+                    for (const _model of Object.values(MODELS)) {
                         if (_model.constructor.getGroup() !== group)
                             continue;
 
@@ -133,7 +134,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     }
 
                     if (model === null && overrides)
-                        model = MODEL_UNSUPPORTED;
+                        model = MODELS.unsupported;
 
                     if (model !== null)
                         model.loadFromKeyFile(group, key, value, overrides);
@@ -152,18 +153,17 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _checkIfChanged() {
-        const exists = GLib.access(this._getOverridesPath(), 0) === 0;
-        const unsupported = !MODEL_UNSUPPORTED.isEmpty();
-        this.emit('changed', exists, unsupported);
+        const overrideExists = GLib.access(this._getOverridesPath(), 0) === 0;
+        const portalsChanged = MODELS.portals.changed(this);
+        const changed = overrideExists || portalsChanged;
+        const unsupported = !MODELS.unsupported.isEmpty();
+        this.emit('changed', changed, unsupported);
     }
 
     _saveOverrides() {
         const keyFile = new GLib.KeyFile();
 
-        for (const [, model] of Object.entries(MODELS))
-            model.saveToKeyFile(keyFile);
-
-        MODEL_UNSUPPORTED.saveToKeyFile(keyFile);
+        Object.values(MODELS).forEach(model => model.saveToKeyFile(keyFile));
 
         const [, length] = keyFile.to_data();
         const path = this._getOverridesPath();
@@ -179,10 +179,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     _updateProperties() {
         GObject.signal_handler_block(this, this._notifyHandlerId);
 
-        for (const [, model] of Object.entries(MODELS))
-            model.updateProxyProperty(this);
-
-        MODEL_UNSUPPORTED.updateProxyProperty(this);
+        Object.values(MODELS).forEach(model => model.updateProxyProperty(this));
 
         this._checkIfChanged();
 
@@ -206,7 +203,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _updateModels() {
-        Object.entries(MODELS).forEach(([, model]) => {
+        Object.values(MODELS).forEach(model => {
             Object.entries(model.getPermissions()).forEach(([property]) => {
                 model.updateFromProxyProperty(
                     property,
@@ -221,11 +218,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _setup() {
-        for (const [, model] of Object.entries(MODELS))
-            model.reset();
-
-        MODEL_UNSUPPORTED.reset();
-
+        Object.values(MODELS).forEach(model => model.reset());
         this._loadPermissions();
         this._loadOverrides();
         this._updateProperties();
@@ -234,7 +227,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     getAll() {
         const list = [];
 
-        Object.entries(MODELS).forEach(([, model]) => {
+        Object.values(MODELS).forEach(model => {
             Object.entries(model.getPermissions()).forEach(([property, permission]) => {
                 const entry = {};
 
@@ -258,22 +251,21 @@ var FlatpakPermissionsModel = GObject.registerClass({
     undo() {
         const path = this._getOverridesPath();
         this._backup.save_to_file(path);
+        MODELS.portals.restore(false);
         this._setup();
     }
 
     backup() {
         this._backup = new GLib.KeyFile();
-
-        for (const [, model] of Object.entries(MODELS))
-            model.saveToKeyFile(this._backup);
-
-        MODEL_UNSUPPORTED.saveToKeyFile(this._backup);
+        Object.values(MODELS).forEach(model => model.saveToKeyFile(this._backup));
+        MODELS.portals.backup(this);
     }
 
     reset() {
         this.backup();
         const path = this._getOverridesPath();
         GLib.unlink(path);
+        MODELS.portals.restore(true);
         this._setup();
         this.emit('reset');
     }
@@ -286,6 +278,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._backup = null;
         this._processPendingUpdates();
         this._appId = appId;
+        MODELS.portals.appId = appId;
         this._setup();
     }
 

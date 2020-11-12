@@ -1,3 +1,5 @@
+/* eslint class-methods-use-this: */
+
 /* unsupported.js
  *
  * Copyright 2020 Martin Abente Lahaye
@@ -25,6 +27,14 @@ var FlatpakUnsupportedModel = GObject.registerClass({
     _init() {
         super._init();
         this.reset();
+    }
+
+    getPermissions() {
+        return {};
+    }
+
+    static getGroup() {
+        return 'unsupported';
     }
 
     updateFromProxyProperty() { // eslint-disable-line class-methods-use-this

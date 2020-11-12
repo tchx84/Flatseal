@@ -63,7 +63,8 @@
 .permissions .row.persistent ~ .persistent,
 .permissions .row.environment ~ .environment,
 .permissions .row.session ~ .session,
-.permissions .row.system ~ .system {
+.permissions .row.system ~ .system,
+.permissions .row.portals ~ .portals {
     border-style: none solid solid solid;
 }
 

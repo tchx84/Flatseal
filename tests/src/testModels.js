@@ -1,13 +1,13 @@
 const {GLib} = imports.gi;
 
-const {setup, update, has, hasOnly} = imports.utils;
+const {setup, update, has, hasOnly, startService, stopService, getValueFromService} = imports.utils;
 setup();
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
-const _totalPermissions = 30;
+const _totalPermissions = 36;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -51,8 +51,13 @@ describe('Model', function() {
     var applications, permissions;
 
     beforeAll(function() {
+        startService();
         GLib.unlink(_overridenOverride);
         GLib.mkdir_with_parents(_overrides, 0o755);
+    });
+
+    afterAll(function() {
+        stopService();
     });
 
     beforeEach(function() {
@@ -706,5 +711,33 @@ describe('Model', function() {
         });
 
         update();
+    });
+
+    it('handles portals permissions', function() {
+        permissions.appId = _basicAppId;
+
+        expect(permissions.portals_background).toEqual(false);
+        permissions.set_property('portals_background', true);
+        expect(getValueFromService('background', 'background', _basicAppId), true);
+
+        expect(permissions.portals_notification).toEqual(false);
+        permissions.set_property('portals_notification', true);
+        expect(getValueFromService('notification', 'notification', _basicAppId), true);
+
+        expect(permissions.portals_microphone).toEqual(false);
+        permissions.set_property('portals_microphone', true);
+        expect(getValueFromService('devices', 'microphone', _basicAppId), true);
+
+        expect(permissions.portals_speakers).toEqual(false);
+        permissions.set_property('portals_speakers', true);
+        expect(getValueFromService('devices', 'speakers', _basicAppId), true);
+
+        expect(permissions.portals_camera).toEqual(false);
+        permissions.set_property('portals_camera', true);
+        expect(getValueFromService('devices', 'camera', _basicAppId), true);
+
+        expect(permissions.portals_location).toEqual(false);
+        permissions.set_property('portals_location', true);
+        expect(getValueFromService('devices', 'location', _basicAppId), true);
     });
 });
