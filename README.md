@@ -8,6 +8,8 @@ Flatseal is a graphical utility to review and modify permissions from your [Flat
 
 Simply launch Flatseal, select an application and modify its permissions. Restart the application after making the changes. If anything goes wrong just press the reset button.
 
+For more details please visit the [documentation](./DOCUMENTATION.md) page.
+
 ## Get it
 
 [<img width="240" src="https://flathub.org/assets/badges/flathub-badge-i-en.png">](https://flathub.org/apps/details/com.github.tchx84.Flatseal)
@@ -23,10 +25,6 @@ $ flatpak install flatseal.flatpak
 ```
 
 Or just use [Builder](https://flathub.org/apps/details/org.gnome.Builder)
-
-## Documentation
-
-For a detailed description of supported permissions, see the [documentation](./DOCUMENTATION.md) page.
 
 ## Contribute
 

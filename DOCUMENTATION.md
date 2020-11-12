@@ -2,8 +2,7 @@
 
 ## Table of contents
 
-- [Flatpak permissions](#flatpak-permissions)
-	- [Permissions](#permissions)
+- [Permissions](#permissions)
 	- [Share](#share)
 	- [Socket](#socket)
 	- [Device](#device)
@@ -15,24 +14,23 @@
 	- [Session Bus](#system-bus)
 - [Tips and Tricks](#tips-and-tricks)
 	- [Manually reset Flatseal permissions](#manually-reset-flatseal-permissions)
+	- [Add new translations](#add-new-translations)
 	- [Enable custom installations](#enable-custom-installations)
 
-## Flatseal permissions
+## Permissions
 
 This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak's [official documentation](https://docs.flatpak.org/en/latest/sandbox-permissions-reference.html) and extended with examples and references to make it easier for newcomers to understand.
 
-Both Flatseal and `flatpak override` CLI, use the same overrides backend e.g. both write to `~/.local/share/flatpak/overrides`. A `flatpak override` equivalent column is added for those experienced with this CLI tool.
+Both Flatseal and `flatpak override` command-line tool, use the same overrides backend e.g. both write to `~/.local/share/flatpak/overrides`. A `flatpak override` equivalent column is added for those experienced with this tool.
 
-### Permissions
-
-#### Share
+### Share
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Network | Toggle | Allow the application to have access to the network. <br /> <br /> For example, if it's disabled for Firefox, it will no longer be possible to browse the internet with this application. | `--share=network` and `--unshare=network`
 [Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. | `--share=ipc` and `--unshare=ipc`
 
-#### Socket
+### Socket
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -46,7 +44,7 @@ Secure Shell agent | Toggle | Allow the application to use SSH authentications. 
 [Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the application to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
 Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for Firefox, it will no longer possible to browse the internet with this application. | `--socket=cups` and `--nosocket=cups`
 
-#### Device
+### Device
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -55,7 +53,7 @@ Virtualization | Toggle | Allow the application to support virtualization. | `--
 Shared memory | Toggle | Allow the application to access shared memory. | `--device=shm` and `--nodevice=shm`
 All devices | Toggle | Allow the application to access to all devices, such as webcam and external devices. | `--device=all` and `--nodevice=all`
 
-#### Allow
+### Allow
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -64,7 +62,7 @@ Programs from other architectures | Toggle | Allow the application to execute pr
 Bluetooth | Toggle | Allow the application to use Bluetooth. | `--allow=bluetooth` and `--disallow=bluetooth`
 Controller Area Network bus | Toggle | Allow the application to use canbus sockets. You must also have [network access](#share) for this to work. | `--allow=canbus` and `--disallow=canbus`
 
-#### Filesystem
+### Filesystem
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
@@ -74,32 +72,31 @@ All system configurations | Toggle | Allow read-write access to system configura
 All user files | Toggle | Allow read-write access to the user directory (`$HOME` or `~/`). | `--filesystem=home` and `--nofilesystem=home`
 Other files | Input | Allow read-write access to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only access to `~/games`, then you would put `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
 
-#### Persistent
+### Persistent
 
 Name | Type | Description | `flatpak-override` equivalent
 --- | --- | --- | ---
 Files | Input | Allow the application to only to access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (`$HOME` or `~/`), the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla`. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to `~/`. | `--persist=[PATH]`
 
-#### Environment
+### Environment
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Variables | Input | Set an environment variable in the application to make the variable available to application when it runs. <br /> <br /> For example, adding `MOZ_ENABLE_WAYLAND=1` for Firefox to enable the Wayland back-end. | `--env=[VAR]=[VALUE]`
 
-#### System Bus
+### System Bus
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
-Talks | Input | Allow the application to talk to system services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications. | `--system-talk-name=[NAME]`
+Talks | Input | Allow the application to talk to system services. <br /> <br /> For example, adding `org.freedesktop.Accounts` will allow the application to access users login history. | `--system-talk-name=[NAME]`
 Owns | Input | Allow the application to own system services under the given name. | `--system-own-name=[NAME]`
 
-#### Session Bus
+### Session Bus
 
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Talks | Input | Allow the application to talk to session services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications. | `--talk-name=[NAME]`
 Owns | Input | Allow the application to own session services under the given name. | `--own-name=[NAME]`
-
 
 ## Tips and Tricks
 
@@ -111,7 +108,7 @@ If permissions are removed and is no longer possible to reset, run the following
 $ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal
 ```
 
-### Translations
+### Add new translations
 
 Add a new language and update translations:
 
