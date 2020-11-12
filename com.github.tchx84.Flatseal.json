@@ -13,7 +13,8 @@
         "--filesystem=/var/lib/flatpak/app:ro",
         "--filesystem=xdg-data/flatpak/app:ro",
         "--filesystem=xdg-data/flatpak/overrides:create",
-        "--talk-name=org.gnome.Software"
+        "--talk-name=org.gnome.Software",
+        "--talk-name=org.freedesktop.impl.portal.PermissionStore"
     ],
     "cleanup": [
         "/include",

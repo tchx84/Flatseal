@@ -27,6 +27,7 @@
     <file>models/features.js</file>
     <file>models/filesystems.js</file>
     <file>models/filesystemsOther.js</file>
+    <file>models/portals.js</file>
     <file>models/sessionBus.js</file>
     <file>models/shared.js</file>
     <file>models/sockets.js</file>

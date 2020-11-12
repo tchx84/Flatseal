@@ -62,3 +62,38 @@ function hasOnly(path, group, key, value) {
 
     return keys.length === 1 && list.length === 1 && list.indexOf(value) !== -1;
 }
+
+
+function startService() {
+    GLib.setenv(
+        'FLATSEAL_PORTAL_BUS_NAME',
+        'com.github.tchx84.Flatseal.PermissionStore',
+        true);
+    const service = GLib.build_filenamev([
+        '..',
+        'tests',
+        'service.js',
+    ]);
+    window.service = Gio.Subprocess.new(['gjs', service], null);
+}
+
+
+function stopService() {
+    window.service.force_exit();
+}
+
+
+function getValueFromService(table, id, appId) {
+    const {PermissionsIface} = imports.models.portals;
+    const Proxy = Gio.DBusProxy.makeProxyWrapper(PermissionsIface);
+
+    const proxy = new Proxy(
+        Gio.DBus.session,
+        GLib.getenv('FLATSEAL_PORTAL_BUS_NAME'),
+        '/org/freedesktop/impl/portal/PermissionStore');
+
+    const [appIds] = proxy.LookupSync(table, id);
+    const value = appId in appIds && appIds[appId][0] === 'yes';
+
+    return value;
+}
