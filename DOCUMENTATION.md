@@ -16,6 +16,7 @@
 	- [Manually reset Flatseal permissions](#manually-reset-flatseal-permissions)
 	- [Add new translations](#add-new-translations)
 	- [Enable custom installations](#enable-custom-installations)
+	- [Use custom FLATPAK_USER_DIR](#use-custom-flatpak_user_dir)
 
 ## Permissions
 
@@ -144,3 +145,13 @@ To enable a custom installation, e.g, `/xusr/custom/flatpak`.
 3. Restart Flatseal.
 
 **NOTE**: To find these installations, Flatseal needs access to `/etc/flatpak/installations.d`. Before Flatpak 1.7.1, accessing the host `/etc` required the `host` permission, which was an all-or-nothing situation. By default, Flatseal will have minimal permissions, so it's up to the user to decide to enable this feature.
+
+### Use custom FLATPAK_USER_DIR
+
+To use a custom `FLATPAK_USER_DIR`, e.g. `/var/home/user/.flatpak`.
+
+```
+flatpak --user override --filesystem=/var/home/user/.flatpak --env=FLATPAK_USER_DIR=/var/home/user/.flatpak com.github.tchx84.Flatseal
+```
+
+**NOTE**: By default, `FLATPAK_USER_DIR` is not accessible from within the Flatpak sandbox, and Flatseal has no access to custom directories. Therefore, these overrides are needed.
