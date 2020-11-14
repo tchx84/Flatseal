@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.4] - 2020-11-14
 
 - Added latest contributors to credits.
 - Added metadata needed by Phosh.

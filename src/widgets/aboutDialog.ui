@@ -6,7 +6,7 @@
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">Flatseal</property>
-    <property name="version">1.6.3</property>
+    <property name="version">1.6.4</property>
     <property name="copyright">Copyright © 2020 - Martin Abente Lahaye</property>
     <property name="comments" translatable="yes">Flatseal is a graphical utility to review and modify permissions from your Flatpak applications.</property>
     <property name="website">https://github.com/tchx84/flatseal</property>
