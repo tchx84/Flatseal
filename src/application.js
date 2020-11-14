@@ -40,7 +40,7 @@ var FlatsealApplication = GObject.registerClass({
 
     _displayDocumentation() {
         Gio.AppInfo.launch_default_for_uri(
-            'https://docs.flatpak.org/page/sandbox-permissions-reference.html', null);
+            'https://github.com/tchx84/Flatseal/blob/master/DOCUMENTATION.md', null);
     }
 
     _displayAbout() {
