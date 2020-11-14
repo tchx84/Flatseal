@@ -5,6 +5,7 @@
 - Added latest contributors to credits.
 - Added metadata needed by Phosh.
 - Added support for directory variables, e.g. FLATPAK_USER_DIR.
+- Added link to Flatseal specific documentation.
 - Fixed border colors in dark mode.
 - Fixed default applications icon on high-DPI.
 - Changed to latest libhandy.
