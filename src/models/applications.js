@@ -18,6 +18,7 @@
 
 const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
 
+const {FlatpakInfoModel} = imports.models.info;
 
 var FlatpakApplicationsModel = GObject.registerClass({
     GTypeName: 'FlatpakApplicationsModel',
@@ -25,6 +26,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
     _init() {
         super._init({});
         this._paths = null;
+        this._info = new FlatpakInfoModel();
     }
 
     static _getSystemPath() {
@@ -37,13 +39,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
         ]);
     }
 
-    static _getUserPath() {
+    _getUserPath() {
         var userPath = GLib.getenv('FLATPAK_USER_DIR');
         if (userPath)
             return userPath;
 
         var userDataDir = GLib.get_user_data_dir();
-        if (GLib.getenv('FLATPAK_ID'))
+        if (this._info.getVersion() !== null)
             userDataDir = GLib.getenv('HOST_XDG_DATA_HOME');
 
         if (!userDataDir) {
@@ -55,13 +57,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return GLib.build_filenamev([userDataDir, 'flatpak']);
     }
 
-    static _getConfigPath() {
+    _getConfigPath() {
         var configPath = GLib.getenv('FLATPAK_CONFIG_DIR');
         if (configPath)
             return configPath;
 
         configPath = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'etc', 'flatpak']);
-        if (GLib.getenv('FLATPAK_ID')) {
+        if (this._info.getVersion() !== null) {
             configPath = GLib.build_filenamev([
                 GLib.DIR_SEPARATOR_S, 'run', 'host', 'etc', 'flatpak',
             ]);
@@ -102,7 +104,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
         var installations = [];
 
         const configPath = GLib.build_filenamev([
-            this.constructor._getConfigPath(),
+            this._getConfigPath(),
             'installations.d',
         ]);
 
@@ -133,7 +135,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         /* Installation priority is handled by this list order */
         this._paths = this._getCustomInstallationsPaths();
-        this._paths.unshift(this.constructor._getUserPath());
+        this._paths.unshift(this._getUserPath());
         this._paths.push(this.constructor._getSystemPath());
 
         return this._paths;
@@ -329,6 +331,6 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     get userPath() {
-        return this.constructor._getUserPath();
+        return this._getUserPath();
     }
 });
