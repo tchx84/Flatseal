@@ -25,7 +25,14 @@ var FlatpakInfoModel = GObject.registerClass({
     _init() {
         super._init({});
         this._version = null;
-        this._path = GLib.build_filenamev([
+    }
+
+    static _getInfoPath() {
+        var path = GLib.getenv('FLATPAK_INFO_PATH');
+        if (path)
+            return path;
+
+        return GLib.build_filenamev([
             GLib.DIR_SEPARATOR_S, '.flatpak-info',
         ]);
     }
@@ -34,7 +41,7 @@ var FlatpakInfoModel = GObject.registerClass({
         const keyFile = new GLib.KeyFile();
 
         try {
-            keyFile.load_from_file(this._path, GLib.KeyFileFlags.NONE);
+            keyFile.load_from_file(this.constructor._getInfoPath(), GLib.KeyFileFlags.NONE);
             return keyFile.get_value('Instance', 'flatpak-version');
         } catch (err) {
             return null;
@@ -69,11 +76,5 @@ var FlatpakInfoModel = GObject.registerClass({
         }
 
         return true;
-    }
-
-    /* testing */
-
-    set path(path) {
-        this._path = path;
     }
 });
