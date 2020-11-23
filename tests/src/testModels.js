@@ -46,7 +46,7 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var applications, info, permissions;
+    var applications, permissions;
 
     beforeAll(function() {
         GLib.unlink(_overridenOverride);
@@ -56,14 +56,10 @@ describe('Model', function() {
     beforeEach(function() {
         GLib.setenv('FLATPAK_SYSTEM_DIR', _system, true);
         GLib.setenv('FLATPAK_USER_DIR', _none, true);
+        GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfo, true);
+
         applications = new FlatpakApplicationsModel();
-
-        info = new FlatpakInfoModel();
-        info.path = _flatpakInfo;
-
         permissions = new FlatpakPermissionsModel();
-        permissions.applications = applications;
-        permissions.info = info;
 
         GLib.unlink(_basicOverride);
         GLib.unlink(_reduceOverride);
@@ -489,7 +485,7 @@ describe('Model', function() {
     });
 
     it('disables all permissions with old flatpak version', function() {
-        info.path = _flatpakInfoOld;
+        GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoOld, true);
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
@@ -498,7 +494,7 @@ describe('Model', function() {
     });
 
     it('enables all permissions with new flatpak version', function() {
-        info.path = _flatpakInfoNew;
+        GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
@@ -515,7 +511,7 @@ describe('Model', function() {
     });
 
     it('handles missing .flatpak-info', function() {
-        info.path = _none;
+        GLib.setenv('FLATPAK_INFO_PATH', _none, true);
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
