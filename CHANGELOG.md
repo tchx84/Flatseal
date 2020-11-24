@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed sandbox detection for old Flatpak versions.
+
 ## [1.6.4] - 2020-11-14
 
 - Added latest contributors to credits.
