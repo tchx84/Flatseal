@@ -2,6 +2,7 @@
 
 ## [unreleased]
 
+- Fixed regression for properly showing the close button to the left corner.
 - Fixed sandbox detection for old Flatpak versions.
 
 ## [1.6.4] - 2020-11-14
