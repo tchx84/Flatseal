@@ -2,6 +2,7 @@
 
 ## [unreleased]
 
+- Fixed main window jumping sizes at launch in mobile mode.
 - Fixed regression for properly showing the close button to the left corner.
 - Fixed sandbox detection for old Flatpak versions.
 
