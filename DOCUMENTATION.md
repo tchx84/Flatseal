@@ -38,7 +38,7 @@ Name | Type | Description | `flatpak override` equivalent
 X11 windowing system | Toggle | Allow the application to open in an X11 window. <br /> <br /> Most applications use X11 for historical reasons, but is considered less secure. | `--socket=x11` and `--nosocket=x11`
 Wayland windowing system | Toggle | Allow the application to open in a Wayland window. <br /> <br /> Many applications do not use Wayland as it is a newer display protocol unlike X11, and is considered more secure, but either some applications require extra steps to use it (see [environment variables](#environment) example for Firefox), or do not support Wayland at all. | `--socket=wayland` and `--nosocket=wayland`
 Fallback to X11 windowing system | Toggle | Allow the application to open in an X11 window when Wayland is not available. This overrides the X11 windowing system option when enabled. | `--socket=fallback-x11` and `--nosocket=fallback-x11`
-PulseAudio sound server | Toggle | Allow the application to play sounds when using PulseAudio. <br /> <br /> For example, if it's disabled for Rhythmbox, it will no longer be possible to listen to the music with this application. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
+PulseAudio sound server | Toggle | Allow the application to play sounds or get access to the microphone when using PulseAudio. <br /> <br /> For example, if it's disabled for Rhythmbox, it will no longer be possible to listen to the music with this application. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
 D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
 D-Bus system bus | Toggle | Allow the application to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
 Secure Shell agent | Toggle | Allow the application to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
@@ -52,7 +52,7 @@ Name | Type | Description | `flatpak override` equivalent
 GPU acceleration | Toggle | Allow the application to access the graphics direct rendering to take advantage of GPU acceleration. | `--device=dri` and `--nodevice=dri`
 Virtualization | Toggle | Allow the application to support virtualization. | `--device=kvm` and `--nodevice=kvm`
 Shared memory | Toggle | Allow the application to access shared memory. | `--device=shm` and `--nodevice=shm`
-All devices | Toggle | Allow the application to access all devices, such as webcam, microphone and external devices. <br /> <br /> For example, if it's disabled for Element, it will no longer be possible to do voice or video calls with this application. | `--device=all` and `--nodevice=all`
+All devices | Toggle | Allow the application to access all devices, such as webcam and external devices. <br /> <br /> For example, if it's disabled for Element, it will no longer be possible to do video calls with this application. | `--device=all` and `--nodevice=all`
 
 ### Allow
 
