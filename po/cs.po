@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-10 08:50-0300\n"
-"PO-Revision-Date: 2020-10-29 23:58+0100\n"
+"PO-Revision-Date: 2020-12-02 12:58+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -28,7 +28,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
-msgstr "Správce oprávnění pro Flatpak"
+msgstr "Spravujte oprávnění pro Flatpak"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:12
@@ -41,8 +41,8 @@ msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal je grafický nástroj pro prohlížení a úpravu základních oprávnění "
-"vašich Flatpak aplikací."
+"Flatseal je grafický nástroj pro prohlížení a úpravu oprávnění vašich "
+"Flatpak aplikací."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
