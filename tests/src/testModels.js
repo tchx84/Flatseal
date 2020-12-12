@@ -20,6 +20,7 @@ const _overridenAppId = 'com.test.Overriden';
 const _extraAppId = 'com.test.Extra';
 const _environmentAppId = 'com.test.Environment';
 const _busAppId = 'com.test.Bus';
+const _variablesAppId = 'com.test.Variables';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -38,6 +39,7 @@ const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId
 const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
 const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
+const _variablesOverride = GLib.build_filenamev([_overrides, _variablesAppId]);
 
 const _sessionGroup = 'Session Bus Policy';
 const _key = 'filesystems';
@@ -584,6 +586,13 @@ describe('Model', function() {
         });
 
         update();
+    });
+
+    it('handles re-loading removed variables', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _variablesAppId;
+
+        expect(permissions.variables).toEqual('');
     });
 
     it('handles non-valid environment variable', function(done) {
