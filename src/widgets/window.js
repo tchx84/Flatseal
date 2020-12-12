@@ -208,7 +208,6 @@ var FlatsealWindow = GObject.registerClass({
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
         this._permissionsHeaderBar.set_title(row.appName);
-        this.set_title(row.appName);
         this._appInfoViewer.appId = row.appId;
         this._undoPopup.close();
         if (switchPage)
