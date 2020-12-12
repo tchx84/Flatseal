@@ -116,7 +116,7 @@ var FlatpakVariablesModel = GObject.registerClass({
     }
 
     loadFromKeyFile(group, key, value, override) {
-        if (value.length === 0)
+        if (!override && value.length === 0)
             return;
 
         const dict = override ? this._overrides : this._originals;
