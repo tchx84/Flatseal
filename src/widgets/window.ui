@@ -7,6 +7,7 @@
     <property name="can_focus">False</property>
     <property name="default_width">1200</property>
     <property name="default_height">600</property>
+    <property name="title">Flatseal</property>
     <child>
       <object class="HdyLeaflet" id="contentLeaflet">
         <property name="width_request">360</property>
