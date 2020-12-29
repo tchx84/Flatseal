@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-10 08:50-0300\n"
+"POT-Creation-Date: 2020-12-29 08:52-0300\n"
 "PO-Revision-Date: 2020-10-05 09:34+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -49,8 +49,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:189 src/models/applications.js:249
-#: src/models/applications.js:250 src/models/applications.js:251
+#: src/models/applications.js:191 src/models/applications.js:251
+#: src/models/applications.js:252 src/models/applications.js:253
 msgid "Unknown"
 msgstr "Sconosciuto"
 
@@ -79,8 +79,8 @@ msgid "Virtualization"
 msgstr "Virtualizzazione"
 
 #: src/models/devices.js:49
-msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Memoria condivisa (per es. Server audio JACK)"
+msgid "Shared memory"
+msgstr "Memoria condivisa"
 
 #: src/models/devices.js:56
 msgid "All devices (e.g. webcam)"
@@ -383,10 +383,10 @@ msgstr "I permessi sono stati reimpostati"
 msgid "Undo"
 msgstr "Annulla"
 
-#: src/widgets/window.ui:40
+#: src/widgets/window.ui:41
 msgid "No applications found."
 msgstr "Non è stata trovata alcuna applicazione."
 
-#: src/widgets/window.ui:439
+#: src/widgets/window.ui:440
 msgid "Applications"
 msgstr "Applicazioni"

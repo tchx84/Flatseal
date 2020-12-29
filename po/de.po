@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-10 08:50-0300\n"
+"POT-Creation-Date: 2020-12-29 08:52-0300\n"
 "PO-Revision-Date: 2020-04-01 21:25-0300\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -49,8 +49,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:189 src/models/applications.js:249
-#: src/models/applications.js:250 src/models/applications.js:251
+#: src/models/applications.js:191 src/models/applications.js:251
+#: src/models/applications.js:252 src/models/applications.js:253
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -79,8 +79,8 @@ msgid "Virtualization"
 msgstr "Virtualisierung"
 
 #: src/models/devices.js:49
-msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Gemeinsam genutzter Speicher (z.B. JACK-Soundserver)"
+msgid "Shared memory"
+msgstr "Gemeinsam genutzter Speicher"
 
 #: src/models/devices.js:56
 msgid "All devices (e.g. webcam)"
@@ -383,10 +383,10 @@ msgstr "Berechtigungen wurden zurückgesetzt"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: src/widgets/window.ui:40
+#: src/widgets/window.ui:41
 msgid "No applications found."
 msgstr "Keine Anwendungen gefunden."
 
-#: src/widgets/window.ui:439
+#: src/widgets/window.ui:440
 msgid "Applications"
 msgstr "Anwendungen"

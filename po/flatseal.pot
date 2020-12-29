@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-10 08:50-0300\n"
+"POT-Creation-Date: 2020-12-29 08:52-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,8 +45,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:189 src/models/applications.js:249
-#: src/models/applications.js:250 src/models/applications.js:251
+#: src/models/applications.js:191 src/models/applications.js:251
+#: src/models/applications.js:252 src/models/applications.js:253
 msgid "Unknown"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgid "Virtualization"
 msgstr ""
 
 #: src/models/devices.js:49
-msgid "Shared memory (e.g. JACK sound server)"
+msgid "Shared memory"
 msgstr ""
 
 #: src/models/devices.js:56
@@ -379,10 +379,10 @@ msgstr ""
 msgid "Undo"
 msgstr ""
 
-#: src/widgets/window.ui:40
+#: src/widgets/window.ui:41
 msgid "No applications found."
 msgstr ""
 
-#: src/widgets/window.ui:439
+#: src/widgets/window.ui:440
 msgid "Applications"
 msgstr ""

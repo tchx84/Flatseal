@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-10 08:50-0300\n"
+"POT-Creation-Date: 2020-12-29 08:52-0300\n"
 "PO-Revision-Date: 2020-10-31 08:44+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
@@ -48,8 +48,8 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:189 src/models/applications.js:249
-#: src/models/applications.js:250 src/models/applications.js:251
+#: src/models/applications.js:191 src/models/applications.js:251
+#: src/models/applications.js:252 src/models/applications.js:253
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -78,8 +78,8 @@ msgid "Virtualization"
 msgstr "Virtualisering"
 
 #: src/models/devices.js:49
-msgid "Shared memory (e.g. JACK sound server)"
-msgstr "Delat minne (t.ex. JACK ljudserver)"
+msgid "Shared memory"
+msgstr "Delat minne"
 
 #: src/models/devices.js:56
 msgid "All devices (e.g. webcam)"
@@ -383,10 +383,10 @@ msgstr "Behörigheter har återställts"
 msgid "Undo"
 msgstr "Ångra"
 
-#: src/widgets/window.ui:40
+#: src/widgets/window.ui:41
 msgid "No applications found."
 msgstr "Inga program hittades."
 
-#: src/widgets/window.ui:439
+#: src/widgets/window.ui:440
 msgid "Applications"
 msgstr "Program"
