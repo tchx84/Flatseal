@@ -46,7 +46,7 @@ var FlatpakDevicesModel = GObject.registerClass({
             },
             'devices-shm': {
                 version: '1.6.1',
-                description: _('Shared memory (e.g. JACK sound server)'),
+                description: _('Shared memory'),
                 option: 'shm',
                 value: this.constructor.getDefault(),
                 example: 'device=shm',
