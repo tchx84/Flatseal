@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.6] - 2021-01-01
 
 - Fixed main title so that it doesn't display the selected app name.
 - Fixed issue with removed environment variables still showing up.
