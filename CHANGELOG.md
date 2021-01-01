@@ -1,5 +1,13 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed main title so that it doesn't display the selected app name.
+- Fixed issue with removed environment variables still showing up.
+- Fixed Czech translation.
+- Added more examples to the documentation.
+- Changed shared memory description to not mention JACK anymore.
+
 ## [1.6.5] - 2020-11-28
 
 - Fixed main window jumping sizes at launch in mobile mode.
