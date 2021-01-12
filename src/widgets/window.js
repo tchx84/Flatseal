@@ -106,6 +106,7 @@ var FlatsealWindow = GObject.registerClass({
 
         this._layoutNotifyId = 0;
         this._updateControlsPlacement();
+        this._headerLeaflet.connect('notify::folded', this._updateControlsPlacement.bind(this));
 
         if (applications.length === 0 || permissions.length === 0)
             return;
@@ -248,15 +249,22 @@ var FlatsealWindow = GObject.registerClass({
         this._layoutNotifyId = settings.connect(
             'notify::gtk-decoration-layout', this._updateControlsPlacement.bind(this));
 
-        var mainBar = this._permissionsHeaderBar;
-        var secondaryBar = this._applicationsHeaderBar;
+        var showApplicationsButton = false;
+        var showPermissionsButton = true;
 
-        if (settings.gtk_decoration_layout.startsWith('close')) {
-            mainBar = this._applicationsHeaderBar;
-            secondaryBar = this._permissionsHeaderBar;
+        const closeButtonOnLeft = settings.gtk_decoration_layout.startsWith('close');
+        if (closeButtonOnLeft) {
+            showApplicationsButton = true;
+            showPermissionsButton = false;
         }
 
-        mainBar.show_close_button = true;
-        secondaryBar.show_close_button = false;
+        const isFolded = this._headerLeaflet.folded;
+        if (isFolded) {
+            showApplicationsButton = true;
+            showPermissionsButton = true;
+        }
+
+        this._applicationsHeaderBar.show_close_button = showApplicationsButton;
+        this._permissionsHeaderBar.show_close_button = showPermissionsButton;
     }
 });
