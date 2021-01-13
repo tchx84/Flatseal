@@ -1,0 +1,397 @@
+# Polish translation for Flatseal
+# Copyright (C) 2021 THE Flatseal's COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+#
+# Bartłomiej Garbiec <garbiec@bartek.me>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-12-29 08:52-0300\n"
+"PO-Revision-Date: 2021-01-06 15:56+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n"
+"%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: pl\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Zarządzaj uprawnieniami Flatpak"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:12
+msgid "com.github.tchx84.Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal jest narzędziem do graficznego zarządzania uprawnieniami "
+"aplikacji Flatpak."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr ""
+
+#: src/models/applications.js:191 src/models/applications.js:251
+#: src/models/applications.js:252 src/models/applications.js:253
+msgid "Unknown"
+msgstr "Nieznane"
+
+#: src/models/sessionBus.js:35 src/models/systemBus.js:35
+msgid "Talks"
+msgstr "Komunikacja"
+
+#: src/models/sessionBus.js:42 src/models/systemBus.js:42
+msgid "Owns"
+msgstr "Przynależność"
+
+#: src/models/sessionBus.js:79
+msgid "List of well-known names on the session bus"
+msgstr ""
+"Lista dobrze znanych nazw w magistrali komunikacyjnej sesji (session bus)"
+
+#: src/models/systemBus.js:71
+msgid "List of well-known names on the system bus"
+msgstr ""
+"Lista dobrze znanych nazw w magistrali komunikacyjnej systemu (system bus)"
+
+#: src/models/devices.js:35
+msgid "GPU acceleration"
+msgstr "Wspomaganie przez GPU"
+
+#: src/models/devices.js:42
+msgid "Virtualization"
+msgstr "Wirtualizacja"
+
+#: src/models/devices.js:49
+msgid "Shared memory"
+msgstr "Pamięć wspólna"
+
+#: src/models/devices.js:56
+msgid "All devices (e.g. webcam)"
+msgstr "Wszystkie urządzenia (np. kamera internetowa)"
+
+#: src/models/devices.js:81
+msgid "List of devices available in the sandbox"
+msgstr "Lista urządzeń dostępnych w piaskownicy"
+
+#: src/models/features.js:35
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Programistyczne wywołania systemowe (np. ptrace)"
+
+#: src/models/features.js:42
+msgid "Programs from other architectures"
+msgstr "Programy dla innych architektur"
+
+#: src/models/features.js:49
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:56
+msgid "Controller Area Network bus"
+msgstr "Magistrala CAN"
+
+#: src/models/features.js:81
+msgid "List of features available to the application"
+msgstr "Lista możliwych ustawień dla aplikacji"
+
+#: src/models/filesystems.js:35
+msgid "All system files"
+msgstr "Wszystkie pliki systemowe"
+
+#: src/models/filesystems.js:42
+msgid "All system libraries, executables and static data"
+msgstr ""
+"Wszystkie biblioteki systemowe, pliki wykonywalne oraz dane statyczne"
+
+#: src/models/filesystems.js:49
+msgid "All system configurations"
+msgstr "Wszystkie konfiguracje systemowe"
+
+#: src/models/filesystems.js:56
+msgid "All user files"
+msgstr "Wszystkie pliki użytkownika"
+
+#: src/models/filesystems.js:81 src/models/filesystemsOther.js:60
+msgid "List of filesystem subsets available to the application"
+msgstr "Lista położeń dostępnych dla aplikacji"
+
+#: src/models/filesystemsOther.js:35
+msgid "Other files"
+msgstr "Pozostałe pliki"
+
+#: src/models/filesystemsOther.js:38
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "np. ~games:ro, xdg-pictures, itp."
+
+#: src/models/persistent.js:35
+msgid "Files"
+msgstr "Pliki"
+
+#: src/models/persistent.js:38
+msgid "e.g. .thunderbird"
+msgstr "np. .thunderbird"
+
+#: src/models/persistent.js:60
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Lista położeń w Katalogu domowym dostępnych dla aplikacji"
+
+#: src/models/shared.js:34
+msgid "Network"
+msgstr "Sieć"
+
+#: src/models/shared.js:41
+msgid "Inter-process communications"
+msgstr "Komunikacja między procesami"
+
+#: src/models/shared.js:74
+msgid "List of subsystems shared with the host system"
+msgstr "Lista systemów współdzielonych przez system"
+
+#: src/models/sockets.js:35
+msgid "X11 windowing system"
+msgstr "System wyświetlania X11"
+
+#: src/models/sockets.js:42
+msgid "Wayland windowing system"
+msgstr "System wyświetlania Wayland"
+
+#: src/models/sockets.js:49
+msgid "Fallback to X11 windowing system"
+msgstr "Użycie X11 w przypadku problemów"
+
+#: src/models/sockets.js:56
+msgid "PulseAudio sound server"
+msgstr "Serwer dźwięku PulseAudio"
+
+#: src/models/sockets.js:63
+msgid "D-Bus session bus"
+msgstr "D-Bus sesji"
+
+#: src/models/sockets.js:70
+msgid "D-Bus system bus"
+msgstr "D-Bus systemu"
+
+#: src/models/sockets.js:77
+msgid "Secure Shell agent"
+msgstr "Agent SSH"
+
+#: src/models/sockets.js:84
+msgid "Smart cards"
+msgstr "Karta mikroprocesorowa"
+
+#: src/models/sockets.js:91
+msgid "Printing system"
+msgstr "Obsługa drukowania"
+
+#: src/models/sockets.js:116
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Lista dobrze znanych gniazd dostępnych w piaskownicy"
+
+#: src/models/variables.js:36
+msgid "Variables"
+msgstr "Zmienne"
+
+#: src/models/variables.js:39
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "np. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:69
+msgid "List of variables exported to the application"
+msgstr "Lista zmiennych przekazanych do aplikacji"
+
+#: src/widgets/aboutDialog.js:36
+msgid "Contributions by"
+msgstr "Zasługi"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:58
+msgid "%B %e, %Y"
+msgstr "%B %e, %Y"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "Wersja"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "Ostatnia aktualizacja"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "Środowisko"
+
+#: src/widgets/busNameRow.js:31 src/widgets/pathRow.js:61
+#: src/widgets/relativePathRow.js:30 src/widgets/variableRow.js:28
+msgid "This is not a valid option"
+msgstr "To nie jest poprawna operacja"
+
+#: src/widgets/detailsButton.js:55
+msgid "Show Details"
+msgstr "Wyświetl szczegóły"
+
+#: src/widgets/detailsButton.js:93
+msgid "Show application in a software manager"
+msgstr "Wyświetl w menedżerze oprogramowania"
+
+#: src/widgets/detailsButton.js:95
+msgid "No software manager found"
+msgstr "Nie znaleziono menedżera oprogramowania"
+
+#: src/widgets/menu.ui:7
+msgid "Help"
+msgstr "Pomoc"
+
+#: src/widgets/menu.ui:11
+msgid "Documentation"
+msgstr "Dokumentacja"
+
+#: src/widgets/menu.ui:15
+msgid "About Flatseal"
+msgstr "O Flatseal"
+
+#: src/widgets/pathRow.js:24
+msgid "this absolute path"
+msgstr "położenie bezpośrednie (bezwzględne)"
+
+#: src/widgets/pathRow.js:25
+msgid "this path relative to the home directory"
+msgstr "położenie względem Katalogu domowego"
+
+#: src/widgets/pathRow.js:26
+msgid "all system configurations"
+msgstr "wszystkie konfiguracje systemowe"
+
+#: src/widgets/pathRow.js:27
+msgid "all system libraries, executables and static data"
+msgstr ""
+"wszystkie biblioteki systemowe, pliki wykonywalne oraz dane statyczne"
+
+#: src/widgets/pathRow.js:28
+msgid "all system files"
+msgstr "wszystkie pliki systemowe"
+
+#: src/widgets/pathRow.js:29
+msgid "all user files"
+msgstr "wszystkie pliki użytkownika"
+
+#: src/widgets/pathRow.js:30
+msgid "the desktop directory"
+msgstr "położenie folderu pulpitu"
+
+#: src/widgets/pathRow.js:31
+msgid "the documents directory"
+msgstr "położenie folderu Dokumenty"
+
+#: src/widgets/pathRow.js:32
+msgid "the download directory"
+msgstr "położenie folderu Pobrane"
+
+#: src/widgets/pathRow.js:33
+msgid "the music directory"
+msgstr "położenie folderu Muzyka"
+
+#: src/widgets/pathRow.js:34
+msgid "the pictures directory"
+msgstr "położenie folderu Obrazy"
+
+#: src/widgets/pathRow.js:35
+msgid "the public directory"
+msgstr "położenie folderu Publiczny"
+
+#: src/widgets/pathRow.js:36
+msgid "the videos directory"
+msgstr "położenie folderu Wideo"
+
+#: src/widgets/pathRow.js:37
+msgid "the templates directory"
+msgstr "położenie folderu Szablony"
+
+#: src/widgets/pathRow.js:38
+msgid "the config directory"
+msgstr "położenie plików konfiguracyjnych"
+
+#: src/widgets/pathRow.js:39
+msgid "the cache directory"
+msgstr "położenie pamięci cache"
+
+#: src/widgets/pathRow.js:40
+msgid "the data directory"
+msgstr "położenie danych"
+
+#: src/widgets/pathRow.js:41
+msgid "the runtime directory"
+msgstr "położenie środowiska uruchumieniowego"
+
+#: src/widgets/pathRow.js:56
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Może czytać: %s"
+
+#: src/widgets/pathRow.js:57
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Może czytać i modyfikować: %s"
+
+#: src/widgets/pathRow.js:58
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Może tworzyć, czytać i modyfikować: %s"
+
+#: src/widgets/permissionEntryRow.js:56 src/widgets/permissionSwitchRow.js:37
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Niewspierane przez aktualnie zainstalowaną wersję Flatpak"
+
+#: src/widgets/relativePathRow.js:76
+msgid "Default paths can't be removed"
+msgstr "Domyślne ścieżki nie mogą być usunięte"
+
+#: src/widgets/resetButton.js:42
+msgid "Reset"
+msgstr "Resetuj"
+
+#: src/widgets/resetButton.js:60
+msgid "No changes made to this application"
+msgstr "Nie dokonano zmian dla tej aplikacji"
+
+#: src/widgets/resetButton.js:63
+msgid "Reset this application permissions"
+msgstr "Resetuj uprawnienia tej aplikacji"
+
+#: src/widgets/resetButton.js:65
+msgid ", including changes not made with Flatseal"
+msgstr ", w tym zmian dokonanych we Flatseal"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "Uprawnienia zostały zresetowane"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "Cofnij"
+
+#: src/widgets/window.ui:41
+msgid "No applications found."
+msgstr "Nie znaleziono programów."
+
+#: src/widgets/window.ui:440
+msgid "Applications"
+msgstr "Aplikacje"
