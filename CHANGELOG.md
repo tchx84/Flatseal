@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed window close-button not visible in applications page, when folded.
+- Added Polish translation by @Garbulix.
+
 ## [1.6.6] - 2021-01-01
 
 - Fixed main title so that it doesn't display the selected app name.
