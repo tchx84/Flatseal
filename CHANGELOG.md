@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.7] - 2021-01-16
 
 - Fixed window close-button not visible in applications page, when folded.
 - Added Polish translation by @Garbulix.

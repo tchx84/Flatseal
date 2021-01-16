@@ -1,5 +1,5 @@
 project('flatseal',  
-          version: '1.6.6',
+          version: '1.6.7',
     meson_version: '>= 0.50.0',
   default_options: [ 'warning_level=2',
                    ],
