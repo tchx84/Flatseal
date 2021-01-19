@@ -3,24 +3,27 @@
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <requires lib="libhandy" version="1.0"/>
-  <template class="FlatsealWindow" parent="GtkApplicationWindow">
+  <template class="FlatsealWindow" parent="HdyApplicationWindow">
     <property name="can_focus">False</property>
     <property name="default_width">1200</property>
     <property name="default_height">600</property>
     <property name="title">Flatseal</property>
-    <child type="titlebar">
-      <object class="HdyTitleBar">
+    <child>
+      <object class="HdyLeaflet" id="contentLeaflet">
+        <property name="width_request">360</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="hhomogeneous_folded">False</property>
+        <property name="vhomogeneous_unfolded">True</property>
+        <property name="interpolate_size">True</property>
+        <property name="can_swipe_back">True</property>
         <child>
-          <object class="HdyLeaflet" id="headerLeaflet">
+          <object class="GtkBox">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="hhomogeneous_folded">False</property>
-            <property name="vhomogeneous_unfolded">True</property>
-            <property name="interpolate_size">True</property>
+            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkHeaderBar" id="applicationsHeaderBar">
+              <object class="HdyHeaderBar" id="applicationsHeaderBar">
                 <property name="width_request">360</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -43,22 +46,147 @@
                   </packing>
                 </child>
               </object>
-              <packing>
-                <property name="name">applications</property>
-              </packing>
             </child>
             <child>
-              <object class="GtkSeparator">
+              <object class="GtkBox">
+                <property name="width_request">360</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkStack" id="applicationsStack">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="valign">center</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="noApplicaitonsLabel">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="label" translatable="yes">No applications found.</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">withNoApplicationsPage</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkScrolledWindow">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="shadow_type">in</property>
+                            <child>
+                              <object class="GtkViewport">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <child>
+                                  <object class="GtkBox" id="applicationsBox">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="orientation">vertical</property>
+                                    <child>
+                                      <object class="GtkSearchEntry" id="applicationsSearchEntry">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="primary_icon_name">edit-find-symbolic</property>
+                                        <property name="primary_icon_activatable">False</property>
+                                        <property name="primary_icon_sensitive">False</property>
+                                        <style>
+                                          <class name="search-entry"/>
+                                        </style>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkListBox" id="applicationsListBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="selection_mode">browse</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
+                                    </child>
+                                    <style>
+                                      <class name="box"/>
+                                    </style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="name">withApplicationsPage</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <style>
+                  <class name="applications"/>
+                </style>
               </object>
-              <packing>
-                <property name="navigatable">False</property>
-              </packing>
             </child>
+          </object>
+          <packing>
+            <property name="name">applications</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
+          </object>
+          <packing>
+            <property name="navigatable">False</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkHeaderBar" id="permissionsHeaderBar">
+              <object class="HdyHeaderBar" id="permissionsHeaderBar">
                 <property name="width_request">360</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -110,311 +238,170 @@
                   </packing>
                 </child>
               </object>
-              <packing>
-                <property name="name">permissions</property>
-              </packing>
             </child>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="HdyLeaflet" id="contentLeaflet">
-        <property name="width_request">360</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="hhomogeneous_folded">False</property>
-        <property name="vhomogeneous_unfolded">True</property>
-        <property name="interpolate_size">True</property>
-        <property name="can_swipe_back">True</property>
-        <child>
-          <object class="GtkBox">
-            <property name="width_request">360</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
             <child>
-              <object class="GtkStack" id="applicationsStack">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">center</property>
-                    <property name="valign">center</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkLabel" id="noApplicaitonsLabel">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">No applications found.</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="name">withNoApplicationsPage</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <object class="GtkScrolledWindow">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="shadow_type">in</property>
-                        <child>
-                          <object class="GtkViewport">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <child>
-                              <object class="GtkBox" id="applicationsBox">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="orientation">vertical</property>
-                                <child>
-                                  <object class="GtkSearchEntry" id="applicationsSearchEntry">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="primary_icon_name">edit-find-symbolic</property>
-                                    <property name="primary_icon_activatable">False</property>
-                                    <property name="primary_icon_sensitive">False</property>
-                                    <style>
-                                      <class name="search-entry"/>
-                                    </style>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkListBox" id="applicationsListBox">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="selection_mode">browse</property>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">False</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">1</property>
-                                  </packing>
-                                </child>
-                                <style>
-                                  <class name="box"/>
-                                </style>
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="name">withApplicationsPage</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <style>
-              <class name="applications"/>
-            </style>
-          </object>
-          <packing>
-            <property name="name">applications</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkSeparator">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
-          </object>
-          <packing>
-            <property name="navigatable">False</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="width_request">360</property>
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkOverlay">
+              <object class="GtkBox">
+                <property name="width_request">360</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
+                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkOverlay">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
-                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkStack" id="permissionsStack">
+                      <object class="GtkBox">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="hexpand">True</property>
+                        <property name="vexpand">True</property>
+                        <property name="orientation">vertical</property>
                         <child>
-                          <object class="GtkBox">
+                          <object class="GtkStack" id="permissionsStack">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="orientation">vertical</property>
                             <child>
-                              <placeholder/>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="name">withNoPermissionsPage</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkBox">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="orientation">vertical</property>
-                            <child>
-                              <object class="GtkScrolledWindow">
+                              <object class="GtkBox">
                                 <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="shadow_type">in</property>
+                                <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
                                 <child>
-                                  <object class="GtkViewport">
+                                  <placeholder/>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="name">withNoPermissionsPage</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
+                                <child>
+                                  <object class="GtkScrolledWindow">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="shadow_type">in</property>
                                     <child>
-                                      <object class="HdyClamp">
-                                        <property name="width_request">300</property>
+                                      <object class="GtkViewport">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="maximum_size">700</property>
-                                        <property name="tightening_threshold">500</property>
                                         <child>
-                                          <object class="GtkBox" id="permissionsBox">
+                                          <object class="HdyClamp">
+                                            <property name="width_request">300</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="orientation">vertical</property>
+                                            <property name="maximum_size">700</property>
+                                            <property name="tightening_threshold">500</property>
                                             <child>
-                                              <placeholder/>
+                                              <object class="GtkBox" id="permissionsBox">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
+                                                <child>
+                                                  <placeholder/>
+                                                </child>
+                                                <style>
+                                                  <class name="box"/>
+                                                </style>
+                                              </object>
                                             </child>
-                                            <style>
-                                              <class name="box"/>
-                                            </style>
                                           </object>
                                         </child>
                                       </object>
                                     </child>
                                   </object>
-                                </child>
-                              </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkActionBar" id="actionBar">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <child>
-                                  <object class="GtkBox" id="startActionBox">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="valign">center</property>
-                                    <property name="orientation">vertical</property>
-                                    <child>
-                                      <placeholder/>
-                                    </child>
-                                  </object>
                                   <packing>
+                                    <property name="expand">True</property>
+                                    <property name="fill">True</property>
                                     <property name="position">0</property>
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkBox" id="endActionBox">
+                                  <object class="GtkActionBar" id="actionBar">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="valign">center</property>
                                     <child>
-                                      <placeholder/>
+                                      <object class="GtkBox" id="startActionBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <property name="orientation">vertical</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox" id="endActionBox">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="valign">center</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="pack_type">end</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
-                                    <property name="pack_type">end</property>
+                                    <property name="expand">False</property>
+                                    <property name="fill">True</property>
                                     <property name="position">1</property>
                                   </packing>
                                 </child>
                               </object>
                               <packing>
-                                <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="name">withPermissionsPage</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
                           </object>
                           <packing>
-                            <property name="name">withPermissionsPage</property>
-                            <property name="position">1</property>
+                            <property name="expand">True</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
                           </packing>
                         </child>
+                        <style>
+                          <class name="permissions"/>
+                        </style>
                       </object>
                       <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
+                        <property name="index">-1</property>
                       </packing>
                     </child>
-                    <style>
-                      <class name="permissions"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="index">-1</property>
-                  </packing>
-                </child>
-                <child type="overlay">
-                  <object class="GtkBox" id="undoPopupBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="halign">center</property>
-                    <property name="valign">start</property>
-                    <property name="orientation">vertical</property>
-                    <child>
-                      <placeholder/>
+                    <child type="overlay">
+                      <object class="GtkBox" id="undoPopupBox">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="halign">center</property>
+                        <property name="valign">start</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
                     </child>
                   </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
           </object>
           <packing>
@@ -424,10 +411,11 @@
       </object>
     </child>
   </template>
-  <object class="HdySwipeGroup" id="swipeGroup">
-    <swipeables>
-      <swipeable name="headerLeaflet"/>
-      <swipeable name="contentLeaflet"/>
-    </swipeables>
+  <object class="HdyHeaderGroup">
+    <property name="decorate-all" bind-source="contentLeaflet" bind-property="folded" bind-flags="sync-create"/>
+      <headerbars>
+        <headerbar name="applicationsHeaderBar"/>
+        <headerbar name="permissionsHeaderBar"/>
+      </headerbars>
   </object>
 </interface>
