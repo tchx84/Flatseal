@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Gdk, Gio} = imports.gi;
+const {GObject, Gtk, Gdk, Gio, Handy} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {FlatsealAboutDialog} = imports.widgets.aboutDialog;
@@ -79,6 +79,7 @@ var FlatsealApplication = GObject.registerClass({
 
     vfunc_startup() {
         super.vfunc_startup();
+        Handy.init();
         this._setupActions();
         this._setupStylesheet();
     }

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const {GObject, Gtk, Handy} = imports.gi;
 const {Leaflet, TitleBar, SwipeGroup, Clamp} = imports.gi.Handy;
 
 const {FlatpakApplicationsModel} = imports.models.applications;
@@ -60,12 +60,10 @@ var FlatsealWindow = GObject.registerClass({
         'endActionBox',
         'menuButton',
         'backButton',
-        'headerLeaflet',
         'contentLeaflet',
-        'swipeGroup',
         'undoPopupBox',
     ],
-}, class FlatsealWindow extends Gtk.ApplicationWindow {
+}, class FlatsealWindow extends Handy.ApplicationWindow {
     _init(application) {
         super._init({application});
         this._setup();
@@ -106,7 +104,7 @@ var FlatsealWindow = GObject.registerClass({
 
         this._layoutNotifyId = 0;
         this._updateControlsPlacement();
-        this._headerLeaflet.connect('notify::folded', this._updateControlsPlacement.bind(this));
+        this._contentLeaflet.connect('notify::folded', this._updateControlsPlacement.bind(this));
 
         if (applications.length === 0 || permissions.length === 0)
             return;
@@ -232,13 +230,11 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _showApplications() {
-        this._headerLeaflet.set_visible_child_name('applications');
         this._contentLeaflet.set_visible_child_name('applications');
         this._backButton.active = false;
     }
 
     _showPermissions() {
-        this._headerLeaflet.set_visible_child_name('permissions');
         this._contentLeaflet.set_visible_child_name('permissions');
     }
 
@@ -258,7 +254,7 @@ var FlatsealWindow = GObject.registerClass({
             showPermissionsButton = false;
         }
 
-        const isFolded = this._headerLeaflet.folded;
+        const isFolded = this._contentLeaflet.folded;
         if (isFolded) {
             showApplicationsButton = true;
             showPermissionsButton = true;
