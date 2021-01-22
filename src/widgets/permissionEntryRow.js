@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const {GObject, Gtk, Handy} = imports.gi;
 
 const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
 
@@ -31,7 +31,7 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         'button',
         'image',
     ],
-}, class FlatsealpermissionEntryRow extends Gtk.Box {
+}, class FlatsealpermissionEntryRow extends Handy.PreferencesRow {
     _init(description, permission, content, rowClass, iconName) {
         super._init({});
         this._description.set_text(description);
