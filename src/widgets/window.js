@@ -24,7 +24,6 @@ const {FlatpakPermissionsModel} = imports.models.permissions;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealApplicationRow} = imports.widgets.applicationRow;
-const {FlatsealGroupRow} = imports.widgets.groupRow;
 const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
 const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
 const {FlatsealResetButton} = imports.widgets.resetButton;
@@ -47,6 +46,7 @@ var FlatsealWindow = GObject.registerClass({
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/window.ui',
     InternalChildren: [
         'actionBar',
+        'appInfoGroup',
         'applicationsSearchEntry',
         'applicationsStack',
         'applicationsListBox',
@@ -119,11 +119,12 @@ var FlatsealWindow = GObject.registerClass({
 
         this._appInfoViewer = new FlatsealAppInfoViewer();
         this._appInfoViewer.show();
-        this._permissionsBox.add(this._appInfoViewer);
+        this._appInfoGroup.add(this._appInfoViewer);
         this._contentLeaflet.bind_property(
             'folded', this._appInfoViewer, 'compact', _bindReadFlags);
 
         var lastGroup = '';
+        var lastPrefsGroup;
 
         permissions.forEach(p => {
             var row;
@@ -169,13 +170,17 @@ var FlatsealWindow = GObject.registerClass({
             context.add_class(p.groupStyle);
 
             if (p.groupStyle !== lastGroup) {
-                const groupRow = new FlatsealGroupRow(p.groupTitle, p.groupDescription);
+                const groupRow = new Handy.PreferencesGroup();
+                groupRow.set_title(p.groupTitle);
+                groupRow.set_description(p.groupDescription);
+                groupRow.show();
                 this._permissionsBox.add(groupRow);
                 lastGroup = p.groupStyle;
+                lastPrefsGroup = groupRow;
             }
 
             row.sensitive = p.supported;
-            this._permissionsBox.add(row);
+            lastPrefsGroup.add(row);
             this._permissions.bind_property(p.property, row.content, property, _bindFlags);
         });
 
