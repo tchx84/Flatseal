@@ -6,7 +6,6 @@
     <file>widgets/appInfoViewer.ui</file>
     <file>widgets/applicationRow.ui</file>
     <file>widgets/busNameRow.ui</file>
-    <file>widgets/groupRow.ui</file>
     <file>widgets/menu.ui</file>
     <file>widgets/pathRow.ui</file>
     <file>widgets/pathsViewer.ui</file>

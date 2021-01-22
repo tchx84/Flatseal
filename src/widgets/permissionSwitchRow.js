@@ -16,18 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const {GObject, Gtk, Handy} = imports.gi;
 
 
 var FlatsealPermissionSwitchRow = GObject.registerClass({
     GTypeName: 'FlatsealPermissionSwitchRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionSwitchRow.ui',
-    InternalChildren: ['description', 'permission', 'content'],
-}, class FlatsealPermissionSwitchRow extends Gtk.Box {
+    InternalChildren: ['content'],
+}, class FlatsealPermissionSwitchRow extends Handy.ActionRow {
     _init(description, permission, content) {
         super._init({});
-        this._description.set_text(description);
-        this._permission.set_text(permission);
+        this.set_title(description);
+        this.set_subtitle(permission);
         this._content.set_state(content);
         this.connect('notify::sensitive', this._update.bind(this));
     }

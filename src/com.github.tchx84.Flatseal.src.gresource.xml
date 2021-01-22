@@ -8,7 +8,6 @@
     <file>widgets/applicationRow.js</file>
     <file>widgets/busNameRow.js</file>
     <file>widgets/detailsButton.js</file>
-    <file>widgets/groupRow.js</file>
     <file>widgets/pathRow.js</file>
     <file>widgets/pathsViewer.js</file>
     <file>widgets/permissionEntryRow.js</file>
