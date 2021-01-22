@@ -10,11 +10,14 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
+        <property name="margin-bottom">12</property>
         <child>
           <object class="GtkBox">
-            <property name="height_request">60</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
+            <property name="margin-top">12</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
@@ -31,7 +34,7 @@
                     <property name="ellipsize">end</property>
                     <property name="single_line_mode">True</property>
                     <style>
-                      <class name="description"/>
+                      <class name="title"/>
                     </style>
                   </object>
                   <packing>
@@ -48,7 +51,7 @@
                     <property name="ellipsize">end</property>
                     <property name="single_line_mode">True</property>
                     <style>
-                      <class name="permission"/>
+                      <class name="subtitle"/>
                     </style>
                   </object>
                   <packing>
@@ -84,6 +87,9 @@
                         <property name="icon_name">folder-new-symbolic</property>
                       </object>
                     </child>
+                    <style>
+                      <class name="list-button"/>
+                    </style>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -91,9 +97,6 @@
                     <property name="position">0</property>
                   </packing>
                 </child>
-                <style>
-                  <class name="toolbox"/>
-                </style>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -114,6 +117,8 @@
             <property name="can_focus">False</property>
             <property name="valign">start</property>
             <property name="orientation">vertical</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
             <child>
               <placeholder/>
             </child>
@@ -129,8 +134,5 @@
         </child>
       </object>
     </child>
-    <style>
-      <class name="row"/>
-    </style>
   </template>
 </interface>
