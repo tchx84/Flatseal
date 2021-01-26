@@ -220,7 +220,12 @@ var FlatsealWindow = GObject.registerClass({
         if (text.length === 0)
             return true;
 
-        return row.appId.toLowerCase().includes(text.toLowerCase());
+        const subString = text.toLowerCase();
+
+        return (
+            row.appId.toLowerCase().includes(subString) ||
+            row.appName.toLowerCase().includes(subString)
+        );
     }
 
     _invalidate() {
