@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed searching by application name and not only by app id.
+
 ## [1.6.7] - 2021-01-16
 
 - Fixed window close-button not visible in applications page, when folded.
