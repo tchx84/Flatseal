@@ -75,6 +75,7 @@ describe('FlatsealPathRow', function() {
     _handles('relative', '~/.test', ':ro');
     _handles('relative', '~/.test', ':rw');
     _handles('relative', '~/.test', ':create');
+    _handles('relative', '~/.local/share/Folder/Games/common/Console Classics/uncompressed GAMEs/Old_Game_wVersion3.bin', ':ro');
     _handles('token-based', 'home/.test', '');
     _handles('token-based', 'home/.test', ':ro');
     _handles('token-based', 'home/.test', ':rw');
@@ -89,6 +90,9 @@ describe('FlatsealPathRow', function() {
             expect(context.has_class(validity.NOTVALID)).toBe(true);
         });
     }
+
+    _catches('not-valid absolute', '/', '');
+    _catches('not-valid relative', '~/', '');
     _catches('not-valid absolute', '/home/ .test ', '');
     _catches('not-valid relative', '~/ .test ', '');
     _catches('not-valid token-based', 'jome/.test ', '');
