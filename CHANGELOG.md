@@ -3,6 +3,7 @@
 ## [unreleased]
 
 - Fixed searching by application name and not only by app id.
+- Fixed application freezing due to malformed regex.
 
 ## [1.6.7] - 2021-01-16
 
