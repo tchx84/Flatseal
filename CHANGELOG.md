@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.6.8] - 2021-01-30
 
 - Fixed searching by application name and not only by app id.
 - Fixed application freezing due to malformed regex.
