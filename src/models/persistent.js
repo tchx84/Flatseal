@@ -31,7 +31,7 @@ var FlatpakPersistentModel = GObject.registerClass({
     getPermissions() {
         return {
             persistent: {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('Files'),
                 option: null,
                 value: this.constructor.getDefault(),

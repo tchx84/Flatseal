@@ -38,6 +38,7 @@ const PermissionsIface = `
             <arg type="s" name="app" direction="in"/>
             <arg type="as" name="permissions" direction="in"/>
         </method>
+        <property name="version" type="u" access="read"/>
     </interface>
 </node>
 `;
@@ -45,8 +46,8 @@ const PermissionsIface = `
 
 class MockPermissionsStore {
     constructor() {
-        log("Falling back to test service");
         this._store = {};
+        this._version = new GLib.Variant('u', 2);
         this._dbusId = null;
         this._nameId = Gio.bus_own_name(
             Gio.BusType.SESSION,
@@ -102,6 +103,10 @@ class MockPermissionsStore {
 
             invocation.return_value(null);
         }
+    }
+
+    _onProperty(connection, sender, path, iface, key) {
+        return this._version;
     }
 
     shutdown() {

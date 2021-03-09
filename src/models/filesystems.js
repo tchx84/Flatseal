@@ -31,28 +31,28 @@ var FlatpakFilesystemsModel = GObject.registerClass({
     getPermissions() {
         return {
             'filesystems-host': {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('All system files'),
                 option: 'host',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host',
             },
             'filesystems-host-os': {
-                version: '1.7.1',
+                supported: this._info.supports('1.7.1'),
                 description: _('All system libraries, executables and static data'),
                 option: 'host-os',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host-os',
             },
             'filesystems-host-etc': {
-                version: '1.7.1',
+                supported: this._info.supports('1.7.1'),
                 description: _('All system configurations'),
                 option: 'host-etc',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host-etc',
             },
             'filesystems-home': {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('All user files'),
                 option: 'home',
                 value: this.constructor.getDefault(),

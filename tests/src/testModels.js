@@ -3,10 +3,6 @@ const {GLib} = imports.gi;
 const {setup, update, has, hasOnly, startService, stopService, getValueFromService} = imports.utils;
 setup();
 
-const {FlatpakApplicationsModel} = imports.models.applications;
-const {FlatpakInfoModel} = imports.models.info;
-const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
-
 const _totalPermissions = 36;
 
 const _basicAppId = 'com.test.Basic';
@@ -48,9 +44,12 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var applications, permissions;
+    var delay, applications, permissions, infoDefault;
 
     beforeAll(function() {
+        const {info} = imports.models;
+
+        infoDefault = info.getDefault();
         startService();
         GLib.unlink(_overridenOverride);
         GLib.mkdir_with_parents(_overrides, 0o755);
@@ -65,6 +64,11 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _none, true);
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfo, true);
 
+        const {FlatpakApplicationsModel} = imports.models.applications;
+        const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
+
+        delay = DELAY;
+        infoDefault.reload();
         applications = new FlatpakApplicationsModel();
         permissions = new FlatpakPermissionsModel();
 
@@ -188,7 +192,7 @@ describe('Model', function() {
         permissions.set_property('variables', 'TEST=maybe');
 
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(0);
             done();
             return GLib.SOURCE_REMOVE;
@@ -245,7 +249,7 @@ describe('Model', function() {
         permissions.set_property('shared-network', false);
         permissions.set_property('shared-network', true);
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
             done();
             return GLib.SOURCE_REMOVE;
@@ -269,7 +273,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', 'xdg-downloads:ro');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_reduceOverride, group, _key, 'xdg-downloads:ro')).toBe(true);
             done();
@@ -287,7 +291,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', 'xdg-pictures:rw');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_increaseOverride, group, _key, 'xdg-pictures:rw')).toBe(true);
             done();
@@ -305,7 +309,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', 'xdg-pictures');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_increaseOverride, group, _key, 'xdg-pictures')).toBe(true);
             done();
@@ -323,7 +327,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', '!~/negative');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '!~/positive')).toBe(true);
             done();
@@ -341,7 +345,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', '~/positive');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '~/negative')).toBe(true);
             done();
@@ -359,7 +363,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', '!~/negative;!~/positive');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '!~/positive')).toBe(true);
             done();
@@ -377,7 +381,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', '~/negative;~/positive');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '~/negative')).toBe(true);
             done();
@@ -395,7 +399,7 @@ describe('Model', function() {
 
         permissions.set_property('filesystems-other', '');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_unsupportedOverride, group, _key, '!~/unsupported')).toBe(true);
             done();
@@ -413,7 +417,7 @@ describe('Model', function() {
 
         permissions.set_property('shared-network', false);
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
             done();
             return GLib.SOURCE_REMOVE;
@@ -462,7 +466,7 @@ describe('Model', function() {
 
         permissions.appId = _unsupportedAppId;
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_basicOverride, 0)).toEqual(0);
             expect(GLib.access(_unsupportedOverride, 0)).toEqual(-1);
             done();
@@ -482,7 +486,7 @@ describe('Model', function() {
 
         permissions.shutdown();
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_basicOverride, 0)).toEqual(0);
             done();
             return GLib.SOURCE_REMOVE;
@@ -493,6 +497,7 @@ describe('Model', function() {
 
     it('disables all permissions with old flatpak version', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoOld, true);
+        infoDefault.reload();
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
@@ -502,6 +507,7 @@ describe('Model', function() {
 
     it('enables all permissions with new flatpak version', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
+        infoDefault.reload();
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
@@ -510,8 +516,8 @@ describe('Model', function() {
     });
 
     it('disables permissions with stable flatpak version', function() {
+        infoDefault.reload();
         permissions.appId = _basicAppId;
-
         const total = permissions.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions - 6);
@@ -519,6 +525,7 @@ describe('Model', function() {
 
     it('handles missing .flatpak-info', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _none, true);
+        infoDefault.reload();
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
@@ -550,7 +557,7 @@ describe('Model', function() {
 
         permissions.set_property('variables', 'TEST=yes;TEST2=no');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST2', 'no')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -567,7 +574,7 @@ describe('Model', function() {
 
         permissions.set_property('variables', 'TEST=no');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST', 'no')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -584,7 +591,7 @@ describe('Model', function() {
 
         permissions.set_property('variables', '');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST', '')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -608,7 +615,7 @@ describe('Model', function() {
 
         permissions.set_property('variables', 'TEST=yes;TE ST=no');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_environmentOverride, 0)).toEqual(-1);
             done();
             return GLib.SOURCE_REMOVE;
@@ -627,7 +634,7 @@ describe('Model', function() {
         permissions.set_property('session-talk', 'org.test.Service-1;org.test.Service-3');
         permissions.set_property('session-own', 'org.test.Service-2;org.test.Service-4');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'talk')).toBe(false);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'own')).toBe(false);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-3', 'talk')).toBe(true);
@@ -649,7 +656,7 @@ describe('Model', function() {
         permissions.set_property('session-talk', '');
         permissions.set_property('session-own', '');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'none')).toBe(true);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'none')).toBe(true);
             done();
@@ -669,7 +676,7 @@ describe('Model', function() {
         permissions.set_property('session-talk', 'org.test.Service-2');
         permissions.set_property('session-own', 'org.test.Service-1');
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'own')).toBe(true);
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-2', 'talk')).toBe(true);
             done();
@@ -697,7 +704,7 @@ describe('Model', function() {
         expect(permissions.shared_network).toEqual(true);
         permissions.set_property('shared_network', false);
 
-        GLib.timeout_add(GLib.PRIORITY_HIGH, DELAY + 1, () => {
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(permissions.shared_network).toBe(false);
 
             permissions.reset();
