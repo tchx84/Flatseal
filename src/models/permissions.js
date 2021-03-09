@@ -18,7 +18,6 @@
 
 const {GObject, GLib} = imports.gi;
 
-const {FlatpakInfoModel} = imports.models.info;
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakUnsupportedModel} = imports.models.unsupported;
 const {FlatpakDevicesModel} = imports.models.devices;
@@ -82,10 +81,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         super._init({});
         this._appId = '';
         this._delayedHandlerId = 0;
-
-        this._info = new FlatpakInfoModel();
         this._applications = new FlatpakApplicationsModel();
-
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
 
@@ -236,7 +232,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['value'] = this[property.replace(/-/g, '_')];
                 entry['type'] = model.constructor.getType();
                 entry['permission'] = permission.example;
-                entry['supported'] = this._info.supports(permission.version);
+                entry['supported'] = permission.supported;
                 entry['groupTitle'] = model.constructor.getTitle();
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();

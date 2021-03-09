@@ -31,14 +31,14 @@ var FlatpakSystemBusModel = GObject.registerClass({
     getPermissions() {
         return {
             'system-talk': {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('Talks'),
                 option: 'talk',
                 value: this.constructor.getDefault(),
                 example: 'e.g. org.freedesktop.Accounts',
             },
             'system-own': {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('Owns'),
                 option: 'own',
                 value: this.constructor.getDefault(),

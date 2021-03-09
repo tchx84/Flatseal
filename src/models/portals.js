@@ -19,6 +19,7 @@
  */
 
 const {Gio, GLib, GObject} = imports.gi;
+const {info} = imports.models;
 
 var PermissionsIface = `
 <node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
@@ -36,9 +37,13 @@ var PermissionsIface = `
             <arg type="s" name="app" direction="in"/>
             <arg type="as" name="permissions" direction="in"/>
         </method>
+        <property name="version" type="u" access="read"/>
     </interface>
 </node>
 `;
+
+
+const SUPPORTED_VERSION = 2;
 
 
 var FlatpakPortalsModel = GObject.registerClass({
@@ -47,6 +52,8 @@ var FlatpakPortalsModel = GObject.registerClass({
     _init() {
         super._init({});
         this._proxy = null;
+        this._version = null;
+        this._info = info.getDefault();
         this.appId = '';
     }
 
@@ -68,7 +75,7 @@ var FlatpakPortalsModel = GObject.registerClass({
     getPermissions() {
         return {
             'portals-background': {
-                version: '0.4.0',
+                supported: this.isSupported(),
                 description: _('Background'),
                 value: this.constructor.getDefault(),
                 example: _('Can run in the background'),
@@ -76,7 +83,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'background',
             },
             'portals-notification': {
-                version: '0.4.0',
+                supported: this.isSupported(),
                 description: _('Notification'),
                 value: this.constructor.getDefault(),
                 example: _('Can send notifications'),
@@ -84,7 +91,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'notification',
             },
             'portals-microphone': {
-                version: '0.4.0',
+                supported: this.isSupported(),
                 description: _('Microphone'),
                 value: this.constructor.getDefault(),
                 example: _('Can access your microphone'),
@@ -92,7 +99,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'microphone',
             },
             'portals-speakers': {
-                version: '0.4.0',
+                supported: this.isSupported(),
                 description: _('Speakers'),
                 value: this.constructor.getDefault(),
                 example: _('Can access your speakers'),
@@ -100,7 +107,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'speakers',
             },
             'portals-camera': {
-                version: '0.4.0',
+                supported: this.isSupported(),
                 description: _('Camera'),
                 value: this.constructor.getDefault(),
                 example: _('Can access your camera'),
@@ -108,7 +115,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'camera',
             },
             'portals-location': {
-                version: '0.4.0',
+                supported: this.isSupported(),
                 description: _('Location'),
                 value: this.constructor.getDefault(),
                 example: _('Can access your location'),
@@ -142,8 +149,20 @@ var FlatpakPortalsModel = GObject.registerClass({
         return _('Provide selective access to resources');
     }
 
+    isSupported() {
+        if (this._version === null) {
+            this._setup();
+            this._version = this._proxy.version;
+        }
+        return this._version >= SUPPORTED_VERSION && this._info.supports('0.4.0');
+    }
+
     updateFromProxyProperty(property, value) {
         this._setup();
+
+        if (!this.isSupported())
+            return;
+
         const permission = this.getPermissions()[property];
         const access = value ? ['yes'] : ['no'];
         this._proxy.SetPermissionSync(
@@ -156,6 +175,10 @@ var FlatpakPortalsModel = GObject.registerClass({
 
     updateProxyProperty(proxy) {
         this._setup();
+
+        if (!this.isSupported())
+            return;
+
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             try {
                 const [appIds] = this._proxy.LookupSync(permission.table, permission.id);

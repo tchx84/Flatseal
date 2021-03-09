@@ -32,7 +32,7 @@ var FlatpakVariablesModel = GObject.registerClass({
     getPermissions() {
         return {
             variables: {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('Variables'),
                 option: null,
                 value: this.constructor.getDefault(),

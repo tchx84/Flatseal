@@ -17,6 +17,7 @@
  */
 
 const {GObject} = imports.gi;
+const {info} = imports.models;
 
 
 var FlatpakSharedModel = GObject.registerClass({
@@ -24,20 +25,21 @@ var FlatpakSharedModel = GObject.registerClass({
 }, class FlatpakSharedModel extends GObject.Object {
     _init() {
         super._init({});
+        this._info = info.getDefault();
         this.reset();
     }
 
     getPermissions() {
         return {
             'shared-network': {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('Network'),
                 option: 'network',
                 value: this.constructor.getDefault(),
                 example: 'share=network',
             },
             'shared-ipc': {
-                version: '0.4.0',
+                supported: this._info.supports('0.4.0'),
                 description: _('Inter-process communications'),
                 option: 'ipc',
                 value: this.constructor.getDefault(),

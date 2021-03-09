@@ -77,4 +77,18 @@ var FlatpakInfoModel = GObject.registerClass({
 
         return true;
     }
+
+    reload() {
+        this._version = this._parseVersion();
+    }
 });
+
+
+var getDefault = (function() {
+    let instance;
+    return function() {
+        if (typeof instance === 'undefined')
+            instance = new FlatpakInfoModel();
+        return instance;
+    };
+}());
