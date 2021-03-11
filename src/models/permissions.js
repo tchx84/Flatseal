@@ -1,3 +1,5 @@
+/* exported FlatpakPermissionsModel */
+
 /* permissions.js
  *
  * Copyright 2020 Martin Abente Lahaye

@@ -1,3 +1,5 @@
+/* exported FlatpakFilesystemsModel */
+
 /* filesystems.js
  *
  * Copyright 2020 Martin Abente Lahaye

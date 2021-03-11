@@ -248,5 +248,6 @@ globals:
   print: false
   printerr: false
   window: false
+  _: false
 parserOptions:
   ecmaVersion: 2017

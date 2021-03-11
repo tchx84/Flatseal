@@ -1,3 +1,5 @@
+/* exported FlatpakSocketsModel */
+
 /* sockets.js
  *
  * Copyright 2020 Martin Abente Lahaye

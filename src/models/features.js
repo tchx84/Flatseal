@@ -1,3 +1,5 @@
+/* exported FlatpakFeaturesModel */
+
 /* features.js
  *
  * Copyright 2020 Martin Abente Lahaye
