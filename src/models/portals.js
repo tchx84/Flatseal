@@ -1,3 +1,4 @@
+/* exported FlatpakPortalsModel */
 /* eslint class-methods-use-this: */
 
 /* portals.js

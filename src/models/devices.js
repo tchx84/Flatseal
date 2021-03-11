@@ -1,3 +1,5 @@
+/* exported FlatpakDevicesModel */
+
 /* devices.js
  *
  * Copyright 2020 Martin Abente Lahaye

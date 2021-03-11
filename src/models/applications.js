@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* exported FlatpakApplicationsModel */
+
 const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
 
 const {FlatpakInfoModel} = imports.models.info;

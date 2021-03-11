@@ -1,3 +1,5 @@
+/* exported FlatpakPersistentModel getDefault */
+
 /* persistent.js
  *
  * Copyright 2020 Martin Abente Lahaye

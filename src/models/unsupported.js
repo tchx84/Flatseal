@@ -1,3 +1,4 @@
+/* exported FlatpakUnsupportedModel */
 /* eslint class-methods-use-this: */
 
 /* unsupported.js

@@ -1,3 +1,5 @@
+/* exported FlatpakSessionBusModel */
+
 /* sessionBus.js
  *
  * Copyright 2020 Martin Abente Lahaye

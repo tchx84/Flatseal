@@ -1,3 +1,5 @@
+/* exported FlatpakInfoModel getDefault */
+
 /* info.js
  *
  * Copyright 2020 Martin Abente Lahaye
