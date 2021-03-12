@@ -39,6 +39,7 @@ const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 const _bindInvertFlags = _bindReadFlags | GObject.BindingFlags.INVERT_BOOLEAN;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
+const ACTION_BAR_THRESHOLD = 360
 
 
 var FlatsealWindow = GObject.registerClass({
@@ -80,10 +81,10 @@ var FlatsealWindow = GObject.registerClass({
         const applications = this._applications.getAll();
         const permissions = this._permissions.getAll();
 
-        const detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
-        this._startHeaderBox.add(detailsHeaderButton);
-        const resetHeaderButton = new FlatsealResetButton(this._permissions);
-        this._endHeaderBox.add(resetHeaderButton);
+        this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
+        this._startHeaderBox.add(this._detailsHeaderButton);
+        this._resetHeaderButton = new FlatsealResetButton(this._permissions);
+        this._endHeaderBox.add(this._resetHeaderButton);
 
         const detailsActionButton = new FlatsealDetailsButton(this._permissions);
         this._startActionBox.add(detailsActionButton);
@@ -95,12 +96,7 @@ var FlatsealWindow = GObject.registerClass({
 
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
-        this._contentLeaflet.bind_property(
-            'folded', this._actionBar, 'visible', _bindReadFlags);
-        this._contentLeaflet.bind_property(
-            'folded', detailsHeaderButton, 'visible', _bindInvertFlags);
-        this._contentLeaflet.bind_property(
-            'folded', resetHeaderButton, 'visible', _bindInvertFlags);
+        this._permissionsHeaderBar.connect_after('size-allocate', this._update_visibility.bind(this));
 
         if (applications.length === 0 || permissions.length === 0)
             return;
@@ -212,6 +208,15 @@ var FlatsealWindow = GObject.registerClass({
         this._undoPopup.close();
         if (switchPage)
             this._showPermissions();
+    }
+
+    _update_visibility(window, allocation) {
+        const visible = allocation.width <= ACTION_BAR_THRESHOLD;
+
+        this._detailsHeaderButton.visible = !visible;
+        this._resetHeaderButton.visible = !visible;
+
+        this._actionBar.visible = visible;
     }
 
     _filter(row) {
