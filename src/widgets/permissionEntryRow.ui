@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.36.0 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <requires lib="libhandy" version="0.0"/>
   <template class="FlatsealPermissionEntryRow" parent="HdyPreferencesRow">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
+    <property name="can-focus">False</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
-        <property name="margin-bottom">12</property>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="margin-start">12</property>
-            <property name="margin-end">12</property>
-            <property name="margin-top">12</property>
+            <property name="can-focus">False</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
@@ -29,10 +26,11 @@
                 <child>
                   <object class="GtkLabel" id="description">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="halign">start</property>
+                    <property name="valign">end</property>
                     <property name="ellipsize">end</property>
-                    <property name="single_line_mode">True</property>
+                    <property name="single-line-mode">True</property>
                     <style>
                       <class name="title"/>
                     </style>
@@ -46,10 +44,11 @@
                 <child>
                   <object class="GtkLabel" id="permission">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="can-focus">False</property>
                     <property name="halign">start</property>
+                    <property name="valign">start</property>
                     <property name="ellipsize">end</property>
-                    <property name="single_line_mode">True</property>
+                    <property name="single-line-mode">True</property>
                     <style>
                       <class name="subtitle"/>
                     </style>
@@ -70,21 +69,21 @@
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkButton" id="button">
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
                     <property name="halign">end</property>
                     <property name="valign">center</property>
                     <child>
                       <object class="GtkImage" id="image">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="icon_name">folder-new-symbolic</property>
+                        <property name="can-focus">False</property>
+                        <property name="icon-name">folder-new-symbolic</property>
                       </object>
                     </child>
                     <style>
@@ -104,6 +103,9 @@
                 <property name="position">1</property>
               </packing>
             </child>
+            <style>
+              <class name="title"/>
+            </style>
           </object>
           <packing>
             <property name="expand">True</property>
@@ -114,11 +116,9 @@
         <child>
           <object class="GtkBox" id="box">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="valign">start</property>
             <property name="orientation">vertical</property>
-            <property name="margin-start">12</property>
-            <property name="margin-end">12</property>
             <child>
               <placeholder/>
             </child>
@@ -132,6 +132,9 @@
             <property name="position">1</property>
           </packing>
         </child>
+        <style>
+          <class name="header"/>
+        </style>
       </object>
     </child>
   </template>

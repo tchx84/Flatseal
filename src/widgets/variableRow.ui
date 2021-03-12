@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.36.0 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkListStore" id="store">
@@ -10,25 +10,25 @@
   </object>
   <object class="GtkEntryCompletion" id="completion">
     <property name="model">store</property>
-    <property name="text_column">0</property>
-    <property name="inline_completion">True</property>
-    <property name="popup_set_width">False</property>
-    <property name="popup_single_match">False</property>
-    <property name="inline_selection">True</property>
+    <property name="text-column">0</property>
+    <property name="inline-completion">True</property>
+    <property name="popup-set-width">False</property>
+    <property name="popup-single-match">False</property>
+    <property name="inline-selection">True</property>
   </object>
   <template class="FlatsealVariableRow" parent="GtkBox">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="margin_top">12</property>
+    <property name="can-focus">False</property>
+    <property name="margin-bottom">12</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="image">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="valign">center</property>
             <property name="icon_size">2</property>
             <style>
@@ -51,12 +51,12 @@
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkEntry" id="entry">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="valign">center</property>
             <property name="completion">completion</property>
           </object>
@@ -76,20 +76,20 @@
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkButton" id="button">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
             <property name="halign">end</property>
             <property name="valign">center</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">window-close-symbolic</property>
+                <property name="can-focus">False</property>
+                <property name="icon-name">window-close-symbolic</property>
               </object>
             </child>
           </object>
