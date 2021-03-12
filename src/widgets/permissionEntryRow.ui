@@ -6,6 +6,8 @@
   <template class="FlatsealPermissionEntryRow" parent="HdyPreferencesRow">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
+    <property name="activatable">False</property>
+    <property name="selectable">False</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
