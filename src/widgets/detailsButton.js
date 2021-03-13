@@ -1,3 +1,5 @@
+/* exported FlatsealDetailsButton */
+
 /* detailsButton.js
  *
  * Copyright 2020 Martin Abente Lahaye

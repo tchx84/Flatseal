@@ -1,3 +1,5 @@
+/* exported FlatsealPermissionEntryRow */
+
 /* permissionEntryRow.js
  *
  * Copyright 2020 Martin Abente Lahaye
@@ -16,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Handy} = imports.gi;
+const {GObject, Handy} = imports.gi;
 
 const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
 

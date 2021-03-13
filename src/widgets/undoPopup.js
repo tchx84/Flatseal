@@ -1,3 +1,5 @@
+/* exported FlatsealUndoPopup */
+
 /* undoPopup.js
  *
  * Copyright 2020 Martin Abente Lahaye

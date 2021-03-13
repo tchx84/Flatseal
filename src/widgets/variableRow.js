@@ -1,3 +1,5 @@
+/* exported FlatsealVariableRow */
+
 /* variableRow.js
  *
  * Copyright 2020 Martin Abente Lahaye

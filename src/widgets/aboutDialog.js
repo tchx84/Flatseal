@@ -1,3 +1,5 @@
+/* exported FlatsealAboutDialog */
+
 /* aboutDialog.js
  *
  * Copyright 2020 Martin Abente Lahaye

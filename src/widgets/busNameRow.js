@@ -1,3 +1,5 @@
+/* exported FlatsealBusNameRow */
+
 /* busNameRow.js
  *
  * Copyright 2020 Martin Abente Lahaye

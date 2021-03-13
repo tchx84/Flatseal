@@ -1,3 +1,6 @@
+/* exported FlatsealAppInfoViewer */
+/* eslint accessor-pairs: */
+
 /* appInfoViewer.js
  *
  * Copyright 2020 Martin Abente Lahaye
