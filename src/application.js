@@ -1,3 +1,6 @@
+/* exported FlatsealApplication */
+/* eslint class-methods-use-this: */
+
 /* application.js
  *
  * Copyright 2020 Martin Abente Lahaye

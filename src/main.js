@@ -1,3 +1,5 @@
+/* exported main */
+
 /* main.js
  *
  * Copyright 2020 Martin Abente Lahaye
