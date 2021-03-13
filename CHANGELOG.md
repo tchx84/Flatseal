@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+- Added support for basic dynamic permissions, a.k.a portals.
+- Changed UI to better utilize libhandy's widgets.
+
 ## [1.6.8] - 2021-01-30
 
 - Fixed searching by application name and not only by app id.
