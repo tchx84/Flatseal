@@ -1,3 +1,5 @@
+/* exported FlatsealResetButton */
+
 /* resetButton.js
  *
  * Copyright 2020 Martin Abente Lahaye

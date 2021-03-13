@@ -1,3 +1,5 @@
+/* exported FlatsealPathRow */
+
 /* pathRow.js
  *
  * Copyright 2020 Martin Abente Lahaye

@@ -1,3 +1,5 @@
+/* exported FlatsealWindow */
+
 /* window.js
  *
  * Copyright 2020 Martin Abente Lahaye
@@ -17,7 +19,6 @@
  */
 
 const {GObject, Gtk, Handy} = imports.gi;
-const {Leaflet, TitleBar, SwipeGroup, Clamp} = imports.gi.Handy;
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakPermissionsModel} = imports.models.permissions;
@@ -36,10 +37,9 @@ const {FlatsealBusNameRow} = imports.widgets.busNameRow;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
-const _bindInvertFlags = _bindReadFlags | GObject.BindingFlags.INVERT_BOOLEAN;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
-const ACTION_BAR_THRESHOLD = 360
+const ACTION_BAR_THRESHOLD = 360;
 
 
 var FlatsealWindow = GObject.registerClass({
@@ -96,7 +96,8 @@ var FlatsealWindow = GObject.registerClass({
 
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
-        this._permissionsHeaderBar.connect_after('size-allocate', this._update_visibility.bind(this));
+        this._permissionsHeaderBar.connect_after(
+            'size-allocate', this._update_visibility.bind(this));
 
         if (applications.length === 0 || permissions.length === 0)
             return;
