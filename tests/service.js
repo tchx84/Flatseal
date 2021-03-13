@@ -1,4 +1,4 @@
-/* eslint class-methods-use-this: */
+/* eslint class-methods-use-this:, no-unused-vars: */
 
 /* service.js
  *

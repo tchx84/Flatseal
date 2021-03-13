@@ -238,7 +238,7 @@ rules:
   yoda:
     - error
     - never
-# GJS and SpiderMonkey global objects
+# GJS, SpiderMonkey and Jasmine global objects
 globals:
   ARGV: false
   imports: false
@@ -250,5 +250,12 @@ globals:
   window: false
   _: false
   pkg: false
+  describe: false
+  beforeEach: false
+  it: false
+  expect: false
+  spyOn: false
+  beforeAll: false
+  afterAll: false
 parserOptions:
   ecmaVersion: 2017
