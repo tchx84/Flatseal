@@ -42,8 +42,7 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayDocumentation() {
-        Gio.AppInfo.launch_default_for_uri(
-            'https://github.com/tchx84/Flatseal/blob/master/DOCUMENTATION.md', null);
+        Gtk.show_uri(null, "help:flatseal", Gdk.CURRENT_TIME);
     }
 
     _displayAbout() {
