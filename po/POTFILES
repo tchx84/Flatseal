@@ -13,6 +13,7 @@ src/models/filesystemsOther.js
 src/models/info.js
 src/models/permissions.js
 src/models/persistent.js
+src/models/portals.js
 src/models/shared.js
 src/models/sockets.js
 src/models/unsupported.js
@@ -26,8 +27,6 @@ src/widgets/applicationRow.ui
 src/widgets/busNameRow.js
 src/widgets/busNameRow.ui
 src/widgets/detailsButton.js
-src/widgets/groupRow.js
-src/widgets/groupRow.ui
 src/widgets/menu.ui
 src/widgets/pathRow.js
 src/widgets/pathRow.ui

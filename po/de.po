@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-29 08:52-0300\n"
+"POT-Creation-Date: 2021-03-20 15:30-0300\n"
 "PO-Revision-Date: 2020-04-01 21:25-0300\n"
 "Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
 "Language-Team: none\n"
@@ -30,11 +30,6 @@ msgstr ""
 msgid "Manage Flatpak permissions"
 msgstr "Ein Berechtigungsmanager für Flatpak"
 
-#. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.desktop.in:12
-msgid "com.github.tchx84.Flatseal"
-msgstr ""
-
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
 msgid ""
@@ -49,177 +44,232 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:191 src/models/applications.js:251
-#: src/models/applications.js:252 src/models/applications.js:253
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: src/models/sessionBus.js:35 src/models/systemBus.js:35
+#: src/models/sessionBus.js:37 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "Redet mit"
 
-#: src/models/sessionBus.js:42 src/models/systemBus.js:42
+#: src/models/sessionBus.js:44 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "Besitzt"
 
-#: src/models/sessionBus.js:79
+#: src/models/sessionBus.js:81
 msgid "List of well-known names on the session bus"
 msgstr "Liste bekannter Namen im Sitzungsbus"
 
-#: src/models/systemBus.js:71
+#: src/models/systemBus.js:73
 msgid "List of well-known names on the system bus"
 msgstr "Liste bekannter Namen auf dem Systembus"
 
-#: src/models/devices.js:35
+#: src/models/devices.js:37
 msgid "GPU acceleration"
 msgstr "GPU-Beschleunigung"
 
-#: src/models/devices.js:42
+#: src/models/devices.js:44
 msgid "Virtualization"
 msgstr "Virtualisierung"
 
-#: src/models/devices.js:49
+#: src/models/devices.js:51
 msgid "Shared memory"
 msgstr "Gemeinsam genutzter Speicher"
 
-#: src/models/devices.js:56
+#: src/models/devices.js:58
 msgid "All devices (e.g. webcam)"
 msgstr "Alle Geräte (z.B. Webcam)"
 
-#: src/models/devices.js:81
+#: src/models/devices.js:83
 msgid "List of devices available in the sandbox"
 msgstr "Liste der in der Sandbox verfügbaren Geräte"
 
-#: src/models/features.js:35
+#: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
 msgstr "Entwicklungs-Systemaufrufe (z.B. ptrace)"
 
-#: src/models/features.js:42
+#: src/models/features.js:44
 msgid "Programs from other architectures"
 msgstr "Programme anderer Architekturen"
 
-#: src/models/features.js:49
+#: src/models/features.js:51
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: src/models/features.js:56
+#: src/models/features.js:58
 msgid "Controller Area Network bus"
 msgstr "Controller Area Netzwerkbus"
 
-#: src/models/features.js:81
+#: src/models/features.js:83
 msgid "List of features available to the application"
 msgstr "Liste der Funktionen, die der Anwendung zur Verfügung stehen"
 
-#: src/models/filesystems.js:35
+#: src/models/filesystems.js:37
 msgid "All system files"
 msgstr "Alle Systemdateien"
 
-#: src/models/filesystems.js:42
+#: src/models/filesystems.js:44
 msgid "All system libraries, executables and static data"
 msgstr "Alle Systembibliotheken, ausführbaren Dateien sowie statische Daten"
 
-#: src/models/filesystems.js:49
+#: src/models/filesystems.js:51
 msgid "All system configurations"
 msgstr "Alle Systemkonfigurationen"
 
-#: src/models/filesystems.js:56
+#: src/models/filesystems.js:58
 msgid "All user files"
 msgstr "Alle Benutzerdateien"
 
-#: src/models/filesystems.js:81 src/models/filesystemsOther.js:60
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
 msgid "List of filesystem subsets available to the application"
 msgstr "Liste der für die Anwendung verfügbaren Dateisysteme"
 
-#: src/models/filesystemsOther.js:35
+#: src/models/filesystemsOther.js:37
 msgid "Other files"
 msgstr "Andere Dateien"
 
-#: src/models/filesystemsOther.js:38
+#: src/models/filesystemsOther.js:40
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "z.B. ~/Spiele:ro, xdg-pictures, etc"
 
-#: src/models/persistent.js:35
+#: src/models/persistent.js:37
 msgid "Files"
 msgstr "Dateien"
 
-#: src/models/persistent.js:38
+#: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
 msgstr "z.B. .thunderbird"
 
-#: src/models/persistent.js:60
+#: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr "Liste der in der Sandbox erstellten homedir-relativen Pfade"
 
-#: src/models/shared.js:34
+#: src/models/portals.js:80
+msgid "Background"
+msgstr ""
+
+#: src/models/portals.js:82
+msgid "Can run in the background"
+msgstr ""
+
+#: src/models/portals.js:88
+#, fuzzy
+msgid "Notifications"
+msgstr "Dokumentation"
+
+#: src/models/portals.js:90
+msgid "Can send notifications"
+msgstr ""
+
+#: src/models/portals.js:96
+msgid "Microphone"
+msgstr ""
+
+#: src/models/portals.js:98
+msgid "Can listen to your microphone"
+msgstr ""
+
+#: src/models/portals.js:104
+msgid "Speakers"
+msgstr ""
+
+#: src/models/portals.js:106
+msgid "Can play sounds to your speakers"
+msgstr ""
+
+#: src/models/portals.js:112
+msgid "Camera"
+msgstr ""
+
+#: src/models/portals.js:114
+msgid "Can record videos with your camera"
+msgstr ""
+
+#: src/models/portals.js:120
+#, fuzzy
+msgid "Location"
+msgstr "Dokumentation"
+
+#: src/models/portals.js:122
+msgid "Can access your location"
+msgstr ""
+
+#: src/models/portals.js:150
+#, fuzzy
+msgid "List of resources selectively granted to the application"
+msgstr "Liste der Funktionen, die der Anwendung zur Verfügung stehen"
+
+#: src/models/shared.js:38
 msgid "Network"
 msgstr "Netzwerk"
 
-#: src/models/shared.js:41
+#: src/models/shared.js:45
 msgid "Inter-process communications"
 msgstr "Kommunikation zwischen Prozessen"
 
-#: src/models/shared.js:74
+#: src/models/shared.js:78
 msgid "List of subsystems shared with the host system"
 msgstr "Liste der mit dem Hostsystem gemeinsam genutzten Subsysteme"
 
-#: src/models/sockets.js:35
+#: src/models/sockets.js:37
 msgid "X11 windowing system"
 msgstr "X11-Fenstermanager"
 
-#: src/models/sockets.js:42
+#: src/models/sockets.js:44
 msgid "Wayland windowing system"
 msgstr "Wayland-Fenstermanager"
 
-#: src/models/sockets.js:49
+#: src/models/sockets.js:51
 msgid "Fallback to X11 windowing system"
 msgstr "Fallback auf das X11-Fenstersystem"
 
-#: src/models/sockets.js:56
+#: src/models/sockets.js:58
 msgid "PulseAudio sound server"
 msgstr "PulseAudio-Soundserver"
 
-#: src/models/sockets.js:63
+#: src/models/sockets.js:65
 msgid "D-Bus session bus"
 msgstr "D-Bus-Sitzungsbus"
 
-#: src/models/sockets.js:70
+#: src/models/sockets.js:72
 msgid "D-Bus system bus"
 msgstr "D-Bus-Systembus"
 
-#: src/models/sockets.js:77
+#: src/models/sockets.js:79
 msgid "Secure Shell agent"
 msgstr "Secure Shell Agent"
 
-#: src/models/sockets.js:84
+#: src/models/sockets.js:86
 msgid "Smart cards"
 msgstr "Smartcards"
 
-#: src/models/sockets.js:91
+#: src/models/sockets.js:93
 msgid "Printing system"
 msgstr "Druckerverwaltung"
 
-#: src/models/sockets.js:116
+#: src/models/sockets.js:118
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Liste der in der Sandbox verfügbaren Sockets"
 
-#: src/models/variables.js:36
+#: src/models/variables.js:38
 msgid "Variables"
 msgstr "Variablen"
 
-#: src/models/variables.js:39
+#: src/models/variables.js:41
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "z.B. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:69
+#: src/models/variables.js:71
 msgid "List of variables exported to the application"
 msgstr "Liste der in die Anwendung exportierten Variablen"
 
-#: src/widgets/aboutDialog.js:36
+#: src/widgets/aboutDialog.js:38
 msgid "Contributions by"
 msgstr ""
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
-#: src/widgets/appInfoViewer.js:58
+#: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
 msgstr "%e. %B %Y"
 
@@ -235,20 +285,20 @@ msgstr "Letzte Aktualisierung"
 msgid "Runtime"
 msgstr "Runtime"
 
-#: src/widgets/busNameRow.js:31 src/widgets/pathRow.js:61
-#: src/widgets/relativePathRow.js:30 src/widgets/variableRow.js:28
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
+#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
 msgstr "Dies ist eine ungültige Einstellung"
 
-#: src/widgets/detailsButton.js:55
+#: src/widgets/detailsButton.js:57
 msgid "Show Details"
 msgstr "Zeige Details"
 
-#: src/widgets/detailsButton.js:93
+#: src/widgets/detailsButton.js:95
 msgid "Show application in a software manager"
 msgstr "Anwendung in einem Software-Manager anzeigen"
 
-#: src/widgets/detailsButton.js:95
+#: src/widgets/detailsButton.js:97
 msgid "No software manager found"
 msgstr "Kein Software-Manager gefunden"
 
@@ -264,114 +314,114 @@ msgstr "Dokumentation"
 msgid "About Flatseal"
 msgstr "Über Flatseal"
 
-#: src/widgets/pathRow.js:24
+#: src/widgets/pathRow.js:26
 msgid "this absolute path"
 msgstr "dieser absoluter Dateipfad"
 
-#: src/widgets/pathRow.js:25
+#: src/widgets/pathRow.js:27
 msgid "this path relative to the home directory"
 msgstr "dieser Pfad relativ zum Ausgangsverzeichnis"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/pathRow.js:28
 msgid "all system configurations"
 msgstr "alle Systemkonfigurationen"
 
-#: src/widgets/pathRow.js:27
+#: src/widgets/pathRow.js:29
 msgid "all system libraries, executables and static data"
 msgstr "alle Systembibliotheken, ausführbaren Dateien sowie statische Daten"
 
-#: src/widgets/pathRow.js:28
+#: src/widgets/pathRow.js:30
 msgid "all system files"
 msgstr "alle Systemdateien"
 
-#: src/widgets/pathRow.js:29
+#: src/widgets/pathRow.js:31
 msgid "all user files"
 msgstr "alle Benutzerdateien"
 
-#: src/widgets/pathRow.js:30
+#: src/widgets/pathRow.js:32
 msgid "the desktop directory"
 msgstr "das Desktop-Verzeichnis"
 
-#: src/widgets/pathRow.js:31
+#: src/widgets/pathRow.js:33
 msgid "the documents directory"
 msgstr "das Dokumentenverzeichnis"
 
-#: src/widgets/pathRow.js:32
+#: src/widgets/pathRow.js:34
 msgid "the download directory"
 msgstr "das Download-Verzeichnis"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:35
 msgid "the music directory"
 msgstr "das Musikverzeichnis"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:36
 msgid "the pictures directory"
 msgstr "das Bilderverzeichnis"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:37
 msgid "the public directory"
 msgstr "das öffentliche Verzeichnis"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:38
 msgid "the videos directory"
 msgstr "das Video-Verzeichnis"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:39
 msgid "the templates directory"
 msgstr "das Vorlagenverzeichnis"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:40
 msgid "the config directory"
 msgstr "das Konfigurationsverzeichnis"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:41
 msgid "the cache directory"
 msgstr "das Cache-Verzeichnis"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:42
 msgid "the data directory"
 msgstr "das Datenverzeichnis"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:43
 msgid "the runtime directory"
 msgstr "das Laufzeitverzeichnis"
 
-#: src/widgets/pathRow.js:56
+#: src/widgets/pathRow.js:58
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Kann lesen: %s"
 
-#: src/widgets/pathRow.js:57
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Kann ändern und lesen: %s"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Kann erstellen, ändern und lesen: %s"
 
-#: src/widgets/permissionEntryRow.js:56 src/widgets/permissionSwitchRow.js:37
+#: src/widgets/permissionEntryRow.js:58 src/widgets/permissionSwitchRow.js:39
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Wird von der installierten Version von Flatpak nicht unterstützt"
 
-#: src/widgets/relativePathRow.js:76
+#: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
 msgstr "Standardpfade können nicht entfernt werden"
 
-#: src/widgets/resetButton.js:42
+#: src/widgets/resetButton.js:44
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: src/widgets/resetButton.js:60
+#: src/widgets/resetButton.js:62
 msgid "No changes made to this application"
 msgstr "An dieser Anwendung wurden keine Änderungen vorgenommen"
 
-#: src/widgets/resetButton.js:63
+#: src/widgets/resetButton.js:65
 msgid "Reset this application permissions"
 msgstr "Berechtigung dieser Anwendung zurücksetzen"
 
-#: src/widgets/resetButton.js:65
+#: src/widgets/resetButton.js:67
 msgid ", including changes not made with Flatseal"
 msgstr ", einschließlich Änderungen, die nicht mit Flatseal vorgenommen wurden"
 
@@ -383,10 +433,10 @@ msgstr "Berechtigungen wurden zurückgesetzt"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: src/widgets/window.ui:41
-msgid "No applications found."
-msgstr "Keine Anwendungen gefunden."
-
-#: src/widgets/window.ui:440
+#: src/widgets/window.ui:30
 msgid "Applications"
 msgstr "Anwendungen"
+
+#: src/widgets/window.ui:78
+msgid "No applications found."
+msgstr "Keine Anwendungen gefunden."
