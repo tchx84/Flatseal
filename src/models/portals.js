@@ -85,7 +85,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             },
             'portals-notification': {
                 supported: this.isSupported(),
-                description: _('Notification'),
+                description: _('Notifications'),
                 value: this.constructor.getDefault(),
                 example: _('Can send notifications'),
                 table: 'notifications',
@@ -95,7 +95,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 supported: this.isSupported(),
                 description: _('Microphone'),
                 value: this.constructor.getDefault(),
-                example: _('Can access your microphone'),
+                example: _('Can listen to your microphone'),
                 table: 'devices',
                 id: 'microphone',
             },
@@ -103,7 +103,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 supported: this.isSupported(),
                 description: _('Speakers'),
                 value: this.constructor.getDefault(),
-                example: _('Can access your speakers'),
+                example: _('Can play sounds to your speakers'),
                 table: 'devices',
                 id: 'speakers',
             },
@@ -111,7 +111,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 supported: this.isSupported(),
                 description: _('Camera'),
                 value: this.constructor.getDefault(),
-                example: _('Can access your camera'),
+                example: _('Can record videos with your camera'),
                 table: 'devices',
                 id: 'camera',
             },
@@ -147,7 +147,7 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     static getDescription() {
-        return _('Provide selective access to resources');
+        return _('List of resources selectively granted to the application');
     }
 
     isSupported() {
