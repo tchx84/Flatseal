@@ -145,58 +145,55 @@ msgstr "Lista de rutas relativas al directorio hogar creadas en el sandbox"
 
 #: src/models/portals.js:80
 msgid "Background"
-msgstr ""
+msgstr "Segundo plano"
 
 #: src/models/portals.js:82
 msgid "Can run in the background"
-msgstr ""
+msgstr "Puede ejecutarse en segundo plano"
 
 #: src/models/portals.js:88
-#, fuzzy
 msgid "Notifications"
-msgstr "Documentación"
+msgstr "Notificaciones"
 
 #: src/models/portals.js:90
 msgid "Can send notifications"
-msgstr ""
+msgstr "Puede enviar notificaciones"
 
 #: src/models/portals.js:96
 msgid "Microphone"
-msgstr ""
+msgstr "Micrófono"
 
 #: src/models/portals.js:98
 msgid "Can listen to your microphone"
-msgstr ""
+msgstr "Puede escuchar su micrófono"
 
 #: src/models/portals.js:104
 msgid "Speakers"
-msgstr ""
+msgstr "Altavoz"
 
 #: src/models/portals.js:106
 msgid "Can play sounds to your speakers"
-msgstr ""
+msgstr "Puede reproducir sonidos en su altavoz"
 
 #: src/models/portals.js:112
 msgid "Camera"
-msgstr ""
+msgstr "Cámara"
 
 #: src/models/portals.js:114
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Puede grabar videos con su cámara"
 
 #: src/models/portals.js:120
-#, fuzzy
 msgid "Location"
-msgstr "Documentación"
+msgstr "Ubicación"
 
 #: src/models/portals.js:122
 msgid "Can access your location"
-msgstr ""
+msgstr "Puede acceder a su ubicación"
 
 #: src/models/portals.js:150
-#, fuzzy
 msgid "List of resources selectively granted to the application"
-msgstr "Lista de funciones disponibles para la aplicación"
+msgstr "Lista de recursos otorgados selectivamente a la aplicación"
 
 #: src/models/shared.js:38
 msgid "Network"
