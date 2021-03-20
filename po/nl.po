@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-20 15:30-0300\n"
-"PO-Revision-Date: 2020-10-31 13:32+0100\n"
+"PO-Revision-Date: 2021-03-20 21:56+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -27,7 +27,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
-msgstr "Een toepassing om Flatpak-machtigingen te beheren"
+msgstr "Beheer Flatpak-bevoegdheden"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -35,7 +35,7 @@ msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal is een grafisch hulpmiddel om basismachtigingen van elke Flatpak-"
+"Flatseal is een grafisch hulpmiddel om de bevoegdheden van elke Flatpak-"
 "toepassing te bekijken en aan te passen."
 
 #. TRANSLATORS: Don't translate this text
@@ -131,7 +131,7 @@ msgstr "Overige bestanden"
 
 #: src/models/filesystemsOther.js:40
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "b.v. ~/spellen:ro, xdg-pictures, enz"
+msgstr "bijv. ~/spellen:ro, xdg-pictures, enz."
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -139,66 +139,65 @@ msgstr "Bestanden"
 
 #: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
-msgstr "b.v. .thunderbird"
+msgstr "bijv. .thunderbird"
 
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Lijst met homedir-relatieve paden die in de sandbox zijn gemaakt"
+msgstr ""
+"Lijst met relatieve paden uit je persoonlijke map die in de sandbox zijn "
+"gemaakt"
 
 #: src/models/portals.js:80
 msgid "Background"
-msgstr ""
+msgstr "Achtergrond"
 
 #: src/models/portals.js:82
 msgid "Can run in the background"
-msgstr ""
+msgstr "Mag worden uitgevoerd op de achtergrond"
 
 #: src/models/portals.js:88
-#, fuzzy
 msgid "Notifications"
-msgstr "Documentatie"
+msgstr "Meldingen"
 
 #: src/models/portals.js:90
 msgid "Can send notifications"
-msgstr ""
+msgstr "Mag meldingen tonen"
 
 #: src/models/portals.js:96
 msgid "Microphone"
-msgstr ""
+msgstr "Microfoon"
 
 #: src/models/portals.js:98
 msgid "Can listen to your microphone"
-msgstr ""
+msgstr "Mag je microfoon gebruiken"
 
 #: src/models/portals.js:104
 msgid "Speakers"
-msgstr ""
+msgstr "Luidsprekers"
 
 #: src/models/portals.js:106
 msgid "Can play sounds to your speakers"
-msgstr ""
+msgstr "Mag geluid afspelen via je luidsprekers"
 
 #: src/models/portals.js:112
 msgid "Camera"
-msgstr ""
+msgstr "Camera"
 
 #: src/models/portals.js:114
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Mag video's opnemen middels je camera"
 
 #: src/models/portals.js:120
-#, fuzzy
 msgid "Location"
-msgstr "Documentatie"
+msgstr "Locatie"
 
 #: src/models/portals.js:122
 msgid "Can access your location"
-msgstr ""
+msgstr "Mag je locatie bepalen"
 
 #: src/models/portals.js:150
-#, fuzzy
 msgid "List of resources selectively granted to the application"
-msgstr "Lijst met functies die beschikbaar zijn voor de toepassing"
+msgstr "Lijst met functies die zijn toegekend aan de toepassing"
 
 #: src/models/shared.js:38
 msgid "Network"
@@ -262,7 +261,7 @@ msgstr "b.v. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:71
 msgid "List of variables exported to the application"
-msgstr "Lijst met variabelen die naar de applicatie zijn geëxporteerd"
+msgstr "Lijst met variabelen die naar de toepassing zijn geëxporteerd"
 
 #: src/widgets/aboutDialog.js:38
 msgid "Contributions by"
@@ -283,7 +282,7 @@ msgstr "Laatst bijgewerkt"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr "Runtime"
+msgstr "Uitvoerbaar bestand"
 
 #: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
@@ -292,15 +291,15 @@ msgstr "Dit is geen geldige optie"
 
 #: src/widgets/detailsButton.js:57
 msgid "Show Details"
-msgstr "Toon details"
+msgstr "Details tonen"
 
 #: src/widgets/detailsButton.js:95
 msgid "Show application in a software manager"
-msgstr "Toon applicatie in een softwaremanager"
+msgstr "Toon de toepassing in een softwarebeheerder"
 
 #: src/widgets/detailsButton.js:97
 msgid "No software manager found"
-msgstr "Geen softwaremanager gevonden"
+msgstr "Geen softwarebeheerder gevonden"
 
 #: src/widgets/menu.ui:7
 msgid "Help"
@@ -384,22 +383,22 @@ msgstr "de gegevensmap"
 
 #: src/widgets/pathRow.js:43
 msgid "the runtime directory"
-msgstr "de runtime-directory"
+msgstr "de werkmap"
 
 #: src/widgets/pathRow.js:58
 #, javascript-format
 msgid "Can read: %s"
-msgstr "Kan lezen: %s"
+msgstr "Mag uitlezen: %s"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can modify and read: %s"
-msgstr "Kan wijzigen en lezen: %s"
+msgstr "Mag wijzigen en uitlezen: %s"
 
 #: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
-msgstr "Kan maken, wijzigen en lezen: %s"
+msgstr "Mag maken, wijzigen en uitlezen: %s"
 
 #: src/widgets/permissionEntryRow.js:58 src/widgets/permissionSwitchRow.js:39
 msgid "Not supported by the installed version of Flatpak"
@@ -419,15 +418,15 @@ msgstr "Geen wijzigingen aangebracht aan deze toepassing"
 
 #: src/widgets/resetButton.js:65
 msgid "Reset this application permissions"
-msgstr "Herstel alle toepassingsmachtigingen"
+msgstr "Herstel de toepassingsbevoegdheden"
 
 #: src/widgets/resetButton.js:67
 msgid ", including changes not made with Flatseal"
-msgstr ", inclusief wijzigingen die niet zijn aangebracht met Flatseal"
+msgstr ", inclusief wijzigingen die niet zijn aangebracht door Flatseal"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
-msgstr "De machtigingen zijn hersteld"
+msgstr "De bevoegdheden zijn hersteld"
 
 #: src/widgets/undoPopup.ui:36
 msgid "Undo"
