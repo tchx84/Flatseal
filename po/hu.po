@@ -145,58 +145,55 @@ msgstr "A védőfalban elérhető eszközök felsorolása"
 
 #: src/models/portals.js:80
 msgid "Background"
-msgstr ""
+msgstr "Háttérbeli"
 
 #: src/models/portals.js:82
 msgid "Can run in the background"
-msgstr ""
+msgstr "Futhat a háttérben"
 
 #: src/models/portals.js:88
-#, fuzzy
 msgid "Notifications"
-msgstr "Dokumentáció"
+msgstr "Értesítések"
 
 #: src/models/portals.js:90
 msgid "Can send notifications"
-msgstr ""
+msgstr "Értesítéseket küldhet"
 
 #: src/models/portals.js:96
 msgid "Microphone"
-msgstr ""
+msgstr "Microphone"
 
 #: src/models/portals.js:98
 msgid "Can listen to your microphone"
-msgstr ""
+msgstr "Hallgathatja a mikrofont"
 
 #: src/models/portals.js:104
 msgid "Speakers"
-msgstr ""
+msgstr "Hangszórók"
 
 #: src/models/portals.js:106
 msgid "Can play sounds to your speakers"
-msgstr ""
+msgstr "Lejátszhat hangokat a hangszórókra"
 
 #: src/models/portals.js:112
 msgid "Camera"
-msgstr ""
+msgstr "Fényképezőgép"
 
 #: src/models/portals.js:114
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Videókat rögzíthet fényképezőgépével"
 
 #: src/models/portals.js:120
-#, fuzzy
 msgid "Location"
-msgstr "Dokumentáció"
+msgstr "Hely"
 
 #: src/models/portals.js:122
 msgid "Can access your location"
-msgstr ""
+msgstr "Hozzáférhet az Ön tartózkodási helyéhez"
 
 #: src/models/portals.js:150
-#, fuzzy
 msgid "List of resources selectively granted to the application"
-msgstr "Az alkalmazás számára elérhető szolgáltatások listája"
+msgstr "Az alkalmazáshoz biztosított egyenkénti források listája"
 
 #: src/models/shared.js:38
 msgid "Network"
