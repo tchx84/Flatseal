@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-20 15:30-0300\n"
-"PO-Revision-Date: 2020-12-02 12:58+0100\n"
+"PO-Revision-Date: 2021-03-21 19:56+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -147,58 +147,55 @@ msgstr "Seznam cest relativních k domovskému adresáři vytvořených v sandbo
 
 #: src/models/portals.js:80
 msgid "Background"
-msgstr ""
+msgstr "Pozadí"
 
 #: src/models/portals.js:82
 msgid "Can run in the background"
-msgstr ""
+msgstr "Může běžet na pozadí"
 
 #: src/models/portals.js:88
-#, fuzzy
 msgid "Notifications"
-msgstr "Dokumentace"
+msgstr "Upozornění"
 
 #: src/models/portals.js:90
 msgid "Can send notifications"
-msgstr ""
+msgstr "Může zasílat upozornění"
 
 #: src/models/portals.js:96
 msgid "Microphone"
-msgstr ""
+msgstr "Mikrofon"
 
 #: src/models/portals.js:98
 msgid "Can listen to your microphone"
-msgstr ""
+msgstr "Může poslouchat váš mikrofon"
 
 #: src/models/portals.js:104
 msgid "Speakers"
-msgstr ""
+msgstr "Reproduktory"
 
 #: src/models/portals.js:106
 msgid "Can play sounds to your speakers"
-msgstr ""
+msgstr "Může přehrávat zvuk na vašich reproduktorech"
 
 #: src/models/portals.js:112
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/models/portals.js:114
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Může nahrávat videa vaší kamerou"
 
 #: src/models/portals.js:120
-#, fuzzy
 msgid "Location"
-msgstr "Dokumentace"
+msgstr "Poloha"
 
 #: src/models/portals.js:122
 msgid "Can access your location"
-msgstr ""
+msgstr "Může přistupovat k vaší poloze"
 
 #: src/models/portals.js:150
-#, fuzzy
 msgid "List of resources selectively granted to the application"
-msgstr "Seznam funkcí dostupných v sandboxu"
+msgstr "Seznam prostředků selektivně přidělených aplikaci"
 
 #: src/models/shared.js:38
 msgid "Network"
