@@ -1,15 +1,15 @@
 # Italian translations for flatseal package
 # Traduzioni italiane per il pacchetto flatseal..
-# Copyright (C) 2020 THE flatseal'S COPYRIGHT HOLDER
+# Copyright (C) 2020, 2021 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Milo Casagrande <milo@milo.name>, 2020.
+# Milo Casagrande <milo@milo.name>, 2020, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-20 15:30-0300\n"
-"PO-Revision-Date: 2020-10-05 09:34+0200\n"
+"PO-Revision-Date: 2021-03-22 20:49+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -147,58 +147,55 @@ msgstr "Elenco di percorsi relativi alla home creati nella sandbox"
 
 #: src/models/portals.js:80
 msgid "Background"
-msgstr ""
+msgstr "Background"
 
 #: src/models/portals.js:82
 msgid "Can run in the background"
-msgstr ""
+msgstr "Può essere eseguito in background"
 
 #: src/models/portals.js:88
-#, fuzzy
 msgid "Notifications"
-msgstr "Documentazione"
+msgstr "Notifiche"
 
 #: src/models/portals.js:90
 msgid "Can send notifications"
-msgstr ""
+msgstr "Può inviare notifiche"
 
 #: src/models/portals.js:96
 msgid "Microphone"
-msgstr ""
+msgstr "Microfono"
 
 #: src/models/portals.js:98
 msgid "Can listen to your microphone"
-msgstr ""
+msgstr "Può ascoltare il microfono"
 
 #: src/models/portals.js:104
 msgid "Speakers"
-msgstr ""
+msgstr "Altoparlanti"
 
 #: src/models/portals.js:106
 msgid "Can play sounds to your speakers"
-msgstr ""
+msgstr "Può riprodurre suoni dagli altoparlanti"
 
 #: src/models/portals.js:112
 msgid "Camera"
-msgstr ""
+msgstr "Fotocamera"
 
 #: src/models/portals.js:114
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Può registrare video con la fotocamera"
 
 #: src/models/portals.js:120
-#, fuzzy
 msgid "Location"
-msgstr "Documentazione"
+msgstr "Posizione"
 
 #: src/models/portals.js:122
 msgid "Can access your location"
-msgstr ""
+msgstr "Può accedere alla propria posizione"
 
 #: src/models/portals.js:150
-#, fuzzy
 msgid "List of resources selectively granted to the application"
-msgstr "Elenco delle funzionalità disponibili per l'applicazione"
+msgstr "Elenco di risorse concesse selettivamente all'applicazione"
 
 #: src/models/shared.js:38
 msgid "Network"
@@ -266,7 +263,7 @@ msgstr "Elenco di variabili esportate nell'applicazione"
 
 #: src/widgets/aboutDialog.js:38
 msgid "Contributions by"
-msgstr ""
+msgstr "Contributi di"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
