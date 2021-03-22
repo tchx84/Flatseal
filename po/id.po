@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-03-20 15:30-0300\n"
-"PO-Revision-Date: 2020-10-31 18:25+0700\n"
+"PO-Revision-Date: 2021-03-22 09:47+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -146,58 +146,55 @@ msgstr "Daftar path homedir relatif yang dibuat di sandbox"
 
 #: src/models/portals.js:80
 msgid "Background"
-msgstr ""
+msgstr "Latar belakang"
 
 #: src/models/portals.js:82
 msgid "Can run in the background"
-msgstr ""
+msgstr "Dapat berjalan di latar belakang"
 
 #: src/models/portals.js:88
-#, fuzzy
 msgid "Notifications"
-msgstr "Dokumentasi"
+msgstr "Notifikasi"
 
 #: src/models/portals.js:90
 msgid "Can send notifications"
-msgstr ""
+msgstr "Dapat mengirim notifikasi"
 
 #: src/models/portals.js:96
 msgid "Microphone"
-msgstr ""
+msgstr "Mikrofon"
 
 #: src/models/portals.js:98
 msgid "Can listen to your microphone"
-msgstr ""
+msgstr "Dapat mendengarkan mikrofon Anda"
 
 #: src/models/portals.js:104
 msgid "Speakers"
-msgstr ""
+msgstr "Speaker"
 
 #: src/models/portals.js:106
 msgid "Can play sounds to your speakers"
-msgstr ""
+msgstr "Dapat memutar suara ke speaker Anda"
 
 #: src/models/portals.js:112
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/models/portals.js:114
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Dapat merekam video dengan kamera Anda"
 
 #: src/models/portals.js:120
-#, fuzzy
 msgid "Location"
-msgstr "Dokumentasi"
+msgstr "Lokasi"
 
 #: src/models/portals.js:122
 msgid "Can access your location"
-msgstr ""
+msgstr "Dapat mengakses lokasi Anda"
 
 #: src/models/portals.js:150
-#, fuzzy
 msgid "List of resources selectively granted to the application"
-msgstr "Daftar fitur yang tersedia untuk aplikasi"
+msgstr "Daftar sumber daya yang diberikan secara selektif ke aplikasi"
 
 #: src/models/shared.js:38
 msgid "Network"
