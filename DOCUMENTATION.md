@@ -12,6 +12,7 @@
 	- [Environment](#environment)
 	- [System Bus](#system-bus)
 	- [Session Bus](#system-bus)
+	- [Portals](#portals)
 - [Tips and Tricks](#tips-and-tricks)
 	- [Manually reset Flatseal permissions](#manually-reset-flatseal-permissions)
 	- [Add new translations](#add-new-translations)
@@ -98,6 +99,22 @@ Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Talks | Input | Allow the application to talk to session services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications. | `--talk-name=[NAME]`
 Owns | Input | Allow the application to own session services under the given name. | `--own-name=[NAME]`
+
+
+### Portals
+
+[Portals](https://github.com/flatpak/flatpak/wiki/Portals), also known as dynamic permissions, are permissions that require manual user intervention to grant or deny access to specific permissions.
+
+Dynamic permissions take priority over static permissions. For example, denying the application to access the webcam using static permissions (`--nodevice=all`) but allowing it to access the webcam using portals will ignore the static permission as Flatpak prioritizes portals, thus allowing the application to access the webcam.
+
+Name | Type | Description | Portal
+--- | --- | --- | ---
+Background | Toggle | Allow the application to run in the background. | `org.freedesktop.portal.Background`
+Notifications | Toggle | Allow the application to send notifications. | `org.freedesktop.portal.Notification`
+Microphone | Toggle | Allow the application to listen to your microphone. | `org.freedesktop.portal.Device`
+Speakers | Toggle | Allow the application to play sounds to your speakers. | `org.freedesktop.portal.Device`
+Camera | Toggle | Allow the application to record videos with your camera. | `org.freedesktop.portal.Device`
+Location | Toggle | Allow the application to access your location. | `org.freedesktop.portal.Location`
 
 ## Tips and Tricks
 
