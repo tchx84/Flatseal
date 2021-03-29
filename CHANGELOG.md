@@ -3,6 +3,7 @@
 ## [unreleased]
 
 - Added support for basic dynamic permissions, a.k.a portals.
+- Added offline documentation.
 - Changed UI to better utilize libhandy's widgets.
 
 ## [1.6.8] - 2021-01-30
