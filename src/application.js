@@ -42,7 +42,7 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayDocumentation() {
-        Gtk.show_uri(null, "help:flatseal", Gdk.CURRENT_TIME);
+        Gtk.show_uri(null, 'help:flatseal', Gdk.CURRENT_TIME);
     }
 
     _displayAbout() {
