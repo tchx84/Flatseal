@@ -78,7 +78,7 @@ rules:
   max-depth: error
   max-len:
     - error
-    - code: 96
+    - code: 120
       comments: 80
   max-nested-callbacks: error
   max-statements-per-line: error
