@@ -5,6 +5,8 @@
 - Added support for basic dynamic permissions, a.k.a portals.
 - Added offline documentation.
 - Changed UI to better utilize libhandy's widgets.
+- Changed to libhandy 1.2 for smoother transitions.
+- Changed to GNOME 40 runtime for stability.
 
 ## [1.6.8] - 2021-01-30
 
