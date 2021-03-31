@@ -746,31 +746,104 @@ describe('Model', function() {
         update();
     });
 
-    it('handles portals permissions', function() {
+    it('handles portals permissions', function(done) {
         permissions.appId = _basicAppId;
 
-        expect(permissions.portals_background).toEqual(false);
+        expect(permissions.portals_background).toBe(false);
         permissions.set_property('portals_background', true);
-        expect(getValueFromService('background', 'background', _basicAppId), true);
 
-        expect(permissions.portals_notification).toEqual(false);
+        expect(permissions.portals_notification).toBe(false);
         permissions.set_property('portals_notification', true);
-        expect(getValueFromService('notification', 'notification', _basicAppId), true);
 
-        expect(permissions.portals_microphone).toEqual(false);
+        expect(permissions.portals_microphone).toBe(false);
         permissions.set_property('portals_microphone', true);
-        expect(getValueFromService('devices', 'microphone', _basicAppId), true);
 
-        expect(permissions.portals_speakers).toEqual(false);
+        expect(permissions.portals_speakers).toBe(false);
         permissions.set_property('portals_speakers', true);
-        expect(getValueFromService('devices', 'speakers', _basicAppId), true);
 
-        expect(permissions.portals_camera).toEqual(false);
+        expect(permissions.portals_camera).toBe(false);
         permissions.set_property('portals_camera', true);
-        expect(getValueFromService('devices', 'camera', _basicAppId), true);
 
-        expect(permissions.portals_location).toEqual(false);
+        expect(permissions.portals_location).toBe(false);
         permissions.set_property('portals_location', true);
-        expect(getValueFromService('devices', 'location', _basicAppId), true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(getValueFromService('background', 'background', 'yes', _basicAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'yes', _basicAppId)).toBe(true);
+            expect(getValueFromService('devices', 'microphone', 'yes', _basicAppId)).toBe(true);
+            expect(getValueFromService('devices', 'speakers', 'yes', _basicAppId)).toBe(true);
+            expect(getValueFromService('devices', 'camera', 'yes', _basicAppId)).toBe(true);
+            expect(getValueFromService('location', 'location', 'EXACT', _basicAppId)).toBe(true);
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('resets portals permissions', function() {
+        permissions.appId = _basicAppId;
+
+        permissions.reset();
+
+        expect(getValueFromService('background', 'background', 'no', _basicAppId)).toBe(true);
+        expect(getValueFromService('notifications', 'notification', 'no', _basicAppId)).toBe(true);
+        expect(getValueFromService('devices', 'microphone', 'no', _basicAppId)).toBe(true);
+        expect(getValueFromService('devices', 'speakers', 'no', _basicAppId)).toBe(true);
+        expect(getValueFromService('devices', 'camera', 'no', _basicAppId)).toBe(true);
+        expect(getValueFromService('location', 'location', 'NONE', _basicAppId)).toBe(true);
+    });
+
+
+    it('restores portals permissions when undo', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _overridenAppId;
+
+        expect(permissions.portals_background).toBe(false);
+        expect(permissions.portals_notification).toBe(false);
+        expect(permissions.portals_microphone).toBe(false);
+        expect(permissions.portals_speakers).toBe(false);
+        expect(permissions.portals_camera).toBe(false);
+        expect(permissions.portals_location).toBe(false);
+
+        permissions.set_property('portals_notification', true);
+        permissions.set_property('portals_background', true);
+        permissions.set_property('portals_microphone', true);
+        permissions.set_property('portals_speakers', true);
+        permissions.set_property('portals_camera', true);
+        permissions.set_property('portals_location', true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'microphone', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'speakers', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('location', 'location', 'EXACT', _overridenAppId)).toBe(true);
+
+            permissions.reset();
+
+            expect(getValueFromService('background', 'background', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'microphone', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'speakers', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'camera', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('location', 'location', 'NONE', _overridenAppId)).toBe(true);
+
+            permissions.undo();
+
+            expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'microphone', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'speakers', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('location', 'location', 'EXACT', _overridenAppId)).toBe(true);
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
     });
 });

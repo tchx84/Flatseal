@@ -105,7 +105,7 @@ function stopService() {
 }
 
 
-function getValueFromService(table, id, appId) {
+function getValueFromService(table, id, allowed, appId) {
     const {PermissionsIface} = imports.models.portals;
     const Proxy = Gio.DBusProxy.makeProxyWrapper(PermissionsIface);
 
@@ -115,7 +115,7 @@ function getValueFromService(table, id, appId) {
         '/org/freedesktop/impl/portal/PermissionStore');
 
     const [appIds] = proxy.LookupSync(table, id);
-    const value = appId in appIds && appIds[appId][0] === 'yes';
+    const value = appId in appIds && appIds[appId][0] === allowed;
 
     return value;
 }
