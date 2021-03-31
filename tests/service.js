@@ -96,9 +96,6 @@ class MockPermissionsStore {
             if (!(id in this._store[table]))
                 this._store[table][id] = {};
 
-            if (!(appId in this._store[table][id]))
-                this._store[table][id][appId] = ['no'];
-
             this._store[table][id][appId] = permissions;
 
             invocation.return_value(null);
