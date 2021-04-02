@@ -131,15 +131,17 @@ $ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal
 Add a new language and update translations:
 
 ```
-$ echo "es" >> po/LINGUAS
+$ echo "es" >> po/LINGUAS # es for Spanish
+$ meson _translate && cd _translate
 $ ninja flatseal-pot
 $ ninja flatseal-update-po
+$ gedit ../po/es.po # translate the strings to Spanish
 ```
 
 To test the translation language:
 
 ```
-$ flatpak config --set extra-languages es
+$ flatpak config --set languages es
 $ flatpak update org.gnome.Platform
 $ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal
 ```

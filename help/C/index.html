@@ -500,11 +500,13 @@
 <pre><code>$ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal</code></pre>
 <h3 id="add-new-translations">Add new translations</h3>
 <p>Add a new language and update translations:</p>
-<pre><code>$ echo &quot;es&quot; &gt;&gt; po/LINGUAS
+<pre><code>$ echo &quot;es&quot; &gt;&gt; po/LINGUAS # es for Spanish
+$ meson _translate &amp;&amp; cd _translate
 $ ninja flatseal-pot
-$ ninja flatseal-update-po</code></pre>
+$ ninja flatseal-update-po
+$ gedit ../po/es.po # translate the strings to Spanish</code></pre>
 <p>To test the translation language:</p>
-<pre><code>$ flatpak config --set extra-languages es
+<pre><code>$ flatpak config --set languages es
 $ flatpak update org.gnome.Platform
 $ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal</code></pre>
 <h3 id="enable-custom-installations">Enable custom installations</h3>
