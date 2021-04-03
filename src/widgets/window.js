@@ -39,7 +39,7 @@ const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYN
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
-const ACTION_BAR_THRESHOLD = 360;
+const ACTION_BAR_THRESHOLD = 540;
 
 
 var FlatsealWindow = GObject.registerClass({
