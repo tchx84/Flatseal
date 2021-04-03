@@ -846,4 +846,11 @@ describe('Model', function() {
 
         update();
     });
+
+    it('does not write to the store unnecessarily', function() {
+        permissions.appId = _reduceAppId;
+
+        expect(permissions.portals_background).toBe(false);
+        expect(getValueFromService('background', 'background', null, _reduceAppId)).toBe(true);
+    });
 });

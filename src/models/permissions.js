@@ -249,7 +249,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     undo() {
         const path = this._getOverridesPath();
         this._backup.save_to_file(path);
-        MODELS.portals.restore(false);
+        MODELS.portals.restore();
         this._setup();
     }
 
@@ -263,7 +263,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this.backup();
         const path = this._getOverridesPath();
         GLib.unlink(path);
-        MODELS.portals.restore(true);
+        MODELS.portals.forget();
         this._setup();
         this.emit('reset');
     }
