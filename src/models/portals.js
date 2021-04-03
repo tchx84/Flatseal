@@ -177,6 +177,14 @@ var FlatpakPortalsModel = GObject.registerClass({
             return;
 
         const permission = this.getPermissions()[property];
+
+        // don't write to the store unnecessarily
+        if (value === permission.value) {
+            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
+            if (!(this.appId in appIds))
+                return;
+        }
+
         const access = value ? permission.allowed : permission.disallowed;
 
         this._proxy.SetPermissionSync(
@@ -204,17 +212,23 @@ var FlatpakPortalsModel = GObject.registerClass({
         });
     }
 
-    restore(toDefaults = false) {
-        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            const value = toDefaults ? permission.value : this._backup[property];
-            this.updateFromProxyProperty(property, value);
-        });
-    }
-
     backup(proxy) {
         this._backup = {};
         Object.keys(this.getPermissions()).forEach(property => {
             this._backup[property] = proxy[property];
+        });
+    }
+
+    restore() {
+        Object.keys(this.getPermissions()).forEach(property => {
+            this.updateFromProxyProperty(property, this._backup[property]);
+        });
+    }
+
+    forget() {
+        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
+            // XXX use https://github.com/flatpak/xdg-desktop-portal/issues/573
+            this.updateFromProxyProperty(property, permission.value);
         });
     }
 

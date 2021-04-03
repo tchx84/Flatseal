@@ -115,7 +115,11 @@ function getValueFromService(table, id, allowed, appId) {
         '/org/freedesktop/impl/portal/PermissionStore');
 
     const [appIds] = proxy.LookupSync(table, id);
-    const value = appId in appIds && appIds[appId][0] === allowed;
 
+    // check if no entry in the permission store
+    if (allowed === null && !(appId in appIds))
+        return true;
+
+    const value = appId in appIds && appIds[appId][0] === allowed;
     return value;
 }
