@@ -36,16 +36,8 @@
     margin-bottom: 25px;
 }
 
-.permissions .group ~ .group {
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-.permissions .group .title {
-    font-weight: bold;
-}
-.permissions .group .description {
-    margin-top: 5px;
-    color: @insensitive_fg_color;
+.permissions clamp {
+    margin-bottom: 25px;
 }
 
 row .frame {
