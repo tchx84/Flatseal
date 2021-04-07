@@ -78,7 +78,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             'portals-background': {
                 supported: this.isSupported(),
                 description: _('Background'),
-                value: this.constructor.getDefault(),
+                value: true,
                 example: _('Can run in the background'),
                 table: 'background',
                 id: 'background',
@@ -88,7 +88,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             'portals-notification': {
                 supported: this.isSupported(),
                 description: _('Notifications'),
-                value: this.constructor.getDefault(),
+                value: true,
                 example: _('Can send notifications'),
                 table: 'notifications',
                 id: 'notification',
@@ -98,7 +98,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             'portals-microphone': {
                 supported: this.isSupported(),
                 description: _('Microphone'),
-                value: this.constructor.getDefault(),
+                value: false,
                 example: _('Can listen to your microphone'),
                 table: 'devices',
                 id: 'microphone',
@@ -108,7 +108,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             'portals-speakers': {
                 supported: this.isSupported(),
                 description: _('Speakers'),
-                value: this.constructor.getDefault(),
+                value: false,
                 example: _('Can play sounds to your speakers'),
                 table: 'devices',
                 id: 'speakers',
@@ -118,7 +118,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             'portals-camera': {
                 supported: this.isSupported(),
                 description: _('Camera'),
-                value: this.constructor.getDefault(),
+                value: false,
                 example: _('Can record videos with your camera'),
                 table: 'devices',
                 id: 'camera',
@@ -128,7 +128,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             'portals-location': {
                 supported: this.isSupported(),
                 description: _('Location'),
-                value: this.constructor.getDefault(),
+                value: false,
                 example: _('Can access your location'),
                 table: 'location',
                 id: 'location',
@@ -204,8 +204,14 @@ var FlatpakPortalsModel = GObject.registerClass({
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             try {
                 const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
-                const value = this.appId in appIds && appIds[this.appId][0] === permission.allowed[0];
-                proxy.set_property(property, value);
+
+                if (this.appId in appIds) {
+                    const expected = permission.value ? permission.allowed[0] : permission.disallowed[0];
+                    const value = appIds[this.appId][0] === expected;
+                    proxy.set_property(property, value);
+                } else {
+                    proxy.set_property(property, permission.value);
+                }
             } catch (err) {
                 proxy.set_property(property, false);
             }
@@ -233,8 +239,10 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     changed(proxy) {
-        for (const property in this.getPermissions()) {
-            if (proxy[property] === true)
+        const permissions = this.getPermissions();
+
+        for (const property in permissions) {
+            if (proxy[property] !== permissions[property].value)
                 return true;
         }
         return false;

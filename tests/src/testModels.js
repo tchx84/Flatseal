@@ -749,11 +749,11 @@ describe('Model', function() {
     it('handles portals permissions', function(done) {
         permissions.appId = _basicAppId;
 
-        expect(permissions.portals_background).toBe(false);
-        permissions.set_property('portals_background', true);
+        expect(permissions.portals_background).toBe(true);
+        permissions.set_property('portals_background', false);
 
-        expect(permissions.portals_notification).toBe(false);
-        permissions.set_property('portals_notification', true);
+        expect(permissions.portals_notification).toBe(true);
+        permissions.set_property('portals_notification', false);
 
         expect(permissions.portals_microphone).toBe(false);
         permissions.set_property('portals_microphone', true);
@@ -768,8 +768,8 @@ describe('Model', function() {
         permissions.set_property('portals_location', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(getValueFromService('background', 'background', 'yes', _basicAppId)).toBe(true);
-            expect(getValueFromService('notifications', 'notification', 'yes', _basicAppId)).toBe(true);
+            expect(getValueFromService('background', 'background', 'no', _basicAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'no', _basicAppId)).toBe(true);
             expect(getValueFromService('devices', 'microphone', 'yes', _basicAppId)).toBe(true);
             expect(getValueFromService('devices', 'speakers', 'yes', _basicAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'yes', _basicAppId)).toBe(true);
@@ -787,8 +787,8 @@ describe('Model', function() {
 
         permissions.reset();
 
-        expect(getValueFromService('background', 'background', 'no', _basicAppId)).toBe(true);
-        expect(getValueFromService('notifications', 'notification', 'no', _basicAppId)).toBe(true);
+        expect(getValueFromService('background', 'background', 'yes', _basicAppId)).toBe(true);
+        expect(getValueFromService('notifications', 'notification', 'yes', _basicAppId)).toBe(true);
         expect(getValueFromService('devices', 'microphone', 'no', _basicAppId)).toBe(true);
         expect(getValueFromService('devices', 'speakers', 'no', _basicAppId)).toBe(true);
         expect(getValueFromService('devices', 'camera', 'no', _basicAppId)).toBe(true);
@@ -800,23 +800,23 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
-        expect(permissions.portals_background).toBe(false);
-        expect(permissions.portals_notification).toBe(false);
+        expect(permissions.portals_background).toBe(true);
+        expect(permissions.portals_notification).toBe(true);
         expect(permissions.portals_microphone).toBe(false);
         expect(permissions.portals_speakers).toBe(false);
         expect(permissions.portals_camera).toBe(false);
         expect(permissions.portals_location).toBe(false);
 
-        permissions.set_property('portals_notification', true);
-        permissions.set_property('portals_background', true);
+        permissions.set_property('portals_notification', false);
+        permissions.set_property('portals_background', false);
         permissions.set_property('portals_microphone', true);
         permissions.set_property('portals_speakers', true);
         permissions.set_property('portals_camera', true);
         permissions.set_property('portals_location', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
-            expect(getValueFromService('notifications', 'notification', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('background', 'background', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'no', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'microphone', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'speakers', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
@@ -824,8 +824,8 @@ describe('Model', function() {
 
             permissions.reset();
 
-            expect(getValueFromService('background', 'background', 'no', _overridenAppId)).toBe(true);
-            expect(getValueFromService('notifications', 'notification', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'microphone', 'no', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'speakers', 'no', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'no', _overridenAppId)).toBe(true);
@@ -833,8 +833,8 @@ describe('Model', function() {
 
             permissions.undo();
 
-            expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
-            expect(getValueFromService('notifications', 'notification', 'yes', _overridenAppId)).toBe(true);
+            expect(getValueFromService('background', 'background', 'no', _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', 'no', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'microphone', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'speakers', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
@@ -850,7 +850,7 @@ describe('Model', function() {
     it('does not write to the store unnecessarily', function() {
         permissions.appId = _reduceAppId;
 
-        expect(permissions.portals_background).toBe(false);
+        expect(permissions.portals_background).toBe(true);
         expect(getValueFromService('background', 'background', null, _reduceAppId)).toBe(true);
     });
 });
