@@ -23,7 +23,7 @@ const {GObject, Gtk, Gdk, Gio, Handy} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {FlatsealAboutDialog} = imports.widgets.aboutDialog;
-
+const {FlatsealDocsViewer} = imports.widgets.docsViewer;
 
 var FlatsealApplication = GObject.registerClass({
     GTypeName: 'FlatsealApplication',
@@ -42,7 +42,8 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayDocumentation() {
-        Gtk.show_uri(null, 'help:flatseal', Gdk.CURRENT_TIME);
+        const viewer = new FlatsealDocsViewer();
+        viewer.present();
     }
 
     _displayAbout() {
