@@ -128,7 +128,7 @@
                       </object>
                     </child>
                     <style>
-                      <class name="back-button"/>
+                      <class name="previous-button"/>
                     </style>
                   </object>
                   <packing>
@@ -150,7 +150,7 @@
                       </object>
                     </child>
                     <style>
-                      <class name="forward-button"/>
+                      <class name="next-button"/>
                     </style>
                   </object>
                   <packing>

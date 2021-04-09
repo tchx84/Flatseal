@@ -207,12 +207,19 @@ window .menu.background label {
 
 /* docs viewer */
 
+.previous-button {
+    margin-left: 7.5px;
+}
+
+.previous-button,
 .back-button {
     padding-right: 12.5px;
     padding-left: 12.5px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+
+.next-button,
 .forward-button {
     padding-right: 12.5px;
     padding-left: 12.5px;
