@@ -24,6 +24,7 @@ const {
     has,
     hasOnly,
     startService,
+    waitForService,
     stopService,
     getValueFromService,
 } = imports.utils;
@@ -78,6 +79,7 @@ describe('Model', function() {
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
         startService();
+        waitForService();
         GLib.unlink(_overridenOverride);
         GLib.mkdir_with_parents(_overrides, 0o755);
     });
