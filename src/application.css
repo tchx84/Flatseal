@@ -227,3 +227,14 @@ window .menu.background label {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
 }
+
+/* placeholder */
+
+.placeholder {
+    color: @insensitive_fg_color;
+    background-color: @theme_base_color;
+}
+.placeholder label {
+    margin: 10px;
+    font-size: 20px;
+}
