@@ -1,4 +1,4 @@
-/* exported FlatpakPortalsModel */
+/* exported FlatpakPortalsModel getDefault */
 /* eslint class-methods-use-this: */
 
 /* portals.js
@@ -57,7 +57,6 @@ var FlatpakPortalsModel = GObject.registerClass({
     _init() {
         super._init({});
         this._proxy = null;
-        this._version = null;
         this._backgroundSupported = null;
         this._notificationsSupported = null;
         this._devicesSupported = null;
@@ -174,22 +173,21 @@ var FlatpakPortalsModel = GObject.registerClass({
         if (this[`_${table}Supported`] !== null)
             return this[`_${table}Supported`];
 
-        if (this._version === null) {
-            this._setup();
-            this._version = this._proxy.version;
-        }
-        const supported = this._version >= SUPPORTED_VERSION && this._info.supports('0.4.0');
+        this._setup();
         const [ids] = this._proxy.ListSync(table);
 
-        this[`_${table}Supported`] = supported && ids.length > 0;
+        const flatpakSupported = this._info.supports('0.4.0');
+        const serviceSupported = this._proxy.version >= SUPPORTED_VERSION;
+        const tableSupported = ids.length > 0;
+
+        this[`_${table}Supported`] = serviceSupported && tableSupported && flatpakSupported;
         return this[`_${table}Supported`];
     }
 
     updateFromProxyProperty(property, value) {
-        this._setup();
-
         const permission = this.getPermissions()[property];
 
+        this._setup();
         if (!this.isSupported(permission.table))
             return;
 
@@ -211,9 +209,8 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
-        this._setup();
-
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
+            this._setup();
             if (!this.isSupported(permission.table))
                 return;
 
@@ -264,4 +261,24 @@ var FlatpakPortalsModel = GObject.registerClass({
 
         /* this backends speaks directly to DBus */
     }
+
+    reload() {
+        const permissions = this.getPermissions();
+
+        Object.keys(permissions).forEach(property => {
+            const permission = permissions[property];
+            this[`_${permission.table}Supported`] = null;
+            this.isSupported(permission.table);
+        });
+    }
 });
+
+
+var getDefault = (function() {
+    let instance;
+    return function() {
+        if (typeof instance === 'undefined')
+            instance = new FlatpakPortalsModel();
+        return instance;
+    };
+}());
