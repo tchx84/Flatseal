@@ -48,6 +48,8 @@ var FlatsealWindow = GObject.registerClass({
     InternalChildren: [
         'actionBar',
         'appInfoGroup',
+        'applicationsSearchButton',
+        'applicationsSearchRevealer',
         'applicationsSearchEntry',
         'applicationsStack',
         'applicationsListBox',
@@ -191,6 +193,9 @@ var FlatsealWindow = GObject.registerClass({
 
         this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
+        this._applicationsSearchButton.connect('toggled', this._updateSearch.bind(this));
+        this._applicationsSearchButton.bind_property(
+            'active', this._applicationsSearchRevealer, 'reveal-child', _bindFlags);
 
         this._showApplications();
         this._backButton.set_sensitive(true);
@@ -218,6 +223,13 @@ var FlatsealWindow = GObject.registerClass({
         this._resetHeaderButton.visible = !visible;
 
         this._actionBar.visible = visible;
+    }
+
+    _updateSearch() {
+        if (this._applicationsSearchButton.active)
+            this._applicationsSearchEntry.grab_focus();
+        else
+            this._applicationsSearchEntry.set_text('');
     }
 
     _filter(row) {
