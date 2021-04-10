@@ -25,6 +25,10 @@ const {Gio, GLib, Gtk} = imports.gi;
 const PermissionsIface = `
 <node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
     <interface name="org.freedesktop.impl.portal.PermissionStore">
+        <method name="List">
+            <arg type="s" name="table" direction="in"/>
+            <arg type="as" name="ids" direction="out"/>
+        </method>
         <method name="Lookup">
             <arg type="s" name="table" direction="in"/>
             <arg type="s" name="id" direction="in"/>
@@ -46,7 +50,23 @@ const PermissionsIface = `
 
 class MockPermissionsStore {
     constructor() {
-        this._store = {};
+        this._store = {
+            background: {
+                background: {},
+            },
+            notifications: {
+                notification: {},
+            },
+            devices: {
+                speakers: {},
+                microphone: {},
+                camera: {},
+            },
+            location: {
+                location: {},
+            },
+        };
+
         this._version = new GLib.Variant('u', 2);
         this._dbusId = null;
         this._nameId = Gio.bus_own_name(
@@ -77,12 +97,6 @@ class MockPermissionsStore {
         if (method === 'Lookup') {
             const [table, id] = params.deep_unpack();
 
-            if (!(table in this._store))
-                this._store[table] = {};
-
-            if (!(id in this._store[table]))
-                this._store[table][id] = {};
-
             const data = new GLib.Variant('b', true);
             const permissions = new GLib.Variant('(a{sas}v)', [this._store[table][id], data]);
 
@@ -90,15 +104,18 @@ class MockPermissionsStore {
         } else if (method === 'SetPermission') {
             const [table, create, id, appId, permissions] = params.deep_unpack();
 
-            if (!(table in this._store))
-                this._store[table] = {};
-
-            if (!(id in this._store[table]))
-                this._store[table][id] = {};
-
             this._store[table][id][appId] = permissions;
 
             invocation.return_value(null);
+        } else if (method === 'List') {
+            var ids = [];
+            const [table] = params.deep_unpack();
+
+            if (table in this._store)
+                ids = Object.keys(this._store[table]);
+
+            const value = new GLib.Variant('(as)', [ids]);
+            invocation.return_value(value);
         }
     }
 

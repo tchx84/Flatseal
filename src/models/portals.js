@@ -25,6 +25,10 @@ const {info} = imports.models;
 var PermissionsIface = `
 <node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
     <interface name="org.freedesktop.impl.portal.PermissionStore">
+        <method name="List">
+            <arg type="s" name="table" direction="in"/>
+            <arg type="as" name="ids" direction="out"/>
+        </method>
         <method name="Lookup">
             <arg type="s" name="table" direction="in"/>
             <arg type="s" name="id" direction="in"/>
@@ -54,6 +58,10 @@ var FlatpakPortalsModel = GObject.registerClass({
         super._init({});
         this._proxy = null;
         this._version = null;
+        this._backgroundSupported = null;
+        this._notificationsSupported = null;
+        this._devicesSupported = null;
+        this._locationSupported = null;
         this._info = info.getDefault();
         this.appId = '';
     }
@@ -76,7 +84,7 @@ var FlatpakPortalsModel = GObject.registerClass({
     getPermissions() {
         return {
             'portals-background': {
-                supported: this.isSupported(),
+                supported: this.isSupported('background'),
                 description: _('Background'),
                 value: this.constructor.getDefault(),
                 example: _('Can run in the background'),
@@ -86,7 +94,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-notification': {
-                supported: this.isSupported(),
+                supported: this.isSupported('notifications'),
                 description: _('Notifications'),
                 value: this.constructor.getDefault(),
                 example: _('Can send notifications'),
@@ -96,7 +104,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-microphone': {
-                supported: this.isSupported(),
+                supported: this.isSupported('devices'),
                 description: _('Microphone'),
                 value: this.constructor.getDefault(),
                 example: _('Can listen to your microphone'),
@@ -106,7 +114,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-speakers': {
-                supported: this.isSupported(),
+                supported: this.isSupported('devices'),
                 description: _('Speakers'),
                 value: this.constructor.getDefault(),
                 example: _('Can play sounds to your speakers'),
@@ -116,7 +124,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-camera': {
-                supported: this.isSupported(),
+                supported: this.isSupported('devices'),
                 description: _('Camera'),
                 value: this.constructor.getDefault(),
                 example: _('Can record videos with your camera'),
@@ -126,7 +134,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-location': {
-                supported: this.isSupported(),
+                supported: this.isSupported('location'),
                 description: _('Location'),
                 value: this.constructor.getDefault(),
                 example: _('Can access your location'),
@@ -162,21 +170,28 @@ var FlatpakPortalsModel = GObject.registerClass({
         return _('List of resources selectively granted to the application');
     }
 
-    isSupported() {
+    isSupported(table) {
+        if (this[`_${table}Supported`] !== null)
+            return this[`_${table}Supported`];
+
         if (this._version === null) {
             this._setup();
             this._version = this._proxy.version;
         }
-        return this._version >= SUPPORTED_VERSION && this._info.supports('0.4.0');
+        const supported = this._version >= SUPPORTED_VERSION && this._info.supports('0.4.0');
+        const [ids] = this._proxy.ListSync(table);
+
+        this[`_${table}Supported`] = supported && ids.length > 0;
+        return this[`_${table}Supported`];
     }
 
     updateFromProxyProperty(property, value) {
         this._setup();
 
-        if (!this.isSupported())
-            return;
-
         const permission = this.getPermissions()[property];
+
+        if (!this.isSupported(permission.table))
+            return;
 
         // don't write to the store unnecessarily
         if (value === permission.value) {
@@ -189,7 +204,7 @@ var FlatpakPortalsModel = GObject.registerClass({
 
         this._proxy.SetPermissionSync(
             permission.table,
-            true,
+            false,
             permission.id,
             this.appId,
             access);
@@ -198,10 +213,10 @@ var FlatpakPortalsModel = GObject.registerClass({
     updateProxyProperty(proxy) {
         this._setup();
 
-        if (!this.isSupported())
-            return;
-
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
+            if (!this.isSupported(permission.table))
+                return;
+
             try {
                 const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
                 const value = this.appId in appIds && appIds[this.appId][0] === permission.allowed[0];
