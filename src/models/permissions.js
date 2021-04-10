@@ -31,8 +31,7 @@ const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
-const {FlatpakPortalsModel} = imports.models.portals;
-const {persistent} = imports.models;
+const {persistent, portals} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -47,7 +46,7 @@ const MODELS = {
     variables: new FlatpakVariablesModel(),
     system: new FlatpakSystemBusModel(),
     session: new FlatpakSessionBusModel(),
-    portals: new FlatpakPortalsModel(),
+    portals: portals.getDefault(),
     unsupported: new FlatpakUnsupportedModel(),
 };
 
