@@ -106,10 +106,34 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkBox">
+                      <object class="GtkBox" id="applicationsBox">
                         <property name="visible">True</property>
                         <property name="can-focus">False</property>
                         <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkRevealer" id="applicationsSearchRevealer">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="reveal-child">True</property>
+                            <child>
+                              <object class="GtkSearchEntry" id="applicationsSearchEntry">
+                                <property name="visible">True</property>
+                                <property name="can-focus">True</property>
+                                <property name="primary-icon-name">edit-find-symbolic</property>
+                                <property name="primary-icon-activatable">False</property>
+                                <property name="primary-icon-sensitive">False</property>
+                                <style>
+                                  <class name="search-entry"/>
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="fill">True</property>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
                         <child>
                           <object class="GtkScrolledWindow">
                             <property name="visible">True</property>
@@ -120,101 +144,62 @@
                                 <property name="visible">True</property>
                                 <property name="can-focus">False</property>
                                 <child>
-                                  <object class="GtkBox" id="applicationsBox">
+                                  <object class="GtkListBox" id="applicationsListBox">
                                     <property name="visible">True</property>
                                     <property name="can-focus">False</property>
-                                    <property name="orientation">vertical</property>
-                                    <child>
-                                      <object class="GtkRevealer" id="applicationsSearchRevealer">
+                                    <property name="vexpand">True</property>
+                                    <property name="selection-mode">browse</property>
+                                    <child type="placeholder">
+                                      <object class="GtkBox">
                                         <property name="visible">True</property>
                                         <property name="can-focus">False</property>
-                                        <property name="reveal-child">True</property>
+                                        <property name="orientation">vertical</property>
                                         <child>
-                                          <object class="GtkSearchEntry" id="applicationsSearchEntry">
-                                            <property name="visible">True</property>
-                                            <property name="can-focus">True</property>
-                                            <property name="primary-icon-name">edit-find-symbolic</property>
-                                            <property name="primary-icon-activatable">False</property>
-                                            <property name="primary-icon-sensitive">False</property>
-                                            <style>
-                                              <class name="search-entry"/>
-                                            </style>
-                                          </object>
-                                        </child>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkListBox" id="applicationsListBox">
-                                        <property name="visible">True</property>
-                                        <property name="can-focus">False</property>
-                                        <property name="vexpand">True</property>
-                                        <property name="selection-mode">browse</property>
-                                        <child type="placeholder">
                                           <object class="GtkBox">
                                             <property name="visible">True</property>
                                             <property name="can-focus">False</property>
+                                            <property name="halign">center</property>
+                                            <property name="valign">center</property>
                                             <property name="orientation">vertical</property>
                                             <child>
-                                              <object class="GtkBox">
+                                              <object class="GtkImage">
                                                 <property name="visible">True</property>
                                                 <property name="can-focus">False</property>
-                                                <property name="halign">center</property>
-                                                <property name="valign">center</property>
-                                                <property name="orientation">vertical</property>
-                                                <child>
-                                                  <object class="GtkImage">
-                                                    <property name="visible">True</property>
-                                                    <property name="can-focus">False</property>
-                                                    <property name="icon-name">system-search-symbolic</property>
-                                                    <property name="icon_size">6</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">0</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkLabel">
-                                                    <property name="visible">True</property>
-                                                    <property name="can-focus">False</property>
-                                                    <property name="label" translatable="yes">No applications found.</property>
-                                                    <property name="ellipsize">end</property>
-                                                    <property name="single-line-mode">True</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">1</property>
-                                                  </packing>
-                                                </child>
+                                                <property name="icon-name">system-search-symbolic</property>
+                                                <property name="icon_size">6</property>
                                               </object>
                                               <packing>
-                                                <property name="expand">True</property>
+                                                <property name="expand">False</property>
                                                 <property name="fill">True</property>
                                                 <property name="position">0</property>
                                               </packing>
                                             </child>
-                                            <style>
-                                              <class name="placeholder"/>
-                                            </style>
+                                            <child>
+                                              <object class="GtkLabel">
+                                                <property name="visible">True</property>
+                                                <property name="can-focus">False</property>
+                                                <property name="label" translatable="yes">No applications found.</property>
+                                                <property name="ellipsize">end</property>
+                                                <property name="single-line-mode">True</property>
+                                              </object>
+                                              <packing>
+                                                <property name="expand">False</property>
+                                                <property name="fill">True</property>
+                                                <property name="position">1</property>
+                                              </packing>
+                                            </child>
                                           </object>
+                                          <packing>
+                                            <property name="expand">True</property>
+                                            <property name="fill">True</property>
+                                            <property name="position">0</property>
+                                          </packing>
                                         </child>
+                                        <style>
+                                          <class name="placeholder"/>
+                                        </style>
                                       </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
                                     </child>
-                                    <style>
-                                      <class name="box"/>
-                                    </style>
                                   </object>
                                 </child>
                               </object>
@@ -226,6 +211,9 @@
                             <property name="position">1</property>
                           </packing>
                         </child>
+                        <style>
+                          <class name="box"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="name">withApplicationsPage</property>
