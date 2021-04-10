@@ -1,5 +1,5 @@
 /* exported setup update has hasOnly startService
-   stopService getValueFromService */
+   stopService getValueFromService waitForService */
 /* eslint no-extend-native: */
 
 /* utils.js
@@ -122,4 +122,20 @@ function getValueFromService(table, id, allowed, appId) {
 
     const value = appId in appIds && appIds[appId][0] === allowed;
     return value;
+}
+
+function waitForService() {
+    const {PermissionsIface} = imports.models.portals;
+    var version = null;
+
+    do {
+        GLib.usleep(1000000);
+
+        const Proxy = Gio.DBusProxy.makeProxyWrapper(PermissionsIface);
+        const proxy = new Proxy(
+            Gio.DBus.session,
+            GLib.getenv('FLATSEAL_PORTAL_BUS_NAME'),
+            '/org/freedesktop/impl/portal/PermissionStore');
+        version = proxy.version; // eslint-disable-line prefer-destructuring
+    } while (version === null);
 }
