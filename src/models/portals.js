@@ -53,16 +53,26 @@ const SUPPORTED_VERSION = 2;
 
 var FlatpakPortalsModel = GObject.registerClass({
     GTypeName: 'FlatpakPortalsModel',
+    Signals: {
+        reloaded: {},
+    },
 }, class FlatpakPortalsModel extends GObject.Object {
     _init() {
         super._init({});
         this._proxy = null;
+
         this._backgroundSupported = null;
         this._notificationsSupported = null;
         this._devicesSupported = null;
         this._locationSupported = null;
+
+        this._backgroundReason = '';
+        this._notificationReason = '';
+        this._devicesReason = '';
+        this._locationReason = '';
+
         this._info = info.getDefault();
-        this.appId = '';
+        this._appId = '';
     }
 
     _setup() {
@@ -146,7 +156,7 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     static getType() {
-        return 'state';
+        return 'portal';
     }
 
     static getDefault() {
@@ -180,8 +190,21 @@ var FlatpakPortalsModel = GObject.registerClass({
         const serviceSupported = this._proxy.version >= SUPPORTED_VERSION;
         const tableSupported = ids.length > 0;
 
+        if (flatpakSupported === false)
+            this[`_${table}Reason`] = _('Not supported by the installed version of Flatpak');
+        else if (serviceSupported === false)
+            this[`_${table}Reason`] = _('Requires permission store version 2 or newer');
+        else if (tableSupported === false)
+            this[`_${table}Reason`] = _('Portal can\'t be found or hasn\'t been used yet');
+        else
+            this[`_${table}Reason`] = '';
+
         this[`_${table}Supported`] = serviceSupported && tableSupported && flatpakSupported;
         return this[`_${table}Supported`];
+    }
+
+    whatReason(table) {
+        return this[`_${table}Reason`];
     }
 
     updateFromProxyProperty(property, value) {
@@ -270,6 +293,17 @@ var FlatpakPortalsModel = GObject.registerClass({
             this[`_${permission.table}Supported`] = null;
             this.isSupported(permission.table);
         });
+
+        this.emit('reloaded');
+    }
+
+    set appId(appId) {
+        this._appId = appId;
+        this.reload();
+    }
+
+    get appId() {
+        return this._appId;
     }
 });
 

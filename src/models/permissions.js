@@ -55,9 +55,8 @@ function generate() {
 
     Object.values(MODELS).forEach(model => {
         Object.entries(model.getPermissions()).forEach(([property]) => {
-            const model_type = model.constructor.getType();
-            const type = model_type === 'state' ? 'boolean' : 'string';
             const value = model.constructor.getDefault();
+            const type = typeof value === 'boolean' ? 'boolean' : 'string';
             properties[property] = GObject.ParamSpec[type](
                 property, property, property, FLAGS, value);
         });
@@ -234,6 +233,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['type'] = model.constructor.getType();
                 entry['permission'] = permission.example;
                 entry['supported'] = permission.supported;
+                entry['table'] = permission.table;
                 entry['groupTitle'] = model.constructor.getTitle();
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();

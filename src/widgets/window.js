@@ -26,6 +26,7 @@ const {FlatpakPermissionsModel} = imports.models.permissions;
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealApplicationRow} = imports.widgets.applicationRow;
 const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
+const {FlatsealPermissionPortalRow} = imports.widgets.permissionPortalRow;
 const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
 const {FlatsealResetButton} = imports.widgets.resetButton;
 const {FlatsealDetailsButton} = imports.widgets.detailsButton;
@@ -153,6 +154,13 @@ var FlatsealWindow = GObject.registerClass({
                     p.value,
                     FlatsealBusNameRow,
                     'list-add-symbolic');
+            } else if (p.type === 'portal') {
+                property = 'state';
+                row = new FlatsealPermissionPortalRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    p.table);
             } else {
                 property = 'state';
                 row = new FlatsealPermissionSwitchRow(
