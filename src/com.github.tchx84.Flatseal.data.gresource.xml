@@ -11,6 +11,7 @@
     <file>widgets/pathRow.ui</file>
     <file>widgets/pathsViewer.ui</file>
     <file>widgets/permissionEntryRow.ui</file>
+    <file>widgets/permissionPortalRow.ui</file>
     <file>widgets/permissionSwitchRow.ui</file>
     <file>widgets/relativePathRow.ui</file>
     <file>widgets/undoPopup.ui</file>
