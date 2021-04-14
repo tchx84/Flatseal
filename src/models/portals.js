@@ -195,7 +195,7 @@ var FlatpakPortalsModel = GObject.registerClass({
         else if (serviceSupported === false)
             this[`_${table}Reason`] = _('Requires permission store version 2 or newer');
         else if (tableSupported === false)
-            this[`_${table}Reason`] = _('Portal can\'t be found or hasn\'t been used yet');
+            this[`_${table}Reason`] = _('Portal data has not been setup yet');
         else
             this[`_${table}Reason`] = '';
 
