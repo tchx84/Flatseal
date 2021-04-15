@@ -48,7 +48,8 @@ var PermissionsIface = `
 `;
 
 
-const SUPPORTED_VERSION = 2;
+const SUPPORTED_SERVICE_VERSION = 2;
+const SUPPORTED_FLATPAK_VERSION = '0.4.0';
 
 
 var FlatpakPortalsModel = GObject.registerClass({
@@ -84,10 +85,16 @@ var FlatpakPortalsModel = GObject.registerClass({
             busName = 'org.freedesktop.impl.portal.PermissionStore';
 
         const PermissionsProxy = Gio.DBusProxy.makeProxyWrapper(PermissionsIface);
-        this._proxy = new PermissionsProxy(
-            Gio.DBus.session,
-            busName,
-            '/org/freedesktop/impl/portal/PermissionStore');
+
+        try {
+            this._proxy = new PermissionsProxy(
+                Gio.DBus.session,
+                busName,
+                '/org/freedesktop/impl/portal/PermissionStore');
+        } catch (err) {
+
+            /* pass */
+        }
     }
 
     getPermissions() {
@@ -183,24 +190,31 @@ var FlatpakPortalsModel = GObject.registerClass({
         if (this[`_${table}Supported`] !== null)
             return this[`_${table}Supported`];
 
+        if (this._info.supports(SUPPORTED_FLATPAK_VERSION) === false) {
+            this[`_${table}Reason`] = _('Not supported by the installed version of Flatpak');
+            this[`_${table}Supported`] = false;
+            return false;
+        }
+
         this._setup();
+
+        if (this._proxy.version >= SUPPORTED_SERVICE_VERSION === false) {
+            this[`_${table}Reason`] = _('Requires permission store version 2 or newer');
+            this[`_${table}Supported`] = false;
+            return false;
+        }
+
         const [ids] = this._proxy.ListSync(table);
 
-        const flatpakSupported = this._info.supports('0.4.0');
-        const serviceSupported = this._proxy.version >= SUPPORTED_VERSION;
-        const tableSupported = ids.length > 0;
-
-        if (flatpakSupported === false)
-            this[`_${table}Reason`] = _('Not supported by the installed version of Flatpak');
-        else if (serviceSupported === false)
-            this[`_${table}Reason`] = _('Requires permission store version 2 or newer');
-        else if (tableSupported === false)
+        if (ids.length === 0) {
             this[`_${table}Reason`] = _('Portal data has not been set up yet');
-        else
-            this[`_${table}Reason`] = '';
+            this[`_${table}Supported`] = false;
+            return false;
+        }
 
-        this[`_${table}Supported`] = serviceSupported && tableSupported && flatpakSupported;
-        return this[`_${table}Supported`];
+        this[`_${table}Reason`] = '';
+        this[`_${table}Supported`] = true;
+        return true;
     }
 
     whatReason(table) {
@@ -210,7 +224,6 @@ var FlatpakPortalsModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const permission = this.getPermissions()[property];
 
-        this._setup();
         if (!this.isSupported(permission.table))
             return;
 
@@ -233,7 +246,6 @@ var FlatpakPortalsModel = GObject.registerClass({
 
     updateProxyProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            this._setup();
             if (!this.isSupported(permission.table))
                 return;
 
