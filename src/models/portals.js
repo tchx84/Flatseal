@@ -65,11 +65,13 @@ var FlatpakPortalsModel = GObject.registerClass({
         this._notificationsSupported = null;
         this._devicesSupported = null;
         this._locationSupported = null;
+        this._wallpaperSupported = null;
 
         this._backgroundReason = '';
         this._notificationReason = '';
         this._devicesReason = '';
         this._locationReason = '';
+        this._wallpaperReason = '';
 
         this._info = info.getDefault();
         this._appId = '';
@@ -151,6 +153,16 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'location',
                 allowed: ['EXACT', '0'],
                 disallowed: ['NONE', '0'],
+            },
+            'portals-wallpaper': {
+                supported: this.isSupported('wallpaper'),
+                description: _('Wallpaper'),
+                value: this.constructor.getDefault(),
+                example: _('Can change your background and lockscreen wallpapers'),
+                table: 'wallpaper',
+                id: 'wallpaper',
+                allowed: ['yes'],
+                disallowed: ['no'],
             },
         };
     }
