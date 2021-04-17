@@ -21,9 +21,17 @@
 
 ## Permissions
 
-This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak's [official documentation](https://docs.flatpak.org/en/latest/sandbox-permissions-reference.html) and extended with examples and references to make it easier for newcomers to understand.
+This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak's [official documentation](https://docs.flatpak.org/en/latest/sandbox-permissions.html) and extended with examples and references to make it easier for newcomers to understand.
 
-Both Flatseal and `flatpak override` command-line tool, use the same overrides backend e.g. both write to `~/.local/share/flatpak/overrides`. A `flatpak override` equivalent column is added for those experienced with this tool.
+To summarize it, Flatpak provides two different permissions models: static and dynamic
+
+Static refers to the permissions set by the developers when applications are built. Static permissions are holes in the sandbox, e.g. an application is built with `--filesystem=home` can access _all_ user personal files. The benefit of this model is that developers can support Flatpak without any change in their applications code.
+
+Both Flatseal and `flatpak override` command-line tool, use the overrides backend to manage static permissions.
+
+Dynamic refers to the permissions granted by the users when applications run. Dynamic permissions rely on resource providers called [Portals](https://github.com/flatpak/flatpak/wiki/Portals) and can require user confirmation, e.g. users can grant access to _one_ specific file thanks to the `org.freedesktop.portal.FileChooser` portal. The benefit of this model is that users don't need to trust applications with more resources than is strictly needed.
+
+Both Flatseal and `flatpak permissions` command-line tool, use the `org.freedesktop.impl.portal.PermissionStore` service to manage dynamic permissions.
 
 ### Share
 
@@ -100,12 +108,7 @@ Name | Type | Description | `flatpak override` equivalent
 Talks | Input | Allow the application to talk to session services. <br /> <br /> For example, adding `org.freedesktop.Notifications` will allow the application to send notifications. | `--talk-name=[NAME]`
 Owns | Input | Allow the application to own session services under the given name. | `--own-name=[NAME]`
 
-
 ### Portals
-
-[Portals](https://github.com/flatpak/flatpak/wiki/Portals), also known as dynamic permissions, are permissions that require manual user intervention to grant or deny access to specific permissions.
-
-Dynamic permissions take priority over static permissions. For example, denying the application to access the webcam using static permissions (`--nodevice=all`) but allowing it to access the webcam using portals will ignore the static permission as Flatpak prioritizes portals, thus allowing the application to access the webcam.
 
 Name | Type | Description | Portal
 --- | --- | --- | ---
@@ -114,7 +117,7 @@ Notifications | Toggle | Allow the application to send notifications. | `org.fre
 Microphone | Toggle | Allow the application to listen to your microphone. | `org.freedesktop.portal.Device`
 Speakers | Toggle | Allow the application to play sounds to your speakers. | `org.freedesktop.portal.Device`
 Camera | Toggle | Allow the application to record videos with your camera. | `org.freedesktop.portal.Device`
-Location | Toggle | Allow the application to access your location. | `org.freedesktop.portal.Location`
+Location | Toggle | Allow the application to access your location data. | `org.freedesktop.portal.Location`
 
 ## Tips and Tricks
 
