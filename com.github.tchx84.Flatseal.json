@@ -45,8 +45,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.0.tar.xz",
-                    "sha256": "39f590ae20910e76fe1c0607b2ebe589750f45610d6aeec5c30e2ee602a20b25"
+                    "url": "https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.1.tar.xz",
+                    "sha256": "411b4c6a4d5f9ed5e46594b4abb04c54af294e3242cf364942029f5e0b6f510b"
                 }
             ]
         },
