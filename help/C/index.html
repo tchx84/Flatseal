@@ -84,8 +84,12 @@
 </li>
 </ul>
 <h2 id="permissions">Permissions</h2>
-<p>This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak’s <a href="https://docs.flatpak.org/en/latest/sandbox-permissions-reference.html">official documentation</a> and extended with examples and references to make it easier for newcomers to understand.</p>
-<p>Both Flatseal and <code>flatpak override</code> command-line tool, use the same overrides backend e.g. both write to <code>~/.local/share/flatpak/overrides</code>. A <code>flatpak override</code> equivalent column is added for those experienced with this tool.</p>
+<p>This is the list of permissions supported by Flatseal. These descriptions are based on Flatpak’s <a href="https://docs.flatpak.org/en/latest/sandbox-permissions.html">official documentation</a> and extended with examples and references to make it easier for newcomers to understand.</p>
+<p>To summarize it, Flatpak provides two different permissions models: static and dynamic</p>
+<p>Static refers to the permissions set by the developers when applications are built. Static permissions are holes in the sandbox, e.g. an application is built with <code>--filesystem=home</code> can access <em>all</em> user personal files. The benefit of this model is that developers can support Flatpak without any change in their applications code.</p>
+<p>Both Flatseal and <code>flatpak override</code> command-line tool, use the overrides backend to manage static permissions.</p>
+<p>Dynamic refers to the permissions granted by the users when applications run. Dynamic permissions rely on resource providers called <a href="https://github.com/flatpak/flatpak/wiki/Portals">Portals</a> and can require user confirmation, e.g. users can grant access to <em>one</em> specific file thanks to the <code>org.freedesktop.portal.FileChooser</code> portal. The benefit of this model is that users don’t need to trust applications with more resources than is strictly needed.</p>
+<p>Both Flatseal and <code>flatpak permissions</code> command-line tool, use the <code>org.freedesktop.impl.portal.PermissionStore</code> service to manage dynamic permissions.</p>
 <h3 id="share">Share</h3>
 <table>
 <colgroup>
@@ -438,8 +442,6 @@
 </tbody>
 </table>
 <h3 id="portals">Portals</h3>
-<p><a href="https://github.com/flatpak/flatpak/wiki/Portals">Portals</a>, also known as dynamic permissions, are permissions that require manual user intervention to grant or deny access to specific permissions.</p>
-<p>Dynamic permissions take priority over static permissions. For example, denying the application to access the webcam using static permissions (<code>--nodevice=all</code>) but allowing it to access the webcam using portals will ignore the static permission as Flatpak prioritizes portals, thus allowing the application to access the webcam.</p>
 <table>
 <colgroup>
 <col style="width: 25%" />
@@ -489,7 +491,7 @@
 <tr class="even">
 <td>Location</td>
 <td>Toggle</td>
-<td>Allow the application to access your location.</td>
+<td>Allow the application to access your location data.</td>
 <td><code>org.freedesktop.portal.Location</code></td>
 </tr>
 </tbody>
@@ -500,7 +502,9 @@
 <pre><code>$ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal</code></pre>
 <h3 id="add-new-translations">Add new translations</h3>
 <p>Add a new language and update translations:</p>
-<pre><code>$ echo &quot;es&quot; &gt;&gt; po/LINGUAS # es for Spanish
+<pre><code>$ git clone https://github.com/tchx84/Flatseal.git
+$ cd Flatseal
+$ echo &quot;es&quot; &gt;&gt; po/LINGUAS # es for Spanish
 $ meson _translate &amp;&amp; cd _translate
 $ ninja flatseal-pot
 $ ninja flatseal-update-po
