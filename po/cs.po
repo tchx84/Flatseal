@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-20 15:30-0300\n"
+"POT-Creation-Date: 2021-04-17 06:43-0400\n"
 "PO-Revision-Date: 2021-03-21 19:56+0100\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
@@ -145,57 +145,70 @@ msgstr "např. .thunderbird"
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr "Seznam cest relativních k domovskému adresáři vytvořených v sandboxu"
 
-#: src/models/portals.js:80
+#: src/models/portals.js:104
 msgid "Background"
 msgstr "Pozadí"
 
-#: src/models/portals.js:82
+#: src/models/portals.js:106
 msgid "Can run in the background"
 msgstr "Může běžet na pozadí"
 
-#: src/models/portals.js:88
+#: src/models/portals.js:114
 msgid "Notifications"
 msgstr "Upozornění"
 
-#: src/models/portals.js:90
+#: src/models/portals.js:116
 msgid "Can send notifications"
 msgstr "Může zasílat upozornění"
 
-#: src/models/portals.js:96
+#: src/models/portals.js:124
 msgid "Microphone"
 msgstr "Mikrofon"
 
-#: src/models/portals.js:98
+#: src/models/portals.js:126
 msgid "Can listen to your microphone"
 msgstr "Může poslouchat váš mikrofon"
 
-#: src/models/portals.js:104
+#: src/models/portals.js:134
 msgid "Speakers"
 msgstr "Reproduktory"
 
-#: src/models/portals.js:106
+#: src/models/portals.js:136
 msgid "Can play sounds to your speakers"
 msgstr "Může přehrávat zvuk na vašich reproduktorech"
 
-#: src/models/portals.js:112
+#: src/models/portals.js:144
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/models/portals.js:114
+#: src/models/portals.js:146
 msgid "Can record videos with your camera"
 msgstr "Může nahrávat videa vaší kamerou"
 
-#: src/models/portals.js:120
+#: src/models/portals.js:154
 msgid "Location"
 msgstr "Poloha"
 
-#: src/models/portals.js:122
+#: src/models/portals.js:156
 msgid "Can access your location"
 msgstr "Může přistupovat k vaší poloze"
 
-#: src/models/portals.js:150
+#: src/models/portals.js:186
 msgid "List of resources selectively granted to the application"
 msgstr "Seznam prostředků selektivně přidělených aplikaci"
+
+#: src/models/portals.js:194 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:39
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Není podporováno nainstalovanou verzí Flatpaku"
+
+#: src/models/portals.js:202
+msgid "Requires permission store version 2 or newer"
+msgstr ""
+
+#: src/models/portals.js:210
+msgid "Portal data has not been set up yet"
+msgstr ""
 
 #: src/models/shared.js:38
 msgid "Network"
@@ -291,11 +304,11 @@ msgstr "Toto není platná možnost"
 msgid "Show Details"
 msgstr "Zobrazit podrobnosti"
 
-#: src/widgets/detailsButton.js:95
+#: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
 msgstr "Zobrazit aplikaci ve správci softwaru"
 
-#: src/widgets/detailsButton.js:97
+#: src/widgets/detailsButton.js:107
 msgid "No software manager found"
 msgstr "Nebyl nalezen žádný správce softwaru"
 
@@ -398,10 +411,6 @@ msgstr "Může upravovat a číst: %s"
 msgid "Can create, modify and read: %s"
 msgstr "Může vytvářet, upravovat a číst: %s"
 
-#: src/widgets/permissionEntryRow.js:58 src/widgets/permissionSwitchRow.js:39
-msgid "Not supported by the installed version of Flatpak"
-msgstr "Není podporováno nainstalovanou verzí Flatpaku"
-
 #: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
 msgstr "Výchozí cesty nemohou být odstraněny"
@@ -434,6 +443,6 @@ msgstr "Zpět"
 msgid "Applications"
 msgstr "Aplikace"
 
-#: src/widgets/window.ui:78
+#: src/widgets/window.ui:95 src/widgets/window.ui:181
 msgid "No applications found."
 msgstr "Nenalezeny žádné aplikace."
