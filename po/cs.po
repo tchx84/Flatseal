@@ -204,11 +204,11 @@ msgstr "Není podporováno nainstalovanou verzí Flatpaku"
 
 #: src/models/portals.js:202
 msgid "Requires permission store version 2 or newer"
-msgstr ""
+msgstr "Vyžaduje úložiště oprávnění verze 2 nebo novější"
 
 #: src/models/portals.js:210
 msgid "Portal data has not been set up yet"
-msgstr ""
+msgstr "Data portálu dosud nebyla nastavena"
 
 #: src/models/shared.js:38
 msgid "Network"

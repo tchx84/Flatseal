@@ -206,11 +206,11 @@ msgstr "Niet ondersteund door de geïnstalleerde versie van Flatpak"
 
 #: src/models/portals.js:202
 msgid "Requires permission store version 2 or newer"
-msgstr ""
+msgstr "Vereist toestemmingopslag versie 2 of nieuwer"
 
 #: src/models/portals.js:210
 msgid "Portal data has not been set up yet"
-msgstr ""
+msgstr "Portaalgegevens zijn nog niet ingesteld"
 
 #: src/models/shared.js:38
 msgid "Network"
