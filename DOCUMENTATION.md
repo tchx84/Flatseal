@@ -134,6 +134,8 @@ $ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal
 Add a new language and update translations:
 
 ```
+$ git clone https://github.com/tchx84/Flatseal.git
+$ cd Flatseal
 $ echo "es" >> po/LINGUAS # es for Spanish
 $ meson _translate && cd _translate
 $ ninja flatseal-pot
