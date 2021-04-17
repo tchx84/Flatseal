@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-20 15:30-0300\n"
+"POT-Creation-Date: 2021-04-17 06:43-0400\n"
 "PO-Revision-Date: 2021-01-06 15:56+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -148,60 +148,73 @@ msgstr "np. .thunderbird"
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr "Lista położeń w Katalogu domowym dostępnych dla aplikacji"
 
-#: src/models/portals.js:80
+#: src/models/portals.js:104
 msgid "Background"
 msgstr ""
 
-#: src/models/portals.js:82
+#: src/models/portals.js:106
 msgid "Can run in the background"
 msgstr ""
 
-#: src/models/portals.js:88
+#: src/models/portals.js:114
 #, fuzzy
 msgid "Notifications"
 msgstr "Dokumentacja"
 
-#: src/models/portals.js:90
+#: src/models/portals.js:116
 msgid "Can send notifications"
 msgstr ""
 
-#: src/models/portals.js:96
+#: src/models/portals.js:124
 msgid "Microphone"
 msgstr ""
 
-#: src/models/portals.js:98
+#: src/models/portals.js:126
 msgid "Can listen to your microphone"
 msgstr ""
 
-#: src/models/portals.js:104
+#: src/models/portals.js:134
 msgid "Speakers"
 msgstr ""
 
-#: src/models/portals.js:106
+#: src/models/portals.js:136
 msgid "Can play sounds to your speakers"
 msgstr ""
 
-#: src/models/portals.js:112
+#: src/models/portals.js:144
 msgid "Camera"
 msgstr ""
 
-#: src/models/portals.js:114
+#: src/models/portals.js:146
 msgid "Can record videos with your camera"
 msgstr ""
 
-#: src/models/portals.js:120
+#: src/models/portals.js:154
 #, fuzzy
 msgid "Location"
 msgstr "Dokumentacja"
 
-#: src/models/portals.js:122
+#: src/models/portals.js:156
 msgid "Can access your location"
 msgstr ""
 
-#: src/models/portals.js:150
+#: src/models/portals.js:186
 #, fuzzy
 msgid "List of resources selectively granted to the application"
 msgstr "Lista możliwych ustawień dla aplikacji"
+
+#: src/models/portals.js:194 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:39
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Niewspierane przez aktualnie zainstalowaną wersję Flatpak"
+
+#: src/models/portals.js:202
+msgid "Requires permission store version 2 or newer"
+msgstr ""
+
+#: src/models/portals.js:210
+msgid "Portal data has not been set up yet"
+msgstr ""
 
 #: src/models/shared.js:38
 msgid "Network"
@@ -297,11 +310,11 @@ msgstr "To nie jest poprawna operacja"
 msgid "Show Details"
 msgstr "Wyświetl szczegóły"
 
-#: src/widgets/detailsButton.js:95
+#: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
 msgstr "Wyświetl w menedżerze oprogramowania"
 
-#: src/widgets/detailsButton.js:97
+#: src/widgets/detailsButton.js:107
 msgid "No software manager found"
 msgstr "Nie znaleziono menedżera oprogramowania"
 
@@ -404,10 +417,6 @@ msgstr "Może czytać i modyfikować: %s"
 msgid "Can create, modify and read: %s"
 msgstr "Może tworzyć, czytać i modyfikować: %s"
 
-#: src/widgets/permissionEntryRow.js:58 src/widgets/permissionSwitchRow.js:39
-msgid "Not supported by the installed version of Flatpak"
-msgstr "Niewspierane przez aktualnie zainstalowaną wersję Flatpak"
-
 #: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
 msgstr "Domyślne ścieżki nie mogą być usunięte"
@@ -440,6 +449,6 @@ msgstr "Cofnij"
 msgid "Applications"
 msgstr "Aplikacje"
 
-#: src/widgets/window.ui:78
+#: src/widgets/window.ui:95 src/widgets/window.ui:181
 msgid "No applications found."
 msgstr "Nie znaleziono programów."
