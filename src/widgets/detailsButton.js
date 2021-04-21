@@ -52,6 +52,7 @@ var FlatsealDetailsButton = GObject.registerClass({
     }
 
     _setup(permissions) {
+        this._proxy = null;
         this._permissions = permissions;
 
         this.set_label(_('Show Details'));
@@ -79,7 +80,7 @@ var FlatsealDetailsButton = GObject.registerClass({
     _clicked() {
         try {
             const GSProxy = Gio.DBusProxy.makeProxyWrapper(GSActivateIface);
-            GSProxy(
+            this._proxy = new GSProxy(
                 Gio.DBus.session,
                 'org.gnome.Software',
                 '/org/gnome/Software',
@@ -89,10 +90,10 @@ var FlatsealDetailsButton = GObject.registerClass({
         }
     }
 
-    _launchSoftwareManager(proxy) {
+    _launchSoftwareManager() {
         try {
             const args = GLib.Variant.new('(ss)', [this._permissions.appId, '']);
-            proxy.ActivateRemote('details', [args], null);
+            this._proxy.ActivateRemote('details', [args], null);
         } catch (err) {
             logError(err);
         }
