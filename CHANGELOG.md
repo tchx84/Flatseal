@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.7.0] - 2021-04-22
 
 - Added initial support for portal permissions.
 - Added offline documentation.
