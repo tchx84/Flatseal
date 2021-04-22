@@ -29,28 +29,6 @@
     ],
     "modules": [
         {
-            "name": "libhandy",
-            "buildsystem": "meson",
-            "config-opts": [
-                "-Dgtk_doc=false",
-                "-Dtests=false",
-                "-Dexamples=false",
-                "-Dvapi=false",
-                "-Dglade_catalog=disabled"
-            ],
-            "cleanup": [
-                "/include",
-                "/lib/pkgconfig"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.1.tar.xz",
-                    "sha256": "411b4c6a4d5f9ed5e46594b4abb04c54af294e3242cf364942029f5e0b6f510b"
-                }
-            ]
-        },
-        {
             "name": "appstream-glib",
             "buildsystem": "meson",
             "config-opts": [
