@@ -98,8 +98,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 busName,
                 '/org/freedesktop/impl/portal/PermissionStore');
         } catch (err) {
-
-            /* pass */
+            logError(err);
         }
     }
 
