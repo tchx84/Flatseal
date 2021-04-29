@@ -150,7 +150,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     _checkIfChanged() {
         const overrideExists = GLib.access(this._getOverridesPath(), 0) === 0;
-        const portalsChanged = MODELS.portals.changed(this);
+        const portalsChanged = MODELS.portals.changed();
         const changed = overrideExists || portalsChanged;
         const unsupported = !MODELS.unsupported.isEmpty();
         this.emit('changed', changed, unsupported);
@@ -255,7 +255,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     backup() {
         this._backup = new GLib.KeyFile();
         Object.values(MODELS).forEach(model => model.saveToKeyFile(this._backup));
-        MODELS.portals.backup(this);
+        MODELS.portals.backup();
     }
 
     reset() {
