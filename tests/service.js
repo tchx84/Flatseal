@@ -42,6 +42,11 @@ const PermissionsIface = `
             <arg type="s" name="app" direction="in"/>
             <arg type="as" name="permissions" direction="in"/>
         </method>
+        <method name="DeletePermission">
+            <arg name='table' type='s' direction='in'/>
+            <arg name='id' type='s' direction='in'/>
+            <arg name='app' type='s' direction='in'/>
+        </method>
         <property name="version" type="u" access="read"/>
     </interface>
 </node>
@@ -116,6 +121,13 @@ class MockPermissionsStore {
 
             const value = new GLib.Variant('(as)', [ids]);
             invocation.return_value(value);
+        } else if (method === 'DeletePermission') {
+            const [table, id, appId] = params.deep_unpack();
+
+            if (table in this._store && id in this._store[table] && appId in this._store[table][id])
+                delete this._store[table][id][appId];
+
+            invocation.return_value(null);
         }
     }
 

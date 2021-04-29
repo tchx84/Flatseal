@@ -794,12 +794,12 @@ describe('Model', function() {
 
         permissions.reset();
 
-        expect(getValueFromService('background', 'background', 'no', _basicAppId)).toBe(true);
-        expect(getValueFromService('notifications', 'notification', 'no', _basicAppId)).toBe(true);
-        expect(getValueFromService('devices', 'microphone', 'no', _basicAppId)).toBe(true);
-        expect(getValueFromService('devices', 'speakers', 'no', _basicAppId)).toBe(true);
-        expect(getValueFromService('devices', 'camera', 'no', _basicAppId)).toBe(true);
-        expect(getValueFromService('location', 'location', 'NONE', _basicAppId)).toBe(true);
+        expect(getValueFromService('background', 'background', null, _basicAppId)).toBe(true);
+        expect(getValueFromService('notifications', 'notification', null, _basicAppId)).toBe(true);
+        expect(getValueFromService('devices', 'microphone', null, _basicAppId)).toBe(true);
+        expect(getValueFromService('devices', 'speakers', null, _basicAppId)).toBe(true);
+        expect(getValueFromService('devices', 'camera', null, _basicAppId)).toBe(true);
+        expect(getValueFromService('location', 'location', null, _basicAppId)).toBe(true);
     });
 
 
@@ -831,12 +831,12 @@ describe('Model', function() {
 
             permissions.reset();
 
-            expect(getValueFromService('background', 'background', 'no', _overridenAppId)).toBe(true);
-            expect(getValueFromService('notifications', 'notification', 'no', _overridenAppId)).toBe(true);
-            expect(getValueFromService('devices', 'microphone', 'no', _overridenAppId)).toBe(true);
-            expect(getValueFromService('devices', 'speakers', 'no', _overridenAppId)).toBe(true);
-            expect(getValueFromService('devices', 'camera', 'no', _overridenAppId)).toBe(true);
-            expect(getValueFromService('location', 'location', 'NONE', _overridenAppId)).toBe(true);
+            expect(getValueFromService('background', 'background', null, _overridenAppId)).toBe(true);
+            expect(getValueFromService('notifications', 'notification', null, _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'microphone', null, _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'speakers', null, _overridenAppId)).toBe(true);
+            expect(getValueFromService('devices', 'camera', null, _overridenAppId)).toBe(true);
+            expect(getValueFromService('location', 'location', null, _overridenAppId)).toBe(true);
 
             permissions.undo();
 
