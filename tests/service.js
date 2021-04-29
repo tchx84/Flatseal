@@ -65,6 +65,9 @@ class MockPermissionsStore {
             location: {
                 location: {},
             },
+            wallpaper: {
+                wallpaper: {},
+            },
         };
 
         this._version = new GLib.Variant('u', 2);
