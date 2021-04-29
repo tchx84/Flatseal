@@ -42,6 +42,11 @@ var PermissionsIface = `
             <arg type="s" name="app" direction="in"/>
             <arg type="as" name="permissions" direction="in"/>
         </method>
+        <method name="DeletePermission">
+            <arg name='table' type='s' direction='in'/>
+            <arg name='id' type='s' direction='in'/>
+            <arg name='app' type='s' direction='in'/>
+        </method>
         <property name="version" type="u" access="read"/>
     </interface>
 </node>
@@ -273,9 +278,23 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     forget() {
-        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            // XXX use https://github.com/flatpak/xdg-desktop-portal/issues/573
-            this.updateFromProxyProperty(property, permission.value);
+        const permissions = this.getPermissions();
+
+        Object.keys(this.getPermissions()).forEach(property => {
+            const permission = permissions[property];
+
+            if (!this.isSupported(permission.table))
+                return;
+
+            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
+            if (!(this.appId in appIds))
+                return;
+
+            /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
+            if (Object.keys(appIds).length === 1)
+                this._proxy.SetPermissionSync(permission.table, true, permission.id, '', []);
+
+            this._proxy.DeletePermissionSync(permission.table, permission.id, this.appId);
         });
     }
 
