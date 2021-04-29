@@ -65,6 +65,7 @@ var FlatpakPortalsModel = GObject.registerClass({
 }, class FlatpakPortalsModel extends GObject.Object {
     _init() {
         super._init({});
+        this._backup = {};
         this._proxy = null;
 
         this._backgroundSupported = null;
@@ -240,7 +241,6 @@ var FlatpakPortalsModel = GObject.registerClass({
         }
 
         const access = value ? permission.allowed : permission.disallowed;
-
         this._proxy.SetPermissionSync(
             permission.table,
             false,
@@ -264,45 +264,62 @@ var FlatpakPortalsModel = GObject.registerClass({
         });
     }
 
-    backup(proxy) {
+    backup() {
         this._backup = {};
-        Object.keys(this.getPermissions()).forEach(property => {
-            this._backup[property] = proxy[property];
-        });
-    }
 
-    restore() {
-        Object.keys(this.getPermissions()).forEach(property => {
-            this.updateFromProxyProperty(property, this._backup[property]);
-        });
-    }
-
-    forget() {
-        const permissions = this.getPermissions();
-
-        Object.keys(this.getPermissions()).forEach(property => {
-            const permission = permissions[property];
-
+        for (const [property, permission] of Object.entries(this.getPermissions())) {
             if (!this.isSupported(permission.table))
-                return;
+                continue;
 
             const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
             if (!(this.appId in appIds))
-                return;
+                continue;
+
+            this._backup[property] = appIds[this.appId];
+        }
+    }
+
+    restore() {
+        for (const [property, permission] of Object.entries(this.getPermissions())) {
+            if (!(property in this._backup))
+                continue;
+
+            this._proxy.SetPermissionSync(
+                permission.table,
+                false,
+                permission.id,
+                this.appId,
+                this._backup[property]);
+        }
+    }
+
+    forget() {
+        for (const [, permission] of Object.entries(this.getPermissions())) {
+            if (!this.isSupported(permission.table))
+                continue;
+
+            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
+            if (!(this.appId in appIds))
+                continue;
 
             /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
             if (Object.keys(appIds).length === 1)
                 this._proxy.SetPermissionSync(permission.table, true, permission.id, '', []);
 
             this._proxy.DeletePermissionSync(permission.table, permission.id, this.appId);
-        });
+        }
     }
 
-    changed(proxy) {
-        for (const property in this.getPermissions()) {
-            if (proxy[property] === true)
+    changed() {
+        for (const [, permission] of Object.entries(this.getPermissions())) {
+            if (!this.isSupported(permission.table))
+                continue;
+
+            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
+            if (this.appId in appIds)
                 return true;
         }
+
         return false;
     }
 
