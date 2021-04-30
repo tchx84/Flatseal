@@ -65,6 +65,9 @@ class MockPermissionsStore {
             location: {
                 location: {},
             },
+            gamemode: {
+                gamemode: {},
+            },
         };
 
         this._version = new GLib.Variant('u', 2);

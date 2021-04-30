@@ -31,7 +31,7 @@ const {
 
 setup();
 
-const _totalPermissions = 36;
+const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -774,6 +774,9 @@ describe('Model', function() {
         expect(permissions.portals_location).toBe(false);
         permissions.set_property('portals_location', true);
 
+        expect(permissions.portals_gamemode).toBe(false);
+        permissions.set_property('portals_gamemode', true);
+
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('background', 'background', 'yes', _basicAppId)).toBe(true);
             expect(getValueFromService('notifications', 'notification', 'yes', _basicAppId)).toBe(true);
@@ -781,6 +784,7 @@ describe('Model', function() {
             expect(getValueFromService('devices', 'speakers', 'yes', _basicAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'yes', _basicAppId)).toBe(true);
             expect(getValueFromService('location', 'location', 'EXACT', _basicAppId)).toBe(true);
+            expect(getValueFromService('gamemode', 'gamemode', 'yes', _basicAppId)).toBe(true);
 
             done();
             return GLib.SOURCE_REMOVE;
@@ -800,6 +804,7 @@ describe('Model', function() {
         expect(getValueFromService('devices', 'speakers', 'no', _basicAppId)).toBe(true);
         expect(getValueFromService('devices', 'camera', 'no', _basicAppId)).toBe(true);
         expect(getValueFromService('location', 'location', 'NONE', _basicAppId)).toBe(true);
+        expect(getValueFromService('gamemode', 'gamemode', 'no', _basicAppId)).toBe(true);
     });
 
 
@@ -813,6 +818,7 @@ describe('Model', function() {
         expect(permissions.portals_speakers).toBe(false);
         expect(permissions.portals_camera).toBe(false);
         expect(permissions.portals_location).toBe(false);
+        expect(permissions.portals_gamemode).toBe(false);
 
         permissions.set_property('portals_notification', true);
         permissions.set_property('portals_background', true);
@@ -820,6 +826,7 @@ describe('Model', function() {
         permissions.set_property('portals_speakers', true);
         permissions.set_property('portals_camera', true);
         permissions.set_property('portals_location', true);
+        permissions.set_property('portals_gamemode', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
@@ -828,6 +835,7 @@ describe('Model', function() {
             expect(getValueFromService('devices', 'speakers', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('location', 'location', 'EXACT', _overridenAppId)).toBe(true);
+            expect(getValueFromService('gamemode', 'gamemode', 'yes', _overridenAppId)).toBe(true);
 
             permissions.reset();
 
@@ -837,6 +845,7 @@ describe('Model', function() {
             expect(getValueFromService('devices', 'speakers', 'no', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'no', _overridenAppId)).toBe(true);
             expect(getValueFromService('location', 'location', 'NONE', _overridenAppId)).toBe(true);
+            expect(getValueFromService('gamemode', 'gamemode', 'no', _overridenAppId)).toBe(true);
 
             permissions.undo();
 
@@ -846,6 +855,7 @@ describe('Model', function() {
             expect(getValueFromService('devices', 'speakers', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('location', 'location', 'EXACT', _overridenAppId)).toBe(true);
+            expect(getValueFromService('gamemode', 'gamemode', 'yes', _overridenAppId)).toBe(true);
 
             done();
             return GLib.SOURCE_REMOVE;

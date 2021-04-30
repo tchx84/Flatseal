@@ -159,6 +159,16 @@ var FlatpakPortalsModel = GObject.registerClass({
                 allowed: ['EXACT', '0'],
                 disallowed: ['NONE', '0'],
             },
+            'portals-gamemode': {
+                supported: this.isSupported('gamemode'),
+                description: _('Game mode'),
+                value: this.constructor.getDefault(),
+                example: _('Optimized for better gaming performance'),
+                table: 'gamemode',
+                id: 'gamemode',
+                allowed: ['yes'],
+                disallowed: ['no'],
+            },
         };
     }
 
