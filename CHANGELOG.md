@@ -1,5 +1,12 @@
 # Changelog
 
+## [unreleased]
+
+- Fix crashing at startup on Gentoo.
+- Fix styling for the no applications found message.
+- Added Ctrl+F accelerator for activating search.
+- Changed reset behavior to forget portals decisions.
+
 ## [1.7.0] - 2021-04-22
 
 - Added initial support for portal permissions.
