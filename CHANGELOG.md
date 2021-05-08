@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.7.1] - 2021-05-08
 
 - Fix crashing at startup on Gentoo.
 - Fix styling for the no applications found message.
