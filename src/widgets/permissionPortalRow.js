@@ -28,21 +28,22 @@ var FlatsealPermissionPortalRow = GObject.registerClass({
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionPortalRow.ui',
     InternalChildren: ['content'],
 }, class FlatsealPermissionPortalRow extends Handy.ActionRow {
-    _init(description, permission, content, table) {
+    _init(description, permission, content, table, id) {
         super._init({});
         this.set_title(description);
         this.set_subtitle(permission);
         this._content.set_state(content);
         this._table = table;
+        this._id = id;
         this._portals = portals.getDefault();
         this._portals.connect('reloaded', this._update.bind(this));
     }
 
     _update() {
-        this.sensitive = this._portals.isSupported(this._table);
+        this.sensitive = this._portals.isSupported(this._table, this._id);
 
         if (this.sensitive === false)
-            this.set_tooltip_text(this._portals.whatReason(this._table));
+            this.set_tooltip_text(this._portals.whatReason(this._table, this._id));
         else
             this.set_tooltip_text('');
     }
