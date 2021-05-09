@@ -68,15 +68,19 @@ var FlatpakPortalsModel = GObject.registerClass({
         this._backup = {};
         this._proxy = null;
 
-        this._backgroundSupported = null;
-        this._notificationsSupported = null;
-        this._devicesSupported = null;
-        this._locationSupported = null;
+        this._backgroundbackgroundSupported = null;
+        this._notificationsnotificationSupported = null;
+        this._devicesmicrophoneSupported = null;
+        this._devicesspeakersSupported = null;
+        this._devicescameraSupported = null;
+        this._locationlocationSupported = null;
 
-        this._backgroundReason = '';
-        this._notificationReason = '';
-        this._devicesReason = '';
-        this._locationReason = '';
+        this._backgroundbackgroundReason = '';
+        this._notificationsnotificationReason = '';
+        this._devicesmicrophoneReason = '';
+        this._devicesspeakersReason = '';
+        this._devicescameraReason = '';
+        this._locationlocationReason = '';
 
         this._info = info.getDefault();
         this._appId = '';
@@ -105,7 +109,7 @@ var FlatpakPortalsModel = GObject.registerClass({
     getPermissions() {
         return {
             'portals-background': {
-                supported: this.isSupported('background'),
+                supported: this.isSupported('background', 'background'),
                 description: _('Background'),
                 value: this.constructor.getDefault(),
                 example: _('Can run in the background'),
@@ -115,7 +119,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-notification': {
-                supported: this.isSupported('notifications'),
+                supported: this.isSupported('notifications', 'notification'),
                 description: _('Notifications'),
                 value: this.constructor.getDefault(),
                 example: _('Can send notifications'),
@@ -125,7 +129,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-microphone': {
-                supported: this.isSupported('devices'),
+                supported: this.isSupported('devices', 'microphone'),
                 description: _('Microphone'),
                 value: this.constructor.getDefault(),
                 example: _('Can listen to your microphone'),
@@ -135,7 +139,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-speakers': {
-                supported: this.isSupported('devices'),
+                supported: this.isSupported('devices', 'speakers'),
                 description: _('Speakers'),
                 value: this.constructor.getDefault(),
                 example: _('Can play sounds to your speakers'),
@@ -145,7 +149,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-camera': {
-                supported: this.isSupported('devices'),
+                supported: this.isSupported('devices', 'camera'),
                 description: _('Camera'),
                 value: this.constructor.getDefault(),
                 example: _('Can record videos with your camera'),
@@ -155,7 +159,7 @@ var FlatpakPortalsModel = GObject.registerClass({
                 disallowed: ['no'],
             },
             'portals-location': {
-                supported: this.isSupported('location'),
+                supported: this.isSupported('location', 'location'),
                 description: _('Location'),
                 value: this.constructor.getDefault(),
                 example: _('Can access your location'),
@@ -191,51 +195,75 @@ var FlatpakPortalsModel = GObject.registerClass({
         return _('List of resources selectively granted to the application');
     }
 
-    isSupported(table) {
-        if (this[`_${table}Supported`] !== null)
-            return this[`_${table}Supported`];
+    safeList(table) {
+        try {
+            return this._proxy.ListSync(table);
+        } catch (err) {
+            return [[]];
+        }
+    }
+
+    safeLookUp(table, id) {
+        try {
+            return this._proxy.LookupSync(table, id);
+        } catch (err) {
+            return [null];
+        }
+    }
+
+    isSupported(table, id) {
+        if (this[`_${table}${id}Supported`] !== null)
+            return this[`_${table}${id}Supported`];
 
         if (this._info.supports(SUPPORTED_FLATPAK_VERSION) === false) {
-            this[`_${table}Reason`] = _('Not supported by the installed version of Flatpak');
-            this[`_${table}Supported`] = false;
+            this[`_${table}${id}Reason`] = _('Not supported by the installed version of Flatpak');
+            this[`_${table}${id}Supported`] = false;
             return false;
         }
 
         this._setup();
 
         if (this._proxy === null || this._proxy.version >= SUPPORTED_SERVICE_VERSION === false) {
-            this[`_${table}Reason`] = _('Requires permission store version 2 or newer');
-            this[`_${table}Supported`] = false;
+            this[`_${table}${id}Reason`] = _('Requires permission store version 2 or newer');
+            this[`_${table}${id}Supported`] = false;
             return false;
         }
 
-        const [ids] = this._proxy.ListSync(table);
+        const [ids] = this.safeList(table);
 
         if (ids.length === 0) {
-            this[`_${table}Reason`] = _('Portal data has not been set up yet');
-            this[`_${table}Supported`] = false;
+            this[`_${table}${id}Reason`] = _('Portal data has not been set up yet');
+            this[`_${table}${id}Supported`] = false;
             return false;
         }
 
-        this[`_${table}Reason`] = '';
-        this[`_${table}Supported`] = true;
+        const [appIds] = this.safeLookUp(table, id);
+
+        if (appIds === null) {
+            this[`_${table}${id}Reason`] = _('Portal data has not been set up yet');
+            this[`_${table}${id}Supported`] = false;
+            return false;
+        }
+
+        this[`_${table}${id}Reason`] = '';
+        this[`_${table}${id}Supported`] = true;
         return true;
     }
 
-    whatReason(table) {
-        return this[`_${table}Reason`];
+    whatReason(table, id) {
+        return this[`_${table}${id}Reason`];
     }
 
     updateFromProxyProperty(property, value) {
         const permission = this.getPermissions()[property];
 
-        if (!this.isSupported(permission.table))
+        if (!this.isSupported(permission.table, permission.id))
             return;
 
         // don't write to the store unnecessarily
         if (value === permission.value) {
-            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
-            if (!(this.appId in appIds))
+            const [appIds] = this.safeLookUp(permission.table, permission.id);
+            if (appIds === null || !(this.appId in appIds))
                 return;
         }
 
@@ -250,11 +278,11 @@ var FlatpakPortalsModel = GObject.registerClass({
 
     updateProxyProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            if (!this.isSupported(permission.table))
+            if (!this.isSupported(permission.table, permission.id))
                 return;
 
             try {
-                const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
+                const [appIds] = this.safeLookUp(permission.table, permission.id);
                 const value = this.appId in appIds && appIds[this.appId][0] === permission.allowed[0];
                 proxy.set_property(property, value);
             } catch (err) {
@@ -267,11 +295,11 @@ var FlatpakPortalsModel = GObject.registerClass({
         this._backup = {};
 
         for (const [property, permission] of Object.entries(this.getPermissions())) {
-            if (!this.isSupported(permission.table))
+            if (!this.isSupported(permission.table, permission.id))
                 continue;
 
-            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
-            if (!(this.appId in appIds))
+            const [appIds] = this.safeLookUp(permission.table, permission.id);
+            if (appIds === null || !(this.appId in appIds))
                 continue;
 
             this._backup[property] = appIds[this.appId];
@@ -294,11 +322,11 @@ var FlatpakPortalsModel = GObject.registerClass({
 
     forget() {
         for (const [, permission] of Object.entries(this.getPermissions())) {
-            if (!this.isSupported(permission.table))
+            if (!this.isSupported(permission.table, permission.id))
                 continue;
 
-            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
-            if (!(this.appId in appIds))
+            const [appIds] = this.safeLookUp(permission.table, permission.id);
+            if (appIds === null || !(this.appId in appIds))
                 continue;
 
             /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
@@ -311,11 +339,11 @@ var FlatpakPortalsModel = GObject.registerClass({
 
     changed() {
         for (const [, permission] of Object.entries(this.getPermissions())) {
-            if (!this.isSupported(permission.table))
+            if (!this.isSupported(permission.table, permission.id))
                 continue;
 
-            const [appIds] = this._proxy.LookupSync(permission.table, permission.id);
-            if (this.appId in appIds)
+            const [appIds] = this.safeLookUp(permission.table, permission.id);
+            if (appIds !== null && this.appId in appIds)
                 return true;
         }
 
@@ -337,8 +365,8 @@ var FlatpakPortalsModel = GObject.registerClass({
 
         Object.keys(permissions).forEach(property => {
             const permission = permissions[property];
-            this[`_${permission.table}Supported`] = null;
-            this.isSupported(permission.table);
+            this[`_${permission.table}${permission.id}Supported`] = null;
+            this.isSupported(permission.table, permission.id);
         });
 
         this.emit('reloaded');
