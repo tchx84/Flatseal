@@ -47,6 +47,8 @@ const PermissionsIface = `
             <arg name='id' type='s' direction='in'/>
             <arg name='app' type='s' direction='in'/>
         </method>
+        <method name="testPartialTable">
+        </method>
         <property name="version" type="u" access="read"/>
     </interface>
 </node>
@@ -102,6 +104,9 @@ class MockPermissionsStore {
         if (method === 'Lookup') {
             const [table, id] = params.deep_unpack();
 
+            if (!(table in this._store) || !(id in this._store[table]))
+                invocation.return_dbus_error('org.freedesktop.portal.Error.NotFound', '');
+
             const data = new GLib.Variant('b', true);
             const permissions = new GLib.Variant('(a{sas}v)', [this._store[table][id], data]);
 
@@ -126,6 +131,10 @@ class MockPermissionsStore {
 
             if (table in this._store && id in this._store[table] && appId in this._store[table][id])
                 delete this._store[table][id][appId];
+
+            invocation.return_value(null);
+        } else if (method === 'testPartialTable') {
+            delete this._store['devices']['microphone'];
 
             invocation.return_value(null);
         }

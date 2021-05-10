@@ -1,5 +1,5 @@
 /* exported setup update has hasOnly startService
-   stopService getValueFromService waitForService */
+   stopService getValueFromService waitForService partialService */
 /* eslint no-extend-native: */
 
 /* utils.js
@@ -25,6 +25,16 @@ imports.gi.versions.Gtk = '3.0';
 const {gettext} = imports;
 
 const {Gio, GLib, Gtk} = imports.gi;
+
+
+const TestPermissionStoreIface = `
+<node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
+    <interface name="org.freedesktop.impl.portal.PermissionStore">
+        <method name="testPartialTable">
+        </method>
+    </interface>
+</node>
+`;
 
 
 function setup() {
@@ -138,4 +148,15 @@ function waitForService() {
             '/org/freedesktop/impl/portal/PermissionStore');
         version = proxy.version; // eslint-disable-line prefer-destructuring
     } while (version === null);
+}
+
+function partialService() {
+    const Proxy = Gio.DBusProxy.makeProxyWrapper(TestPermissionStoreIface);
+
+    const proxy = new Proxy(
+        Gio.DBus.session,
+        GLib.getenv('FLATSEAL_PORTAL_BUS_NAME'),
+        '/org/freedesktop/impl/portal/PermissionStore');
+
+    proxy.testPartialTableSync();
 }

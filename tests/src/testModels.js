@@ -26,6 +26,7 @@ const {
     startService,
     waitForService,
     stopService,
+    partialService,
     getValueFromService,
 } = imports.utils;
 
@@ -859,5 +860,29 @@ describe('Model', function() {
 
         expect(permissions.portals_background).toBe(false);
         expect(getValueFromService('background', 'background', null, _reduceAppId)).toBe(true);
+    });
+
+    it('handles portals with partial tables on permission store', function() {
+        partialService();
+
+        GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
+        infoDefault.reload();
+        permissions.appId = _basicAppId;
+
+        const total = permissions.getAll().filter(p => p.supported).length;
+
+        expect(total).toEqual(_totalPermissions - 1);
+    });
+
+    it('handles portals without permission store', function() {
+        stopService();
+
+        GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
+        infoDefault.reload();
+        permissions.appId = _basicAppId;
+
+        const total = permissions.getAll().filter(p => p.supported).length;
+
+        expect(total).toEqual(_totalPermissions - 6);
     });
 });
