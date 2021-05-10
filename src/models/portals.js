@@ -229,14 +229,6 @@ var FlatpakPortalsModel = GObject.registerClass({
             return false;
         }
 
-        const [ids] = this.safeList(table);
-
-        if (ids.length === 0) {
-            this[`_${table}${id}Reason`] = _('Portal data has not been set up yet');
-            this[`_${table}${id}Supported`] = false;
-            return false;
-        }
-
         const [appIds] = this.safeLookUp(table, id);
 
         if (appIds === null) {
@@ -289,6 +281,8 @@ var FlatpakPortalsModel = GObject.registerClass({
                 proxy.set_property(property, false);
             }
         });
+
+        this.emit('reloaded');
     }
 
     backup() {
@@ -368,13 +362,10 @@ var FlatpakPortalsModel = GObject.registerClass({
             this[`_${permission.table}${permission.id}Supported`] = null;
             this.isSupported(permission.table, permission.id);
         });
-
-        this.emit('reloaded');
     }
 
     set appId(appId) {
         this._appId = appId;
-        this.reload();
     }
 
     get appId() {

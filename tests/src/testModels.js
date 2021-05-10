@@ -867,6 +867,7 @@ describe('Model', function() {
 
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         infoDefault.reload();
+        portalsDefault.reload();
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
@@ -879,6 +880,7 @@ describe('Model', function() {
 
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         infoDefault.reload();
+        portalsDefault.reload();
         permissions.appId = _basicAppId;
 
         const total = permissions.getAll().filter(p => p.supported).length;
