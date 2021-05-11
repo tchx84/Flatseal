@@ -875,6 +875,22 @@ describe('Model', function() {
         expect(total).toEqual(_totalPermissions - 1);
     });
 
+    it('handles writing to missing pair on permission store', function(done) {
+        permissions.appId = _basicAppId;
+
+        expect(permissions.portals_microphone).toBe(false);
+        permissions.set_property('portals_microphone', true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(getValueFromService('devices', 'microphone', null, _basicAppId)).toBe(true);
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
     it('handles portals without permission store', function() {
         stopService();
 

@@ -124,10 +124,15 @@ function getValueFromService(table, id, allowed, appId) {
         GLib.getenv('FLATSEAL_PORTAL_BUS_NAME'),
         '/org/freedesktop/impl/portal/PermissionStore');
 
-    const [appIds] = proxy.LookupSync(table, id);
+    let appIds;
+    try {
+        [appIds] = proxy.LookupSync(table, id);
+    } catch (err) {
+        appIds = null;
+    }
 
     // check if no entry in the permission store
-    if (allowed === null && !(appId in appIds))
+    if (allowed === null && (appIds === null || !(appId in appIds)))
         return true;
 
     const value = appId in appIds && appIds[appId][0] === allowed;
