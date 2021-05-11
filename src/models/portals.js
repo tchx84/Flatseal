@@ -211,6 +211,22 @@ var FlatpakPortalsModel = GObject.registerClass({
         }
     }
 
+    safeSetPermission(table, id, appId, access) {
+        try {
+            this._proxy.SetPermissionSync(table, false, id, appId, access);
+        } catch (err) {
+            logError(err);
+        }
+    }
+
+    safeDeletePermission(table, id, appId) {
+        try {
+            this._proxy.DeletePermissionSync(table, id, appId);
+        } catch (err) {
+            logError(err);
+        }
+    }
+
     isSupported(table, id) {
         if (this[`_${table}${id}Supported`] !== null)
             return this[`_${table}${id}Supported`];
@@ -260,12 +276,7 @@ var FlatpakPortalsModel = GObject.registerClass({
         }
 
         const access = value ? permission.allowed : permission.disallowed;
-        this._proxy.SetPermissionSync(
-            permission.table,
-            false,
-            permission.id,
-            this.appId,
-            access);
+        this.safeSetPermission(permission.table, permission.id, this.appId, access);
     }
 
     updateProxyProperty(proxy) {
@@ -305,12 +316,7 @@ var FlatpakPortalsModel = GObject.registerClass({
             if (!(property in this._backup))
                 continue;
 
-            this._proxy.SetPermissionSync(
-                permission.table,
-                false,
-                permission.id,
-                this.appId,
-                this._backup[property]);
+            this.safeSetPermission(permission.table, permission.id, this.appId, this._backup[property]);
         }
     }
 
@@ -325,9 +331,9 @@ var FlatpakPortalsModel = GObject.registerClass({
 
             /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
             if (Object.keys(appIds).length === 1)
-                this._proxy.SetPermissionSync(permission.table, true, permission.id, '', []);
+                this.safeSetPermission(permission.table, permission.id, '', []);
 
-            this._proxy.DeletePermissionSync(permission.table, permission.id, this.appId);
+            this.safeDeletePermission(permission.table, permission.id, this.appId);
         }
     }
 
