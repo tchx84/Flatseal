@@ -1,9 +1,13 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed crash when partial tables are present on the permission store.
+
 ## [1.7.1] - 2021-05-08
 
-- Fix crashing at startup on Gentoo.
-- Fix styling for the no applications found message.
+- Fixed crashing at startup on Gentoo.
+- Fixed styling for the no applications found message.
 - Added Ctrl+F accelerator for activating search.
 - Changed reset behavior to forget portals decisions.
 
