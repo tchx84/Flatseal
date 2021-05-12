@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.7.2] - 2021-05-12
 
 - Fixed crash when partial tables are present on the permission store.
 
