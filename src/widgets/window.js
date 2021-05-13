@@ -35,6 +35,7 @@ const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
 const {FlatsealUndoPopup} = imports.widgets.undoPopup;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
 const {FlatsealBusNameRow} = imports.widgets.busNameRow;
+const {FlatsealSettingsModel} = imports.models.settings;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
@@ -71,12 +72,14 @@ var FlatsealWindow = GObject.registerClass({
     _init(application) {
         super._init({application});
         this._setup();
-        this.maximize();
     }
 
     _setup() {
         const builder = Gtk.Builder.new_from_resource(menuResource);
         this._menuButton.set_menu_model(builder.get_object('menu'));
+
+        this._settings = new FlatsealSettingsModel();
+        this._settings.restoreWindowState(this);
 
         this._permissions = new FlatpakPermissionsModel();
         this._applications = new FlatpakApplicationsModel();
@@ -188,6 +191,7 @@ var FlatsealWindow = GObject.registerClass({
             this._permissions.bind_property(p.property, row.content, property, _bindFlags);
         });
 
+        this.connect('delete-event', this._saveSettings.bind(this));
         this.connect('destroy', this._shutdown.bind(this));
 
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
@@ -213,6 +217,10 @@ var FlatsealWindow = GObject.registerClass({
 
     _shutdown() {
         this._permissions.shutdown();
+    }
+
+    _saveSettings() {
+        this._settings.saveWindowState(this);
     }
 
     _update(switchPage = true) {
