@@ -58,20 +58,20 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._webview.load_uri(`file://${path}`);
 
         /* Force it to use browser history with inner anchors */
-        this._webview.connect('notify::uri', this._load_uri.bind(this));
+        this._webview.connect('notify::uri', this._loadUri.bind(this));
 
         /* Use system web browser for external urls */
-        this._webview.connect('decide-policy', this._load_external_uri.bind(this));
+        this._webview.connect('decide-policy', this._loadExternalUri.bind(this));
 
         /* Update navigation buttons on every history change */
-        this._webview.connect_after('load-changed', this._update_navigation.bind(this));
-        this._backButton.connect('clicked', this._go_back.bind(this));
-        this._forwardButton.connect('clicked', this._go_forward.bind(this));
+        this._webview.connect_after('load-changed', this._updateNavigation.bind(this));
+        this._backButton.connect('clicked', this._goBack.bind(this));
+        this._forwardButton.connect('clicked', this._goForward.bind(this));
 
-        this._searchBar.connect('notify::search-mode-enabled', this._enable_search.bind(this));
-        this._previousButton.connect('clicked', this._search_previous.bind(this));
-        this._nextButton.connect('clicked', this._search_next.bind(this));
-        this._searchEntry.connect('search-changed', this._update_search.bind(this));
+        this._searchBar.connect('notify::search-mode-enabled', this._enableSearch.bind(this));
+        this._previousButton.connect('clicked', this._searchPrevious.bind(this));
+        this._nextButton.connect('clicked', this._searchNext.bind(this));
+        this._searchEntry.connect('search-changed', this._updateSearch.bind(this));
 
         this._searchButton.bind_property(
             'active',
@@ -80,11 +80,11 @@ var FlatsealDocsViewer = GObject.registerClass({
             GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
     }
 
-    _load_uri() {
+    _loadUri() {
         this._webview.load_uri(this._webview.uri);
     }
 
-    _load_external_uri(webview, decision, type) { // eslint-disable-line class-methods-use-this
+    _loadExternalUri(webview, decision, type) { // eslint-disable-line class-methods-use-this
         if (type !== WebKit2.PolicyDecisionType.NAVIGATION_ACTION)
             return false;
 
@@ -99,20 +99,20 @@ var FlatsealDocsViewer = GObject.registerClass({
         return false;
     }
 
-    _update_navigation() {
+    _updateNavigation() {
         this._backButton.sensitive = this._webview.can_go_back();
         this._forwardButton.sensitive = this._webview.can_go_forward();
     }
 
-    _go_back() {
+    _goBack() {
         this._webview.go_back();
     }
 
-    _go_forward() {
+    _goForward() {
         this._webview.go_forward();
     }
 
-    _enable_search() {
+    _enableSearch() {
         if (this._searchBar.search_mode_enabled) {
             this._findController = this._webview.get_find_controller();
             this._searchEntry.grab_focus();
@@ -121,15 +121,15 @@ var FlatsealDocsViewer = GObject.registerClass({
         }
     }
 
-    _search_previous() {
+    _searchPrevious() {
         this._findController.search_previous();
     }
 
-    _search_next() {
+    _searchNext() {
         this._findController.search_next();
     }
 
-    _update_search() {
+    _updateSearch() {
         this._findController.search(
             this._searchEntry.text,
             WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
