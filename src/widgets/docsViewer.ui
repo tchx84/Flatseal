@@ -5,7 +5,7 @@
   <requires lib="libhandy" version="0.0"/>
   <requires lib="webkit2gtk" version="2.28"/>
   <template class="FlatsealDocsViewer" parent="HdyApplicationWindow">
-    <property name="modal">True</property>
+    <property name="can-focus">False</property>
     <child>
       <object class="GtkBox">
         <property name="visible">True</property>
