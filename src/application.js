@@ -42,7 +42,7 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayDocumentation() {
-        const viewer = new FlatsealDocsViewer();
+        const viewer = new FlatsealDocsViewer(this._window);
         viewer.present();
     }
 

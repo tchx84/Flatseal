@@ -37,12 +37,16 @@ var FlatsealDocsViewer = GObject.registerClass({
         'searchEntry',
     ],
 }, class FlatsealDocsViewer extends Handy.ApplicationWindow {
-    _init(props) {
-        super._init(props);
-        this._setup();
+    _init(parent) {
+        super._init({});
+        this._setup(parent);
     }
 
-    _setup() {
+    _setup(parent) {
+        const [width, height] = parent.get_size();
+        this.default_width = width;
+        this.default_height = height;
+
         const path = GLib.build_filenamev([
             imports.package.datadir,
             'help',
@@ -74,8 +78,6 @@ var FlatsealDocsViewer = GObject.registerClass({
             this._searchBar,
             'search-mode-enabled',
             GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
-
-        this.maximize();
     }
 
     _load_uri() {
