@@ -103,7 +103,7 @@ var FlatsealWindow = GObject.registerClass({
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
         this._permissionsHeaderBar.connect_after(
-            'size-allocate', this._update_visibility.bind(this));
+            'size-allocate', this._updateVisibility.bind(this));
 
         if (applications.length === 0 || permissions.length === 0)
             return;
@@ -233,7 +233,7 @@ var FlatsealWindow = GObject.registerClass({
             this._showPermissions();
     }
 
-    _update_visibility(window, allocation) {
+    _updateVisibility(window, allocation) {
         const visible = allocation.width <= ACTION_BAR_THRESHOLD;
 
         this._detailsHeaderButton.visible = !visible;
