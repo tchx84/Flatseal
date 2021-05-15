@@ -50,7 +50,7 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         this._validator = new RegExp(/^(\d+)-(\d+)-(\d+)$/);
     }
 
-    _get_formatted_date(string) {
+    _getFormattedDate(string) {
         if (!this._validator.test(string))
             return string;
 
@@ -68,7 +68,7 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         this._name.set_label(appdata.name);
         this._author.set_label(appdata.author);
         this._version.set_label(appdata.version);
-        this._released.set_label(this._get_formatted_date(appdata.date));
+        this._released.set_label(this._getFormattedDate(appdata.date));
 
         this._icon.set_from_icon_name(desktop.icon, Gtk.IconSize.INVALID);
 
