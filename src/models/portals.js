@@ -56,12 +56,17 @@ var PermissionsIface = `
 const SUPPORTED_SERVICE_VERSION = 2;
 const SUPPORTED_FLATPAK_VERSION = '0.4.0';
 
+var FlatpakPortalState = {
+    UNKNOWN: 0,
+    UNSUPPORTED: 1,
+    UNSET: 2,
+    DISALLOWED: 3,
+    ALLOWED: 4,
+};
+
 
 var FlatpakPortalsModel = GObject.registerClass({
     GTypeName: 'FlatpakPortalsModel',
-    Signals: {
-        reloaded: {},
-    },
 }, class FlatpakPortalsModel extends GObject.Object {
     _init() {
         super._init({});
@@ -176,7 +181,15 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     static getDefault() {
-        return false;
+        return FlatpakPortalState.UNKNOWN;
+    }
+
+    static getMax() {
+        return FlatpakPortalState.ALLOWED;
+    }
+
+    static getMin() {
+        return FlatpakPortalState.UNKNOWN;
     }
 
     static getStyle() {
@@ -258,7 +271,7 @@ var FlatpakPortalsModel = GObject.registerClass({
         return true;
     }
 
-    whatReason(table, id) {
+    getUnsupportedReason(table, id) {
         return this[`_${table}${id}Reason`];
     }
 
@@ -268,32 +281,34 @@ var FlatpakPortalsModel = GObject.registerClass({
         if (!this.isSupported(permission.table, permission.id))
             return;
 
-        // don't write to the store unnecessarily
-        if (value === permission.value) {
-            const [appIds] = this.safeLookUp(permission.table, permission.id);
-            if (appIds === null || !(this.appId in appIds))
-                return;
-        }
+        if (value === FlatpakPortalState.UNSET) {
+            this.unset(permission.table, permission.id);
+        } else if (value === FlatpakPortalState.ALLOWED) {
+            this.safeSetPermission(permission.table, permission.id, this.appId, permission.allowed);
+        } else if (value === FlatpakPortalState.DISALLOWED) {
+            this.safeSetPermission(permission.table, permission.id, this.appId, permission.disallowed);
+        } else {
 
-        const access = value ? permission.allowed : permission.disallowed;
-        this.safeSetPermission(permission.table, permission.id, this.appId, access);
+            /* unsupported */
+        }
     }
 
     updateProxyProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            if (!this.isSupported(permission.table, permission.id))
+            if (!this.isSupported(permission.table, permission.id)) {
+                proxy.set_property(property, FlatpakPortalState.UNSUPPORTED);
                 return;
-
-            try {
-                const [appIds] = this.safeLookUp(permission.table, permission.id);
-                const value = this.appId in appIds && appIds[this.appId][0] === permission.allowed[0];
-                proxy.set_property(property, value);
-            } catch (err) {
-                proxy.set_property(property, false);
             }
-        });
 
-        this.emit('reloaded');
+            const [appIds] = this.safeLookUp(permission.table, permission.id);
+
+            if (!(this.appId in appIds))
+                proxy.set_property(property, FlatpakPortalState.UNSET);
+            else if (appIds[this.appId][0] === permission.allowed[0])
+                proxy.set_property(property, FlatpakPortalState.ALLOWED);
+            else
+                proxy.set_property(property, FlatpakPortalState.DISALLOWED);
+        });
     }
 
     backup() {
@@ -320,20 +335,24 @@ var FlatpakPortalsModel = GObject.registerClass({
         }
     }
 
+    unset(table, id) {
+        const [appIds] = this.safeLookUp(table, id);
+        if (appIds === null || !(this.appId in appIds))
+            return;
+
+        /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
+        if (Object.keys(appIds).length === 1)
+            this.safeSetPermission(table, id, '', []);
+
+        this.safeDeletePermission(table, id, this.appId);
+    }
+
     forget() {
         for (const [, permission] of Object.entries(this.getPermissions())) {
             if (!this.isSupported(permission.table, permission.id))
                 continue;
 
-            const [appIds] = this.safeLookUp(permission.table, permission.id);
-            if (appIds === null || !(this.appId in appIds))
-                continue;
-
-            /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
-            if (Object.keys(appIds).length === 1)
-                this.safeSetPermission(permission.table, permission.id, '', []);
-
-            this.safeDeletePermission(permission.table, permission.id, this.appId);
+            this.unset(permission.table, permission.id);
         }
     }
 

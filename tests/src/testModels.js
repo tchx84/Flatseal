@@ -72,13 +72,14 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var delay, applications, permissions, infoDefault, portalsDefault;
+    var delay, applications, permissions, infoDefault, portalsDefault, portalState;
 
     beforeAll(function() {
         const {info, portals} = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
+        portalState = portals.FlatpakPortalState;
         startService();
         waitForService();
         GLib.unlink(_overridenOverride);
@@ -757,23 +758,23 @@ describe('Model', function() {
     it('handles portals permissions', function(done) {
         permissions.appId = _basicAppId;
 
-        expect(permissions.portals_background).toBe(false);
-        permissions.set_property('portals_background', true);
+        expect(permissions.portals_background).toBe(portalState.UNSET);
+        permissions.set_property('portals_background', portalState.ALLOWED);
 
-        expect(permissions.portals_notification).toBe(false);
-        permissions.set_property('portals_notification', true);
+        expect(permissions.portals_notification).toBe(portalState.UNSET);
+        permissions.set_property('portals_notification', portalState.ALLOWED);
 
-        expect(permissions.portals_microphone).toBe(false);
-        permissions.set_property('portals_microphone', true);
+        expect(permissions.portals_microphone).toBe(portalState.UNSET);
+        permissions.set_property('portals_microphone', portalState.ALLOWED);
 
-        expect(permissions.portals_speakers).toBe(false);
-        permissions.set_property('portals_speakers', true);
+        expect(permissions.portals_speakers).toBe(portalState.UNSET);
+        permissions.set_property('portals_speakers', portalState.ALLOWED);
 
-        expect(permissions.portals_camera).toBe(false);
-        permissions.set_property('portals_camera', true);
+        expect(permissions.portals_camera).toBe(portalState.UNSET);
+        permissions.set_property('portals_camera', portalState.ALLOWED);
 
-        expect(permissions.portals_location).toBe(false);
-        permissions.set_property('portals_location', true);
+        expect(permissions.portals_location).toBe(portalState.UNSET);
+        permissions.set_property('portals_location', portalState.ALLOWED);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('background', 'background', 'yes', _basicAppId)).toBe(true);
@@ -808,19 +809,19 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
-        expect(permissions.portals_background).toBe(false);
-        expect(permissions.portals_notification).toBe(false);
-        expect(permissions.portals_microphone).toBe(false);
-        expect(permissions.portals_speakers).toBe(false);
-        expect(permissions.portals_camera).toBe(false);
-        expect(permissions.portals_location).toBe(false);
+        expect(permissions.portals_background).toBe(portalState.UNSET);
+        expect(permissions.portals_notification).toBe(portalState.UNSET);
+        expect(permissions.portals_microphone).toBe(portalState.UNSET);
+        expect(permissions.portals_speakers).toBe(portalState.UNSET);
+        expect(permissions.portals_camera).toBe(portalState.UNSET);
+        expect(permissions.portals_location).toBe(portalState.UNSET);
 
-        permissions.set_property('portals_notification', true);
-        permissions.set_property('portals_background', true);
-        permissions.set_property('portals_microphone', true);
-        permissions.set_property('portals_speakers', true);
-        permissions.set_property('portals_camera', true);
-        permissions.set_property('portals_location', true);
+        permissions.set_property('portals_notification', portalState.ALLOWED);
+        permissions.set_property('portals_background', portalState.ALLOWED);
+        permissions.set_property('portals_microphone', portalState.ALLOWED);
+        permissions.set_property('portals_speakers', portalState.ALLOWED);
+        permissions.set_property('portals_camera', portalState.ALLOWED);
+        permissions.set_property('portals_location', portalState.ALLOWED);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
@@ -858,7 +859,7 @@ describe('Model', function() {
     it('does not write to the store unnecessarily', function() {
         permissions.appId = _reduceAppId;
 
-        expect(permissions.portals_background).toBe(false);
+        expect(permissions.portals_background).toBe(portalState.UNSET);
         expect(getValueFromService('background', 'background', null, _reduceAppId)).toBe(true);
     });
 
@@ -873,13 +874,20 @@ describe('Model', function() {
         const total = permissions.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions - 1);
+
+        expect(permissions.portals_background).toBe(portalState.UNSET);
+        expect(permissions.portals_notification).toBe(portalState.UNSET);
+        expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
+        expect(permissions.portals_speakers).toBe(portalState.UNSET);
+        expect(permissions.portals_camera).toBe(portalState.UNSET);
+        expect(permissions.portals_location).toBe(portalState.UNSET);
     });
 
     it('handles writing to missing pair on permission store', function(done) {
         permissions.appId = _basicAppId;
 
-        expect(permissions.portals_microphone).toBe(false);
-        permissions.set_property('portals_microphone', true);
+        expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
+        permissions.set_property('portals_microphone', portalState.ALLOWED);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('devices', 'microphone', null, _basicAppId)).toBe(true);
@@ -902,5 +910,12 @@ describe('Model', function() {
         const total = permissions.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions - 6);
+
+        expect(permissions.portals_background).toBe(portalState.UNSUPPORTED);
+        expect(permissions.portals_notification).toBe(portalState.UNSUPPORTED);
+        expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
+        expect(permissions.portals_speakers).toBe(portalState.UNSUPPORTED);
+        expect(permissions.portals_camera).toBe(portalState.UNSUPPORTED);
+        expect(permissions.portals_location).toBe(portalState.UNSUPPORTED);
     });
 });

@@ -238,3 +238,9 @@ window .menu.background label {
     margin: 10px;
     font-size: 20px;
 }
+
+/* unset button */
+
+.unset-button {
+    margin-right: 10px;
+}
