@@ -18,37 +18,100 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Handy} = imports.gi;
+const {GLib, GObject, Handy} = imports.gi;
 
-const {portals} = imports.models;
+const {getDefault, FlatpakPortalState} = imports.models.portals;
+
+const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
 
 var FlatsealPermissionPortalRow = GObject.registerClass({
     GTypeName: 'FlatsealPermissionPortalRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionPortalRow.ui',
-    InternalChildren: ['content'],
+    InternalChildren: ['stateSwitch', 'unsetButton'],
+    Properties: {
+        state: GObject.ParamSpec.int(
+            'state',
+            'state',
+            'state',
+            _propFlags,
+            FlatpakPortalState.UNKNOWN,
+            FlatpakPortalState.ALLOWED,
+            FlatpakPortalState.UNKNOWN),
+    },
 }, class FlatsealPermissionPortalRow extends Handy.ActionRow {
     _init(description, permission, content, table, id) {
         super._init({});
+
         this.set_title(description);
         this.set_subtitle(permission);
-        this._content.set_state(content);
+        this._state = content;
+
         this._table = table;
         this._id = id;
-        this._portals = portals.getDefault();
-        this._portals.connect('reloaded', this._update.bind(this));
+
+        this._portals = getDefault();
+        this._unsetButton.connect('clicked', this._unsetClicked.bind(this));
+        this._stateHandlerId = this._stateSwitch.connect('state-set', this._stateSwitched.bind(this));
     }
 
-    _update() {
-        this.sensitive = this._portals.isSupported(this._table, this._id);
-
-        if (this.sensitive === false)
-            this.set_tooltip_text(this._portals.whatReason(this._table, this._id));
+    _stateSwitched() {
+        if (this._stateSwitch.active)
+            this._state = FlatpakPortalState.ALLOWED;
         else
+            this._state = FlatpakPortalState.DISALLOWED;
+
+        this._updateWidget();
+        this.notify('state');
+    }
+
+    _unsetClicked() {
+        this._state = FlatpakPortalState.UNSET;
+        this._updateWidget();
+        this.notify('state');
+    }
+
+    _updateWidget() {
+        GObject.signal_handler_block(this._stateSwitch, this._stateHandlerId);
+
+        if (this._state === FlatpakPortalState.UNSUPPORTED) {
+            this._stateSwitch.active = false;
+            this._unsetButton.visible = false;
+            this.sensitive = false;
+            this.set_tooltip_text(this._portals.getUnsupportedReason(this._table, this._id));
+        } else if (this._state === FlatpakPortalState.UNSET) {
+            this._stateSwitch.active = false;
+            this._unsetButton.visible = false;
+            this.sensitive = true;
             this.set_tooltip_text('');
+        } else if (this._state === FlatpakPortalState.DISALLOWED) {
+            this._stateSwitch.active = false;
+            this._unsetButton.visible = true;
+            this.sensitive = true;
+            this.set_tooltip_text('');
+        } else if (this._state === FlatpakPortalState.ALLOWED) {
+            this._stateSwitch.active = true;
+            this._unsetButton.visible = true;
+            this.sensitive = true;
+            this.set_tooltip_text('');
+        }
+
+        GObject.signal_handler_unblock(this._stateSwitch, this._stateHandlerId);
     }
 
     get content() {
-        return this._content;
+        return this;
+    }
+
+    set state(value) {
+        if (value === this._state || typeof this._state === 'undefined')
+            return;
+
+        this._state = value;
+        GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, this._updateWidget.bind(this));
+    }
+
+    get state() {
+        return this._state;
     }
 });

@@ -56,9 +56,21 @@ function generate() {
     Object.values(MODELS).forEach(model => {
         Object.entries(model.getPermissions()).forEach(([property]) => {
             const value = model.constructor.getDefault();
-            const type = typeof value === 'boolean' ? 'boolean' : 'string';
-            properties[property] = GObject.ParamSpec[type](
-                property, property, property, FLAGS, value);
+
+            if (typeof value === 'boolean') {
+                properties[property] = GObject.ParamSpec.boolean(
+                    property, property, property, FLAGS, value);
+            } else if (typeof value === 'string') {
+                properties[property] = GObject.ParamSpec.string(
+                    property, property, property, FLAGS, value);
+            } else if (typeof value === 'number') {
+                const max = model.constructor.getMax();
+                const min = model.constructor.getMin();
+                properties[property] = GObject.ParamSpec.int(
+                    property, property, property, FLAGS, min, max, value);
+            } else {
+                logError(`No support for ${property}:${typeof value}`);
+            }
         });
     });
 
