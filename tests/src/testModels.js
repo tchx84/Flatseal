@@ -659,6 +659,27 @@ describe('Model', function() {
         update();
     });
 
+    it('handles RUST debug export environment variables', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _environmentAppId;
+
+        expect(permissions.variables).toEqual('TEST=yes');
+
+        permissions.set_property('variables', 'TEST=yes=no');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(hasOnly(_environmentOverride, 'Environment', 'TEST', 'yes=no')).toBe(true);
+
+            permissions.appId = _environmentAppId;
+            expect(permissions.variables).toEqual('TEST=yes=no');
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
     it('Add new well-known names', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _busAppId;

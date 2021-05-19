@@ -71,6 +71,11 @@ var FlatpakVariablesModel = GObject.registerClass({
         return _('List of variables exported to the application');
     }
 
+    static variableSplit(string, separator) {
+        const [key, ...value] = string.split(separator);
+        return [key, value.join(separator)];
+    }
+
     getOptions() { // eslint-disable-line class-methods-use-this
         return null;
     }
@@ -83,7 +88,7 @@ var FlatpakVariablesModel = GObject.registerClass({
         values
             .filter(v => v.length !== 0)
             .filter(v => this._expression.test(v))
-            .map(v => v.split('='))
+            .map(v => this.constructor.variableSplit(v, '='))
             .forEach(([_key, _value]) => {
                 variables[_key] = _value;
             });
