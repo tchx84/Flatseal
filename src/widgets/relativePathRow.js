@@ -73,7 +73,7 @@ var FlatsealRelativePathRow = GObject.registerClass({
         const model = persistent.getDefault();
         this.sensitive = !model.isOriginal(this.text);
 
-        var tooltip = '';
+        let tooltip = '';
         if (!this.sensitive)
             tooltip = _('Default paths can\'t be removed');
 

@@ -122,12 +122,12 @@ var FlatsealWindow = GObject.registerClass({
         this._contentLeaflet.bind_property(
             'folded', this._appInfoViewer, 'compact', _bindReadFlags);
 
-        var lastGroup = '';
-        var lastPrefsGroup;
+        let lastGroup = '';
+        let lastPrefsGroup;
 
         permissions.forEach(p => {
-            var row;
-            var property = 'text';
+            let row;
+            let property = 'text';
 
             if (p.type === 'path') {
                 row = new FlatsealPermissionEntryRow(

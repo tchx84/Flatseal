@@ -81,9 +81,9 @@ var FlatpakVariablesModel = GObject.registerClass({
     }
 
     updateFromProxyProperty(property, value) {
-        var overrides = {};
-        var variables = {};
-        var values = value.split(';');
+        const overrides = {};
+        const variables = {};
+        const values = value.split(';');
 
         values
             .filter(v => v.length !== 0)

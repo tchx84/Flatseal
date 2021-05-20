@@ -95,7 +95,7 @@ var FlatpakPortalsModel = GObject.registerClass({
         if (this._proxy !== null)
             return;
 
-        var busName = GLib.getenv('FLATSEAL_PORTAL_BUS_NAME');
+        let busName = GLib.getenv('FLATSEAL_PORTAL_BUS_NAME');
         if (busName === null)
             busName = 'org.freedesktop.impl.portal.PermissionStore';
 

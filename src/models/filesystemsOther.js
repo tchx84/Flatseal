@@ -85,7 +85,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     static isOverriden(set, value) {
-        var [path] = value.split(':');
+        let [path] = value.split(':');
         path = path.replace('!', '');
 
         return (
@@ -102,7 +102,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const paths = new Set(value.split(';'));
 
-        var added = new Set([...paths]
+        const added = new Set([...paths]
             .filter(p => p.length !== 0)
             .filter(p => !this._originals.has(p)));
 

@@ -59,7 +59,7 @@ var FlatsealResetButton = GObject.registerClass({
         this.sensitive = overriden;
         this._image.visible = unsupported;
 
-        var text = _('No changes made to this application');
+        let text = _('No changes made to this application');
 
         if (overriden)
             text = _('Reset this application permissions');
