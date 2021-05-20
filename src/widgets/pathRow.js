@@ -122,8 +122,8 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _update() {
-        var modeMsg = '';
-        var optionMsg = '';
+        let modeMsg = '';
+        let optionMsg = '';
 
         if (this.text.endsWith(':ro'))
             this.mode = mode.READONLY;

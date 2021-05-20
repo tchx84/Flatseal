@@ -30,7 +30,7 @@ var FlatpakInfoModel = GObject.registerClass({
     }
 
     static _getInfoPath() {
-        var path = GLib.getenv('FLATPAK_INFO_PATH');
+        const path = GLib.getenv('FLATPAK_INFO_PATH');
         if (path)
             return path;
 
@@ -67,7 +67,7 @@ var FlatpakInfoModel = GObject.registerClass({
         const targets = target.split('.');
         const components = Math.max(versions.length, targets.length);
 
-        for (var index = 0; index < components; index++) {
+        for (let index = 0; index < components; index++) {
             const _version = parseInt(versions[index] || 0, 10);
             const _target = parseInt(targets[index] || 0, 10);
 

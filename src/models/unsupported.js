@@ -53,10 +53,10 @@ var FlatpakUnsupportedModel = GObject.registerClass({
 
     saveToKeyFile(keyFile) {
         this._permissions.forEach(([group, key, value]) => {
-            var _value;
+            let _value;
 
             try {
-                var existing = keyFile.get_value(group, key);
+                const existing = keyFile.get_value(group, key);
                 _value = `${_value};${existing}`;
             } catch (err) {
                 _value = `${value}`;

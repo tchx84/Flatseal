@@ -105,10 +105,10 @@ var FlatpakSharedModel = GObject.registerClass({
             .filter(o => !this._overrides.has(o))
             .filter(o => !this._overrides.has(`!${o}`));
 
-        var permissions = new Set([...originals, ...this._overrides]);
+        const permissions = new Set([...originals, ...this._overrides]);
 
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            var value = this.constructor.getDefault();
+            let value = this.constructor.getDefault();
 
             const {option} = permission;
             if (permissions.has(option))
@@ -135,10 +135,10 @@ var FlatpakSharedModel = GObject.registerClass({
         const key = this.constructor.getKey();
 
         this._overrides.forEach(value => {
-            var _value = value;
+            let _value = value;
 
             try {
-                var existing = keyFile.get_value(group, key);
+                const existing = keyFile.get_value(group, key);
                 _value = `${value};${existing}`;
             } catch (err) {
                 _value = `${value}`;

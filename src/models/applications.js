@@ -32,7 +32,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     static _getSystemPath() {
-        var systemPath = GLib.getenv('FLATPAK_SYSTEM_DIR');
+        const systemPath = GLib.getenv('FLATPAK_SYSTEM_DIR');
         if (systemPath)
             return systemPath;
 
@@ -42,11 +42,11 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     _getUserPath() {
-        var userPath = GLib.getenv('FLATPAK_USER_DIR');
+        const userPath = GLib.getenv('FLATPAK_USER_DIR');
         if (userPath)
             return userPath;
 
-        var userDataDir = GLib.get_user_data_dir();
+        let userDataDir = GLib.get_user_data_dir();
         if (this._info.getVersion() !== null)
             userDataDir = GLib.getenv('HOST_XDG_DATA_HOME');
 
@@ -60,7 +60,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     _getConfigPath() {
-        var configPath = GLib.getenv('FLATPAK_CONFIG_DIR');
+        let configPath = GLib.getenv('FLATPAK_CONFIG_DIR');
         if (configPath)
             return configPath;
 
@@ -103,7 +103,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     _getCustomInstallationsPaths() {
-        var installations = [];
+        let installations = [];
 
         const configPath = GLib.build_filenamev([
             this._getConfigPath(),
@@ -115,7 +115,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         const directory = Gio.File.new_for_path(configPath);
         const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
-        var info = enumerator.next_file(null);
+        let info = enumerator.next_file(null);
 
         while (info !== null) {
             const file = enumerator.get_child(info);
@@ -168,7 +168,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         const directory = Gio.File.new_for_path(path);
         const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
-        var info = enumerator.next_file(null);
+        let info = enumerator.next_file(null);
 
         while (info !== null) {
             const file = enumerator.get_child(info);
@@ -303,7 +303,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
     getAll() {
         const installations = this._getInstallationsPaths();
-        var applications = [];
+        let applications = [];
 
         installations.forEach(path => {
             const app = GLib.build_filenamev([path, 'app']);
