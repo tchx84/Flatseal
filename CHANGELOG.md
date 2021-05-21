@@ -1,5 +1,14 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed a few JS-usage and code-style issues.
+- Fixed variables overrides not handling properly RUST-related exports.
+- Fixed paths overrides mistakenly warning about directory names with spaces.
+- Added a way to unset individual portal permissions.
+- Added support to save and restore the main window state.
+- Changed to the GNOME-runtime libhandy installation.
+
 ## [1.7.2] - 2021-05-12
 
 - Fixed crash when partial tables are present on the permission store.
