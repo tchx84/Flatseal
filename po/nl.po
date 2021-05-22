@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-17 06:43-0400\n"
+"POT-Creation-Date: 2021-05-22 06:22-0400\n"
 "PO-Revision-Date: 2021-03-20 21:56+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
@@ -147,68 +147,68 @@ msgstr ""
 "Lijst met relatieve paden uit je persoonlijke map die in de sandbox zijn "
 "gemaakt"
 
-#: src/models/portals.js:104
+#: src/models/portals.js:118
 msgid "Background"
 msgstr "Achtergrond"
 
-#: src/models/portals.js:106
+#: src/models/portals.js:120
 msgid "Can run in the background"
 msgstr "Mag worden uitgevoerd op de achtergrond"
 
-#: src/models/portals.js:114
+#: src/models/portals.js:128
 msgid "Notifications"
 msgstr "Meldingen"
 
-#: src/models/portals.js:116
+#: src/models/portals.js:130
 msgid "Can send notifications"
 msgstr "Mag meldingen tonen"
 
-#: src/models/portals.js:124
+#: src/models/portals.js:138
 msgid "Microphone"
 msgstr "Microfoon"
 
-#: src/models/portals.js:126
+#: src/models/portals.js:140
 msgid "Can listen to your microphone"
 msgstr "Mag je microfoon gebruiken"
 
-#: src/models/portals.js:134
+#: src/models/portals.js:148
 msgid "Speakers"
 msgstr "Luidsprekers"
 
-#: src/models/portals.js:136
+#: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
 msgstr "Mag geluid afspelen via je luidsprekers"
 
-#: src/models/portals.js:144
+#: src/models/portals.js:158
 msgid "Camera"
 msgstr "Camera"
 
-#: src/models/portals.js:146
+#: src/models/portals.js:160
 msgid "Can record videos with your camera"
 msgstr "Mag video's opnemen middels je camera"
 
-#: src/models/portals.js:154
+#: src/models/portals.js:168
 msgid "Location"
 msgstr "Locatie"
 
-#: src/models/portals.js:156
+#: src/models/portals.js:170
 msgid "Can access your location"
 msgstr "Mag je locatie bepalen"
 
-#: src/models/portals.js:186
+#: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
 msgstr "Lijst met functies die zijn toegekend aan de toepassing"
 
-#: src/models/portals.js:194 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:39
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Niet ondersteund door de geïnstalleerde versie van Flatpak"
 
-#: src/models/portals.js:202
+#: src/models/portals.js:256
 msgid "Requires permission store version 2 or newer"
 msgstr "Vereist toestemmingopslag versie 2 of nieuwer"
 
-#: src/models/portals.js:210
+#: src/models/portals.js:264
 msgid "Portal data has not been set up yet"
 msgstr "Portaalgegevens zijn nog niet ingesteld"
 
@@ -302,15 +302,15 @@ msgstr "Uitvoerbaar bestand"
 msgid "This is not a valid option"
 msgstr "Dit is geen geldige optie"
 
-#: src/widgets/detailsButton.js:57
+#: src/widgets/detailsButton.js:58
 msgid "Show Details"
 msgstr "Details tonen"
 
-#: src/widgets/detailsButton.js:105
+#: src/widgets/detailsButton.js:106
 msgid "Show application in a software manager"
 msgstr "Toon de toepassing in een softwarebeheerder"
 
-#: src/widgets/detailsButton.js:107
+#: src/widgets/detailsButton.js:108
 msgid "No software manager found"
 msgstr "Geen softwarebeheerder gevonden"
 
@@ -413,6 +413,10 @@ msgstr "Mag wijzigen en uitlezen: %s"
 msgid "Can create, modify and read: %s"
 msgstr "Mag maken, wijzigen en uitlezen: %s"
 
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr ""
+
 #: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
 msgstr "Standaardpaden kunnen niet worden verwijderd"
@@ -441,10 +445,10 @@ msgstr "De bevoegdheden zijn hersteld"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: src/widgets/window.ui:30
+#: src/widgets/window.ui:28
 msgid "Applications"
 msgstr "Toepassingen"
 
-#: src/widgets/window.ui:95 src/widgets/window.ui:181
+#: src/widgets/window.ui:112 src/widgets/window.ui:210
 msgid "No applications found."
 msgstr "Geen toepassingen aangetroffen."

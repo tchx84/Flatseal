@@ -34,6 +34,8 @@ src/widgets/pathsViewer.js
 src/widgets/pathsViewer.ui
 src/widgets/permissionEntryRow.js
 src/widgets/permissionEntryRow.ui
+src/widgets/permissionPortalRow.js
+src/widgets/permissionPortalRow.ui
 src/widgets/permissionSwitchRow.js
 src/widgets/permissionSwitchRow.ui
 src/widgets/relativePathRow.js
