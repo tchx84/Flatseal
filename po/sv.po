@@ -413,7 +413,7 @@ msgstr "Kan skapa, ändra och läsa: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
-msgstr ""
+msgstr "Avlägsna"
 
 #: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
