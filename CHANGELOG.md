@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.7.3] - 2021-05-26
 
 - Fixed a few JS-usage and code-style issues.
 - Fixed variables overrides not handling properly RUST-related exports.
