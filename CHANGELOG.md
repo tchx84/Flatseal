@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- Added Catalan translation.
+
 ## [1.7.3] - 2021-05-26
 
 - Fixed a few JS-usage and code-style issues.
