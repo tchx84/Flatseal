@@ -302,7 +302,9 @@ var FlatpakPortalsModel = GObject.registerClass({
 
             const [appIds] = this.safeLookUp(permission.table, permission.id);
 
-            if (!(this.appId in appIds))
+            if (appIds === null)
+                proxy.set_property(property, FlatpakPortalState.UNSUPPORTED);
+            else if (!(this.appId in appIds))
                 proxy.set_property(property, FlatpakPortalState.UNSET);
             else if (appIds[this.appId][0] === permission.allowed[0])
                 proxy.set_property(property, FlatpakPortalState.ALLOWED);
