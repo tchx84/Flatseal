@@ -1,0 +1,452 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-22 06:22-0400\n"
+"PO-Revision-Date: 2021-06-08 14:32+0500\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: ru\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Управление разрешениями Flatpak"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal - графическая утилита для просмотра и модификации разрешений "
+"ваших Flatpak приложений."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Переговоры"
+
+#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Владельцы"
+
+#: src/models/sessionBus.js:81
+msgid "List of well-known names on the session bus"
+msgstr "Список известных имен в сеансной шине"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Список известных имен в системной шине"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU ускорение"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "Виртуализация"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "Общая память"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "Все устройства (пр. веб-камера)"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "Список всех устройств, доступных в песочнице"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Системные вызовы разработки (пр. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Программы с других архитектур"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Шина сети контроллеров"
+
+#: src/models/features.js:83
+msgid "List of features available to the application"
+msgstr "Список функций, доступных приложению"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Все системные файлы"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Все системные библиотеки, исполняемые файлы и статические данные"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Все конфигурации системы"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Все пользовательские файлы"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+msgid "List of filesystem subsets available to the application"
+msgstr "Список подмножеств файловой системы, доступных приложению"
+
+#: src/models/filesystemsOther.js:37
+msgid "Other files"
+msgstr "Другие файлы"
+
+#: src/models/filesystemsOther.js:40
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "пр. ~/games:ro, xdg-pictures, другое"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Файлы"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "пр. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Список относительных путей к домашней папке, созданных в песочнице"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Фон"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Может работать в фоне"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Может присылать уведомления"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Микрофон"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Может использовать ваш мийрофон"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Динамики"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Может проигрывать звук в ваших динамиках"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Камера"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Может записывать видео с вашей камеры"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Местоположение"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Может знать ваше местоположение"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "Список ресурсов, выборочно предоставленных приложению"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:39
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Не поддерживается установленной версией Flatpak"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "Требуется хранилище разрешений версии 2 или новее"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "Данные портала еще не настроены"
+
+#: src/models/shared.js:38
+msgid "Network"
+msgstr "Сеть"
+
+#: src/models/shared.js:45
+msgid "Inter-process communications"
+msgstr "Межпроцессные коммуникации"
+
+#: src/models/shared.js:78
+msgid "List of subsystems shared with the host system"
+msgstr "Список подсистем, совместно используемых с хост-системой"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "Оконная система X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Оконная система Wayland"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Возврат к оконной системе X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "Звуковой сервер PulseAudio"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "Сессионная шина D-Bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "Системная шина D-Bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "SSH агент"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Смарт-карты"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Система печати"
+
+#: src/models/sockets.js:118
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Список известных сокетов, доступных в песочнице"
+
+#: src/models/variables.js:38
+msgid "Variables"
+msgstr "Переменные"
+
+#: src/models/variables.js:41
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "пр. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:71
+msgid "List of variables exported to the application"
+msgstr "Список переменных, экспортируемых в приложение"
+
+#: src/widgets/aboutDialog.js:38
+msgid "Contributions by"
+msgstr "Вклады"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "месяц день, год"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "Версия"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "Последнее обновление"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "Райнтам"
+
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
+#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+msgid "This is not a valid option"
+msgstr "Это недопустимый вариант"
+
+#: src/widgets/detailsButton.js:58
+msgid "Show Details"
+msgstr "Показать детали"
+
+#: src/widgets/detailsButton.js:106
+msgid "Show application in a software manager"
+msgstr "Показать приложение в менеджере софта"
+
+#: src/widgets/detailsButton.js:108
+msgid "No software manager found"
+msgstr "Менеджер софта не найден"
+
+#: src/widgets/menu.ui:7
+msgid "Help"
+msgstr "Помощь"
+
+#: src/widgets/menu.ui:11
+msgid "Documentation"
+msgstr "Документация"
+
+#: src/widgets/menu.ui:15
+msgid "About Flatseal"
+msgstr "О приложении"
+
+#: src/widgets/pathRow.js:26
+msgid "this absolute path"
+msgstr "этот абсолютный путь"
+
+#: src/widgets/pathRow.js:27
+msgid "this path relative to the home directory"
+msgstr "этот путь относительно домашнего каталога"
+
+#: src/widgets/pathRow.js:28
+msgid "all system configurations"
+msgstr "все конфигурации системы"
+
+#: src/widgets/pathRow.js:29
+msgid "all system libraries, executables and static data"
+msgstr "все системные библиотеки, исполняемые файлы и статические данные"
+
+#: src/widgets/pathRow.js:30
+msgid "all system files"
+msgstr "все системные файлы"
+
+#: src/widgets/pathRow.js:31
+msgid "all user files"
+msgstr "все пользовательские файлы"
+
+#: src/widgets/pathRow.js:32
+msgid "the desktop directory"
+msgstr "каталог рабочего стола"
+
+#: src/widgets/pathRow.js:33
+msgid "the documents directory"
+msgstr "каталог документов"
+
+#: src/widgets/pathRow.js:34
+msgid "the download directory"
+msgstr "каталог загрузок"
+
+#: src/widgets/pathRow.js:35
+msgid "the music directory"
+msgstr "каталог музыки"
+
+#: src/widgets/pathRow.js:36
+msgid "the pictures directory"
+msgstr "каталог изображений"
+
+#: src/widgets/pathRow.js:37
+msgid "the public directory"
+msgstr "публичный каталог"
+
+#: src/widgets/pathRow.js:38
+msgid "the videos directory"
+msgstr "каталог видео"
+
+#: src/widgets/pathRow.js:39
+msgid "the templates directory"
+msgstr "каталог шаблонов"
+
+#: src/widgets/pathRow.js:40
+msgid "the config directory"
+msgstr "каталог конфигурационных файлов"
+
+#: src/widgets/pathRow.js:41
+msgid "the cache directory"
+msgstr "каталог кеша"
+
+#: src/widgets/pathRow.js:42
+msgid "the data directory"
+msgstr "каталог данных"
+
+#: src/widgets/pathRow.js:43
+msgid "the runtime directory"
+msgstr "каталог рантаймов"
+
+#: src/widgets/pathRow.js:58
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Может читать: %s"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Может редактировать и читать: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Может создавать, редактировать и читать: %s"
+
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr "Убрать"
+
+#: src/widgets/relativePathRow.js:78
+msgid "Default paths can't be removed"
+msgstr "Каталоги по умолчанию не могут быть удалены"
+
+#: src/widgets/resetButton.js:44
+msgid "Reset"
+msgstr "Восстановить"
+
+#: src/widgets/resetButton.js:62
+msgid "No changes made to this application"
+msgstr "В это приложение не было внесено никаких изменений"
+
+#: src/widgets/resetButton.js:65
+msgid "Reset this application permissions"
+msgstr "Восстановить разрешения приложения"
+
+#: src/widgets/resetButton.js:67
+msgid ", including changes not made with Flatseal"
+msgstr ", включая изменения, не внесенные с Flatseal"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "Разрешения были восстановлены"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "Отменить"
+
+#: src/widgets/window.ui:28
+msgid "Applications"
+msgstr "Приложения"
+
+#: src/widgets/window.ui:112 src/widgets/window.ui:210
+msgid "No applications found."
+msgstr "Приложения не найдены."
