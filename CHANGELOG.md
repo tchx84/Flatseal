@@ -2,7 +2,10 @@
 
 ## [unreleased]
 
+- Fixed crash on Arch due to broken permission store.
 - Added Catalan translation.
+- Added Russian translation.
+- Added keywords to find this app more easily using desktop search.
 
 ## [1.7.3] - 2021-05-26
 
