@@ -75,7 +75,7 @@ msgstr "Виртуализация"
 
 #: src/models/devices.js:51
 msgid "Shared memory"
-msgstr "Общая память"
+msgstr "Общедоступная память"
 
 #: src/models/devices.js:58
 msgid "All devices (e.g. webcam)"
@@ -167,7 +167,7 @@ msgstr "Микрофон"
 
 #: src/models/portals.js:140
 msgid "Can listen to your microphone"
-msgstr "Может использовать ваш мийрофон"
+msgstr "Может использовать ваш микрофон"
 
 #: src/models/portals.js:148
 msgid "Speakers"
@@ -281,7 +281,7 @@ msgstr "Вклады"
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
-msgstr "месяц день, год"
+msgstr "%B %e, %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
