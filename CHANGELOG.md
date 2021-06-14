@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed Russian translation.
+
 ## [1.7.4] - 2021-06-11
 
 - Fixed crash on Arch due to broken permission store.
