@@ -47,13 +47,19 @@ var PermissionsIface = `
             <arg name='id' type='s' direction='in'/>
             <arg name='app' type='s' direction='in'/>
         </method>
+        <method name="GetPermission">
+            <arg name='table' type='s' direction='in'/>
+            <arg name='id' type='s' direction='in'/>
+            <arg name='app' type='s' direction='in'/>
+            <arg name='permissions' type='as' direction='out'/>
+        </method>
         <property name="version" type="u" access="read"/>
     </interface>
 </node>
 `;
 
 
-const SUPPORTED_SERVICE_VERSION = 2;
+const SUPPORTED_SERVICE_VERSION = 3;
 const SUPPORTED_FLATPAK_VERSION = '0.4.0';
 
 var FlatpakPortalState = {
@@ -224,6 +230,14 @@ var FlatpakPortalsModel = GObject.registerClass({
         }
     }
 
+    safeGetPermission(table, id, appId) {
+        try {
+            return this._proxy.GetPermissionSync(table, id, appId);
+        } catch (err) {
+            return [null];
+        }
+    }
+
     safeSetPermission(table, id, appId, access) {
         try {
             this._proxy.SetPermissionSync(table, false, id, appId, access);
@@ -300,13 +314,16 @@ var FlatpakPortalsModel = GObject.registerClass({
                 return;
             }
 
-            const [appIds] = this.safeLookUp(permission.table, permission.id);
+            const [permissions] = this.safeGetPermission(
+                permission.table,
+                permission.id,
+                this.appId);
 
-            if (appIds === null)
+            if (permissions === null)
                 proxy.set_property(property, FlatpakPortalState.UNSUPPORTED);
-            else if (!(this.appId in appIds))
+            else if (permissions.length === 0)
                 proxy.set_property(property, FlatpakPortalState.UNSET);
-            else if (appIds[this.appId][0] === permission.allowed[0])
+            else if (permissions[0] === permission.allowed[0])
                 proxy.set_property(property, FlatpakPortalState.ALLOWED);
             else
                 proxy.set_property(property, FlatpakPortalState.DISALLOWED);
@@ -320,11 +337,15 @@ var FlatpakPortalsModel = GObject.registerClass({
             if (!this.isSupported(permission.table, permission.id))
                 continue;
 
-            const [appIds] = this.safeLookUp(permission.table, permission.id);
-            if (appIds === null || !(this.appId in appIds))
+            const [permissions] = this.safeGetPermission(
+                permission.table,
+                permission.id,
+                this.appId);
+
+            if (permissions === null)
                 continue;
 
-            this._backup[property] = appIds[this.appId];
+            this._backup[property] = permissions;
         }
     }
 
@@ -338,14 +359,6 @@ var FlatpakPortalsModel = GObject.registerClass({
     }
 
     unset(table, id) {
-        const [appIds] = this.safeLookUp(table, id);
-        if (appIds === null || !(this.appId in appIds))
-            return;
-
-        /* https://github.com/flatpak/xdg-desktop-portal/issues/573 */
-        if (Object.keys(appIds).length === 1)
-            this.safeSetPermission(table, id, '', []);
-
         this.safeDeletePermission(table, id, this.appId);
     }
 
@@ -363,8 +376,12 @@ var FlatpakPortalsModel = GObject.registerClass({
             if (!this.isSupported(permission.table, permission.id))
                 continue;
 
-            const [appIds] = this.safeLookUp(permission.table, permission.id);
-            if (appIds !== null && this.appId in appIds)
+            const [permissions] = this.safeGetPermission(
+                permission.table,
+                permission.id,
+                this.appId);
+
+            if (permissions !== null && permissions.length > 0)
                 return true;
         }
 
