@@ -3,6 +3,7 @@
 ## [unreleased]
 
 - Fixed Russian translation.
+- Added Turkish translation.
 
 ## [1.7.4] - 2021-06-11
 
