@@ -54,6 +54,8 @@ var validity = {
     NOTVALID: 'not-valid',
 };
 
+const negationRegex = '^!{0,1}';
+
 const _modeDescription = {
     'read-only': _('Can read: %s'),
     'read-write': _('Can modify and read: %s'),
@@ -92,17 +94,18 @@ var FlatsealPathRow = GObject.registerClass({
     _setup() {
         Object.keys(_options).forEach(option => {
             this._store.set(this._store.append(), [0], [option]);
+            this._store.set(this._store.append(), [0], [`!${option}`]);
         });
 
         const paths = Object.keys(_options)
             .slice(0, 2)
             .join('|');
-        this._pathRE = new RegExp(`^((${paths})[^/]+)+(?<!\\s)$`);
+        this._pathRE = new RegExp(`${negationRegex}((${paths})[^/]+)+(?<!\\s)$`);
 
         const options = Object.keys(_options)
             .slice(2)
             .join('|');
-        this._optionRE = new RegExp(`^(${options})((:.*)|((/)[^/]+)*)$`);
+        this._optionRE = new RegExp(`${negationRegex}(${options})((:.*)|((/)[^/]+)*)$`);
 
         const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');
         this._modeRE = new RegExp(modes);
