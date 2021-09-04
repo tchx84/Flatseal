@@ -96,11 +96,13 @@ describe('FlatsealPathRow', function() {
     _handles('relative', '~/.test', ':rw');
     _handles('relative', '~/.test', ':create');
     _handles('relative', '~/.local/share/Folder/Games/common/Console Classics/uncompressed GAMEs/Old_Game_wVersion3.bin', ':ro');
+    _handles('relative', '!~/.TelegramDesktop', '');
     _handles('token-based', 'home/.test', '');
     _handles('token-based', 'home/.test', ':ro');
     _handles('token-based', 'home/.test', ':rw');
     _handles('token-based', 'home/.test', ':create');
     _handles('token-based', 'xdg-download/Telegram Desktop:create', '');
+    _handles('token-based', '!xdg-download', '');
 
     function _catches(description, path, _mode) {
         it(`catches ${description} paths (${_mode ? _mode : 'default'})`, function() {
@@ -122,4 +124,5 @@ describe('FlatsealPathRow', function() {
     _catches('not-valid token-based', 'jome/.test ', '');
     _catches('not-valid mode', 'home', ':');
     _catches('not-valid mode', 'home', ':not');
+    _catches('not-valid negation', '!!~/.TelegramDesktop', '');
 });

@@ -119,7 +119,8 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             .filter(p => !this.constructor.isOverriden(this._overrides, p));
 
         const overrides = [...this._overrides]
-            .filter(p => !this.constructor.isNegated(p));
+            .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
+                           this.constructor.isNegated(p)));
 
         const paths = new Set([...originals, ...overrides]);
 
