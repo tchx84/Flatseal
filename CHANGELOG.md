@@ -4,6 +4,7 @@
 
 - Fixed Russian translation.
 - Added Turkish translation.
+- Added support for negated filesystem permissions.
 
 ## [1.7.4] - 2021-06-11
 
