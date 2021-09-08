@@ -54,12 +54,18 @@ var validity = {
     NOTVALID: 'not-valid',
 };
 
-const negationRegex = '^!{0,1}';
-
 const _modeDescription = {
     'read-only': _('Can read: %s'),
     'read-write': _('Can modify and read: %s'),
     create: _('Can create, modify and read: %s'),
+};
+
+const _negationSymbol = '!';
+const _negationRegex = '^!{0,1}';
+const _modeNegatedDescription = {
+    'read-only': _('Can\'t read: %s'),
+    'read-write': _('Can\'t modify or read: %s'),
+    create: _('Can\'t create, modify or read: %s'),
 };
 
 const _notValidMsg = _('This is not a valid option');
@@ -100,12 +106,12 @@ var FlatsealPathRow = GObject.registerClass({
         const paths = Object.keys(_options)
             .slice(0, 2)
             .join('|');
-        this._pathRE = new RegExp(`${negationRegex}((${paths})[^/]+)+(?<!\\s)$`);
+        this._pathRE = new RegExp(`${_negationRegex}((${paths})[^/]+)+(?<!\\s)$`);
 
         const options = Object.keys(_options)
             .slice(2)
             .join('|');
-        this._optionRE = new RegExp(`${negationRegex}(${options})((:.*)|((/)[^/]+)*)$`);
+        this._optionRE = new RegExp(`${_negationRegex}(${options})((:.*)|((/)[^/]+)*)$`);
 
         const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');
         this._modeRE = new RegExp(modes);
@@ -128,6 +134,9 @@ var FlatsealPathRow = GObject.registerClass({
         let modeMsg = '';
         let optionMsg = '';
 
+        const negated = this.text.startsWith(_negationSymbol);
+        const text = this.text.replace(_negationSymbol, '');
+
         if (this.text.endsWith(':ro'))
             this.mode = mode.READONLY;
         else if (this.text.endsWith(':create'))
@@ -135,10 +144,10 @@ var FlatsealPathRow = GObject.registerClass({
         else
             this.mode = mode.READWRITE;
 
-        modeMsg = _modeDescription[this.mode];
+        modeMsg = negated ? _modeNegatedDescription[this.mode] : _modeDescription[this.mode];
 
         Object.keys(_options).some(option => {
-            if (this.text.startsWith(option)) {
+            if (text.startsWith(option)) {
                 optionMsg = _options[option];
                 return true;
             }
