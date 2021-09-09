@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-22 06:22-0400\n"
+"POT-Creation-Date: 2021-09-09 18:06-0400\n"
 "PO-Revision-Date: 2021-06-08 14:32+0500\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.3\n"
-"Last-Translator: \n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"Language: ru\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -30,14 +30,18 @@ msgstr "Flatseal"
 msgid "Manage Flatpak permissions"
 msgstr "Управление разрешениями Flatpak"
 
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr ""
+
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal - графическая утилита для просмотра и модификации разрешений "
-"ваших Flatpak приложений."
+"Flatseal - графическая утилита для просмотра и модификации разрешений ваших "
+"Flatpak приложений."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -295,7 +299,7 @@ msgstr "Последнее обновление"
 msgid "Runtime"
 msgstr "Райнтам"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
 msgstr "Это недопустимый вариант"
@@ -409,6 +413,21 @@ msgstr "Может редактировать и читать: %s"
 #: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
+msgstr "Может создавать, редактировать и читать: %s"
+
+#: src/widgets/pathRow.js:66
+#, fuzzy, javascript-format
+msgid "Can't read: %s"
+msgstr "Может читать: %s"
+
+#: src/widgets/pathRow.js:67
+#, fuzzy, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Может редактировать и читать: %s"
+
+#: src/widgets/pathRow.js:68
+#, fuzzy, javascript-format
+msgid "Can't create, modify or read: %s"
 msgstr "Может создавать, редактировать и читать: %s"
 
 #: src/widgets/permissionPortalRow.ui:28

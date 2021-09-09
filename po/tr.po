@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-22 06:22-0400\n"
+"POT-Creation-Date: 2021-09-09 18:06-0400\n"
 "PO-Revision-Date: 2021-08-31 11:48+0300\n"
+"Last-Translator: \n"
+"Language-Team: Ümit Solmaz , u2slmz@pm.me\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: \n"
-"Language-Team: Ümit Solmaz , u2slmz@pm.me\n"
 "X-Generator: Poedit 3.0\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -28,6 +28,10 @@ msgstr "Flatseal"
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
 msgstr "Flatpak izinlerini yönetme"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -294,7 +298,7 @@ msgstr "Son Güncelleme"
 msgid "Runtime"
 msgstr "Çalışma zamanı"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
 msgstr "Bu geçerli bir seçenek değil"
@@ -408,6 +412,21 @@ msgstr "Değiştirebilir ve okuyabilir: %s"
 #: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
+msgstr "Oluşturabilir, değiştirebilir ve okuyabilir: %s"
+
+#: src/widgets/pathRow.js:66
+#, fuzzy, javascript-format
+msgid "Can't read: %s"
+msgstr "Okuyabilir: %s"
+
+#: src/widgets/pathRow.js:67
+#, fuzzy, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Değiştirebilir ve okuyabilir: %s"
+
+#: src/widgets/pathRow.js:68
+#, fuzzy, javascript-format
+msgid "Can't create, modify or read: %s"
 msgstr "Oluşturabilir, değiştirebilir ve okuyabilir: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
