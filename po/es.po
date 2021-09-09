@@ -414,19 +414,19 @@ msgid "Can create, modify and read: %s"
 msgstr "Puede crear, modificar y leer: %s"
 
 #: src/widgets/pathRow.js:66
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't read: %s"
-msgstr "Puede leer: %s"
+msgstr "No puede leer: %s"
 
 #: src/widgets/pathRow.js:67
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't modify or read: %s"
-msgstr "Puede modificar y leer: %s"
+msgstr "No puede modificar ni leer: %s"
 
 #: src/widgets/pathRow.js:68
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't create, modify or read: %s"
-msgstr "Puede crear, modificar y leer: %s"
+msgstr "No puede crear, modificar ni leer: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
