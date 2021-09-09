@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-22 06:22-0400\n"
+"POT-Creation-Date: 2021-09-09 18:06-0400\n"
 "PO-Revision-Date: 2020-02-01 02:37-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -27,6 +27,10 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
 msgstr "Un administrador de permisos para Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -293,7 +297,7 @@ msgstr "Última actualización"
 msgid "Runtime"
 msgstr "Biblioteca de ejecución"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
 msgstr "Esta no es una opción válida"
@@ -407,6 +411,21 @@ msgstr "Puede modificar y leer: %s"
 #: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
+msgstr "Puede crear, modificar y leer: %s"
+
+#: src/widgets/pathRow.js:66
+#, fuzzy, javascript-format
+msgid "Can't read: %s"
+msgstr "Puede leer: %s"
+
+#: src/widgets/pathRow.js:67
+#, fuzzy, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Puede modificar y leer: %s"
+
+#: src/widgets/pathRow.js:68
+#, fuzzy, javascript-format
+msgid "Can't create, modify or read: %s"
 msgstr "Puede crear, modificar y leer: %s"
 
 #: src/widgets/permissionPortalRow.ui:28

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-22 06:22-0400\n"
+"POT-Creation-Date: 2021-09-09 18:06-0400\n"
 "PO-Revision-Date: 2021-03-20 21:56+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: \n"
@@ -28,6 +28,10 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
 msgstr "Beheer Flatpak-bevoegdheden"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -297,7 +301,7 @@ msgstr "Laatst bijgewerkt"
 msgid "Runtime"
 msgstr "Uitvoerbaar bestand"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:63
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
 msgstr "Dit is geen geldige optie"
@@ -411,6 +415,21 @@ msgstr "Mag wijzigen en uitlezen: %s"
 #: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
+msgstr "Mag maken, wijzigen en uitlezen: %s"
+
+#: src/widgets/pathRow.js:66
+#, fuzzy, javascript-format
+msgid "Can't read: %s"
+msgstr "Mag uitlezen: %s"
+
+#: src/widgets/pathRow.js:67
+#, fuzzy, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Mag wijzigen en uitlezen: %s"
+
+#: src/widgets/pathRow.js:68
+#, fuzzy, javascript-format
+msgid "Can't create, modify or read: %s"
 msgstr "Mag maken, wijzigen en uitlezen: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
