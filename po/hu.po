@@ -30,7 +30,7 @@ msgstr "A Flatpak engedélykezelője"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "tömítés;homokozó;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -287,7 +287,7 @@ msgstr "%Y. %B %e."
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr "Változat"
+msgstr "Verzió"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
@@ -300,7 +300,7 @@ msgstr "Futtatás ideje"
 #: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
-msgstr "Ez nem érvényes opció"
+msgstr "Érvénytelen beállítás"
 
 #: src/widgets/detailsButton.js:58
 msgid "Show Details"
@@ -328,15 +328,15 @@ msgstr "A Flatseal névjegye"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
-msgstr "ezt az abszolút utat"
+msgstr "ezt az abszolút elérési útja"
 
 #: src/widgets/pathRow.js:27
 msgid "this path relative to the home directory"
-msgstr "ez az út az otthoni könyvtárhoz képest"
+msgstr "ez az elérési útja az otthoni könyvtárhoz képest"
 
 #: src/widgets/pathRow.js:28
 msgid "all system configurations"
-msgstr "minden rendszerkonfiguráció"
+msgstr "minden rendszerbeállítás"
 
 #: src/widgets/pathRow.js:29
 msgid "all system libraries, executables and static data"
@@ -396,45 +396,42 @@ msgstr "az adatkönyvtár"
 
 #: src/widgets/pathRow.js:43
 msgid "the runtime directory"
-msgstr "a futásidejű könyvtár"
+msgstr "a futtatórendszer könyvtára"
 
 #: src/widgets/pathRow.js:58
 #, javascript-format
 msgid "Can read: %s"
-msgstr "Le tudja olvasni: %s"
+msgstr "Engedélyezett olvasási: %s"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can modify and read: %s"
-msgstr "Módosíthatja és olvashatja: %s"
+msgstr "Engedélyezett olvasási és módosítási: %s"
 
 #: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can create, modify and read: %s"
-msgstr "Létrehozhat, módosíthat és olvashat: %s"
+msgstr "Engedélyezett olvasni, módosítani és létrehozni: %s"
 
 #: src/widgets/pathRow.js:66
-#, fuzzy, javascript-format
 msgid "Can't read: %s"
-msgstr "Le tudja olvasni: %s"
+msgstr "Nem engedélyezett olvasási: %s"
 
 #: src/widgets/pathRow.js:67
-#, fuzzy, javascript-format
 msgid "Can't modify or read: %s"
-msgstr "Módosíthatja és olvashatja: %s"
+msgstr "Nem engedélyezett olvasni vagy módosítani: %s"
 
 #: src/widgets/pathRow.js:68
-#, fuzzy, javascript-format
 msgid "Can't create, modify or read: %s"
-msgstr "Létrehozhat, módosíthat és olvashat: %s"
+msgstr "Nem engedélyezett olvasni, módosítani vagy létrehozni: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
-msgstr "Eltávolítani"
+msgstr "Beállítás visszavonása"
 
 #: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
-msgstr "Az alapértelmezett útvonalakat nem lehet eltávolítani"
+msgstr "Az alapértelmezett elérési útvonalakat nem lehet eltávolítani"
 
 #: src/widgets/resetButton.js:44
 msgid "Reset"
