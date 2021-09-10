@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-09 18:06-0400\n"
-"PO-Revision-Date: 2021-05-27 12:07+0200\n"
+"PO-Revision-Date: 2021-09-10 00:36+0200\n"
 "Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
 "Language-Team: \n"
 "Language: ca\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.0\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -31,7 +31,7 @@ msgstr "Gestiona els permisos de Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "segell;entorn protegit;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -417,19 +417,19 @@ msgid "Can create, modify and read: %s"
 msgstr "Pot crear, modificar i llegir: %s"
 
 #: src/widgets/pathRow.js:66
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't read: %s"
-msgstr "Es pot llegir: %s"
+msgstr "No es pot llegir: %s"
 
 #: src/widgets/pathRow.js:67
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't modify or read: %s"
-msgstr "Pot modificar i llegir: %s"
+msgstr "No es pot modificar o llegir: %s"
 
 #: src/widgets/pathRow.js:68
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't create, modify or read: %s"
-msgstr "Pot crear, modificar i llegir: %s"
+msgstr "No es pot crear, modificar o llegir: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
