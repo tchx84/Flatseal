@@ -414,14 +414,17 @@ msgid "Can create, modify and read: %s"
 msgstr "Engedélyezett olvasni, módosítani és létrehozni: %s"
 
 #: src/widgets/pathRow.js:66
+#, javascript-format
 msgid "Can't read: %s"
 msgstr "Nem engedélyezett olvasási: %s"
 
 #: src/widgets/pathRow.js:67
+#, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "Nem engedélyezett olvasni vagy módosítani: %s"
 
 #: src/widgets/pathRow.js:68
+#, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "Nem engedélyezett olvasni, módosítani vagy létrehozni: %s"
 
