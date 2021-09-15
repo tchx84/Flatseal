@@ -2,22 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# BigmenPixel < >, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-09 18:06-0400\n"
-"PO-Revision-Date: 2021-06-08 14:32+0500\n"
-"Last-Translator: \n"
-"Language-Team: \n"
+"PO-Revision-Date: 2021-09-15 14:47+0500\n"
+"Last-Translator: BigmenPixel < >\n"
+"Language-Team: Russian < >\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Gtranslator 40.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -32,7 +33,7 @@ msgstr "Управление разрешениями Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -63,7 +64,7 @@ msgstr "Владельцы"
 
 #: src/models/sessionBus.js:81
 msgid "List of well-known names on the session bus"
-msgstr "Список известных имен в сеансной шине"
+msgstr "Список известных имен в сессионной шине"
 
 #: src/models/systemBus.js:73
 msgid "List of well-known names on the system bus"
@@ -79,7 +80,7 @@ msgstr "Виртуализация"
 
 #: src/models/devices.js:51
 msgid "Shared memory"
-msgstr "Общедоступная память"
+msgstr "Распределяемая память"
 
 #: src/models/devices.js:58
 msgid "All devices (e.g. webcam)"
@@ -163,7 +164,7 @@ msgstr "Уведомления"
 
 #: src/models/portals.js:130
 msgid "Can send notifications"
-msgstr "Может присылать уведомления"
+msgstr "Может отправлять уведомления"
 
 #: src/models/portals.js:138
 msgid "Microphone"
@@ -195,7 +196,7 @@ msgstr "Местоположение"
 
 #: src/models/portals.js:170
 msgid "Can access your location"
-msgstr "Может знать ваше местоположение"
+msgstr "Может получить доступ к вашему местоположению"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
@@ -297,7 +298,7 @@ msgstr "Последнее обновление"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr "Райнтам"
+msgstr "Рантайм"
 
 #: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
@@ -423,12 +424,12 @@ msgstr "Не может читать: %s"
 #: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't modify or read: %s"
-msgstr "Его нельзя изменить или прочитать: %s"
+msgstr "Не может редактировать и читать: %s"
 
 #: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't create, modify or read: %s"
-msgstr "Он не может создавать, изменять или читать: %s"
+msgstr "Не может создавать, редактировать и читать: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
@@ -452,7 +453,7 @@ msgstr "Восстановить разрешения приложения"
 
 #: src/widgets/resetButton.js:67
 msgid ", including changes not made with Flatseal"
-msgstr ", включая изменения, не внесенные с Flatseal"
+msgstr ", включая изменения, не внесенные Flatseal"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
