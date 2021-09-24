@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <template class="FlatsealApplicationRow" parent="GtkListBoxRow">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
+    <property name="can-focus">True</property>
     <child>
       <object class="GtkBox">
-        <property name="height_request">50</property>
+        <property name="height-request">50</property>
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="can-focus">False</property>
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkImage" id="icon">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
-                <property name="pixel_size">40</property>
-                <property name="icon_name">com.github.tchx84.Flatseal</property>
+                <property name="pixel-size">40</property>
+                <property name="icon-name">com.github.tchx84.Flatseal</property>
                 <property name="icon_size">0</property>
                 <style>
                   <class name="icon"/>
@@ -46,17 +46,17 @@
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="can-focus">False</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="name">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="ellipsize">end</property>
-                <property name="single_line_mode">True</property>
+                <property name="single-line-mode">True</property>
                 <style>
                   <class name="name"/>
                 </style>
@@ -70,11 +70,11 @@
             <child>
               <object class="GtkLabel" id="appId">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="can-focus">False</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="ellipsize">end</property>
-                <property name="single_line_mode">True</property>
+                <property name="single-line-mode">True</property>
                 <style>
                   <class name="app-id"/>
                 </style>
