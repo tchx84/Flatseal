@@ -5,7 +5,7 @@
   <requires lib="libhandy" version="0.0"/>
   <template class="FlatsealPermissionEntryRow" parent="HdyPreferencesRow">
     <property name="visible">True</property>
-    <property name="can-focus">False</property>
+    <property name="can-focus">True</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
     <child>
