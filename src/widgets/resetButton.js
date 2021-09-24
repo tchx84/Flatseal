@@ -43,7 +43,7 @@ var FlatsealResetButton = GObject.registerClass({
 
         this.set_label(_('Reset'));
         this.sensitive = false;
-        this.can_focus = false;
+        this.can_focus = true;
         this.visible = true;
 
         this.get_style_context().add_class('reset-button');
