@@ -47,7 +47,7 @@
                 <child>
                   <object class="GtkToggleButton" id="applicationsSearchButton">
                     <property name="visible">True</property>
-                    <property name="can-focus">False</property>
+                    <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
                     <child>
                       <object class="GtkImage">
