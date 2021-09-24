@@ -267,6 +267,8 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _cancel() {
+        if (this._applicationsSearchEntry.get_text() === '')
+            this._applicationsSearchRevealer.reveal_child = false;
         this._applicationsSearchEntry.set_text('');
     }
 
