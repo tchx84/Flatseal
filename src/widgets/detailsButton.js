@@ -56,7 +56,7 @@ var FlatsealDetailsButton = GObject.registerClass({
         this._permissions = permissions;
 
         this.set_label(_('Show Details'));
-        this.can_focus = false;
+        this.can_focus = true;
         this.visible = true;
 
         this.connect('clicked', this._clicked.bind(this));
