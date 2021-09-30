@@ -64,6 +64,8 @@ var FlatsealApplication = GObject.registerClass({
         this.add_action(help_action);
         this.add_action(documentation_action);
         this.add_action(about_action);
+
+        this.set_accels_for_action('app.documentation', ['F1']);
     }
 
     _setupStylesheet() {
