@@ -72,6 +72,7 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._previousButton.connect('clicked', this._searchPrevious.bind(this));
         this._nextButton.connect('clicked', this._searchNext.bind(this));
         this._searchEntry.connect('search-changed', this._updateSearch.bind(this));
+        this._searchEntry.connect('stop-search', this._cancelSearch.bind(this));
 
         this._searchButton.bind_property(
             'active',
@@ -119,6 +120,12 @@ var FlatsealDocsViewer = GObject.registerClass({
         } else {
             this._findController.search_finish();
         }
+    }
+
+    _cancelSearch() {
+        if (this._searchEntry.get_text() === '')
+            this._searchBar.search_mode_enabled = false;
+        this._searchEntry.set_text('');
     }
 
     _searchPrevious() {
