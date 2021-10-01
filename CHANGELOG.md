@@ -2,6 +2,7 @@
 
 ## [unreleased]
 
+- Fixed keyboard navigation.
 - Fixed Russian translation.
 - Added Turkish translation.
 - Added support for negated filesystem permissions.
