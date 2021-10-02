@@ -51,6 +51,11 @@ var FlatsealApplication = GObject.registerClass({
         dialog.present();
     }
 
+    _quit() {
+        this._window._shutdown();
+        this.quit();
+    }
+
     _setupActions() {
         const help_action = new Gio.SimpleAction({name: 'help', state: null});
         help_action.connect('activate', this._displayHelp.bind(this));
@@ -61,11 +66,16 @@ var FlatsealApplication = GObject.registerClass({
         const about_action = new Gio.SimpleAction({name: 'about', state: null});
         about_action.connect('activate', this._displayAbout.bind(this));
 
+        const quit_action = new Gio.SimpleAction({name: 'quit', state: null});
+        quit_action.connect('activate', this._quit.bind(this));
+
         this.add_action(help_action);
         this.add_action(documentation_action);
         this.add_action(about_action);
+        this.add_action(quit_action);
 
         this.set_accels_for_action('app.documentation', ['F1']);
+        this.set_accels_for_action('app.quit', ['<alt>q']);
     }
 
     _setupStylesheet() {
