@@ -203,6 +203,7 @@ var FlatsealWindow = GObject.registerClass({
 
         this._applicationsListBox.connect('row-selected', this._update.bind(this));
         this._applicationsListBox.set_filter_func(this._filter.bind(this));
+        this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
         this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
@@ -260,6 +261,18 @@ var FlatsealWindow = GObject.registerClass({
             row.appId.toLowerCase().includes(subString) ||
             row.appName.toLowerCase().includes(subString)
         );
+    }
+
+    _sort(row1, row2) {
+        const name1 = row1.appName.toLowerCase();
+        const name2 = row2.appName.toLowerCase();
+
+        if (name1 == name2)
+            return 0;
+        if (name1 < name2)
+            return -1;
+
+        return 1;
     }
 
     _invalidate() {
