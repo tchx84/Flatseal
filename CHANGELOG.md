@@ -2,10 +2,12 @@
 
 ## [unreleased]
 
-- Fixed keyboard navigation.
 - Fixed Russian translation.
 - Added Turkish translation.
+- Added support for keyboard navigation.
 - Added support for negated filesystem permissions.
+- Changed to sorting applications by name.
+- Changed to GNOME 41 runtime for stability.
 
 ## [1.7.4] - 2021-06-11
 
