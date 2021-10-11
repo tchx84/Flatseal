@@ -197,13 +197,15 @@ var FlatsealWindow = GObject.registerClass({
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
         this._applicationsStack.visibleChildName = 'withApplicationsPage';
 
+        this._applicationsListBox.set_filter_func(this._filter.bind(this));
+        this._applicationsListBox.set_sort_func(this._sort.bind(this));
+
+        /* select after the list has been sorted */
         const row = this._applicationsListBox.get_row_at_index(0);
         this._applicationsListBox.select_row(row);
         this._update(false);
 
         this._applicationsListBox.connect('row-selected', this._update.bind(this));
-        this._applicationsListBox.set_filter_func(this._filter.bind(this));
-        this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
         this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
