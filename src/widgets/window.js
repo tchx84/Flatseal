@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Handy} = imports.gi;
+const {GObject, GLib, Gtk, Handy} = imports.gi;
 
 const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakPermissionsModel} = imports.models.permissions;
@@ -42,6 +42,7 @@ const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
 const ACTION_BAR_THRESHOLD = 540;
+const APP_SELECTION_DELAY = 100;
 
 
 var FlatsealWindow = GObject.registerClass({
@@ -205,7 +206,8 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.select_row(row);
         this._update(false);
 
-        this._applicationsListBox.connect('row-selected', this._update.bind(this));
+        this._applicationsDelayHandlerId = 0;
+        this._applicationsListBox.connect('row-selected', this._delayedUpdate.bind(this));
 
         this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
@@ -226,6 +228,14 @@ var FlatsealWindow = GObject.registerClass({
         this._settings.saveWindowState(this);
     }
 
+    _delayedUpdate() {
+        if (this._applicationsDelayHandlerId !== 0)
+            GLib.Source.remove(this._applicationsDelayHandlerId);
+
+        this._applicationsDelayHandlerId = GLib.timeout_add(
+            GLib.PRIORITY_DEFAULT, APP_SELECTION_DELAY, this._update.bind(this));
+    }
+
     _update(switchPage = true) {
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
@@ -234,6 +244,9 @@ var FlatsealWindow = GObject.registerClass({
         this._undoPopup.close();
         if (switchPage)
             this._showPermissions();
+
+        this._applicationsDelayHandlerId = 0;
+        return GLib.SOURCE_REMOVE;
     }
 
     _updateVisibility(window, allocation) {
