@@ -244,3 +244,13 @@ window .menu.background label {
 .unset-button {
     margin-right: 10px;
 }
+
+/* keybindings */
+
+@binding-set WindowBindings {
+  bind "<Alt>q" { "close" () };
+}
+
+window {
+  -gtk-key-bindings: WindowBindings;
+}

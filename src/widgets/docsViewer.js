@@ -36,6 +36,11 @@ var FlatsealDocsViewer = GObject.registerClass({
         'searchBar',
         'searchEntry',
     ],
+    Signals: {
+        close: {
+            flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+        },
+    },
 }, class FlatsealDocsViewer extends Handy.ApplicationWindow {
     _init(parent) {
         super._init({});
@@ -79,6 +84,8 @@ var FlatsealDocsViewer = GObject.registerClass({
             this._searchBar,
             'search-mode-enabled',
             GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
+
+        this.connect('close', this._close.bind(this));
     }
 
     _loadUri() {
@@ -141,5 +148,9 @@ var FlatsealDocsViewer = GObject.registerClass({
             this._searchEntry.text,
             WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
             MAX_RESULTS);
+    }
+
+    _close() {
+        this.destroy();
     }
 });
