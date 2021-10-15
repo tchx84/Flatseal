@@ -11,9 +11,8 @@
         <property name="can-focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
-        <property name="pixel-size">40</property>
+        <property name="pixel-size">48</property>
         <property name="icon-name">com.github.tchx84.Flatseal</property>
-        <property name="icon_size">0</property>
         <style>
           <class name="icon"/>
           <class name="lowres-icon"/>
