@@ -6,21 +6,6 @@
     margin: 10px;
 }
 
-.applications .icon {
-   padding-left: 5px;
-}
-
-.applications .name,
-.applications .app-id {
-   padding-left: 10px;
-   padding-right: 10px;
-}
-
-.applications .app-id {
-    font-style: italic;
-    font-size: small;
-}
-
 .applications .frame {
     border-width: 0px;
 }

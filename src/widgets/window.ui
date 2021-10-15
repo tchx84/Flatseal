@@ -20,6 +20,7 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="orientation">vertical</property>
+            <property name="hexpand">False</property>
             <child>
               <object class="HdyHeaderBar" id="applicationsHeaderBar">
                 <property name="width-request">360</property>
