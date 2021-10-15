@@ -259,10 +259,12 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _updateSearch() {
-        if (this._applicationsSearchButton.active)
+        if (this._applicationsSearchButton.active) {
             this._applicationsSearchEntry.grab_focus();
-        else
+        } else {
+            this._applicationsSearchButton.grab_focus();
             this._applicationsSearchEntry.set_text('');
+        }
     }
 
     _filter(row) {
@@ -295,8 +297,10 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _cancel() {
-        if (this._applicationsSearchEntry.get_text() === '')
+        if (this._applicationsSearchEntry.get_text() === '') {
             this._applicationsSearchRevealer.reveal_child = false;
+            this._applicationsSearchButton.grab_focus();
+        }
         this._applicationsSearchEntry.set_text('');
     }
 
