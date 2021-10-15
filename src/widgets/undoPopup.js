@@ -59,6 +59,7 @@ var FlatsealUndoPopup = GObject.registerClass({
 
     _reset() {
         this.reveal_child = true;
+        this._closeButton.grab_focus();
         this._resetCloseHandler();
         this._closeHandlerId = GLib.timeout_add(
             GLib.PRIORITY_DEFAULT, POPUP_ACTIVE_TIME, this.close.bind(this));
