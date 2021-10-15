@@ -79,6 +79,7 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._searchEntry.connect('search-changed', this._updateSearch.bind(this));
         this._searchEntry.connect('stop-search', this._cancelSearch.bind(this));
 
+        this._searchButton.connect('toggled', this._updateSearchEntry.bind(this));
         this._searchButton.bind_property(
             'active',
             this._searchBar,
@@ -112,6 +113,15 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._forwardButton.sensitive = this._webview.can_go_forward();
     }
 
+    _updateSearchEntry() {
+        if (this._searchButton.active) {
+            this._searchEntry.grab_focus();
+        } else {
+            this._searchButton.grab_focus();
+            this._searchEntry.set_text('');
+        }
+    }
+
     _goBack() {
         this._webview.go_back();
     }
@@ -130,8 +140,10 @@ var FlatsealDocsViewer = GObject.registerClass({
     }
 
     _cancelSearch() {
-        if (this._searchEntry.get_text() === '')
+        if (this._searchEntry.get_text() === '') {
             this._searchBar.search_mode_enabled = false;
+            this._searchButton.grab_focus();
+        }
         this._searchEntry.set_text('');
     }
 
