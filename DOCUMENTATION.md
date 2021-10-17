@@ -71,6 +71,7 @@ Development syscalls | Toggle | Allow the application to access to certain sysca
 Programs from other architectures | Toggle | Allow the application to execute programs for an [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) other than the one supported natively by the system. | `--allow=multiarch` and `--disallow=multiarch`
 Bluetooth | Toggle | Allow the application to use Bluetooth. | `--allow=bluetooth` and `--disallow=bluetooth`
 Controller Area Network bus | Toggle | Allow the application to use canbus sockets. You must also have [network access](#share) for this to work. | `--allow=canbus` and `--disallow=canbus`
+Per app /dev/shm | Toggle | Allow the application to share its `/dev/shm` by creating a per app folder in the hosts `/dev/shm` like this `/dev/shm/flatpak-$FLATPAK_APP_ID-XXXXXX`. This feature was added specifically to enable `com.valvesoftware.Steam` to share its `/dev/shm` with its sub-sandboxed games. | `--allow=per-app-dev-shm` and `--disallow=per-app-dev-shm`.
 
 ### Filesystem
 
