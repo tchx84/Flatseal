@@ -233,7 +233,7 @@ window .menu.background label {
 /* keybindings */
 
 @binding-set WindowBindings {
-  bind "<Alt>q" { "close" () };
+  bind "<Primary>q" { "close" () };
 }
 
 window {
