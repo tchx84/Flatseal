@@ -75,7 +75,7 @@ var FlatsealApplication = GObject.registerClass({
         this.add_action(quit_action);
 
         this.set_accels_for_action('app.documentation', ['F1']);
-        this.set_accels_for_action('app.quit', ['<alt>q']);
+        this.set_accels_for_action('app.quit', ['<Primary>q']);
     }
 
     _setupStylesheet() {
