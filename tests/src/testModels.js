@@ -32,7 +32,7 @@ const {
 
 setup();
 
-const _totalPermissions = 36;
+const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
