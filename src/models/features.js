@@ -62,7 +62,7 @@ var FlatpakFeaturesModel = GObject.registerClass({
             },
             'features-per-app-dev-shm': {
                 supported: this._info.supports('1.11.1'),
-                description: _('Per app /dev/shm'),
+                description: _('Application Shared Memory'),
                 option: 'per-app-dev-shm',
                 value: this.constructor.getDefault(),
                 example: 'allow=per-app-dev-shm',
