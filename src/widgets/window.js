@@ -209,6 +209,7 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsDelayHandlerId = 0;
         this._applicationsListBox.connect('row-selected', this._delayedUpdate.bind(this));
 
+        this._applicationsSearchEntry.connect('activate', this._selectSearchResult.bind(this));
         this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
         this._applicationsSearchButton.connect('toggled', this._updateSearch.bind(this));
@@ -265,6 +266,12 @@ var FlatsealWindow = GObject.registerClass({
             this._applicationsSearchButton.grab_focus();
             this._applicationsSearchEntry.set_text('');
         }
+    }
+
+    _selectSearchResult() {
+        const row = this._applicationsListBox.get_row_at_y(0);
+        if (row !== null)
+            this._applicationsListBox.select_row(row);
     }
 
     _filter(row) {
