@@ -270,8 +270,15 @@ var FlatsealWindow = GObject.registerClass({
 
     _selectSearchResult() {
         const row = this._applicationsListBox.get_row_at_y(0);
-        if (row !== null)
-            this._applicationsListBox.select_row(row);
+        if (row === null)
+            return;
+
+        this._applicationsListBox.select_row(row);
+
+        /* switch focus to the first permission row to speed up navigation */
+        const firstGroup = this._permissionsBox.get_children()[1];
+        const firstRow = firstGroup.get_children()[0];
+        firstRow.grab_focus();
     }
 
     _filter(row) {
