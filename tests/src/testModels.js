@@ -33,6 +33,7 @@ const {
 setup();
 
 const _totalPermissions = 37;
+const _stablePermissions = _totalPermissions - 7;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -556,7 +557,7 @@ describe('Model', function() {
         permissions.appId = _basicAppId;
         const total = permissions.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 6);
+        expect(total).toEqual(_stablePermissions);
     });
 
     it('handles missing .flatpak-info', function() {
@@ -932,7 +933,7 @@ describe('Model', function() {
 
         const total = permissions.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 6);
+        expect(total).toEqual(_stablePermissions);
 
         expect(permissions.portals_background).toBe(portalState.UNSUPPORTED);
         expect(permissions.portals_notification).toBe(portalState.UNSUPPORTED);
