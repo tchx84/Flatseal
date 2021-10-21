@@ -3,9 +3,11 @@
 ## [unreleased]
 
 - Fixed Russian translation.
+- Fixed icons to look sharper.
 - Added Turkish translation.
 - Added support for keyboard navigation.
 - Added support for negated filesystem permissions.
+- Changed more custom widgets for libhandy widgets.
 - Changed to sorting applications by name.
 - Changed to GNOME 41 runtime for stability.
 
