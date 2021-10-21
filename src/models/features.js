@@ -60,6 +60,13 @@ var FlatpakFeaturesModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: 'allow=canbus',
             },
+            'features-per-app-dev-shm': {
+                supported: this._info.supports('1.11.1'),
+                description: _('Application Shared Memory'),
+                option: 'per-app-dev-shm',
+                value: this.constructor.getDefault(),
+                example: 'allow=per-app-dev-shm',
+            },
         };
     }
 

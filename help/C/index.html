@@ -278,6 +278,12 @@
 <td>Allow the application to use canbus sockets. You must also have <a href="#share">network access</a> for this to work.</td>
 <td><code>--allow=canbus</code> and <code>--disallow=canbus</code></td>
 </tr>
+<tr class="odd">
+<td>Application Shared Memory</td>
+<td>Toggle</td> 
+<td>Allow the application to share its /dev/shm between instances of the same $FLATPAK_APP_ID. Introduced specifically for the Steam flatpak, to share its /dev/shm with sub-sandboxed games.</td>
+<td><code>--allow=per-app-dev-shm</code> and <code>--disallow=per-app-dev-shm</code></td>
+</tr>
 </tbody>
 </table>
 <h3 id="filesystem">Filesystem</h3>

@@ -32,7 +32,7 @@ const {
 
 setup();
 
-const _totalPermissions = 36;
+const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
 const _oldAppId = 'com.test.Old';
@@ -157,6 +157,7 @@ describe('Model', function() {
         expect(permissions.features_devel).toBe(true);
         expect(permissions.features_multiarch).toBe(true);
         expect(permissions.features_canbus).toBe(true);
+        expect(permissions.features_per_app_dev_shm).toBe(true);
         expect(permissions.filesystems_host).toBe(true);
         expect(permissions.filesystems_host_os).toBe(true);
         expect(permissions.filesystems_host_etc).toBe(true);
@@ -193,6 +194,7 @@ describe('Model', function() {
         expect(permissions.features_devel).toBe(false);
         expect(permissions.features_multiarch).toBe(false);
         expect(permissions.features_canbus).toBe(false);
+        expect(permissions.features_per_app_dev_shm).toBe(false);
         expect(permissions.filesystems_host).toBe(false);
         expect(permissions.filesystems_host_os).toBe(false);
         expect(permissions.filesystems_host_etc).toBe(false);
@@ -554,7 +556,7 @@ describe('Model', function() {
         permissions.appId = _basicAppId;
         const total = permissions.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 6);
+        expect(total).toEqual(_totalPermissions - 7);
     });
 
     it('handles missing .flatpak-info', function() {

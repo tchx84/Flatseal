@@ -2,7 +2,7 @@
 shared=!network;!ipc;
 sockets=!x11;!fallback-x11;!wayland;!pulseaudio;!system-bus;!session-bus;!ssh-auth;!pcsc;!cups;
 devices=!dri;!kvm;!shm;!all;
-features=!bluetooth;!devel;!multiarch;!canbus;
+features=!bluetooth;!devel;!multiarch;!canbus;!per-app-dev-shm;
 filesystems=!host;!host-os;!host-etc;!home;!~/test;
 persistent=tset.
 
