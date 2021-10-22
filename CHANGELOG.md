@@ -6,6 +6,7 @@
 - Fixed icons to look sharper.
 - Added Turkish translation.
 - Added support for keyboard navigation.
+- Added support for per-app-dev-shm permission.
 - Added support for negated filesystem permissions.
 - Changed more custom widgets for libhandy widgets.
 - Changed to sorting applications by name.
