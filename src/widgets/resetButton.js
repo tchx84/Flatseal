@@ -41,7 +41,8 @@ var FlatsealResetButton = GObject.registerClass({
         this._image.visible = false;
         this.set_image(this._image);
 
-        this.set_label(_('Reset'));
+        this.set_use_underline(true);
+        this.set_label(_('_Reset'));
         this.sensitive = false;
         this.can_focus = true;
         this.visible = true;
