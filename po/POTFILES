@@ -41,6 +41,7 @@ src/widgets/permissionSwitchRow.ui
 src/widgets/relativePathRow.js
 src/widgets/relativePathRow.ui
 src/widgets/resetButton.js
+src/widgets/shortcutsWindow.ui
 src/widgets/undoPopup.ui
 src/widgets/variableRow.js
 src/widgets/variableRow.ui

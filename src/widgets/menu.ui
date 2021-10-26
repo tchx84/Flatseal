@@ -11,6 +11,10 @@
         <attribute name="label" translatable="yes">Documentation</attribute>
       </item>
       <item>
+        <attribute name="action">app.shortcuts</attribute>
+        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+      </item>
+      <item>
         <attribute name="action">app.about</attribute>
         <attribute name="label" translatable="yes">About Flatseal</attribute>
       </item>
