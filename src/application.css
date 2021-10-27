@@ -234,6 +234,7 @@ window .menu.background label {
 
 @binding-set WindowBindings {
   bind "<Primary>q" { "close" () };
+  bind "<Primary>f" { "find" () };
 }
 
 window {

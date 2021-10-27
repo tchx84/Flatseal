@@ -127,6 +127,13 @@
                 <property name="title" translatable="yes" context="shortcut window">Find the next match</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;Primary&gt;&lt;Shift&gt;G</property>
+                <property name="title" translatable="yes" context="shortcut window">Find the previous match</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>

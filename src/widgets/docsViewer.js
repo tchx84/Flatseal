@@ -40,6 +40,9 @@ var FlatsealDocsViewer = GObject.registerClass({
         close: {
             flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
         },
+        find: {
+            flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+        },
     },
 }, class FlatsealDocsViewer extends Handy.ApplicationWindow {
     _init(parent) {
@@ -73,19 +76,25 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._backButton.connect('clicked', this._goBack.bind(this));
         this._forwardButton.connect('clicked', this._goForward.bind(this));
 
-        this._searchBar.connect('notify::search-mode-enabled', this._enableSearch.bind(this));
+        this._searchEntry.connect('search-changed', this._resetSearch.bind(this));
+        this._searchEntry.connect('stop-search', this._cancelSearch.bind(this));
+        this._searchEntry.connect('next-match', this._searchNext.bind(this));
+        this._searchEntry.connect('previous-match', this._searchPrevious.bind(this));
+
         this._previousButton.connect('clicked', this._searchPrevious.bind(this));
         this._nextButton.connect('clicked', this._searchNext.bind(this));
-        this._searchEntry.connect('search-changed', this._updateSearch.bind(this));
-        this._searchEntry.connect('stop-search', this._cancelSearch.bind(this));
 
-        this._searchButton.connect('toggled', this._updateSearchEntry.bind(this));
+        this._searchButton.connect('toggled', this._toggleSearchWithButton.bind(this));
         this._searchButton.bind_property(
             'active',
             this._searchBar,
             'search-mode-enabled',
             GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
 
+        this._searchBar.connect(
+            'notify::search-mode-enabled', this._enableSearchController.bind(this));
+
+        this.connect('find', this._enableSearchWithShortcut.bind(this));
         this.connect('close', this._close.bind(this));
     }
 
@@ -113,15 +122,6 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._forwardButton.sensitive = this._webview.can_go_forward();
     }
 
-    _updateSearchEntry() {
-        if (this._searchButton.active) {
-            this._searchEntry.grab_focus();
-        } else {
-            this._searchButton.grab_focus();
-            this._searchEntry.set_text('');
-        }
-    }
-
     _goBack() {
         this._webview.go_back();
     }
@@ -130,21 +130,39 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._webview.go_forward();
     }
 
-    _enableSearch() {
-        if (this._searchBar.search_mode_enabled) {
-            this._findController = this._webview.get_find_controller();
+    _enableSearchWithShortcut() {
+        this._searchBar.search_mode_enabled = true;
+        this._searchEntry.grab_focus();
+    }
+
+    _toggleSearchWithButton() {
+        this._searchEntry.set_text('');
+
+        if (this._searchButton.active)
             this._searchEntry.grab_focus();
-        } else {
+        else
+            this._searchButton.grab_focus();
+    }
+
+    _enableSearchController() {
+        if (this._searchBar.search_mode_enabled)
+            this._findController = this._webview.get_find_controller();
+        else
             this._findController.search_finish();
-        }
     }
 
     _cancelSearch() {
-        if (this._searchEntry.get_text() === '') {
+        if (this._searchEntry.get_text() === '')
             this._searchBar.search_mode_enabled = false;
-            this._searchButton.grab_focus();
-        }
+
         this._searchEntry.set_text('');
+    }
+
+    _resetSearch() {
+        this._findController.search(
+            this._searchEntry.text,
+            WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
+            MAX_RESULTS);
     }
 
     _searchPrevious() {
@@ -153,13 +171,6 @@ var FlatsealDocsViewer = GObject.registerClass({
 
     _searchNext() {
         this._findController.search_next();
-    }
-
-    _updateSearch() {
-        this._findController.search(
-            this._searchEntry.text,
-            WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
-            MAX_RESULTS);
     }
 
     _close() {
