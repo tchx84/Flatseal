@@ -69,6 +69,11 @@ var FlatsealWindow = GObject.registerClass({
         'contentLeaflet',
         'undoPopupBox',
     ],
+    Signals: {
+        find: {
+            flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+        },
+    },
 }, class FlatsealWindow extends Handy.ApplicationWindow {
     _init(application) {
         super._init({application});
@@ -209,12 +214,16 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsDelayHandlerId = 0;
         this._applicationsListBox.connect('row-selected', this._delayedUpdate.bind(this));
 
-        this._applicationsSearchEntry.connect('activate', this._selectSearchResult.bind(this));
-        this._applicationsSearchEntry.connect('stop-search', this._cancel.bind(this));
-        this._applicationsSearchEntry.connect('search-changed', this._invalidate.bind(this));
-        this._applicationsSearchButton.connect('toggled', this._updateSearch.bind(this));
+        this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
+        this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
+        this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
+
         this._applicationsSearchButton.bind_property(
             'active', this._applicationsSearchRevealer, 'reveal-child', _bindFlags);
+        this._applicationsSearchButton.connect(
+            'toggled', this._toggleSearchWithButton.bind(this));
+
+        this.connect('find', this._enableSearchWithShortcut.bind(this));
 
         this._showApplications();
         this._backButton.set_sensitive(true);
@@ -259,28 +268,6 @@ var FlatsealWindow = GObject.registerClass({
         this._actionBar.visible = visible;
     }
 
-    _updateSearch() {
-        if (this._applicationsSearchButton.active) {
-            this._applicationsSearchEntry.grab_focus();
-        } else {
-            this._applicationsSearchButton.grab_focus();
-            this._applicationsSearchEntry.set_text('');
-        }
-    }
-
-    _selectSearchResult() {
-        const row = this._applicationsListBox.get_row_at_y(0);
-        if (row === null)
-            return;
-
-        this._applicationsListBox.select_row(row);
-
-        /* switch focus to the first permission row to speed up navigation */
-        const firstGroup = this._permissionsBox.get_children()[1];
-        const firstRow = firstGroup.get_children()[0];
-        firstRow.grab_focus();
-    }
-
     _filter(row) {
         const text = this._applicationsSearchEntry.get_text();
         if (text.length === 0)
@@ -306,16 +293,42 @@ var FlatsealWindow = GObject.registerClass({
         return 1;
     }
 
-    _invalidate() {
-        this._applicationsListBox.invalidate_filter();
+    _enableSearchWithShortcut() {
+        this._applicationsSearchRevealer.reveal_child = true;
+        this._applicationsSearchEntry.grab_focus();
     }
 
-    _cancel() {
-        if (this._applicationsSearchEntry.get_text() === '') {
-            this._applicationsSearchRevealer.reveal_child = false;
-            this._applicationsSearchButton.grab_focus();
-        }
+    _toggleSearchWithButton() {
         this._applicationsSearchEntry.set_text('');
+
+        if (this._applicationsSearchButton.active)
+            this._applicationsSearchEntry.grab_focus();
+        else
+            this._applicationsSearchButton.grab_focus();
+    }
+
+    _cancelSearch() {
+        if (this._applicationsSearchEntry.get_text() === '')
+            this._applicationsSearchRevealer.reveal_child = false;
+
+        this._applicationsSearchEntry.set_text('');
+    }
+
+    _selectSearch() {
+        const row = this._applicationsListBox.get_row_at_y(0);
+        if (row === null)
+            return;
+
+        this._applicationsListBox.select_row(row);
+
+        /* switch focus to the first permission row to speed up navigation */
+        const [, firstGroup] = this._permissionsBox.get_children();
+        const [firstRow] = firstGroup.get_children();
+        firstRow.grab_focus();
+    }
+
+    _resetSearch() {
+        this._applicationsListBox.invalidate_filter();
     }
 
     _showApplications() {
