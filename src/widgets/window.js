@@ -281,11 +281,11 @@ var FlatsealWindow = GObject.registerClass({
         );
     }
 
-    _sort(row1, row2) {
+    _sort(row1, row2) { // eslint-disable-line class-methods-use-this
         const name1 = row1.appName.toLowerCase();
         const name2 = row2.appName.toLowerCase();
 
-        if (name1 == name2)
+        if (name1 === name2)
             return 0;
         if (name1 < name2)
             return -1;
