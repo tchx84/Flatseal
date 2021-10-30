@@ -4,19 +4,19 @@
     <section>
       <item>
         <attribute name="action">app.help</attribute>
-        <attribute name="label" translatable="yes">Help</attribute>
+        <attribute name="label" translatable="yes">_Help</attribute>
       </item>
       <item>
         <attribute name="action">app.documentation</attribute>
-        <attribute name="label" translatable="yes">Documentation</attribute>
+        <attribute name="label" translatable="yes">_Documentation</attribute>
       </item>
       <item>
         <attribute name="action">app.shortcuts</attribute>
-        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
       </item>
       <item>
         <attribute name="action">app.about</attribute>
-        <attribute name="label" translatable="yes">About Flatseal</attribute>
+        <attribute name="label" translatable="yes">_About Flatseal</attribute>
       </item>
     </section>
   </menu>
