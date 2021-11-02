@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 18:06-0400\n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
 "PO-Revision-Date: 2021-09-10 09:41+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
@@ -104,7 +104,12 @@ msgstr "Bluetooth"
 msgid "Controller Area Network bus"
 msgstr "Controller Area Network bus"
 
-#: src/models/features.js:83
+#: src/models/features.js:65
+#, fuzzy
+msgid "Application Shared Memory"
+msgstr "Delat minne"
+
+#: src/models/features.js:90
 msgid "List of features available to the application"
 msgstr "Lista över funktioner som är tillgängliga för programmet"
 
@@ -304,28 +309,36 @@ msgstr "Körtid"
 msgid "This is not a valid option"
 msgstr "Detta är inte ett giltigt alternativ"
 
-#: src/widgets/detailsButton.js:58
-msgid "Show Details"
+#: src/widgets/detailsButton.js:59
+#, fuzzy
+msgid "_Show Details"
 msgstr "Visa detaljerad info"
 
-#: src/widgets/detailsButton.js:106
+#: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
 msgstr "Visa program i en programhanterare"
 
-#: src/widgets/detailsButton.js:108
+#: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Ingen programhanterare hittades"
 
 #: src/widgets/menu.ui:7
-msgid "Help"
+#, fuzzy
+msgid "_Help"
 msgstr "Hjälp"
 
 #: src/widgets/menu.ui:11
-msgid "Documentation"
+#, fuzzy
+msgid "_Documentation"
 msgstr "Dokumentation"
 
 #: src/widgets/menu.ui:15
-msgid "About Flatseal"
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/widgets/menu.ui:19
+#, fuzzy
+msgid "_About Flatseal"
 msgstr "Om Flatseal"
 
 #: src/widgets/pathRow.js:26
@@ -438,21 +451,98 @@ msgstr "Avlägsna"
 msgid "Default paths can't be removed"
 msgstr "Standardsökvägar kan inte tas bort"
 
-#: src/widgets/resetButton.js:44
-msgid "Reset"
+#: src/widgets/resetButton.js:45
+#, fuzzy
+msgid "_Reset"
 msgstr "Återställ"
 
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
 msgstr "Inga ändringar gjorda för det här programmet"
 
-#: src/widgets/resetButton.js:65
+#: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
 msgstr "Återställ det här programmets behörigheter"
 
-#: src/widgets/resetButton.js:67
+#: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
 msgstr ", inklusive ändringar som inte gjorts med Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:19
+#, fuzzy
+msgid "Show mnemonics"
+msgstr "Visa detaljerad info"
+
+#: src/widgets/shortcutsWindow.ui:26
+#, fuzzy
+msgid "Show documentation"
+msgstr "Dokumentation"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:55
+#, fuzzy
+msgid "Navigation"
+msgstr "Avisering"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "Program"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:102
+#, fuzzy
+msgid "Permissions"
+msgstr "Version"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr ""
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
@@ -462,10 +552,6 @@ msgstr "Behörigheter har återställts"
 msgid "Undo"
 msgstr "Ångra"
 
-#: src/widgets/window.ui:28
-msgid "Applications"
-msgstr "Program"
-
-#: src/widgets/window.ui:112 src/widgets/window.ui:210
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
 msgstr "Inga program hittades."

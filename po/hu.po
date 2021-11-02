@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 18:06-0400\n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
 "PO-Revision-Date: 2020-02-01 03:47-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -103,7 +103,12 @@ msgstr "Bluetooth"
 msgid "Controller Area Network bus"
 msgstr "Vezérlő terület hálózati busz"
 
-#: src/models/features.js:83
+#: src/models/features.js:65
+#, fuzzy
+msgid "Application Shared Memory"
+msgstr "Megosztott memória"
+
+#: src/models/features.js:90
 msgid "List of features available to the application"
 msgstr "Az alkalmazás számára elérhető szolgáltatások listája"
 
@@ -302,28 +307,36 @@ msgstr "Futtatás ideje"
 msgid "This is not a valid option"
 msgstr "Érvénytelen beállítás"
 
-#: src/widgets/detailsButton.js:58
-msgid "Show Details"
+#: src/widgets/detailsButton.js:59
+#, fuzzy
+msgid "_Show Details"
 msgstr "Részletek mutatása"
 
-#: src/widgets/detailsButton.js:106
+#: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
 msgstr "Az alkalmazás megjelenítése a szoftverkezelőben"
 
-#: src/widgets/detailsButton.js:108
+#: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Nem található szoftverkezelő"
 
 #: src/widgets/menu.ui:7
-msgid "Help"
+#, fuzzy
+msgid "_Help"
 msgstr "Súgó"
 
 #: src/widgets/menu.ui:11
-msgid "Documentation"
+#, fuzzy
+msgid "_Documentation"
 msgstr "Dokumentáció"
 
 #: src/widgets/menu.ui:15
-msgid "About Flatseal"
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/widgets/menu.ui:19
+#, fuzzy
+msgid "_About Flatseal"
 msgstr "A Flatseal névjegye"
 
 #: src/widgets/pathRow.js:26
@@ -436,21 +449,98 @@ msgstr "Beállítás visszavonása"
 msgid "Default paths can't be removed"
 msgstr "Az alapértelmezett elérési útvonalakat nem lehet eltávolítani"
 
-#: src/widgets/resetButton.js:44
-msgid "Reset"
+#: src/widgets/resetButton.js:45
+#, fuzzy
+msgid "_Reset"
 msgstr "Visszaállítás"
 
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
 msgstr "Az alkalmazásban nem történt változás"
 
-#: src/widgets/resetButton.js:65
+#: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
 msgstr "Alkalmazás engedélyek alaphelyzetbe állítása"
 
-#: src/widgets/resetButton.js:67
+#: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
 msgstr "beleértve a nem a Flatseal használatával végrehajtott változtatásokat"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:19
+#, fuzzy
+msgid "Show mnemonics"
+msgstr "Részletek mutatása"
+
+#: src/widgets/shortcutsWindow.ui:26
+#, fuzzy
+msgid "Show documentation"
+msgstr "Dokumentáció"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:55
+#, fuzzy
+msgid "Navigation"
+msgstr "Értesítések"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "Alkalmazások"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:102
+#, fuzzy
+msgid "Permissions"
+msgstr "Verzió"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "Dokumentáció"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr ""
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
@@ -460,10 +550,6 @@ msgstr "Engedélyeket visszaállításra kerültek"
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: src/widgets/window.ui:28
-msgid "Applications"
-msgstr "Alkalmazások"
-
-#: src/widgets/window.ui:112 src/widgets/window.ui:210
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
 msgstr "Alkalmazás nem található."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 18:06-0400\n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,11 @@ msgstr ""
 msgid "Controller Area Network bus"
 msgstr ""
 
-#: src/models/features.js:83
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr ""
+
+#: src/models/features.js:90
 msgid "List of features available to the application"
 msgstr ""
 
@@ -300,28 +304,32 @@ msgstr ""
 msgid "This is not a valid option"
 msgstr ""
 
-#: src/widgets/detailsButton.js:58
-msgid "Show Details"
+#: src/widgets/detailsButton.js:59
+msgid "_Show Details"
 msgstr ""
 
-#: src/widgets/detailsButton.js:106
+#: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
 msgstr ""
 
-#: src/widgets/detailsButton.js:108
+#: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr ""
 
 #: src/widgets/menu.ui:7
-msgid "Help"
+msgid "_Help"
 msgstr ""
 
 #: src/widgets/menu.ui:11
-msgid "Documentation"
+msgid "_Documentation"
 msgstr ""
 
 #: src/widgets/menu.ui:15
-msgid "About Flatseal"
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
 msgstr ""
 
 #: src/widgets/pathRow.js:26
@@ -434,20 +442,92 @@ msgstr ""
 msgid "Default paths can't be removed"
 msgstr ""
 
-#: src/widgets/resetButton.js:44
-msgid "Reset"
+#: src/widgets/resetButton.js:45
+msgid "_Reset"
 msgstr ""
 
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
 msgstr ""
 
-#: src/widgets/resetButton.js:65
+#: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
 msgstr ""
 
-#: src/widgets/resetButton.js:67
+#: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:19
+msgid "Show mnemonics"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:26
+msgid "Show documentation"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:55
+msgid "Navigation"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:102
+msgid "Permissions"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
 msgstr ""
 
 #: src/widgets/undoPopup.ui:19
@@ -458,10 +538,6 @@ msgstr ""
 msgid "Undo"
 msgstr ""
 
-#: src/widgets/window.ui:28
-msgid "Applications"
-msgstr ""
-
-#: src/widgets/window.ui:112 src/widgets/window.ui:210
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
 msgstr ""
