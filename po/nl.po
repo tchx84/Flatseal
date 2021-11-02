@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 18:06-0400\n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
 "PO-Revision-Date: 2021-09-10 12:55+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -104,7 +104,12 @@ msgstr "Bluetooth"
 msgid "Controller Area Network bus"
 msgstr "Controller Area Network-bus"
 
-#: src/models/features.js:83
+#: src/models/features.js:65
+#, fuzzy
+msgid "Application Shared Memory"
+msgstr "Gedeeld geheugen"
+
+#: src/models/features.js:90
 msgid "List of features available to the application"
 msgstr "Lijst met functies die beschikbaar zijn voor de toepassing"
 
@@ -306,28 +311,36 @@ msgstr "Uitvoerbaar bestand"
 msgid "This is not a valid option"
 msgstr "Dit is geen geldige optie"
 
-#: src/widgets/detailsButton.js:58
-msgid "Show Details"
+#: src/widgets/detailsButton.js:59
+#, fuzzy
+msgid "_Show Details"
 msgstr "Details tonen"
 
-#: src/widgets/detailsButton.js:106
+#: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
 msgstr "Toon de toepassing in een softwarebeheerder"
 
-#: src/widgets/detailsButton.js:108
+#: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Geen softwarebeheerder aangetroffen."
 
 #: src/widgets/menu.ui:7
-msgid "Help"
+#, fuzzy
+msgid "_Help"
 msgstr "Hulp"
 
 #: src/widgets/menu.ui:11
-msgid "Documentation"
+#, fuzzy
+msgid "_Documentation"
 msgstr "Documentatie"
 
 #: src/widgets/menu.ui:15
-msgid "About Flatseal"
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/widgets/menu.ui:19
+#, fuzzy
+msgid "_About Flatseal"
 msgstr "Over Flatseal"
 
 #: src/widgets/pathRow.js:26
@@ -440,21 +453,98 @@ msgstr "Verwijderen"
 msgid "Default paths can't be removed"
 msgstr "Standaardlocaties kunnen niet worden verwijderd"
 
-#: src/widgets/resetButton.js:44
-msgid "Reset"
+#: src/widgets/resetButton.js:45
+#, fuzzy
+msgid "_Reset"
 msgstr "Standaardwaarden"
 
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
 msgstr "Geen wijzigingen aangebracht aan deze toepassing"
 
-#: src/widgets/resetButton.js:65
+#: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
 msgstr "Herstel de toepassingsbevoegdheden"
 
-#: src/widgets/resetButton.js:67
+#: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
 msgstr ", inclusief wijzigingen die niet zijn aangebracht door Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:19
+#, fuzzy
+msgid "Show mnemonics"
+msgstr "Details tonen"
+
+#: src/widgets/shortcutsWindow.ui:26
+#, fuzzy
+msgid "Show documentation"
+msgstr "Documentatie"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:55
+#, fuzzy
+msgid "Navigation"
+msgstr "Meldingen"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "Toepassingen"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:102
+#, fuzzy
+msgid "Permissions"
+msgstr "Versie"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr ""
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
@@ -464,10 +554,6 @@ msgstr "De bevoegdheden zijn hersteld"
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: src/widgets/window.ui:28
-msgid "Applications"
-msgstr "Toepassingen"
-
-#: src/widgets/window.ui:112 src/widgets/window.ui:210
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
 msgstr "Geen toepassingen aangetroffen."

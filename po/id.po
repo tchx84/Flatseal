@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-09 18:06-0400\n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
 "PO-Revision-Date: 2021-09-10 08:13+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
@@ -104,7 +104,12 @@ msgstr "Bluetooth"
 msgid "Controller Area Network bus"
 msgstr "Bus Controller Area Network"
 
-#: src/models/features.js:83
+#: src/models/features.js:65
+#, fuzzy
+msgid "Application Shared Memory"
+msgstr "Berbagi memori"
+
+#: src/models/features.js:90
 msgid "List of features available to the application"
 msgstr "Daftar fitur yang tersedia untuk aplikasi"
 
@@ -303,28 +308,36 @@ msgstr "Runtime"
 msgid "This is not a valid option"
 msgstr "Ini bukan opsi yang valid"
 
-#: src/widgets/detailsButton.js:58
-msgid "Show Details"
+#: src/widgets/detailsButton.js:59
+#, fuzzy
+msgid "_Show Details"
 msgstr "Tampilkan Detail"
 
-#: src/widgets/detailsButton.js:106
+#: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
 msgstr "Tampilkan aplikasi dalam manajer perangkat lunak"
 
-#: src/widgets/detailsButton.js:108
+#: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Tidak ditemukan manajer perangkat lunak"
 
 #: src/widgets/menu.ui:7
-msgid "Help"
+#, fuzzy
+msgid "_Help"
 msgstr "Bantuan"
 
 #: src/widgets/menu.ui:11
-msgid "Documentation"
+#, fuzzy
+msgid "_Documentation"
 msgstr "Dokumentasi"
 
 #: src/widgets/menu.ui:15
-msgid "About Flatseal"
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#: src/widgets/menu.ui:19
+#, fuzzy
+msgid "_About Flatseal"
 msgstr "Tentang Flatseal"
 
 #: src/widgets/pathRow.js:26
@@ -437,21 +450,98 @@ msgstr "Menghapus"
 msgid "Default paths can't be removed"
 msgstr "Path bawaan tidak dapat dihapus"
 
-#: src/widgets/resetButton.js:44
-msgid "Reset"
+#: src/widgets/resetButton.js:45
+#, fuzzy
+msgid "_Reset"
 msgstr "Atur Ulang"
 
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
 msgstr "Tidak ada perubahan pada aplikasi ini"
 
-#: src/widgets/resetButton.js:65
+#: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
 msgstr "Atur ulang izin aplikasi ini"
 
-#: src/widgets/resetButton.js:67
+#: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
 msgstr ", termasuk perubahan yang tidak dilakukan dengan Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:19
+#, fuzzy
+msgid "Show mnemonics"
+msgstr "Tampilkan Detail"
+
+#: src/widgets/shortcutsWindow.ui:26
+#, fuzzy
+msgid "Show documentation"
+msgstr "Dokumentasi"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:55
+#, fuzzy
+msgid "Navigation"
+msgstr "Notifikasi"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "Aplikasi"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:102
+#, fuzzy
+msgid "Permissions"
+msgstr "Versi"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "Dokumentasi"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr ""
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr ""
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
@@ -461,11 +551,7 @@ msgstr "Izin telah disetel ulang"
 msgid "Undo"
 msgstr "Tak jadi"
 
-#: src/widgets/window.ui:28
-msgid "Applications"
-msgstr "Aplikasi"
-
-#: src/widgets/window.ui:112 src/widgets/window.ui:210
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
 msgstr "Tidak ada aplikasi yang ditemukan."
 
