@@ -30,7 +30,7 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">F10</property>
-                <property name="title" translatable="yes">Open menu</property>
+                <property name="title" translatable="yes">Show menu</property>
               </object>
             </child>
             <child>
@@ -124,14 +124,14 @@
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;G</property>
-                <property name="title" translatable="yes">Find the next match</property>
+                <property name="title" translatable="yes">Find next</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;Primary&gt;&lt;Shift&gt;G</property>
-                <property name="title" translatable="yes">Find the previous match</property>
+                <property name="title" translatable="yes">Find previous</property>
               </object>
             </child>
           </object>
