@@ -87,13 +87,6 @@
                 <property name="title" translatable="yes">Find</property>
               </object>
             </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;S</property>
-                <property name="title" translatable="yes">Show details</property>
-              </object>
-            </child>
           </object>
         </child>
         <child>
@@ -105,13 +98,6 @@
                 <property name="visible">1</property>
                 <property name="accelerator">space</property>
                 <property name="title" translatable="yes">Toggle</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">1</property>
-                <property name="accelerator">&lt;alt&gt;R</property>
-                <property name="title" translatable="yes">Reset</property>
               </object>
             </child>
           </object>
