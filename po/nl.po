@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2021-09-10 12:55+0200\n"
+"PO-Revision-Date: 2021-11-04 13:07+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -105,9 +105,8 @@ msgid "Controller Area Network bus"
 msgstr "Controller Area Network-bus"
 
 #: src/models/features.js:65
-#, fuzzy
 msgid "Application Shared Memory"
-msgstr "Gedeeld geheugen"
+msgstr "Gedeeld toepassingsgeheugen"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -312,9 +311,8 @@ msgid "This is not a valid option"
 msgstr "Dit is geen geldige optie"
 
 #: src/widgets/detailsButton.js:59
-#, fuzzy
 msgid "_Show Details"
-msgstr "Details tonen"
+msgstr "Detail_s tonen"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -325,23 +323,20 @@ msgid "No software manager found"
 msgstr "Geen softwarebeheerder aangetroffen."
 
 #: src/widgets/menu.ui:7
-#, fuzzy
 msgid "_Help"
-msgstr "Hulp"
+msgstr "_Hulp"
 
 #: src/widgets/menu.ui:11
-#, fuzzy
 msgid "_Documentation"
-msgstr "Documentatie"
+msgstr "_Documentatie"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "Snel_toetsen"
 
 #: src/widgets/menu.ui:19
-#, fuzzy
 msgid "_About Flatseal"
-msgstr "Over Flatseal"
+msgstr "Over Fl_atseal"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
@@ -454,9 +449,8 @@ msgid "Default paths can't be removed"
 msgstr "Standaardlocaties kunnen niet worden verwijderd"
 
 #: src/widgets/resetButton.js:45
-#, fuzzy
 msgid "_Reset"
-msgstr "Standaardwaarden"
+msgstr "Standaa_rdwaarden"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
@@ -472,50 +466,47 @@ msgstr ", inclusief wijzigingen die niet zijn aangebracht door Flatseal"
 
 #: src/widgets/shortcutsWindow.ui:14
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 #: src/widgets/shortcutsWindow.ui:19
-#, fuzzy
 msgid "Show mnemonics"
-msgstr "Details tonen"
+msgstr "Sneltoetsen tonen"
 
 #: src/widgets/shortcutsWindow.ui:26
-#, fuzzy
 msgid "Show documentation"
-msgstr "Documentatie"
+msgstr "Documentatie tonen"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr ""
+msgstr "Menu tonen"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Sneltoetsen"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr ""
+msgstr "Afsluiten"
 
 #: src/widgets/shortcutsWindow.ui:55
-#, fuzzy
 msgid "Navigation"
-msgstr "Meldingen"
+msgstr "Navigatie"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr ""
+msgstr "Naar links verplaatsen"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr ""
+msgstr "Omhoog verplaatsen"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr ""
+msgstr "Naar rechts verplaatsen"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr ""
+msgstr "Omlaag verplaatsen"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -523,16 +514,15 @@ msgstr "Toepassingen"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr ""
+msgstr "Zoeken"
 
 #: src/widgets/shortcutsWindow.ui:102
-#, fuzzy
 msgid "Permissions"
-msgstr "Versie"
+msgstr "Rechten"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr ""
+msgstr "Aan/Uit"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -540,11 +530,11 @@ msgstr "Documentatie"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr ""
+msgstr "Volgende zoeken"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr ""
+msgstr "Vorige zoeken"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
