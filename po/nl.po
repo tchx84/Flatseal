@@ -332,7 +332,7 @@ msgstr "_Documentatie"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr "_Sneltoetsen"
+msgstr "Snel_toetsen"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
