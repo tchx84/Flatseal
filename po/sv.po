@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2021-09-10 09:41+0200\n"
+"PO-Revision-Date: 2021-11-03 19:20+0100\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr ""
+msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
@@ -31,7 +31,7 @@ msgstr "En behörighetshanterare för Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -45,7 +45,7 @@ msgstr ""
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr ""
+msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
@@ -105,9 +105,8 @@ msgid "Controller Area Network bus"
 msgstr "Controller Area Network bus"
 
 #: src/models/features.js:65
-#, fuzzy
 msgid "Application Shared Memory"
-msgstr "Delat minne"
+msgstr "Delat programminne"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -310,9 +309,8 @@ msgid "This is not a valid option"
 msgstr "Detta är inte ett giltigt alternativ"
 
 #: src/widgets/detailsButton.js:59
-#, fuzzy
 msgid "_Show Details"
-msgstr "Visa detaljerad info"
+msgstr "_Visa detaljerad info"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -323,23 +321,20 @@ msgid "No software manager found"
 msgstr "Ingen programhanterare hittades"
 
 #: src/widgets/menu.ui:7
-#, fuzzy
 msgid "_Help"
-msgstr "Hjälp"
+msgstr "_Hjälp"
 
 #: src/widgets/menu.ui:11
-#, fuzzy
 msgid "_Documentation"
-msgstr "Dokumentation"
+msgstr "_Dokumentation"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "Tangentbords_genvägar"
 
 #: src/widgets/menu.ui:19
-#, fuzzy
 msgid "_About Flatseal"
-msgstr "Om Flatseal"
+msgstr "_Om Flatseal"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
@@ -452,9 +447,8 @@ msgid "Default paths can't be removed"
 msgstr "Standardsökvägar kan inte tas bort"
 
 #: src/widgets/resetButton.js:45
-#, fuzzy
 msgid "_Reset"
-msgstr "Återställ"
+msgstr "_Återställ"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
@@ -470,50 +464,47 @@ msgstr ", inklusive ändringar som inte gjorts med Flatseal"
 
 #: src/widgets/shortcutsWindow.ui:14
 msgid "General"
-msgstr ""
+msgstr "Allmänt"
 
 #: src/widgets/shortcutsWindow.ui:19
-#, fuzzy
 msgid "Show mnemonics"
-msgstr "Visa detaljerad info"
+msgstr "Visa minnestekniker"
 
 #: src/widgets/shortcutsWindow.ui:26
-#, fuzzy
 msgid "Show documentation"
-msgstr "Dokumentation"
+msgstr "Visa dokumentation"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr ""
+msgstr "Visa menyn"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Tangentbordsgenvägar"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: src/widgets/shortcutsWindow.ui:55
-#, fuzzy
 msgid "Navigation"
-msgstr "Avisering"
+msgstr "Navigation"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr ""
+msgstr "Flytta åt vänster"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr ""
+msgstr "Flytta upp"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr ""
+msgstr "Flytta åt höger"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr ""
+msgstr "Flytta ner"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -521,16 +512,15 @@ msgstr "Program"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr ""
+msgstr "Sök"
 
 #: src/widgets/shortcutsWindow.ui:102
-#, fuzzy
 msgid "Permissions"
-msgstr "Version"
+msgstr "Rättigheter"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr ""
+msgstr "Växla"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -538,11 +528,11 @@ msgstr "Dokumentation"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr ""
+msgstr "Sök nästa"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr ""
+msgstr "Sök föregående"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
