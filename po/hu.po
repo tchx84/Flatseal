@@ -104,9 +104,8 @@ msgid "Controller Area Network bus"
 msgstr "Vezérlő terület hálózati busz"
 
 #: src/models/features.js:65
-#, fuzzy
 msgid "Application Shared Memory"
-msgstr "Megosztott memória"
+msgstr "Alkalmazás megosztott memória"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -308,9 +307,8 @@ msgid "This is not a valid option"
 msgstr "Érvénytelen beállítás"
 
 #: src/widgets/detailsButton.js:59
-#, fuzzy
 msgid "_Show Details"
-msgstr "Részletek mutatása"
+msgstr "_Részletek megjelenítése"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -321,23 +319,20 @@ msgid "No software manager found"
 msgstr "Nem található szoftverkezelő"
 
 #: src/widgets/menu.ui:7
-#, fuzzy
 msgid "_Help"
-msgstr "Súgó"
+msgstr "_Súgó"
 
 #: src/widgets/menu.ui:11
-#, fuzzy
 msgid "_Documentation"
-msgstr "Dokumentáció"
+msgstr "_Dokumentáció"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Billentyűparancsok"
 
 #: src/widgets/menu.ui:19
-#, fuzzy
 msgid "_About Flatseal"
-msgstr "A Flatseal névjegye"
+msgstr "_A Flatseal névjegye"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
@@ -450,9 +445,8 @@ msgid "Default paths can't be removed"
 msgstr "Az alapértelmezett elérési útvonalakat nem lehet eltávolítani"
 
 #: src/widgets/resetButton.js:45
-#, fuzzy
 msgid "_Reset"
-msgstr "Visszaállítás"
+msgstr "Alap_helyzet"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
@@ -468,50 +462,47 @@ msgstr "beleértve a nem a Flatseal használatával végrehajtott változtatáso
 
 #: src/widgets/shortcutsWindow.ui:14
 msgid "General"
-msgstr ""
+msgstr "Általános"
 
 #: src/widgets/shortcutsWindow.ui:19
-#, fuzzy
 msgid "Show mnemonics"
-msgstr "Részletek mutatása"
+msgstr "Emlékeztetők megjelenítése"
 
 #: src/widgets/shortcutsWindow.ui:26
-#, fuzzy
 msgid "Show documentation"
-msgstr "Dokumentáció"
+msgstr "Dokumentáció megjelenítése"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr ""
+msgstr "Menü megjelenítése"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Billentyűparancsok"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr ""
+msgstr "Kilépés"
 
 #: src/widgets/shortcutsWindow.ui:55
-#, fuzzy
 msgid "Navigation"
-msgstr "Értesítések"
+msgstr "Navigáció"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr ""
+msgstr "Áthelyezés balra"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr ""
+msgstr "Áthelyezés felfelé"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr ""
+msgstr "Áthelyezés jobbra"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr ""
+msgstr "Áthelyezés lefelé"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -519,16 +510,15 @@ msgstr "Alkalmazások"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr ""
+msgstr "Keresés"
 
 #: src/widgets/shortcutsWindow.ui:102
-#, fuzzy
 msgid "Permissions"
-msgstr "Verzió"
+msgstr "Engedélyek"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr ""
+msgstr "Váltás"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -536,11 +526,11 @@ msgstr "Dokumentáció"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr ""
+msgstr "Következő keresése"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr ""
+msgstr "Előző keresése"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
