@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2021-09-10 08:13+0700\n"
+"PO-Revision-Date: 2021-11-05 08:48+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -105,9 +105,8 @@ msgid "Controller Area Network bus"
 msgstr "Bus Controller Area Network"
 
 #: src/models/features.js:65
-#, fuzzy
 msgid "Application Shared Memory"
-msgstr "Berbagi memori"
+msgstr "Memori Bersama Aplikasi"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -309,9 +308,8 @@ msgid "This is not a valid option"
 msgstr "Ini bukan opsi yang valid"
 
 #: src/widgets/detailsButton.js:59
-#, fuzzy
 msgid "_Show Details"
-msgstr "Tampilkan Detail"
+msgstr "_Tampilkan Detail"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -322,23 +320,20 @@ msgid "No software manager found"
 msgstr "Tidak ditemukan manajer perangkat lunak"
 
 #: src/widgets/menu.ui:7
-#, fuzzy
 msgid "_Help"
-msgstr "Bantuan"
+msgstr "_Bantuan"
 
 #: src/widgets/menu.ui:11
-#, fuzzy
 msgid "_Documentation"
-msgstr "Dokumentasi"
+msgstr "_Dokumentasi"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "Pintasan Papan Ti_k"
 
 #: src/widgets/menu.ui:19
-#, fuzzy
 msgid "_About Flatseal"
-msgstr "Tentang Flatseal"
+msgstr "Tent_ang Flatseal"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
@@ -451,9 +446,8 @@ msgid "Default paths can't be removed"
 msgstr "Path bawaan tidak dapat dihapus"
 
 #: src/widgets/resetButton.js:45
-#, fuzzy
 msgid "_Reset"
-msgstr "Atur Ulang"
+msgstr "Atu_r Ulang"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
@@ -469,50 +463,47 @@ msgstr ", termasuk perubahan yang tidak dilakukan dengan Flatseal"
 
 #: src/widgets/shortcutsWindow.ui:14
 msgid "General"
-msgstr ""
+msgstr "Umum"
 
 #: src/widgets/shortcutsWindow.ui:19
-#, fuzzy
 msgid "Show mnemonics"
-msgstr "Tampilkan Detail"
+msgstr "Tampilkan mnemonik"
 
 #: src/widgets/shortcutsWindow.ui:26
-#, fuzzy
 msgid "Show documentation"
-msgstr "Dokumentasi"
+msgstr "Tampilkan dokumentasi"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr ""
+msgstr "Tampilkan menu"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Pintasan Papan Tik"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr ""
+msgstr "Keluar"
 
 #: src/widgets/shortcutsWindow.ui:55
-#, fuzzy
 msgid "Navigation"
-msgstr "Notifikasi"
+msgstr "Navigasi"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr ""
+msgstr "Pindah ke kiri"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr ""
+msgstr "Pindah ke atas"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr ""
+msgstr "Pindah ke kanan"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr ""
+msgstr "Pindah ke bawah"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -520,16 +511,15 @@ msgstr "Aplikasi"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr ""
+msgstr "Cari"
 
 #: src/widgets/shortcutsWindow.ui:102
-#, fuzzy
 msgid "Permissions"
-msgstr "Versi"
+msgstr "Izin"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr ""
+msgstr "Jungkitkan"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -537,11 +527,11 @@ msgstr "Dokumentasi"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr ""
+msgstr "Cari berikutnya"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr ""
+msgstr "Cari sebelumnya"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
