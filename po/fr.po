@@ -542,4 +542,4 @@ msgstr "Annuler"
 
 #: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
-msgstr "Aucune application trouvée"
+msgstr "Aucune application trouvée."
