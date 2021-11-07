@@ -53,11 +53,11 @@ msgstr "Inconnu"
 
 #: src/models/sessionBus.js:37 src/models/systemBus.js:37
 msgid "Talks"
-msgstr ""
+msgstr "Se parlent"
 
 #: src/models/sessionBus.js:44 src/models/systemBus.js:44
 msgid "Owns"
-msgstr ""
+msgstr "Se possèdent"
 
 #: src/models/sessionBus.js:81
 msgid "List of well-known names on the session bus"
@@ -101,7 +101,7 @@ msgstr "Bluetooth"
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "Bus de réseau de contrôleurs"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
@@ -229,8 +229,8 @@ msgid "List of subsystems shared with the host system"
 msgstr "Liste des sous-systèmes partagés avec le système hôte"
 
 #: src/models/sockets.js:37
-msgid "Système de fenêtrage X11"
-msgstr ""
+msgid "X11 windowing system"
+msgstr "Système de fenêtrage X11"
 
 #: src/models/sockets.js:44
 msgid "Wayland windowing system"
@@ -258,7 +258,7 @@ msgstr "Agent Secure Shell"
 
 #: src/models/sockets.js:86
 msgid "Smart cards"
-msgstr ""
+msgstr "Carte à puce"
 
 #: src/models/sockets.js:93
 msgid "Printing system"
@@ -438,7 +438,7 @@ msgstr "Ne peut pas créer, modifier ou lire : %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
-msgstr ""
+msgstr "Le dérégler"
 
 #: src/widgets/relativePathRow.js:78
 msgid "Default paths can't be removed"
