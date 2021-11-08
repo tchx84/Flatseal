@@ -328,11 +328,11 @@ msgstr "_Documentation"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr "_Raccourcis Claviers"
+msgstr "Raccourcis _Claviers"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
-msgstr "À propos de Flatseal"
+msgstr "À propos de _Flatseal"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
