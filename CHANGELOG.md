@@ -5,6 +5,7 @@
 - Fixed Russian translation.
 - Fixed icons to look sharper.
 - Added Turkish translation.
+- Added French translation.
 - Added support for keyboard navigation.
 - Added support for per-app-dev-shm permission.
 - Added support for negated filesystem permissions.
