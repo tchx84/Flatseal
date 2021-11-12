@@ -109,9 +109,8 @@ msgid "Controller Area Network bus"
 msgstr "Magistrala CAN"
 
 #: src/models/features.js:65
-#, fuzzy
 msgid "Application Shared Memory"
-msgstr "Pamięć wspólna"
+msgstr "Pamięć współdzielona na aplikację"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -313,9 +312,8 @@ msgid "This is not a valid option"
 msgstr "To nie jest poprawna operacja"
 
 #: src/widgets/detailsButton.js:59
-#, fuzzy
 msgid "_Show Details"
-msgstr "Wyświetl szczegóły"
+msgstr "_Wyświetl szczegóły"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -326,23 +324,20 @@ msgid "No software manager found"
 msgstr "Nie znaleziono menedżera oprogramowania"
 
 #: src/widgets/menu.ui:7
-#, fuzzy
 msgid "_Help"
-msgstr "Pomoc"
+msgstr "_Pomoc"
 
 #: src/widgets/menu.ui:11
-#, fuzzy
 msgid "_Documentation"
-msgstr "Dokumentacja"
+msgstr "_Dokumentacja"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Skróty klawiszowe"
 
 #: src/widgets/menu.ui:19
-#, fuzzy
 msgid "_About Flatseal"
-msgstr "O Flatseal"
+msgstr "_O Flatseal"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
@@ -455,9 +450,8 @@ msgid "Default paths can't be removed"
 msgstr "Domyślne ścieżki nie mogą być usunięte"
 
 #: src/widgets/resetButton.js:45
-#, fuzzy
 msgid "_Reset"
-msgstr "Resetuj"
+msgstr "_Resetuj"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
@@ -473,50 +467,47 @@ msgstr ", w tym zmian dokonanych we Flatseal"
 
 #: src/widgets/shortcutsWindow.ui:14
 msgid "General"
-msgstr ""
+msgstr "Ogólny"
 
 #: src/widgets/shortcutsWindow.ui:19
-#, fuzzy
 msgid "Show mnemonics"
-msgstr "Wyświetl szczegóły"
+msgstr "Pokaż mnemoniki"
 
 #: src/widgets/shortcutsWindow.ui:26
-#, fuzzy
 msgid "Show documentation"
-msgstr "Dokumentacja"
+msgstr "Pokaż dokumentację"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr ""
+msgstr "Pokaż menu"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Skróty klawiszowe"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr ""
+msgstr "Porzucić"
 
 #: src/widgets/shortcutsWindow.ui:55
-#, fuzzy
 msgid "Navigation"
-msgstr "Powiadomienia"
+msgstr "Nawigacja"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr ""
+msgstr "Przesuń w lewo"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr ""
+msgstr "Przesuń w górę"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr ""
+msgstr "Przesuń w prawo"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr ""
+msgstr "Przesuń w dół"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -524,16 +515,15 @@ msgstr "Aplikacje"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr ""
+msgstr "Odnaleźć"
 
 #: src/widgets/shortcutsWindow.ui:102
-#, fuzzy
 msgid "Permissions"
-msgstr "Wersja"
+msgstr "Uprawnienia"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr ""
+msgstr "Przełącznik"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -541,11 +531,11 @@ msgstr "Dokumentacja"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr ""
+msgstr "Znajdź następny wynik"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr ""
+msgstr "Znajdź poprzedni wynik"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
