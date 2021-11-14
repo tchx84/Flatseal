@@ -158,7 +158,7 @@ describe('Model', function() {
         expect(permissions.features_multiarch).toBe(true);
         expect(permissions.features_canbus).toBe(true);
         expect(permissions.features_per_app_dev_shm).toBe(true);
-        expect(permissions.filesystems_host).toBe(true);
+        expect(permissions.filesystems_host).toBe(false); // <-- System global override (from "$FLATPAK_SYSTEM_DIR/overrides/global")
         expect(permissions.filesystems_host_os).toBe(true);
         expect(permissions.filesystems_host_etc).toBe(true);
         expect(permissions.filesystems_home).toBe(true);
@@ -195,10 +195,10 @@ describe('Model', function() {
         expect(permissions.features_multiarch).toBe(false);
         expect(permissions.features_canbus).toBe(false);
         expect(permissions.features_per_app_dev_shm).toBe(false);
-        expect(permissions.filesystems_host).toBe(false);
+        expect(permissions.filesystems_host).toBe(false); // <-- System global override (from "$FLATPAK_SYSTEM_DIR/overrides/global")
         expect(permissions.filesystems_host_os).toBe(false);
         expect(permissions.filesystems_host_etc).toBe(false);
-        expect(permissions.filesystems_home).toBe(false);
+        expect(permissions.filesystems_home).toBe(false); // <-- User global override (from "$FLATPAK_USER_DIR/overrides/global")
         expect(permissions.session_talk).toEqual('');
         expect(permissions.session_own).toEqual('');
         expect(permissions.system_talk).toEqual('');
