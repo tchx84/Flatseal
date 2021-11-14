@@ -5,6 +5,7 @@
   <template class="FlatsealApplicationRow" parent="HdyActionRow">
     <property name="visible">True</property>
     <property name="can-focus">True</property>
+    <property name="activatable">True</property>
     <child type="prefix">
       <object class="GtkImage" id="icon">
         <property name="visible">True</property>
