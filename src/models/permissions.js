@@ -156,7 +156,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _loadPermissions() {
-        return this.constructor._loadPermissionsForPath(
+        this.constructor._loadPermissionsForPath(
             this._applications.getMetadataPathForAppId(this._appId), false);
     }
 
