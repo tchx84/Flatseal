@@ -160,9 +160,12 @@ var FlatpakPermissionsModel = GObject.registerClass({
             this._applications.getMetadataPathForAppId(this._appId), false);
     }
 
-    _loadOverrides() {
+    _loadGlobalOverrides() {
         this.constructor._loadPermissionsForPath(this._getGlobalOverridesPath(), false);
-        return this.constructor._loadPermissionsForPath(this._getOverridesPath(), true);
+    }
+
+    _loadOverrides() {
+        this.constructor._loadPermissionsForPath(this._getOverridesPath(), true);
     }
 
     _checkIfChanged() {
@@ -233,6 +236,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     _setup() {
         Object.values(MODELS).forEach(model => model.reset());
         this._loadPermissions();
+        this._loadGlobalOverrides();
         this._loadOverrides();
         this._updateProperties();
     }
