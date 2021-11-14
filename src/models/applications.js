@@ -332,6 +332,10 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return GLib.build_filenamev([this._getBundlePathForAppId(appId), 'metadata']);
     }
 
+    get systemPath() {
+        return this.constructor._getSystemPath();
+    }
+
     get userPath() {
         return this._getUserPath();
     }
