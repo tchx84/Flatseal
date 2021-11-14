@@ -30,9 +30,9 @@ Install required Platform and Sdk
 flatpak install org.gnome.{Platform,Sdk}//41
 ```
 
-Compile and install Flatseal as a flatpak
+Compile and install Flatseal
 ```
-flatpak-builder --user --install build com.github.tchx84.Flatseal
+flatpak-builder --user --install build com.github.tchx84.Flatseal.json
 ```
 
 Run it
