@@ -35,6 +35,7 @@ setup();
 const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
+const _basicNegativeAppId = 'com.test.BasicNegative';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
@@ -117,6 +118,7 @@ describe('Model', function() {
         const appIds = applications.getAll().map(a => a.appId);
 
         expect(appIds).toContain(_basicAppId);
+        expect(appIds).toContain(_basicNegativeAppId);
         expect(appIds).toContain(_oldAppId);
         expect(appIds).toContain(_reduceAppId);
         expect(appIds).toContain(_increaseAppId);
@@ -135,7 +137,7 @@ describe('Model', function() {
         expect(appIds).not.toContain(_baseAppId);
     });
 
-    it('loads permissions', function() {
+    it('loads positive permissions', function() {
         permissions.appId = _basicAppId;
 
         expect(permissions.shared_network).toBe(true);
@@ -171,7 +173,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
-    it('loads overrides', function() {
+    it('loads negative overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _basicAppId;
 
@@ -205,6 +207,78 @@ describe('Model', function() {
         expect(permissions.system_own).toEqual('');
         expect(permissions.persistent).toEqual('.test;tset.');
         expect(permissions.variables).toEqual('TEST=no');
+    });
+
+    it('loads negative permissions', function() {
+        permissions.appId = _basicNegativeAppId;
+
+        expect(permissions.shared_network).toBe(false);
+        expect(permissions.shared_ipc).toBe(false);
+        expect(permissions.sockets_x11).toBe(false);
+        expect(permissions.sockets_fallback_x11).toBe(false);
+        expect(permissions.sockets_wayland).toBe(false);
+        expect(permissions.sockets_pulseaudio).toBe(false);
+        expect(permissions.sockets_system_bus).toBe(false);
+        expect(permissions.sockets_session_bus).toBe(false);
+        expect(permissions.sockets_ssh_auth).toBe(false);
+        expect(permissions.sockets_pcsc).toBe(false);
+        expect(permissions.sockets_cups).toBe(false);
+        expect(permissions.devices_dri).toBe(false);
+        expect(permissions.devices_kvm).toBe(false);
+        expect(permissions.devices_shm).toBe(false);
+        expect(permissions.devices_all).toBe(false);
+        expect(permissions.features_bluetooth).toBe(false);
+        expect(permissions.features_devel).toBe(false);
+        expect(permissions.features_multiarch).toBe(false);
+        expect(permissions.features_canbus).toBe(false);
+        expect(permissions.features_per_app_dev_shm).toBe(false);
+        expect(permissions.filesystems_host).toBe(false);
+        expect(permissions.filesystems_host_os).toBe(false);
+        expect(permissions.filesystems_host_etc).toBe(false);
+        expect(permissions.filesystems_home).toBe(false);
+        expect(permissions.session_talk).toEqual('');
+        expect(permissions.session_own).toEqual('');
+        expect(permissions.system_talk).toEqual('');
+        expect(permissions.system_own).toEqual('');
+        expect(permissions.persistent).toEqual('.test;tset.');
+        expect(permissions.variables).toEqual('TEST=no');
+    });
+
+    it('loads positive overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _basicNegativeAppId;
+
+        expect(permissions.shared_network).toBe(true);
+        expect(permissions.shared_ipc).toBe(true);
+        expect(permissions.sockets_x11).toBe(true);
+        expect(permissions.sockets_fallback_x11).toBe(true);
+        expect(permissions.sockets_wayland).toBe(true);
+        expect(permissions.sockets_pulseaudio).toBe(true);
+        expect(permissions.sockets_system_bus).toBe(true);
+        expect(permissions.sockets_session_bus).toBe(true);
+        expect(permissions.sockets_ssh_auth).toBe(true);
+        expect(permissions.sockets_pcsc).toBe(true);
+        expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.devices_dri).toBe(true);
+        expect(permissions.devices_kvm).toBe(true);
+        expect(permissions.devices_shm).toBe(true);
+        expect(permissions.devices_all).toBe(true);
+        expect(permissions.features_bluetooth).toBe(true);
+        expect(permissions.features_devel).toBe(true);
+        expect(permissions.features_multiarch).toBe(true);
+        expect(permissions.features_canbus).toBe(true);
+        expect(permissions.features_per_app_dev_shm).toBe(true);
+        expect(permissions.filesystems_host).toBe(true);
+        expect(permissions.filesystems_host_os).toBe(true);
+        expect(permissions.filesystems_host_etc).toBe(true);
+        expect(permissions.filesystems_home).toBe(true);
+        expect(permissions.filesystems_other).toEqual('~/test');
+        expect(permissions.session_talk).toEqual('org.test.Service-1');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissions.system_talk).toEqual('org.test.Service-3');
+        expect(permissions.system_own).toEqual('org.test.Service-4');
+        expect(permissions.persistent).toEqual('.test');
+        expect(permissions.variables).toEqual('TEST=yes');
     });
 
     it('creates overrides when properties changed', function(done) {
