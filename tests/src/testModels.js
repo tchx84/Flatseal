@@ -244,7 +244,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=no');
     });
 
-    it('loads positive overrides', function() {
+    it('loads negate overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _basicNegateAppId;
 
