@@ -35,7 +35,7 @@ setup();
 const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
-const _basicNegativeAppId = 'com.test.BasicNegative';
+const _basicNegateAppId = 'com.test.BasicNegate';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
@@ -118,7 +118,7 @@ describe('Model', function() {
         const appIds = applications.getAll().map(a => a.appId);
 
         expect(appIds).toContain(_basicAppId);
-        expect(appIds).toContain(_basicNegativeAppId);
+        expect(appIds).toContain(_basicNegateAppId);
         expect(appIds).toContain(_oldAppId);
         expect(appIds).toContain(_reduceAppId);
         expect(appIds).toContain(_increaseAppId);
@@ -137,7 +137,7 @@ describe('Model', function() {
         expect(appIds).not.toContain(_baseAppId);
     });
 
-    it('loads positive permissions', function() {
+    it('loads permissions', function() {
         permissions.appId = _basicAppId;
 
         expect(permissions.shared_network).toBe(true);
@@ -173,7 +173,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
-    it('loads negative overrides', function() {
+    it('loads overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _basicAppId;
 
@@ -209,8 +209,8 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=no');
     });
 
-    it('loads negative permissions', function() {
-        permissions.appId = _basicNegativeAppId;
+    it('loads negate permissions', function() {
+        permissions.appId = _basicNegateAppId;
 
         expect(permissions.shared_network).toBe(false);
         expect(permissions.shared_ipc).toBe(false);
@@ -246,7 +246,7 @@ describe('Model', function() {
 
     it('loads positive overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _basicNegativeAppId;
+        permissions.appId = _basicNegateAppId;
 
         expect(permissions.shared_network).toBe(true);
         expect(permissions.shared_ipc).toBe(true);
