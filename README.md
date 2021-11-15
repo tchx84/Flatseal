@@ -39,7 +39,7 @@ flatpak install org.gnome.Builder
 flatpak run org.gnome.Builder
 ```
 
-Open source-code in Builder and click the run button.
+Open the source-code in Builder and click the run button.
 
 
 
