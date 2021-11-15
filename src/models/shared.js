@@ -103,7 +103,8 @@ var FlatpakSharedModel = GObject.registerClass({
     updateProxyProperty(proxy) {
         const originals = [...this._originals]
             .filter(o => !this._overrides.has(o))
-            .filter(o => !this._overrides.has(`!${o}`));
+            .filter(o => !this._overrides.has(`!${o}`))
+            .filter(o => !this._overrides.has(o.replace('!', '')));
 
         const permissions = new Set([...originals, ...this._overrides]);
 
