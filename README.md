@@ -25,25 +25,15 @@ cd Flatseal
 
 **Build it with Flatpak**
 
-Install required Platform and Sdk
 ```
 flatpak install org.gnome.{Platform,Sdk}//41
-```
-
-Compile and install Flatseal
-```
 flatpak-builder --user --install build com.github.tchx84.Flatseal.json
-```
-
-Run it
-```
 flatpak run --branch=master com.github.tchx84.Flatseal
 ```
 
 
 **Build it with Builder**
 
-Install and run Builder
 ```
 flatpak install org.gnome.Builder
 flatpak run org.gnome.Builder
