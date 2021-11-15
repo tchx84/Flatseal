@@ -240,7 +240,7 @@ describe('Model', function() {
         expect(permissions.session_own).toEqual('');
         expect(permissions.system_talk).toEqual('');
         expect(permissions.system_own).toEqual('');
-        expect(permissions.persistent).toEqual('.test;tset.');
+        expect(permissions.persistent).toEqual('tset.');
         expect(permissions.variables).toEqual('TEST=no');
     });
 
@@ -277,7 +277,7 @@ describe('Model', function() {
         expect(permissions.session_own).toEqual('org.test.Service-2');
         expect(permissions.system_talk).toEqual('org.test.Service-3');
         expect(permissions.system_own).toEqual('org.test.Service-4');
-        expect(permissions.persistent).toEqual('.test');
+        expect(permissions.persistent).toEqual('tset.;.test');
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
