@@ -117,7 +117,7 @@ var FlatpakSessionBusModel = GObject.registerClass({
         });
     }
 
-    loadPermission(name, option) {
+    loadOriginal(name, option) {
         this._originals[option].add(name)
     }
 

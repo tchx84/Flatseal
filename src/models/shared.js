@@ -87,26 +87,47 @@ var FlatpakSharedModel = GObject.registerClass({
         const permission = this.getPermissions()[property];
         const {option} = permission;
         const negated = !value;
-        const override = negated ? `!${option}` : option;
+        const negatedOption = `!${option}`;
 
         this._overrides.delete(option);
-        this._overrides.delete(`!${option}`);
+        this._overrides.delete(negatedOption);
 
-        if (this._originals.has(override))
-            return;
-        if (!this._originals.has(option) && negated)
-            return;
+        if (negated) {
+            if (this._globalOverrides.has(negatedOption))
+                return;
+            if (!this._globalOverrides.has(option)) {
+                if (this._originals.has(negatedOption))
+                    return;
+                if (!this._originals.has(option))
+                    return;
+            }
+            this._overrides.add(negatedOption);
 
-        this._overrides.add(override);
+        } else {
+            if (this._globalOverrides.has(option))
+                return;
+            if (!this._globalOverrides.has(negatedOption)) {
+                if (this._originals.has(option))
+                    return;
+            }
+            this._overrides.add(option);
+        }
     }
 
     updateProxyProperty(proxy) {
-        const originals = [...this._originals]
+        const globalOverrides = [this._globalOverrides]
             .filter(o => !this._overrides.has(o))
             .filter(o => !this._overrides.has(`!${o}`))
             .filter(o => !this._overrides.has(o.replace('!', '')));
 
-        const permissions = new Set([...originals, ...this._overrides]);
+        const mergedOverrides = new Set([...globalOverrides, ...this._overrides]);
+
+        const originals = [...this._originals]
+            .filter(o => !mergedOverrides.has(o))
+            .filter(o => !mergedOverrides.has(`!${o}`))
+            .filter(o => !mergedOverrides.has(o.replace('!', '')));
+
+        const permissions = new Set([...originals, ...mergedOverrides]);
 
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             let value = this.constructor.getDefault();
@@ -121,7 +142,7 @@ var FlatpakSharedModel = GObject.registerClass({
         });
     }
 
-   loadPermission(_, value) {
+   loadOriginal(_, value) {
         const option = value.replace('!', '');
         this._originals.delete(option);
         this._originals.delete(`!${option}`);

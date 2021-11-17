@@ -46,7 +46,7 @@ var FlatpakUnsupportedModel = GObject.registerClass({
         return false;
     }
 
-    loadPermission() { // eslint-disable-line class-methods-use-this
+    loadOriginal() { // eslint-disable-line class-methods-use-this
         return false;
     }
 

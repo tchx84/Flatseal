@@ -122,7 +122,7 @@ var FlatpakVariablesModel = GObject.registerClass({
         proxy.set_property('variables', values.join(';'));
     }
 
-    loadPermission(key, value) {
+    loadOriginal(key, value) {
         if (value.length === 0) return;
         this._originals[key] = value;
     }

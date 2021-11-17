@@ -128,7 +128,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         proxy.set_property('filesystems-other', value);
     }
 
-   loadPermission(_, value) {
+   loadOriginal(_, value) {
         if (value.length === 0) return;
         this._originals.add(value)
     }
