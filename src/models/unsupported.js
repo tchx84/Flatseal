@@ -46,6 +46,19 @@ var FlatpakUnsupportedModel = GObject.registerClass({
         return false;
     }
 
+    loadPermission() { // eslint-disable-line class-methods-use-this
+        return false;
+    }
+
+    loadGlobalOverride() { // eslint-disable-line class-methods-use-this
+        return false;
+    }
+
+    loadOverride() { // eslint-disable-line class-methods-use-this
+        return false;
+    }
+
+    /** @deprecated */
     loadFromKeyFile(group, key, value) {
         this._permissions.add([group, key, value]);
         return true;

@@ -97,7 +97,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
 
-    _getGlobalOverridesPath() {
+    _getGlobalPath() {
         return GLib.build_filenamev([this._applications.userPath, 'overrides', 'global'])
     }
 
@@ -105,7 +105,11 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
     }
 
-    static _loadPermissionsForPath(path, overrides) {
+    /**
+     * @param {string} path to permission file
+     * @param {"metadata"|"global"|"overrides"} fileType
+     */
+    static _loadPermissionsForPath(path, fileType) {
         if (GLib.access(path, 0) !== 0)
             return;
 
@@ -145,11 +149,17 @@ var FlatpakPermissionsModel = GObject.registerClass({
                         }
                     }
 
-                    if (model === null && overrides)
+                    if (model === null) {
                         model = MODELS.unsupported;
+                        model.loadFromKeyFile(group, key, value)
+                        return;
+                    }
 
-                    if (model !== null)
-                        model.loadFromKeyFile(group, key, value, overrides);
+                    switch (fileType) {
+                        case "metadata": return model.loadPermission(key, value);
+                        case "global": return model.loadGlobalOverride(key, value);
+                        case "overrides": return model.loadOverride(key, value);
+                    }
                 });
             });
         });
@@ -157,15 +167,15 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     _loadPermissions() {
         this.constructor._loadPermissionsForPath(
-            this._applications.getMetadataPathForAppId(this._appId), false);
+            this._applications.getMetadataPathForAppId(this._appId), "metadata");
     }
 
     _loadGlobalOverrides() {
-        this.constructor._loadPermissionsForPath(this._getGlobalOverridesPath(), false);
+        this.constructor._loadPermissionsForPath(this._getGlobalPath(), "global");
     }
 
     _loadOverrides() {
-        this.constructor._loadPermissionsForPath(this._getOverridesPath(), true);
+        this.constructor._loadPermissionsForPath(this._getOverridesPath(), "overrides");
     }
 
     _checkIfChanged() {

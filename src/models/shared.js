@@ -121,6 +121,28 @@ var FlatpakSharedModel = GObject.registerClass({
         });
     }
 
+   loadPermission(_, value) {
+        const option = value.replace('!', '');
+        this._originals.delete(option);
+        this._originals.delete(`!${option}`);
+        this._originals.add(value);
+    }
+
+    loadGlobalOverride(_, value) {
+        const option = value.replace('!', '');
+        this._globalOverrides.delete(option);
+        this._globalOverrides.delete(`!${option}`);
+        this._globalOverrides.add(value);
+    }
+
+    loadOverride(_, value) {
+        const option = value.replace('!', '');
+        this._overrides.delete(option);
+        this._overrides.delete(`!${option}`);
+        this._overrides.add(value);
+    }
+
+    /** @deprecated */
     loadFromKeyFile(group, key, value, overrides) {
         const option = value.replace('!', '');
         const set = overrides ? this._overrides : this._originals;
@@ -151,6 +173,7 @@ var FlatpakSharedModel = GObject.registerClass({
 
     reset() {
         this._overrides = new Set();
+        this._globalOverrides = new Set();
         this._originals = new Set();
     }
 });

@@ -87,6 +87,22 @@ var FlatpakPersistentModel = GObject.registerClass({
         proxy.set_property('persistent', values);
     }
 
+   loadPermission(_, value) {
+        if (value.length === 0) return;
+        this._originals.add(value)
+    }
+
+    loadGlobalOverride(_, value) {
+        if (value.length === 0) return;
+        this._globalOverrides.add(value)
+    }
+
+    loadOverride(_, value) {
+        if (value.length === 0) return;
+        this._overrides.add(value)
+    }
+
+    /** @deprecated */
     loadFromKeyFile(group, key, value, overrides) {
         if (value.length === 0)
             return;

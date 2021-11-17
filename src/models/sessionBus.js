@@ -117,6 +117,19 @@ var FlatpakSessionBusModel = GObject.registerClass({
         });
     }
 
+    loadPermission(name, option) {
+        this._originals[option].add(name)
+    }
+
+    loadGlobalOverride(name, option) {
+        this._globalOverrides[option].add(name)
+    }
+
+    loadOverride(name, option) {
+        this._overrides[option].add(name)
+    }
+
+    /** @deprecated */
     loadFromKeyFile(group, name, option, override) {
         const dictionary = override ? this._overrides : this._originals;
         dictionary[option].add(name);
@@ -150,12 +163,14 @@ var FlatpakSessionBusModel = GObject.registerClass({
 
     reset() {
         this._overrides = {};
+        this._globalOverrides = {}
         this._originals = {};
         this._missing = {};
 
         /* Sets for every possible value */
         ['talk', 'own', 'none'].forEach(option => {
             this._overrides[option] = new Set();
+            this._globalOverrides[option] = new Set();
             this._originals[option] = new Set();
             this._missing[option] = new Set();
         });
