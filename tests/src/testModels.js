@@ -36,6 +36,7 @@ const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
+const _basicGlobalAppId = 'com.test.BasicGlobal';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
@@ -173,6 +174,42 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
+    it('loads global overrides', function() {
+        permissions.appId = _basicAppId;
+
+        expect(permissions.shared_network).toBe(false);
+        expect(permissions.shared_ipc).toBe(true);
+        expect(permissions.sockets_x11).toBe(false);
+        expect(permissions.sockets_fallback_x11).toBe(true);
+        expect(permissions.sockets_wayland).toBe(false);
+        expect(permissions.sockets_pulseaudio).toBe(true);
+        expect(permissions.sockets_system_bus).toBe(false);
+        expect(permissions.sockets_session_bus).toBe(true);
+        expect(permissions.sockets_ssh_auth).toBe(false);
+        expect(permissions.sockets_pcsc).toBe(true);
+        expect(permissions.sockets_cups).toBe(false);
+        expect(permissions.devices_dri).toBe(true);
+        expect(permissions.devices_kvm).toBe(false);
+        expect(permissions.devices_shm).toBe(true);
+        expect(permissions.devices_all).toBe(false);
+        expect(permissions.features_bluetooth).toBe(true);
+        expect(permissions.features_devel).toBe(false);
+        expect(permissions.features_multiarch).toBe(true);
+        expect(permissions.features_canbus).toBe(false);
+        expect(permissions.features_per_app_dev_shm).toBe(true);
+        expect(permissions.filesystems_host).toBe(false);
+        expect(permissions.filesystems_host_os).toBe(true);
+        expect(permissions.filesystems_host_etc).toBe(false);
+        expect(permissions.filesystems_home).toBe(true);
+        expect(permissions.filesystems_other).toEqual('~/test;~/global');
+        expect(permissions.session_talk).toEqual('org.test.Service-1;org.global.Service-1');
+        expect(permissions.session_own).toEqual('org.test.Service-2;org.global.Service-2');
+        expect(permissions.system_talk).toEqual('org.test.Service-3;org.global.Service-3');
+        expect(permissions.system_own).toEqual('org.test.Service-4;org.global.Service-4');
+        expect(permissions.persistent).toEqual('.global');
+        expect(permissions.variables).toEqual('TEST=global');
+    });
+
     it('loads overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _basicAppId;
@@ -200,7 +237,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host).toBe(false);
         expect(permissions.filesystems_host_os).toBe(false);
         expect(permissions.filesystems_host_etc).toBe(false);
-        expect(permissions.filesystems_home).toBe(false); // <-- Global override (from "$FLATPAK_USER_DIR/overrides/global")
+        expect(permissions.filesystems_home).toBe(false);
         expect(permissions.session_talk).toEqual('');
         expect(permissions.session_own).toEqual('');
         expect(permissions.system_talk).toEqual('');

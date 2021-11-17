@@ -1,2 +1,18 @@
 [Context]
-filesystems=!home;
+shared=!network;ipc;
+sockets=!x11;fallback-x11;!wayland;pulseaudio;!system-bus;session-bus;!ssh-auth;pcsc;!cups;
+devices=dri;!kvm;shm;!all;
+features=bluetooth;!devel;multiarch;!canbus;per-app-dev-shm;
+filesystems=!host;host-os;!host-etc;~/global;
+persistent=.global
+
+[Environment]
+TEST=global
+
+[Session Bus Policy]
+org.test.Global-1=none
+org.test.Global-2=none
+
+[System Bus Policy]
+org.test.Global-3=none
+org.test.Global-4=none
