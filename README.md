@@ -17,11 +17,11 @@ For more details please visit the [documentation](./DOCUMENTATION.md) page.
 ## Build it yourself
 
 ```
-$ git clone https://github.com/tchx84/Flatseal.git
-$ cd Flatseal
-$ flatpak-builder --force-clean --repo=repo build com.github.tchx84.Flatseal.json
-$ flatpak build-bundle repo flatseal.flatpak com.github.tchx84.Flatseal
-$ flatpak install flatseal.flatpak
+git clone https://github.com/tchx84/Flatseal.git
+cd Flatseal
+flatpak install org.gnome.{Platform,Sdk}//41
+flatpak-builder --user --install build com.github.tchx84.Flatseal.json
+flatpak run --branch=master com.github.tchx84.Flatseal
 ```
 
 Or just use [Builder](https://flathub.org/apps/details/org.gnome.Builder)
