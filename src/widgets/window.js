@@ -106,6 +106,7 @@ var FlatsealWindow = GObject.registerClass({
         this._undoPopup = new FlatsealUndoPopup(this._permissions);
         this._undoPopupBox.add(this._undoPopup);
 
+        this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
         this._permissionsHeaderBar.connect_after(
@@ -209,10 +210,11 @@ var FlatsealWindow = GObject.registerClass({
         /* select after the list has been sorted */
         const row = this._applicationsListBox.get_row_at_index(0);
         this._applicationsListBox.select_row(row);
-        this._update(false);
+        this._updatePermissions();
 
         this._applicationsDelayHandlerId = 0;
-        this._applicationsListBox.connect('row-selected', this._delayedUpdate.bind(this));
+        this._applicationsListBox.connect('row-selected', this._selectApplicationDelayed.bind(this));
+        this._applicationsListBox.connect('row-activated', this._activateApplication.bind(this));
 
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
         this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
@@ -238,22 +240,28 @@ var FlatsealWindow = GObject.registerClass({
         this._settings.saveWindowState(this);
     }
 
-    _delayedUpdate() {
+    _selectApplicationDelayed() {
         if (this._applicationsDelayHandlerId !== 0)
             GLib.Source.remove(this._applicationsDelayHandlerId);
 
         this._applicationsDelayHandlerId = GLib.timeout_add(
-            GLib.PRIORITY_DEFAULT, APP_SELECTION_DELAY, this._update.bind(this));
+            GLib.PRIORITY_DEFAULT, APP_SELECTION_DELAY, this._selectApplication.bind(this));
     }
 
-    _update(switchPage = true) {
+    _activateApplication() {
+        this._showPermissions();
+    }
+
+    _selectApplication() {
+        this._updatePermissions();
+    }
+
+    _updatePermissions() {
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
         this._permissionsHeaderBar.set_title(row.appName);
         this._appInfoViewer.appId = row.appId;
         this._undoPopup.close();
-        if (switchPage)
-            this._showPermissions();
 
         this._applicationsDelayHandlerId = 0;
         return GLib.SOURCE_REMOVE;
@@ -320,11 +328,7 @@ var FlatsealWindow = GObject.registerClass({
             return;
 
         this._applicationsListBox.select_row(row);
-
-        /* switch focus to the first permission row to speed up navigation */
-        const [, firstGroup] = this._permissionsBox.get_children();
-        const [firstRow] = firstGroup.get_children();
-        firstRow.grab_focus();
+        row.grab_focus();
     }
 
     _resetSearch() {
@@ -334,9 +338,29 @@ var FlatsealWindow = GObject.registerClass({
     _showApplications() {
         this._contentLeaflet.set_visible_child_name('applications');
         this._backButton.active = false;
+        this._focusOnApplications();
     }
 
     _showPermissions() {
         this._contentLeaflet.set_visible_child_name('permissions');
+    }
+
+    _focusOnApplications() {
+        const row = this._applicationsListBox.get_selected_row();
+        if (row !== null)
+            row.grab_focus();
+    }
+
+    _focusOnPermissions() {
+        const [firstGroup] = this._permissionsBox.get_children();
+        const [firstRow] = firstGroup.get_children();
+        firstRow.grab_focus();
+    }
+
+    _focusContent() {
+        if (this._contentLeaflet.visible_child_name === 'applications')
+            this._focusOnApplications();
+        else
+            this._focusOnPermissions();
     }
 });

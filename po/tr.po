@@ -105,9 +105,8 @@ msgid "Controller Area Network bus"
 msgstr "Denetleyici Alan Ağı veri yolu"
 
 #: src/models/features.js:65
-#, fuzzy
 msgid "Application Shared Memory"
-msgstr "Paylaşımlı bellek"
+msgstr "Uygulama Başına Paylaşılan Bellek"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -309,9 +308,8 @@ msgid "This is not a valid option"
 msgstr "Bu geçerli bir seçenek değil"
 
 #: src/widgets/detailsButton.js:59
-#, fuzzy
 msgid "_Show Details"
-msgstr "Detayları Göster"
+msgstr "_Detayları Göster"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -322,23 +320,20 @@ msgid "No software manager found"
 msgstr "Yazılım yöneticisi bulunamadı"
 
 #: src/widgets/menu.ui:7
-#, fuzzy
 msgid "_Help"
-msgstr "Yardım"
+msgstr "_Yardım"
 
 #: src/widgets/menu.ui:11
-#, fuzzy
 msgid "_Documentation"
-msgstr "Belgeler"
+msgstr "_Belgeler"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr ""
+msgstr "_Klavye kısayolları"
 
 #: src/widgets/menu.ui:19
-#, fuzzy
 msgid "_About Flatseal"
-msgstr "Flatseal Hakkında"
+msgstr "_Flatseal Hakkında"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
@@ -451,9 +446,8 @@ msgid "Default paths can't be removed"
 msgstr "Varsayılan yollar kaldırılamaz"
 
 #: src/widgets/resetButton.js:45
-#, fuzzy
 msgid "_Reset"
-msgstr "Sıfırla"
+msgstr "_Sıfırla"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
@@ -469,50 +463,47 @@ msgstr ", Flatseal ile yapılmayan değişikler dahil"
 
 #: src/widgets/shortcutsWindow.ui:14
 msgid "General"
-msgstr ""
+msgstr "Genel"
 
 #: src/widgets/shortcutsWindow.ui:19
-#, fuzzy
 msgid "Show mnemonics"
-msgstr "Detayları Göster"
+msgstr "Anımsatıcıları göster"
 
 #: src/widgets/shortcutsWindow.ui:26
-#, fuzzy
 msgid "Show documentation"
-msgstr "Belgeler"
+msgstr "Belgeleri göster"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr ""
+msgstr "Menüyü göster"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
-msgstr ""
+msgstr "Klavye kısayolları"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr ""
+msgstr "Uygulamadan çık"
 
 #: src/widgets/shortcutsWindow.ui:55
-#, fuzzy
 msgid "Navigation"
-msgstr "Uyarı"
+msgstr "Navigasyon"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr ""
+msgstr "Sola hareket et"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr ""
+msgstr "Yukarı hareket"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr ""
+msgstr "Sağa ilerle"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr ""
+msgstr "Aşağı hareket et"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -520,16 +511,15 @@ msgstr "Uygulamalar"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr ""
+msgstr "Bulmak"
 
 #: src/widgets/shortcutsWindow.ui:102
-#, fuzzy
 msgid "Permissions"
-msgstr "Sürüm"
+msgstr "izinler"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr ""
+msgstr "Kasa çeliği"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -537,11 +527,11 @@ msgstr "Belgeler"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr ""
+msgstr "Sonraki sonucu bul"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr ""
+msgstr "Önceki sonucu bul"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
