@@ -35,7 +35,7 @@ setup();
 const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
-const _basicNegateAppId = 'com.test.BasicNegate';
+const _basicNegatedAppId = 'com.test.BasicNegated';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
@@ -118,7 +118,7 @@ describe('Model', function() {
         const appIds = applications.getAll().map(a => a.appId);
 
         expect(appIds).toContain(_basicAppId);
-        expect(appIds).toContain(_basicNegateAppId);
+        expect(appIds).toContain(_basicNegatedAppId);
         expect(appIds).toContain(_oldAppId);
         expect(appIds).toContain(_reduceAppId);
         expect(appIds).toContain(_increaseAppId);
@@ -209,8 +209,8 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=no');
     });
 
-    it('loads negate permissions', function() {
-        permissions.appId = _basicNegateAppId;
+    it('loads negated permissions', function() {
+        permissions.appId = _basicNegatedAppId;
 
         expect(permissions.shared_network).toBe(false);
         expect(permissions.shared_ipc).toBe(false);
@@ -244,9 +244,9 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=no');
     });
 
-    it('loads negate overrides', function() {
+    it('loads negated overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _basicNegateAppId;
+        permissions.appId = _basicNegatedAppId;
 
         expect(permissions.shared_network).toBe(true);
         expect(permissions.shared_ipc).toBe(true);
