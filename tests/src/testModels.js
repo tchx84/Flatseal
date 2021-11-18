@@ -36,7 +36,7 @@ const _totalPermissions = 37;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
-const _basicGlobalAppId = 'com.test.BasicGlobal';
+const _basicGlobalOverrideAppId = 'com.test.BasicGlobalOverride';
 const _oldAppId = 'com.test.Old';
 const _reduceAppId = 'com.test.Reduce';
 const _increaseAppId = 'com.test.Increase';
@@ -175,7 +175,8 @@ describe('Model', function() {
     });
 
     it('loads global overrides', function() {
-        permissions.appId = _basicAppId;
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _basicGlobalOverrideAppId;
 
         expect(permissions.shared_network).toBe(false);
         expect(permissions.shared_ipc).toBe(true);
