@@ -249,7 +249,8 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _activateApplication() {
-        this._showPermissions();
+        if (this._contentLeaflet.folded)
+            this._showPermissions();
     }
 
     _selectApplication() {
