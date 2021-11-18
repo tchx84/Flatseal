@@ -149,15 +149,16 @@ var FlatpakPermissionsModel = GObject.registerClass({
                         }
                     }
 
-                    if (model === null) {
-                        MODELS.unsupported.loadFromKeyFile(group, key, value)
-                        return;
-                    }
-
                     switch (fileType) {
-                        case "metadata": return model.loadOriginal(key, value);
-                        case "global": return model.loadGlobalOverride(key, value);
-                        case "overrides": return model.loadOverride(key, value);
+                        case "metadata": 
+                            return model?.loadOriginal(key, value);
+                        case "global": 
+                            return model?.loadGlobalOverride(key, value);
+                        case "overrides": {
+                            if (model === null)
+                                return MODELS.unsupported.loadFromKeyFile(group, key, value)
+                            return model.loadOverride(key, value);
+                        }
                     }
                 });
             });
