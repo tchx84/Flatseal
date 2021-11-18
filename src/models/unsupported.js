@@ -57,7 +57,7 @@ var FlatpakUnsupportedModel = GObject.registerClass({
 
             try {
                 const existing = keyFile.get_value(group, key);
-                _value = `${_value};${existing}`;
+                _value = `${value};${existing}`;
             } catch (err) {
                 _value = `${value}`;
             }
