@@ -114,7 +114,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
             const [keys] = keyFile.get_keys(group);
 
             keys.forEach(key => {
-                const values = keyFile.get_value(group, key).split(';');
+                const values = keyFile.get_value(group, key)
+                    .replace(/;+$/, '')
+                    .split(';');
 
                 values.forEach(value => {
                     let model = null;
