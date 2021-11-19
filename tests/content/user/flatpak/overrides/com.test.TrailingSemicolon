@@ -1,0 +1,5 @@
+[Context]
+shared=ipc;
+
+[Environment]
+TEST=;
