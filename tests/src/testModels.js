@@ -519,6 +519,29 @@ describe('Model', function() {
         update();
     });
 
+    it('preserves unsupported permissions', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _unsupportedAppId;
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.set_property('filesystems-other', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'always')).toBe(true);
+            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'undefined')).toBe(false);
+            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'null')).toBe(false);
+
+            expect(has(_unsupportedOverride, 'Context', 'shared', 'unsupported')).toBe(true);
+            expect(has(_unsupportedOverride, 'Context', 'shared', 'undefined')).toBe(false);
+            expect(has(_unsupportedOverride, 'Context', 'shared', 'null')).toBe(false);
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
     it('signals changes with overrides', function(done) {
         spyOn(permissions, 'emit');
 
