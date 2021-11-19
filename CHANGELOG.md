@@ -5,6 +5,7 @@
 - Fixed Russian translation.
 - Fixed icons to look sharper.
 - Fixed loading originally-negated permissions.
+- Fixed instances of undefined overrides.
 - Added Turkish translation.
 - Added French translation.
 - Added support for keyboard navigation.
