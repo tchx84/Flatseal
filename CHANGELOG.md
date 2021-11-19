@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.7.5] - 2021-11-19
 
 - Fixed Russian translation.
 - Fixed icons to look sharper.
