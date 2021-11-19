@@ -1,0 +1,5 @@
+[Context]
+shared=network
+
+[Environment]
+TEST=YES

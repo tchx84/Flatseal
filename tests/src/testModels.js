@@ -47,6 +47,7 @@ const _extraAppId = 'com.test.Extra';
 const _environmentAppId = 'com.test.Environment';
 const _busAppId = 'com.test.Bus';
 const _variablesAppId = 'com.test.Variables';
+const _trailingSemicolonId = 'com.test.TrailingSemicolon';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -124,6 +125,7 @@ describe('Model', function() {
         expect(appIds).toContain(_increaseAppId);
         expect(appIds).toContain(_negationAppId);
         expect(appIds).toContain(_unsupportedAppId);
+        expect(appIds).toContain(_trailingSemicolonId);
     });
 
     it('ignores BaseApp bundles', function() {
@@ -1014,5 +1016,27 @@ describe('Model', function() {
         expect(permissions.portals_speakers).toBe(portalState.UNSUPPORTED);
         expect(permissions.portals_camera).toBe(portalState.UNSUPPORTED);
         expect(permissions.portals_location).toBe(portalState.UNSUPPORTED);
+    });
+
+    it('handles trailing semicolons', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _trailingSemicolonId;
+
+        expect(permissions.shared_network).toBe(true);
+        expect(permissions.shared_network).toBe(true);
+        expect(permissions.variables).toEqual('');
+
+        /* force change to verify that there ins't unsupported permissions */
+        spyOn(permissions, 'emit');
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.set_property('shared-network', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
     });
 });
