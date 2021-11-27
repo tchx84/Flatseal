@@ -355,7 +355,7 @@
 <tr class="odd">
 <td>Files</td>
 <td>Input</td>
-<td>Allow the application to only to access to the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (<code>$HOME</code> or <code>~/</code>), the targeted directory will be remapped to the application’s directory (<code>~/.var/app/$FLATPAK_APP_ID/[PATH]</code>) if it has no write access to the targeted directory. <br /> <br /> For example, persisting <code>.mozilla</code> will map <code>~/.mozilla</code> to <code>~/.var/app/org.mozilla.Firefox/.mozilla</code>. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to <code>~/</code>.</td>
+<td>Allow the application to access the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (<code>$HOME</code> or <code>~/</code>), the targeted directory will be remapped to the application’s directory (<code>~/.var/app/$FLATPAK_APP_ID/[PATH]</code>) if it has no write access to the targeted directory. <br /> <br /> For example, persisting <code>.mozilla</code> will map <code>~/.mozilla</code> to <code>~/.var/app/org.mozilla.Firefox/.mozilla</code>. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to <code>~/</code>.</td>
 <td><code>--persist=[PATH]</code></td>
 </tr>
 </tbody>
