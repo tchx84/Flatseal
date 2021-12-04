@@ -25,7 +25,7 @@ This is the list of permissions supported by Flatseal. These descriptions are ba
 
 To summarize it, Flatpak provides two different permissions models: static and dynamic
 
-Static refers to the permissions set by the developers when applications are built. Static permissions are holes in the sandbox, e.g. an application is built with `--filesystem=home` can access _all_ user personal files. The benefit of this model is that developers can support Flatpak without any change in their applications code.
+Static refers to the permissions set by the developers when applications are built. Static permissions are holes in the sandbox, e.g. an application built with `--filesystem=home` can access _all_ user personal files. The benefit of this model is that developers can support Flatpak without any change in their applications code.
 
 Both Flatseal and `flatpak override` command-line tool, use the overrides backend to manage static permissions.
 
