@@ -53,7 +53,7 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayShortcuts() {
-        const dialog = new FlatsealShortcutsWindow();
+        const dialog = new FlatsealShortcutsWindow({transient_for: this._window});
         dialog.present();
     }
 
