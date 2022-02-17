@@ -108,5 +108,8 @@ var FlatsealApplication = GObject.registerClass({
         Handy.init();
         this._setupActions();
         this._setupStylesheet();
+
+        Handy.StyleManager.get_default().set_color_scheme(
+            Handy.ColorScheme.PREFER_LIGHT);
     }
 });
