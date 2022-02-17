@@ -1,6 +1,8 @@
 pkgdatadir = join_paths(get_option('datadir'), meson.project_name())
 gnome = import('gnome')
 
+dependency('libhandy-1', version : '>= 1.5')
+
 src_res = gnome.compile_resources('com.github.tchx84.Flatseal.src',
   'com.github.tchx84.Flatseal.src.gresource.xml',
   gresource_bundle: true,
