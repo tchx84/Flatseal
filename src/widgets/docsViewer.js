@@ -54,6 +54,8 @@ var FlatsealDocsViewer = GObject.registerClass({
         const [width, height] = parent.get_size();
         this.default_width = width;
         this.default_height = height;
+        this.modal = true;
+        this.transient_for = parent;
 
         const path = GLib.build_filenamev([
             imports.package.datadir,
