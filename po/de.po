@@ -4,35 +4,37 @@
 # Automatically generated, 2020.
 #
 # Tim Rieck <tim.rieck@gmail.com>, 2020.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2020-04-01 21:25-0300\n"
-"Last-Translator: Tim Rieck <tim.rieck@gmail.com>\n"
+"PO-Revision-Date: 2022-02-19 14:31+0100\n"
+"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr ""
+msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
-msgstr "Ein Berechtigungsmanager für Flatpak"
+msgstr "Berechtigungen von Flatpak-Anwendungen verwalten"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "Siegel;seal;Sandkasten;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -46,7 +48,7 @@ msgstr ""
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr ""
+msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
@@ -159,7 +161,7 @@ msgstr "Hintergrund"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
-msgstr "Es kann im Hintergrund laufen"
+msgstr "Kann im Hintergrund laufen"
 
 #: src/models/portals.js:128
 msgid "Notifications"
@@ -167,7 +169,7 @@ msgstr "Benachrichtigungen"
 
 #: src/models/portals.js:130
 msgid "Can send notifications"
-msgstr "Es kann Benachrichtigungen senden"
+msgstr "Kann Benachrichtigungen senden"
 
 #: src/models/portals.js:138
 msgid "Microphone"
@@ -175,7 +177,7 @@ msgstr "Mikrofon"
 
 #: src/models/portals.js:140
 msgid "Can listen to your microphone"
-msgstr "Es kann auf dein Mikrofon hören"
+msgstr "Kann Ihr Mikrofon nutzen"
 
 #: src/models/portals.js:148
 msgid "Speakers"
@@ -183,7 +185,7 @@ msgstr "Lautsprecher"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "Es kann Sounds über Ihre Lautsprecher abspielen"
+msgstr "Kann Sounds über Ihre Lautsprecher abspielen"
 
 #: src/models/portals.js:158
 msgid "Camera"
@@ -191,7 +193,7 @@ msgstr "Kamera"
 
 #: src/models/portals.js:160
 msgid "Can record videos with your camera"
-msgstr ""
+msgstr "Kann Videos mit Ihrer Kamera aufzeichnen"
 
 #: src/models/portals.js:168
 msgid "Location"
@@ -199,7 +201,7 @@ msgstr "Standort"
 
 #: src/models/portals.js:170
 msgid "Can access your location"
-msgstr "Es kann auf Ihren Standort zugreifen"
+msgstr "Kann auf Ihren Standort zugreifen"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
@@ -208,7 +210,7 @@ msgstr "Liste der Ressourcen, die der Anwendung selektiv gewährt wurden"
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:39
 msgid "Not supported by the installed version of Flatpak"
-msgstr "Wird von der installierten Version von Flatpak nicht unterstützt"
+msgstr "Wird von der installierten Flatpak-Version nicht unterstützt"
 
 #: src/models/portals.js:256
 msgid "Requires permission store version 2 or newer"
@@ -293,7 +295,7 @@ msgstr "%e. %B %Y"
 
 #: src/widgets/appInfoViewer.ui:127
 msgid "Version"
-msgstr "Ausführung"
+msgstr "Version"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
@@ -306,11 +308,11 @@ msgstr "Runtime"
 #: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
-msgstr "Dies ist eine ungültige Einstellung"
+msgstr "Das ist eine ungültige Einstellung"
 
 #: src/widgets/detailsButton.js:59
 msgid "_Show Details"
-msgstr "_Zeige Details"
+msgstr "_Details anzeigen"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -334,15 +336,15 @@ msgstr "_Tastaturkürzel"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
-msgstr "Über _Flatseal"
+msgstr "Info zu _Flatseal"
 
 #: src/widgets/pathRow.js:26
 msgid "this absolute path"
-msgstr "dieser absoluter Dateipfad"
+msgstr "dieser absoluter Pfad"
 
 #: src/widgets/pathRow.js:27
 msgid "this path relative to the home directory"
-msgstr "dieser Pfad relativ zum Ausgangsverzeichnis"
+msgstr "dieser Pfad relativ zum persönlichen Ordner"
 
 #: src/widgets/pathRow.js:28
 msgid "all system configurations"
@@ -366,7 +368,7 @@ msgstr "das Desktop-Verzeichnis"
 
 #: src/widgets/pathRow.js:33
 msgid "the documents directory"
-msgstr "das Dokumentenverzeichnis"
+msgstr "das Dokumenten-Verzeichnis"
 
 #: src/widgets/pathRow.js:34
 msgid "the download directory"
@@ -374,11 +376,11 @@ msgstr "das Download-Verzeichnis"
 
 #: src/widgets/pathRow.js:35
 msgid "the music directory"
-msgstr "das Musikverzeichnis"
+msgstr "das Musik-Verzeichnis"
 
 #: src/widgets/pathRow.js:36
 msgid "the pictures directory"
-msgstr "das Bilderverzeichnis"
+msgstr "das Bilder-Verzeichnis"
 
 #: src/widgets/pathRow.js:37
 msgid "the public directory"
@@ -390,7 +392,7 @@ msgstr "das Video-Verzeichnis"
 
 #: src/widgets/pathRow.js:39
 msgid "the templates directory"
-msgstr "das Vorlagenverzeichnis"
+msgstr "das Vorlagen-Verzeichnis"
 
 #: src/widgets/pathRow.js:40
 msgid "the config directory"
@@ -406,7 +408,7 @@ msgstr "das Datenverzeichnis"
 
 #: src/widgets/pathRow.js:43
 msgid "the runtime directory"
-msgstr "das Laufzeitverzeichnis"
+msgstr "das Laufzeit-Verzeichnis"
 
 #: src/widgets/pathRow.js:58
 #, javascript-format
@@ -426,17 +428,17 @@ msgstr "Kann erstellen, ändern und lesen: %s"
 #: src/widgets/pathRow.js:66
 #, javascript-format
 msgid "Can't read: %s"
-msgstr "Es kann nicht lesen: %s"
+msgstr "Kann nicht lesen: %s"
 
 #: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't modify or read: %s"
-msgstr "Es kann nicht geändert oder gelesen werden: %s"
+msgstr "Kann nicht ändern oder lesen: %s"
 
 #: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't create, modify or read: %s"
-msgstr "Es kann nicht erstellt, geändert oder gelesen werden: %s"
+msgstr "Kann nicht erstellen, ändern oder lesen: %s"
 
 #: src/widgets/permissionPortalRow.ui:28
 msgid "Unset"
@@ -456,7 +458,7 @@ msgstr "An dieser Anwendung wurden keine Änderungen vorgenommen"
 
 #: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
-msgstr "Berechtigung dieser Anwendung zurücksetzen"
+msgstr "Berechtigungen dieser Anwendung zurücksetzen"
 
 #: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
@@ -468,7 +470,7 @@ msgstr "Allgemein"
 
 #: src/widgets/shortcutsWindow.ui:19
 msgid "Show mnemonics"
-msgstr "Mnemonik anzeigen"
+msgstr "Mnemoniks anzeigen"
 
 #: src/widgets/shortcutsWindow.ui:26
 msgid "Show documentation"
@@ -476,7 +478,7 @@ msgstr "Dokumentation anzeigen"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Show menu"
-msgstr "Zeige das Menü"
+msgstr "Menü zeigen"
 
 #: src/widgets/shortcutsWindow.ui:40
 msgid "Keyboard shortcuts"
@@ -492,7 +494,7 @@ msgstr "Navigation"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
-msgstr "Geh nach links"
+msgstr "Nach links"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
@@ -500,11 +502,11 @@ msgstr "Nach oben"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr "Nach rechts bewegen"
+msgstr "Nach rechts"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
-msgstr "Sich abwärts bewegen"
+msgstr "Nach unten"
 
 #: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
 msgid "Applications"
@@ -528,11 +530,11 @@ msgstr "Dokumentation"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
-msgstr "Finden Sie das nächste Ergebnis"
+msgstr "Nächstes finden"
 
 #: src/widgets/shortcutsWindow.ui:134
 msgid "Find previous"
-msgstr "Finden Sie das vorherige Ergebnis"
+msgstr "Vorheriges finden"
 
 #: src/widgets/undoPopup.ui:19
 msgid "Permissions have been reset"
