@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed a few typos in offline documentation.
+- Changed shortcuts window to be modal.
+
 ## [1.7.5] - 2021-11-19
 
 - Fixed Russian translation.
