@@ -14,4 +14,8 @@ subdir('po')
 subdir('tests')
 subdir('help')
 
-meson.add_install_script('postinstall.py')
+gnome.post_install(
+  gtk_update_icon_cache: true,
+  glib_compile_schemas: true,
+  update_desktop_database: true,
+)
