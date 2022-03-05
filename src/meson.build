@@ -16,7 +16,7 @@ data_res = gnome.compile_resources('com.github.tchx84.Flatseal.data',
 )
 
 bin_conf = configuration_data()
-bin_conf.set('GJS', find_program('gjs').path())
+bin_conf.set('GJS', find_program('gjs').full_path())
 bin_conf.set('PACKAGE_VERSION', meson.project_version())
 bin_conf.set('PACKAGE_NAME', meson.project_name())
 bin_conf.set('prefix', get_option('prefix'))
