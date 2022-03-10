@@ -20,6 +20,7 @@
 
 const {GObject} = imports.gi;
 
+const {filesystems} = imports.models;
 const {FlatpakSharedModel} = imports.models.shared;
 
 
@@ -28,6 +29,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 }, class FlatpakFilesystemsOtherModel extends FlatpakSharedModel {
     _init() {
         super._init({});
+        this._filesystems = filesystems.getDefault();
     }
 
     getPermissions() {
@@ -96,7 +98,13 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             set.has(`!${path}`) ||
             set.has(`!${path}:ro`) ||
             set.has(`!${path}:rw`) ||
-            set.has(`!${path}:create`));
+            set.has(`!${path}:create`) ||
+            set.has(`!${path}:reset`));
+    }
+
+    static removeMode(value) {
+        const [path] = value.split(':');
+        return path;
     }
 
     updateFromProxyProperty(property, value) {
@@ -104,11 +112,14 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
         const added = new Set([...paths]
             .filter(p => p.length !== 0)
+            .filter(p => !this._filesystems._originals.has(p))
             .filter(p => !this._originals.has(p)));
 
         const removed = [...this._originals]
+            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
             .filter(p => !paths.has(p))
             .filter(p => !this.constructor.isOverriden(added, p))
+            .map(p => this.constructor.removeMode(p))
             .map(p => this.constructor.negate(p));
 
         this._overrides = new Set([...added, ...removed]);
@@ -116,14 +127,16 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
     updateProxyProperty(proxy) {
         const originals = [...this._originals]
+            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p));
 
         const overrides = [...this._overrides]
+            .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
+                           this.constructor.isNegated(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
                            this.constructor.isNegated(p)));
 
         const paths = new Set([...originals, ...overrides]);
-
         const value = [...paths].join(';');
         proxy.set_property('filesystems-other', value);
     }

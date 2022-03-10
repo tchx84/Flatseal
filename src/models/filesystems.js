@@ -1,4 +1,4 @@
-/* exported FlatpakFilesystemsModel */
+/* exported FlatpakFilesystemsModel getDefault */
 
 /* filesystems.js
  *
@@ -83,3 +83,12 @@ var FlatpakFilesystemsModel = GObject.registerClass({
         return _('List of filesystem subsets available to the application');
     }
 });
+
+var getDefault = (function() {
+    let instance;
+    return function() {
+        if (typeof instance === 'undefined')
+            instance = new FlatpakFilesystemsModel();
+        return instance;
+    };
+}());
