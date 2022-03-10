@@ -66,6 +66,7 @@ const _modeNegatedDescription = {
     'read-only': _('Can\'t read: %s'),
     'read-write': _('Can\'t modify or read: %s'),
     create: _('Can\'t create, modify or read: %s'),
+    reset: _('Can\'t create, modify or read: %s'),
 };
 
 const _notValidMsg = _('This is not a valid option');
@@ -116,6 +117,9 @@ var FlatsealPathRow = GObject.registerClass({
         const modes = [':ro$', ':rw$', ':create$', '^((?!:).)*$'].join('|');
         this._modeRE = new RegExp(modes);
 
+        const negationModes = [':reset$', '^((?!:).)*$'].join('|');
+        this._negationModeRE = new RegExp(negationModes);
+
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
     }
@@ -158,6 +162,7 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _validate() {
+        const negated = this.text.startsWith(_negationSymbol);
         const context = this.get_style_context();
 
         if (context.has_class(validity.VALID))
@@ -167,7 +172,8 @@ var FlatsealPathRow = GObject.registerClass({
 
         if ((this._pathRE.test(this.text) ||
             this._optionRE.test(this.text)) &&
-            this._modeRE.test(this.text)) {
+            (!negated && this._modeRE.test(this.text) ||
+             negated && this._negationModeRE.test(this.text))) {
             context.add_class(validity.VALID);
             return;
         }
