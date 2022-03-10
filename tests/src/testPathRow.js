@@ -103,6 +103,7 @@ describe('FlatsealPathRow', function() {
     _handles('token-based', 'home/.test', ':create');
     _handles('token-based', 'xdg-download/Telegram Desktop:create', '');
     _handles('token-based', '!xdg-download', '');
+    _handles('token-based', '!xdg-download', ':reset');
 
     function _catches(description, path, _mode) {
         it(`catches ${description} paths (${_mode ? _mode : 'default'})`, function() {
@@ -125,4 +126,6 @@ describe('FlatsealPathRow', function() {
     _catches('not-valid mode', 'home', ':');
     _catches('not-valid mode', 'home', ':not');
     _catches('not-valid negation', '!!~/.TelegramDesktop', '');
+    _catches('not-valid negation', '!~/.TelegramDesktop', ':');
+    _catches('not-valid negation', '!~/.TelegramDesktop', ':ro');
 });
