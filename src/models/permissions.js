@@ -26,12 +26,11 @@ const {FlatpakDevicesModel} = imports.models.devices;
 const {FlatpakSharedModel} = imports.models.shared;
 const {FlatpakSocketsModel} = imports.models.sockets;
 const {FlatpakFeaturesModel} = imports.models.features;
-const {FlatpakFilesystemsModel} = imports.models.filesystems;
 const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
-const {persistent, portals} = imports.models;
+const {filesystems, persistent, portals} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -40,7 +39,7 @@ const MODELS = {
     sockets: new FlatpakSocketsModel(),
     devices: new FlatpakDevicesModel(),
     features: new FlatpakFeaturesModel(),
-    filesystems: new FlatpakFilesystemsModel(),
+    filesystems: filesystems.getDefault(),
     filesystemsOther: new FlatpakFilesystemsOtherModel(),
     persistent: persistent.getDefault(),
     variables: new FlatpakVariablesModel(),
