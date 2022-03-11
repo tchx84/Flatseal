@@ -48,6 +48,7 @@ const _environmentAppId = 'com.test.Environment';
 const _busAppId = 'com.test.Bus';
 const _variablesAppId = 'com.test.Variables';
 const _trailingSemicolonId = 'com.test.TrailingSemicolon';
+const _filesystemWithMode = 'com.test.FilesystemWithMode';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -66,6 +67,7 @@ const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId
 const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
 const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
+const _filesystemWithModeOverride = GLib.build_filenamev([_overrides, _filesystemWithMode]);
 
 const _sessionGroup = 'Session Bus Policy';
 const _key = 'filesystems';
@@ -113,6 +115,7 @@ describe('Model', function() {
         GLib.unlink(_unsupportedOverride);
         GLib.unlink(_environmentOverride);
         GLib.unlink(_busOverride);
+        GLib.unlink(_filesystemWithModeOverride);
     });
 
     it('loads applications', function() {
@@ -126,6 +129,7 @@ describe('Model', function() {
         expect(appIds).toContain(_negationAppId);
         expect(appIds).toContain(_unsupportedAppId);
         expect(appIds).toContain(_trailingSemicolonId);
+        expect(appIds).toContain(_filesystemWithMode);
     });
 
     it('ignores BaseApp bundles', function() {
@@ -1056,6 +1060,31 @@ describe('Model', function() {
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles loading filesystems with mode', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _filesystemWithMode;
+
+        expect(permissions.filesystems_other).toEqual('home:ro');
+    });
+
+    it('handles overriding filesystems with mode', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _filesystemWithMode;
+
+        expect(permissions.filesystems_other).toEqual('host:ro;xdg-documents:ro;home:ro');
+        permissions.set_property('filesystems-other', 'home:ro');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            expect(has(_filesystemWithModeOverride, group, _key, '!host')).toBe(true);
+            expect(has(_filesystemWithModeOverride, group, _key, '!xdg-documents')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
         });
