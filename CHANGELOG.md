@@ -2,8 +2,10 @@
 
 ## [unreleased]
 
+- Fixed issues with forbidden modes on removed filesystem permissions.
 - Fixed a few typos in offline documentation.
 - Changed shortcuts window to be modal.
+- Changed meson to 0.59.
 
 ## [1.7.5] - 2021-11-19
 
