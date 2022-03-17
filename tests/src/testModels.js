@@ -242,6 +242,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_os).toBe(false);
         expect(permissions.filesystems_host_etc).toBe(false);
         expect(permissions.filesystems_home).toBe(false);
+        expect(permissions.filesystems_other).toEqual('!~/test');
         expect(permissions.session_talk).toEqual('');
         expect(permissions.session_own).toEqual('');
         expect(permissions.system_talk).toEqual('');
@@ -278,7 +279,7 @@ describe('Model', function() {
         expect(permissions.filesystems_host_os).toBe(true);
         expect(permissions.filesystems_host_etc).toBe(true);
         expect(permissions.filesystems_home).toBe(true);
-        expect(permissions.filesystems_other).toEqual('~/test');
+        expect(permissions.filesystems_other).toEqual('');
         expect(permissions.session_talk).toEqual('org.test.Service-1');
         expect(permissions.session_own).toEqual('org.test.Service-2');
         expect(permissions.system_talk).toEqual('org.test.Service-3');
