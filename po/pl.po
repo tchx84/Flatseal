@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2021-01-06 15:56+0100\n"
+"PO-Revision-Date: 2022-03-22 21:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 "
 "|| n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -110,7 +110,7 @@ msgstr "Magistrala CAN"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
-msgstr "Pamięć współdzielona na aplikację"
+msgstr "Pamięć współdzielona dla aplikacji"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -158,11 +158,11 @@ msgstr "Lista położeń w Katalogu domowym dostępnych dla aplikacji"
 
 #: src/models/portals.js:118
 msgid "Background"
-msgstr ""
+msgstr "Działanie w tle"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
-msgstr ""
+msgstr "Może działać w tle"
 
 #: src/models/portals.js:128
 msgid "Notifications"
@@ -170,7 +170,7 @@ msgstr "Powiadomienia"
 
 #: src/models/portals.js:130
 msgid "Can send notifications"
-msgstr "Może wysyłać powiadomienia"
+msgstr "Może pokazywać powiadomienia"
 
 #: src/models/portals.js:138
 msgid "Microphone"
@@ -178,7 +178,7 @@ msgstr "Mikrofon"
 
 #: src/models/portals.js:140
 msgid "Can listen to your microphone"
-msgstr "Może słuchać twojego mikrofonu"
+msgstr "Może używać mikrofonu"
 
 #: src/models/portals.js:148
 msgid "Speakers"
@@ -186,7 +186,7 @@ msgstr "Głośniki"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "Może odtwarzać dźwięki na głośnikach"
+msgstr "Może używać głośników do odtwarzania dźwięków"
 
 #: src/models/portals.js:158
 msgid "Camera"
@@ -231,7 +231,7 @@ msgstr "Komunikacja między procesami"
 
 #: src/models/shared.js:78
 msgid "List of subsystems shared with the host system"
-msgstr "Lista systemów współdzielonych przez system"
+msgstr "Lista podsystemów udostępnionych przez system operacyjny"
 
 #: src/models/sockets.js:37
 msgid "X11 windowing system"
@@ -487,7 +487,7 @@ msgstr "Skróty klawiszowe"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr "Porzucić"
+msgstr "Wyjdź"
 
 #: src/widgets/shortcutsWindow.ui:55
 msgid "Navigation"
@@ -515,7 +515,7 @@ msgstr "Aplikacje"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr "Odnaleźć"
+msgstr "Znajdź"
 
 #: src/widgets/shortcutsWindow.ui:102
 msgid "Permissions"
@@ -523,7 +523,7 @@ msgstr "Uprawnienia"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr "Przełącznik"
+msgstr "Przełącz"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
