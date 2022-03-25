@@ -4,8 +4,12 @@
 
 - Fixed issues with forbidden modes on removed filesystem permissions.
 - Fixed a few typos in offline documentation.
+- Fixed Polish translation.
+- Added Danish translation.
 - Changed shortcuts window to be modal.
+- Changed documentation window to be modal.
 - Changed meson to 0.59.
+- Changed to GNOME 42 runtime for stability.
 
 ## [1.7.5] - 2021-11-19
 
