@@ -2,7 +2,7 @@
 
 /* service.js
  *
- * Copyright 2021 Martin Abente Lahaye
+ * Copyright 2021 The Flatseal Authors
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by

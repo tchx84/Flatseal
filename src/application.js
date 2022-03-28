@@ -3,7 +3,7 @@
 
 /* application.js
  *
- * Copyright 2020 Martin Abente Lahaye
+ * Copyright 2020 The Flatseal Authors
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
