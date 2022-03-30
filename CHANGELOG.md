@@ -6,6 +6,7 @@
 - Fixed a few typos in offline documentation.
 - Fixed Polish translation.
 - Added Danish translation.
+- Added support for system color schemes.
 - Changed shortcuts window to be modal.
 - Changed documentation window to be modal.
 - Changed meson to 0.59.
