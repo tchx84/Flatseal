@@ -121,9 +121,17 @@ var FlatpakSharedModel = GObject.registerClass({
         });
     }
 
-    loadFromKeyFile(group, key, value, overrides) {
+    _findProperSet(overrides, global) {
+        if (overrides && global)
+            return this._globals;
+        if (overrides && !global)
+            return this._overrides;
+        return this._originals;
+    }
+
+    loadFromKeyFile(group, key, value, overrides, global) {
         const option = value.replace('!', '');
-        const set = overrides ? this._overrides : this._originals;
+        const set = this._findProperSet(overrides, global);
 
         set.delete(option);
         set.delete(`!${option}`);
@@ -151,6 +159,7 @@ var FlatpakSharedModel = GObject.registerClass({
 
     reset() {
         this._overrides = new Set();
+        this._globals = new Set();
         this._originals = new Set();
     }
 });

@@ -96,11 +96,15 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
     }
 
+    _getGlobalOverridesPath() {
+        return GLib.build_filenamev([this._applications.userPath, 'overrides', 'global']);
+    }
+
     _getOverridesPath() {
         return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
     }
 
-    static _loadPermissionsForPath(path, overrides) {
+    static _loadPermissionsForPath(path, overrides, global) {
         if (GLib.access(path, 0) !== 0)
             return;
 
@@ -142,11 +146,11 @@ var FlatpakPermissionsModel = GObject.registerClass({
                         }
                     }
 
-                    if (model === null && overrides)
+                    if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
                     if (model !== null)
-                        model.loadFromKeyFile(group, key, value, overrides);
+                        model.loadFromKeyFile(group, key, value, overrides, global);
                 });
             });
         });
@@ -154,11 +158,17 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     _loadPermissions() {
         return this.constructor._loadPermissionsForPath(
-            this._applications.getMetadataPathForAppId(this._appId), false);
+            this._applications.getMetadataPathForAppId(this._appId), false, false);
+    }
+
+    _loadGlobalOverrides() {
+        return this.constructor._loadPermissionsForPath(
+            this._getGlobalOverridesPath(), true, true);
     }
 
     _loadOverrides() {
-        return this.constructor._loadPermissionsForPath(this._getOverridesPath(), true);
+        return this.constructor._loadPermissionsForPath(
+            this._getOverridesPath(), true, false);
     }
 
     _checkIfChanged() {
@@ -229,6 +239,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     _setup() {
         Object.values(MODELS).forEach(model => model.reset());
         this._loadPermissions();
+        this._loadGlobalOverrides();
         this._loadOverrides();
         this._updateProperties();
     }
