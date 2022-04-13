@@ -150,11 +150,11 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         proxy.set_property('filesystems-other', value);
     }
 
-    loadFromKeyFile(group, key, value, overrides) {
+    loadFromKeyFile(group, key, value, overrides, global) {
         if (value.length === 0)
             return;
 
-        const set = overrides ? this._overrides : this._originals;
+        const set = this._findProperSet(overrides, global);
         set.add(value);
     }
 });

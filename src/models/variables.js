@@ -122,11 +122,11 @@ var FlatpakVariablesModel = GObject.registerClass({
         proxy.set_property('variables', values.join(';'));
     }
 
-    loadFromKeyFile(group, key, value, override) {
-        if (!override && value.length === 0)
+    loadFromKeyFile(group, key, value, overrides, global) {
+        if (!overrides && value.length === 0)
             return;
 
-        const dict = override ? this._overrides : this._originals;
+        const dict = this._findProperSet(overrides, global);
         dict[key] = value;
     }
 
@@ -139,6 +139,7 @@ var FlatpakVariablesModel = GObject.registerClass({
 
     reset() {
         this._overrides = {};
+        this._globals = {};
         this._originals = {};
         this._expression = new RegExp(/^\w+=\S+$/);
     }

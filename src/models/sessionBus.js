@@ -117,8 +117,8 @@ var FlatpakSessionBusModel = GObject.registerClass({
         });
     }
 
-    loadFromKeyFile(group, name, option, override) {
-        const dictionary = override ? this._overrides : this._originals;
+    loadFromKeyFile(group, name, option, overrides, global) {
+        const dictionary = this._findProperSet(overrides, global);
         dictionary[option].add(name);
     }
 
@@ -150,12 +150,14 @@ var FlatpakSessionBusModel = GObject.registerClass({
 
     reset() {
         this._overrides = {};
+        this._globals = {};
         this._originals = {};
         this._missing = {};
 
         /* Sets for every possible value */
         ['talk', 'own', 'none'].forEach(option => {
             this._overrides[option] = new Set();
+            this._globals[option] = new Set();
             this._originals[option] = new Set();
             this._missing[option] = new Set();
         });
