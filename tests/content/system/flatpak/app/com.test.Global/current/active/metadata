@@ -1,2 +1,6 @@
 [Context]
 sockets=x11;!wayland;cups;
+
+[Environment]
+TEST1=original
+TEST2=original

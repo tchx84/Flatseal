@@ -71,11 +71,6 @@ var FlatpakVariablesModel = GObject.registerClass({
         return _('List of variables exported to the application');
     }
 
-    static variableSplit(string, separator) {
-        const [key, ...value] = string.split(separator);
-        return [key, value.join(separator)];
-    }
-
     getOptions() { // eslint-disable-line class-methods-use-this
         return null;
     }
@@ -83,43 +78,40 @@ var FlatpakVariablesModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const overrides = {};
         const variables = {};
-        const values = value.split(';');
+        const originals = {...this._originals, ...this._globals};
 
-        values
-            .filter(v => v.length !== 0)
+        value
+            .split(';')
             .filter(v => this._expression.test(v))
-            .map(v => this.constructor.variableSplit(v, '='))
-            .forEach(([_key, _value]) => {
-                variables[_key] = _value;
+            .map(v => v.split(/[=](.*)/s))
+            .forEach(([k, v]) => {
+                variables[k] = v;
             });
 
-        /* Add new variables */
-        Object.entries(variables).forEach(([_key, _value]) => {
-            if (!(_key in this._originals && this._originals[_key] === _value))
-                overrides[_key] = _value;
-        });
+        Object.entries(variables)
+            .filter(([k, v]) => !(k in originals) || originals[k] !== v)
+            .forEach(([k, v]) => {
+                overrides[k] = v;
+            });
 
-        /* Remove original variables */
-        Object.entries(this._originals).forEach(([_key]) => {
-            if (!(_key in variables))
-                overrides[_key] = '';
-        });
+        Object.keys(originals)
+            .filter(k => !(k in variables))
+            .forEach(k => {
+                overrides[k] = '';
+            });
 
         this._overrides = overrides;
     }
 
     updateProxyProperty(proxy) {
-        const originals = Object.entries(this._originals)
-            .filter(([key]) => !(key in this._overrides))
-            .map(([key, value]) => `${key}=${value}`);
+        let variables = {...this._originals, ...this._globals, ...this._overrides};
 
-        const overrides = Object.entries(this._overrides)
+        variables = Object.entries(variables)
             .filter(([, value]) => value.length !== 0)
-            .map(([key, value]) => `${key}=${value}`);
+            .map(([key, value]) => `${key}=${value}`)
+            .join(';');
 
-        const values = [...originals, ...overrides];
-
-        proxy.set_property('variables', values.join(';'));
+        proxy.set_property('variables', variables);
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
