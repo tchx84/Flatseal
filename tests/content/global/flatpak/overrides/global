@@ -1,2 +1,6 @@
 [Context]
 sockets=!x11;wayland;
+
+[Environment]
+TEST1=global
+TEST3=global
