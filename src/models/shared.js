@@ -86,27 +86,48 @@ var FlatpakSharedModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const permission = this.getPermissions()[property];
         const {option} = permission;
-        const negated = !value;
-        const override = negated ? `!${option}` : option;
+        const override = value ? option : `!${option}`;
 
+        /* Determine if this value is an actual override */
+
+        const matchesDefault = value === permission.value;
+
+        const fromOriginals = this._originals.has(override);
+        const fromGlobals = this._globals.has(override);
+
+        const seenInOriginals = this.constructor._isOverriden(this._originals, override);
+        const seenInGlobals = this.constructor._isOverriden(this._globals, override);
+
+        /* Assume it isn't */
         this._overrides.delete(option);
         this._overrides.delete(`!${option}`);
 
-        if (this._originals.has(override))
-            return;
-        if (!this._originals.has(option) && negated)
+        /* Ignore if it came from originals or from globals */
+        if (fromOriginals && !seenInGlobals || fromGlobals)
             return;
 
+        /* Ignore if it's just the default value */
+        if (matchesDefault && !seenInGlobals && !seenInOriginals)
+            return;
+
+        /* It's an override */
         this._overrides.add(override);
+    }
+
+    static _isOverriden(set, permission) {
+        const option = permission.replace('!', '');
+        return set.has(option) || set.has(`!${option}`);
     }
 
     updateProxyProperty(proxy) {
         const originals = [...this._originals]
-            .filter(o => !this._overrides.has(o))
-            .filter(o => !this._overrides.has(`!${o}`))
-            .filter(o => !this._overrides.has(o.replace('!', '')));
+            .filter(o => !this.constructor._isOverriden(this._globals, o))
+            .filter(o => !this.constructor._isOverriden(this._overrides, o));
 
-        const permissions = new Set([...originals, ...this._overrides]);
+        const globals = [...this._globals]
+            .filter(g => !this.constructor._isOverriden(this._overrides, g));
+
+        const permissions = new Set([...originals, ...globals, ...this._overrides]);
 
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             let value = this.constructor.getDefault();
@@ -130,12 +151,7 @@ var FlatpakSharedModel = GObject.registerClass({
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
-        const option = value.replace('!', '');
         const set = this._findProperSet(overrides, global);
-
-        set.delete(option);
-        set.delete(`!${option}`);
-
         set.add(value);
     }
 
