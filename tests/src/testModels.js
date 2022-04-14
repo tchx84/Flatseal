@@ -362,11 +362,25 @@ describe('Model', function() {
         expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
     });
 
-    it('creates overrides only when properties values changed', function(done) {
+    it('creates overrides when properties values changed', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
         permissions.set_property('shared-network', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_overridenOverride, 0)).toEqual(0);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('removes overrides when properties values restore', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _overridenAppId;
+
         permissions.set_property('shared-network', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
