@@ -1,5 +1,6 @@
 [Context]
 sockets=!x11;wayland;
+persistent=.test2
 
 [Environment]
 TEST1=global

@@ -75,16 +75,22 @@ var FlatpakPersistentModel = GObject.registerClass({
     }
 
     updateFromProxyProperty(property, value) {
-        const paths = value.split(';')
+        const originals = new Set([...this._originals, ...this._globals]);
+
+        const overrides = new Set(value
+            .split(';')
             .filter(p => p.length !== 0)
-            .filter(p => !this._originals.has(p));
-        this._overrides = new Set(paths);
+            .filter(p => !originals.has(p)));
+
+        this._overrides = overrides;
     }
 
     updateProxyProperty(proxy) {
-        const union = new Set([...this._originals, ...this._overrides]);
-        const values = [...union].join(';');
-        proxy.set_property('persistent', values);
+        const paths = new Set([...this._originals, ...this._globals, ...this._overrides]);
+
+        const persistent = [...paths].join(';');
+
+        proxy.set_property('persistent', persistent);
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
@@ -95,7 +101,8 @@ var FlatpakPersistentModel = GObject.registerClass({
     }
 
     isOriginal(value) {
-        return this._originals.has(value);
+        const originals = new Set([...this._originals, ...this._globals]);
+        return originals.has(value);
     }
 });
 

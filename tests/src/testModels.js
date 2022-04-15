@@ -1120,6 +1120,7 @@ describe('Model', function() {
         expect(permissions.sockets_wayland).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
         expect(permissions.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
+        expect(permissions.persistent).toEqual('.test1;.test2');
     });
 
     it('handles overriding apps already globally overridden', function(done) {
@@ -1158,6 +1159,23 @@ describe('Model', function() {
             expect(has(_globalWithGlobalOverride, 'Environment', 'TEST2', 'override')).toBe(true);
             expect(has(_globalWithGlobalOverride, 'Environment', 'TEST4', 'override')).toBe(true);
             expect(hasInTotal(_globalWithGlobalOverride)).toEqual(3);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles persistent path already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.persistent).toEqual('.test1;.test2');
+        permissions.set_property('persistent', '.test1;.test2;.test3');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalWithGlobalOverride, 'Context', 'persistent', '.test3')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(1);
             done();
             return GLib.SOURCE_REMOVE;
         });
