@@ -1,0 +1,544 @@
+# Chinese (China) translation for Flatseal.
+# Copyright (C) 2022
+# This file is distributed under the same license as the flatseal package.
+# Eric Zhang <ericzhang456@hotmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
+"PO-Revision-Date: 2022-04-15 10:22+0800\n"
+"Last-Translator: Eric Zhang <ericzhang456@hotmail.com>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "管理 Flatpak 权限"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr "封条;沙盒;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr "Flatseal 是一个可以可以查看并修改 Flatpak 程序的图形工具。"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+msgid "Unknown"
+msgstr "未知"
+
+#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "调用"
+
+#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "拥有"
+
+#: src/models/sessionBus.js:81
+msgid "List of well-known names on the session bus"
+msgstr "会话总线上已知名称"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "系统总线上已知名称"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU 加速"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "虚拟化"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "共享内存"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "所有设备（如：摄像头）"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "沙盒中可提供的设备"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "开发者系统调用（如：ptrace）"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "来自其他架构的程序"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "蓝牙"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "控制器局域网总线"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "程序共享内存"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "程序可提供的系统功能"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "所有系统文件"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "所有系统资源库，可执行文件和静态数据"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "所有系统配置文件"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "所有用户文件"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+msgid "List of filesystem subsets available to the application"
+msgstr "程序可以访问的文件系统"
+
+#: src/models/filesystemsOther.js:37
+msgid "Other files"
+msgstr "其他文件"
+
+#: src/models/filesystemsOther.js:40
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "如：~/games:ro, xdg-pictures 等"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "文件"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "如：.thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "沙盒在主目录所创建的路径"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "后台"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "允许在后台运行"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "通知"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "允许发送通知"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "麦克风"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "允许使用麦克风"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "声音"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "允许播放声音"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "摄像头"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "允许使用摄像头"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "定位"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "允许访问位置信息"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "程序可以访问的资源"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:39
+msgid "Not supported by the installed version of Flatpak"
+msgstr "不支持所安装 Flatpak 的版本"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "需要存储权限版本 2 及以上"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "资源门户还没有配置完成"
+
+#: src/models/shared.js:38
+msgid "Network"
+msgstr "网络"
+
+#: src/models/shared.js:45
+msgid "Inter-process communications"
+msgstr "进程间通信"
+
+#: src/models/shared.js:78
+msgid "List of subsystems shared with the host system"
+msgstr "与主机所共享的子系统"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 显示系统"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland 显示系统"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "回退到 X11 显示系统"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio 音频服务器"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus 会话总线"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus 系统总线"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "SSH 代理"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "智能卡"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "打印系统"
+
+#: src/models/sockets.js:118
+msgid "List of well-known sockets available in the sandbox"
+msgstr "沙盒可提供的接口"
+
+#: src/models/variables.js:38
+msgid "Variables"
+msgstr "环境变量"
+
+#: src/models/variables.js:41
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "如：GTK_DEBUG=interactive"
+
+#: src/models/variables.js:71
+msgid "List of variables exported to the application"
+msgstr "导出到程序的环境变量"
+
+#: src/widgets/aboutDialog.js:38
+msgid "Contributions by"
+msgstr "贡献者"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%Y %B %e"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "版本"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "最后更新"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "运行环境"
+
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
+#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+msgid "This is not a valid option"
+msgstr "非法选项"
+
+#: src/widgets/detailsButton.js:59
+msgid "_Show Details"
+msgstr "_显示细节"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "在软件管理器中显示程序"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "没有找到软件管理器"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_帮助"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_文档"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_快捷键"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_关于 Flatseal"
+
+#: src/widgets/pathRow.js:26
+msgid "this absolute path"
+msgstr "绝对路径"
+
+#: src/widgets/pathRow.js:27
+msgid "this path relative to the home directory"
+msgstr "主目录的相对路径"
+
+#: src/widgets/pathRow.js:28
+msgid "all system configurations"
+msgstr "所有系统配置文件"
+
+#: src/widgets/pathRow.js:29
+msgid "all system libraries, executables and static data"
+msgstr "所有系统资源库，可执行文件和静态数据"
+
+#: src/widgets/pathRow.js:30
+msgid "all system files"
+msgstr "所有系统文件"
+
+#: src/widgets/pathRow.js:31
+msgid "all user files"
+msgstr "所有用户文件"
+
+#: src/widgets/pathRow.js:32
+msgid "the desktop directory"
+msgstr "桌面目录"
+
+#: src/widgets/pathRow.js:33
+msgid "the documents directory"
+msgstr "文档目录"
+
+#: src/widgets/pathRow.js:34
+msgid "the download directory"
+msgstr "下载目录"
+
+#: src/widgets/pathRow.js:35
+msgid "the music directory"
+msgstr "音乐目录"
+
+#: src/widgets/pathRow.js:36
+msgid "the pictures directory"
+msgstr "图片目录"
+
+#: src/widgets/pathRow.js:37
+msgid "the public directory"
+msgstr "公共目录"
+
+#: src/widgets/pathRow.js:38
+msgid "the videos directory"
+msgstr "视频目录"
+
+#: src/widgets/pathRow.js:39
+msgid "the templates directory"
+msgstr "模板目录"
+
+#: src/widgets/pathRow.js:40
+msgid "the config directory"
+msgstr "配置目录"
+
+#: src/widgets/pathRow.js:41
+msgid "the cache directory"
+msgstr "缓存目录"
+
+#: src/widgets/pathRow.js:42
+msgid "the data directory"
+msgstr "数据目录"
+
+#: src/widgets/pathRow.js:43
+msgid "the runtime directory"
+msgstr "运行环境目录"
+
+#: src/widgets/pathRow.js:58
+#, javascript-format
+msgid "Can read: %s"
+msgstr "可以读取：%s"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "可以读取并修改：%s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "可以创建，读取并修改：%s"
+
+#: src/widgets/pathRow.js:66
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "不可以读取：%s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "不可以读取并修改：%s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "不可以创建，读取并修改：%s"
+
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr "未设置"
+
+#: src/widgets/relativePathRow.js:78
+msgid "Default paths can't be removed"
+msgstr "无法移除默认路径"
+
+#: src/widgets/resetButton.js:45
+msgid "_Reset"
+msgstr "_重置"
+
+#: src/widgets/resetButton.js:63
+msgid "No changes made to this application"
+msgstr "程序权限没有被修改"
+
+#: src/widgets/resetButton.js:66
+msgid "Reset this application permissions"
+msgstr "重置程序权限"
+
+#: src/widgets/resetButton.js:68
+msgid ", including changes not made with Flatseal"
+msgstr "，包括未通过 Flatseal 修改的权限"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr "通用"
+
+#: src/widgets/shortcutsWindow.ui:19
+msgid "Show mnemonics"
+msgstr "显示助记符"
+
+#: src/widgets/shortcutsWindow.ui:26
+msgid "Show documentation"
+msgstr "显示文档"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr "显示菜单"
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr "快捷键"
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr "退出"
+
+#: src/widgets/shortcutsWindow.ui:55
+msgid "Navigation"
+msgstr "列表"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr "向左移动"
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr "向上移动"
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr "向右移动"
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr "向下移动"
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "程序"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr "寻找"
+
+#: src/widgets/shortcutsWindow.ui:102
+msgid "Permissions"
+msgstr "权限"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr "打开/关闭"
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "文档"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr "查找下一个"
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr "查找上一个"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "权限已被重置"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "撤销"
+
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
+msgid "No applications found."
+msgstr "没有找到程序"
