@@ -1,5 +1,6 @@
 [Context]
 sockets=x11;!wayland;cups;
+persistent=.test1
 
 [Environment]
 TEST1=original
