@@ -1,6 +1,7 @@
 [Context]
 sockets=x11;!wayland;cups;
 persistent=.test1
+filesystems=!~/test0;~/test1;~/test2;
 
 [Environment]
 TEST1=original

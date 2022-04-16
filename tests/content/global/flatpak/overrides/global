@@ -1,6 +1,7 @@
 [Context]
 sockets=!x11;wayland;
 persistent=.test2
+filesystems=~/test0;!~/test1;~/test3
 
 [Environment]
 TEST1=global
