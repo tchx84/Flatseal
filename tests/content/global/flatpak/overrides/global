@@ -6,3 +6,7 @@ filesystems=~/test0;!~/test1;~/test3
 [Environment]
 TEST1=global
 TEST3=global
+
+[Session Bus Policy]
+org.test.Service-1=none
+org.test.Service-3=talk

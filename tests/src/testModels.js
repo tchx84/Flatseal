@@ -1122,6 +1122,8 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
         expect(permissions.persistent).toEqual('.test1;.test2');
         expect(permissions.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissions.session_talk).toEqual('org.test.Service-3');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
     });
 
     it('handles overriding apps already globally overridden', function(done) {
@@ -1196,6 +1198,31 @@ describe('Model', function() {
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test3')).toBe(true);
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '~/test4')).toBe(true);
             expect(hasInTotal(_globalWithGlobalOverride)).toEqual(3);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles well-known names already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.session_talk).toEqual('org.test.Service-3');
+        permissions.set_property('session_talk', 'org.test.Service-4');
+
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+        permissions.set_property('session_own', 'org.test.Service-5');
+
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = 'Session Bus Policy';
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-3', 'none')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-4', 'talk')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-2', 'none')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-5', 'own')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(4);
             done();
             return GLib.SOURCE_REMOVE;
         });
