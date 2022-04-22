@@ -1,0 +1,15 @@
+[Context]
+sockets=x11;!wayland
+persistent=.test3
+filesystems=!~/test2;!~/test3;~/test4
+
+[Environment]
+TEST1=
+TEST2=override
+TEST4=override
+
+[Session Bus Policy]
+org.test.Service-3=none
+org.test.Service-4=talk
+org.test.Service-2=none
+org.test.Service-5=own
