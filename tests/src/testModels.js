@@ -51,6 +51,7 @@ const _variablesAppId = 'com.test.Variables';
 const _trailingSemicolonId = 'com.test.TrailingSemicolon';
 const _filesystemWithMode = 'com.test.FilesystemWithMode';
 const _globalAppId = 'com.test.Global';
+const _globalRestoredAppId = 'com.test.GlobalRestored';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -1228,5 +1229,19 @@ describe('Model', function() {
         });
 
         update();
+    });
+
+    it('restores all overriden global overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalRestoredAppId;
+
+        expect(permissions.sockets_x11).toBe(true);
+        expect(permissions.sockets_wayland).toBe(false);
+        expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.variables).toEqual('TEST2=override;TEST3=global;TEST4=override');
+        expect(permissions.persistent).toEqual('.test1;.test2;.test3');
+        expect(permissions.filesystems_other).toEqual('~/test4');
+        expect(permissions.session_talk).toEqual('org.test.Service-4');
+        expect(permissions.session_own).toEqual('org.test.Service-5');
     });
 });
