@@ -7,6 +7,7 @@
 - Fixed Polish translation.
 - Added Danish translation.
 - Added support for system color schemes.
+- Added support for taking global overrides into account.
 - Changed shortcuts window to be modal.
 - Changed documentation window to be modal.
 - Changed meson to 0.59.
