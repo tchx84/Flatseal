@@ -42,6 +42,11 @@ var FlatpakUnsupportedModel = GObject.registerClass({
         return false;
     }
 
+    updateStatusProperty() {
+
+        /* does not apply to this backend */
+    }
+
     updateProxyProperty() { // eslint-disable-line class-methods-use-this
         return false;
     }

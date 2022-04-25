@@ -20,6 +20,7 @@
 
 const {GObject} = imports.gi;
 const {info} = imports.models;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 var FlatpakSharedModel = GObject.registerClass({
@@ -117,6 +118,27 @@ var FlatpakSharedModel = GObject.registerClass({
     static _isOverriden(set, permission) {
         const option = permission.replace('!', '');
         return set.has(option) || set.has(`!${option}`);
+    }
+
+    _getStatusForPermission(permission) {
+        let status = FlatsealOverrideStatus.ORIGINAL;
+
+        if (this._globals.has(permission) || this._globals.has(`!${permission}`))
+            status = FlatsealOverrideStatus.GLOBAL;
+        if (this._overrides.has(permission) || this._overrides.has(`!${permission}`))
+            status = FlatsealOverrideStatus.USER;
+
+        return status;
+    }
+
+    updateStatusProperty(proxy) {
+        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
+            const {option} = permission;
+            const statusProperty = `${property}-status`;
+            const status = this._getStatusForPermission(option);
+
+            proxy.set_property(statusProperty, status);
+        });
     }
 
     updateProxyProperty(proxy) {
