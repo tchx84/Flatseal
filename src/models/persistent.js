@@ -85,6 +85,15 @@ var FlatpakPersistentModel = GObject.registerClass({
         this._overrides = overrides;
     }
 
+    updateStatusProperty(proxy) {
+        const values = proxy.persistent
+            .split(';')
+            .filter(p => p.length !== 0)
+            .map(p => this._getStatusForPermission(p));
+
+        proxy.set_property('persistent-status', values.join(';'));
+    }
+
     updateProxyProperty(proxy) {
         const paths = new Set([...this._originals, ...this._globals, ...this._overrides]);
 

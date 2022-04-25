@@ -30,6 +30,7 @@ const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 const {filesystems, persistent, portals} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -70,6 +71,11 @@ function generate() {
             } else {
                 logError(`No support for ${property}:${typeof value}`);
             }
+
+            /* overrides status */
+            const statusProperty = `${property}-status`;
+            properties[statusProperty] = GObject.ParamSpec.string(
+                statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
         });
     });
 
@@ -205,6 +211,14 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
 
+    _updateStatusProperties() {
+        GObject.signal_handler_block(this, this._notifyHandlerId);
+
+        Object.values(MODELS).forEach(model => model.updateStatusProperty(this));
+
+        GObject.signal_handler_unblock(this, this._notifyHandlerId);
+    }
+
     _delayedUpdate() {
         if (this._delayedHandlerId !== 0)
             GLib.Source.remove(this._delayedHandlerId);
@@ -231,6 +245,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         });
 
         this._saveOverrides();
+        this._updateStatusProperties();
 
         this._delayedHandlerId = 0;
         return GLib.SOURCE_REMOVE;
@@ -242,6 +257,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._loadGlobalOverrides();
         this._loadOverrides();
         this._updateProperties();
+        this._updateStatusProperties();
     }
 
     getAll() {
@@ -262,6 +278,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupTitle'] = model.constructor.getTitle();
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
+                entry['statusProperty'] = `${property}-status`;
 
                 list.push(entry);
             });

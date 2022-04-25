@@ -293,6 +293,11 @@ var FlatpakPortalsModel = GObject.registerClass({
         }
     }
 
+    updateStatusProperty() {
+
+        /* does not apply to this backend */
+    }
+
     updateProxyProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             if (!this.isSupported(permission.table, permission.id)) {

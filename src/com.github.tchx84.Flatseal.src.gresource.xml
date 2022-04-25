@@ -22,6 +22,7 @@
     <file>widgets/window.js</file>
     <file>models/applications.js</file>
     <file>models/info.js</file>
+    <file>models/overrideStatus.js</file>
     <file>models/unsupported.js</file>
     <file>models/persistent.js</file>
     <file>models/permissions.js</file>

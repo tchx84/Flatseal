@@ -21,6 +21,7 @@
 const {GObject} = imports.gi;
 
 const {FlatpakSharedModel} = imports.models.shared;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 var FlatpakSessionBusModel = GObject.registerClass({
@@ -117,6 +118,34 @@ var FlatpakSessionBusModel = GObject.registerClass({
             return;
 
         this._overrides = {...this._missing, ...this._overrides};
+    }
+
+    _getStatusForPermission(name) {
+        let status = FlatsealOverrideStatus.ORIGINAL;
+
+        if (name in this._globals)
+            status = FlatsealOverrideStatus.GLOBAL;
+        if (name in this._overrides)
+            status = FlatsealOverrideStatus.USER;
+
+        return status;
+    }
+
+    updateStatusProperty(proxy) {
+        const prefix = this.constructor.getPrefix();
+
+        const talk_values = proxy[`${prefix}-talk`]
+            .split(';')
+            .filter(n => n.length !== 0)
+            .map(n => this._getStatusForPermission(n));
+
+        const own_values = proxy[`${prefix}-own`]
+            .split(';')
+            .filter(n => n.length !== 0)
+            .map(n => this._getStatusForPermission(n));
+
+        proxy.set_property(`${prefix}-talk-status`, talk_values.join(';'));
+        proxy.set_property(`${prefix}-own-status`, own_values.join(';'));
     }
 
     updateProxyProperty(proxy) {

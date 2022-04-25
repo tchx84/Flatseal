@@ -21,6 +21,7 @@
 const {GObject} = imports.gi;
 
 const {FlatpakSharedModel} = imports.models.shared;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 var FlatpakVariablesModel = GObject.registerClass({
@@ -101,6 +102,27 @@ var FlatpakVariablesModel = GObject.registerClass({
             });
 
         this._overrides = overrides;
+    }
+
+    _getStatusForPermission(variable) {
+        const [key] = variable.split(/[=](.*)/s);
+
+        let status = FlatsealOverrideStatus.ORIGINAL;
+        if (key in this._globals)
+            status = FlatsealOverrideStatus.GLOBAL;
+        if (key in this._overrides)
+            status = FlatsealOverrideStatus.USER;
+
+        return status;
+    }
+
+    updateStatusProperty(proxy) {
+        const values = proxy.variables
+            .split(';')
+            .filter(v => v.length !== 0)
+            .map(v => this._getStatusForPermission(v));
+
+        proxy.set_property('variables-status', values.join(';'));
     }
 
     updateProxyProperty(proxy) {
