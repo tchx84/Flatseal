@@ -49,6 +49,13 @@ row .content .path {
     background-color: @theme_bg_color;
 }
 
+row .status {
+    color: @theme_selected_bg_color;
+}
+row.activatable .status {
+    margin-right: 8px;
+}
+
 row .content .bus entry,
 row .content .variable entry,
 row .content .path entry {

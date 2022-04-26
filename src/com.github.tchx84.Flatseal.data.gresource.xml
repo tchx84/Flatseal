@@ -8,6 +8,7 @@
     <file>widgets/busNameRow.ui</file>
     <file>widgets/docsViewer.ui</file>
     <file>widgets/menu.ui</file>
+    <file>widgets/overrideStatusIcon.ui</file>
     <file>widgets/pathRow.ui</file>
     <file>widgets/pathsViewer.ui</file>
     <file>widgets/permissionEntryRow.ui</file>
