@@ -20,6 +20,8 @@
 
 const {GObject, Gtk} = imports.gi;
 
+const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
+
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
 /* https://dbus.freedesktop.org/doc/dbus-specification.html */
@@ -36,7 +38,7 @@ const _notValidMsg = _('This is not a valid option');
 var FlatsealBusNameRow = GObject.registerClass({
     GTypeName: 'FlatsealBusNameRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/busNameRow.ui',
-    InternalChildren: ['entry', 'button', 'store', 'image'],
+    InternalChildren: ['entry', 'button', 'store', 'image', 'statusBox'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
@@ -58,6 +60,9 @@ var FlatsealBusNameRow = GObject.registerClass({
 
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
+
+        this._statusIcon = new FlatsealOverrideStatusIcon();
+        this._statusBox.add(this._statusIcon);
     }
 
     _remove() {
@@ -96,5 +101,13 @@ var FlatsealBusNameRow = GObject.registerClass({
         if (this.text === text)
             return;
         this._entry.set_text(text);
+    }
+
+    get status() {
+        return this._statusIcon.status;
+    }
+
+    set status(status) {
+        this._statusIcon.status = status;
     }
 });
