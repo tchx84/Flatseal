@@ -19,12 +19,13 @@
  */
 
 const {GObject, Handy} = imports.gi;
+const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
 
 
 var FlatsealPermissionSwitchRow = GObject.registerClass({
     GTypeName: 'FlatsealPermissionSwitchRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionSwitchRow.ui',
-    InternalChildren: ['content'],
+    InternalChildren: ['content', 'statusBox'],
 }, class FlatsealPermissionSwitchRow extends Handy.ActionRow {
     _init(description, permission, content) {
         super._init({});
@@ -32,6 +33,9 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
         this.set_subtitle(permission);
         this._content.set_state(content);
         this.connect('notify::sensitive', this._update.bind(this));
+
+        this._statusIcon = new FlatsealOverrideStatusIcon();
+        this._statusBox.add(this._statusIcon);
     }
 
     _update() {
@@ -43,5 +47,9 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
 
     get content() {
         return this._content;
+    }
+
+    get status() {
+        return this._statusIcon;
     }
 });
