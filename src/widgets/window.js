@@ -195,7 +195,13 @@ var FlatsealWindow = GObject.registerClass({
 
             row.sensitive = p.supported;
             lastPrefsGroup.add(row);
+
             this._permissions.bind_property(p.property, row.content, property, _bindFlags);
+
+            if (!row.status)
+                return;
+
+            this._permissions.bind_property(p.statusProperty, row.status, 'status', _bindFlags);
         });
 
         this.connect('delete-event', this._saveSettings.bind(this));
