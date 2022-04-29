@@ -1,0 +1,12 @@
+[Context]
+shared=unsupported
+sockets=!x11;wayland;
+persistent=.test2
+filesystems=~/test2
+
+[Environment]
+TEST1=global
+
+[Session Bus Policy]
+org.test.Service-3=talk
+org.test.Service-4=own

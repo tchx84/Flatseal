@@ -1,0 +1,13 @@
+[Context]
+sockets=x11;!wayland;cups;
+persistent=.test1
+filesystems=~/test1
+
+[Environment]
+TEST0=original
+TEST1=original
+TEST2=original
+
+[Session Bus Policy]
+org.test.Service-1=talk
+org.test.Service-2=own
