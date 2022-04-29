@@ -52,6 +52,7 @@ const _trailingSemicolonId = 'com.test.TrailingSemicolon';
 const _filesystemWithMode = 'com.test.FilesystemWithMode';
 const _globalAppId = 'com.test.Global';
 const _globalRestoredAppId = 'com.test.GlobalRestored';
+const _statusesAppId = 'com.test.Statuses';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -60,6 +61,7 @@ const _flatpakInfoNew = GLib.build_filenamev(['..', 'tests', 'content', '.flatpa
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
+const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
@@ -1243,5 +1245,19 @@ describe('Model', function() {
         expect(permissions.filesystems_other).toEqual('~/test4');
         expect(permissions.session_talk).toEqual('org.test.Service-4');
         expect(permissions.session_own).toEqual('org.test.Service-5');
+    });
+
+    it('sets proper override statuses', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _statuses, true);
+        permissions.appId = _statusesAppId;
+
+        expect(permissions.sockets_cups_status).toEqual('original');
+        expect(permissions.sockets_wayland_status).toEqual('global');
+        expect(permissions.sockets_x11_status).toEqual('user');
+        expect(permissions.variables_status).toEqual('original;global;user');
+        expect(permissions.persistent_status).toEqual('original;global;user');
+        expect(permissions.filesystems_other_status).toEqual('original;global;user');
+        expect(permissions.session_talk_status).toEqual('original;global;user');
+        expect(permissions.session_own_status).toEqual('original;global;user');
     });
 });
