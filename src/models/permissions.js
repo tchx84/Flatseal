@@ -101,14 +101,25 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._delayedHandlerId = 0;
         this._applications = new FlatpakApplicationsModel();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
+        this._ensureBaseOverridesPath();
+    }
+
+    _ensureBaseOverridesPath() {
+        const path = this._getBaseOverridesPath();
+        if (GLib.access(path, 0) !== 0)
+            GLib.mkdir_with_parents(path, 0o0755);
+    }
+
+    _getBaseOverridesPath() {
+        return GLib.build_filenamev([this._applications.userPath, 'overrides']);
     }
 
     _getGlobalOverridesPath() {
-        return GLib.build_filenamev([this._applications.userPath, 'overrides', 'global']);
+        return GLib.build_filenamev([this._getBaseOverridesPath(), 'global']);
     }
 
     _getOverridesPath() {
-        return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
+        return GLib.build_filenamev([this._getBaseOverridesPath(), this._appId]);
     }
 
     static _loadPermissionsForPath(path, overrides, global) {
