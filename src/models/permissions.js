@@ -31,6 +31,7 @@ const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const {isGlobalOverride} = imports.models.globalModel;
 const {filesystems, persistent, portals} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -163,17 +164,23 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _loadPermissions() {
-        return this.constructor._loadPermissionsForPath(
+        if (isGlobalOverride(this._appId))
+            return;
+
+        this.constructor._loadPermissionsForPath(
             this._applications.getMetadataPathForAppId(this._appId), false, false);
     }
 
     _loadGlobalOverrides() {
-        return this.constructor._loadPermissionsForPath(
+        if (isGlobalOverride(this._appId))
+            return;
+
+        this.constructor._loadPermissionsForPath(
             this._getGlobalOverridesPath(), true, true);
     }
 
     _loadOverrides() {
-        return this.constructor._loadPermissionsForPath(
+        this.constructor._loadPermissionsForPath(
             this._getOverridesPath(), true, false);
     }
 
