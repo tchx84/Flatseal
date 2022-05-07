@@ -22,6 +22,7 @@
     <file>widgets/variableRow.js</file>
     <file>widgets/window.js</file>
     <file>models/applications.js</file>
+    <file>models/globalModel.js</file>
     <file>models/info.js</file>
     <file>models/overrideStatus.js</file>
     <file>models/unsupported.js</file>
