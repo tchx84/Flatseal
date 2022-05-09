@@ -7,6 +7,7 @@
     <file>widgets/applicationRow.ui</file>
     <file>widgets/busNameRow.ui</file>
     <file>widgets/docsViewer.ui</file>
+    <file>widgets/globalRow.ui</file>
     <file>widgets/menu.ui</file>
     <file>widgets/overrideStatusIcon.ui</file>
     <file>widgets/pathRow.ui</file>
