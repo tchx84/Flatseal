@@ -9,6 +9,7 @@
     <file>widgets/busNameRow.js</file>
     <file>widgets/detailsButton.js</file>
     <file>widgets/docsViewer.js</file>
+    <file>widgets/globalInfoViewer.js</file>
     <file>widgets/globalRow.js</file>
     <file>widgets/overrideStatusIcon.js</file>
     <file>widgets/pathRow.js</file>
