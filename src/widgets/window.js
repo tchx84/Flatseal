@@ -24,7 +24,9 @@ const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakPermissionsModel} = imports.models.permissions;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
+const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
 const {FlatsealApplicationRow} = imports.widgets.applicationRow;
+const {FlatsealGlobalRow} = imports.widgets.globalRow;
 const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
 const {FlatsealPermissionPortalRow} = imports.widgets.permissionPortalRow;
 const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
@@ -36,6 +38,7 @@ const {FlatsealUndoPopup} = imports.widgets.undoPopup;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
 const {FlatsealBusNameRow} = imports.widgets.busNameRow;
 const {FlatsealSettingsModel} = imports.models.settings;
+const {isGlobalOverride} = imports.models.globalModel;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
@@ -98,8 +101,8 @@ var FlatsealWindow = GObject.registerClass({
         this._resetHeaderButton = new FlatsealResetButton(this._permissions);
         this._endHeaderBox.add(this._resetHeaderButton);
 
-        const detailsActionButton = new FlatsealDetailsButton(this._permissions);
-        this._startActionBox.add(detailsActionButton);
+        this._detailsActionButton = new FlatsealDetailsButton(this._permissions);
+        this._startActionBox.add(this._detailsActionButton);
         const resetActionButton = new FlatsealResetButton(this._permissions);
         this._endActionBox.add(resetActionButton);
 
@@ -123,11 +126,21 @@ var FlatsealWindow = GObject.registerClass({
             this._applicationsListBox.add(row);
         });
 
+        /* Add row for global overrides */
+        this._globalRow = new FlatsealGlobalRow();
+        this._applicationsListBox.add(this._globalRow);
+
         this._appInfoViewer = new FlatsealAppInfoViewer();
         this._appInfoViewer.show();
         this._appInfoGroup.add(this._appInfoViewer);
         this._contentLeaflet.bind_property(
             'folded', this._appInfoViewer, 'compact', _bindReadFlags);
+
+        this._globalInfoViewer = new FlatsealGlobalInfoViewer();
+        this._globalInfoViewer.show();
+        this._appInfoGroup.add(this._globalInfoViewer);
+        this._contentLeaflet.bind_property(
+            'folded', this._globalInfoViewer, 'compact', _bindReadFlags);
 
         let lastGroup = '';
         let lastPrefsGroup;
@@ -195,6 +208,7 @@ var FlatsealWindow = GObject.registerClass({
 
             row.sensitive = p.supported;
             lastPrefsGroup.add(row);
+            this._portalsGroup = lastPrefsGroup;
 
             this._permissions.bind_property(p.property, row.content, property, _bindFlags);
 
@@ -214,7 +228,7 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
         /* select after the list has been sorted */
-        const row = this._applicationsListBox.get_row_at_index(0);
+        const row = this._applicationsListBox.get_row_at_index(1);
         this._applicationsListBox.select_row(row);
         this._updatePermissions();
 
@@ -263,11 +277,28 @@ var FlatsealWindow = GObject.registerClass({
         this._updatePermissions();
     }
 
+    _updatePermissionsPane(appId) {
+        if (isGlobalOverride(appId)) {
+            this._appInfoViewer.visible = false;
+            this._globalInfoViewer.visible = true;
+            this._portalsGroup.visible = false;
+            this._detailsHeaderButton.sensitive = false;
+            this._detailsActionButton.sensitive = false;
+        } else {
+            this._appInfoViewer.appId = appId;
+            this._appInfoViewer.visible = true;
+            this._globalInfoViewer.visible = false;
+            this._portalsGroup.visible = true;
+            this._detailsHeaderButton.sensitive = true;
+            this._detailsActionButton.sensitive = true;
+        }
+    }
+
     _updatePermissions() {
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
         this._permissionsHeaderBar.set_title(row.appName);
-        this._appInfoViewer.appId = row.appId;
+        this._updatePermissionsPane(row.appId);
         this._undoPopup.close();
 
         this._applicationsDelayHandlerId = 0;
@@ -297,6 +328,9 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _sort(row1, row2) { // eslint-disable-line class-methods-use-this
+        if (isGlobalOverride(row1.appId) || isGlobalOverride(row2.appId))
+            return 1;
+
         const name1 = row1.appName.toLowerCase();
         const name2 = row2.appName.toLowerCase();
 
@@ -359,9 +393,13 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _focusOnPermissions() {
-        const [firstGroup] = this._permissionsBox.get_children();
-        const [firstRow] = firstGroup.get_children();
-        firstRow.grab_focus();
+        let widget = this._appInfoViewer;
+
+        const row = this._applicationsListBox.get_selected_row();
+        if (isGlobalOverride(row.appId))
+            widget = this._globalInfoViewer;
+
+        widget.grab_focus();
     }
 
     _focusContent() {
