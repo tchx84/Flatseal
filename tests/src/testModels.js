@@ -65,6 +65,7 @@ const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'f
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
+const _globalOverride = GLib.build_filenamev([_overrides, 'global']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
@@ -124,6 +125,7 @@ describe('Model', function() {
         GLib.unlink(_busOverride);
         GLib.unlink(_filesystemWithModeOverride);
         GLib.unlink(_globalWithGlobalOverride);
+        GLib.unlink(_globalOverride);
     });
 
     it('loads applications', function() {
@@ -1259,5 +1261,42 @@ describe('Model', function() {
         expect(permissions.filesystems_other_status).toEqual('original;global;user');
         expect(permissions.session_talk_status).toEqual('original;global;user');
         expect(permissions.session_own_status).toEqual('original;global;user');
+    });
+
+    it('handles writting global overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = 'global';
+
+        expect(permissions.sockets_x11).toBe(false);
+        permissions.set_property('sockets-x11', true);
+
+        expect(permissions.variables).toEqual('');
+        permissions.set_property('variables', 'TEST=override');
+
+        expect(permissions.persistent).toEqual('');
+        permissions.set_property('persistent', '.test');
+
+        expect(permissions.filesystems_other).toEqual('');
+        permissions.set_property('filesystems_other', '~/test');
+
+        expect(permissions.session_talk).toEqual('');
+        permissions.set_property('session_talk', 'org.test.Talk');
+
+        expect(permissions.session_own).toEqual('');
+        permissions.set_property('session_own', 'org.test.Own');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalOverride, 'Context', 'sockets', 'x11')).toBe(true);
+            expect(has(_globalOverride, 'Environment', 'TEST', 'override')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'persistent', '.test')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'filesystems', '~/test')).toBe(true);
+            expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Talk', 'talk')).toBe(true);
+            expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Own', 'own')).toBe(true);
+            expect(hasInTotal(_globalOverride)).toEqual(6);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
     });
 });
