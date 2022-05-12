@@ -1,4 +1,4 @@
-/* exported FlatpakPermissionsModel */
+/* exported FlatpakPermissionsModel getDefault */
 
 /* permissions.js
  *
@@ -350,3 +350,13 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return MODELS[group].constructor.getGroup();
     }
 });
+
+
+var getDefault = (function() {
+    let instance;
+    return function() {
+        if (typeof instance === 'undefined')
+            instance = new FlatpakPermissionsModel();
+        return instance;
+    };
+}());
