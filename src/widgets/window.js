@@ -20,8 +20,7 @@
 
 const {GObject, GLib, Gtk, Handy} = imports.gi;
 
-const {FlatpakApplicationsModel} = imports.models.applications;
-const {FlatpakPermissionsModel} = imports.models.permissions;
+const {applications, permissions} = imports.models;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
@@ -90,11 +89,11 @@ var FlatsealWindow = GObject.registerClass({
         this._settings = new FlatsealSettingsModel();
         this._settings.restoreWindowState(this);
 
-        this._permissions = new FlatpakPermissionsModel();
-        this._applications = new FlatpakApplicationsModel();
+        this._permissions = permissions.getDefault();
+        this._applications = applications.getDefault();
 
-        const applications = this._applications.getAll();
-        const permissions = this._permissions.getAll();
+        const allApplications = this._applications.getAll();
+        const allPermissions = this._permissions.getAll();
 
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
         this._startHeaderBox.add(this._detailsHeaderButton);
@@ -115,12 +114,12 @@ var FlatsealWindow = GObject.registerClass({
         this._permissionsHeaderBar.connect_after(
             'size-allocate', this._updateVisibility.bind(this));
 
-        if (applications.length === 0 || permissions.length === 0)
+        if (allApplications.length === 0 || allPermissions.length === 0)
             return;
 
         const iconTheme = Gtk.IconTheme.get_default();
 
-        applications.forEach(app => {
+        allApplications.forEach(app => {
             iconTheme.append_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
             this._applicationsListBox.add(row);
@@ -145,7 +144,7 @@ var FlatsealWindow = GObject.registerClass({
         let lastGroup = '';
         let lastPrefsGroup;
 
-        permissions.forEach(p => {
+        allPermissions.forEach(p => {
             let row;
             let property = 'text';
 

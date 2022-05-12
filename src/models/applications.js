@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* exported FlatpakApplicationsModel */
+/* exported FlatpakApplicationsModel getDefault */
 
 const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
 
@@ -336,3 +336,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return this._getUserPath();
     }
 });
+
+
+var getDefault = (function() {
+    let instance;
+    return function() {
+        if (typeof instance === 'undefined')
+            instance = new FlatpakApplicationsModel();
+        return instance;
+    };
+}());
