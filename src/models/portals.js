@@ -396,6 +396,13 @@ var FlatpakPortalsModel = GObject.registerClass({
         });
     }
 
+    getVersion() {
+        if (this._proxy === null)
+            return null;
+
+        return this._proxy.version;
+    }
+
     set appId(appId) {
         this._appId = appId;
     }
