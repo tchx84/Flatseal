@@ -19,6 +19,7 @@
  */
 
 const {GObject, Gtk} = imports.gi;
+const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -75,7 +76,7 @@ const _notValidMsg = _('This is not a valid option');
 var FlatsealPathRow = GObject.registerClass({
     GTypeName: 'FlatsealPathRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/pathRow.ui',
-    InternalChildren: ['entry', 'button', 'store', 'image'],
+    InternalChildren: ['entry', 'button', 'store', 'image', 'statusBox'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
@@ -99,6 +100,9 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _setup() {
+        this._statusIcon = new FlatsealOverrideStatusIcon();
+        this._statusBox.add(this._statusIcon);
+
         Object.keys(_options).forEach(option => {
             this._store.set(this._store.append(), [0], [option]);
             this._store.set(this._store.append(), [0], [`!${option}`]);
@@ -224,5 +228,13 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._mode = value;
         this.notify('mode');
+    }
+
+    get status() {
+        return this._statusIcon.status;
+    }
+
+    set status(status) {
+        this._statusIcon.status = status;
     }
 });

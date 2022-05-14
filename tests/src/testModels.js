@@ -23,6 +23,7 @@ const {
     update,
     has,
     hasOnly,
+    hasInTotal,
     startService,
     waitForService,
     stopService,
@@ -49,6 +50,9 @@ const _busAppId = 'com.test.Bus';
 const _variablesAppId = 'com.test.Variables';
 const _trailingSemicolonId = 'com.test.TrailingSemicolon';
 const _filesystemWithMode = 'com.test.FilesystemWithMode';
+const _globalAppId = 'com.test.Global';
+const _globalRestoredAppId = 'com.test.GlobalRestored';
+const _statusesAppId = 'com.test.Statuses';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -56,9 +60,12 @@ const _flatpakInfoNew = GLib.build_filenamev(['..', 'tests', 'content', '.flatpa
 
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
+const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
+const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
+const _globalOverride = GLib.build_filenamev([_overrides, 'global']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
@@ -68,6 +75,7 @@ const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
 const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
 const _filesystemWithModeOverride = GLib.build_filenamev([_overrides, _filesystemWithMode]);
+const _globalWithGlobalOverride = GLib.build_filenamev([_global, 'overrides', _globalAppId]);
 
 const _sessionGroup = 'Session Bus Policy';
 const _key = 'filesystems';
@@ -116,6 +124,8 @@ describe('Model', function() {
         GLib.unlink(_environmentOverride);
         GLib.unlink(_busOverride);
         GLib.unlink(_filesystemWithModeOverride);
+        GLib.unlink(_globalWithGlobalOverride);
+        GLib.unlink(_globalOverride);
     });
 
     it('loads applications', function() {
@@ -357,11 +367,25 @@ describe('Model', function() {
         expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
     });
 
-    it('creates overrides only when properties values changed', function(done) {
+    it('creates overrides when properties values changed', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
         permissions.set_property('shared-network', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_overridenOverride, 0)).toEqual(0);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('removes overrides when properties values restore', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _overridenAppId;
+
         permissions.set_property('shared-network', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
@@ -1086,6 +1110,189 @@ describe('Model', function() {
             const group = permissions.constructor.getGroupForProperty('filesystems-other');
             expect(has(_filesystemWithModeOverride, group, _key, '!host')).toBe(true);
             expect(has(_filesystemWithModeOverride, group, _key, '!xdg-documents')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('loads global overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.sockets_x11).toBe(false);
+        expect(permissions.sockets_wayland).toBe(true);
+        expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
+        expect(permissions.persistent).toEqual('.test1;.test2');
+        expect(permissions.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissions.session_talk).toEqual('org.test.Service-3');
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+    });
+
+    it('handles overriding apps already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.sockets_x11).toBe(false);
+        permissions.set_property('sockets-x11', true);
+
+        expect(permissions.sockets_wayland).toBe(true);
+        permissions.set_property('sockets-wayland', false);
+
+        expect(permissions.sockets_cups).toBe(true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = permissions.constructor.getGroupForProperty('sockets-x11');
+            expect(has(_globalWithGlobalOverride, group, 'sockets', 'x11')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'sockets', '!wayland')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(2);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles variables already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
+        permissions.set_property('variables', 'TEST2=override;TEST3=global;TEST4=override');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalWithGlobalOverride, 'Environment', 'TEST1', '')).toBe(true);
+            expect(has(_globalWithGlobalOverride, 'Environment', 'TEST2', 'override')).toBe(true);
+            expect(has(_globalWithGlobalOverride, 'Environment', 'TEST4', 'override')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(3);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles persistent path already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.persistent).toEqual('.test1;.test2');
+        permissions.set_property('persistent', '.test1;.test2;.test3');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalWithGlobalOverride, 'Context', 'persistent', '.test3')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles filesystem path already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.filesystems_other).toEqual('~/test2;~/test3');
+        permissions.set_property('filesystems_other', '~/test4');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test2')).toBe(true);
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test3')).toBe(true);
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '~/test4')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(3);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles well-known names already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalAppId;
+
+        expect(permissions.session_talk).toEqual('org.test.Service-3');
+        permissions.set_property('session_talk', 'org.test.Service-4');
+
+        expect(permissions.session_own).toEqual('org.test.Service-2');
+        permissions.set_property('session_own', 'org.test.Service-5');
+
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = 'Session Bus Policy';
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-3', 'none')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-4', 'talk')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-2', 'none')).toBe(true);
+            expect(has(_globalWithGlobalOverride, group, 'org.test.Service-5', 'own')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(4);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores all overriden global overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissions.appId = _globalRestoredAppId;
+
+        expect(permissions.sockets_x11).toBe(true);
+        expect(permissions.sockets_wayland).toBe(false);
+        expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.variables).toEqual('TEST2=override;TEST3=global;TEST4=override');
+        expect(permissions.persistent).toEqual('.test1;.test2;.test3');
+        expect(permissions.filesystems_other).toEqual('~/test4');
+        expect(permissions.session_talk).toEqual('org.test.Service-4');
+        expect(permissions.session_own).toEqual('org.test.Service-5');
+    });
+
+    it('sets proper override statuses', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _statuses, true);
+        permissions.appId = _statusesAppId;
+
+        expect(permissions.sockets_cups_status).toEqual('original');
+        expect(permissions.sockets_wayland_status).toEqual('global');
+        expect(permissions.sockets_x11_status).toEqual('user');
+        expect(permissions.variables_status).toEqual('original;global;user');
+        expect(permissions.persistent_status).toEqual('original;global;user');
+        expect(permissions.filesystems_other_status).toEqual('original;global;user');
+        expect(permissions.session_talk_status).toEqual('original;global;user');
+        expect(permissions.session_own_status).toEqual('original;global;user');
+    });
+
+    it('handles writting global overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = 'global';
+
+        expect(permissions.sockets_x11).toBe(false);
+        permissions.set_property('sockets-x11', true);
+
+        expect(permissions.variables).toEqual('');
+        permissions.set_property('variables', 'TEST=override');
+
+        expect(permissions.persistent).toEqual('');
+        permissions.set_property('persistent', '.test');
+
+        expect(permissions.filesystems_other).toEqual('');
+        permissions.set_property('filesystems_other', '~/test');
+
+        expect(permissions.session_talk).toEqual('');
+        permissions.set_property('session_talk', 'org.test.Talk');
+
+        expect(permissions.session_own).toEqual('');
+        permissions.set_property('session_own', 'org.test.Own');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalOverride, 'Context', 'sockets', 'x11')).toBe(true);
+            expect(has(_globalOverride, 'Environment', 'TEST', 'override')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'persistent', '.test')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'filesystems', '~/test')).toBe(true);
+            expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Talk', 'talk')).toBe(true);
+            expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Own', 'own')).toBe(true);
+            expect(hasInTotal(_globalOverride)).toEqual(6);
             done();
             return GLib.SOURCE_REMOVE;
         });

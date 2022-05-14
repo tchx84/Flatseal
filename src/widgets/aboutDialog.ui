@@ -23,7 +23,8 @@ Bartłomiej Garbiec
 Ícar Nin Solana
 BigmenPixel0
 Ümit Solmaz
-Exponentactivity</property>
+Exponentactivity
+Eric Zhang</property>
     <property name="artists">Tobias Bernard
 J.P. MacDonald</property>
     <property name="documenters">TheEvilSkeleton</property>
@@ -36,7 +37,9 @@ Christopher Davis
 Lctrs
 Will Thompson
 Jonas Johan Solsvik
-Maximiliano Sandoval</property>
+Maximiliano Sandoval
+Ferenc
+rusty-snake</property>
     <property name="logo_icon_name">com.github.tchx84.Flatseal</property>
     <property name="license_type">gpl-3-0</property>
     <child>

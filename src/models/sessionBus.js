@@ -21,6 +21,7 @@
 const {GObject} = imports.gi;
 
 const {FlatpakSharedModel} = imports.models.shared;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 var FlatpakSessionBusModel = GObject.registerClass({
@@ -86,78 +87,98 @@ var FlatpakSessionBusModel = GObject.registerClass({
     }
 
     updateFromProxyProperty(property, value) {
-        const prefix = `${this.constructor.getPrefix()}-`;
-        const option = property.replace(prefix, '');
-        const names = value.split(';');
+        const prefix = this.constructor.getPrefix();
+        const option = property.replace(`${prefix}-`, '');
 
-        /* Separate overrides from originals */
-        const overrides = names
-            .filter(name => name.length !== 0)
-            .filter(name => !this._originals[option].has(name));
+        const originals = {...this._originals, ...this._globals};
+        const values = value.split(';');
 
-        /* Find originals no longer present */
-        const missing = [...this._originals[option]]
-            .filter(name => name.length !== 0)
-            .filter(name => !names.includes(name));
+        /* Reset overrides on Talk since it's the first to update */
+        if (option === 'talk') {
+            this._overrides = {};
+            this._missing = {};
+        }
 
-        this._overrides[option] = new Set(overrides);
-        this._missing[option] = new Set(missing);
+        values
+            .filter(n => n.length !== 0)
+            .filter(n => !(n in originals) || originals[n] !== option)
+            .forEach(n => {
+                this._overrides[n] = option;
+            });
+
+        Object.keys(originals)
+            .filter(n => originals[n] === option)
+            .filter(n => values.indexOf(n) === -1)
+            .forEach(n => {
+                this._missing[n] = 'none';
+            });
+
+        /* Add missing ones after Own since it's the last to update */
+        if (option !== 'own')
+            return;
+
+        this._overrides = {...this._missing, ...this._overrides};
+    }
+
+    _getStatusForPermission(name) {
+        let status = FlatsealOverrideStatus.ORIGINAL;
+
+        if (name in this._globals)
+            status = FlatsealOverrideStatus.GLOBAL;
+        if (name in this._overrides)
+            status = FlatsealOverrideStatus.USER;
+
+        return status;
+    }
+
+    updateStatusProperty(proxy) {
+        const prefix = this.constructor.getPrefix();
+
+        const talk_values = proxy[`${prefix}-talk`]
+            .split(';')
+            .filter(n => n.length !== 0)
+            .map(n => this._getStatusForPermission(n));
+
+        const own_values = proxy[`${prefix}-own`]
+            .split(';')
+            .filter(n => n.length !== 0)
+            .map(n => this._getStatusForPermission(n));
+
+        proxy.set_property(`${prefix}-talk-status`, talk_values.join(';'));
+        proxy.set_property(`${prefix}-own-status`, own_values.join(';'));
     }
 
     updateProxyProperty(proxy) {
-        ['talk', 'own'].forEach(option => {
-            const originals = [...this._originals[option]]
-                .filter(name => !this._overrides['talk'].has(name))
-                .filter(name => !this._overrides['own'].has(name))
-                .filter(name => !this._overrides['none'].has(name));
+        const options = {talk: [], own: [], none: []};
+        const values = {...this._originals, ...this._globals, ...this._overrides};
 
-            const values = [...originals, ...this._overrides[option]];
-            const property = `${this.constructor.getPrefix()}-${option}`;
-            proxy.set_property(property, values.join(';'));
+        Object.entries(values).forEach(([name, option]) => {
+            if (!(option in options))
+                return;
+            options[option].push(name);
         });
+
+        const prefix = this.constructor.getPrefix();
+        proxy.set_property(`${prefix}-talk`, options['talk'].join(';'));
+        proxy.set_property(`${prefix}-own`, options['own'].join(';'));
     }
 
-    loadFromKeyFile(group, name, option, override) {
-        const dictionary = override ? this._overrides : this._originals;
-        dictionary[option].add(name);
+    loadFromKeyFile(group, name, option, overrides, global) {
+        const dictionary = this._findProperSet(overrides, global);
+        dictionary[name] = option;
     }
 
     saveToKeyFile(keyFile) {
-        const overrides = {};
-
-        /* Populate all overrides */
-        ['talk', 'own'].forEach(option => {
-            this._overrides[option].forEach(name => {
-                overrides[name] = option;
-            });
-        });
-
-        /* Find original names that are really missing */
-        ['talk', 'own'].forEach(option => {
-            this._missing[option].forEach(name => {
-                if (name in overrides)
-                    return;
-                overrides[name] = 'none';
-            });
-        });
-
-        /* Write to overrides file */
         const group = this.constructor.getGroup();
-        Object.entries(overrides).forEach(([key, value]) => {
+        Object.entries(this._overrides).forEach(([key, value]) => {
             keyFile.set_value(group, key, value);
         });
     }
 
     reset() {
         this._overrides = {};
+        this._globals = {};
         this._originals = {};
         this._missing = {};
-
-        /* Sets for every possible value */
-        ['talk', 'own', 'none'].forEach(option => {
-            this._overrides[option] = new Set();
-            this._originals[option] = new Set();
-            this._missing[option] = new Set();
-        });
     }
 });

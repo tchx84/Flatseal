@@ -1,0 +1,11 @@
+[Context]
+sockets=x11
+persistent=.test3
+filesystems=~/test3
+
+[Environment]
+TEST2=override
+
+[Session Bus Policy]
+org.test.Service-5=talk
+org.test.Service-6=own

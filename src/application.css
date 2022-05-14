@@ -49,6 +49,13 @@ row .content .path {
     background-color: @theme_bg_color;
 }
 
+row .status {
+    color: @theme_selected_bg_color;
+}
+row.activatable .status {
+    margin-right: 8px;
+}
+
 row .content .bus entry,
 row .content .variable entry,
 row .content .path entry {
@@ -132,16 +139,37 @@ separator {
 .permissions .app-info {
     margin-top: 15px;
 }
+.permissions .global-info {
+    margin-top: 15px;
+    padding: 15px;
+    border-style: solid;
+    border-width: 0.75px;
+    border-radius: 8px;
+    border-color: @borders;
+    background-color: @theme_base_color;
+}
+
 .permissions .app-info.compact {
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
+.permissions .global-info .icon {
+    color: @theme_selected_bg_color;
+    margin: 25px 15px 25px 15px;
+}
 .permissions .app-info .icon {
     margin: 25px 25px 25px 0px;
 }
+.permissions .global-info.compact .icon,
 .permissions .app-info.compact .icon {
     margin: 5px 0px 5px 0px;
+}
+
+.permissions .global-info .description {
+    font-size: large;
+    color: @insensitive_fg_color;
+    margin: 0px;
 }
 
 .permissions .app-info .name {

@@ -9,6 +9,9 @@
     <file>widgets/busNameRow.js</file>
     <file>widgets/detailsButton.js</file>
     <file>widgets/docsViewer.js</file>
+    <file>widgets/globalInfoViewer.js</file>
+    <file>widgets/globalRow.js</file>
+    <file>widgets/overrideStatusIcon.js</file>
     <file>widgets/pathRow.js</file>
     <file>widgets/pathsViewer.js</file>
     <file>widgets/permissionEntryRow.js</file>
@@ -21,7 +24,9 @@
     <file>widgets/variableRow.js</file>
     <file>widgets/window.js</file>
     <file>models/applications.js</file>
+    <file>models/globalModel.js</file>
     <file>models/info.js</file>
+    <file>models/overrideStatus.js</file>
     <file>models/unsupported.js</file>
     <file>models/persistent.js</file>
     <file>models/permissions.js</file>

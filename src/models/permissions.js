@@ -30,6 +30,8 @@ const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const {isGlobalOverride} = imports.models.globalModel;
 const {filesystems, persistent, portals} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -70,6 +72,11 @@ function generate() {
             } else {
                 logError(`No support for ${property}:${typeof value}`);
             }
+
+            /* overrides status */
+            const statusProperty = `${property}-status`;
+            properties[statusProperty] = GObject.ParamSpec.string(
+                statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
         });
     });
 
@@ -94,13 +101,28 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._delayedHandlerId = 0;
         this._applications = new FlatpakApplicationsModel();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
+        this._ensureBaseOverridesPath();
+    }
+
+    _ensureBaseOverridesPath() {
+        const path = this._getBaseOverridesPath();
+        if (GLib.access(path, 0) !== 0)
+            GLib.mkdir_with_parents(path, 0o0755);
+    }
+
+    _getBaseOverridesPath() {
+        return GLib.build_filenamev([this._applications.userPath, 'overrides']);
+    }
+
+    _getGlobalOverridesPath() {
+        return GLib.build_filenamev([this._getBaseOverridesPath(), 'global']);
     }
 
     _getOverridesPath() {
-        return GLib.build_filenamev([this._applications.userPath, 'overrides', this._appId]);
+        return GLib.build_filenamev([this._getBaseOverridesPath(), this._appId]);
     }
 
-    static _loadPermissionsForPath(path, overrides) {
+    static _loadPermissionsForPath(path, overrides, global) {
         if (GLib.access(path, 0) !== 0)
             return;
 
@@ -142,23 +164,35 @@ var FlatpakPermissionsModel = GObject.registerClass({
                         }
                     }
 
-                    if (model === null && overrides)
+                    if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
                     if (model !== null)
-                        model.loadFromKeyFile(group, key, value, overrides);
+                        model.loadFromKeyFile(group, key, value, overrides, global);
                 });
             });
         });
     }
 
     _loadPermissions() {
-        return this.constructor._loadPermissionsForPath(
-            this._applications.getMetadataPathForAppId(this._appId), false);
+        if (isGlobalOverride(this._appId))
+            return;
+
+        this.constructor._loadPermissionsForPath(
+            this._applications.getMetadataPathForAppId(this._appId), false, false);
+    }
+
+    _loadGlobalOverrides() {
+        if (isGlobalOverride(this._appId))
+            return;
+
+        this.constructor._loadPermissionsForPath(
+            this._getGlobalOverridesPath(), true, true);
     }
 
     _loadOverrides() {
-        return this.constructor._loadPermissionsForPath(this._getOverridesPath(), true);
+        this.constructor._loadPermissionsForPath(
+            this._getOverridesPath(), true, false);
     }
 
     _checkIfChanged() {
@@ -195,6 +229,14 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
 
+    _updateStatusProperties() {
+        GObject.signal_handler_block(this, this._notifyHandlerId);
+
+        Object.values(MODELS).forEach(model => model.updateStatusProperty(this));
+
+        GObject.signal_handler_unblock(this, this._notifyHandlerId);
+    }
+
     _delayedUpdate() {
         if (this._delayedHandlerId !== 0)
             GLib.Source.remove(this._delayedHandlerId);
@@ -221,6 +263,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         });
 
         this._saveOverrides();
+        this._updateStatusProperties();
 
         this._delayedHandlerId = 0;
         return GLib.SOURCE_REMOVE;
@@ -229,8 +272,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
     _setup() {
         Object.values(MODELS).forEach(model => model.reset());
         this._loadPermissions();
+        this._loadGlobalOverrides();
         this._loadOverrides();
         this._updateProperties();
+        this._updateStatusProperties();
     }
 
     getAll() {
@@ -251,6 +296,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupTitle'] = model.constructor.getTitle();
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
+                entry['statusProperty'] = `${property}-status`;
 
                 list.push(entry);
             });

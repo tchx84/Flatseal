@@ -19,6 +19,7 @@
  */
 
 const {GObject, Gtk} = imports.gi;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -33,9 +34,16 @@ var FlatsealPathsViewer = GObject.registerClass({
             'text',
             'text',
             _propFlags, ''),
+        status: GObject.ParamSpec.string(
+            'status',
+            'status',
+            'status',
+            _propFlags,
+            FlatsealOverrideStatus.ORIGINAL),
     },
 }, class FlatsealPathsViewer extends Gtk.Box {
     _init(rowClass) {
+        this._status = FlatsealOverrideStatus.ORIGINAL;
         super._init({});
         this._rowClass = rowClass;
     }
@@ -64,6 +72,24 @@ var FlatsealPathsViewer = GObject.registerClass({
 
             this.add(path);
         });
+
+        this._updateStatus();
+    }
+
+    _updateStatus() {
+        const statuses = this._status
+            .split(';')
+            .filter(s => s.length !== 0);
+        const rows = this._box.get_children()
+            .reverse();
+
+        /* if it's still out of sync, bail out */
+        if (statuses.length !== rows.length)
+            return;
+
+        rows.forEach((row, index) => {
+            row.status = statuses[index];
+        });
     }
 
     set text(text) {
@@ -87,6 +113,18 @@ var FlatsealPathsViewer = GObject.registerClass({
             .map(row => row.text)
             .reverse()
             .join(';');
+    }
+
+    set status(status) {
+        if (!this._box)
+            return;
+
+        this._status = status;
+        this._updateStatus();
+    }
+
+    get status() {
+        return this._status;
     }
 
     add(path) {

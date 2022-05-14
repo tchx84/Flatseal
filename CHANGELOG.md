@@ -4,9 +4,14 @@
 
 - Fixed issues with forbidden modes on removed filesystem permissions.
 - Fixed a few typos in offline documentation.
+- Fixed creation of overrides directory on non-Flatpak distributions.
 - Fixed Polish translation.
 - Added Danish translation.
+- Added Chinese (China) translation.
 - Added support for system color schemes.
+- Added support for taking global overrides into account.
+- Added support for editing global overrides.
+- Added support for highlighting overridden permissions.
 - Changed shortcuts window to be modal.
 - Changed documentation window to be modal.
 - Changed meson to 0.59.
