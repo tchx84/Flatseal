@@ -22,8 +22,8 @@ const {GObject, Gtk} = imports.gi;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 const OverrideStatusDescription = {
-    global: _('Overridden globally'),
-    user: _('Overridden by the user'),
+    global: _('Changed globally'),
+    user: _('Changed by the user'),
 };
 
 var FlatsealOverrideStatusIcon = GObject.registerClass({
