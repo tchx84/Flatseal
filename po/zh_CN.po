@@ -38,7 +38,7 @@ msgstr "封条;沙盒;"
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
-msgstr "Flatseal 是一个可以可以查看并修改 Flatpak 程序的图形工具。"
+msgstr "Flatseal 是一个可以可以查看并修改 Flatpak 程序权限的图形工具。"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
