@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 16:48-0300\n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
 "PO-Revision-Date: 2021-11-05 08:48+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
@@ -49,18 +49,20 @@ msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
 msgid "Unknown"
 msgstr "Tidak dikenal"
 
-#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "Pembicaraan"
 
-#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "Memiliki"
 
-#: src/models/sessionBus.js:81
+#: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
 msgstr "Daftar nama terkenal di bus sesi"
 
@@ -128,15 +130,15 @@ msgstr "Semua konfigurasi sistem"
 msgid "All user files"
 msgstr "Semua berkas pengguna"
 
-#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
 msgstr "Daftar subset sistem berkas yang tersedia untuk aplikasi"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:39
 msgid "Other files"
 msgstr "Berkas lainnya"
 
-#: src/models/filesystemsOther.js:40
+#: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "misalnya ~/games:ro, xdg-pictures, dll"
 
@@ -205,7 +207,7 @@ msgid "List of resources selectively granted to the application"
 msgstr "Daftar sumber daya yang diberikan secara selektif ke aplikasi"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
-#: src/widgets/permissionSwitchRow.js:39
+#: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Tidak didukung oleh versi Flatpak yang diinstal"
 
@@ -217,15 +219,15 @@ msgstr "Membutuhkan izin penyimpanan versi 2 atau yang lebih baru"
 msgid "Portal data has not been set up yet"
 msgstr "Data portal belum disiapkan"
 
-#: src/models/shared.js:38
+#: src/models/shared.js:39
 msgid "Network"
 msgstr "Jaringan"
 
-#: src/models/shared.js:45
+#: src/models/shared.js:46
 msgid "Inter-process communications"
 msgstr "Komunikasi antar proses"
 
-#: src/models/shared.js:78
+#: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
 msgstr "Daftar subsistem yang berbagi dengan sistem host"
 
@@ -269,15 +271,15 @@ msgstr "Sistem pencetakan"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Daftar soket yang tersedia di sandbox"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "Variables"
 msgstr "Variabel"
 
-#: src/models/variables.js:41
+#: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "misalnya GTK_DEBUG=interactive"
 
-#: src/models/variables.js:71
+#: src/models/variables.js:72
 msgid "List of variables exported to the application"
 msgstr "Daftar variabel yang diekspor ke aplikasi"
 
@@ -302,8 +304,8 @@ msgstr "Terakhir Diperbarui"
 msgid "Runtime"
 msgstr "Runtime"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
-#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
 msgid "This is not a valid option"
 msgstr "Ini bukan opsi yang valid"
 
@@ -318,6 +320,30 @@ msgstr "Tampilkan aplikasi dalam manajer perangkat lunak"
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Tidak ditemukan manajer perangkat lunak"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+#, fuzzy
+msgid "All Applications"
+msgstr "Aplikasi"
+
+#: src/widgets/globalInfoViewer.ui:86
+#, fuzzy
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Tidak ada perubahan pada aplikasi ini"
+
+#: src/widgets/globalInfoViewer.ui:153
+#, fuzzy
+msgid "Flatpak Version"
+msgstr "Pengelola izin untuk Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:168
+#, fuzzy
+msgid "Portal Version"
+msgstr "Versi"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr ""
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -335,104 +361,112 @@ msgstr "Pintasan Papan Ti_k"
 msgid "_About Flatseal"
 msgstr "Tent_ang Flatseal"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr ""
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr ""
+
+#: src/widgets/pathRow.js:27
 msgid "this absolute path"
 msgstr "path absolut ini"
 
-#: src/widgets/pathRow.js:27
+#: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
 msgstr "path ini relatif terhadap direktori rumah"
 
-#: src/widgets/pathRow.js:28
+#: src/widgets/pathRow.js:29
 msgid "all system configurations"
 msgstr "semua konfigurasi sistem"
 
-#: src/widgets/pathRow.js:29
+#: src/widgets/pathRow.js:30
 msgid "all system libraries, executables and static data"
 msgstr "semua pustaka sistem, data yang dapat dieksekusi, dan data statis"
 
-#: src/widgets/pathRow.js:30
+#: src/widgets/pathRow.js:31
 msgid "all system files"
 msgstr "semua berkas sistem"
 
-#: src/widgets/pathRow.js:31
+#: src/widgets/pathRow.js:32
 msgid "all user files"
 msgstr "semua berkas pengguna"
 
-#: src/widgets/pathRow.js:32
+#: src/widgets/pathRow.js:33
 msgid "the desktop directory"
 msgstr "direktori destop"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:34
 msgid "the documents directory"
 msgstr "direktori dokumen"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:35
 msgid "the download directory"
 msgstr "direktori unduhan"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:36
 msgid "the music directory"
 msgstr "direktori musik"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:37
 msgid "the pictures directory"
 msgstr "direktori gambar"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:38
 msgid "the public directory"
 msgstr "direktori publik"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:39
 msgid "the videos directory"
 msgstr "direktori video"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:40
 msgid "the templates directory"
 msgstr "direktori templat"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:41
 msgid "the config directory"
 msgstr "direktori konfigurasi"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:42
 msgid "the cache directory"
 msgstr "direktori singgahan"
 
-#: src/widgets/pathRow.js:42
+#: src/widgets/pathRow.js:43
 msgid "the data directory"
 msgstr "direktori data"
 
-#: src/widgets/pathRow.js:43
+#: src/widgets/pathRow.js:44
 msgid "the runtime directory"
 msgstr "direktori runtime"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Dapat membaca: %s"
 
-#: src/widgets/pathRow.js:59
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Dapat memodifikasi dan membaca: %s"
 
-#: src/widgets/pathRow.js:60
+#: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Dapat membuat, memodifikasi dan membaca: %s"
 
-#: src/widgets/pathRow.js:66
+#: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't read: %s"
 msgstr "Tidak bisa membaca: %s"
 
-#: src/widgets/pathRow.js:67
+#: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "Tidak dapat memodifikasi atau membaca: %s"
 
-#: src/widgets/pathRow.js:68
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
 #, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "Tidak dapat membuat, memodifikasi, atau membaca: %s"
@@ -441,7 +475,7 @@ msgstr "Tidak dapat membuat, memodifikasi, atau membaca: %s"
 msgid "Unset"
 msgstr "Menghapus"
 
-#: src/widgets/relativePathRow.js:78
+#: src/widgets/relativePathRow.js:82
 msgid "Default paths can't be removed"
 msgstr "Path bawaan tidak dapat dihapus"
 

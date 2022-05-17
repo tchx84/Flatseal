@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 16:48-0300\n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
 "PO-Revision-Date: 2021-08-31 11:48+0300\n"
 "Last-Translator: \n"
 "Language-Team: Ümit Solmaz , u2slmz@pm.me\n"
@@ -49,18 +49,20 @@ msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "Bahsetmeler"
 
-#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "Sahibi"
 
-#: src/models/sessionBus.js:81
+#: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
 msgstr "Oturum veri-yolunda tanınmış adların listesi"
 
@@ -128,15 +130,15 @@ msgstr "Tüm sistem yapılandırmaları"
 msgid "All user files"
 msgstr "tüm kullanıcı dosyaları"
 
-#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
 msgstr "Uygulama için kullanılabilen dosya sistemi alt kümelerinin listesi"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:39
 msgid "Other files"
 msgstr "Diğer dosyalar"
 
-#: src/models/filesystemsOther.js:40
+#: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "e.g. ~/games:ro, xdg-pictures, etc"
 
@@ -205,7 +207,7 @@ msgid "List of resources selectively granted to the application"
 msgstr "Uygulamaya seçici olarak verilen kaynakların listesi"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
-#: src/widgets/permissionSwitchRow.js:39
+#: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Flatpak yüklü sürümü tarafından desteklenmiyor"
 
@@ -217,15 +219,15 @@ msgstr "İzin deposu sürüm 2 veya daha yenisini gerektirir"
 msgid "Portal data has not been set up yet"
 msgstr "Portal verileri henüz kurulmadı"
 
-#: src/models/shared.js:38
+#: src/models/shared.js:39
 msgid "Network"
 msgstr "Ağ"
 
-#: src/models/shared.js:45
+#: src/models/shared.js:46
 msgid "Inter-process communications"
 msgstr "Sürecler-arası iletişimler"
 
-#: src/models/shared.js:78
+#: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
 msgstr "Ana sistemle paylaşılan alt sistemlerin listesi"
 
@@ -269,15 +271,15 @@ msgstr "Yazdırma sistemi"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Sanal alanda bulunan kutuların iyi tanınmış yuvaların listesi"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "Variables"
 msgstr "Değişkenler"
 
-#: src/models/variables.js:41
+#: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "e.g. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:71
+#: src/models/variables.js:72
 msgid "List of variables exported to the application"
 msgstr "Dışa aktarılan uygulama değişkenlerin listesi"
 
@@ -302,8 +304,8 @@ msgstr "Son Güncelleme"
 msgid "Runtime"
 msgstr "Çalışma zamanı"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
-#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
 msgid "This is not a valid option"
 msgstr "Bu geçerli bir seçenek değil"
 
@@ -318,6 +320,30 @@ msgstr "Bir uygulama yöneticisinde yazılım göster"
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Yazılım yöneticisi bulunamadı"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+#, fuzzy
+msgid "All Applications"
+msgstr "Uygulamalar"
+
+#: src/widgets/globalInfoViewer.ui:86
+#, fuzzy
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Bu uygulamada herhangi bir değişiklik yapılmadı"
+
+#: src/widgets/globalInfoViewer.ui:153
+#, fuzzy
+msgid "Flatpak Version"
+msgstr "Flatpak izinlerini yönetme"
+
+#: src/widgets/globalInfoViewer.ui:168
+#, fuzzy
+msgid "Portal Version"
+msgstr "Sürüm"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr ""
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -335,104 +361,112 @@ msgstr "_Klavye kısayolları"
 msgid "_About Flatseal"
 msgstr "_Flatseal Hakkında"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr ""
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr ""
+
+#: src/widgets/pathRow.js:27
 msgid "this absolute path"
 msgstr "bu tam yol"
 
-#: src/widgets/pathRow.js:27
+#: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
 msgstr "giriş göre yol adları ana dizini"
 
-#: src/widgets/pathRow.js:28
+#: src/widgets/pathRow.js:29
 msgid "all system configurations"
 msgstr "tüm sistem yapılandırmaları"
 
-#: src/widgets/pathRow.js:29
+#: src/widgets/pathRow.js:30
 msgid "all system libraries, executables and static data"
 msgstr "tüm sistem kitaplıkları, yürütülebilir dosyalar ve statik verileri"
 
-#: src/widgets/pathRow.js:30
+#: src/widgets/pathRow.js:31
 msgid "all system files"
 msgstr "tüm sistem dosyaları"
 
-#: src/widgets/pathRow.js:31
+#: src/widgets/pathRow.js:32
 msgid "all user files"
 msgstr "tüm kullanıcıların dosyaları"
 
-#: src/widgets/pathRow.js:32
+#: src/widgets/pathRow.js:33
 msgid "the desktop directory"
 msgstr "masaüstü dizini"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:34
 msgid "the documents directory"
 msgstr "belgeler dizini"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:35
 msgid "the download directory"
 msgstr "indirme dizini"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:36
 msgid "the music directory"
 msgstr "müzik dizini"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:37
 msgid "the pictures directory"
 msgstr "resimler dizini"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:38
 msgid "the public directory"
 msgstr "genel dizin"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:39
 msgid "the videos directory"
 msgstr "video dizini"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:40
 msgid "the templates directory"
 msgstr "şablonlar dizini"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:41
 msgid "the config directory"
 msgstr "yapılandırma dizini"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:42
 msgid "the cache directory"
 msgstr "önbellek dizini"
 
-#: src/widgets/pathRow.js:42
+#: src/widgets/pathRow.js:43
 msgid "the data directory"
 msgstr "veri dizini"
 
-#: src/widgets/pathRow.js:43
+#: src/widgets/pathRow.js:44
 msgid "the runtime directory"
 msgstr "çalışma zamanı dizini"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Okuyabilir: %s"
 
-#: src/widgets/pathRow.js:59
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Değiştirebilir ve okuyabilir: %s"
 
-#: src/widgets/pathRow.js:60
+#: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Oluşturabilir, değiştirebilir ve okuyabilir: %s"
 
-#: src/widgets/pathRow.js:66
+#: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't read: %s"
 msgstr "Okuyamıyor: %s"
 
-#: src/widgets/pathRow.js:67
+#: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "Değiştiremez veya okuyamaz: %s"
 
-#: src/widgets/pathRow.js:68
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
 #, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "Oluşturamaz, değiştiremez veya okuyamaz: %s"
@@ -441,7 +475,7 @@ msgstr "Oluşturamaz, değiştiremez veya okuyamaz: %s"
 msgid "Unset"
 msgstr "Ayarlanmamış"
 
-#: src/widgets/relativePathRow.js:78
+#: src/widgets/relativePathRow.js:82
 msgid "Default paths can't be removed"
 msgstr "Varsayılan yollar kaldırılamaz"
 
