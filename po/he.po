@@ -1,0 +1,545 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-02 16:48-0300\n"
+"PO-Revision-Date: 2022-05-17 17:32+0300\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: \n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "ניהול הרשאות של Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr "איטום;בידוד;ארגז חול;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr "Flatseal הוא כלי גרפי לסקירה ושינוי הרשאות של יישומי ה‏Flatpak שלך."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+msgid "Unknown"
+msgstr "לא ידוע"
+
+#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "מדבר עם"
+
+#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "בעלים של"
+
+#: src/models/sessionBus.js:81
+msgid "List of well-known names on the session bus"
+msgstr "רשימות של שמות מוכרים באפיק ההפעלה"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "רשימות של שמות מוכרים באפיק המערכת"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "האצת מעבד גרפי"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "וירטואליזציה"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "זיכרון שיתופי"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "כל ההתקנים (למשל: מצלמה)"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "רשימת ההתקנים שזמינים בארגז החול"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "קריאות מערכת לפיתוח (למשל: ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "תוכניות מארכיטקטורות אחרות"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "בלוטות׳"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "אפיק רשת מקומית לבקר"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "זיכרון יישום שיתופי"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "רשימה של יכולות שזמינות ליישום"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "כל קובצי המערכת"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "כל ספריות המערכת, קובצי ההפעלה והנתונים הסטטיים"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "כל הגדרות המערכת"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "כל קובצי המשתמש"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+msgid "List of filesystem subsets available to the application"
+msgstr "הצגת תת־סדרות של קובצי המערכות הזמינות ליישום"
+
+#: src/models/filesystemsOther.js:37
+msgid "Other files"
+msgstr "קבצים אחרים"
+
+#: src/models/filesystemsOther.js:40
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "למשל: ‎~/games:ro,‏ xdg-pictures,‏ etc"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "קבצים"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "למשל: thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "רשימת נתיבים ביחס לתיקיית הבית שנוצרו בארגז החול"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "רקע"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "יכול לרוץ ברקע"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "התראות"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "יכול לשלוח התראות"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "מיקרופון"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "יכול להאזין למיקרופון"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "רמקולים"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "יכול להשמיע צלילים דרך הרמקולים"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "מצלמה"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "יכול להקליט סרטונים באמצעות המצלמה שלך"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "מיקום"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "יכול לגשת למיקום שלך"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "רשימה של משאבים שאושרו באופן יחידני ליישום"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:39
+msgid "Not supported by the installed version of Flatpak"
+msgstr "לא נתמך על ידי הגרסה המותקנת של Flatpak"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "דורש אחסון הרשאות בגרסה 2 ומעלה"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "נתוני שער הגישה לא הוקמו עדיין"
+
+#: src/models/shared.js:38
+msgid "Network"
+msgstr "רשת"
+
+#: src/models/shared.js:45
+msgid "Inter-process communications"
+msgstr "תקשורת בין תהליכים"
+
+#: src/models/shared.js:78
+msgid "List of subsystems shared with the host system"
+msgstr "רשימה של תת־מערכות שמשותפות עם המערכת המארחת"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "מערכת חלונאית X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "מערכת חלונאית Wayland"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "נסיגה למערכת חלונאית X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "שרת שמע PulseAudio"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "אפיק הפעלה ב־D-Bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "אפיק מערכת ב־D-Bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "סוכן מעטפת מאובטחת (SSH)"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "כרטיסים חכמים"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "מערכת הדפסה"
+
+#: src/models/sockets.js:118
+msgid "List of well-known sockets available in the sandbox"
+msgstr "רשימה של שקעים מוכרים שזמינים בארגז החול"
+
+#: src/models/variables.js:38
+msgid "Variables"
+msgstr "משתנים"
+
+#: src/models/variables.js:41
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "למשל: GTK_DEBUG=interactive"
+
+#: src/models/variables.js:71
+msgid "List of variables exported to the application"
+msgstr "רשימת המשתנים שייוצאו ליישום"
+
+#: src/widgets/aboutDialog.js:38
+msgid "Contributions by"
+msgstr "תרומות מאת"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e ב%B, %Y"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "גרסה"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "עדכון אחרון"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "סביבת הרצה"
+
+#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
+#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+msgid "This is not a valid option"
+msgstr "זאת אינה אפשרות תקנית"
+
+#: src/widgets/detailsButton.js:59
+msgid "_Show Details"
+msgstr "ה_צגת פרטים"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "הצגת היישום במנהל התוכנות"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "לא נמצא מנהל תוכנות"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "ע_זרה"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_תיעוד"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_קיצורי מקלדת"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_על Flatseal"
+
+#: src/widgets/pathRow.js:26
+msgid "this absolute path"
+msgstr "נתיב מוחלט זה"
+
+#: src/widgets/pathRow.js:27
+msgid "this path relative to the home directory"
+msgstr "נתיב זה ביחס לתיקיית הבית"
+
+#: src/widgets/pathRow.js:28
+msgid "all system configurations"
+msgstr "כל הגדרות המערכת"
+
+#: src/widgets/pathRow.js:29
+msgid "all system libraries, executables and static data"
+msgstr "כל ספריות המערכת, קובצי ההפעלה והנתונים הסטטיים"
+
+#: src/widgets/pathRow.js:30
+msgid "all system files"
+msgstr "כל קובצי המערכת"
+
+#: src/widgets/pathRow.js:31
+msgid "all user files"
+msgstr "כל קובצי המשתמש"
+
+#: src/widgets/pathRow.js:32
+msgid "the desktop directory"
+msgstr "תיקיית שולחן העבודה"
+
+#: src/widgets/pathRow.js:33
+msgid "the documents directory"
+msgstr "תיקיית המסמכים"
+
+#: src/widgets/pathRow.js:34
+msgid "the download directory"
+msgstr "תיקיית ההורדות"
+
+#: src/widgets/pathRow.js:35
+msgid "the music directory"
+msgstr "תיקיית המוזיקה"
+
+#: src/widgets/pathRow.js:36
+msgid "the pictures directory"
+msgstr "תיקיית התמונות"
+
+#: src/widgets/pathRow.js:37
+msgid "the public directory"
+msgstr "התיקייה הציבורית"
+
+#: src/widgets/pathRow.js:38
+msgid "the videos directory"
+msgstr "תיקיית הסרטונים"
+
+#: src/widgets/pathRow.js:39
+msgid "the templates directory"
+msgstr "תיקיית התבניות"
+
+#: src/widgets/pathRow.js:40
+msgid "the config directory"
+msgstr "תיקיית ההגדרות"
+
+#: src/widgets/pathRow.js:41
+msgid "the cache directory"
+msgstr "תיקיית המטמון"
+
+#: src/widgets/pathRow.js:42
+msgid "the data directory"
+msgstr "תיקיית הנתונים"
+
+#: src/widgets/pathRow.js:43
+msgid "the runtime directory"
+msgstr "תיקיית סביבת ההרצה"
+
+#: src/widgets/pathRow.js:58
+#, javascript-format
+msgid "Can read: %s"
+msgstr "אפשר לקרוא: %s"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "אפשר לערוך ולקרוא: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "אפשר ליצור, לערוך ולקרוא: %s"
+
+#: src/widgets/pathRow.js:66
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "אי אפשר לקרוא: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "אי אפשר לערוך או לקרוא: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "אי אפשר ליצור, לערוך או לקרוא: %s"
+
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr "ביטול הגדרה"
+
+#: src/widgets/relativePathRow.js:78
+msgid "Default paths can't be removed"
+msgstr "אי אפשר להסיר את נתיבי ברירת המחדל"
+
+#: src/widgets/resetButton.js:45
+msgid "_Reset"
+msgstr "_איפוס"
+
+#: src/widgets/resetButton.js:63
+msgid "No changes made to this application"
+msgstr "לא בוצעו שינויים ליישום הזה"
+
+#: src/widgets/resetButton.js:66
+msgid "Reset this application permissions"
+msgstr "איפוס הרשאות היישום הזה"
+
+#: src/widgets/resetButton.js:68
+msgid ", including changes not made with Flatseal"
+msgstr ", כולל שינויים שלא בוצעו דרך Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr "כללי"
+
+#: src/widgets/shortcutsWindow.ui:19
+msgid "Show mnemonics"
+msgstr "הצגת עזרי זיכרון"
+
+#: src/widgets/shortcutsWindow.ui:26
+msgid "Show documentation"
+msgstr "הצגת תיעוד"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr "הצגת תפריט"
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr "קיצורי מקלדת"
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr "יציאה"
+
+#: src/widgets/shortcutsWindow.ui:55
+msgid "Navigation"
+msgstr "ניווט"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr "הזזה שמאלה"
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr "הזזה למעלה"
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr "הזזה ימינה"
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr "הזזה למטה"
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "יישומים"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr "איתור"
+
+#: src/widgets/shortcutsWindow.ui:102
+msgid "Permissions"
+msgstr "הרשאות"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr "בורר"
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "תיעוד"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr "איתור הבא"
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr "איתור הקודם"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "ההרשאות אופסו"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "ביטול"
+
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
+msgid "No applications found."
+msgstr "לא נמצאו יישומים."
