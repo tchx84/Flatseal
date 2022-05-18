@@ -321,28 +321,24 @@ msgid "No software manager found"
 msgstr "Nem található szoftverkezelő"
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "Alkalmazások"
+msgstr "Minden alkalmazás"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "Az alkalmazásban nem történt változás"
+msgstr "Az összes Flatpak alkalmazásra érvényes módosítások"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "A Flatpak engedélykezelője"
+msgstr "Flatpak-verzió"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "Verzió"
+msgstr "Portál-verzió"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "Megváltoztatja az elérési utat"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -362,11 +358,11 @@ msgstr "_A Flatseal névjegye"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "Globálisan megváltozott"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "A felhasználó megváltoztatta"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
