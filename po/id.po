@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2021.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2021-11-05 08:48+0700\n"
+"PO-Revision-Date: 2022-05-18 12:10+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -322,28 +322,24 @@ msgid "No software manager found"
 msgstr "Tidak ditemukan manajer perangkat lunak"
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "Aplikasi"
+msgstr "Semua Aplikasi"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "Tidak ada perubahan pada aplikasi ini"
+msgstr "Perubahan yang berlaku untuk semua aplikasi Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "Pengelola izin untuk Flatpak"
+msgstr "Versi Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "Versi"
+msgstr "Versi Portal"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "Perubahan Path"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -363,11 +359,11 @@ msgstr "Tent_ang Flatseal"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "Berubah secara global"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "Diubah oleh pengguna"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
