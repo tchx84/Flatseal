@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2021-11-07 11:39-0500\n"
+"PO-Revision-Date: 2022-05-17 21:00-0400\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -30,7 +31,7 @@ msgstr "Gérer les permissions de Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr "joint;bac à sable"
+msgstr "joint;bac à sable;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -325,28 +326,24 @@ msgid "No software manager found"
 msgstr "Aucun qestionnaire de logiciel trouvé"
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "Applications"
+msgstr "Tous les Applications"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "Aucune modification apportée à cette application"
+msgstr "Modifications apportées à cette application"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "Gérer les permissions de Flatpak"
+msgstr "Version de Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "Version"
+msgstr "Version du Portail"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "Chemin des Changements"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -366,11 +363,11 @@ msgstr "À propos de _Flatseal"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "Changé globallement"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "Changé par l'utilisateur"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
