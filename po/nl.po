@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2021-11-04 13:07+0100\n"
+"PO-Revision-Date: 2022-05-19 17:47+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -31,7 +31,7 @@ msgstr "Beheer Flatpak-bevoegdheden"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr "seal;sandbox;rechten;flatpak;"
+msgstr "seal;sandbox;rechten;bevoegdheden;machtigingen;permissies;flatpak;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -72,7 +72,7 @@ msgstr "Lijst met bekende namen die beschikbaar zijn in de systeembus"
 
 #: src/models/devices.js:37
 msgid "GPU acceleration"
-msgstr "GPU-versnelling"
+msgstr "Hardwareversnelling"
 
 #: src/models/devices.js:44
 msgid "Virtualization"
@@ -112,7 +112,7 @@ msgstr "Gedeeld toepassingsgeheugen"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
-msgstr "Lijst met functies die beschikbaar zijn voor de toepassing"
+msgstr "Lijst met functies die de toepassing kan benutten"
 
 #: src/models/filesystems.js:37
 msgid "All system files"
@@ -132,8 +132,7 @@ msgstr "Alle gebruikersbestanden"
 
 #: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
-msgstr ""
-"Lijst met bestandssysteem-subsets die beschikbaar zijn voor de toepassing"
+msgstr "Lijst met bestandssysteem-subsets die de toepassing kan benutten"
 
 #: src/models/filesystemsOther.js:39
 msgid "Other files"
@@ -154,7 +153,7 @@ msgstr "bijv. .thunderbird"
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr ""
-"Lijst met relatieve locaties uit je persoonlijke map die in de sandbox zijn "
+"Lijst met relatieve locaties uit uw persoonlijke map die in de sandbox zijn "
 "gemaakt"
 
 #: src/models/portals.js:118
@@ -163,7 +162,7 @@ msgstr "Achtergrond"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
-msgstr "Mag worden uitgevoerd op de achtergrond"
+msgstr "Uitvoeren op achtergrond"
 
 #: src/models/portals.js:128
 msgid "Notifications"
@@ -179,7 +178,7 @@ msgstr "Microfoon"
 
 #: src/models/portals.js:140
 msgid "Can listen to your microphone"
-msgstr "Mag je microfoon gebruiken"
+msgstr "Mag uw microfoon gebruiken"
 
 #: src/models/portals.js:148
 msgid "Speakers"
@@ -187,7 +186,7 @@ msgstr "Luidsprekers"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "Mag geluid afspelen via je luidsprekers"
+msgstr "Mag geluid afspelen via uw luidsprekers"
 
 #: src/models/portals.js:158
 msgid "Camera"
@@ -195,7 +194,7 @@ msgstr "Camera"
 
 #: src/models/portals.js:160
 msgid "Can record videos with your camera"
-msgstr "Mag video's opnemen middels je camera"
+msgstr "Mag video's opnemen middels uw camera"
 
 #: src/models/portals.js:168
 msgid "Location"
@@ -203,7 +202,7 @@ msgstr "Locatie"
 
 #: src/models/portals.js:170
 msgid "Can access your location"
-msgstr "Mag je locatie bepalen"
+msgstr "Mag uw locatie bepalen"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
@@ -220,7 +219,7 @@ msgstr "Vereist toestemmingopslag versie 2 of nieuwer"
 
 #: src/models/portals.js:264
 msgid "Portal data has not been set up yet"
-msgstr "Portaalgegevens zijn nog niet ingesteld"
+msgstr "De portaalgegevens zijn nog niet ingesteld"
 
 #: src/models/shared.js:39
 msgid "Network"
@@ -280,7 +279,7 @@ msgstr "Variabelen"
 
 #: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr "b.v. GTK_DEBUG=interactive"
+msgstr "bijv. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:72
 msgid "List of variables exported to the application"
@@ -301,7 +300,7 @@ msgstr "Versie"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr "Laatst bijgewerkt"
+msgstr "Laatst bijgewerkt op"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
@@ -322,31 +321,27 @@ msgstr "Toon de toepassing in een softwarebeheerder"
 
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
-msgstr "Geen softwarebeheerder aangetroffen."
+msgstr "Er is geen softwarebeheerder aangetroffen."
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "Toepassingen"
+msgstr "Alle toepassingen"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "Geen wijzigingen aangebracht aan deze toepassing"
+msgstr "Wijzigingen die van toepassing zijn op alle Flatpak-toepassingen"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "Beheer Flatpak-bevoegdheden"
+msgstr "Flatpak-versie"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "Versie"
+msgstr "Portaalversie"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "Past de locatie aan"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -366,11 +361,11 @@ msgstr "Over Fl_atseal"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "Globaal gewijzigd"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "Door de gebruiker gewijzigd"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
@@ -552,7 +547,7 @@ msgstr "Zoeken"
 
 #: src/widgets/shortcutsWindow.ui:102
 msgid "Permissions"
-msgstr "Rechten"
+msgstr "Bevoegdheden"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
@@ -580,4 +575,4 @@ msgstr "Ongedaan maken"
 
 #: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
-msgstr "Geen toepassingen aangetroffen."
+msgstr "Er zijn geen toepassingen aangetroffen."
