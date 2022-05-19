@@ -91,7 +91,8 @@ var FlatpakSharedModel = GObject.registerClass({
 
         /* Determine if this value is an actual override */
 
-        const matchesDefault = value === permission.value;
+        /* Preserve previously negated overrides */
+        const matchesDefault = value === permission.value && !this._overrides.has(override);
 
         const fromOriginals = this._originals.has(override);
         const fromGlobals = this._globals.has(override);
