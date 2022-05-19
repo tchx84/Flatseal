@@ -1,0 +1,576 @@
+# Flatseal - Bulgarian Translation
+# Copyright (C) 2022
+# This file is distributed under the same license as the flatseal package.
+# Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, 2022
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"PO-Revision-Date: 2022-05-19 20:11+0300\n"
+"Last-Translator: Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>\n"
+"Language-Team: \n"
+"Language: bg_BG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Управление на разрешенията за Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr "seal;sandbox;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal е графична програма за преглед и промяна на разрешенията за "
+"вашите приложения от Flatpak."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
+msgid "Unknown"
+msgstr "Неизвестно"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Комуникира"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Притежава"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Наименования в потребителската шина"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Наименования в системната шина"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "Графично ускорение"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "Виртуализация"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "Споделена памет"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "Всички устройства (например уеб камера)"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "Устройства във виртуалната среда"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Системни сигнали (например ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Програми от други архитектури"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Шина CAN"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Споделена памет"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Функции за приложението"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Всички системни файлове"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Всички системни библиотеки, изпълними файлове и статични данни"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Всички системни конфигурации"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Всички потребителски файлове"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Подгрупи на файловата система за приложението"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Други файлове"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "например ~/games:ro, xdg-pictures и други"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Файлове"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "например .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Създадени в домашната папка местоположения във виртуалната среда"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Фонов режим"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Фоново изпълнение"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Известия"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Изпращане на известия"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Микрофон"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Използване на микрофона"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Тонколони"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Използване на тонколоните"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Камера"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Записване на видео с камерата"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Локация"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Достъп до локацията"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "Достъпни ресурси за приложението"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Не се поддържа от инсталираната версия на Flatpak"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "Изисква разрешение за съхранение версия ≥2"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "Данните за порталите не са готови"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Мрежа"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Комуникация между процесите"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "Споделени подгрупи със системата домакин"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "Графична система X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Графична система Wayland"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Резервна графична система X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "Звуков сървър PulseAudio"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "Потребителска шина D-Bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "Системна шина D-Bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Агент SSH"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Смарткарти"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Принтиране"
+
+#: src/models/sockets.js:118
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Известни гнезда във виртуалната среда"
+
+#: src/models/variables.js:39
+msgid "Variables"
+msgstr "Променливи"
+
+#: src/models/variables.js:42
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "например GTK_DEBUG=interactive"
+
+#: src/models/variables.js:72
+msgid "List of variables exported to the application"
+msgstr "Експортирани променливи към приложението"
+
+#: src/widgets/aboutDialog.js:38
+msgid "Contributions by"
+msgstr "Сътрудници"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e %B, %Y"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "Версия"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "Последно обновяване"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "Платформа"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+msgid "This is not a valid option"
+msgstr "Това не е правилно"
+
+#: src/widgets/detailsButton.js:59
+msgid "_Show Details"
+msgstr "_Свойства"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Покажи приложението в софуерния мениджър"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Софтуерният мениджър не е намерен"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "Всички приложения"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Промени, които се отнасят за всички приложения на Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "Версия на Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "Версия на портала"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "Променя местоположението"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Помощ"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Документация"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавишни комбинации"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_Относно Flatseal"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Променено от системата"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Променено от потребителя"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "абсолютното местоположение"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "местоположението спрямо домашната папка"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "всички системни конфигурации"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "всички системни библиотеки, изпълними файлове и статични данни"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "всички системни файлове"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "всички потребителски файлове"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "папката с работния плот"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "папката с документи"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "папката с изтегляния"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "папката с музика"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "папката с картини"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "публичната папка"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "папката с видеозаписи"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "папката с шаблони"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "папката с конфигурации"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "папката с кеш паметта"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "папката с данни"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "папката на платформата"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Право на четене: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Право на записване и четене: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Право на създаване, записване и четене: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Без право на четене: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Без право на записване и четене: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Без право на създаване, записване и четене: %s"
+
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr "Отхвърли"
+
+#: src/widgets/relativePathRow.js:82
+msgid "Default paths can't be removed"
+msgstr "Пътищата по подразбиране не може да се премахнат"
+
+#: src/widgets/resetButton.js:45
+msgid "_Reset"
+msgstr "_Нулирай"
+
+#: src/widgets/resetButton.js:63
+msgid "No changes made to this application"
+msgstr "Не са направени промени по приложението"
+
+#: src/widgets/resetButton.js:66
+msgid "Reset this application permissions"
+msgstr "Нулирай разрешенията за приложението"
+
+#: src/widgets/resetButton.js:68
+msgid ", including changes not made with Flatseal"
+msgstr ", включително промените, които не са направени с Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr "Общи"
+
+#: src/widgets/shortcutsWindow.ui:19
+msgid "Show mnemonics"
+msgstr "Покажи мнемониките"
+
+#: src/widgets/shortcutsWindow.ui:26
+msgid "Show documentation"
+msgstr "Покажи документацията"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr "Покажи менюто"
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr "Клавишни комбинации"
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr "Изход"
+
+#: src/widgets/shortcutsWindow.ui:55
+msgid "Navigation"
+msgstr "Навигация"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr "Премести наляво"
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr "Премести нагоре"
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr "Премести надясно"
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr "Премести надолу"
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "Приложения"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr "Намери"
+
+#: src/widgets/shortcutsWindow.ui:102
+msgid "Permissions"
+msgstr "Разрешения"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr "Превключи"
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "Документация"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr "Намери следващ"
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr "Намери предишен"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "Разрешенията са нулирани"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "Отмени"
+
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
+msgid "No applications found."
+msgstr "Приложенията не са намерени."
