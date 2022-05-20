@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GLib} = imports.gi;
+const {Gio, GLib} = imports.gi;
 
 const {
     setup,
@@ -61,11 +61,13 @@ const _flatpakInfoNew = GLib.build_filenamev(['..', 'tests', 'content', '.flatpa
 const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatpak']);
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
+const _globalNegated = GLib.build_filenamev(['..', 'tests', 'content', 'globalNegated', 'flatpak']);
 const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
 const _globalOverride = GLib.build_filenamev([_overrides, 'global']);
+const _globalNegatedOverride = GLib.build_filenamev([_globalNegated, 'overrides', 'global']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
@@ -1292,6 +1294,37 @@ describe('Model', function() {
             expect(has(_globalOverride, 'Context', 'filesystems', '~/test')).toBe(true);
             expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Talk', 'talk')).toBe(true);
             expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Own', 'own')).toBe(true);
+            expect(hasInTotal(_globalOverride)).toEqual(6);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('preserves negated global overridden', function(done) {
+        const source = Gio.File.new_for_path(_globalNegatedOverride);
+        const destination = Gio.File.new_for_path(_globalOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = 'global';
+
+        expect(permissions.sockets_x11).toBe(false);
+        expect(permissions.filesystems_other).toEqual('!~/test');
+        expect(permissions.variables).toEqual('');
+        expect(permissions.session_talk).toEqual('');
+        expect(permissions.session_own).toEqual('');
+
+        permissions.set_property('shared-network', true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalOverride, 'Context', 'shared', 'unsupported')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'shared', 'network')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'sockets', '!x11')).toBe(true);
+            expect(has(_globalOverride, 'Context', 'filesystems', '!~/test')).toBe(true);
+            expect(has(_globalOverride, 'Environment', 'TEST', '')).toBe(true);
+            expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Test', 'none')).toBe(true);
             expect(hasInTotal(_globalOverride)).toEqual(6);
             done();
             return GLib.SOURCE_REMOVE;
