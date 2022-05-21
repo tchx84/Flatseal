@@ -97,6 +97,7 @@ var FlatpakVariablesModel = GObject.registerClass({
 
         Object.keys(originals)
             .filter(k => !(k in variables))
+            .filter(k => originals[k] !== '')
             .forEach(k => {
                 overrides[k] = '';
             });
