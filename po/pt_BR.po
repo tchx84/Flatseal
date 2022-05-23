@@ -321,28 +321,24 @@ msgid "No software manager found"
 msgstr "Nenhum gerenciador de software encontrado"
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "Aplicativos"
+msgstr "Todos os Aplicativos"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "Nenhuma alteração feita neste aplicativo"
+msgstr "Alterações que se aplicam a todos os aplicativos Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "Um gerenciador de permissões para Flatpak"
+msgstr "Versão Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "Versão"
+msgstr "Versão do Portal"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "Modificações"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -362,11 +358,11 @@ msgstr "_Sobre Flatseal"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "Alterado globalmente"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "Alterado pelo usuário"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
