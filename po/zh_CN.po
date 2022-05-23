@@ -320,28 +320,24 @@ msgid "No software manager found"
 msgstr "没有找到软件管理器"
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "程序"
+msgstr "所有应用程序"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "程序权限没有被修改"
+msgstr "适用于所有 Flatpak 应用程序的更改"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "管理 Flatpak 权限"
+msgstr "Flatpak 版本"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "版本"
+msgstr "Portal 版本"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "修改"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -361,11 +357,11 @@ msgstr "_关于 Flatseal"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "全局更改"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "由用户更改"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
