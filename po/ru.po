@@ -324,28 +324,24 @@ msgid "No software manager found"
 msgstr "Менеджер софта не найден"
 
 #: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
-#, fuzzy
 msgid "All Applications"
-msgstr "Приложения"
+msgstr "Все приложения"
 
 #: src/widgets/globalInfoViewer.ui:86
-#, fuzzy
 msgid "Changes that apply to all Flatpak applications"
-msgstr "В это приложение не было внесено никаких изменений"
+msgstr "Изменения, которые применяются ко всем приложениям Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:153
-#, fuzzy
 msgid "Flatpak Version"
-msgstr "Управление разрешениями Flatpak"
+msgstr "Версия Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:168
-#, fuzzy
 msgid "Portal Version"
-msgstr "Версия"
+msgstr "Портальная версия"
 
 #: src/widgets/globalInfoViewer.ui:183
 msgid "Changes Path"
-msgstr ""
+msgstr "Модификации"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -365,11 +361,11 @@ msgstr "_О приложении"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "Изменено глобально"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "Изменено пользователем"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
