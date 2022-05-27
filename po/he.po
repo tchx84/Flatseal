@@ -44,7 +44,7 @@ msgstr "Flatseal הוא כלי גרפי לסקירה ושינוי הרשאות �
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
 msgid "Martin Abente Lahaye"
-msgstr "Martin Abente Lahaye"
+msgstr ""
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
