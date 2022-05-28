@@ -83,7 +83,7 @@
                         <property name="can-focus">False</property>
                         <property name="halign">start</property>
                         <property name="hexpand">True</property>
-                        <property name="label" translatable="yes">Overrides that apply to all Flatpak applications</property>
+                        <property name="label" translatable="yes">Changes that apply to all Flatpak applications</property>
                         <property name="ellipsize">end</property>
                         <style>
                           <class name="author"/>
@@ -180,7 +180,7 @@
                             <property name="visible">True</property>
                             <property name="can-focus">False</property>
                             <property name="halign">start</property>
-                            <property name="label" translatable="yes">Overrides Path</property>
+                            <property name="label" translatable="yes">Changes Path</property>
                             <style>
                               <class name="description"/>
                             </style>

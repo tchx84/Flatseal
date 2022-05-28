@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2021-11-04 13:07+0100\n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"PO-Revision-Date: 2022-05-19 17:47+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -31,7 +31,7 @@ msgstr "Beheer Flatpak-bevoegdheden"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr "seal;sandbox;rechten;flatpak;"
+msgstr "seal;sandbox;rechten;bevoegdheden;machtigingen;permissies;flatpak;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -49,18 +49,20 @@ msgstr ""
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "Communiceert met"
 
-#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "Eigenaar van"
 
-#: src/models/sessionBus.js:81
+#: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
 msgstr "Lijst met bekende namen die beschikbaar zijn in de sessiebus"
 
@@ -70,7 +72,7 @@ msgstr "Lijst met bekende namen die beschikbaar zijn in de systeembus"
 
 #: src/models/devices.js:37
 msgid "GPU acceleration"
-msgstr "GPU-versnelling"
+msgstr "Hardwareversnelling"
 
 #: src/models/devices.js:44
 msgid "Virtualization"
@@ -110,7 +112,7 @@ msgstr "Gedeeld toepassingsgeheugen"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
-msgstr "Lijst met functies die beschikbaar zijn voor de toepassing"
+msgstr "Lijst met functies die de toepassing kan benutten"
 
 #: src/models/filesystems.js:37
 msgid "All system files"
@@ -128,16 +130,15 @@ msgstr "Alle systeemconfiguraties"
 msgid "All user files"
 msgstr "Alle gebruikersbestanden"
 
-#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
-msgstr ""
-"Lijst met bestandssysteem-subsets die beschikbaar zijn voor de toepassing"
+msgstr "Lijst met bestandssysteem-subsets die de toepassing kan benutten"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:39
 msgid "Other files"
 msgstr "Overige bestanden"
 
-#: src/models/filesystemsOther.js:40
+#: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "bijv. ~/spellen:ro, xdg-pictures, enz."
 
@@ -152,7 +153,7 @@ msgstr "bijv. .thunderbird"
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr ""
-"Lijst met relatieve locaties uit je persoonlijke map die in de sandbox zijn "
+"Lijst met relatieve locaties uit uw persoonlijke map die in de sandbox zijn "
 "gemaakt"
 
 #: src/models/portals.js:118
@@ -161,7 +162,7 @@ msgstr "Achtergrond"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
-msgstr "Mag worden uitgevoerd op de achtergrond"
+msgstr "Uitvoeren op achtergrond"
 
 #: src/models/portals.js:128
 msgid "Notifications"
@@ -177,7 +178,7 @@ msgstr "Microfoon"
 
 #: src/models/portals.js:140
 msgid "Can listen to your microphone"
-msgstr "Mag je microfoon gebruiken"
+msgstr "Mag uw microfoon gebruiken"
 
 #: src/models/portals.js:148
 msgid "Speakers"
@@ -185,7 +186,7 @@ msgstr "Luidsprekers"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "Mag geluid afspelen via je luidsprekers"
+msgstr "Mag geluid afspelen via uw luidsprekers"
 
 #: src/models/portals.js:158
 msgid "Camera"
@@ -193,7 +194,7 @@ msgstr "Camera"
 
 #: src/models/portals.js:160
 msgid "Can record videos with your camera"
-msgstr "Mag video's opnemen middels je camera"
+msgstr "Mag video's opnemen middels uw camera"
 
 #: src/models/portals.js:168
 msgid "Location"
@@ -201,14 +202,14 @@ msgstr "Locatie"
 
 #: src/models/portals.js:170
 msgid "Can access your location"
-msgstr "Mag je locatie bepalen"
+msgstr "Mag uw locatie bepalen"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
 msgstr "Lijst met functies die zijn toegekend aan de toepassing"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
-#: src/widgets/permissionSwitchRow.js:39
+#: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Niet ondersteund door de geïnstalleerde versie van Flatpak"
 
@@ -218,17 +219,17 @@ msgstr "Vereist toestemmingopslag versie 2 of nieuwer"
 
 #: src/models/portals.js:264
 msgid "Portal data has not been set up yet"
-msgstr "Portaalgegevens zijn nog niet ingesteld"
+msgstr "De portaalgegevens zijn nog niet ingesteld"
 
-#: src/models/shared.js:38
+#: src/models/shared.js:39
 msgid "Network"
 msgstr "Netwerk"
 
-#: src/models/shared.js:45
+#: src/models/shared.js:46
 msgid "Inter-process communications"
 msgstr "Procesuitwisselingscommunicatie"
 
-#: src/models/shared.js:78
+#: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
 msgstr "Lijst met subsystemen die gedeeld zijn met het hostsysteem"
 
@@ -272,15 +273,15 @@ msgstr "Afdruksysteem"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Lijst met bekende sockets die beschikbaar zijn in de sandbox"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "Variables"
 msgstr "Variabelen"
 
-#: src/models/variables.js:41
+#: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr "b.v. GTK_DEBUG=interactive"
+msgstr "bijv. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:71
+#: src/models/variables.js:72
 msgid "List of variables exported to the application"
 msgstr "Lijst met variabelen die naar de toepassing zijn geëxporteerd"
 
@@ -299,14 +300,14 @@ msgstr "Versie"
 
 #: src/widgets/appInfoViewer.ui:142
 msgid "Last Updated"
-msgstr "Laatst bijgewerkt"
+msgstr "Laatst bijgewerkt op"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
 msgstr "Uitvoerbaar bestand"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
-#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
 msgid "This is not a valid option"
 msgstr "Dit is geen geldige optie"
 
@@ -320,7 +321,27 @@ msgstr "Toon de toepassing in een softwarebeheerder"
 
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
-msgstr "Geen softwarebeheerder aangetroffen."
+msgstr "Er is geen softwarebeheerder aangetroffen."
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "Alle toepassingen"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Wijzigingen die van toepassing zijn op alle Flatpak-toepassingen"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "Flatpak-versie"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "Portaalversie"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "Past de locatie aan"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -338,104 +359,112 @@ msgstr "Snel_toetsen"
 msgid "_About Flatseal"
 msgstr "Over Fl_atseal"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Globaal gewijzigd"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Door de gebruiker gewijzigd"
+
+#: src/widgets/pathRow.js:27
 msgid "this absolute path"
 msgstr "deze absolute locatie"
 
-#: src/widgets/pathRow.js:27
+#: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
 msgstr "deze locatie ten opzichte van de basismap"
 
-#: src/widgets/pathRow.js:28
+#: src/widgets/pathRow.js:29
 msgid "all system configurations"
 msgstr "alle systeemconfiguraties"
 
-#: src/widgets/pathRow.js:29
+#: src/widgets/pathRow.js:30
 msgid "all system libraries, executables and static data"
 msgstr "alle systeembibliotheken, uitvoerbare bestanden en statische gegevens"
 
-#: src/widgets/pathRow.js:30
+#: src/widgets/pathRow.js:31
 msgid "all system files"
 msgstr "alle systeembestanden"
 
-#: src/widgets/pathRow.js:31
+#: src/widgets/pathRow.js:32
 msgid "all user files"
 msgstr "alle gebruikersbestanden"
 
-#: src/widgets/pathRow.js:32
+#: src/widgets/pathRow.js:33
 msgid "the desktop directory"
 msgstr "de bureaubladmap"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:34
 msgid "the documents directory"
 msgstr "de documentenmap"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:35
 msgid "the download directory"
 msgstr "de downloadmap"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:36
 msgid "the music directory"
 msgstr "de muziekmap"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:37
 msgid "the pictures directory"
 msgstr "de afbeeldingenmap"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:38
 msgid "the public directory"
 msgstr "de openbare map"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:39
 msgid "the videos directory"
 msgstr "de map met video's"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:40
 msgid "the templates directory"
 msgstr "de map met sjablonen"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:41
 msgid "the config directory"
 msgstr "de configuratiemap"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:42
 msgid "the cache directory"
 msgstr "de cachemap"
 
-#: src/widgets/pathRow.js:42
+#: src/widgets/pathRow.js:43
 msgid "the data directory"
 msgstr "de gegevensmap"
 
-#: src/widgets/pathRow.js:43
+#: src/widgets/pathRow.js:44
 msgid "the runtime directory"
 msgstr "de werkmap"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Mag uitlezen: %s"
 
-#: src/widgets/pathRow.js:59
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Mag wijzigen en uitlezen: %s"
 
-#: src/widgets/pathRow.js:60
+#: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Mag maken, wijzigen en uitlezen: %s"
 
-#: src/widgets/pathRow.js:66
+#: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't read: %s"
 msgstr "Mag niet uitlezen: %s"
 
-#: src/widgets/pathRow.js:67
+#: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "Mag niet wijzigen of uitlezen: %s"
 
-#: src/widgets/pathRow.js:68
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
 #, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "Mag niet maken, wijzigen of uitlezen: %s"
@@ -444,7 +473,7 @@ msgstr "Mag niet maken, wijzigen of uitlezen: %s"
 msgid "Unset"
 msgstr "Verwijderen"
 
-#: src/widgets/relativePathRow.js:78
+#: src/widgets/relativePathRow.js:82
 msgid "Default paths can't be removed"
 msgstr "Standaardlocaties kunnen niet worden verwijderd"
 
@@ -518,7 +547,7 @@ msgstr "Zoeken"
 
 #: src/widgets/shortcutsWindow.ui:102
 msgid "Permissions"
-msgstr "Rechten"
+msgstr "Bevoegdheden"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
@@ -546,4 +575,4 @@ msgstr "Ongedaan maken"
 
 #: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
-msgstr "Geen toepassingen aangetroffen."
+msgstr "Er zijn geen toepassingen aangetroffen."

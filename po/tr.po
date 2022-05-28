@@ -1,22 +1,25 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the flatseal package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Turkish translations for Flatseal package.
+# Copyright (C) 2021-2022 Flatseal's COPYRIGHT HOLDER
+# This file is distributed under the same license as the Flatseal package.
+#
+# Ümit Solmaz <u2slmz@pm.me>, 2021.
+# Sabri Ünal <libreajans@gmail.com>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 16:48-0300\n"
-"PO-Revision-Date: 2021-08-31 11:48+0300\n"
-"Last-Translator: \n"
-"Language-Team: Ümit Solmaz , u2slmz@pm.me\n"
-"Language: tr_TR\n"
+"Report-Msgid-Bugs-To: https://github.com/tchx84/Flatseal/issues\n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"PO-Revision-Date: 2022-05-21 00:45+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
+"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-POOTLE-MTIME: 1434043811.000000\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -27,11 +30,11 @@ msgstr "Flatseal"
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
 msgid "Manage Flatpak permissions"
-msgstr "Flatpak izinlerini yönetme"
+msgstr "Flatpak izinlerini yönet"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "yalıt;yalıtım;sanal ortam;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
@@ -39,7 +42,7 @@ msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal, Flatpak uygulamalarınızda ki izinleri gözden geçirmek ve "
+"Flatseal, Flatpak uygulamalarınızdaki izinleri gözden geçirmek ve "
 "değiştirmek için kullanılan grafiksel bir yardımcı uygulamadır."
 
 #. TRANSLATORS: Don't translate this text
@@ -49,18 +52,20 @@ msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "Bahsetmeler"
 
-#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "Sahibi"
 
-#: src/models/sessionBus.js:81
+#: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
 msgstr "Oturum veri-yolunda tanınmış adların listesi"
 
@@ -70,7 +75,7 @@ msgstr "Sistem veri-yolunda tanınmış adların listesi"
 
 #: src/models/devices.js:37
 msgid "GPU acceleration"
-msgstr "GPU ivme"
+msgstr "GPU hızlandırma"
 
 #: src/models/devices.js:44
 msgid "Virtualization"
@@ -94,7 +99,7 @@ msgstr "Geliştirme sistçağrı (mesela ptrace)"
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
-msgstr "Diğer yapılardan programlar"
+msgstr "Diğer mimarilerden programlar"
 
 #: src/models/features.js:51
 msgid "Bluetooth"
@@ -126,19 +131,19 @@ msgstr "Tüm sistem yapılandırmaları"
 
 #: src/models/filesystems.js:58
 msgid "All user files"
-msgstr "tüm kullanıcı dosyaları"
+msgstr "Tüm kullanıcı dosyaları"
 
-#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
 msgstr "Uygulama için kullanılabilen dosya sistemi alt kümelerinin listesi"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:39
 msgid "Other files"
 msgstr "Diğer dosyalar"
 
-#: src/models/filesystemsOther.js:40
+#: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "örn: ~/games:ro, xdg-pictures, vs"
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -146,7 +151,7 @@ msgstr "Dosyalar"
 
 #: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
-msgstr "mesela .thunderbird"
+msgstr "örn: .thunderbird"
 
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
@@ -154,7 +159,7 @@ msgstr "Sanal alanda oluşturulan anadizin-bağ yolların listesi"
 
 #: src/models/portals.js:118
 msgid "Background"
-msgstr "Arkaplan"
+msgstr "Arka plan"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
@@ -162,7 +167,7 @@ msgstr "Arka planda çalışabilir"
 
 #: src/models/portals.js:128
 msgid "Notifications"
-msgstr "Uyarı"
+msgstr "Bildirimler"
 
 #: src/models/portals.js:130
 msgid "Can send notifications"
@@ -194,18 +199,18 @@ msgstr "Kameranızla video kaydedebilir"
 
 #: src/models/portals.js:168
 msgid "Location"
-msgstr "Yerel"
+msgstr "Konum"
 
 #: src/models/portals.js:170
 msgid "Can access your location"
-msgstr "Bulunduğunuz yere erişebilir"
+msgstr "Konumunuza erişebilir"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
 msgstr "Uygulamaya seçici olarak verilen kaynakların listesi"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
-#: src/widgets/permissionSwitchRow.js:39
+#: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Flatpak yüklü sürümü tarafından desteklenmiyor"
 
@@ -217,15 +222,15 @@ msgstr "İzin deposu sürüm 2 veya daha yenisini gerektirir"
 msgid "Portal data has not been set up yet"
 msgstr "Portal verileri henüz kurulmadı"
 
-#: src/models/shared.js:38
+#: src/models/shared.js:39
 msgid "Network"
 msgstr "Ağ"
 
-#: src/models/shared.js:45
+#: src/models/shared.js:46
 msgid "Inter-process communications"
 msgstr "Sürecler-arası iletişimler"
 
-#: src/models/shared.js:78
+#: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
 msgstr "Ana sistemle paylaşılan alt sistemlerin listesi"
 
@@ -247,11 +252,11 @@ msgstr "PulseAudio ses sunucu"
 
 #: src/models/sockets.js:65
 msgid "D-Bus session bus"
-msgstr "D-Veri yolu oturumu"
+msgstr "D-Bus oturum veri yolu"
 
 #: src/models/sockets.js:72
 msgid "D-Bus system bus"
-msgstr "D-Veri sistemi"
+msgstr "D-Bus sistem veri yolu"
 
 #: src/models/sockets.js:79
 msgid "Secure Shell agent"
@@ -267,17 +272,17 @@ msgstr "Yazdırma sistemi"
 
 #: src/models/sockets.js:118
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Sanal alanda bulunan kutuların iyi tanınmış yuvaların listesi"
+msgstr "Sanal alanda bulunan kutuların tanınmış yuvaların listesi"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "Variables"
 msgstr "Değişkenler"
 
-#: src/models/variables.js:41
+#: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr "e.g. GTK_DEBUG=interactive"
+msgstr "ör: GTK_DEBUG=interactive"
 
-#: src/models/variables.js:71
+#: src/models/variables.js:72
 msgid "List of variables exported to the application"
 msgstr "Dışa aktarılan uygulama değişkenlerin listesi"
 
@@ -302,22 +307,42 @@ msgstr "Son Güncelleme"
 msgid "Runtime"
 msgstr "Çalışma zamanı"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
-#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
 msgid "This is not a valid option"
 msgstr "Bu geçerli bir seçenek değil"
 
 #: src/widgets/detailsButton.js:59
 msgid "_Show Details"
-msgstr "_Detayları Göster"
+msgstr "_Ayrıntıları Göster"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
-msgstr "Bir uygulama yöneticisinde yazılım göster"
+msgstr "Bir yazılım yöneticisinde yazılımı göster"
 
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Yazılım yöneticisi bulunamadı"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "Tüm Uygulamalar"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Tüm Flatpak uygulamaları için geçerli olan değişiklikler"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "Flatpak Sürümü"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "Portal Sürümü"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "Yolu Değiştirir"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -329,110 +354,118 @@ msgstr "_Belgeler"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr "_Klavye kısayolları"
+msgstr "_Klavye Kısayolları"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
-msgstr "_Flatseal Hakkında"
+msgstr "Flatseal _Hakkında"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Genel olarak değiştirildi"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Kullanıcı tarafından değiştirildi"
+
+#: src/widgets/pathRow.js:27
 msgid "this absolute path"
 msgstr "bu tam yol"
 
-#: src/widgets/pathRow.js:27
-msgid "this path relative to the home directory"
-msgstr "giriş göre yol adları ana dizini"
-
 #: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "ev dizinine göre bu yol"
+
+#: src/widgets/pathRow.js:29
 msgid "all system configurations"
 msgstr "tüm sistem yapılandırmaları"
 
-#: src/widgets/pathRow.js:29
-msgid "all system libraries, executables and static data"
-msgstr "tüm sistem kitaplıkları, yürütülebilir dosyalar ve statik verileri"
-
 #: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "tüm sistem kitaplıkları, yürütülebilir dosyalar ve statik veriler"
+
+#: src/widgets/pathRow.js:31
 msgid "all system files"
 msgstr "tüm sistem dosyaları"
 
-#: src/widgets/pathRow.js:31
-msgid "all user files"
-msgstr "tüm kullanıcıların dosyaları"
-
 #: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "tüm kullanıcı dosyaları"
+
+#: src/widgets/pathRow.js:33
 msgid "the desktop directory"
 msgstr "masaüstü dizini"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:34
 msgid "the documents directory"
 msgstr "belgeler dizini"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:35
 msgid "the download directory"
 msgstr "indirme dizini"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:36
 msgid "the music directory"
 msgstr "müzik dizini"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:37
 msgid "the pictures directory"
 msgstr "resimler dizini"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:38
 msgid "the public directory"
 msgstr "genel dizin"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:39
 msgid "the videos directory"
 msgstr "video dizini"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:40
 msgid "the templates directory"
 msgstr "şablonlar dizini"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:41
 msgid "the config directory"
 msgstr "yapılandırma dizini"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:42
 msgid "the cache directory"
 msgstr "önbellek dizini"
 
-#: src/widgets/pathRow.js:42
+#: src/widgets/pathRow.js:43
 msgid "the data directory"
 msgstr "veri dizini"
 
-#: src/widgets/pathRow.js:43
+#: src/widgets/pathRow.js:44
 msgid "the runtime directory"
 msgstr "çalışma zamanı dizini"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Okuyabilir: %s"
 
-#: src/widgets/pathRow.js:59
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Değiştirebilir ve okuyabilir: %s"
 
-#: src/widgets/pathRow.js:60
+#: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Oluşturabilir, değiştirebilir ve okuyabilir: %s"
 
-#: src/widgets/pathRow.js:66
+#: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't read: %s"
-msgstr "Okuyamıyor: %s"
+msgstr "Okuyamaz: %s"
 
-#: src/widgets/pathRow.js:67
+#: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "Değiştiremez veya okuyamaz: %s"
 
-#: src/widgets/pathRow.js:68
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
 #, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "Oluşturamaz, değiştiremez veya okuyamaz: %s"
@@ -441,7 +474,7 @@ msgstr "Oluşturamaz, değiştiremez veya okuyamaz: %s"
 msgid "Unset"
 msgstr "Ayarlanmamış"
 
-#: src/widgets/relativePathRow.js:78
+#: src/widgets/relativePathRow.js:82
 msgid "Default paths can't be removed"
 msgstr "Varsayılan yollar kaldırılamaz"
 
@@ -455,7 +488,7 @@ msgstr "Bu uygulamada herhangi bir değişiklik yapılmadı"
 
 #: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
-msgstr "Bu uygulamala izinlerini sıfırla"
+msgstr "Bu uygulama izinlerini sıfırla"
 
 #: src/widgets/resetButton.js:68
 msgid ", including changes not made with Flatseal"
@@ -483,11 +516,11 @@ msgstr "Klavye kısayolları"
 
 #: src/widgets/shortcutsWindow.ui:47
 msgid "Quit"
-msgstr "Uygulamadan çık"
+msgstr "Çık"
 
 #: src/widgets/shortcutsWindow.ui:55
 msgid "Navigation"
-msgstr "Navigasyon"
+msgstr "Gezinme"
 
 #: src/widgets/shortcutsWindow.ui:60
 msgid "Move left"
@@ -495,11 +528,11 @@ msgstr "Sola hareket et"
 
 #: src/widgets/shortcutsWindow.ui:67
 msgid "Move up"
-msgstr "Yukarı hareket"
+msgstr "Yukarı hareket et"
 
 #: src/widgets/shortcutsWindow.ui:74
 msgid "Move right"
-msgstr "Sağa ilerle"
+msgstr "Sağa hakeret et"
 
 #: src/widgets/shortcutsWindow.ui:81
 msgid "Move down"
@@ -511,15 +544,15 @@ msgstr "Uygulamalar"
 
 #: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
 msgid "Find"
-msgstr "Bulmak"
+msgstr "Bul"
 
 #: src/widgets/shortcutsWindow.ui:102
 msgid "Permissions"
-msgstr "izinler"
+msgstr "İzinler"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Toggle"
-msgstr "Kasa çeliği"
+msgstr "Aç/Kapat"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
@@ -543,4 +576,4 @@ msgstr "Geri al"
 
 #: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
-msgstr "Hayır uygulama bulunamadı."
+msgstr "Hiçbir uygulama bulunamadı."

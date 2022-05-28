@@ -94,24 +94,33 @@ var FlatpakSessionBusModel = GObject.registerClass({
         const values = value.split(';');
 
         /* Reset overrides on Talk since it's the first to update */
-        if (option === 'talk') {
-            this._overrides = {};
-            this._missing = {};
-        }
+        const overrides = option === 'talk' ? {} : this._overrides;
+        const missing = option === 'talk' ? {} : this._missing;
 
         values
             .filter(n => n.length !== 0)
             .filter(n => !(n in originals) || originals[n] !== option)
             .forEach(n => {
-                this._overrides[n] = option;
+                overrides[n] = option;
             });
 
         Object.keys(originals)
             .filter(n => originals[n] === option)
             .filter(n => values.indexOf(n) === -1)
             .forEach(n => {
-                this._missing[n] = 'none';
+                missing[n] = 'none';
             });
+
+        /* Preserve previously negated overrides */
+        Object.keys(this._overrides)
+            .filter(n => this._overrides[n] === 'none')
+            .filter(n => values.indexOf(n) === -1)
+            .forEach(n => {
+                missing[n] = 'none';
+            });
+
+        this._overrides = overrides;
+        this._missing = missing;
 
         /* Add missing ones after Own since it's the last to update */
         if (option !== 'own')
