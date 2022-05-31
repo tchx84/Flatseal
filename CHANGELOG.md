@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.8.0] - 2022-05-30
 
 - Fixed issues with forbidden modes on removed filesystem permissions.
 - Fixed a few typos in offline documentation.
