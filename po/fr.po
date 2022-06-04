@@ -174,7 +174,7 @@ msgstr "Notifications"
 
 #: src/models/portals.js:130
 msgid "Can send notifications"
-msgstr "Peut à envoyer des notifications"
+msgstr "Peut envoyer des notifications"
 
 #: src/models/portals.js:138
 msgid "Microphone"
