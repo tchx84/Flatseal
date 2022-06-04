@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-07 11:39-0500\n"
-"PO-Revision-Date: 2022-06-04 16:39+0200\n"
+"PO-Revision-Date: 2022-06-04 17:23+0200\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -32,7 +32,7 @@ msgstr "Gérer les permissions de Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr "sceller;bac à sable;sandbox"
+msgstr "sceller;bac à sable;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 #: src/widgets/aboutDialog.ui:11
