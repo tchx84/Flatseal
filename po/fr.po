@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-07 11:39-0500\n"
-"PO-Revision-Date: 2022-06-04 16:32+0200\n"
+"PO-Revision-Date: 2022-06-04 16:39+0200\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -41,7 +41,7 @@ msgid ""
 "Flatpak applications."
 msgstr ""
 "Flatseal est un utilitaire graphique pour examiner et modifier les "
-"permissions de vosapplications Flatpak."
+"permissions accordées à vos applications Flatpak."
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:31
@@ -96,7 +96,7 @@ msgstr "Appels système de developpement (e.g. ptrace)"
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
-msgstr "Programmes provenant d'autres architectures"
+msgstr "Programmes provenant d’autres architectures"
 
 #: src/models/features.js:51
 msgid "Bluetooth"
@@ -108,11 +108,11 @@ msgstr "Bus de données CAN"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
-msgstr "Mémoire partagée de l'application"
+msgstr "Mémoire partagée de l’application"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
-msgstr "Liste des fonctionnalités disponibles pour l'application"
+msgstr "Liste des fonctionnalités disponibles pour l’application"
 
 #: src/models/filesystems.js:37
 msgid "All system files"
@@ -135,7 +135,7 @@ msgstr "Tous les fichiers utilisateurs"
 msgid "List of filesystem subsets available to the application"
 msgstr ""
 "Liste des sous-ensembles du système de fichiers disponibles pour "
-"l'application"
+"l’application"
 
 #: src/models/filesystemsOther.js:37
 msgid "Other files"
@@ -212,7 +212,7 @@ msgstr "Peut accéder votre localisation"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
-msgstr "Liste des ressources pouvant être accordées à l'application"
+msgstr "Liste des ressources pouvant être accordées à l’application"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:39
@@ -225,7 +225,7 @@ msgstr "Nécessite la version 2 ou ultérieur du magasin de permissions"
 
 #: src/models/portals.js:264
 msgid "Portal data has not been set up yet"
-msgstr "Les données du portail n'ont pas encore été configurées"
+msgstr "Les données du portail n’ont pas encore été configurées"
 
 #: src/models/shared.js:38
 msgid "Network"
@@ -273,7 +273,7 @@ msgstr "Carte à puce"
 
 #: src/models/sockets.js:93
 msgid "Printing system"
-msgstr "Système d'impression"
+msgstr "Système d’impression"
 
 #: src/models/sockets.js:118
 msgid "List of well-known sockets available in the sandbox"
@@ -289,7 +289,7 @@ msgstr "e.g. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:71
 msgid "List of variables exported to the application"
-msgstr "Liste des variables exportées vers l'application"
+msgstr "Liste des variables exportées vers l’application"
 
 #: src/widgets/aboutDialog.js:38
 msgid "Contributions by"
@@ -310,12 +310,12 @@ msgstr "Dernière mise à jour"
 
 #: src/widgets/appInfoViewer.ui:157
 msgid "Runtime"
-msgstr "Environnement d'exécution"
+msgstr "Environnement d’exécution"
 
 #: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
 #: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
 msgid "This is not a valid option"
-msgstr "Ceci n'est pas une option valide"
+msgstr "Ceci n’est pas une option valide"
 
 #: src/widgets/detailsButton.js:59
 msgid "_Show Details"
@@ -323,11 +323,11 @@ msgstr "_Voir les Détails"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
-msgstr "Afficher l'application dans un gestionnaire de logiciels"
+msgstr "Afficher l’application dans un gestionnaire de logiciels"
 
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
-msgstr "Aucun gestionnaire de logiciel n'a été trouvé"
+msgstr "Aucun gestionnaire de logiciel n’a été trouvé"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
