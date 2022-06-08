@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 16:48-0300\n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
 "PO-Revision-Date: 2022-03-22 21:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -51,18 +51,20 @@ msgstr ""
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
 msgid "Unknown"
 msgstr "Nieznane"
 
-#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "Komunikacja"
 
-#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "Przynależność"
 
-#: src/models/sessionBus.js:81
+#: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
 msgstr ""
 "Lista dobrze znanych nazw w magistrali komunikacyjnej sesji (session bus)"
@@ -132,15 +134,15 @@ msgstr "Wszystkie konfiguracje systemowe"
 msgid "All user files"
 msgstr "Wszystkie pliki użytkownika"
 
-#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
 msgstr "Lista położeń dostępnych dla aplikacji"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:39
 msgid "Other files"
 msgstr "Pozostałe pliki"
 
-#: src/models/filesystemsOther.js:40
+#: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "np. ~games:ro, xdg-pictures, itp."
 
@@ -209,7 +211,7 @@ msgid "List of resources selectively granted to the application"
 msgstr "Lista zasobów selektywnie przyznanych aplikacji"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
-#: src/widgets/permissionSwitchRow.js:39
+#: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Niewspierane przez aktualnie zainstalowaną wersję Flatpak"
 
@@ -221,15 +223,15 @@ msgstr "Wymaga magazynu uprawnień w wersji 2 lub nowszej"
 msgid "Portal data has not been set up yet"
 msgstr "Dane portalu nie zostały jeszcze skonfigurowane"
 
-#: src/models/shared.js:38
+#: src/models/shared.js:39
 msgid "Network"
 msgstr "Sieć"
 
-#: src/models/shared.js:45
+#: src/models/shared.js:46
 msgid "Inter-process communications"
 msgstr "Komunikacja między procesami"
 
-#: src/models/shared.js:78
+#: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
 msgstr "Lista podsystemów udostępnionych przez system operacyjny"
 
@@ -273,15 +275,15 @@ msgstr "Obsługa drukowania"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Lista dobrze znanych gniazd dostępnych w piaskownicy"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "Variables"
 msgstr "Zmienne"
 
-#: src/models/variables.js:41
+#: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "np. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:71
+#: src/models/variables.js:72
 msgid "List of variables exported to the application"
 msgstr "Lista zmiennych przekazanych do aplikacji"
 
@@ -306,8 +308,8 @@ msgstr "Ostatnia aktualizacja"
 msgid "Runtime"
 msgstr "Środowisko"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
-#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
 msgid "This is not a valid option"
 msgstr "To nie jest poprawna operacja"
 
@@ -322,6 +324,26 @@ msgstr "Wyświetl w menedżerze oprogramowania"
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Nie znaleziono menedżera oprogramowania"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "Wszystkie Aplikacje"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Zmiany, które dotyczą wszystkich aplikacji Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "Wersja Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "Wersja Portalu"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "Modyfikacje"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -339,104 +361,112 @@ msgstr "_Skróty klawiszowe"
 msgid "_About Flatseal"
 msgstr "_O Flatseal"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Zmieniono globalnie"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Zmienione przez użytkownika"
+
+#: src/widgets/pathRow.js:27
 msgid "this absolute path"
 msgstr "położenie bezpośrednie (bezwzględne)"
 
-#: src/widgets/pathRow.js:27
+#: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
 msgstr "położenie względem Katalogu domowego"
 
-#: src/widgets/pathRow.js:28
+#: src/widgets/pathRow.js:29
 msgid "all system configurations"
 msgstr "wszystkie konfiguracje systemowe"
 
-#: src/widgets/pathRow.js:29
+#: src/widgets/pathRow.js:30
 msgid "all system libraries, executables and static data"
 msgstr "wszystkie biblioteki systemowe, pliki wykonywalne oraz dane statyczne"
 
-#: src/widgets/pathRow.js:30
+#: src/widgets/pathRow.js:31
 msgid "all system files"
 msgstr "wszystkie pliki systemowe"
 
-#: src/widgets/pathRow.js:31
+#: src/widgets/pathRow.js:32
 msgid "all user files"
 msgstr "wszystkie pliki użytkownika"
 
-#: src/widgets/pathRow.js:32
+#: src/widgets/pathRow.js:33
 msgid "the desktop directory"
 msgstr "położenie folderu pulpitu"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:34
 msgid "the documents directory"
 msgstr "położenie folderu Dokumenty"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:35
 msgid "the download directory"
 msgstr "położenie folderu Pobrane"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:36
 msgid "the music directory"
 msgstr "położenie folderu Muzyka"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:37
 msgid "the pictures directory"
 msgstr "położenie folderu Obrazy"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:38
 msgid "the public directory"
 msgstr "położenie folderu Publiczny"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:39
 msgid "the videos directory"
 msgstr "położenie folderu Wideo"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:40
 msgid "the templates directory"
 msgstr "położenie folderu Szablony"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:41
 msgid "the config directory"
 msgstr "położenie plików konfiguracyjnych"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:42
 msgid "the cache directory"
 msgstr "położenie pamięci cache"
 
-#: src/widgets/pathRow.js:42
+#: src/widgets/pathRow.js:43
 msgid "the data directory"
 msgstr "położenie danych"
 
-#: src/widgets/pathRow.js:43
+#: src/widgets/pathRow.js:44
 msgid "the runtime directory"
 msgstr "położenie środowiska uruchumieniowego"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can read: %s"
 msgstr "Może czytać: %s"
 
-#: src/widgets/pathRow.js:59
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "Może czytać i modyfikować: %s"
 
-#: src/widgets/pathRow.js:60
+#: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "Może tworzyć, czytać i modyfikować: %s"
 
-#: src/widgets/pathRow.js:66
+#: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't read: %s"
 msgstr "Nie mogę przeczytać: %s"
 
-#: src/widgets/pathRow.js:67
+#: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "Nie można go modyfikować ani czytać: %s"
 
-#: src/widgets/pathRow.js:68
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
 #, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "Nie może tworzyć, modyfikować ani czytać: %s"
@@ -445,7 +475,7 @@ msgstr "Nie może tworzyć, modyfikować ani czytać: %s"
 msgid "Unset"
 msgstr "Nieoprawny"
 
-#: src/widgets/relativePathRow.js:78
+#: src/widgets/relativePathRow.js:82
 msgid "Default paths can't be removed"
 msgstr "Domyślne ścieżki nie mogą być usunięte"
 

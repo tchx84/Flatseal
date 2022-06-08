@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-02 16:48-0300\n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
 "PO-Revision-Date: 2022-04-15 10:22+0800\n"
 "Last-Translator: Eric Zhang <ericzhang456@hotmail.com>\n"
 "Language-Team: \n"
@@ -47,18 +47,20 @@ msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
 msgid "Unknown"
 msgstr "未知"
 
-#: src/models/sessionBus.js:37 src/models/systemBus.js:37
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
 msgstr "调用"
 
-#: src/models/sessionBus.js:44 src/models/systemBus.js:44
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
 msgstr "拥有"
 
-#: src/models/sessionBus.js:81
+#: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
 msgstr "会话总线上已知名称"
 
@@ -126,15 +128,15 @@ msgstr "所有系统配置文件"
 msgid "All user files"
 msgstr "所有用户文件"
 
-#: src/models/filesystems.js:83 src/models/filesystemsOther.js:62
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
 msgstr "程序可以访问的文件系统"
 
-#: src/models/filesystemsOther.js:37
+#: src/models/filesystemsOther.js:39
 msgid "Other files"
 msgstr "其他文件"
 
-#: src/models/filesystemsOther.js:40
+#: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
 msgstr "如：~/games:ro, xdg-pictures 等"
 
@@ -203,7 +205,7 @@ msgid "List of resources selectively granted to the application"
 msgstr "程序可以访问的资源"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
-#: src/widgets/permissionSwitchRow.js:39
+#: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "不支持所安装 Flatpak 的版本"
 
@@ -215,15 +217,15 @@ msgstr "需要存储权限版本 2 及以上"
 msgid "Portal data has not been set up yet"
 msgstr "资源门户还没有配置完成"
 
-#: src/models/shared.js:38
+#: src/models/shared.js:39
 msgid "Network"
 msgstr "网络"
 
-#: src/models/shared.js:45
+#: src/models/shared.js:46
 msgid "Inter-process communications"
 msgstr "进程间通信"
 
-#: src/models/shared.js:78
+#: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
 msgstr "与主机所共享的子系统"
 
@@ -267,15 +269,15 @@ msgstr "打印系统"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "沙盒可提供的接口"
 
-#: src/models/variables.js:38
+#: src/models/variables.js:39
 msgid "Variables"
 msgstr "环境变量"
 
-#: src/models/variables.js:41
+#: src/models/variables.js:42
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "如：GTK_DEBUG=interactive"
 
-#: src/models/variables.js:71
+#: src/models/variables.js:72
 msgid "List of variables exported to the application"
 msgstr "导出到程序的环境变量"
 
@@ -300,8 +302,8 @@ msgstr "最后更新"
 msgid "Runtime"
 msgstr "运行环境"
 
-#: src/widgets/busNameRow.js:33 src/widgets/pathRow.js:71
-#: src/widgets/relativePathRow.js:32 src/widgets/variableRow.js:30
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
 msgid "This is not a valid option"
 msgstr "非法选项"
 
@@ -316,6 +318,26 @@ msgstr "在软件管理器中显示程序"
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "没有找到软件管理器"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "所有应用程序"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "适用于所有 Flatpak 应用程序的更改"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "Flatpak 版本"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "Portal 版本"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "修改"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -333,104 +355,112 @@ msgstr "_快捷键"
 msgid "_About Flatseal"
 msgstr "_关于 Flatseal"
 
-#: src/widgets/pathRow.js:26
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "全局更改"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "由用户更改"
+
+#: src/widgets/pathRow.js:27
 msgid "this absolute path"
 msgstr "绝对路径"
 
-#: src/widgets/pathRow.js:27
+#: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
 msgstr "主目录的相对路径"
 
-#: src/widgets/pathRow.js:28
+#: src/widgets/pathRow.js:29
 msgid "all system configurations"
 msgstr "所有系统配置文件"
 
-#: src/widgets/pathRow.js:29
+#: src/widgets/pathRow.js:30
 msgid "all system libraries, executables and static data"
 msgstr "所有系统资源库，可执行文件和静态数据"
 
-#: src/widgets/pathRow.js:30
+#: src/widgets/pathRow.js:31
 msgid "all system files"
 msgstr "所有系统文件"
 
-#: src/widgets/pathRow.js:31
+#: src/widgets/pathRow.js:32
 msgid "all user files"
 msgstr "所有用户文件"
 
-#: src/widgets/pathRow.js:32
+#: src/widgets/pathRow.js:33
 msgid "the desktop directory"
 msgstr "桌面目录"
 
-#: src/widgets/pathRow.js:33
+#: src/widgets/pathRow.js:34
 msgid "the documents directory"
 msgstr "文档目录"
 
-#: src/widgets/pathRow.js:34
+#: src/widgets/pathRow.js:35
 msgid "the download directory"
 msgstr "下载目录"
 
-#: src/widgets/pathRow.js:35
+#: src/widgets/pathRow.js:36
 msgid "the music directory"
 msgstr "音乐目录"
 
-#: src/widgets/pathRow.js:36
+#: src/widgets/pathRow.js:37
 msgid "the pictures directory"
 msgstr "图片目录"
 
-#: src/widgets/pathRow.js:37
+#: src/widgets/pathRow.js:38
 msgid "the public directory"
 msgstr "公共目录"
 
-#: src/widgets/pathRow.js:38
+#: src/widgets/pathRow.js:39
 msgid "the videos directory"
 msgstr "视频目录"
 
-#: src/widgets/pathRow.js:39
+#: src/widgets/pathRow.js:40
 msgid "the templates directory"
 msgstr "模板目录"
 
-#: src/widgets/pathRow.js:40
+#: src/widgets/pathRow.js:41
 msgid "the config directory"
 msgstr "配置目录"
 
-#: src/widgets/pathRow.js:41
+#: src/widgets/pathRow.js:42
 msgid "the cache directory"
 msgstr "缓存目录"
 
-#: src/widgets/pathRow.js:42
+#: src/widgets/pathRow.js:43
 msgid "the data directory"
 msgstr "数据目录"
 
-#: src/widgets/pathRow.js:43
+#: src/widgets/pathRow.js:44
 msgid "the runtime directory"
 msgstr "运行环境目录"
 
-#: src/widgets/pathRow.js:58
+#: src/widgets/pathRow.js:59
 #, javascript-format
 msgid "Can read: %s"
 msgstr "可以读取：%s"
 
-#: src/widgets/pathRow.js:59
+#: src/widgets/pathRow.js:60
 #, javascript-format
 msgid "Can modify and read: %s"
 msgstr "可以读取并修改：%s"
 
-#: src/widgets/pathRow.js:60
+#: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "可以创建，读取并修改：%s"
 
-#: src/widgets/pathRow.js:66
+#: src/widgets/pathRow.js:67
 #, javascript-format
 msgid "Can't read: %s"
 msgstr "不可以读取：%s"
 
-#: src/widgets/pathRow.js:67
+#: src/widgets/pathRow.js:68
 #, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "不可以读取并修改：%s"
 
-#: src/widgets/pathRow.js:68
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
 #, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "不可以创建，读取并修改：%s"
@@ -439,7 +469,7 @@ msgstr "不可以创建，读取并修改：%s"
 msgid "Unset"
 msgstr "未设置"
 
-#: src/widgets/relativePathRow.js:78
+#: src/widgets/relativePathRow.js:82
 msgid "Default paths can't be removed"
 msgstr "无法移除默认路径"
 

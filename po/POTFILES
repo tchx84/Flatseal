@@ -27,7 +27,10 @@ src/widgets/applicationRow.ui
 src/widgets/busNameRow.js
 src/widgets/busNameRow.ui
 src/widgets/detailsButton.js
+src/widgets/globalRow.ui
+src/widgets/globalInfoViewer.ui
 src/widgets/menu.ui
+src/widgets/overrideStatusIcon.js
 src/widgets/pathRow.js
 src/widgets/pathRow.ui
 src/widgets/pathsViewer.js

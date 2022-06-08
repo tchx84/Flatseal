@@ -1,11 +1,12 @@
 # Changelog
 
-## [unreleased]
+## [1.8.0] - 2022-05-30
 
 - Fixed issues with forbidden modes on removed filesystem permissions.
 - Fixed a few typos in offline documentation.
 - Fixed creation of overrides directory on non-Flatpak distributions.
 - Fixed Polish translation.
+- Added Bulgarian translation.
 - Added Danish translation.
 - Added Chinese (China) translation.
 - Added support for system color schemes.

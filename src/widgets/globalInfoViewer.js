@@ -22,6 +22,7 @@
 const {GObject, Gtk} = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
+const {info, permissions, portals} = imports.models;
 
 const styles = {
     NORMAL: 'normal',
@@ -31,7 +32,7 @@ const styles = {
 var FlatsealGlobalInfoViewer = GObject.registerClass({
     GTypeName: 'FlatsealGlobalInfoViewer',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/globalInfoViewer.ui',
-    InternalChildren: ['icon', 'description'],
+    InternalChildren: ['icon', 'title', 'description', 'flatpak', 'portal', 'overrides'],
     Properties: {
         compact: GObject.ParamSpec.boolean(
             'compact',
@@ -43,6 +44,19 @@ var FlatsealGlobalInfoViewer = GObject.registerClass({
     _init() {
         super._init();
         this._compact = false;
+        this._setup();
+    }
+
+    _setup() {
+        this.constructor._setIfAvailable(this._flatpak, info.getDefault().getVersion());
+        this.constructor._setIfAvailable(this._portal, portals.getDefault().getVersion());
+        this.constructor._setIfAvailable(this._overrides, permissions.getDefault()._getBaseOverridesPath());
+    }
+
+    static _setIfAvailable(label, value) {
+        if (!value)
+            return;
+        label.set_label(value.toString());
     }
 
     set compact(value) {
@@ -53,14 +67,11 @@ var FlatsealGlobalInfoViewer = GObject.registerClass({
 
         const orientation = value ? Gtk.Orientation.VERTICAL : Gtk.Orientation.HORIZONTAL;
         const alignment = value ? Gtk.Align.CENTER : Gtk.Align.START;
-        const justification = value ? Gtk.Justification.CENTER : Gtk.Justification.LEFT;
-        const xalign = value ? 0.5 : 0.25;
 
         this.set_orientation(orientation);
         this._icon.halign = alignment;
+        this._title.halign = alignment;
         this._description.halign = alignment;
-        this._description.justify = justification;
-        this._description.xalign = xalign;
         this.halign = alignment;
 
         const style = value ? styles.COMPACT : styles.NORMAL;
