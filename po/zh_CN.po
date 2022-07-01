@@ -495,7 +495,7 @@ msgstr "通用"
 
 #: src/widgets/shortcutsWindow.ui:19
 msgid "Show mnemonics"
-msgstr "显示快速帮助" # I really don't know how to do this one. OG sounds weird.
+msgstr "显示快速帮助"
 
 #: src/widgets/shortcutsWindow.ui:26
 msgid "Show documentation"
