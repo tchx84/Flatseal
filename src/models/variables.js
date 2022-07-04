@@ -23,6 +23,7 @@ const {GObject} = imports.gi;
 const {FlatpakSharedModel} = imports.models.shared;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
+var VAR_REGEXP = /^\w+=[\S ]+$/;
 
 var FlatpakVariablesModel = GObject.registerClass({
     GTypeName: 'FlatpakVariablesModel',
@@ -164,6 +165,6 @@ var FlatpakVariablesModel = GObject.registerClass({
         this._overrides = {};
         this._globals = {};
         this._originals = {};
-        this._expression = new RegExp(/^\w+=\S+$/);
+        this._expression = new RegExp(VAR_REGEXP);
     }
 });

@@ -21,6 +21,7 @@
 const {GObject, Gtk} = imports.gi;
 
 const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
+const {VAR_REGEXP} = imports.models.variables;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -53,7 +54,7 @@ var FlatsealVariableRow = GObject.registerClass({
     }
 
     _setup() {
-        this._expression = new RegExp(/^\w+=\S+$/);
+        this._expression = new RegExp(VAR_REGEXP);
 
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
