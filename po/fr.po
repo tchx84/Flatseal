@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2022-07-06 08:32+0200\n"
+"PO-Revision-Date: 2022-07-06 08:49+0200\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -441,7 +441,7 @@ msgstr "le répertoire des données"
 
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
-msgstr "le répertoire des environnements d’exécution"
+msgstr "le répertoire de l’environnement d’exécution"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
