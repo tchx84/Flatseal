@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2022-07-06 08:24+0200\n"
+"PO-Revision-Date: 2022-07-06 08:32+0200\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -274,7 +274,7 @@ msgstr "Système d’impression"
 
 #: src/models/sockets.js:118
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Liste des prises connues disponible dans le sac de sable"
+msgstr "Liste des prises connues et disponibles dans le sac de sable"
 
 #: src/models/variables.js:39
 msgid "Variables"
