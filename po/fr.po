@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2022-07-06 08:18+0200\n"
+"PO-Revision-Date: 2022-07-06 08:24+0200\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -97,7 +97,7 @@ msgstr "Appels système de developpement (e.g. ptrace)"
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
-msgstr "Programmes d'autres architectures"
+msgstr "Programmes d’autres architectures"
 
 #: src/models/features.js:51
 msgid "Bluetooth"
@@ -209,7 +209,7 @@ msgstr "Peut accéder à votre localisation"
 
 #: src/models/portals.js:208
 msgid "List of resources selectively granted to the application"
-msgstr "Liste des ressources accordées sélectivement à l'application"
+msgstr "Liste des ressources accordées sélectivement à l’application"
 
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
@@ -368,7 +368,7 @@ msgstr "Changé globalement"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr "Changé par l'utilisateur"
+msgstr "Changé par l’utilisateur"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
