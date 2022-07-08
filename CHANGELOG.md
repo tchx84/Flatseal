@@ -1,5 +1,11 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed French translation.
+- Fixed Chinese (China) translation.
+- Added Hebrew translation.
+
 ## [1.8.0] - 2022-05-30
 
 - Fixed issues with forbidden modes on removed filesystem permissions.
