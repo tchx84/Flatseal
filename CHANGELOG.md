@@ -5,6 +5,7 @@
 - Fixed French translation.
 - Fixed Chinese (China) translation.
 - Added Hebrew translation.
+- Changed environment variables validation to allow spaces.
 
 ## [1.8.0] - 2022-05-30
 
