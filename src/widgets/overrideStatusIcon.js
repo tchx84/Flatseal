@@ -48,6 +48,12 @@ var FlatsealOverrideStatusIcon = GObject.registerClass({
         if (this._status === status)
             return;
 
+        const context = this.get_style_context();
+        if (context.has_class(FlatsealOverrideStatus.USER))
+            context.remove_class(FlatsealOverrideStatus.USER);
+        else if (context.has_class(FlatsealOverrideStatus.GLOBAL))
+            context.remove_class(FlatsealOverrideStatus.GLOBAL);
+
         this._status = status;
         if (status === FlatsealOverrideStatus.ORIGINAL) {
             this.set_tooltip_text('');
@@ -57,6 +63,7 @@ var FlatsealOverrideStatusIcon = GObject.registerClass({
 
         this.set_tooltip_text(OverrideStatusDescription[status]);
         this.visible = true;
+        context.add_class(status);
     }
 
     get status() {
