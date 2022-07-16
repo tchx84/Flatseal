@@ -43,7 +43,8 @@ Will Thompson
 Jonas Johan Solsvik
 Maximiliano Sandoval
 Ferenc
-rusty-snake</property>
+rusty-snake
+Guilhem Morer</property>
     <property name="logo_icon_name">com.github.tchx84.Flatseal</property>
     <property name="license_type">gpl-3-0</property>
     <child>
