@@ -5,6 +5,7 @@
 - Fixed French translation.
 - Fixed Chinese (China) translation.
 - Added Hebrew translation.
+- Changed Flatpak icon to the latest version.
 - Changed globally overridden status icon to use a different color.
 - Changed environment variables validation to allow spaces.
 
