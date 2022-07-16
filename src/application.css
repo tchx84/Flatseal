@@ -52,6 +52,9 @@ row .content .path {
 row .status {
     color: @theme_selected_bg_color;
 }
+row .status.global {
+    color: @insensitive_fg_color;
+}
 row.activatable .status {
     margin-right: 8px;
 }
