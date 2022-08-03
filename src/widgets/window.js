@@ -80,19 +80,18 @@ var FlatsealWindow = GObject.registerClass(
   },
   class FlatsealWindow extends Adw.ApplicationWindow {
     _init(application) {
-      console.log("from fiaa")
+
       super._init({ application });
-      console.log("from fiaa")
+
       this._setup();
-      console.log("from meee")
     }
 
     _setup() {
-      console.log("from fiaa")
+
       const builder = Gtk.Builder.new_from_resource(menuResource);
-      console.log("from fiaa")
+
       this._menuButton.set_menu_model(builder.get_object("menu"));
-      console.log("from fiaa")
+
       this._settings = new FlatsealSettingsModel();
       this._settings.restoreWindowState(this);
 
@@ -101,7 +100,7 @@ var FlatsealWindow = GObject.registerClass(
 
       const allApplications = this._applications.getAll();
       const allPermissions = this._permissions.getAll();
-      console.log("from fiaa")
+
       this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
       this._startHeaderBox.append(this._detailsHeaderButton);
       this._resetHeaderButton = new FlatsealResetButton(this._permissions);
@@ -111,7 +110,7 @@ var FlatsealWindow = GObject.registerClass(
       this._startActionBox.append(this._detailsActionButton);
       const resetActionButton = new FlatsealResetButton(this._permissions);
       this._endActionBox.append(resetActionButton);
-      console.log("from fiaa")
+
       this._undoPopup = new FlatsealUndoPopup(this._permissions);
       this._undoPopupBox.append(this._undoPopup);
 
@@ -125,14 +124,14 @@ var FlatsealWindow = GObject.registerClass(
         "visible",
         _bindReadFlags
       );
-      console.log("from fiaa")
+
       /* this._permissionsHeaderBar.connect_after(
             'size-allocate', this._updateVisibility.bind(this));
         */
       if (allApplications.length === 0 || allPermissions.length === 0) return;
 
       const iconTheme = Gtk.IconTheme.get_for_display(this.display);
-      console.log("from fiaa")
+
       allApplications.forEach((app) => {
         iconTheme.add_search_path(app.appThemePath);
         const row = new FlatsealApplicationRow(
@@ -142,7 +141,7 @@ var FlatsealWindow = GObject.registerClass(
         );
         this._applicationsListBox.append(row);
       });
-      console.log("from fiaa")
+
       /* Add row for global overrides */
       this._globalRow = new FlatsealGlobalRow();
       this._applicationsListBox.append(this._globalRow);
@@ -156,7 +155,7 @@ var FlatsealWindow = GObject.registerClass(
         "compact",
         _bindReadFlags
       );
-      console.log("from fiaa")
+
       this._globalInfoViewer = new FlatsealGlobalInfoViewer();
       this._globalInfoViewer.show();
       this._appInfoGroup.add(this._globalInfoViewer);
@@ -169,7 +168,7 @@ var FlatsealWindow = GObject.registerClass(
 
       let lastGroup = "";
       let lastPrefsGroup;
-      console.log("from fiaa")
+
       allPermissions.forEach((p) => {
         let row;
         let property = "text";
@@ -226,7 +225,7 @@ var FlatsealWindow = GObject.registerClass(
 
         const context = row.get_style_context();
         context.add_class(p.groupStyle);
-        console.log("from fiaa")
+
         if (p.groupStyle !== lastGroup) {
           const groupRow = new Adw.PreferencesGroup();
           groupRow.set_title(p.groupTitle);
@@ -236,7 +235,7 @@ var FlatsealWindow = GObject.registerClass(
           lastGroup = p.groupStyle;
           lastPrefsGroup = groupRow;
         }
-        console.log("from fiaa")
+
         row.sensitive = p.supported;
         lastPrefsGroup.add(row);
         this._portalsGroup = lastPrefsGroup;
@@ -259,12 +258,12 @@ var FlatsealWindow = GObject.registerClass(
       });
 
       this.connect("close-request", this._saveSettings.bind(this));
-      console.log("from fiaa")
+
       this.connect("destroy", this._shutdown.bind(this));
-      console.log("from fiaa")
+
       this._permissionsStack.visibleChildName = "withPermissionsPage";
       this._applicationsStack.visibleChildName = "withApplicationsPage";
-      console.log("from fiaa")
+
       this._applicationsListBox.set_filter_func(this._filter.bind(this));
       this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
@@ -278,12 +277,12 @@ var FlatsealWindow = GObject.registerClass(
         "row-selected",
         this._selectApplicationDelayed.bind(this)
       );
-      console.log("from fiaa")
+
       this._applicationsListBox.connect(
         "row-activated",
         this._activateApplication.bind(this)
       );
-      console.log("from fiaa")
+
       this._applicationsSearchEntry.connect(
         "activate",
         this._selectSearch.bind(this)
@@ -309,7 +308,7 @@ var FlatsealWindow = GObject.registerClass(
       );
 
       this.connect("find", this._enableSearchWithShortcut.bind(this));
-      console.log("from fiaa")
+
       this._showApplications();
       this._backButton.set_sensitive(true);
       this._backButton.connect("activate", this._showApplications.bind(this));
