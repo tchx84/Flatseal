@@ -50,7 +50,7 @@ Guilhem Morer</property>
     </child>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">

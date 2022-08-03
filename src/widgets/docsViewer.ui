@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="libadwaita" version="1.0"/>
-  <requires lib="webkit2gtk" version="2.28"/>
+  <requires lib="gtk" version="4.0" />
+  <requires lib="libadwaita" version="1.0" />
+  <requires lib="webkit2gtk" version="2.28" />
   <template class="FlatsealDocsViewer" parent="AdwApplicationWindow">
     <property name="can-focus">False</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="orientation">vertical</property>
         <child>
           <object class="AdwHeaderBar">
@@ -17,36 +17,36 @@
             <property name="show-close-button">1</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">0</property>
+
                 <child>
                   <object class="GtkButton" id="backButton">
-                    <property name="visible">0</property>
+
                     <property name="focusable">1</property>
                     <property name="receives-default">1</property>
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">0</property>
+
                         <property name="icon-name">go-previous-symbolic</property>
                       </object>
                     </child>
                     <style>
-                      <class name="back-button"/>
+                      <class name="back-button" />
                     </style>
                   </object>
                 </child>
                 <child>
                   <object class="GtkButton" id="forwardButton">
-                    <property name="visible">0</property>
+
                     <property name="focusable">1</property>
                     <property name="receives-default">1</property>
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">0</property>
+
                         <property name="icon-name">go-next-symbolic</property>
                       </object>
                     </child>
                     <style>
-                      <class name="forward-button"/>
+                      <class name="forward-button" />
                     </style>
                   </object>
                 </child>
@@ -54,12 +54,12 @@
             </child>
             <child>
               <object class="GtkToggleButton" id="searchButton">
-                <property name="visible">0</property>
+
                 <property name="focusable">1</property>
                 <property name="receives-default">1</property>
                 <child>
                   <object class="GtkImage">
-                    <property name="visible">0</property>
+
                     <property name="icon-name">system-search-symbolic</property>
                   </object>
                 </child>
@@ -69,49 +69,49 @@
         </child>
         <child>
           <object class="GtkSearchBar" id="searchBar">
-            <property name="visible">0</property>
+
             <property name="child">
               <object class="GtkBox">
-                <property name="visible">0</property>
+
                 <child>
                   <object class="GtkSearchEntry" id="searchEntry">
-                    <property name="visible">0</property>
+
                     <property name="hexpand">1</property>
                     <property name="focusable">1</property>
-                <!--    <property name="primary-icon-name">edit-find-symbolic</property> -->
+                    <!--    <property name="primary-icon-name">edit-find-symbolic</property> -->
                     <property name="primary-icon-activatable">False</property>
                     <property name="primary-icon-sensitive">False</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkButton" id="previousButton">
-                    <property name="visible">0</property>
+
                     <property name="focusable">1</property>
                     <property name="receives-default">1</property>
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">0</property>
+
                         <property name="icon-name">go-up-symbolic</property>
                       </object>
                     </child>
                     <style>
-                      <class name="previous-button"/>
+                      <class name="previous-button" />
                     </style>
                   </object>
                 </child>
                 <child>
                   <object class="GtkButton" id="nextButton">
-                    <property name="visible">0</property>
+
                     <property name="focusable">1</property>
                     <property name="receives-default">1</property>
                     <child>
                       <object class="GtkImage">
-                        <property name="visible">0</property>
+
                         <property name="icon-name">go-down-symbolic</property>
                       </object>
                     </child>
                     <style>
-                      <class name="next-button"/>
+                      <class name="next-button" />
                     </style>
                   </object>
                 </child>
@@ -119,8 +119,7 @@
             </property>
           </object>
         </child>
-        <child>
-        </child>
+        <child></child>
       </object>
     </child>
   </template>

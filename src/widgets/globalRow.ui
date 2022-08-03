@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="libadwaita" version="1.0"/>
+  <requires lib="gtk" version="4.0" />
+  <requires lib="libadwaita" version="1.0" />
   <template class="FlatsealGlobalRow" parent="AdwActionRow">
     <property name="visible">True</property>
     <property name="can-focus">True</property>
@@ -10,19 +10,19 @@
     <property name="subtitle">global</property>
     <child type="prefix">
       <object class="GtkImage" id="icon">
-        <property name="visible">0</property>
+
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="pixel-size">48</property>
         <property name="icon-name">com.github.tchx84.Flatseal.Flatpak</property>
         <style>
-          <class name="icon"/>
-          <class name="lowres-icon"/>
+          <class name="icon" />
+          <class name="lowres-icon" />
         </style>
       </object>
     </child>
     <style>
-      <class name="row"/>
+      <class name="row" />
     </style>
   </template>
 </interface>

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="4.0" />
   <template class="FlatsealAppInfoViewer" parent="GtkBox">
     <property name="focusable">1</property>
     <property name="halign">start</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="halign">center</property>
         <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="icon">
-            <property name="visible">0</property>
+
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="vexpand">1</property>
             <property name="pixel_size">128</property>
             <property name="icon_size">6</property>
             <style>
-              <class name="icon"/>
-              <class name="icon-dropshadow"/>
+              <class name="icon" />
+              <class name="icon-dropshadow" />
             </style>
           </object>
         </child>
@@ -28,34 +28,34 @@
     </child>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="halign">center</property>
         <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox" id="content">
-            <property name="visible">0</property>
+
             <property name="valign">center</property>
             <property name="vexpand">1</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">0</property>
+
                 <property name="valign">center</property>
                 <property name="vexpand">1</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkGrid">
-                    <property name="visible">0</property>
+
                     <property name="vexpand">1</property>
                     <child>
                       <object class="GtkLabel" id="name">
-                        <property name="visible">0</property>
+
                         <property name="halign">start</property>
                         <property name="hexpand">1</property>
                         <property name="ellipsize">end</property>
                         <style>
-                          <class name="name"/>
+                          <class name="name" />
                         </style>
                         <layout>
                           <property name="column">0</property>
@@ -65,12 +65,12 @@
                     </child>
                     <child>
                       <object class="GtkLabel" id="author">
-                        <property name="visible">0</property>
+
                         <property name="halign">start</property>
                         <property name="hexpand">1</property>
                         <property name="ellipsize">end</property>
                         <style>
-                          <class name="author"/>
+                          <class name="author" />
                         </style>
                         <layout>
                           <property name="column">0</property>
@@ -84,26 +84,26 @@
             </child>
             <child>
               <object class="GtkBox">
-                <property name="visible">0</property>
+
                 <property name="vexpand">1</property>
                 <property name="valign">center</property>
                 <property name="spacing">20</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">0</property>
+
                     <property name="halign">center</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkGrid">
-                        <property name="visible">0</property>
+
                         <property name="vexpand">1</property>
                         <child>
                           <object class="GtkLabel">
-                            <property name="visible">0</property>
+
                             <property name="halign">start</property>
                             <property name="label" translatable="1">Version</property>
                             <style>
-                              <class name="description"/>
+                              <class name="description" />
                             </style>
                             <layout>
                               <property name="column">0</property>
@@ -113,11 +113,11 @@
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="visible">0</property>
+
                             <property name="halign">start</property>
                             <property name="label" translatable="1">Last Updated</property>
                             <style>
-                              <class name="description"/>
+                              <class name="description" />
                             </style>
                             <layout>
                               <property name="column">0</property>
@@ -127,11 +127,11 @@
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="visible">0</property>
+
                             <property name="halign">start</property>
                             <property name="label" translatable="1">Runtime</property>
                             <style>
-                              <class name="description"/>
+                              <class name="description" />
                             </style>
                             <layout>
                               <property name="column">0</property>
@@ -140,10 +140,10 @@
                           </object>
                         </child>
                         <child>
-                          <placeholder/>
+                          <placeholder />
                         </child>
                         <child>
-                          <placeholder/>
+                          <placeholder />
                         </child>
                       </object>
                     </child>
@@ -151,20 +151,20 @@
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">0</property>
+
                     <property name="halign">center</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkGrid">
-                        <property name="visible">0</property>
+
                         <property name="vexpand">1</property>
                         <child>
                           <object class="GtkLabel" id="version">
-                            <property name="visible">0</property>
+
                             <property name="halign">start</property>
                             <property name="ellipsize">end</property>
                             <style>
-                              <class name="value"/>
+                              <class name="value" />
                             </style>
                             <layout>
                               <property name="column">0</property>
@@ -174,11 +174,11 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="released">
-                            <property name="visible">0</property>
+
                             <property name="halign">start</property>
                             <property name="ellipsize">end</property>
                             <style>
-                              <class name="value"/>
+                              <class name="value" />
                             </style>
                             <layout>
                               <property name="column">0</property>
@@ -188,11 +188,11 @@
                         </child>
                         <child>
                           <object class="GtkLabel" id="runtime">
-                            <property name="visible">0</property>
+
                             <property name="halign">start</property>
                             <property name="ellipsize">end</property>
                             <style>
-                              <class name="value"/>
+                              <class name="value" />
                             </style>
                             <layout>
                               <property name="column">0</property>
@@ -201,10 +201,10 @@
                           </object>
                         </child>
                         <child>
-                          <placeholder/>
+                          <placeholder />
                         </child>
                         <child>
-                          <placeholder/>
+                          <placeholder />
                         </child>
                       </object>
                     </child>
@@ -213,14 +213,14 @@
               </object>
             </child>
             <style>
-              <class name="content"/>
+              <class name="content" />
             </style>
           </object>
         </child>
       </object>
     </child>
     <style>
-      <class name="app-info"/>
+      <class name="app-info" />
     </style>
   </template>
 </interface>

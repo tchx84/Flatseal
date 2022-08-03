@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
-  <requires lib="libadwaita" version="1.0"/>
+  <requires lib="gtk" version="4.0" />
+  <requires lib="libadwaita" version="1.0" />
   <template class="FlatsealPermissionSwitchRow" parent="AdwActionRow">
     <property name="visible">True</property>
     <property name="sensitive">False</property>
@@ -9,28 +9,28 @@
     <property name="activatable-widget">content</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="halign">center</property>
         <property name="valign">center</property>
         <child>
           <object class="GtkBox" id="statusBox">
-            <property name="visible">0</property>
+
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
-              <placeholder/>
+              <placeholder />
             </child>
           </object>
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">0</property>
+
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkSwitch" id="content">
-                <property name="visible">0</property>
+
                 <property name="focusable">1</property>
               </object>
             </child>
