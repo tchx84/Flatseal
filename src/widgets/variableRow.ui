@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="4.0" />
   <object class="GtkListStore" id="store">
     <columns>
-      <column type="gchararray"/>
+      <column type="gchararray" />
     </columns>
   </object>
   <object class="GtkEntryCompletion" id="completion">
@@ -18,16 +18,15 @@
     <property name="margin-bottom">12</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="image">
-            <property name="visible">0</property>
             <property name="vexpand">1</property>
             <property name="valign">center</property>
             <property name="icon_size">large</property>
             <style>
-              <class name="info"/>
+              <class name="info" />
             </style>
           </object>
         </child>
@@ -35,12 +34,12 @@
     </child>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkEntry" id="entry">
-            <property name="visible">0</property>
+
             <property name="vexpand">1</property>
             <property name="focusable">1</property>
             <property name="valign">center</property>
@@ -51,23 +50,23 @@
     </child>
     <child>
       <object class="GtkBox" id="statusBox">
-        <property name="visible">0</property>
+
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="orientation">vertical</property>
         <child>
-          <placeholder/>
+          <placeholder />
         </child>
       </object>
     </child>
     <child>
       <object class="GtkBox">
-        <property name="visible">0</property>
+
         <property name="halign">center</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkButton" id="button">
-            <property name="visible">0</property>
+
             <property name="vexpand">1</property>
             <property name="focusable">1</property>
             <property name="receives-default">1</property>
@@ -75,7 +74,7 @@
             <property name="valign">center</property>
             <child>
               <object class="GtkImage">
-                <property name="visible">0</property>
+
                 <property name="icon-name">window-close-symbolic</property>
               </object>
             </child>
@@ -84,7 +83,7 @@
       </object>
     </child>
     <style>
-      <class name="variable"/>
+      <class name="variable" />
     </style>
   </template>
 </interface>

@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0"/>
+  <requires lib="gtk" version="4.0" />
   <template class="FlatsealShortcutsWindow" parent="GtkShortcutsWindow">
     <property name="modal">1</property>
     <child>
       <object class="GtkShortcutsSection">
-        <property name="visible">0</property>
+
         <property name="section-name">shortcuts</property>
         <property name="max-height">12</property>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">0</property>
+
             <property name="title" translatable="1">General</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;alt&gt;</property>
                 <property name="title" translatable="1">Show mnemonics</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">F1</property>
                 <property name="title" translatable="1">Show documentation</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">F10</property>
                 <property name="title" translatable="1">Show menu</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;ctrl&gt;question</property>
                 <property name="title" translatable="1">Keyboard shortcuts</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;ctrl&gt;Q</property>
                 <property name="title" translatable="1">Quit</property>
               </object>
@@ -51,32 +51,32 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">0</property>
+
             <property name="title" translatable="1">Navigation</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">Left</property>
                 <property name="title" translatable="1">Move left</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">Up</property>
                 <property name="title" translatable="1">Move up</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">Right</property>
                 <property name="title" translatable="1">Move right</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">Down</property>
                 <property name="title" translatable="1">Move down</property>
               </object>
@@ -85,11 +85,11 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">0</property>
+
             <property name="title" translatable="1">Applications</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;ctrl&gt;F</property>
                 <property name="title" translatable="1">Find</property>
               </object>
@@ -98,11 +98,11 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">0</property>
+
             <property name="title" translatable="1">Permissions</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">space</property>
                 <property name="title" translatable="1">Toggle</property>
               </object>
@@ -111,25 +111,25 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="visible">0</property>
+
             <property name="title" translatable="1">Documentation</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;ctrl&gt;F</property>
                 <property name="title" translatable="1">Find</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;ctrl&gt;G</property>
                 <property name="title" translatable="1">Find next</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">0</property>
+
                 <property name="accelerator">&lt;Primary&gt;&lt;Shift&gt;G</property>
                 <property name="title" translatable="1">Find previous</property>
               </object>
