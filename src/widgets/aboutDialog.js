@@ -36,10 +36,6 @@ var FlatsealAboutDialog = GObject.registerClass({
         super._init(props);
         const contributors = this.contributors.split('\n');
         this.add_credit_section(_('Contributions by'), contributors);
-        this.connect('response', this.response.bind(this));
-    }
 
-    response() {
-        this.destroy();
     }
 });
