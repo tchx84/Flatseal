@@ -58,9 +58,9 @@ var FlatsealPathsViewer = GObject.registerClass(
     }
 
     _update(text) {
-      for (row in this.rows) {
+      for (let row of this.rows) {
+        this.rows = this.rows.filter((rowwy) => rowwy != row);
         this._box.remove(row);
-        row.destroy();
       }
       const paths = text.split(";");
 
