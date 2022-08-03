@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.24"/>
-  <requires lib="libhandy" version="0.0"/>
-  <template class="FlatsealGlobalRow" parent="HdyActionRow">
-    <property name="visible">True</property>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="FlatsealGlobalRow" parent="AdwActionRow">
     <property name="can-focus">True</property>
     <property name="activatable">True</property>
     <property name="title" translatable="yes">All Applications</property>
     <property name="subtitle">global</property>
     <child type="prefix">
       <object class="GtkImage" id="icon">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="pixel-size">48</property>

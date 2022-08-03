@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib, Gtk, Handy} = imports.gi;
+const {GObject, GLib, Gtk, Adw} = imports.gi;
 
 const {applications, permissions} = imports.models;
 
@@ -70,13 +70,14 @@ var FlatsealWindow = GObject.registerClass({
         'backButton',
         'contentLeaflet',
         'undoPopupBox',
+        'permissionsTitle',
     ],
     Signals: {
         find: {
             flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
         },
     },
-}, class FlatsealWindow extends Handy.ApplicationWindow {
+}, class FlatsealWindow extends Adw.ApplicationWindow {
     _init(application) {
         super._init({application});
         this._setup();
@@ -96,17 +97,17 @@ var FlatsealWindow = GObject.registerClass({
         const allPermissions = this._permissions.getAll();
 
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
-        this._startHeaderBox.add(this._detailsHeaderButton);
+        this._startHeaderBox.append(this._detailsHeaderButton);
         this._resetHeaderButton = new FlatsealResetButton(this._permissions);
-        this._endHeaderBox.add(this._resetHeaderButton);
+        this._endHeaderBox.append(this._resetHeaderButton);
 
         this._detailsActionButton = new FlatsealDetailsButton(this._permissions);
-        this._startActionBox.add(this._detailsActionButton);
+        this._startActionBox.append(this._detailsActionButton);
         const resetActionButton = new FlatsealResetButton(this._permissions);
-        this._endActionBox.add(resetActionButton);
+        this._endActionBox.append(resetActionButton);
 
         this._undoPopup = new FlatsealUndoPopup(this._permissions);
-        this._undoPopupBox.add(this._undoPopup);
+        this._undoPopupBox.append(this._undoPopup);
 
         this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
         this._contentLeaflet.bind_property(
@@ -117,17 +118,17 @@ var FlatsealWindow = GObject.registerClass({
         if (allApplications.length === 0 || allPermissions.length === 0)
             return;
 
-        const iconTheme = Gtk.IconTheme.get_default();
+        const iconTheme = Gtk.IconTheme.get_for_display(this.get_display());
 
         allApplications.forEach(app => {
-            iconTheme.append_search_path(app.appThemePath);
+            iconTheme.add_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
-            this._applicationsListBox.add(row);
+            this._applicationsListBox.append(row);
         });
 
         /* Add row for global overrides */
         this._globalRow = new FlatsealGlobalRow();
-        this._applicationsListBox.add(this._globalRow);
+        this._applicationsListBox.append(this._globalRow);
 
         this._appInfoViewer = new FlatsealAppInfoViewer();
         this._appInfoViewer.show();
@@ -196,7 +197,7 @@ var FlatsealWindow = GObject.registerClass({
             context.add_class(p.groupStyle);
 
             if (p.groupStyle !== lastGroup) {
-                const groupRow = new Handy.PreferencesGroup();
+                const groupRow = new Adw.PreferencesGroup();
                 groupRow.set_title(p.groupTitle);
                 groupRow.set_description(p.groupDescription);
                 groupRow.show();
@@ -296,7 +297,7 @@ var FlatsealWindow = GObject.registerClass({
     _updatePermissions() {
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
-        this._permissionsHeaderBar.set_title(row.appName);
+        this._permissionsTitle.title = row.appName;
         this._updatePermissionsPane(row.appId);
         this._undoPopup.close();
 
@@ -305,7 +306,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _updateVisibility(window, allocation) {
-        const visible = allocation.width <= ACTION_BAR_THRESHOLD;
+        const visible = window.root.default_width <= ACTION_BAR_THRESHOLD;
 
         this._detailsHeaderButton.visible = !visible;
         this._resetHeaderButton.visible = !visible;

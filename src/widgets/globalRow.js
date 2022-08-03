@@ -18,14 +18,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Handy} = imports.gi;
+const {GObject, Adw} = imports.gi;
 
 
 var FlatsealGlobalRow = GObject.registerClass({
     GTypeName: 'FlatsealGlobalRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/globalRow.ui',
     InternalChildren: ['icon'],
-}, class FlatsealGlobalRow extends Handy.ActionRow {
+}, class FlatsealGlobalRow extends Adw.ActionRow {
     _init() {
         super._init();
     }

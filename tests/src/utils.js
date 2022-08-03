@@ -20,7 +20,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.Gtk = '3.0';
+imports.gi.versions.Gtk = '4.0';
 
 const {gettext} = imports;
 

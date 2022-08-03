@@ -18,17 +18,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Handy} = imports.gi;
+const {GObject, Gtk, Adw} = imports.gi;
 
 
 var FlatsealApplicationRow = GObject.registerClass({
     GTypeName: 'FlatsealApplicationRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/applicationRow.ui',
     InternalChildren: ['icon'],
-}, class FlatsealApplicationRow extends Handy.ActionRow {
+}, class FlatsealApplicationRow extends Adw.ActionRow {
     _init(appId, appName, appIconName) {
         super._init();
-        this._icon.set_from_icon_name(appIconName, Gtk.IconSize.INVALID);
+        this._icon.set_from_icon_name(appIconName);
         this.set_title(appName);
         this.set_subtitle(appId);
     }

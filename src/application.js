@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Gdk, Gio, Handy} = imports.gi;
+const {GObject, Gtk, Gdk, Gio, Adw} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {FlatsealAboutDialog} = imports.widgets.aboutDialog;
@@ -89,13 +89,6 @@ var FlatsealApplication = GObject.registerClass({
         this.set_accels_for_action('app.quit', ['<Primary>q']);
     }
 
-    _setupStylesheet() {
-        const provider = new Gtk.CssProvider();
-        provider.load_from_resource('/com/github/tchx84/Flatseal/application.css');
-        Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(),
-            provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-    }
-
     vfunc_activate() {
         if (this._window === null)
             this._window = new FlatsealWindow(this);
@@ -105,11 +98,7 @@ var FlatsealApplication = GObject.registerClass({
 
     vfunc_startup() {
         super.vfunc_startup();
-        Handy.init();
+        Adw.init();
         this._setupActions();
-        this._setupStylesheet();
-
-        Handy.StyleManager.get_default().set_color_scheme(
-            Handy.ColorScheme.PREFER_LIGHT);
     }
 });
