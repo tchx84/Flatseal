@@ -18,10 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
+const { GObject } = imports.gi;
 
-const {filesystems} = imports.models;
-const {FlatpakSharedModel} = imports.models.shared;
+const { filesystems } = imports.models;
+const { FlatpakSharedModel } = imports.models.shared;
 
 
 var FlatpakFilesystemsOtherModel = GObject.registerClass({
@@ -162,19 +162,19 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
-                           this.constructor.isNegated(p)))
+                this.constructor.isNegated(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                           this.constructor.isNegated(p)));
+                this.constructor.isNegated(p)));
 
         const overrides = [...this._overrides]
             .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
             .filter(p => !this.constructor.isStrictlyOverriden(this._globals, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
-                           this.constructor.isNegated(p)))
+                this.constructor.isNegated(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                           this.constructor.isNegated(p)))
+                this.constructor.isNegated(p)))
             .filter(p => !(this.constructor.isOverriden(this._globals, p) &&
-                           this.constructor.isNegated(p)));
+                this.constructor.isNegated(p)));
 
         const paths = new Set([...originals, ...globals, ...overrides]);
         const value = [...paths].join(';');

@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GLib} = imports.gi;
+const { Gio, GLib } = imports.gi;
 
 const {
     setup,
@@ -85,11 +85,11 @@ const _key = 'filesystems';
 const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
-describe('Model', function() {
+describe('Model', function () {
     var delay, applications, permissions, infoDefault, portalsDefault, portalState;
 
-    beforeAll(function() {
-        const {info, portals} = imports.models;
+    beforeAll(function () {
+        const { info, portals } = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
@@ -100,17 +100,17 @@ describe('Model', function() {
         GLib.mkdir_with_parents(_overrides, 0o755);
     });
 
-    afterAll(function() {
+    afterAll(function () {
         stopService();
     });
 
-    beforeEach(function() {
+    beforeEach(function () {
         GLib.setenv('FLATPAK_SYSTEM_DIR', _system, true);
         GLib.setenv('FLATPAK_USER_DIR', _none, true);
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfo, true);
 
-        const {FlatpakApplicationsModel} = imports.models.applications;
-        const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
+        const { FlatpakApplicationsModel } = imports.models.applications;
+        const { FlatpakPermissionsModel, DELAY } = imports.models.permissions;
 
         delay = DELAY;
         infoDefault.reload();
@@ -130,7 +130,7 @@ describe('Model', function() {
         GLib.unlink(_globalOverride);
     });
 
-    it('loads applications', function() {
+    it('loads applications', function () {
         const appIds = applications.getAll().map(a => a.appId);
 
         expect(appIds).toContain(_basicAppId);
@@ -144,7 +144,7 @@ describe('Model', function() {
         expect(appIds).toContain(_filesystemWithMode);
     });
 
-    it('ignores BaseApp bundles', function() {
+    it('ignores BaseApp bundles', function () {
         const path = GLib.build_filenamev([
             _system, 'app', _baseAppId, 'current', 'active', 'metadata',
         ]);
@@ -155,7 +155,7 @@ describe('Model', function() {
         expect(appIds).not.toContain(_baseAppId);
     });
 
-    it('loads permissions', function() {
+    it('loads permissions', function () {
         permissions.appId = _basicAppId;
 
         expect(permissions.shared_network).toBe(true);
@@ -191,7 +191,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
-    it('loads overrides', function() {
+    it('loads overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _basicAppId;
 
@@ -227,7 +227,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=no');
     });
 
-    it('loads negated permissions', function() {
+    it('loads negated permissions', function () {
         permissions.appId = _basicNegatedAppId;
 
         expect(permissions.shared_network).toBe(false);
@@ -263,7 +263,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=no');
     });
 
-    it('loads negated overrides', function() {
+    it('loads negated overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _basicNegatedAppId;
 
@@ -300,7 +300,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=yes');
     });
 
-    it('creates overrides when properties changed', function(done) {
+    it('creates overrides when properties changed', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
@@ -328,7 +328,7 @@ describe('Model', function() {
         update();
     });
 
-    it('reloads previous overrides later on', function() {
+    it('reloads previous overrides later on', function () {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
@@ -360,7 +360,7 @@ describe('Model', function() {
         expect(permissions.variables).toEqual('TEST=maybe');
     });
 
-    it('resets overrides', function() {
+    it('resets overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
@@ -369,7 +369,7 @@ describe('Model', function() {
         expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
     });
 
-    it('creates overrides when properties values changed', function(done) {
+    it('creates overrides when properties values changed', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
@@ -384,7 +384,7 @@ describe('Model', function() {
         update();
     });
 
-    it('removes overrides when properties values restore', function(done) {
+    it('removes overrides when properties values restore', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
@@ -399,14 +399,14 @@ describe('Model', function() {
         update();
     });
 
-    it('loads old filesystems overrides', function() {
+    it('loads old filesystems overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _oldAppId;
 
         expect(permissions.filesystems_other).toEqual('xdg-pictures:ro');
     });
 
-    it('reduces filesystems permission', function(done) {
+    it('reduces filesystems permission', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _reduceAppId;
 
@@ -424,7 +424,7 @@ describe('Model', function() {
         update();
     });
 
-    it('increases filesystems permission', function(done) {
+    it('increases filesystems permission', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _increaseAppId;
 
@@ -442,7 +442,7 @@ describe('Model', function() {
         update();
     });
 
-    it('increases filesystems permission (default)', function(done) {
+    it('increases filesystems permission (default)', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _increaseAppId;
 
@@ -460,7 +460,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles negated filesystems permission', function(done) {
+    it('handles negated filesystems permission', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _negationAppId;
 
@@ -478,7 +478,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles removing negated filesystems permission', function(done) {
+    it('handles removing negated filesystems permission', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _negationAppId;
 
@@ -496,7 +496,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles adding negated filesystems override (manually)', function(done) {
+    it('handles adding negated filesystems override (manually)', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _negationAppId;
 
@@ -514,7 +514,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles removing negated filesystems override (manually)', function(done) {
+    it('handles removing negated filesystems override (manually)', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _negationAppId;
 
@@ -532,7 +532,7 @@ describe('Model', function() {
         update();
     });
 
-    it('ignores unsupported permissions', function(done) {
+    it('ignores unsupported permissions', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _unsupportedAppId;
 
@@ -550,7 +550,7 @@ describe('Model', function() {
         update();
     });
 
-    it('preserves unsupported permissions', function(done) {
+    it('preserves unsupported permissions', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _unsupportedAppId;
 
@@ -573,7 +573,7 @@ describe('Model', function() {
         update();
     });
 
-    it('signals changes with overrides', function(done) {
+    it('signals changes with overrides', function (done) {
         spyOn(permissions, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
@@ -590,7 +590,7 @@ describe('Model', function() {
         update();
     });
 
-    it('signals changes with no overrides', function() {
+    it('signals changes with no overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _basicAppId;
 
@@ -602,7 +602,7 @@ describe('Model', function() {
         expect(permissions.emit.calls.count()).toEqual(2); // including reset signal
     });
 
-    it('signals changes with unsupported overrides', function() {
+    it('signals changes with unsupported overrides', function () {
         spyOn(permissions, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
@@ -611,7 +611,7 @@ describe('Model', function() {
         expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, true]);
     });
 
-    it('signals changes without unsupported overrides', function() {
+    it('signals changes without unsupported overrides', function () {
         spyOn(permissions, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
@@ -620,7 +620,7 @@ describe('Model', function() {
         expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
     });
 
-    it('saves pending updates before selecting other application', function(done) {
+    it('saves pending updates before selecting other application', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _basicAppId;
 
@@ -640,7 +640,7 @@ describe('Model', function() {
         update();
     });
 
-    it('saves pending updates before shutting down', function(done) {
+    it('saves pending updates before shutting down', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _basicAppId;
 
@@ -659,7 +659,7 @@ describe('Model', function() {
         update();
     });
 
-    it('disables all permissions with old flatpak version', function() {
+    it('disables all permissions with old flatpak version', function () {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoOld, true);
         infoDefault.reload();
         portalsDefault.reload();
@@ -670,7 +670,7 @@ describe('Model', function() {
         expect(total).toEqual(0);
     });
 
-    it('enables all permissions with new flatpak version', function() {
+    it('enables all permissions with new flatpak version', function () {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         infoDefault.reload();
         permissions.appId = _basicAppId;
@@ -680,7 +680,7 @@ describe('Model', function() {
         expect(total).toEqual(_totalPermissions);
     });
 
-    it('disables permissions with stable flatpak version', function() {
+    it('disables permissions with stable flatpak version', function () {
         infoDefault.reload();
         portalsDefault.reload();
         permissions.appId = _basicAppId;
@@ -689,7 +689,7 @@ describe('Model', function() {
         expect(total).toEqual(_totalPermissions - 7);
     });
 
-    it('handles missing .flatpak-info', function() {
+    it('handles missing .flatpak-info', function () {
         GLib.setenv('FLATPAK_INFO_PATH', _none, true);
         infoDefault.reload();
         portalsDefault.reload();
@@ -700,14 +700,14 @@ describe('Model', function() {
         expect(total).toEqual(_totalPermissions);
     });
 
-    it('loads extra applications', function() {
+    it('loads extra applications', function () {
         GLib.setenv('FLATPAK_CONFIG_DIR', _flatpakConfig, true);
 
         const appIds = applications.getAll().map(a => a.appId);
         expect(appIds).toContain(_extraAppId);
     });
 
-    it('preserves installation priorities', function() {
+    it('preserves installation priorities', function () {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         GLib.setenv('FLATPAK_CONFIG_DIR', _flatpakConfig, true);
         permissions.appId = _extraAppId;
@@ -716,7 +716,7 @@ describe('Model', function() {
         expect(permissions.shared_ipc).toBe(true);
     });
 
-    it('add new environment variable', function(done) {
+    it('add new environment variable', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _environmentAppId;
 
@@ -733,7 +733,7 @@ describe('Model', function() {
         update();
     });
 
-    it('override original environment variable', function(done) {
+    it('override original environment variable', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _environmentAppId;
 
@@ -750,7 +750,7 @@ describe('Model', function() {
         update();
     });
 
-    it('remove original environment variable', function(done) {
+    it('remove original environment variable', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _environmentAppId;
 
@@ -767,14 +767,14 @@ describe('Model', function() {
         update();
     });
 
-    it('handles re-loading removed variables', function() {
+    it('handles re-loading removed variables', function () {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _variablesAppId;
 
         expect(permissions.variables).toEqual('');
     });
 
-    it('handles non-valid environment variable', function(done) {
+    it('handles non-valid environment variable', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _environmentAppId;
 
@@ -791,7 +791,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles RUST debug export environment variables', function(done) {
+    it('handles RUST debug export environment variables', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _environmentAppId;
 
@@ -812,7 +812,7 @@ describe('Model', function() {
         update();
     });
 
-    it('Add new well-known names', function(done) {
+    it('Add new well-known names', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _busAppId;
 
@@ -834,7 +834,7 @@ describe('Model', function() {
         update();
     });
 
-    it('Remove well-known names', function(done) {
+    it('Remove well-known names', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _busAppId;
 
@@ -854,7 +854,7 @@ describe('Model', function() {
         update();
     });
 
-    it('Modify well-known names', function(done) {
+    it('Modify well-known names', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _busAppId;
 
@@ -874,7 +874,7 @@ describe('Model', function() {
         update();
     });
 
-    it('signals reset when done explicitly', function() {
+    it('signals reset when done explicitly', function () {
         spyOn(permissions, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
@@ -885,7 +885,7 @@ describe('Model', function() {
         expect(permissions.emit.calls.mostRecent().args).toEqual(['reset']);
     });
 
-    it('restores overrides when undo', function(done) {
+    it('restores overrides when undo', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _basicAppId;
 
@@ -908,7 +908,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles portals permissions', function(done) {
+    it('handles portals permissions', function (done) {
         permissions.appId = _basicAppId;
 
         expect(permissions.portals_background).toBe(portalState.UNSET);
@@ -944,7 +944,7 @@ describe('Model', function() {
         update();
     });
 
-    it('resets portals permissions', function() {
+    it('resets portals permissions', function () {
         permissions.appId = _basicAppId;
 
         permissions.reset();
@@ -958,7 +958,7 @@ describe('Model', function() {
     });
 
 
-    it('restores portals permissions when undo', function(done) {
+    it('restores portals permissions when undo', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _overridenAppId;
 
@@ -1009,14 +1009,14 @@ describe('Model', function() {
         update();
     });
 
-    it('does not write to the store unnecessarily', function() {
+    it('does not write to the store unnecessarily', function () {
         permissions.appId = _reduceAppId;
 
         expect(permissions.portals_background).toBe(portalState.UNSET);
         expect(getValueFromService('background', 'background', null, _reduceAppId)).toBe(true);
     });
 
-    it('handles portals with partial tables on permission store', function() {
+    it('handles portals with partial tables on permission store', function () {
         partialService();
 
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
@@ -1036,7 +1036,7 @@ describe('Model', function() {
         expect(permissions.portals_location).toBe(portalState.UNSET);
     });
 
-    it('handles writing to missing pair on permission store', function(done) {
+    it('handles writing to missing pair on permission store', function (done) {
         permissions.appId = _basicAppId;
 
         expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
@@ -1052,7 +1052,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles portals without permission store', function() {
+    it('handles portals without permission store', function () {
         stopService();
 
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
@@ -1072,7 +1072,7 @@ describe('Model', function() {
         expect(permissions.portals_location).toBe(portalState.UNSUPPORTED);
     });
 
-    it('handles trailing semicolons', function(done) {
+    it('handles trailing semicolons', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _trailingSemicolonId;
 
@@ -1094,14 +1094,14 @@ describe('Model', function() {
         update();
     });
 
-    it('handles loading filesystems with mode', function() {
+    it('handles loading filesystems with mode', function () {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissions.appId = _filesystemWithMode;
 
         expect(permissions.filesystems_other).toEqual('home:ro');
     });
 
-    it('handles overriding filesystems with mode', function(done) {
+    it('handles overriding filesystems with mode', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = _filesystemWithMode;
 
@@ -1119,7 +1119,7 @@ describe('Model', function() {
         update();
     });
 
-    it('loads global overrides', function() {
+    it('loads global overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalAppId;
 
@@ -1133,7 +1133,7 @@ describe('Model', function() {
         expect(permissions.session_own).toEqual('org.test.Service-2');
     });
 
-    it('handles overriding apps already globally overridden', function(done) {
+    it('handles overriding apps already globally overridden', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalAppId;
 
@@ -1157,7 +1157,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles variables already globally overridden', function(done) {
+    it('handles variables already globally overridden', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalAppId;
 
@@ -1176,7 +1176,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles persistent path already globally overridden', function(done) {
+    it('handles persistent path already globally overridden', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalAppId;
 
@@ -1193,7 +1193,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles filesystem path already globally overridden', function(done) {
+    it('handles filesystem path already globally overridden', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalAppId;
 
@@ -1212,7 +1212,7 @@ describe('Model', function() {
         update();
     });
 
-    it('handles well-known names already globally overridden', function(done) {
+    it('handles well-known names already globally overridden', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalAppId;
 
@@ -1237,7 +1237,7 @@ describe('Model', function() {
         update();
     });
 
-    it('restores all overriden global overrides', function() {
+    it('restores all overriden global overrides', function () {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissions.appId = _globalRestoredAppId;
 
@@ -1251,7 +1251,7 @@ describe('Model', function() {
         expect(permissions.session_own).toEqual('org.test.Service-5');
     });
 
-    it('sets proper override statuses', function() {
+    it('sets proper override statuses', function () {
         GLib.setenv('FLATPAK_USER_DIR', _statuses, true);
         permissions.appId = _statusesAppId;
 
@@ -1265,7 +1265,7 @@ describe('Model', function() {
         expect(permissions.session_own_status).toEqual('original;global;user');
     });
 
-    it('handles writting global overridden', function(done) {
+    it('handles writting global overridden', function (done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissions.appId = 'global';
 
@@ -1302,7 +1302,7 @@ describe('Model', function() {
         update();
     });
 
-    it('preserves negated global overridden', function(done) {
+    it('preserves negated global overridden', function (done) {
         const source = Gio.File.new_for_path(_globalNegatedOverride);
         const destination = Gio.File.new_for_path(_globalOverride);
         source.copy(destination, Gio.FileCopyFlags.NONE, null, null);

@@ -18,15 +18,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Handy} = imports.gi;
-const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
+const { GObject, Adw } = imports.gi;
+const { FlatsealOverrideStatusIcon } = imports.widgets.overrideStatusIcon;
 
 
 var FlatsealPermissionSwitchRow = GObject.registerClass({
     GTypeName: 'FlatsealPermissionSwitchRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionSwitchRow.ui',
     InternalChildren: ['content', 'statusBox'],
-}, class FlatsealPermissionSwitchRow extends Handy.ActionRow {
+}, class FlatsealPermissionSwitchRow extends Adw.ActionRow {
     _init(description, permission, content) {
         super._init({});
         this.set_title(description);
@@ -35,7 +35,7 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
         this.connect('notify::sensitive', this._update.bind(this));
 
         this._statusIcon = new FlatsealOverrideStatusIcon();
-        this._statusBox.add(this._statusIcon);
+        this._statusBox.append(this._statusIcon);
     }
 
     _update() {

@@ -18,53 +18,52 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Handy} = imports.gi;
+const { GObject, Adw } = imports.gi;
 
-const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
+const { FlatsealPathsViewer } = imports.widgets.pathsViewer;
 
+var FlatsealPermissionEntryRow = GObject.registerClass(
+  {
+    GTypeName: "FlatsealPermissionEntryRow",
+    Template:
+      "resource:///com/github/tchx84/Flatseal/widgets/permissionEntryRow.ui",
+    InternalChildren: ["description", "permission", "box", "button", "image"],
+  },
+  class FlatsealpermissionEntryRow extends Adw.PreferencesRow {
 
-var FlatsealPermissionEntryRow = GObject.registerClass({
-    GTypeName: 'FlatsealPermissionEntryRow',
-    Template: 'resource:///com/github/tchx84/Flatseal/widgets/permissionEntryRow.ui',
-    InternalChildren: [
-        'description',
-        'permission',
-        'box',
-        'button',
-        'image',
-    ],
-}, class FlatsealpermissionEntryRow extends Handy.PreferencesRow {
     _init(description, permission, content, rowClass, iconName) {
-        super._init({});
-        this._description.set_text(description);
-        this._permission.set_text(permission);
+      super._init({});
+      this._description.set_text(description);
+      this._permission.set_text(permission);
 
-        this._content = new FlatsealPathsViewer(rowClass);
-        this._content.text = content;
-        this._box.add(this._content);
+      this._content = new FlatsealPathsViewer(rowClass);
+      this._content.text = content;
+      this._box.append(this._content);
+      ;
+      this._image.icon_name = iconName;
 
-        this._image.icon_name = iconName;
-
-        this._button.connect('clicked', this._add.bind(this));
-        this.connect('notify::sensitive', this._update.bind(this));
+      this._button.connect("clicked", this._add.bind(this));
+      this.connect("notify::sensitive", this._update.bind(this));
     }
 
     _add() {
-        this._content.add('');
+      this._content.add("");
     }
 
     _update() {
-        if (this.sensitive === false)
-            this.set_tooltip_text(_('Not supported by the installed version of Flatpak'));
-        else
-            this.set_tooltip_text('');
+      if (this.sensitive === false)
+        this.set_tooltip_text(
+          _("Not supported by the installed version of Flatpak")
+        );
+      else this.set_tooltip_text("");
     }
 
     get content() {
-        return this._content;
+      return this._content;
     }
 
     get status() {
-        return this._content;
+      return this._content;
     }
-});
+  }
+);

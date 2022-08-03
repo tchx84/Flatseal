@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib} = imports.gi;
+const { GObject, GLib } = imports.gi;
 
 
 var FlatpakInfoModel = GObject.registerClass({
@@ -86,9 +86,9 @@ var FlatpakInfoModel = GObject.registerClass({
 });
 
 
-var getDefault = (function() {
+var getDefault = (function () {
     let instance;
-    return function() {
+    return function () {
         if (typeof instance === 'undefined')
             instance = new FlatpakInfoModel();
         return instance;

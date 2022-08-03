@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
+const { GObject } = imports.gi;
 
 
 var FlatpakUnsupportedModel = GObject.registerClass({

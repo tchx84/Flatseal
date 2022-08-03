@@ -18,21 +18,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib} = imports.gi;
+const { GObject, GLib } = imports.gi;
 
-const {FlatpakApplicationsModel} = imports.models.applications;
-const {FlatpakUnsupportedModel} = imports.models.unsupported;
-const {FlatpakDevicesModel} = imports.models.devices;
-const {FlatpakSharedModel} = imports.models.shared;
-const {FlatpakSocketsModel} = imports.models.sockets;
-const {FlatpakFeaturesModel} = imports.models.features;
-const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
-const {FlatpakVariablesModel} = imports.models.variables;
-const {FlatpakSessionBusModel} = imports.models.sessionBus;
-const {FlatpakSystemBusModel} = imports.models.systemBus;
-const {FlatsealOverrideStatus} = imports.models.overrideStatus;
-const {isGlobalOverride} = imports.models.globalModel;
-const {filesystems, persistent, portals} = imports.models;
+const { FlatpakApplicationsModel } = imports.models.applications;
+const { FlatpakUnsupportedModel } = imports.models.unsupported;
+const { FlatpakDevicesModel } = imports.models.devices;
+const { FlatpakSharedModel } = imports.models.shared;
+const { FlatpakSocketsModel } = imports.models.sockets;
+const { FlatpakFeaturesModel } = imports.models.features;
+const { FlatpakFilesystemsOtherModel } = imports.models.filesystemsOther;
+const { FlatpakVariablesModel } = imports.models.variables;
+const { FlatpakSessionBusModel } = imports.models.sessionBus;
+const { FlatpakSystemBusModel } = imports.models.systemBus;
+const { FlatsealOverrideStatus } = imports.models.overrideStatus;
+const { isGlobalOverride } = imports.models.globalModel;
+const { filesystems, persistent, portals } = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -352,9 +352,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
 });
 
 
-var getDefault = (function() {
+var getDefault = (function () {
     let instance;
-    return function() {
+    return function () {
         if (typeof instance === 'undefined')
             instance = new FlatpakPermissionsModel();
         return instance;

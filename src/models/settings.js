@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gio} = imports.gi;
+const { GObject, Gio } = imports.gi;
 
 
 var FlatsealSettingsModel = GObject.registerClass({
@@ -26,7 +26,7 @@ var FlatsealSettingsModel = GObject.registerClass({
 }, class FlatsealSettingsModel extends GObject.Object {
     _init() {
         super._init({});
-        this._settings = new Gio.Settings({schema_id: 'com.github.tchx84.Flatseal'});
+        this._settings = new Gio.Settings({ schema_id: 'com.github.tchx84.Flatseal' });
     }
 
     restoreWindowState(window) {

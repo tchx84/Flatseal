@@ -18,10 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
+const { GObject } = imports.gi;
 
-const {FlatpakSharedModel} = imports.models.shared;
-const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const { FlatpakSharedModel } = imports.models.shared;
+const { FlatsealOverrideStatus } = imports.models.overrideStatus;
 
 var VAR_REGEXP = /^\w+=[\S ]+$/;
 
@@ -80,7 +80,7 @@ var FlatpakVariablesModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const overrides = {};
         const variables = {};
-        const originals = {...this._originals, ...this._globals};
+        const originals = { ...this._originals, ...this._globals };
 
         value
             .split(';')
@@ -136,7 +136,7 @@ var FlatpakVariablesModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
-        let variables = {...this._originals, ...this._globals, ...this._overrides};
+        let variables = { ...this._originals, ...this._globals, ...this._overrides };
 
         variables = Object.entries(variables)
             .filter(([, value]) => value.length !== 0)

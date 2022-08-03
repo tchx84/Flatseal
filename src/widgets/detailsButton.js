@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GObject, Gtk, GLib} = imports.gi;
+const { Gio, GObject, Gtk, GLib } = imports.gi;
 
 const GSActivateIface = `
 <node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">

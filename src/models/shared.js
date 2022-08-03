@@ -18,9 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
-const {info} = imports.models;
-const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const { GObject } = imports.gi;
+const { info } = imports.models;
+const { FlatsealOverrideStatus } = imports.models.overrideStatus;
 
 
 var FlatpakSharedModel = GObject.registerClass({
@@ -86,7 +86,7 @@ var FlatpakSharedModel = GObject.registerClass({
 
     updateFromProxyProperty(property, value) {
         const permission = this.getPermissions()[property];
-        const {option} = permission;
+        const { option } = permission;
         const override = value ? option : `!${option}`;
 
         /* Determine if this value is an actual override */
@@ -134,7 +134,7 @@ var FlatpakSharedModel = GObject.registerClass({
 
     updateStatusProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            const {option} = permission;
+            const { option } = permission;
             const statusProperty = `${property}-status`;
             const status = this._getStatusForPermission(option);
 
@@ -155,7 +155,7 @@ var FlatpakSharedModel = GObject.registerClass({
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             let value = this.constructor.getDefault();
 
-            const {option} = permission;
+            const { option } = permission;
             if (permissions.has(option))
                 value = true;
             if (permissions.has(`!${option}`))

@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GLib, GObject, Gtk} = imports.gi;
+const { GLib, GObject, Gtk } = imports.gi;
 
 const POPUP_ACTIVE_TIME = 3 * 1000;
 

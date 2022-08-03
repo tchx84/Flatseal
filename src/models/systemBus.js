@@ -18,9 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
+const { GObject } = imports.gi;
 
-const {FlatpakSessionBusModel} = imports.models.sessionBus;
+const { FlatpakSessionBusModel } = imports.models.sessionBus;
 
 
 var FlatpakSystemBusModel = GObject.registerClass({

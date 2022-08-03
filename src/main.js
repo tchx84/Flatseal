@@ -22,15 +22,18 @@ pkg.initGettext();
 pkg.initFormat();
 pkg.require({
     Gio: '2.0',
-    Gtk: '3.0',
-    Handy: '1',
-    WebKit2: '4.0',
+    Gtk: '4.0',
+    Adw: '1',
 });
 
-const {FlatsealApplication} = imports.application;
+const { FlatsealApplication } = imports.application;
 
 
 function main(argv) {
     const application = new FlatsealApplication();
+
+    application.connect('activate', app => {
+        app.activate();
+    })
     return application.run(argv);
 }

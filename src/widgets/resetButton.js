@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const { GObject, Gtk } = imports.gi;
 
 
 var FlatsealResetButton = GObject.registerClass({
@@ -39,7 +39,7 @@ var FlatsealResetButton = GObject.registerClass({
         this._image.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
         this._image.image_position = Gtk.PositionType.LEFT;
         this._image.visible = false;
-        this.set_image(this._image);
+        this.set_child(this._image);
 
         this.set_use_underline(true);
         this.set_label(_('_Reset'));

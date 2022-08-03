@@ -18,393 +18,453 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib, Gtk, Handy} = imports.gi;
+const { GObject, GLib, Gtk, Adw } = imports.gi;
 
-const {applications, permissions} = imports.models;
+const { applications, permissions } = imports.models;
 
-const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
-const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
-const {FlatsealApplicationRow} = imports.widgets.applicationRow;
-const {FlatsealGlobalRow} = imports.widgets.globalRow;
-const {FlatsealPermissionEntryRow} = imports.widgets.permissionEntryRow;
-const {FlatsealPermissionPortalRow} = imports.widgets.permissionPortalRow;
-const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
-const {FlatsealResetButton} = imports.widgets.resetButton;
-const {FlatsealDetailsButton} = imports.widgets.detailsButton;
-const {FlatsealPathRow} = imports.widgets.pathRow;
-const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
-const {FlatsealUndoPopup} = imports.widgets.undoPopup;
-const {FlatsealVariableRow} = imports.widgets.variableRow;
-const {FlatsealBusNameRow} = imports.widgets.busNameRow;
-const {FlatsealSettingsModel} = imports.models.settings;
-const {isGlobalOverride} = imports.models.globalModel;
+const { FlatsealAppInfoViewer } = imports.widgets.appInfoViewer;
+const { FlatsealGlobalInfoViewer } = imports.widgets.globalInfoViewer;
+const { FlatsealApplicationRow } = imports.widgets.applicationRow;
+const { FlatsealGlobalRow } = imports.widgets.globalRow;
+const { FlatsealPermissionEntryRow } = imports.widgets.permissionEntryRow;
+const { FlatsealPermissionPortalRow } = imports.widgets.permissionPortalRow;
+const { FlatsealPermissionSwitchRow } = imports.widgets.permissionSwitchRow;
+const { FlatsealResetButton } = imports.widgets.resetButton;
+const { FlatsealDetailsButton } = imports.widgets.detailsButton;
+const { FlatsealPathRow } = imports.widgets.pathRow;
+const { FlatsealRelativePathRow } = imports.widgets.relativePathRow;
+const { FlatsealUndoPopup } = imports.widgets.undoPopup;
+const { FlatsealVariableRow } = imports.widgets.variableRow;
+const { FlatsealBusNameRow } = imports.widgets.busNameRow;
+const { FlatsealSettingsModel } = imports.models.settings;
+const { isGlobalOverride } = imports.models.globalModel;
 
-const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
+const _bindFlags =
+  GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
-const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
+const menuResource = "/com/github/tchx84/Flatseal/widgets/menu.ui";
 const ACTION_BAR_THRESHOLD = 540;
 const APP_SELECTION_DELAY = 100;
 
-
-var FlatsealWindow = GObject.registerClass({
-    GTypeName: 'FlatsealWindow',
-    Template: 'resource:///com/github/tchx84/Flatseal/widgets/window.ui',
+var FlatsealWindow = GObject.registerClass(
+  {
+    GTypeName: "FlatsealWindow",
+    Template: "resource:///com/github/tchx84/Flatseal/widgets/window.ui",
     InternalChildren: [
-        'actionBar',
-        'appInfoGroup',
-        'applicationsSearchButton',
-        'applicationsSearchRevealer',
-        'applicationsSearchEntry',
-        'applicationsStack',
-        'applicationsListBox',
-        'applicationsHeaderBar',
-        'permissionsHeaderBar',
-        'permissionsStack',
-        'permissionsBox',
-        'startHeaderBox',
-        'endHeaderBox',
-        'startActionBox',
-        'endActionBox',
-        'menuButton',
-        'backButton',
-        'contentLeaflet',
-        'undoPopupBox',
+      "actionBar",
+      "appInfoGroup",
+      "applicationsSearchButton",
+      "applicationsSearchRevealer",
+      "applicationsSearchEntry",
+      "applicationsStack",
+      "applicationsListBox",
+      "applicationsHeaderBar",
+      "permissionsHeaderBar",
+      "permissionsStack",
+      "permissionsBox",
+      "startHeaderBox",
+      "endHeaderBox",
+      "startActionBox",
+      "endActionBox",
+      "menuButton",
+      "backButton",
+      "contentLeaflet",
+      "undoPopupBox",
     ],
     Signals: {
-        find: {
-            flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
-        },
+      find: {
+        flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
+      },
     },
-}, class FlatsealWindow extends Handy.ApplicationWindow {
+  },
+  class FlatsealWindow extends Adw.ApplicationWindow {
     _init(application) {
-        super._init({application});
-        this._setup();
+      console.log("from fiaa")
+      super._init({ application });
+      console.log("from fiaa")
+      this._setup();
+      console.log("from meee")
     }
 
     _setup() {
-        const builder = Gtk.Builder.new_from_resource(menuResource);
-        this._menuButton.set_menu_model(builder.get_object('menu'));
+      console.log("from fiaa")
+      const builder = Gtk.Builder.new_from_resource(menuResource);
+      console.log("from fiaa")
+      this._menuButton.set_menu_model(builder.get_object("menu"));
+      console.log("from fiaa")
+      this._settings = new FlatsealSettingsModel();
+      this._settings.restoreWindowState(this);
 
-        this._settings = new FlatsealSettingsModel();
-        this._settings.restoreWindowState(this);
+      this._permissions = permissions.getDefault();
+      this._applications = applications.getDefault();
 
-        this._permissions = permissions.getDefault();
-        this._applications = applications.getDefault();
+      const allApplications = this._applications.getAll();
+      const allPermissions = this._permissions.getAll();
+      console.log("from fiaa")
+      this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
+      this._startHeaderBox.append(this._detailsHeaderButton);
+      this._resetHeaderButton = new FlatsealResetButton(this._permissions);
+      this._endHeaderBox.append(this._resetHeaderButton);
 
-        const allApplications = this._applications.getAll();
-        const allPermissions = this._permissions.getAll();
+      this._detailsActionButton = new FlatsealDetailsButton(this._permissions);
+      this._startActionBox.append(this._detailsActionButton);
+      const resetActionButton = new FlatsealResetButton(this._permissions);
+      this._endActionBox.append(resetActionButton);
+      console.log("from fiaa")
+      this._undoPopup = new FlatsealUndoPopup(this._permissions);
+      this._undoPopupBox.append(this._undoPopup);
 
-        this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
-        this._startHeaderBox.add(this._detailsHeaderButton);
-        this._resetHeaderButton = new FlatsealResetButton(this._permissions);
-        this._endHeaderBox.add(this._resetHeaderButton);
-
-        this._detailsActionButton = new FlatsealDetailsButton(this._permissions);
-        this._startActionBox.add(this._detailsActionButton);
-        const resetActionButton = new FlatsealResetButton(this._permissions);
-        this._endActionBox.add(resetActionButton);
-
-        this._undoPopup = new FlatsealUndoPopup(this._permissions);
-        this._undoPopupBox.add(this._undoPopup);
-
-        this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
-        this._contentLeaflet.bind_property(
-            'folded', this._backButton, 'visible', _bindReadFlags);
-        this._permissionsHeaderBar.connect_after(
+      this._contentLeaflet.connect(
+        "notify::visible-child-name",
+        this._focusContent.bind(this)
+      );
+      this._contentLeaflet.bind_property(
+        "folded",
+        this._backButton,
+        "visible",
+        _bindReadFlags
+      );
+      console.log("from fiaa")
+      /* this._permissionsHeaderBar.connect_after(
             'size-allocate', this._updateVisibility.bind(this));
+        */
+      if (allApplications.length === 0 || allPermissions.length === 0) return;
 
-        if (allApplications.length === 0 || allPermissions.length === 0)
-            return;
+      const iconTheme = Gtk.IconTheme.get_for_display(this.display);
+      console.log("from fiaa")
+      allApplications.forEach((app) => {
+        iconTheme.add_search_path(app.appThemePath);
+        const row = new FlatsealApplicationRow(
+          app.appId,
+          app.appName,
+          app.appIconName
+        );
+        this._applicationsListBox.append(row);
+      });
+      console.log("from fiaa")
+      /* Add row for global overrides */
+      this._globalRow = new FlatsealGlobalRow();
+      this._applicationsListBox.append(this._globalRow);
 
-        const iconTheme = Gtk.IconTheme.get_default();
+      this._appInfoViewer = new FlatsealAppInfoViewer();
+      this._appInfoViewer.show();
+      this._appInfoGroup.add(this._appInfoViewer);
+      this._contentLeaflet.bind_property(
+        "folded",
+        this._appInfoViewer,
+        "compact",
+        _bindReadFlags
+      );
+      console.log("from fiaa")
+      this._globalInfoViewer = new FlatsealGlobalInfoViewer();
+      this._globalInfoViewer.show();
+      this._appInfoGroup.add(this._globalInfoViewer);
+      this._contentLeaflet.bind_property(
+        "folded",
+        this._globalInfoViewer,
+        "compact",
+        _bindReadFlags
+      );
 
-        allApplications.forEach(app => {
-            iconTheme.append_search_path(app.appThemePath);
-            const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
-            this._applicationsListBox.add(row);
-        });
+      let lastGroup = "";
+      let lastPrefsGroup;
+      console.log("from fiaa")
+      allPermissions.forEach((p) => {
+        let row;
+        let property = "text";
 
-        /* Add row for global overrides */
-        this._globalRow = new FlatsealGlobalRow();
-        this._applicationsListBox.add(this._globalRow);
+        if (p.type === "path") {
+          row = new FlatsealPermissionEntryRow(
+            p.description,
+            p.permission,
+            p.value,
+            FlatsealPathRow,
+            "folder-new-symbolic"
+          );
+        } else if (p.type === "relativePath") {
+          row = new FlatsealPermissionEntryRow(
+            p.description,
+            p.permission,
+            p.value,
+            FlatsealRelativePathRow,
+            "folder-new-symbolic"
+          );
+        } else if (p.type === "variable") {
+          row = new FlatsealPermissionEntryRow(
+            p.description,
+            p.permission,
+            p.value,
+            FlatsealVariableRow,
+            "list-add-symbolic"
+          );
+        } else if (p.type === "bus") {
+          row = new FlatsealPermissionEntryRow(
+            p.description,
+            p.permission,
+            p.value,
+            FlatsealBusNameRow,
+            "list-add-symbolic"
+          );
+        } else if (p.type === "portal") {
+          property = "state";
+          row = new FlatsealPermissionPortalRow(
+            p.description,
+            p.permission,
+            p.value,
+            p.portalTable,
+            p.portalId
+          );
+        } else {
+          property = "state";
+          row = new FlatsealPermissionSwitchRow(
+            p.description,
+            p.permission,
+            p.value
+          );
+        }
 
-        this._appInfoViewer = new FlatsealAppInfoViewer();
-        this._appInfoViewer.show();
-        this._appInfoGroup.add(this._appInfoViewer);
-        this._contentLeaflet.bind_property(
-            'folded', this._appInfoViewer, 'compact', _bindReadFlags);
+        const context = row.get_style_context();
+        context.add_class(p.groupStyle);
+        console.log("from fiaa")
+        if (p.groupStyle !== lastGroup) {
+          const groupRow = new Adw.PreferencesGroup();
+          groupRow.set_title(p.groupTitle);
+          groupRow.set_description(p.groupDescription);
+          groupRow.show();
+          this._permissionsBox.add(groupRow);
+          lastGroup = p.groupStyle;
+          lastPrefsGroup = groupRow;
+        }
+        console.log("from fiaa")
+        row.sensitive = p.supported;
+        lastPrefsGroup.add(row);
+        this._portalsGroup = lastPrefsGroup;
 
-        this._globalInfoViewer = new FlatsealGlobalInfoViewer();
-        this._globalInfoViewer.show();
-        this._appInfoGroup.add(this._globalInfoViewer);
-        this._contentLeaflet.bind_property(
-            'folded', this._globalInfoViewer, 'compact', _bindReadFlags);
+        this._permissions.bind_property(
+          p.property,
+          row.content,
+          property,
+          _bindFlags
+        );
 
-        let lastGroup = '';
-        let lastPrefsGroup;
+        if (!row.status) return;
 
-        allPermissions.forEach(p => {
-            let row;
-            let property = 'text';
+        this._permissions.bind_property(
+          p.statusProperty,
+          row.status,
+          "status",
+          _bindFlags
+        );
+      });
 
-            if (p.type === 'path') {
-                row = new FlatsealPermissionEntryRow(
-                    p.description,
-                    p.permission,
-                    p.value,
-                    FlatsealPathRow,
-                    'folder-new-symbolic');
-            } else if (p.type === 'relativePath') {
-                row = new FlatsealPermissionEntryRow(
-                    p.description,
-                    p.permission,
-                    p.value,
-                    FlatsealRelativePathRow,
-                    'folder-new-symbolic');
-            } else if (p.type === 'variable') {
-                row = new FlatsealPermissionEntryRow(
-                    p.description,
-                    p.permission,
-                    p.value,
-                    FlatsealVariableRow,
-                    'list-add-symbolic');
-            } else if (p.type === 'bus') {
-                row = new FlatsealPermissionEntryRow(
-                    p.description,
-                    p.permission,
-                    p.value,
-                    FlatsealBusNameRow,
-                    'list-add-symbolic');
-            } else if (p.type === 'portal') {
-                property = 'state';
-                row = new FlatsealPermissionPortalRow(
-                    p.description,
-                    p.permission,
-                    p.value,
-                    p.portalTable,
-                    p.portalId);
-            } else {
-                property = 'state';
-                row = new FlatsealPermissionSwitchRow(
-                    p.description,
-                    p.permission,
-                    p.value);
-            }
+      this.connect("close-request", this._saveSettings.bind(this));
+      console.log("from fiaa")
+      this.connect("destroy", this._shutdown.bind(this));
+      console.log("from fiaa")
+      this._permissionsStack.visibleChildName = "withPermissionsPage";
+      this._applicationsStack.visibleChildName = "withApplicationsPage";
+      console.log("from fiaa")
+      this._applicationsListBox.set_filter_func(this._filter.bind(this));
+      this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
-            const context = row.get_style_context();
-            context.add_class(p.groupStyle);
+      /* select after the list has been sorted */
+      const row = this._applicationsListBox.get_row_at_index(1);
+      this._applicationsListBox.select_row(row);
+      this._updatePermissions();
 
-            if (p.groupStyle !== lastGroup) {
-                const groupRow = new Handy.PreferencesGroup();
-                groupRow.set_title(p.groupTitle);
-                groupRow.set_description(p.groupDescription);
-                groupRow.show();
-                this._permissionsBox.add(groupRow);
-                lastGroup = p.groupStyle;
-                lastPrefsGroup = groupRow;
-            }
+      this._applicationsDelayHandlerId = 0;
+      this._applicationsListBox.connect(
+        "row-selected",
+        this._selectApplicationDelayed.bind(this)
+      );
+      console.log("from fiaa")
+      this._applicationsListBox.connect(
+        "row-activated",
+        this._activateApplication.bind(this)
+      );
+      console.log("from fiaa")
+      this._applicationsSearchEntry.connect(
+        "activate",
+        this._selectSearch.bind(this)
+      );
+      this._applicationsSearchEntry.connect(
+        "stop-search",
+        this._cancelSearch.bind(this)
+      );
+      this._applicationsSearchEntry.connect(
+        "search-changed",
+        this._resetSearch.bind(this)
+      );
 
-            row.sensitive = p.supported;
-            lastPrefsGroup.add(row);
-            this._portalsGroup = lastPrefsGroup;
+      this._applicationsSearchButton.bind_property(
+        "active",
+        this._applicationsSearchRevealer,
+        "reveal-child",
+        _bindFlags
+      );
+      this._applicationsSearchButton.connect(
+        "toggled",
+        this._toggleSearchWithButton.bind(this)
+      );
 
-            this._permissions.bind_property(p.property, row.content, property, _bindFlags);
-
-            if (!row.status)
-                return;
-
-            this._permissions.bind_property(p.statusProperty, row.status, 'status', _bindFlags);
-        });
-
-        this.connect('delete-event', this._saveSettings.bind(this));
-        this.connect('destroy', this._shutdown.bind(this));
-
-        this._permissionsStack.visibleChildName = 'withPermissionsPage';
-        this._applicationsStack.visibleChildName = 'withApplicationsPage';
-
-        this._applicationsListBox.set_filter_func(this._filter.bind(this));
-        this._applicationsListBox.set_sort_func(this._sort.bind(this));
-
-        /* select after the list has been sorted */
-        const row = this._applicationsListBox.get_row_at_index(1);
-        this._applicationsListBox.select_row(row);
-        this._updatePermissions();
-
-        this._applicationsDelayHandlerId = 0;
-        this._applicationsListBox.connect('row-selected', this._selectApplicationDelayed.bind(this));
-        this._applicationsListBox.connect('row-activated', this._activateApplication.bind(this));
-
-        this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
-        this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
-        this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
-
-        this._applicationsSearchButton.bind_property(
-            'active', this._applicationsSearchRevealer, 'reveal-child', _bindFlags);
-        this._applicationsSearchButton.connect(
-            'toggled', this._toggleSearchWithButton.bind(this));
-
-        this.connect('find', this._enableSearchWithShortcut.bind(this));
-
-        this._showApplications();
-        this._backButton.set_sensitive(true);
-        this._backButton.connect('clicked', this._showApplications.bind(this));
+      this.connect("find", this._enableSearchWithShortcut.bind(this));
+      console.log("from fiaa")
+      this._showApplications();
+      this._backButton.set_sensitive(true);
+      this._backButton.connect("activate", this._showApplications.bind(this));
     }
 
     _shutdown() {
-        this._permissions.shutdown();
+      this._permissions.shutdown();
     }
 
     _saveSettings() {
-        this._settings.saveWindowState(this);
+      this._settings.saveWindowState(this);
     }
 
     _selectApplicationDelayed() {
-        if (this._applicationsDelayHandlerId !== 0)
-            GLib.Source.remove(this._applicationsDelayHandlerId);
+      if (this._applicationsDelayHandlerId !== 0)
+        GLib.Source.remove(this._applicationsDelayHandlerId);
 
-        this._applicationsDelayHandlerId = GLib.timeout_add(
-            GLib.PRIORITY_DEFAULT, APP_SELECTION_DELAY, this._selectApplication.bind(this));
+      this._applicationsDelayHandlerId = GLib.timeout_add(
+        GLib.PRIORITY_DEFAULT,
+        APP_SELECTION_DELAY,
+        this._selectApplication.bind(this)
+      );
     }
 
     _activateApplication() {
-        if (this._contentLeaflet.folded)
-            this._showPermissions();
+      if (this._contentLeaflet.folded) this._showPermissions();
     }
 
     _selectApplication() {
-        this._updatePermissions();
+      this._updatePermissions();
     }
 
     _updatePermissionsPane(appId) {
-        if (isGlobalOverride(appId)) {
-            this._appInfoViewer.visible = false;
-            this._globalInfoViewer.visible = true;
-            this._portalsGroup.visible = false;
-            this._detailsHeaderButton.sensitive = false;
-            this._detailsActionButton.sensitive = false;
-        } else {
-            this._appInfoViewer.appId = appId;
-            this._appInfoViewer.visible = true;
-            this._globalInfoViewer.visible = false;
-            this._portalsGroup.visible = true;
-            this._detailsHeaderButton.sensitive = true;
-            this._detailsActionButton.sensitive = true;
-        }
+      if (isGlobalOverride(appId)) {
+        this._appInfoViewer.visible = false;
+        this._globalInfoViewer.visible = true;
+        this._portalsGroup.visible = false;
+        this._detailsHeaderButton.sensitive = false;
+        this._detailsActionButton.sensitive = false;
+      } else {
+        this._appInfoViewer.appId = appId;
+        this._appInfoViewer.visible = true;
+        this._globalInfoViewer.visible = false;
+        this._portalsGroup.visible = true;
+        this._detailsHeaderButton.sensitive = true;
+        this._detailsActionButton.sensitive = true;
+      }
     }
 
     _updatePermissions() {
-        const row = this._applicationsListBox.get_selected_row();
-        this._permissions.appId = row.appId;
-        this._permissionsHeaderBar.set_title(row.appName);
-        this._updatePermissionsPane(row.appId);
-        this._undoPopup.close();
+      const row = this._applicationsListBox.get_selected_row();
+      this._permissions.appId = row.appId;
+      this._permissionsHeaderBar.get_title_widget().set_title(row.appName);
+      this._updatePermissionsPane(row.appId);
+      this._undoPopup.close();
 
-        this._applicationsDelayHandlerId = 0;
-        return GLib.SOURCE_REMOVE;
+      this._applicationsDelayHandlerId = 0;
+      return GLib.SOURCE_REMOVE;
     }
 
     _updateVisibility(window, allocation) {
-        const visible = allocation.width <= ACTION_BAR_THRESHOLD;
+      const visible = allocation.width <= ACTION_BAR_THRESHOLD;
 
-        this._detailsHeaderButton.visible = !visible;
-        this._resetHeaderButton.visible = !visible;
+      this._detailsHeaderButton.visible = !visible;
+      this._resetHeaderButton.visible = !visible;
 
-        this._actionBar.visible = visible;
+      this._actionBar.visible = visible;
     }
 
     _filter(row) {
-        const text = this._applicationsSearchEntry.get_text();
-        if (text.length === 0)
-            return true;
+      const text = this._applicationsSearchEntry.get_text();
+      if (text.length === 0) return true;
 
-        const subString = text.toLowerCase();
+      const subString = text.toLowerCase();
 
-        return (
-            row.appId.toLowerCase().includes(subString) ||
-            row.appName.toLowerCase().includes(subString)
-        );
+      return (
+        row.appId.toLowerCase().includes(subString) ||
+        row.appName.toLowerCase().includes(subString)
+      );
     }
 
-    _sort(row1, row2) { // eslint-disable-line class-methods-use-this
-        if (isGlobalOverride(row1.appId) || isGlobalOverride(row2.appId))
-            return 1;
-
-        const name1 = row1.appName.toLowerCase();
-        const name2 = row2.appName.toLowerCase();
-
-        if (name1 === name2)
-            return 0;
-        if (name1 < name2)
-            return -1;
-
+    _sort(row1, row2) {
+      // eslint-disable-line class-methods-use-this
+      if (isGlobalOverride(row1.appId) || isGlobalOverride(row2.appId))
         return 1;
+
+      const name1 = row1.appName.toLowerCase();
+      const name2 = row2.appName.toLowerCase();
+
+      if (name1 === name2) return 0;
+      if (name1 < name2) return -1;
+
+      return 1;
     }
 
     _enableSearchWithShortcut() {
-        this._applicationsSearchRevealer.reveal_child = true;
-        this._applicationsSearchEntry.grab_focus();
+      this._applicationsSearchRevealer.reveal_child = true;
+      this._applicationsSearchEntry.grab_focus();
     }
 
     _toggleSearchWithButton() {
-        this._applicationsSearchEntry.set_text('');
+      this._applicationsSearchEntry.set_text("");
 
-        if (this._applicationsSearchButton.active)
-            this._applicationsSearchEntry.grab_focus();
-        else
-            this._applicationsSearchButton.grab_focus();
+      if (this._applicationsSearchButton.active)
+        this._applicationsSearchEntry.grab_focus();
+      else this._applicationsSearchButton.grab_focus();
     }
 
     _cancelSearch() {
-        if (this._applicationsSearchEntry.get_text() === '')
-            this._applicationsSearchRevealer.reveal_child = false;
+      if (this._applicationsSearchEntry.get_text() === "")
+        this._applicationsSearchRevealer.reveal_child = false;
 
-        this._applicationsSearchEntry.set_text('');
+      this._applicationsSearchEntry.set_text("");
     }
 
     _selectSearch() {
-        const row = this._applicationsListBox.get_row_at_y(0);
-        if (row === null)
-            return;
+      const row = this._applicationsListBox.get_row_at_y(0);
+      if (row === null) return;
 
-        this._applicationsListBox.select_row(row);
-        row.grab_focus();
+      this._applicationsListBox.select_row(row);
+      row.grab_focus();
     }
 
     _resetSearch() {
-        this._applicationsListBox.invalidate_filter();
+      this._applicationsListBox.invalidate_filter();
     }
 
     _showApplications() {
-        this._contentLeaflet.set_visible_child_name('applications');
-        this._backButton.active = false;
-        this._focusOnApplications();
+      this._contentLeaflet.set_visible_child_name("applications");
+      this._backButton.active = false;
+      this._focusOnApplications();
     }
 
     _showPermissions() {
-        this._contentLeaflet.set_visible_child_name('permissions');
+      this._contentLeaflet.set_visible_child_name("permissions");
     }
 
     _focusOnApplications() {
-        const row = this._applicationsListBox.get_selected_row();
-        if (row !== null)
-            row.grab_focus();
+      const row = this._applicationsListBox.get_selected_row();
+      if (row !== null) row.grab_focus();
     }
 
     _focusOnPermissions() {
-        let widget = this._appInfoViewer;
+      let widget = this._appInfoViewer;
 
-        const row = this._applicationsListBox.get_selected_row();
-        if (isGlobalOverride(row.appId))
-            widget = this._globalInfoViewer;
+      const row = this._applicationsListBox.get_selected_row();
+      if (isGlobalOverride(row.appId)) widget = this._globalInfoViewer;
 
-        widget.grab_focus();
+      widget.grab_focus();
     }
 
     _focusContent() {
-        if (this._contentLeaflet.visible_child_name === 'applications')
-            this._focusOnApplications();
-        else
-            this._focusOnPermissions();
+      if (this._contentLeaflet.visible_child_name === "applications")
+        this._focusOnApplications();
+      else this._focusOnPermissions();
     }
-});
+  }
+);

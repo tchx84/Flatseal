@@ -18,9 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
+const { GObject } = imports.gi;
 
-const {FlatpakSharedModel} = imports.models.shared;
+const { FlatpakSharedModel } = imports.models.shared;
 
 
 var FlatpakPersistentModel = GObject.registerClass({
@@ -115,9 +115,9 @@ var FlatpakPersistentModel = GObject.registerClass({
     }
 });
 
-var getDefault = (function() {
+var getDefault = (function () {
     let instance;
-    return function() {
+    return function () {
         if (typeof instance === 'undefined')
             instance = new FlatpakPersistentModel();
         return instance;

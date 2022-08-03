@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GLib, GObject, Handy, WebKit2} = imports.gi;
-const {WebView} = imports.gi.WebKit2; // eslint-disable-line no-unused-vars
+const { Gio, GLib, GObject, Adw,/* WebKit2*/ } = imports.gi;
+// const {WebView} = imports.gi.WebKit2; // eslint-disable-line no-unused-vars
 
 const MAX_RESULTS = 10;
 
@@ -27,7 +27,7 @@ var FlatsealDocsViewer = GObject.registerClass({
     GTypeName: 'FlatsealDocsViewer',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/docsViewer.ui',
     InternalChildren: [
-        'webview',
+        //  'webview',
         'backButton',
         'forwardButton',
         'previousButton',
@@ -44,7 +44,7 @@ var FlatsealDocsViewer = GObject.registerClass({
             flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
         },
     },
-}, class FlatsealDocsViewer extends Handy.ApplicationWindow {
+}, class FlatsealDocsViewer extends Adw.ApplicationWindow {
     _init(parent) {
         super._init({});
         this._setup(parent);
@@ -64,118 +64,119 @@ var FlatsealDocsViewer = GObject.registerClass({
             'flatseal',
             'index.html',
         ]);
+        /*
+                this._webview.load_uri(`file://${path}`);
+        
+                *//* Force it to use browser history with inner anchors *//*
+this._webview.connect('notify::uri', this._loadUri.bind(this));
 
-        this._webview.load_uri(`file://${path}`);
+/* Use system web browser for external urls *//*
+                                                        this._webview.connect('decide-policy', this._loadExternalUri.bind(this));
+                                                
+                                                        /* Update navigation buttons on every history change *//*
+this._webview.connect_after('load-changed', this._updateNavigation.bind(this));
+this._backButton.connect('clicked', this._goBack.bind(this));
+this._forwardButton.connect('clicked', this._goForward.bind(this));
 
-        /* Force it to use browser history with inner anchors */
-        this._webview.connect('notify::uri', this._loadUri.bind(this));
+this._searchEntry.connect('search-changed', this._resetSearch.bind(this));
+this._searchEntry.connect('stop-search', this._cancelSearch.bind(this));
+this._searchEntry.connect('next-match', this._searchNext.bind(this));
+this._searchEntry.connect('previous-match', this._searchPrevious.bind(this));
 
-        /* Use system web browser for external urls */
-        this._webview.connect('decide-policy', this._loadExternalUri.bind(this));
+this._previousButton.connect('clicked', this._searchPrevious.bind(this));
+this._nextButton.connect('clicked', this._searchNext.bind(this));
 
-        /* Update navigation buttons on every history change */
-        this._webview.connect_after('load-changed', this._updateNavigation.bind(this));
-        this._backButton.connect('clicked', this._goBack.bind(this));
-        this._forwardButton.connect('clicked', this._goForward.bind(this));
+this._searchButton.connect('toggled', this._toggleSearchWithButton.bind(this));
+this._searchButton.bind_property(
+'active',
+this._searchBar,
+'search-mode-enabled',
+GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
 
-        this._searchEntry.connect('search-changed', this._resetSearch.bind(this));
-        this._searchEntry.connect('stop-search', this._cancelSearch.bind(this));
-        this._searchEntry.connect('next-match', this._searchNext.bind(this));
-        this._searchEntry.connect('previous-match', this._searchPrevious.bind(this));
-
-        this._previousButton.connect('clicked', this._searchPrevious.bind(this));
-        this._nextButton.connect('clicked', this._searchNext.bind(this));
-
-        this._searchButton.connect('toggled', this._toggleSearchWithButton.bind(this));
-        this._searchButton.bind_property(
-            'active',
-            this._searchBar,
-            'search-mode-enabled',
-            GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
-
-        this._searchBar.connect(
-            'notify::search-mode-enabled', this._enableSearchController.bind(this));
-
+this._searchBar.connect(
+'notify::search-mode-enabled', this._enableSearchController.bind(this));
+*/
         this.connect('find', this._enableSearchWithShortcut.bind(this));
         this.connect('close', this._close.bind(this));
     }
-
-    _loadUri() {
-        this._webview.load_uri(this._webview.uri);
-    }
-
-    _loadExternalUri(webview, decision, type) { // eslint-disable-line class-methods-use-this
-        if (type !== WebKit2.PolicyDecisionType.NAVIGATION_ACTION)
-            return false;
-
-        const uri = decision.get_request().get_uri();
-
-        if (!uri.startsWith('file')) {
-            Gio.AppInfo.launch_default_for_uri(uri, null);
-            decision.ignore();
-            return true;
+    /*
+        _loadUri() {
+          this._webview.load_uri(this._webview.uri);
         }
-
-        return false;
-    }
-
-    _updateNavigation() {
-        this._backButton.sensitive = this._webview.can_go_back();
-        this._forwardButton.sensitive = this._webview.can_go_forward();
-    }
-
-    _goBack() {
-        this._webview.go_back();
-    }
-
-    _goForward() {
-        this._webview.go_forward();
-    }
-
-    _enableSearchWithShortcut() {
-        this._searchBar.search_mode_enabled = true;
-        this._searchEntry.grab_focus();
-    }
-
-    _toggleSearchWithButton() {
-        this._searchEntry.set_text('');
-
-        if (this._searchButton.active)
+    
+        _loadExternalUri(webview, decision, type) { // eslint-disable-line class-methods-use-this
+            if (type !== WebKit2.PolicyDecisionType.NAVIGATION_ACTION)
+                return false;
+    
+            const uri = decision.get_request().get_uri();
+    
+            if (!uri.startsWith('file')) {
+                Gio.AppInfo.launch_default_for_uri(uri, null);
+                decision.ignore();
+                return true;
+            }
+    
+            return false;
+        }
+    
+        _updateNavigation() {
+            this._backButton.sensitive = this._webview.can_go_back();
+            this._forwardButton.sensitive = this._webview.can_go_forward();
+        }
+    
+        _goBack() {
+            this._webview.go_back();
+        }
+    
+        _goForward() {
+            this._webview.go_forward();
+        }
+    
+        _enableSearchWithShortcut() {
+            this._searchBar.search_mode_enabled = true;
             this._searchEntry.grab_focus();
-        else
-            this._searchButton.grab_focus();
-    }
-
-    _enableSearchController() {
-        if (this._searchBar.search_mode_enabled)
-            this._findController = this._webview.get_find_controller();
-        else
-            this._findController.search_finish();
-    }
-
-    _cancelSearch() {
-        if (this._searchEntry.get_text() === '')
-            this._searchBar.search_mode_enabled = false;
-
-        this._searchEntry.set_text('');
-    }
-
-    _resetSearch() {
-        this._findController.search(
-            this._searchEntry.text,
-            WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
-            MAX_RESULTS);
-    }
-
-    _searchPrevious() {
-        this._findController.search_previous();
-    }
-
-    _searchNext() {
-        this._findController.search_next();
-    }
-
-    _close() {
-        this.destroy();
-    }
+        }
+    
+        _toggleSearchWithButton() {
+            this._searchEntry.set_text('');
+    
+            if (this._searchButton.active)
+                this._searchEntry.grab_focus();
+            else
+                this._searchButton.grab_focus();
+        }
+    
+        _enableSearchController() {
+            if (this._searchBar.search_mode_enabled)
+                this._findController = this._webview.get_find_controller();
+            else
+                this._findController.search_finish();
+        }
+    
+        _cancelSearch() {
+            if (this._searchEntry.get_text() === '')
+                this._searchBar.search_mode_enabled = false;
+    
+            this._searchEntry.set_text('');
+        }
+    
+        _resetSearch() {
+            this._findController.search(
+                this._searchEntry.text,
+                WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
+                MAX_RESULTS);
+        }
+    
+        _searchPrevious() {
+            this._findController.search_previous();
+        }
+    
+        _searchNext() {
+            this._findController.search_next();
+        }
+    
+        _close() {
+            this.destroy();
+        }
+        */
 });

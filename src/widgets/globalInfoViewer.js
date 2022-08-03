@@ -19,10 +19,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const { GObject, Gtk } = imports.gi;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
-const {info, permissions, portals} = imports.models;
+const { info, permissions, portals } = imports.models;
 
 const styles = {
     NORMAL: 'normal',

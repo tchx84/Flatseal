@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
+  <requires lib="gtk" version="4.0" />
   <template class="FlatsealAboutDialog" parent="GtkAboutDialog">
-    <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">Flatseal</property>
     <property name="version">1.8.0</property>
     <property name="copyright">© 2020-2022 Martin Abente Lahaye</property>
-    <property name="comments" translatable="yes">Flatseal is a graphical utility to review and modify permissions from your Flatpak applications.</property>
+    <property name="comments" translatable="1">Flatseal is a graphical utility to review and modify permissions from your Flatpak applications.</property>
     <property name="website">https://github.com/tchx84/flatseal</property>
     <property name="website_label">Flatseal</property>
     <property name="authors">Martin Abente Lahaye</property>
@@ -48,32 +46,28 @@ Guilhem Morer</property>
     <property name="logo_icon_name">com.github.tchx84.Flatseal</property>
     <property name="license_type">gpl-3-0</property>
     <child>
-      <placeholder/>
+      <placeholder />
     </child>
     <child internal-child="vbox">
       <object class="GtkBox">
-        <property name="can_focus">False</property>
+        <property name="visible">0</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
+            <property name="valign">center</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <placeholder/>
+              <placeholder />
             </child>
             <child>
-              <placeholder/>
+              <placeholder />
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
-          <placeholder/>
+          <placeholder />
         </child>
       </object>
     </child>

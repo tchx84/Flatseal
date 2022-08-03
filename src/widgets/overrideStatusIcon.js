@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
-const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const { GObject, Gtk } = imports.gi;
+const { FlatsealOverrideStatus } = imports.models.overrideStatus;
 
 const OverrideStatusDescription = {
     global: _('Changed globally'),

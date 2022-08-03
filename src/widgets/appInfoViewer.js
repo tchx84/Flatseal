@@ -19,9 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib, Gtk} = imports.gi;
+const { GObject, GLib, Gtk } = imports.gi;
 
-const {FlatpakApplicationsModel} = imports.models.applications;
+const { FlatpakApplicationsModel } = imports.models.applications;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -70,7 +70,7 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         this._version.set_label(appdata.version);
         this._released.set_label(this._getFormattedDate(appdata.date));
 
-        this._icon.set_from_icon_name(desktop.icon, Gtk.IconSize.INVALID);
+        this._icon.set_from_icon_name(desktop.icon);
 
         const metadata = this._applications.getMetadataForAppId(this._appId);
         this._runtime.set_label(metadata.runtime);

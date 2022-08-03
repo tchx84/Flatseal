@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
-const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
+const { GObject, Gtk } = imports.gi;
+const { FlatsealOverrideStatusIcon } = imports.widgets.overrideStatusIcon;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -101,7 +101,7 @@ var FlatsealPathRow = GObject.registerClass({
 
     _setup() {
         this._statusIcon = new FlatsealOverrideStatusIcon();
-        this._statusBox.add(this._statusIcon);
+        this._statusBox.append(this._statusIcon);
 
         Object.keys(_options).forEach(option => {
             this._store.set(this._store.append(), [0], [option]);
@@ -177,7 +177,7 @@ var FlatsealPathRow = GObject.registerClass({
         if ((this._pathRE.test(this.text) ||
             this._optionRE.test(this.text)) &&
             (!negated && this._modeRE.test(this.text) ||
-             negated && this._negationModeRE.test(this.text))) {
+                negated && this._negationModeRE.test(this.text))) {
             context.add_class(validity.VALID);
             return;
         }

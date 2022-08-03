@@ -18,10 +18,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject} = imports.gi;
+const { GObject } = imports.gi;
 
-const {FlatpakSharedModel} = imports.models.shared;
-const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const { FlatpakSharedModel } = imports.models.shared;
+const { FlatsealOverrideStatus } = imports.models.overrideStatus;
 
 
 var FlatpakSessionBusModel = GObject.registerClass({
@@ -90,7 +90,7 @@ var FlatpakSessionBusModel = GObject.registerClass({
         const prefix = this.constructor.getPrefix();
         const option = property.replace(`${prefix}-`, '');
 
-        const originals = {...this._originals, ...this._globals};
+        const originals = { ...this._originals, ...this._globals };
         const values = value.split(';');
 
         /* Reset overrides on Talk since it's the first to update */
@@ -126,7 +126,7 @@ var FlatpakSessionBusModel = GObject.registerClass({
         if (option !== 'own')
             return;
 
-        this._overrides = {...this._missing, ...this._overrides};
+        this._overrides = { ...this._missing, ...this._overrides };
     }
 
     _getStatusForPermission(name) {
@@ -158,8 +158,8 @@ var FlatpakSessionBusModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
-        const options = {talk: [], own: [], none: []};
-        const values = {...this._originals, ...this._globals, ...this._overrides};
+        const options = { talk: [], own: [], none: [] };
+        const values = { ...this._originals, ...this._globals, ...this._overrides };
 
         Object.entries(values).forEach(([name, option]) => {
             if (!(option in options))

@@ -18,9 +18,9 @@
 
 /* exported FlatpakApplicationsModel getDefault */
 
-const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
+const { GObject, GLib, Gio, AppStreamGlib } = imports.gi;
 
-const {FlatpakInfoModel} = imports.models.info;
+const { FlatpakInfoModel } = imports.models.info;
 
 var FlatpakApplicationsModel = GObject.registerClass({
     GTypeName: 'FlatpakApplicationsModel',
@@ -338,9 +338,9 @@ var FlatpakApplicationsModel = GObject.registerClass({
 });
 
 
-var getDefault = (function() {
+var getDefault = (function () {
     let instance;
-    return function() {
+    return function () {
         if (typeof instance === 'undefined')
             instance = new FlatpakApplicationsModel();
         return instance;

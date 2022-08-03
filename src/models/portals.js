@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GLib, GObject} = imports.gi;
-const {info} = imports.models;
+const { Gio, GLib, GObject } = imports.gi;
+const { info } = imports.models;
 
 var PermissionsIface = `
 <node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
@@ -413,9 +413,9 @@ var FlatpakPortalsModel = GObject.registerClass({
 });
 
 
-var getDefault = (function() {
+var getDefault = (function () {
     let instance;
-    return function() {
+    return function () {
         if (typeof instance === 'undefined')
             instance = new FlatpakPortalsModel();
         return instance;

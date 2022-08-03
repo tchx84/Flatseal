@@ -18,9 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-imports.gi.versions.Gtk = '3.0';
+imports.gi.versions.Gtk = "3.0";
 
-const {Gio, GLib, Gtk} = imports.gi;
+const { Gio, GLib, Gtk } = imports.gi;
 
 const PermissionsIface = `
 <node xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd">
@@ -54,99 +54,106 @@ const PermissionsIface = `
 </node>
 `;
 
-
 class MockPermissionsStore {
-    constructor() {
-        this._store = {
-            background: {
-                background: {},
-            },
-            notifications: {
-                notification: {},
-            },
-            devices: {
-                speakers: {},
-                microphone: {},
-                camera: {},
-            },
-            location: {
-                location: {},
-            },
-        };
+  _init() {
+    this._store = {
+      background: {
+        background: {},
+      },
+      notifications: {
+        notification: {},
+      },
+      devices: {
+        speakers: {},
+        microphone: {},
+        camera: {},
+      },
+      location: {
+        location: {},
+      },
+    };
 
-        this._version = new GLib.Variant('u', 2);
-        this._dbusId = null;
-        this._nameId = Gio.bus_own_name(
-            Gio.BusType.SESSION,
-            'com.github.tchx84.Flatseal.PermissionStore',
-            Gio.BusNameOwnerFlags.NONE,
-            this._onBusAcquired.bind(this),
-            null,
-            null,
+    this._version = new GLib.Variant("u", 2);
+    this._dbusId = null;
+    this._nameId = Gio.bus_own_name(
+      Gio.BusType.SESSION,
+      "com.github.tchx84.Flatseal.PermissionStore",
+      Gio.BusNameOwnerFlags.NONE,
+      this._onBusAcquired.bind(this),
+      null,
+      null
+    );
+  }
+
+  _onBusAcquired(connection, name) {
+    const info = Gio.DBusNodeInfo.new_for_xml(PermissionsIface);
+    const activationId = connection.register_object(
+      "/org/freedesktop/impl/portal/PermissionStore",
+      info.interfaces[0],
+      this._onCalled.bind(this),
+      this._onProperty.bind(this),
+      null
+    );
+
+    if (activationId <= 0) throw new Error("activationId is ZERO");
+  }
+
+  _onCalled(connection, sender, path, iface, method, params, invocation) {
+    if (method === "Lookup") {
+      const [table, id] = params.deep_unpack();
+
+      if (!(table in this._store) || !(id in this._store[table]))
+        invocation.return_dbus_error(
+          "org.freedesktop.portal.Error.NotFound",
+          ""
         );
+
+      const data = new GLib.Variant("b", true);
+      const permissions = new GLib.Variant("(a{sas}v)", [
+        this._store[table][id],
+        data,
+      ]);
+
+      invocation.return_value(permissions);
+    } else if (method === "SetPermission") {
+      const [table, create, id, appId, permissions] = params.deep_unpack();
+
+      this._store[table][id][appId] = permissions;
+
+      invocation.return_value(null);
+    } else if (method === "List") {
+      var ids = [];
+      const [table] = params.deep_unpack();
+
+      if (table in this._store) ids = Object.keys(this._store[table]);
+
+      const value = new GLib.Variant("(as)", [ids]);
+      invocation.return_value(value);
+    } else if (method === "DeletePermission") {
+      const [table, id, appId] = params.deep_unpack();
+
+      if (
+        table in this._store &&
+        id in this._store[table] &&
+        appId in this._store[table][id]
+      )
+        delete this._store[table][id][appId];
+
+      invocation.return_value(null);
+    } else if (method === "testPartialTable") {
+      delete this._store["devices"]["microphone"];
+
+      invocation.return_value(null);
     }
+  }
 
-    _onBusAcquired(connection, name) {
-        const info = Gio.DBusNodeInfo.new_for_xml(PermissionsIface);
-        const activationId = connection.register_object(
-            '/org/freedesktop/impl/portal/PermissionStore',
-            info.interfaces[0],
-            this._onCalled.bind(this),
-            this._onProperty.bind(this),
-            null,
-        );
+  _onProperty(connection, sender, path, iface, key) {
+    return this._version;
+  }
 
-        if (activationId <= 0)
-            throw new Error('activationId is ZERO');
-    }
-
-    _onCalled(connection, sender, path, iface, method, params, invocation) {
-        if (method === 'Lookup') {
-            const [table, id] = params.deep_unpack();
-
-            if (!(table in this._store) || !(id in this._store[table]))
-                invocation.return_dbus_error('org.freedesktop.portal.Error.NotFound', '');
-
-            const data = new GLib.Variant('b', true);
-            const permissions = new GLib.Variant('(a{sas}v)', [this._store[table][id], data]);
-
-            invocation.return_value(permissions);
-        } else if (method === 'SetPermission') {
-            const [table, create, id, appId, permissions] = params.deep_unpack();
-
-            this._store[table][id][appId] = permissions;
-
-            invocation.return_value(null);
-        } else if (method === 'List') {
-            var ids = [];
-            const [table] = params.deep_unpack();
-
-            if (table in this._store)
-                ids = Object.keys(this._store[table]);
-
-            const value = new GLib.Variant('(as)', [ids]);
-            invocation.return_value(value);
-        } else if (method === 'DeletePermission') {
-            const [table, id, appId] = params.deep_unpack();
-
-            if (table in this._store && id in this._store[table] && appId in this._store[table][id])
-                delete this._store[table][id][appId];
-
-            invocation.return_value(null);
-        } else if (method === 'testPartialTable') {
-            delete this._store['devices']['microphone'];
-
-            invocation.return_value(null);
-        }
-    }
-
-    _onProperty(connection, sender, path, iface, key) {
-        return this._version;
-    }
-
-    shutdown() {
-        Gio.bus_unown_name(this._nameId);
-    }
+  shutdown() {
+    Gio.bus_unown_name(this._nameId);
+  }
 }
 
 Gtk.init(null);

@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
-  <requires lib="libhandy" version="0.0"/>
-  <template class="FlatsealPermissionSwitchRow" parent="HdyActionRow">
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="libadwaita" version="1.0"/>
+  <template class="FlatsealPermissionSwitchRow" parent="AdwActionRow">
     <property name="visible">True</property>
     <property name="sensitive">False</property>
     <property name="can-focus">True</property>
     <property name="activatable-widget">content</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
+        <property name="visible">0</property>
         <property name="halign">center</property>
         <property name="valign">center</property>
         <child>
           <object class="GtkBox" id="statusBox">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="visible">0</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
@@ -25,35 +22,19 @@
               <placeholder/>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
+            <property name="visible">0</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkSwitch" id="content">
-                <property name="visible">True</property>
-                <property name="can-focus">True</property>
+                <property name="visible">0</property>
+                <property name="focusable">1</property>
               </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
         </child>
       </object>
     </child>
