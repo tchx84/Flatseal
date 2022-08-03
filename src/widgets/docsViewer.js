@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GLib, GObject, Handy, WebKit2} = imports.gi;
-const {WebView} = imports.gi.WebKit2; // eslint-disable-line no-unused-vars
+const {Gio, GLib, GObject, Adw, WebKit} = imports.gi;
+const {WebView} = imports.gi.WebKit; // eslint-disable-line no-unused-vars
 
 const MAX_RESULTS = 10;
 
@@ -44,7 +44,7 @@ var FlatsealDocsViewer = GObject.registerClass({
             flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
         },
     },
-}, class FlatsealDocsViewer extends Handy.ApplicationWindow {
+}, class FlatsealDocsViewer extends Adw.ApplicationWindow {
     _init(parent) {
         super._init({});
         this._setup(parent);
@@ -105,7 +105,7 @@ var FlatsealDocsViewer = GObject.registerClass({
     }
 
     _loadExternalUri(webview, decision, type) { // eslint-disable-line class-methods-use-this
-        if (type !== WebKit2.PolicyDecisionType.NAVIGATION_ACTION)
+        if (type !== WebKit.PolicyDecisionType.NAVIGATION_ACTION)
             return false;
 
         const uri = decision.get_request().get_uri();
@@ -163,7 +163,7 @@ var FlatsealDocsViewer = GObject.registerClass({
     _resetSearch() {
         this._findController.search(
             this._searchEntry.text,
-            WebKit2.FindOptions.CASE_INSENSITIVE | WebKit2.FindOptions.WRAP_AROUND,
+            WebKit.FindOptions.CASE_INSENSITIVE | WebKit.FindOptions.WRAP_AROUND,
             MAX_RESULTS);
     }
 

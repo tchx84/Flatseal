@@ -42,6 +42,8 @@ var FlatsealPathsViewer = GObject.registerClass({
             FlatsealOverrideStatus.ORIGINAL),
     },
 }, class FlatsealPathsViewer extends Gtk.Box {
+    rows = Array();
+
     _init(rowClass) {
         this._status = FlatsealOverrideStatus.ORIGINAL;
         super._init({});
@@ -59,11 +61,10 @@ var FlatsealPathsViewer = GObject.registerClass({
     }
 
     _update(text) {
-        this._box.get_children().forEach(row => {
+        for (let row of this.rows) {
+            this.rows = this.rows.filter((rowwy) => rowwy != row);
             this._box.remove(row);
-            row.destroy();
-        });
-
+        }
         const paths = text.split(';');
 
         paths.forEach(path => {
@@ -80,8 +81,7 @@ var FlatsealPathsViewer = GObject.registerClass({
         const statuses = this._status
             .split(';')
             .filter(s => s.length !== 0);
-        const rows = this._box.get_children()
-            .reverse();
+        const rows = Array.from(this.rows).reverse();
 
         /* if it's still out of sync, bail out */
         if (statuses.length !== rows.length)
@@ -109,8 +109,8 @@ var FlatsealPathsViewer = GObject.registerClass({
         if (!this._box)
             return '';
 
-        return this._box.get_children()
-            .map(row => row.text)
+        return this.rows
+            .map((row) => row.text)
             .reverse()
             .join(';');
     }
@@ -134,6 +134,7 @@ var FlatsealPathsViewer = GObject.registerClass({
         row.connect('notify::text', this._changed.bind(this));
         row.show();
 
-        this._box.pack_end(row, true, true, 0);
+        this.rows.push(row);
+        this._box.append(row);
     }
 });

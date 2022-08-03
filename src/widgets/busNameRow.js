@@ -62,7 +62,7 @@ var FlatsealBusNameRow = GObject.registerClass({
         this._button.connect('clicked', this._remove.bind(this));
 
         this._statusIcon = new FlatsealOverrideStatusIcon();
-        this._statusBox.add(this._statusIcon);
+        this._statusBox.append(this._statusIcon);
     }
 
     _remove() {

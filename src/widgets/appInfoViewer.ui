@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.36.0 -->
 <interface>
-  <requires lib="gtk+" version="3.22"/>
+  <requires lib="gtk" version="4.0"/>
   <template class="FlatsealAppInfoViewer" parent="GtkBox">
-    <property name="visible">True</property>
-    <property name="can_focus">True</property>
+    <property name="focusable">1</property>
     <property name="halign">start</property>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="icon">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="vexpand">True</property>
@@ -25,144 +21,109 @@
               <class name="icon-dropshadow"/>
             </style>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">0</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">False</property>
-        <property name="position">0</property>
-      </packing>
     </child>
     <child>
       <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
+        <property name="halign">center</property>
+        <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox" id="content">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
+            <property name="valign">center</property>
             <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="valign">center</property>
+                <property name="vexpand">True</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkGrid">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="vexpand">True</property>
                     <child>
                       <object class="GtkLabel" id="name">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="halign">start</property>
-                        <property name="hexpand">True</property>
+                        <property name="hexpand">1</property>
                         <property name="ellipsize">end</property>
                         <style>
                           <class name="name"/>
                         </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">0</property>
-                      </packing>
                     </child>
                     <child>
                       <object class="GtkLabel" id="author">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
                         <property name="halign">start</property>
-                        <property name="hexpand">True</property>
+                        <property name="hexpand">1</property>
                         <property name="ellipsize">end</property>
                         <style>
                           <class name="author"/>
                         </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">1</property>
+                        </layout>
                       </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">1</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
+                <property name="vexpand">True</property>
                 <property name="valign">center</property>
                 <property name="spacing">20</property>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="halign">center</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkGrid">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="vexpand">True</property>
                         <child>
                           <object class="GtkLabel">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="label" translatable="yes">Version</property>
                             <style>
                               <class name="description"/>
                             </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">1</property>
+                            </layout>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="label" translatable="yes">Last Updated</property>
                             <style>
                               <class name="description"/>
                             </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">2</property>
+                            </layout>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="label" translatable="yes">Runtime</property>
                             <style>
                               <class name="description"/>
                             </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">3</property>
+                            </layout>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">3</property>
-                          </packing>
                         </child>
                         <child>
                           <placeholder/>
@@ -171,72 +132,54 @@
                           <placeholder/>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
+                    <property name="halign">center</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkGrid">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="vexpand">True</property>
                         <child>
                           <object class="GtkLabel" id="version">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="ellipsize">end</property>
                             <style>
                               <class name="value"/>
                             </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">1</property>
+                            </layout>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="released">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="ellipsize">end</property>
                             <style>
                               <class name="value"/>
                             </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">2</property>
+                            </layout>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">2</property>
-                          </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="runtime">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
                             <property name="halign">start</property>
                             <property name="ellipsize">end</property>
                             <style>
                               <class name="value"/>
                             </style>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="row">3</property>
+                            </layout>
                           </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">3</property>
-                          </packing>
                         </child>
                         <child>
                           <placeholder/>
@@ -245,42 +188,17 @@
                           <placeholder/>
                         </child>
                       </object>
-                      <packing>
-                        <property name="expand">True</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">1</property>
-                  </packing>
                 </child>
               </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
             </child>
             <style>
               <class name="content"/>
             </style>
           </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">False</property>
-            <property name="position">2</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">False</property>
-        <property name="position">1</property>
-      </packing>
     </child>
     <style>
       <class name="app-info"/>

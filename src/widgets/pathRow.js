@@ -101,7 +101,7 @@ var FlatsealPathRow = GObject.registerClass({
 
     _setup() {
         this._statusIcon = new FlatsealOverrideStatusIcon();
-        this._statusBox.add(this._statusIcon);
+        this._statusBox.append(this._statusIcon);
 
         Object.keys(_options).forEach(option => {
             this._store.set(this._store.append(), [0], [option]);

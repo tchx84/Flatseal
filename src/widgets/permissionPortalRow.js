@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GLib, GObject, Handy} = imports.gi;
+const {GLib, GObject, Adw} = imports.gi;
 
 const {getDefault, FlatpakPortalState} = imports.models.portals;
 
@@ -39,7 +39,7 @@ var FlatsealPermissionPortalRow = GObject.registerClass({
             FlatpakPortalState.ALLOWED,
             FlatpakPortalState.UNKNOWN),
     },
-}, class FlatsealPermissionPortalRow extends Handy.ActionRow {
+}, class FlatsealPermissionPortalRow extends Adw.ActionRow {
     _init(description, permission, content, table, id) {
         super._init({});
 

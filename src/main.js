@@ -22,9 +22,9 @@ pkg.initGettext();
 pkg.initFormat();
 pkg.require({
     Gio: '2.0',
-    Gtk: '3.0',
-    Handy: '1',
-    WebKit2: '4.1',
+    Gtk: '4.0',
+    Adw: '1',
+    WebKit: '6.0',
 });
 
 const {FlatsealApplication} = imports.application;
