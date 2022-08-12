@@ -56,8 +56,18 @@
                         <property name="receives-default">1</property>
                         <child>
                           <object class="GtkImage">
-
                             <property name="icon-name">system-search-symbolic</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkShortcutController">
+                            <property name="scope">managed</property>
+                            <child>
+                              <object class="GtkShortcut">
+                                <property name="trigger">&lt;Control&gt;F</property>
+                                <property name="action">activate</property>
+                              </object>
+                            </child>
                           </object>
                         </child>
                       </object>

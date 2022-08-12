@@ -412,9 +412,14 @@ var FlatsealWindow = GObject.registerClass(
     _toggleSearchWithButton() {
       this._applicationsSearchEntry.set_text("");
 
-      if (this._applicationsSearchButton.active)
+      if (this._applicationsSearchButton.active) {
         this._applicationsSearchEntry.grab_focus();
-      else this._applicationsSearchButton.grab_focus();
+        this._applicationsSearchEntry.set_key_capture_widget(this.root);
+      }
+      else {
+        this._applicationsSearchButton.grab_focus();
+        this._applicationsSearchEntry.set_key_capture_widget(null);
+      }
     }
 
     _cancelSearch() {
