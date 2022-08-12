@@ -53,6 +53,17 @@
                             <property name="icon-name">system-search-symbolic</property>
                           </object>
                         </child>
+                        <child>
+                          <object class="GtkShortcutController">
+                            <property name="scope">global</property>
+                            <child>
+                              <object class="GtkShortcut">
+                                <property name="trigger">&lt;Control&gt;F</property>
+                                <property name="action">activate</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -107,19 +118,10 @@
                               <object class="GtkBox" id="applicationsBox">
                                 <property name="orientation">vertical</property>
                                 <child>
-                                  <object class="GtkRevealer" id="applicationsSearchRevealer">
-                                    <property name="reveal-child">1</property>
-                                    <property name="child">
-                                      <object class="GtkSearchEntry" id="applicationsSearchEntry">
-                                        <property name="focusable">1</property>
-                                        <!--property name="primary-icon-name">edit-find-symbolic</property> -->
-                                        <!--<property name="primary-icon-activatable">False</property>-->
-                                        <!--<property name="primary-icon-sensitive">False</property>-->
-                                        <style>
-                                          <class name="search-entry" />
-                                        </style>
-                                      </object>
-                                    </property>
+                                  <object class="GtkSearchBar" id="applicationsSearchBar">
+                                    <child>
+                                      <object class="GtkSearchEntry" id="applicationsSearchEntry" />
+                                    </child>
                                   </object>
                                 </child>
                                 <child>

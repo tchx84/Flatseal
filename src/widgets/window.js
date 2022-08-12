@@ -54,7 +54,7 @@ var FlatsealWindow = GObject.registerClass({
         'actionBar',
         'appInfoGroup',
         'applicationsSearchButton',
-        'applicationsSearchRevealer',
+        'applicationsSearchBar',
         'applicationsSearchEntry',
         'applicationsStack',
         'applicationsListBox',
@@ -72,11 +72,6 @@ var FlatsealWindow = GObject.registerClass({
         'undoPopupBox',
         'permissionsTitle',
     ],
-    Signals: {
-        find: {
-            flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
-        },
-    },
 }, class FlatsealWindow extends Adw.ApplicationWindow {
     _init(application) {
         super._init({application});
@@ -241,15 +236,15 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
 
         this._applicationsSearchButton.bind_property(
-            'active', this._applicationsSearchRevealer, 'reveal-child', _bindFlags);
+            'active', this._applicationsSearchBar, 'search-mode-enabled', _bindFlags);
         this._applicationsSearchButton.connect(
             'toggled', this._toggleSearchWithButton.bind(this));
-
-        this.connect('find', this._enableSearchWithShortcut.bind(this));
 
         this._showApplications();
         this._backButton.set_sensitive(true);
         this._backButton.connect('clicked', this._showApplications.bind(this));
+
+        this._applicationsSearchBar.set_key_capture_widget(this.root);
     }
 
     _shutdown() {
@@ -342,14 +337,7 @@ var FlatsealWindow = GObject.registerClass({
         return 1;
     }
 
-    _enableSearchWithShortcut() {
-        this._applicationsSearchRevealer.reveal_child = true;
-        this._applicationsSearchEntry.grab_focus();
-    }
-
     _toggleSearchWithButton() {
-        this._applicationsSearchEntry.set_text('');
-
         if (this._applicationsSearchButton.active)
             this._applicationsSearchEntry.grab_focus();
         else
@@ -358,7 +346,7 @@ var FlatsealWindow = GObject.registerClass({
 
     _cancelSearch() {
         if (this._applicationsSearchEntry.get_text() === '')
-            this._applicationsSearchRevealer.reveal_child = false;
+            this._applicationsSearchBar.search_mode_enabled = false;
 
         this._applicationsSearchEntry.set_text('');
     }
