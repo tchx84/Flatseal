@@ -33,7 +33,7 @@ const {
 
 setup();
 
-const _totalPermissions = 37;
+const _totalPermissions = 38;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
@@ -169,6 +169,7 @@ describe('Model', function() {
         expect(permissions.sockets_ssh_auth).toBe(true);
         expect(permissions.sockets_pcsc).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.sockets_gpg_agent).toBe(true);
         expect(permissions.devices_dri).toBe(true);
         expect(permissions.devices_kvm).toBe(true);
         expect(permissions.devices_shm).toBe(true);
@@ -206,6 +207,7 @@ describe('Model', function() {
         expect(permissions.sockets_ssh_auth).toBe(false);
         expect(permissions.sockets_pcsc).toBe(false);
         expect(permissions.sockets_cups).toBe(false);
+        expect(permissions.sockets_gpg_agent).toBe(false);
         expect(permissions.devices_dri).toBe(false);
         expect(permissions.devices_kvm).toBe(false);
         expect(permissions.devices_shm).toBe(false);
@@ -241,6 +243,7 @@ describe('Model', function() {
         expect(permissions.sockets_ssh_auth).toBe(false);
         expect(permissions.sockets_pcsc).toBe(false);
         expect(permissions.sockets_cups).toBe(false);
+        expect(permissions.sockets_gpg_agent).toBe(false);
         expect(permissions.devices_dri).toBe(false);
         expect(permissions.devices_kvm).toBe(false);
         expect(permissions.devices_shm).toBe(false);
@@ -278,6 +281,7 @@ describe('Model', function() {
         expect(permissions.sockets_ssh_auth).toBe(true);
         expect(permissions.sockets_pcsc).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.sockets_gpg_agent).toBe(true);
         expect(permissions.devices_dri).toBe(true);
         expect(permissions.devices_kvm).toBe(true);
         expect(permissions.devices_shm).toBe(true);
@@ -342,6 +346,7 @@ describe('Model', function() {
         expect(permissions.sockets_session_bus).toBe(true);
         expect(permissions.sockets_ssh_auth).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.sockets_gpg_agent).toBe(true);
         expect(permissions.devices_dri).toBe(false);
         expect(permissions.devices_all).toBe(true);
         expect(permissions.features_bluetooth).toBe(false);
@@ -686,7 +691,7 @@ describe('Model', function() {
         permissions.appId = _basicAppId;
         const total = permissions.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 7);
+        expect(total).toEqual(_totalPermissions - 8);
     });
 
     it('handles missing .flatpak-info', function() {

@@ -1,6 +1,6 @@
 [Context]
 shared=network;ipc;
-sockets=x11;fallback-x11;wayland;pulseaudio;system-bus;session-bus;ssh-auth;cups;
+sockets=x11;fallback-x11;wayland;pulseaudio;system-bus;session-bus;ssh-auth;cups;gpg-agent;
 devices=dri;all;
 features=bluetooth;devel;multiarch;
 filesystems=host;home;~/test;
