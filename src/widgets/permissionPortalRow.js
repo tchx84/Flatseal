@@ -55,6 +55,9 @@ var FlatsealPermissionPortalRow = GObject.registerClass({
         this._stateHandlerId = this._stateSwitch.connect('state-set', this._stateSwitched.bind(this));
     }
 
+    updateSupported() { // eslint-disable-line class-methods-use-this
+    }
+
     _stateSwitched() {
         if (this._stateSwitch.active)
             this._state = FlatpakPortalState.ALLOWED;

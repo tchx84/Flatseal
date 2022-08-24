@@ -32,13 +32,13 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
         this.set_title(description);
         this.set_subtitle(permission);
         this._content.set_state(content);
-        this.connect('notify::sensitive', this._update.bind(this));
+        this.connect('notify::sensitive', this.updateSupported.bind(this));
 
         this._statusIcon = new FlatsealOverrideStatusIcon();
         this._statusBox.add(this._statusIcon);
     }
 
-    _update() {
+    updateSupported() {
         if (this.sensitive === false)
             this.set_tooltip_text(_('Not supported by the installed version of Flatpak'));
         else
