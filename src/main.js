@@ -24,7 +24,7 @@ pkg.require({
     Gio: '2.0',
     Gtk: '3.0',
     Handy: '1',
-    WebKit2: '4.0',
+    WebKit2: '4.1',
 });
 
 const {FlatsealApplication} = imports.application;
