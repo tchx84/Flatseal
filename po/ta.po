@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2022-09-03 12:35+0530\n"
+"PO-Revision-Date: 2022-09-27 05:54+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ta\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr "பிளாட்சீல்"
+msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
