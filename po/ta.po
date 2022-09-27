@@ -1,0 +1,575 @@
+# Flatseal- Tamil translation.
+# Copyright (C) 2022 THE Flatseal'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# K.B.Dharun Krishna (kbdharun) <kbdharunkrishna@gmail.com>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"PO-Revision-Date: 2022-09-28 18:20+0530\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "பிளாட்பாக் அனுமதிகளை நிர்வகிக்கவும்"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
+"applications."
+msgstr ""
+"பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
+"மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
+msgid "Unknown"
+msgstr "தெரியாதது"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "பேச்சுக்கள்"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "சொந்தமாக உள்ளது"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "அமர்வு பேருந்தில் நன்கு அறியப்பட்ட பெயர்களின் பட்டியல்"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "சிஸ்டம் பஸ்ஸில் நன்கு அறியப்பட்ட பெயர்களின் பட்டியல்"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU முடுக்கம்"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "மெய்நிகராக்கம்"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "பகிர்ந்த நினைவகம்"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "அனைத்து சாதனங்களும் (எ.கா. வெப்கேம்)"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "சாண்ட்பாக்ஸில் கிடைக்கும் சாதனங்களின் பட்டியல்"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "டெவலப்மெண்ட் syscals (எ.கா. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "பிற கட்டிடக்கலைகளிலிருந்து நிரல்கள்"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "புளூடூத்"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "கன்ட்ரோலர் ஏரியா நெட்வொர்க் பஸ்"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "பயன்பாடு பகிரப்பட்ட நினைவகம்"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "பயன்பாட்டிற்கு கிடைக்கும் அம்சங்களின் பட்டியல்"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "அனைத்து கணினி கோப்புகள்"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "அனைத்து கணினி நூலகங்கள், இயங்கக்கூடியவை மற்றும் நிலையான தரவு"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "அனைத்து அமைப்பு கட்டமைப்புகள்"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "அனைத்து பயனர் கோப்புகள்"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "பயன்பாட்டிற்கு கிடைக்கும் கோப்பு முறைமை துணைக்குழுக்களின் பட்டியல்"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "பிற கோப்புகள்"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "எ.கா. ~/games:ro, xdg-pictures, முதலியன"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "கோப்புகள்"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "எ.கா. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "சாண்ட்பாக்ஸில் உருவாக்கப்பட்ட ஹோம்டிர்-உறவினர் பாதைகளின் பட்டியல்"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "பின்னணி"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "பின்னணியில் இயக்க முடியும்"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "அறிவிப்புகள்"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "அறிவிப்புகளை அனுப்ப முடியும்"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "ஒலிவாங்கி"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "உங்கள் ஒலிவாங்கியைக் கேட்க முடியும்"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "ஒலிபெருக்கிகள்"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "உங்கள் ஸ்பீக்கர்களில் ஒலியை இயக்க முடியும்"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "கேமரா"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "உங்கள் கேமரா மூலம் வீடியோக்களை பதிவு செய்யலாம்"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "இருப்பிடம்"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "உங்கள் இருப்பிடத்தை அணுக முடியும்"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "பயன்பாட்டிற்கு தேர்ந்தெடுக்கப்பட்ட ஆதாரங்களின் பட்டியல்"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "பிளாட்பாக் இன் நிறுவப்பட்ட பதிப்பால் ஆதரிக்கப்படவில்லை"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "அனுமதி ஸ்டோர் பதிப்பு 2 அல்லது புதியது தேவை"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "போர்டல் தரவு இன்னும் அமைக்கப்படவில்லை"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "வலைப்பின்னல்"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "இடை-செயல்முறை தொடர்புகள்"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "ஹோஸ்ட் சிஸ்டத்துடன் பகிரப்பட்ட துணை அமைப்புகளின் பட்டியல்"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 சாளர அமைப்பு"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "வேலேண்ட் சாளர அமைப்பு"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "X11 விண்டோயிங் சிஸ்டத்திற்கு வீழ்ச்சி திரும்பவும்"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "பல்ஸ் ஆடியோ ஒலி சேவையகம்"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus அமர்வு பேருந்து"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus சிஸ்டம் பஸ்"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "பாதுகாப்பான ஷெல் ஏஜென்ட்"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "ஸ்மார்ட் கார்டுகள்"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "அச்சிடும் அமைப்பு"
+
+#: src/models/sockets.js:118
+msgid "List of well-known sockets available in the sandbox"
+msgstr "சாண்ட்பாக்ஸில் நன்கு அறியப்பட்ட சாக்கெட்டுகளின் பட்டியல்"
+
+#: src/models/variables.js:39
+msgid "Variables"
+msgstr "மாறிகள்"
+
+#: src/models/variables.js:42
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "எ.கா. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:72
+msgid "List of variables exported to the application"
+msgstr "பயன்பாட்டிற்கு ஏற்றுமதி செய்யப்பட்ட மாறிகளின் பட்டியல்"
+
+#: src/widgets/aboutDialog.js:38
+msgid "Contributions by"
+msgstr "மூலம் பங்களிப்புகள்"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%B %e, %Y"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "பதிப்பு"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "கடைசியாக புதுப்பிக்கப்பட்டது"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "இயக்க நேரம்"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+msgid "This is not a valid option"
+msgstr "இது சரியான விருப்பம் அல்ல"
+
+#: src/widgets/detailsButton.js:59
+msgid "_Show Details"
+msgstr "_விவரங்களை காட்டு"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "மென்பொருள் மேலாளரில் பயன்பாட்டைக் காட்டு"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "மென்பொருள் மேலாளர் கிடைக்கவில்லை"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "அனைத்து பயன்பாடுகள்"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "எல்லா பிளாட்பாக் பயன்பாடுகளுக்கும் பொருந்தும் மாற்றங்கள்"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "பிளாட்பாக் பதிப்பு"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "போர்டல் பதிப்பு"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "பாதையை மாற்றும்"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_உதவி"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_ஆவணப்படுத்தல்"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_விசைப்பலகை குறுக்குவழிகள்"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_ பிளாட்சீல் பற்றி"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "உலகளவில் மாற்றப்பட்டது"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "பயனரால் மாற்றப்பட்டது"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "இந்த முற்றிலும் பாதை"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "இந்த பாதை முகப்பு கோப்பகத்துடன் தொடர்புடையது"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "அனைத்து அமைப்பு கட்டமைப்புகள்"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "அனைத்து கணினி நூலகங்கள், இயங்கக்கூடியவை மற்றும் நிலையான தரவு"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "அனைத்து கணினி கோப்புகள்"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "அனைத்து பயனர் கோப்புகள்"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "டெஸ்க்டாப் அடைவு"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "ஆவணங்கள் அடைவு"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "பதிவிறக்க அடைவு"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "இசை அடைவு"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "படங்கள் அடைவு"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "பொது அடைவு"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "காணொளிகள் அடைவு"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "வார்ப்புருக்கள் அடைவு"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "கட்டமைப்பு அடைவு"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "கேச் அடைவு"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "தரவு அடைவு"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "இயக்க நேர அடைவு"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "படிக்க முடியும்: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "மாற்றியமைத்து படிக்க முடியும்: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "உருவாக்கலாம், திருத்தலாம் மற்றும் படிக்கலாம்: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "படிக்க முடியவில்லை: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "மாற்றவோ படிக்கவோ முடியாது: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "உருவாக்கவோ, மாற்றவோ அல்லது படிக்கவோ முடியாது: %s"
+
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr "அமைக்கப்படவில்லை"
+
+#: src/widgets/relativePathRow.js:82
+msgid "Default paths can't be removed"
+msgstr "இயல்புநிலை பாதைகளை அகற்ற முடியாது"
+
+#: src/widgets/resetButton.js:45
+msgid "_Reset"
+msgstr "_மீட்டமைக்கவும்"
+
+#: src/widgets/resetButton.js:63
+msgid "No changes made to this application"
+msgstr "இந்த பயன்பாட்டில் எந்த மாற்றமும் செய்யப்படவில்லை"
+
+#: src/widgets/resetButton.js:66
+msgid "Reset this application permissions"
+msgstr "இந்தப் பயன்பாட்டு அனுமதிகளை மீட்டமைக்கவும்"
+
+#: src/widgets/resetButton.js:68
+msgid ", including changes not made with Flatseal"
+msgstr ", பிளாட்சீல் இல் செய்யப்படாத மாற்றங்கள் உட்பட"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr "பொது"
+
+#: src/widgets/shortcutsWindow.ui:19
+msgid "Show mnemonics"
+msgstr "நினைவூட்டல்களைக் காட்டு"
+
+#: src/widgets/shortcutsWindow.ui:26
+msgid "Show documentation"
+msgstr "ஆவணங்களைக் காட்டு"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr "மெனுவைக் காட்டு"
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr "வெளியேறு"
+
+#: src/widgets/shortcutsWindow.ui:55
+msgid "Navigation"
+msgstr "வழிசெலுத்தல்"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr "இடதுபுறம் நகர்த்தவும்"
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr "மேலே நகர்த்து"
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr "வலதுபுறம் நகர்த்தவும்"
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr "கீழே இறங்கு"
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "பயன்பாடுகள்"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr "கண்டுபிடி"
+
+#: src/widgets/shortcutsWindow.ui:102
+msgid "Permissions"
+msgstr "அனுமதிகள்"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr "நிலைமாற்று"
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "ஆவணப்படுத்தல்"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr "அடுத்ததை தேடு"
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr "முந்தையதைக் கண்டுபிடி"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "அனுமதிகள் மீட்டமைக்கப்பட்டுள்ளன"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "செயல்தவிர்"
+
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
+msgid "No applications found."
+msgstr "பயன்பாடுகள் எதுவும் கிடைக்கவில்லை."
