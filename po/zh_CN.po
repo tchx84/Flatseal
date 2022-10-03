@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"POT-Creation-Date: 2022-10-03 09:43-0300\n"
 "PO-Revision-Date: 2022-09-10 20:57+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
@@ -266,19 +266,23 @@ msgstr "智能卡"
 msgid "Printing system"
 msgstr "打印系统"
 
-#: src/models/sockets.js:118
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr ""
+
+#: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
 msgstr "沙盒可提供的接口"
 
-#: src/models/variables.js:39
+#: src/models/variables.js:40
 msgid "Variables"
 msgstr "环境变量"
 
-#: src/models/variables.js:42
+#: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "如：GTK_DEBUG=interactive"
 
-#: src/models/variables.js:72
+#: src/models/variables.js:73
 msgid "List of variables exported to the application"
 msgstr "导出到程序的环境变量"
 
@@ -304,7 +308,7 @@ msgid "Runtime"
 msgstr "运行环境"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "非法选项"
 
