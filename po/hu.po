@@ -268,7 +268,7 @@ msgstr "Nyomtatási rendszer"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr "GNU-adatvédelmi őr (GNU Privacy Guard) ügynöki (GPG-Agent) könyvtárak"
+msgstr "GNU-adatvédelmi őr (GNU Privacy Guard) ügynöki (gpg-agent) könyvtárak"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
