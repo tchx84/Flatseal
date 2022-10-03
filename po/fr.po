@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 09:43-0300\n"
-"PO-Revision-Date: 2022-07-06 08:49+0200\n"
+"PO-Revision-Date: 2022-10-03 16:15-0400\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 42.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -274,7 +274,7 @@ msgstr "Système d’impression"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "Répertoires de l'agent GPG"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
