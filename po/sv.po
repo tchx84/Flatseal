@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"POT-Creation-Date: 2022-10-03 09:43-0300\n"
 "PO-Revision-Date: 2022-05-18 09:02+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
@@ -268,19 +268,23 @@ msgstr "Smartkort"
 msgid "Printing system"
 msgstr "Utskriftssystem"
 
-#: src/models/sockets.js:118
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr ""
+
+#: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Lista över välkända uttag som finns i sandlådan"
 
-#: src/models/variables.js:39
+#: src/models/variables.js:40
 msgid "Variables"
 msgstr "Variabler"
 
-#: src/models/variables.js:42
+#: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "t.ex. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:72
+#: src/models/variables.js:73
 msgid "List of variables exported to the application"
 msgstr "Lista över varibler som som exporterats till programmet"
 
@@ -306,7 +310,7 @@ msgid "Runtime"
 msgstr "Körtid"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Detta är inte ett giltigt alternativ"
 

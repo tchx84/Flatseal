@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"POT-Creation-Date: 2022-10-03 09:43-0300\n"
 "PO-Revision-Date: 2022-09-28 18:20+0530\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -33,10 +33,11 @@ msgstr "பிளாட்பாக் அனுமதிகளை நிர்�
 msgid "seal;sandbox;"
 msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/widgets/aboutDialog.ui:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
-"applications."
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
@@ -266,19 +267,23 @@ msgstr "ஸ்மார்ட் கார்டுகள்"
 msgid "Printing system"
 msgstr "அச்சிடும் அமைப்பு"
 
-#: src/models/sockets.js:118
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr ""
+
+#: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
 msgstr "சாண்ட்பாக்ஸில் நன்கு அறியப்பட்ட சாக்கெட்டுகளின் பட்டியல்"
 
-#: src/models/variables.js:39
+#: src/models/variables.js:40
 msgid "Variables"
 msgstr "மாறிகள்"
 
-#: src/models/variables.js:42
+#: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "எ.கா. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:72
+#: src/models/variables.js:73
 msgid "List of variables exported to the application"
 msgstr "பயன்பாட்டிற்கு ஏற்றுமதி செய்யப்பட்ட மாறிகளின் பட்டியல்"
 
@@ -304,7 +309,7 @@ msgid "Runtime"
 msgstr "இயக்க நேரம்"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "இது சரியான விருப்பம் அல்ல"
 
