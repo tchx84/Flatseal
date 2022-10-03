@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 09:43-0300\n"
-"PO-Revision-Date: 2022-09-28 18:20+0530\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2022-10-03 18:41+0530\n"
+"Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
@@ -33,11 +33,10 @@ msgstr "பிளாட்பாக் அனுமதிகளை நிர்�
 msgid "seal;sandbox;"
 msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
-#: src/widgets/aboutDialog.ui:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/widgets/aboutDialog.ui:11
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your "
-"Flatpak applications."
+"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
+"applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
@@ -269,7 +268,7 @@ msgstr "அச்சிடும் அமைப்பு"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "GPG-ஏஜென்ட் கோப்பகங்கள்"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
