@@ -1,23 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-10-03 09:43-0300\n"
-"PO-Revision-Date: 2022-05-28 10:57+0300\n"
+"PO-Revision-Date: 2022-10-03 20:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Hebrew <heb-bugzap@hamakor.org.il>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
-"2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 :"
+" 3);\n"
+"X-Generator: Lokalize 22.08.0\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -268,7 +267,7 @@ msgstr "מערכת הדפסה"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "תיקיות GPG-Agent"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
