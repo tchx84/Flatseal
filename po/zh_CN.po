@@ -268,7 +268,7 @@ msgstr "打印系统"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "GPG-Agent 目录"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
@@ -577,7 +577,3 @@ msgstr "撤消"
 #: src/widgets/window.ui:113 src/widgets/window.ui:211
 msgid "No applications found."
 msgstr "没有找到应用程序。"
-
-#: src/models/sockets.js:100
-msgid "GPG-Agent directories"
-msgstr "GPG-Agent 目录"
