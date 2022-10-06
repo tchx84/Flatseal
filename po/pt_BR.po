@@ -268,7 +268,7 @@ msgstr "Sistema de impressão"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "Diretórios do GPG-Agent"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
