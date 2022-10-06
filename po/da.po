@@ -270,7 +270,7 @@ msgstr "Printsystem"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "GPG-agent biblioteker"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
