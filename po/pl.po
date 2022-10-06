@@ -273,7 +273,7 @@ msgstr "Obsługa drukowania"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "Katalogi agenta GPG"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
