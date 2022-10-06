@@ -271,7 +271,7 @@ msgstr "Система печати"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "Каталоги GPG-агента"
 
 #: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
