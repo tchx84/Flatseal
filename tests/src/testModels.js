@@ -63,12 +63,14 @@ const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatp
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
 const _globalNegated = GLib.build_filenamev(['..', 'tests', 'content', 'globalNegated', 'flatpak']);
+const _globalResetMode = GLib.build_filenamev(['..', 'tests', 'content', 'globalResetMode', 'flatpak']);
 const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
 const _globalOverride = GLib.build_filenamev([_overrides, 'global']);
 const _globalNegatedOverride = GLib.build_filenamev([_globalNegated, 'overrides', 'global']);
+const _globalResetModeOverride = GLib.build_filenamev([_globalResetMode, 'overrides', 'global']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
@@ -1357,6 +1359,30 @@ describe('Model', function() {
             expect(has(_resetModeOverride, 'Context', 'sockets', 'x11')).toBe(true);
             expect(has(_resetModeOverride, 'Context', 'filesystems', '!host:reset')).toBe(true);
             expect(hasInTotal(_resetModeOverride)).toEqual(2);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles weird interactions with global reset mode', function(done) {
+        const source = Gio.File.new_for_path(_globalResetModeOverride);
+        const destination = Gio.File.new_for_path(_globalOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _resetModeId;
+
+        expect(permissions.filesystems_host).toBe(true);
+        expect(permissions.filesystems_other).toEqual('!host:reset');
+
+        expect(permissions.sockets_x11).toBe(false);
+        permissions.set_property('sockets_x11', true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_resetModeOverride, 'Context', 'sockets', 'x11')).toBe(true);
+            expect(hasInTotal(_resetModeOverride)).toEqual(1);
             done();
             return GLib.SOURCE_REMOVE;
         });
