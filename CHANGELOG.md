@@ -2,12 +2,16 @@
 
 ## [unreleased]
 
+- Fixed weird interactions with filesystem reset mode.
 - Fixed French translation.
 - Fixed Chinese (China) translation.
+- Added support for new gpg-agent permission.
 - Added Hebrew translation.
 - Changed Flatpak icon to the latest version.
 - Changed globally overridden status icon to use a different color.
 - Changed environment variables validation to allow spaces.
+- Changed to GNOME-runtime AppStreamGlib installation.
+- Changed to GNOME 43 runtime for stability.
 
 ## [1.8.0] - 2022-05-30
 
