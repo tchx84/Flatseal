@@ -205,7 +205,7 @@ var FlatsealWindow = GObject.registerClass({
                 lastPrefsGroup = groupRow;
             }
 
-            row.sensitive = p.supported;
+            row.supported = p.supported;
             lastPrefsGroup.add(row);
             this._portalsGroup = lastPrefsGroup;
 
