@@ -2,11 +2,13 @@
 
 ## [unreleased]
 
+- Fixed tooltips on unsupported permissions rows.
 - Fixed weird interactions with filesystem reset mode.
 - Fixed French translation.
 - Fixed Chinese (China) translation.
 - Added support for new gpg-agent permission.
 - Added Hebrew translation.
+- Added Tamil translation.
 - Changed Flatpak icon to the latest version.
 - Changed globally overridden status icon to use a different color.
 - Changed environment variables validation to allow spaces.
