@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [1.8.1] - 2022-10-15
 
 - Fixed tooltips on unsupported permissions rows.
 - Fixed weird interactions with filesystem reset mode.
