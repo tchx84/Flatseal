@@ -484,7 +484,7 @@ msgstr "_Nollaa"
 
 #: src/widgets/resetButton.js:63
 msgid "No changes made to this application"
-msgstr "Ei tehty muutoksia tähän sovellukseen"
+msgstr "Ei muutoksia tehty tähän sovellukseen"
 
 #: src/widgets/resetButton.js:66
 msgid "Reset this application permissions"
@@ -556,7 +556,7 @@ msgstr "Toggle"
 
 #: src/widgets/shortcutsWindow.ui:115
 msgid "Documentation"
-msgstr "Dokumenaatio"
+msgstr "Dokumentaatio"
 
 #: src/widgets/shortcutsWindow.ui:127
 msgid "Find next"
