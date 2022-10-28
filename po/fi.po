@@ -103,7 +103,7 @@ msgstr "Bluetooth"
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
-msgstr "Controller Area Network busi"
+msgstr "Controller Area Network bus"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
@@ -159,7 +159,7 @@ msgstr "Tausta"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
-msgstr "Voidaan ajaa taustalla"
+msgstr "Voidaan suorittaa taustalla"
 
 #: src/models/portals.js:128
 msgid "Notifications"
@@ -179,11 +179,11 @@ msgstr "Saa kuunnella mikrofoniasi"
 
 #: src/models/portals.js:148
 msgid "Speakers"
-msgstr "Kaijuttimet"
+msgstr "Kaiuttimet"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "Saa soittaa ääntä kaijuttimillasi"
+msgstr "Saa soittaa ääntä kaiuttimillasi"
 
 #: src/models/portals.js:158
 msgid "Camera"
