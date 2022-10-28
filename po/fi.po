@@ -67,7 +67,7 @@ msgstr "Luettelo tunnetuista nimistä session busissa"
 
 #: src/models/systemBus.js:73
 msgid "List of well-known names on the system bus"
-msgstr "Luwttelo tunnetuista nimistö system busissa"
+msgstr "Luwttelo tunnetuista nimistä system busissa"
 
 #: src/models/devices.js:37
 msgid "GPU acceleration"
