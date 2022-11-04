@@ -22,7 +22,7 @@
 const {GObject, Gtk, Gdk, Gio, Adw} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
-const {FlatsealAboutDialog} = imports.widgets.aboutDialog;
+const {showAboutDialog} = imports.widgets.aboutDialog;
 const {FlatsealDocsViewer} = imports.widgets.docsViewer;
 const {FlatsealShortcutsWindow} = imports.widgets.shortcutsWindow;
 
@@ -48,8 +48,7 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayAbout() {
-        const dialog = new FlatsealAboutDialog({transient_for: this._window, modal: true});
-        dialog.present();
+        showAboutDialog(this._window);
     }
 
     _displayShortcuts() {
