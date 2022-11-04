@@ -90,9 +90,6 @@ var FlatsealApplication = GObject.registerClass({
         this.set_accels_for_action('app.quit', ['<Primary>q']);
     }
 
-    _setupStylesheet() {
-
-    }
 
     activate() {
 
@@ -106,8 +103,6 @@ var FlatsealApplication = GObject.registerClass({
         super.vfunc_startup();
         Adw.init();
         this._setupActions();
-        this._setupStylesheet();
-
         Adw.StyleManager.get_default().set_color_scheme(
             Adw.ColorScheme.PREFER_LIGHT);
     }
