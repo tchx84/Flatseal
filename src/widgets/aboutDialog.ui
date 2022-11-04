@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk" version="4.0" />
-  <template class="FlatsealAboutDialog" parent="GtkAboutDialog">
-    <property name="type_hint">dialog</property>
-    <property name="program_name">Flatseal</property>
+  <object class="AdwAboutWindow" id="about-window">
+    <property name="application_name">Flatseal</property>
     <property name="version">1.8.1</property>
     <property name="copyright">© 2020-2022 Martin Abente Lahaye</property>
     <property name="comments" translatable="1">Flatseal is a graphical utility to review and modify permissions from your Flatpak applications.</property>
     <property name="website">https://github.com/tchx84/flatseal</property>
-    <property name="website_label">Flatseal</property>
-    <property name="authors">Martin Abente Lahaye</property>
+
+    <property name="developers">Martin Abente Lahaye
+      Bilal Elmoussaoui
+Adrien Plazas
+Kevin Degeling
+Mufeed Ali
+Leorize
+Christopher Davis
+Lctrs
+Will Thompson
+Jonas Johan Solsvik
+Maximiliano Sandoval
+Ferenc
+rusty-snake
+Guilhem Morer</property>
     <property name="translator_credits">Daniel Rusek
 Heimen Stoffels
 Tim Rieck
@@ -33,46 +45,11 @@ Philipp Kiemle</property>
     <property name="artists">Tobias Bernard
 J.P. MacDonald</property>
     <property name="documenters">TheEvilSkeleton</property>
-    <property name="contributors">Bilal Elmoussaoui
-Adrien Plazas
-Kevin Degeling
-Mufeed Ali
-Leorize
-Christopher Davis
-Lctrs
-Will Thompson
-Jonas Johan Solsvik
-Maximiliano Sandoval
-Ferenc
-rusty-snake
-Guilhem Morer</property>
-    <property name="logo_icon_name">com.github.tchx84.Flatseal</property>
+    <property name="application_icon">com.github.tchx84.Flatseal</property>
     <property name="license_type">gpl-3-0</property>
     <child>
       <placeholder />
     </child>
-    <child internal-child="vbox">
-      <object class="GtkBox">
 
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox">
-            <property name="valign">center</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <placeholder />
-            </child>
-            <child>
-              <placeholder />
-            </child>
-          </object>
-        </child>
-        <child>
-          <placeholder />
-        </child>
-      </object>
-    </child>
-  </template>
+  </object>
 </interface>
