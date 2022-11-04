@@ -240,13 +240,4 @@ window .menu.background label {
     margin-right: 10px;
 }
 
-/* keybindings */
 
-@binding-set WindowBindings {
-  bind "<Primary>q" { "close" () };
-  bind "<Primary>f" { "find" () };
-}
-
-window {
-  -gtk-key-bindings: WindowBindings;
-}
