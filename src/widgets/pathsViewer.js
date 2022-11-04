@@ -53,7 +53,9 @@ var FlatsealPathsViewer = GObject.registerClass(
 
     _remove(row) {
       this._box.remove(row);
-      row.destroy();
+      if (row.destroy) {
+        row.destroy();
+      }
       this._changed();
     }
 
