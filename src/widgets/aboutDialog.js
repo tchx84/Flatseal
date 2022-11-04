@@ -19,23 +19,11 @@
  */
 
 const {GObject, Gtk} = imports.gi;
+const ABOUT_RESOURCE = "/com/github/tchx84/Flatseal/widgets/aboutDialog.ui";
+function showAboutDialog(window) {
+    const builder = Gtk.Builder.new_from_resource(ABOUT_RESOURCE);
 
-
-var FlatsealAboutDialog = GObject.registerClass({
-    GTypeName: 'FlatsealAboutDialog',
-    Properties: {
-        contributors: GObject.ParamSpec.string(
-            'contributors',
-            'contributors',
-            'contributors',
-            GObject.ParamFlags.READWRITE, ''),
-    },
-    Template: 'resource:///com/github/tchx84/Flatseal/widgets/aboutDialog.ui',
-}, class FlatsealAboutDialog extends Gtk.AboutDialog {
-    _init(props) {
-        super._init(props);
-        const contributors = this.contributors.split('\n');
-        this.add_credit_section(_('Contributions by'), contributors);
-
-    }
-});
+    const dialog = builder.get_object("about-window");
+    dialog.transient_for = window;
+    dialog.present();
+}
