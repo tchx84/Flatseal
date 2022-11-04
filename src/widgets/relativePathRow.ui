@@ -23,7 +23,7 @@
           <object class="GtkImage" id="image">
             <property name="vexpand">True</property>
             <property name="valign">center</property>
-            <property name="icon_size">large</property>
+            <property name="icon-size">large</property>
             <style>
               <class name="info"/>
             </style>
