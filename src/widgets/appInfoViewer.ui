@@ -15,7 +15,6 @@
             <property name="valign">center</property>
             <property name="vexpand">True</property>
             <property name="pixel_size">128</property>
-            <property name="icon_size">6</property>
             <style>
               <class name="icon"/>
               <class name="icon-dropshadow"/>
