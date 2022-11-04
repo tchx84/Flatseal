@@ -4,7 +4,7 @@
   <template class="FlatsealAboutDialog" parent="GtkAboutDialog">
     <property name="type_hint">dialog</property>
     <property name="program_name">Flatseal</property>
-    <property name="version">1.8.0</property>
+    <property name="version">1.8.1</property>
     <property name="copyright">© 2020-2022 Martin Abente Lahaye</property>
     <property name="comments" translatable="1">Flatseal is a graphical utility to review and modify permissions from your Flatpak applications.</property>
     <property name="website">https://github.com/tchx84/flatseal</property>
@@ -26,7 +26,10 @@ Eric Zhang
 Georgi Georgiev
 Sabri Ünal
 Mathieu Bousquet
-Yaron Shahrabani</property>
+Yaron Shahrabani
+K.B.Dharun Krishna
+Dingzhong Chen
+Philipp Kiemle</property>
     <property name="artists">Tobias Bernard
 J.P. MacDonald</property>
     <property name="documenters">TheEvilSkeleton</property>

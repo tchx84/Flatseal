@@ -33,7 +33,7 @@ const {
 
 setup();
 
-const _totalPermissions = 37;
+const _totalPermissions = 38;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
@@ -50,6 +50,7 @@ const _busAppId = 'com.test.Bus';
 const _variablesAppId = 'com.test.Variables';
 const _trailingSemicolonId = 'com.test.TrailingSemicolon';
 const _filesystemWithMode = 'com.test.FilesystemWithMode';
+const _resetModeId = 'com.test.ResetMode';
 const _globalAppId = 'com.test.Global';
 const _globalRestoredAppId = 'com.test.GlobalRestored';
 const _statusesAppId = 'com.test.Statuses';
@@ -62,12 +63,14 @@ const _system = GLib.build_filenamev(['..', 'tests', 'content', 'system', 'flatp
 const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']);
 const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
 const _globalNegated = GLib.build_filenamev(['..', 'tests', 'content', 'globalNegated', 'flatpak']);
+const _globalResetMode = GLib.build_filenamev(['..', 'tests', 'content', 'globalResetMode', 'flatpak']);
 const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
 const _globalOverride = GLib.build_filenamev([_overrides, 'global']);
 const _globalNegatedOverride = GLib.build_filenamev([_globalNegated, 'overrides', 'global']);
+const _globalResetModeOverride = GLib.build_filenamev([_globalResetMode, 'overrides', 'global']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
@@ -77,6 +80,7 @@ const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
 const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
 const _filesystemWithModeOverride = GLib.build_filenamev([_overrides, _filesystemWithMode]);
+const _resetModeOverride = GLib.build_filenamev([_overrides, _resetModeId]);
 const _globalWithGlobalOverride = GLib.build_filenamev([_global, 'overrides', _globalAppId]);
 
 const _sessionGroup = 'Session Bus Policy';
@@ -126,6 +130,7 @@ describe('Model', function () {
         GLib.unlink(_environmentOverride);
         GLib.unlink(_busOverride);
         GLib.unlink(_filesystemWithModeOverride);
+        GLib.unlink(_resetModeOverride);
         GLib.unlink(_globalWithGlobalOverride);
         GLib.unlink(_globalOverride);
     });
@@ -142,6 +147,7 @@ describe('Model', function () {
         expect(appIds).toContain(_unsupportedAppId);
         expect(appIds).toContain(_trailingSemicolonId);
         expect(appIds).toContain(_filesystemWithMode);
+        expect(appIds).toContain(_resetModeId);
     });
 
     it('ignores BaseApp bundles', function () {
@@ -169,6 +175,7 @@ describe('Model', function () {
         expect(permissions.sockets_ssh_auth).toBe(true);
         expect(permissions.sockets_pcsc).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.sockets_gpg_agent).toBe(true);
         expect(permissions.devices_dri).toBe(true);
         expect(permissions.devices_kvm).toBe(true);
         expect(permissions.devices_shm).toBe(true);
@@ -206,6 +213,7 @@ describe('Model', function () {
         expect(permissions.sockets_ssh_auth).toBe(false);
         expect(permissions.sockets_pcsc).toBe(false);
         expect(permissions.sockets_cups).toBe(false);
+        expect(permissions.sockets_gpg_agent).toBe(false);
         expect(permissions.devices_dri).toBe(false);
         expect(permissions.devices_kvm).toBe(false);
         expect(permissions.devices_shm).toBe(false);
@@ -241,6 +249,7 @@ describe('Model', function () {
         expect(permissions.sockets_ssh_auth).toBe(false);
         expect(permissions.sockets_pcsc).toBe(false);
         expect(permissions.sockets_cups).toBe(false);
+        expect(permissions.sockets_gpg_agent).toBe(false);
         expect(permissions.devices_dri).toBe(false);
         expect(permissions.devices_kvm).toBe(false);
         expect(permissions.devices_shm).toBe(false);
@@ -278,6 +287,7 @@ describe('Model', function () {
         expect(permissions.sockets_ssh_auth).toBe(true);
         expect(permissions.sockets_pcsc).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.sockets_gpg_agent).toBe(true);
         expect(permissions.devices_dri).toBe(true);
         expect(permissions.devices_kvm).toBe(true);
         expect(permissions.devices_shm).toBe(true);
@@ -342,6 +352,7 @@ describe('Model', function () {
         expect(permissions.sockets_session_bus).toBe(true);
         expect(permissions.sockets_ssh_auth).toBe(true);
         expect(permissions.sockets_cups).toBe(true);
+        expect(permissions.sockets_gpg_agent).toBe(true);
         expect(permissions.devices_dri).toBe(false);
         expect(permissions.devices_all).toBe(true);
         expect(permissions.features_bluetooth).toBe(false);
@@ -686,7 +697,7 @@ describe('Model', function () {
         permissions.appId = _basicAppId;
         const total = permissions.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 7);
+        expect(total).toEqual(_totalPermissions - 8);
     });
 
     it('handles missing .flatpak-info', function () {
@@ -1326,6 +1337,52 @@ describe('Model', function () {
             expect(has(_globalOverride, 'Environment', 'TEST', '')).toBe(true);
             expect(has(_globalOverride, 'Session Bus Policy', 'org.test.Test', 'none')).toBe(true);
             expect(hasInTotal(_globalOverride)).toEqual(6);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles weird interactions with reset mode', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _resetModeId;
+
+        expect(permissions.filesystems_host).toBe(true);
+        expect(permissions.filesystems_other).toEqual('');
+        permissions.set_property('filesystems_other', '!host:reset');
+
+        expect(permissions.sockets_x11).toBe(false);
+        permissions.set_property('sockets_x11', true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_resetModeOverride, 'Context', 'sockets', 'x11')).toBe(true);
+            expect(has(_resetModeOverride, 'Context', 'filesystems', '!host:reset')).toBe(true);
+            expect(hasInTotal(_resetModeOverride)).toEqual(2);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles weird interactions with global reset mode', function(done) {
+        const source = Gio.File.new_for_path(_globalResetModeOverride);
+        const destination = Gio.File.new_for_path(_globalOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissions.appId = _resetModeId;
+
+        expect(permissions.filesystems_host).toBe(true);
+        expect(permissions.filesystems_other).toEqual('!host:reset');
+
+        expect(permissions.sockets_x11).toBe(false);
+        permissions.set_property('sockets_x11', true);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_resetModeOverride, 'Context', 'sockets', 'x11')).toBe(true);
+            expect(hasInTotal(_resetModeOverride)).toEqual(1);
             done();
             return GLib.SOURCE_REMOVE;
         });

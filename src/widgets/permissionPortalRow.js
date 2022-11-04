@@ -114,4 +114,13 @@ var FlatsealPermissionPortalRow = GObject.registerClass({
     get state() {
         return this._state;
     }
+
+    get supported() {
+        return this.sensitive;
+    }
+
+    set supported(supported) {
+        this.sensitive = supported;
+        this._updateWidget();
+    }
 });

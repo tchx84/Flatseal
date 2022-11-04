@@ -240,12 +240,9 @@ var FlatsealWindow = GObject.registerClass(
         lastPrefsGroup.add(row);
         this._portalsGroup = lastPrefsGroup;
 
-        this._permissions.bind_property(
-          p.property,
-          row.content,
-          property,
-          _bindFlags
-        );
+            row.supported = p.supported;
+            lastPrefsGroup.add(row);
+            this._portalsGroup = lastPrefsGroup;
 
         if (!row.status) return;
 

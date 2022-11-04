@@ -95,6 +95,13 @@ var FlatpakSocketsModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: 'socket=cups',
             },
+            'sockets-gpg-agent': {
+                supported: this._info.supports('1.14.0'),
+                description: _('GPG-Agent directories'),
+                option: 'gpg-agent',
+                value: this.constructor.getDefault(),
+                example: 'socket=gpg-agent',
+            },
         };
     }
 

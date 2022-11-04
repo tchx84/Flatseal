@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 19:49-0400\n"
-"PO-Revision-Date: 2022-07-06 08:49+0200\n"
+"POT-Creation-Date: 2022-10-03 09:43-0300\n"
+"PO-Revision-Date: 2022-10-03 16:15-0400\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 42.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -272,19 +272,23 @@ msgstr "Carte à puce"
 msgid "Printing system"
 msgstr "Système d’impression"
 
-#: src/models/sockets.js:118
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "Répertoires de l'agent GPG"
+
+#: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Liste des prises connues et disponibles dans le sac de sable"
 
-#: src/models/variables.js:39
+#: src/models/variables.js:40
 msgid "Variables"
 msgstr "Variables"
 
-#: src/models/variables.js:42
+#: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "e.g. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:72
+#: src/models/variables.js:73
 msgid "List of variables exported to the application"
 msgstr "Liste des variables exportées vers l’application"
 
@@ -310,7 +314,7 @@ msgid "Runtime"
 msgstr "Environnement d’exécution"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Ceci n’est pas une option valide"
 

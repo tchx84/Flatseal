@@ -156,7 +156,7 @@ separator {
 
 .permissions .app-info .name {
     font-size: xx-large;
-    font-weight: 900;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 

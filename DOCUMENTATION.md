@@ -53,6 +53,7 @@ D-Bus system bus | Toggle | Allow the application to have access to the entire s
 Secure Shell agent | Toggle | Allow the application to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
 [Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the application to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
 Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for LibreOffice, it will no longer be possible to print documents with this application. | `--socket=cups` and `--nosocket=cups`
+GPG-Agent directories | Toggle | Allow the application to access GPG-Agent directories. | `--socket=gpg-agent` and `--nosocket=gpg-agent`
 
 ### Device
 

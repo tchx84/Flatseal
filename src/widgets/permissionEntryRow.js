@@ -65,5 +65,13 @@ var FlatsealPermissionEntryRow = GObject.registerClass(
     get status() {
       return this._content;
     }
-  }
-);
+
+    get supported() {
+        return this.sensitive;
+    }
+
+    set supported(supported) {
+        this.sensitive = supported;
+        this._update();
+    }
+});

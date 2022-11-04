@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-17 19:49-0400\n"
+"POT-Creation-Date: 2022-10-03 09:43-0300\n"
 "PO-Revision-Date: 2022-05-19 00:15+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: none\n"
@@ -270,19 +270,23 @@ msgstr "Smartcards"
 msgid "Printing system"
 msgstr "Druckerverwaltung"
 
-#: src/models/sockets.js:118
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-Agent-Verzeichnisse"
+
+#: src/models/sockets.js:125
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Liste der in der Sandbox verfügbaren Sockets"
 
-#: src/models/variables.js:39
+#: src/models/variables.js:40
 msgid "Variables"
 msgstr "Variablen"
 
-#: src/models/variables.js:42
+#: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
 msgstr "z.B. GTK_DEBUG=interactive"
 
-#: src/models/variables.js:72
+#: src/models/variables.js:73
 msgid "List of variables exported to the application"
 msgstr "Liste der in die Anwendung exportierten Variablen"
 
@@ -308,7 +312,7 @@ msgid "Runtime"
 msgstr "Runtime"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:32
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Das ist eine ungültige Einstellung"
 

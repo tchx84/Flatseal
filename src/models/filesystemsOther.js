@@ -110,6 +110,11 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             set.has(`!${path}`));
     }
 
+    static isResetOverride(value) {
+        const [path, mode] = value.split(':');
+        return path.startsWith('!') && mode === 'reset';
+    }
+
     static removeMode(value) {
         const [path] = value.split(':');
         return path;
@@ -133,6 +138,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             .map(p => this.constructor.negate(p));
 
         const removedGlobals = [...this._globals]
+            .filter(p => !this.constructor.isOverriden(this._filesystems._originals, p))
             .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
             .filter(p => !this.constructor.isOverriden(this._originals, p))
             .filter(p => !this.constructor.isOverriden(added, p))
@@ -160,21 +166,27 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
         const globals = [...this._globals]
             .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
+            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
-                this.constructor.isNegated(p)))
+                           this.constructor.isNegated(p) &&
+                           !this.constructor.isResetOverride(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                this.constructor.isNegated(p)));
+                           this.constructor.isNegated(p) &&
+                           !this.constructor.isResetOverride(p)));
 
         const overrides = [...this._overrides]
             .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
             .filter(p => !this.constructor.isStrictlyOverriden(this._globals, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
-                this.constructor.isNegated(p)))
+                           this.constructor.isNegated(p) &&
+                           !this.constructor.isResetOverride(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                this.constructor.isNegated(p)))
+                           this.constructor.isNegated(p) &&
+                           !this.constructor.isResetOverride(p)))
             .filter(p => !(this.constructor.isOverriden(this._globals, p) &&
-                this.constructor.isNegated(p)));
+                           this.constructor.isNegated(p) &&
+                           !this.constructor.isResetOverride(p)));
 
         const paths = new Set([...originals, ...globals, ...overrides]);
         const value = [...paths].join(';');
