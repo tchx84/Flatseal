@@ -102,7 +102,6 @@
                                       <object class="GtkImage">
 
                                         <property name="icon-name">application-x-addon-symbolic</property>
-                                        <property name="icon_size">6</property>
                                       </object>
                                     </child>
                                     <child>
