@@ -155,6 +155,9 @@
 
                                         <property name="child">
                                           <object class="GtkListBox" id="applicationsListBox">
+                                            <style>
+                                              <class name="sidebar" />
+                                            </style>
 
                                             <property name="vexpand">1</property>
                                             <property name="selection-mode">browse</property>
