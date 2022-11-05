@@ -3,7 +3,6 @@
   <requires lib="gtk" version="4.0" />
   <template class="FlatsealApplicationRow" parent="AdwActionRow">
     <property name="visible">True</property>
-    <property name="can-focus">True</property>
     <property name="activatable">True</property>
     <child type="prefix">
       <object class="GtkImage" id="icon">

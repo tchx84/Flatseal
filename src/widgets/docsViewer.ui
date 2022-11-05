@@ -4,7 +4,6 @@
   <requires lib="libadwaita" version="1.0" />
   <requires lib="webkit2gtk" version="2.28" />
   <template class="FlatsealDocsViewer" parent="AdwApplicationWindow">
-    <property name="can-focus">False</property>
     <child>
       <object class="GtkBox">
 
@@ -12,7 +11,7 @@
         <child>
           <object class="AdwHeaderBar">
             <property name="visible">1</property>
-            <property name="can-focus">False</property>
+
             <property name="title" translatable="1">Flatseal</property>
             <property name="show-close-button">1</property>
             <child>

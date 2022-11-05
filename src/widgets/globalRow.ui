@@ -4,7 +4,6 @@
   <requires lib="libadwaita" version="1.0" />
   <template class="FlatsealGlobalRow" parent="AdwActionRow">
     <property name="visible">True</property>
-    <property name="can-focus">True</property>
     <property name="activatable">True</property>
     <property name="title" translatable="1">All Applications</property>
     <property name="subtitle">global</property>
