@@ -5,7 +5,6 @@
   <template class="FlatsealPermissionSwitchRow" parent="AdwActionRow">
     <property name="visible">True</property>
     <property name="sensitive">False</property>
-    <property name="can-focus">True</property>
     <property name="activatable-widget">content</property>
     <child>
       <object class="GtkBox">

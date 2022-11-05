@@ -3,7 +3,6 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
   <template class="FlatsealGlobalRow" parent="AdwActionRow">
-    <property name="can-focus">True</property>
     <property name="activatable">True</property>
     <property name="title" translatable="yes">All Applications</property>
     <property name="subtitle">global</property>
