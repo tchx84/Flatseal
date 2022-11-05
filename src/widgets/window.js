@@ -107,8 +107,10 @@ var FlatsealWindow = GObject.registerClass({
         this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
-        this._permissionsHeaderBar.connect_after(
-            'size-allocate', this._updateVisibility.bind(this));
+        this.root.connect(
+            'notify::default-width', this._updateVisibility.bind(this));
+        this.connect(
+            'notify::maximized', this._updateVisibility.bind(this));
 
         if (allApplications.length === 0 || allPermissions.length === 0)
             return;
@@ -300,13 +302,20 @@ var FlatsealWindow = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
-    _updateVisibility(window, allocation) {
-        const visible = window.root.default_width <= ACTION_BAR_THRESHOLD;
+    _updateVisibility(window) {
+        if (window.maximized) {
+            this._detailsHeaderButton.visible = true;
+            this._resetHeaderButton.visible = true;
 
-        this._detailsHeaderButton.visible = !visible;
-        this._resetHeaderButton.visible = !visible;
+            this._actionBar.visible = false;
+        } else {
+            const visible = window.root.default_width <= ACTION_BAR_THRESHOLD;
 
-        this._actionBar.visible = visible;
+            this._detailsHeaderButton.visible = !visible;
+            this._resetHeaderButton.visible = !visible;
+
+            this._actionBar.visible = visible;
+        }
     }
 
     _filter(row) {
