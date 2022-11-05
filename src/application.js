@@ -28,11 +28,12 @@ const {FlatsealShortcutsWindow} = imports.widgets.shortcutsWindow;
 
 var FlatsealApplication = GObject.registerClass({
     GTypeName: 'FlatsealApplication',
-}, class FlatsealApplication extends Gtk.Application {
+}, class FlatsealApplication extends Adw.Application {
     _init() {
         super._init({
             application_id: 'com.github.tchx84.Flatseal',
             flags: Gio.ApplicationFlags.FLAGS_NONE,
+            resource_base_path: '/com/github/tchx84/Flatseal/',
         });
 
         this._window = null;
@@ -97,7 +98,6 @@ var FlatsealApplication = GObject.registerClass({
 
     vfunc_startup() {
         super.vfunc_startup();
-        Adw.init();
         this._setupActions();
     }
 });
