@@ -129,6 +129,9 @@
                                       <object class="GtkViewport">
                                         <property name="child">
                                           <object class="GtkListBox" id="applicationsListBox">
+                                            <style>
+                                              <class name="navigation-sidebar" />
+                                            </style>
                                             <property name="vexpand">True</property>
                                             <property name="selection-mode">browse</property>
                                             <child type="placeholder">
