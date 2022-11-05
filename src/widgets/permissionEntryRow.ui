@@ -4,7 +4,6 @@
   <requires lib="libadwaita" version="1.0"/>
   <template class="FlatsealPermissionEntryRow" parent="AdwPreferencesRow">
     <property name="visible">True</property>
-    <property name="can-focus">True</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
     <child>
