@@ -48,6 +48,7 @@
                         <property name="ellipsize">end</property>
                         <style>
                           <class name="name"/>
+                          <class name="title-1"/>
                         </style>
                         <layout>
                           <property name="column">0</property>
@@ -62,6 +63,7 @@
                         <property name="ellipsize">end</property>
                         <style>
                           <class name="author"/>
+                          <class name="caption-heading"/>
                         </style>
                         <layout>
                           <property name="column">0</property>
