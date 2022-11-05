@@ -125,9 +125,9 @@ var FlatsealWindow = GObject.registerClass(
         _bindReadFlags
       );
 
-      /* this._permissionsHeaderBar.connect_after(
-            'size-allocate', this._updateVisibility.bind(this));
-        */
+      this._permissionsHeaderBar.root.connect(
+        'notify::default-width', this._updateVisibility.bind(this));
+
       if (allApplications.length === 0 || allPermissions.length === 0) return;
 
       const iconTheme = Gtk.IconTheme.get_for_display(this.display);
@@ -240,9 +240,9 @@ var FlatsealWindow = GObject.registerClass(
         lastPrefsGroup.add(row);
         this._portalsGroup = lastPrefsGroup;
 
-            row.supported = p.supported;
-            lastPrefsGroup.add(row);
-            this._portalsGroup = lastPrefsGroup;
+        row.supported = p.supported;
+        lastPrefsGroup.add(row);
+        this._portalsGroup = lastPrefsGroup;
 
         if (!row.status) return;
 
@@ -366,9 +366,9 @@ var FlatsealWindow = GObject.registerClass(
       return GLib.SOURCE_REMOVE;
     }
 
-    _updateVisibility(window, allocation) {
-      const visible = allocation.width <= ACTION_BAR_THRESHOLD;
-
+    _updateVisibility() {
+      let allocation = this.root;
+      const visible = allocation.default_width <= ACTION_BAR_THRESHOLD;
       this._detailsHeaderButton.visible = !visible;
       this._resetHeaderButton.visible = !visible;
 

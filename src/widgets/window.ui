@@ -173,7 +173,7 @@
                                                       <object class="GtkImage">
 
                                                         <property name="icon-name">system-search-symbolic</property>
-                                                        <property name="icon_size">6</property>
+                                                        <property name="icon_size">normal</property>
                                                       </object>
                                                     </child>
                                                     <child>
@@ -335,7 +335,7 @@
                                         </child>
                                         <child>
                                           <object class="GtkActionBar" id="actionBar">
-
+                                            <property name="visible">False</property>
                                             <child>
                                               <object class="GtkBox" id="startActionBox">
 
