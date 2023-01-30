@@ -11,7 +11,7 @@ Simply launch Flatseal, select an application and modify its permissions. Restar
 For more details please visit the [documentation](./DOCUMENTATION.md) page.
 
 ### RHEL 9 Compatiblity [Almalinux and RockyLinux, etc]
-In case the application font texts are not displayed correctly please use the **gnome-tweaks package to change the font for Interface Text from the default to something silumar like** 'dejavu sans regular'
+In case the application font texts are not displayed correctly please use the **gnome-tweaks package to change the font for Interface Text from the default to something silumar like** `dejavu sans regular`
 
 
 ## Get it
