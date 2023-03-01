@@ -1,4 +1,8 @@
-#!@GJS@
+#!@GJS@ -m
+
+import GLib from "gi://GLib";
+import { exit, programInvocationName } from "system";
+
 imports.package.init({
   name: "@PACKAGE_NAME@",
   version: "@PACKAGE_VERSION@",
@@ -6,4 +10,19 @@ imports.package.init({
   libdir: "@libdir@",
   datadir: "@datadir@",
 });
-imports.package.run(imports.main);
+
+const loop = new GLib.MainLoop(null, false);
+
+// Temporary solution to https://gitlab.gnome.org/GNOME/gjs/-/issues/468
+import("resource:///com/github/tchx84/Flatseal/js/main.js").then(({ main }) => {
+  GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
+    loop.quit();
+
+    const exitCode = main([programInvocationName, ...ARGV]);
+    exit(exitCode);
+
+    return GLib.SOURCE_REMOVE;
+  });
+}).catch((reason) => console.error(reason));
+
+loop.run();
