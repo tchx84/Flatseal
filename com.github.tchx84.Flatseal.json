@@ -29,6 +29,18 @@
     ],
     "modules": [
         {
+            "name": "jasmine-gjs",
+            "buildsystem": "meson",
+            "cleanup": ["*"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/ptomato/jasmine-gjs.git",
+                    "commit": "c6aa28b3a3b16a3abb53e32825d83f836a2fed42"
+                }
+            ]
+        },
+        {
             "name": "flatseal",
             "buildsystem": "meson",
             "sources": [
