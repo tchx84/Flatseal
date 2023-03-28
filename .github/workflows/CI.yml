@@ -4,9 +4,16 @@ on:
   pull_request:
 name: CI
 jobs:
-  testing:
+  flatpak:
+    name: "Flatpak Builder"
     runs-on: ubuntu-latest
-    name: testing
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      options: --privileged
     steps:
-    - uses: actions/checkout@master
-    - uses: tchx84/gtk-apps-testing-docker-action@gjs
+    - uses: actions/checkout@v2
+    - uses: flatpak/flatpak-github-actions/flatpak-builder@v5
+      with:
+        bundle: "flatseal-dev.flatpak"
+        manifest-path: "com.github.tchx84.Flatseal.json"
+        run-tests: "true"
