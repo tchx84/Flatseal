@@ -2,7 +2,6 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <template class="FlatsealAppInfoViewer" parent="GtkBox">
-    <property name="focusable">1</property>
     <property name="halign">start</property>
     <child>
       <object class="GtkBox">
