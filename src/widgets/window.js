@@ -215,7 +215,6 @@ var FlatsealWindow = GObject.registerClass({
             this._permissions.bind_property(p.statusProperty, row.status, 'status', _bindFlags);
         });
 
-        this.connect('delete-event', this._saveSettings.bind(this));
         this.connect('destroy', this._shutdown.bind(this));
 
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
@@ -251,10 +250,6 @@ var FlatsealWindow = GObject.registerClass({
 
     _shutdown() {
         this._permissions.shutdown();
-    }
-
-    _saveSettings() {
-        this._settings.saveWindowState(this);
     }
 
     _selectApplicationDelayed() {
@@ -404,5 +399,10 @@ var FlatsealWindow = GObject.registerClass({
             this._focusOnApplications();
         else
             this._focusOnPermissions();
+    }
+
+    vfunc_close_request() {
+        this._settings.saveWindowState(this);
+        return super.vfunc_close_request();
     }
 });
