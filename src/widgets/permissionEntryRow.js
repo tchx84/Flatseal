@@ -31,7 +31,6 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         'permission',
         'box',
         'button',
-        'image',
     ],
 }, class FlatsealpermissionEntryRow extends Adw.PreferencesRow {
     _init(description, permission, content, rowClass, iconName) {
@@ -43,7 +42,7 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         this._content.text = content;
         this._box.append(this._content);
 
-        this._image.icon_name = iconName;
+        this._button.icon_name = iconName;
 
         this._button.connect('clicked', this._add.bind(this));
         this.connect('notify::sensitive', this._update.bind(this));
