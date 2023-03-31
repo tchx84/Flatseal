@@ -41,9 +41,6 @@ var FlatsealPathsViewer = GObject.registerClass({
             FlatsealOverrideStatus.ORIGINAL),
     },
 }, class FlatsealPathsViewer extends Gtk.Box {
-    rows = Array();
-    n_items = 0;
-
     _init(rowClass) {
         this._status = FlatsealOverrideStatus.ORIGINAL;
         super._init({});
@@ -56,21 +53,17 @@ var FlatsealPathsViewer = GObject.registerClass({
 
     _remove(row) {
         this.remove(row);
-        this.n_items -= 1;
-        if (this.n_items == 0)
+        if (this.get_first_child() == null)
             this.visible = false;
 
         this._changed();
     }
 
     _update(text) {
-        for (let row of this.rows) {
-            this.rows = this.rows.filter((rowwy) => rowwy != row);
+        for (const row of Array.from(this)) {
             this.remove(row);
-            this.n_items -= 1;
-            if (this.n_items == 0)
-                this.visible = false;
         }
+        this.visible = false;
         const paths = text.split(';');
 
         paths.forEach(path => {
@@ -87,7 +80,7 @@ var FlatsealPathsViewer = GObject.registerClass({
         const statuses = this._status
             .split(';')
             .filter(s => s.length !== 0);
-        const rows = Array.from(this.rows).reverse();
+        const rows = Array.from(this).reverse();
 
         /* if it's still out of sync, bail out */
         if (statuses.length !== rows.length)
@@ -99,7 +92,7 @@ var FlatsealPathsViewer = GObject.registerClass({
     }
 
     set text(text) {
-        if (this._box && text === '') {
+        if (text === '') {
             this._update(text);
             return;
         }
@@ -112,19 +105,13 @@ var FlatsealPathsViewer = GObject.registerClass({
     }
 
     get text() {
-        if (!this._box)
-            return '';
-
-        return this.rows
-            .map((row) => row.text)
+        return Array.from(this)
+            .map(row => row.text)
             .reverse()
             .join(';');
     }
 
     set status(status) {
-        if (!this._box)
-            return;
-
         this._status = status;
         this._updateStatus();
     }
@@ -139,9 +126,7 @@ var FlatsealPathsViewer = GObject.registerClass({
         row.connect('remove-requested', this._remove.bind(this, row));
         row.connect('notify::text', this._changed.bind(this));
 
-        this.rows.push(row);
         this.prepend(row);
-        this.n_items += 1;
         this.visible = true;
     }
 });
