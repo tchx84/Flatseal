@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk} = imports.gi;
+const {GObject, Gtk, Adw} = imports.gi;
 
 
 var FlatsealResetButton = GObject.registerClass({
@@ -34,20 +34,11 @@ var FlatsealResetButton = GObject.registerClass({
         this._permissions = permissions;
         this._permissions.connect('changed', this._update.bind(this));
 
-        this._image = new Gtk.Image();
-        this._image.icon_name = 'dialog-warning-symbolic';
-        this._image.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
-        this._image.image_position = Gtk.PositionType.LEFT;
-        this._image.visible = false;
-        this.set_child(this._image);
-
-        this.set_use_underline(true);
-        this.set_label(_('_Reset'));
+        this.label = _('_Reset');
+        this.use_underline = true;
         this.sensitive = false;
-        this.can_focus = true;
-        this.visible = true;
 
-        this.get_style_context().add_class('reset-button');
+        this.add_css_class('reset-button');
 
         this.connect('clicked', this._clicked.bind(this));
     }
@@ -58,7 +49,15 @@ var FlatsealResetButton = GObject.registerClass({
 
     _update(widget, overriden, unsupported) {
         this.sensitive = overriden;
-        this._image.visible = unsupported;
+        if (unsupported) {
+            const content = new Adw.ButtonContent();
+            content.icon_name = 'dialog-warning-symbolic';
+            content.label = _('_Reset');
+            content.use_underline = true;
+            this.set_child(this._content);
+        } else {
+            this.label = _('_Reset');
+        }
 
         let text = _('No changes made to this application');
 
