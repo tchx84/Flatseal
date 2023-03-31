@@ -57,7 +57,6 @@ var FlatsealDetailsButton = GObject.registerClass({
 
         this.set_use_underline(true);
         this.set_label(_('_Show Details'));
-        this.visible = true;
 
         this.connect('clicked', this._clicked.bind(this));
         this._checkSoftwareManager();
