@@ -128,13 +128,11 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.append(this._globalRow);
 
         this._appInfoViewer = new FlatsealAppInfoViewer();
-        this._appInfoViewer.show();
         this._appInfoGroup.add(this._appInfoViewer);
         this._contentLeaflet.bind_property(
             'folded', this._appInfoViewer, 'compact', _bindReadFlags);
 
         this._globalInfoViewer = new FlatsealGlobalInfoViewer();
-        this._globalInfoViewer.show();
         this._appInfoGroup.add(this._globalInfoViewer);
         this._contentLeaflet.bind_property(
             'folded', this._globalInfoViewer, 'compact', _bindReadFlags);
@@ -197,7 +195,6 @@ var FlatsealWindow = GObject.registerClass({
                 const groupRow = new Adw.PreferencesGroup();
                 groupRow.set_title(p.groupTitle);
                 groupRow.set_description(p.groupDescription);
-                groupRow.show();
                 this._permissionsBox.add(groupRow);
                 lastGroup = p.groupStyle;
                 lastPrefsGroup = groupRow;
