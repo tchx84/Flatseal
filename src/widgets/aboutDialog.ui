@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <requires lib="gtk" version="4.0" />
   <object class="AdwAboutWindow" id="about-window">
     <property name="application_name">Flatseal</property>
     <property name="modal">True</property>
