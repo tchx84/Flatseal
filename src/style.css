@@ -200,29 +200,6 @@ window .menu.background label {
   margin-right: 5px;
 }
 
-/* docs viewer */
-
-.previous-button {
-    margin-left: 7.5px;
-}
-
-.previous-button,
-.back-button {
-    padding-right: 12.5px;
-    padding-left: 12.5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-}
-
-.next-button,
-.forward-button {
-    padding-right: 12.5px;
-    padding-left: 12.5px;
-    border-left: none;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
 /* placeholder */
 
 .placeholder {
