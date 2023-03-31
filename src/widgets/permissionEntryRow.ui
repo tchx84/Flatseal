@@ -68,9 +68,6 @@
           <object class="GtkBox" id="box">
             <property name="valign">start</property>
             <property name="orientation">vertical</property>
-            <child>
-              <placeholder/>
-            </child>
             <style>
               <class name="content"/>
             </style>

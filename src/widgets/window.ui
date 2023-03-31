@@ -238,9 +238,6 @@
                                     <property name="child">
                                       <object class="GtkBox">
                                         <property name="orientation">vertical</property>
-                                        <child>
-                                          <placeholder />
-                                        </child>
                                       </object>
                                     </property>
                                   </object>
@@ -290,9 +287,6 @@
                             <property name="halign">center</property>
                             <property name="valign">start</property>
                             <property name="orientation">vertical</property>
-                            <child>
-                              <placeholder />
-                            </child>
                           </object>
                         </child>
                       </object>
