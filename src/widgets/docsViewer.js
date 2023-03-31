@@ -40,22 +40,19 @@ var FlatsealDocsViewer = GObject.registerClass({
         close: {
             flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
         },
-        find: {
-            flags: GObject.SignalFlags.RUN_LAST | GObject.SignalFlags.ACTION,
-        },
     },
-}, class FlatsealDocsViewer extends Adw.ApplicationWindow {
+}, class FlatsealDocsViewer extends Adw.Window {
     _init(parent) {
         super._init({});
         this._setup(parent);
     }
 
     _setup(parent) {
-        const [width, height] = parent.get_size();
+        const [width, height] = parent.get_default_size();
         this.default_width = width;
         this.default_height = height;
-        this.modal = true;
         this.transient_for = parent;
+        this.application = parent.application;
 
         const path = GLib.build_filenamev([
             imports.package.datadir,
@@ -71,7 +68,7 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._webview.connect('notify::uri', this._loadUri.bind(this));
 
         /* Use system web browser for external urls */
-        this._webview.connect('decide-policy', this._loadExternalUri.bind(this));
+        this._webview.connect('decide-policy', this._decidePolicy.bind(this));
 
         /* Update navigation buttons on every history change */
         this._webview.connect_after('load-changed', this._updateNavigation.bind(this));
@@ -96,19 +93,20 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._searchBar.connect(
             'notify::search-mode-enabled', this._enableSearchController.bind(this));
 
-        this.connect('find', this._enableSearchWithShortcut.bind(this));
-        this.connect('close', this._close.bind(this));
+        this._searchBar.connect_entry(this._searchEntry);
+        this._searchBar.set_key_capture_widget(this);
     }
 
     _loadUri() {
         this._webview.load_uri(this._webview.uri);
     }
 
-    _loadExternalUri(webview, decision, type) { // eslint-disable-line class-methods-use-this
+    _decidePolicy(webview, decision, type) { // eslint-disable-line class-methods-use-this
         if (type !== WebKit.PolicyDecisionType.NAVIGATION_ACTION)
             return false;
 
-        const uri = decision.get_request().get_uri();
+        let action = decision.get_navigation_action();
+        const uri = action.get_request().get_uri();
 
         if (!uri.startsWith('file')) {
             Gio.AppInfo.launch_default_for_uri(uri, null);
@@ -132,14 +130,7 @@ var FlatsealDocsViewer = GObject.registerClass({
         this._webview.go_forward();
     }
 
-    _enableSearchWithShortcut() {
-        this._searchBar.search_mode_enabled = true;
-        this._searchEntry.grab_focus();
-    }
-
     _toggleSearchWithButton() {
-        this._searchEntry.set_text('');
-
         if (this._searchButton.active)
             this._searchEntry.grab_focus();
         else
@@ -173,9 +164,5 @@ var FlatsealDocsViewer = GObject.registerClass({
 
     _searchNext() {
         this._findController.search_next();
-    }
-
-    _close() {
-        this.destroy();
     }
 });
