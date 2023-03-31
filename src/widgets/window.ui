@@ -209,7 +209,7 @@
                         </child>
                       </object>
                     </child>
-                    <child>
+                    <child type="end">
                       <object class="GtkBox" id="endHeaderBox">
                         <property name="valign">center</property>
                       </object>
