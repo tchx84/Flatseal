@@ -181,7 +181,7 @@ var FlatsealWindow = GObject.registerClass({
                     p.portalTable,
                     p.portalId);
             } else {
-                property = 'state';
+                property = 'active';
                 row = new FlatsealPermissionSwitchRow(
                     p.description,
                     p.permission,

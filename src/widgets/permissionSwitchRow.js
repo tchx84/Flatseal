@@ -31,7 +31,7 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
         super._init({});
         this.set_title(description);
         this.set_subtitle(permission);
-        this._content.set_state(content);
+        this._content.set_active(content);
         this.connect('notify::sensitive', this._update.bind(this));
 
         this._statusIcon = new FlatsealOverrideStatusIcon();
