@@ -15,10 +15,10 @@
   </object>
   <template class="FlatsealPathRow" parent="GtkBox">
     <property name="margin-bottom">12</property>
+    <property name="spacing">6</property>
     <child>
       <object class="GtkImage" id="image">
         <property name="valign">center</property>
-        <property name="icon_size">large</property>
         <style>
           <class name="info"/>
         </style>
@@ -48,18 +48,12 @@
       </object>
     </child>
     <child>
-      <object class="GtkBox">
-        <property name="halign">center</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkButton" id="button">
-            <property name="vexpand">True</property>
-            <property name="receives-default">1</property>
-            <property name="halign">end</property>
-            <property name="valign">center</property>
-            <property name="icon-name">window-close-symbolic</property>
-          </object>
-        </child>
+      <object class="GtkButton" id="button">
+        <property name="valign">center</property>
+        <property name="icon-name">window-close-symbolic</property>
+        <style>
+          <class name="flat"/>
+        </style>
       </object>
     </child>
     <style>

@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="FlatsealPathsViewer" parent="GtkBox">
-    <property name="valign">center</property>
-    <property name="hexpand">1</property>
-    <property name="vexpand">True</property>
     <property name="orientation">vertical</property>
-    <child>
-      <object class="GtkBox" id="box">
-        <property name="hexpand">1</property>
-        <property name="vexpand">True</property>
-        <property name="orientation">vertical</property>
-      </object>
-    </child>
+    <property name="visible">False</property>
   </template>
 </interface>
