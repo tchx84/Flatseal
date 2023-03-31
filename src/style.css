@@ -157,7 +157,6 @@ separator {
 }
 
 .permissions .app-info .author {
-    font-weight: bold;
     margin-bottom: 15px;
 }
 .permissions .app-info.compact .author {
