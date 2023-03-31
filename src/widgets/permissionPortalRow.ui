@@ -1,40 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="FlatsealPermissionPortalRow" parent="AdwActionRow">
-    <property name="visible">True</property>
     <property name="sensitive">False</property>
     <property name="activatable-widget">stateSwitch</property>
     <child>
       <object class="GtkBox">
-        <property name="halign">center</property>
-        <property name="valign">center</property>
+        <property name="spacing">6</property>
         <child>
-          <object class="GtkBox">
-            <property name="halign">center</property>
+          <object class="GtkButton" id="unsetButton">
+            <property name="tooltip-text" translatable="yes">Unset</property>
             <property name="valign">center</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkButton" id="unsetButton">
-                <property name="receives-default">1</property>
-                <property name="tooltip-text" translatable="yes">Unset</property>
-                <property name="halign">center</property>
-                <property name="valign">center</property>
-                <property name="icon-name">edit-clear-all-symbolic</property>
-                <style>
-                  <class name="unset-button"/>
-                  <class name="list-button"/>
-                </style>
-              </object>
-            </child>
+            <property name="icon-name">edit-clear-all-symbolic</property>
+            <style>
+              <class name="flat"/>
+            </style>
           </object>
         </child>
         <child>
-          <object class="GtkBox">
+          <object class="GtkSwitch" id="stateSwitch">
             <property name="valign">center</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkSwitch" id="stateSwitch"/>
-            </child>
           </object>
         </child>
       </object>
