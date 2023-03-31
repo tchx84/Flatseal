@@ -10,9 +10,6 @@
         <property name="hexpand">1</property>
         <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
       </object>
     </child>
   </template>

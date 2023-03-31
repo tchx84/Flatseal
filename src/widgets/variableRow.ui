@@ -48,9 +48,6 @@
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
       </object>
     </child>
     <child>

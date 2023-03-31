@@ -50,9 +50,6 @@
         <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
         <style>
           <class name="status"/>
         </style>
