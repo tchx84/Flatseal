@@ -41,6 +41,7 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         this._content = new FlatsealPathsViewer(rowClass);
         this._content.text = content;
         this._box.append(this._content);
+        this._content.bind_property('visible', this._box, 'visible', GObject.BindingFlags.SYNC_CREATE);
 
         this._button.icon_name = iconName;
 

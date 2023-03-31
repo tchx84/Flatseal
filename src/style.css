@@ -29,22 +29,6 @@ row .toolbox {
     margin-right: 15px;
 }
 
-row .content .bus,
-row .content .variable,
-row .content .path {
-    color: @theme_fg_color;
-    border-style: solid;
-    border-width: 0.5px;
-    border-radius: 8px;
-    border-color: @borders;
-}
-
-row .content .bus,
-row .content .variable,
-row .content .path {
-    background-color: @theme_bg_color;
-}
-
 row .status {
     color: @theme_selected_bg_color;
 }
@@ -53,33 +37,6 @@ row .status.global {
 }
 row.activatable .status {
     margin-right: 8px;
-}
-
-row .content .bus entry,
-row .content .variable entry,
-row .content .path entry {
-    margin-left: -8px;
-}
-
-row .content .bus entry,
-row .content .bus button,
-row .content .bus button:hover,
-row .content .bus button:focus,
-row .content .bus button:selected,
-row .content .variable entry,
-row .content .variable button,
-row .content .variable button:hover,
-row .content .variable button:focus,
-row .content .variable button:selected,
-row .content .path entry,
-row .content .path button,
-row .content .path button:hover,
-row .content .path button:focus,
-row .content .path button:selected {
-   background-image: none;
-   background-color: transparent;
-   border: none;
-   box-shadow: none;
 }
 
 row .content .bus .info,

@@ -27,7 +27,6 @@ const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 var FlatsealPathsViewer = GObject.registerClass({
     GTypeName: 'FlatsealPathsViewer',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/pathsViewer.ui',
-    InternalChildren: ['box'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
@@ -43,6 +42,7 @@ var FlatsealPathsViewer = GObject.registerClass({
     },
 }, class FlatsealPathsViewer extends Gtk.Box {
     rows = Array();
+    n_items = 0;
 
     _init(rowClass) {
         this._status = FlatsealOverrideStatus.ORIGINAL;
@@ -55,14 +55,21 @@ var FlatsealPathsViewer = GObject.registerClass({
     }
 
     _remove(row) {
-        this._box.remove(row);
+        this.remove(row);
+        this.n_items -= 1;
+        if (this.n_items == 0)
+            this.visible = false;
+
         this._changed();
     }
 
     _update(text) {
         for (let row of this.rows) {
             this.rows = this.rows.filter((rowwy) => rowwy != row);
-            this._box.remove(row);
+            this.remove(row);
+            this.n_items -= 1;
+            if (this.n_items == 0)
+                this.visible = false;
         }
         const paths = text.split(';');
 
@@ -133,6 +140,8 @@ var FlatsealPathsViewer = GObject.registerClass({
         row.connect('notify::text', this._changed.bind(this));
 
         this.rows.push(row);
-        this._box.append(row);
+        this.prepend(row);
+        this.n_items += 1;
+        this.visible = true;
     }
 });

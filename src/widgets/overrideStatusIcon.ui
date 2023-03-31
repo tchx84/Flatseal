@@ -4,11 +4,8 @@
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkImage">
-        <property name="vexpand">True</property>
-        <property name="halign">center</property>
         <property name="valign">center</property>
         <property name="icon-name">dialog-warning-symbolic</property>
-        <property name="icon_size">large</property>
       </object>
     </child>
     <style>
