@@ -1,7 +1,3 @@
-.applications .box {
-   background-color: @theme_base_color;
-}
-
 .applications .search-entry {
     margin: 10px;
 }
