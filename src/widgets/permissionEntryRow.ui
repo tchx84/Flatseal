@@ -53,7 +53,7 @@
                     <property name="valign">center</property>
                     <property name="icon-name">folder-new-symbolic</property>
                     <style>
-                      <class name="list-button"/>
+                      <class name="flat"/>
                     </style>
                   </object>
                 </child>
