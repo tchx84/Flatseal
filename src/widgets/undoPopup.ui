@@ -36,14 +36,7 @@
             <property name="focusable">1</property>
             <property name="receives_default">1</property>
             <property name="has-frame">0</property>
-            <child>
-              <object class="GtkImage">
-                <property name="icon_name">window-close-symbolic</property>
-              </object>
-            </child>
-            <style>
-              <class name="image-button" />
-            </style>
+            <property name="icon_name">window-close-symbolic</property>
           </object>
         </child>
         <style>
