@@ -4,27 +4,13 @@
     <property name="sensitive">False</property>
     <property name="activatable-widget">content</property>
     <child>
-      <object class="GtkBox">
-        <property name="halign">center</property>
+      <object class="GtkBox" id="statusBox">
         <property name="valign">center</property>
-        <child>
-          <object class="GtkBox" id="statusBox">
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="orientation">vertical</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkBox">
-            <property name="valign">center</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkSwitch" id="content">
-                <property name="focusable">1</property>
-              </object>
-            </child>
-          </object>
-        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSwitch" id="content">
+        <property name="valign">center</property>
       </object>
     </child>
   </template>
