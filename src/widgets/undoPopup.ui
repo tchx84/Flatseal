@@ -24,7 +24,6 @@
           <object class="GtkButton" id="undoButton">
             <property name="label" translatable="yes">Undo</property>
             <property name="name">undoButton</property>
-            <property name="focusable">1</property>
             <property name="receives_default">1</property>
             <style>
               <class name="undo-button" />
@@ -33,7 +32,6 @@
         </child>
         <child>
           <object class="GtkButton" id="closeButton">
-            <property name="focusable">1</property>
             <property name="receives_default">1</property>
             <property name="has-frame">0</property>
             <property name="icon_name">window-close-symbolic</property>

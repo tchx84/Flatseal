@@ -38,7 +38,6 @@
         <child>
           <object class="GtkEntry" id="entry">
             <property name="vexpand">True</property>
-            <property name="focusable">1</property>
             <property name="valign">center</property>
             <property name="completion">completion</property>
           </object>
@@ -62,7 +61,6 @@
         <child>
           <object class="GtkButton" id="button">
             <property name="vexpand">True</property>
-            <property name="focusable">1</property>
             <property name="receives-default">1</property>
             <property name="halign">end</property>
             <property name="valign">center</property>

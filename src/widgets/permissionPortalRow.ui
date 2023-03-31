@@ -17,7 +17,6 @@
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkButton" id="unsetButton">
-                <property name="focusable">1</property>
                 <property name="receives-default">1</property>
                 <property name="tooltip-text" translatable="yes">Unset</property>
                 <property name="halign">center</property>
@@ -36,9 +35,7 @@
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkSwitch" id="stateSwitch">
-                <property name="focusable">1</property>
-              </object>
+              <object class="GtkSwitch" id="stateSwitch"/>
             </child>
           </object>
         </child>

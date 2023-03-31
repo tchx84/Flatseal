@@ -32,15 +32,12 @@
                     </binding>
                     <child type="end">
                       <object class="GtkMenuButton" id="menuButton">
-                        <property name="focusable">1</property>
                         <property name="receives-default">1</property>
                         <property name="icon-name">open-menu-symbolic</property>
                       </object>
                     </child>
                     <child>
                       <object class="GtkToggleButton" id="applicationsSearchButton">
-                        <property name="focusable">1</property>
-                        <property name="receives-default">1</property>
                         <property name="icon-name">system-search-symbolic</property>
                         <child>
                           <object class="GtkShortcutController">
@@ -101,7 +98,6 @@
                         <child>
                           <object class="GtkStackPage">
                             <property name="name">withApplicationsPage</property>
-                            <!--<property name="position">1</property>-->
                             <property name="child">
                               <object class="GtkBox" id="applicationsBox">
                                 <property name="orientation">vertical</property>
@@ -114,9 +110,6 @@
                                 </child>
                                 <child>
                                   <object class="GtkScrolledWindow">
-                                    <property name="vexpand">True</property>
-                                    <property name="focusable">1</property>
-                                    <!--<property name="shadow-type">in</property>-->
                                     <property name="child">
                                       <object class="GtkViewport">
                                         <property name="child">
@@ -209,23 +202,16 @@
                         <child>
                           <object class="GtkButton" id="backButton">
                             <property name="sensitive">False</property>
-                            <property name="focusable">1</property>
                             <property name="receives-default">1</property>
                             <property name="valign">center</property>
                             <property name="icon-name">go-previous-symbolic</property>
                           </object>
-                        </child>
-                        <child>
-                          <placeholder />
                         </child>
                       </object>
                     </child>
                     <child>
                       <object class="GtkBox" id="endHeaderBox">
                         <property name="valign">center</property>
-                        <child>
-                          <placeholder />
-                        </child>
                       </object>
                     </child>
                   </object>
@@ -264,18 +250,13 @@
                                 <child>
                                   <object class="GtkStackPage">
                                     <property name="name">withPermissionsPage</property>
-                                    <!--<property name="position">1</property>-->
                                     <property name="child">
                                       <object class="GtkBox">
                                         <property name="orientation">vertical</property>
                                         <child>
                                           <object class="AdwPreferencesPage" id="permissionsBox">
-                                            <property name="vexpand">True</property>
-                                            <property name="visible">True</property>
                                             <child>
-                                              <object class="AdwPreferencesGroup" id="appInfoGroup">
-                                                <property name="visible">True</property>
-                                              </object>
+                                              <object class="AdwPreferencesGroup" id="appInfoGroup"/>
                                             </child>
                                           </object>
                                         </child>
@@ -286,17 +267,11 @@
                                               <object class="GtkBox" id="startActionBox">
                                                 <property name="valign">center</property>
                                                 <property name="orientation">vertical</property>
-                                                <child>
-                                                  <placeholder />
-                                                </child>
                                               </object>
                                             </child>
                                             <child type="end">
                                               <object class="GtkBox" id="endActionBox">
                                                 <property name="valign">center</property>
-                                                <child>
-                                                  <placeholder />
-                                                </child>
                                               </object>
                                             </child>
                                           </object>

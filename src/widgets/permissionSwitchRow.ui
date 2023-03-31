@@ -3,7 +3,6 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
   <template class="FlatsealPermissionSwitchRow" parent="AdwActionRow">
-    <property name="visible">True</property>
     <property name="sensitive">False</property>
     <property name="activatable-widget">content</property>
     <child>
@@ -15,9 +14,6 @@
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
-            <child>
-              <placeholder/>
-            </child>
           </object>
         </child>
         <child>

@@ -3,7 +3,6 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="libadwaita" version="1.0"/>
   <template class="FlatsealPermissionEntryRow" parent="AdwPreferencesRow">
-    <property name="visible">True</property>
     <property name="activatable">False</property>
     <property name="selectable">False</property>
     <child>
@@ -51,7 +50,6 @@
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkButton" id="button">
-                    <property name="focusable">1</property>
                     <property name="receives-default">1</property>
                     <property name="halign">end</property>
                     <property name="valign">center</property>
