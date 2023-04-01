@@ -151,13 +151,3 @@ window .menu.background label {
 .app-notification .undo-button {
   margin-right: 5px;
 }
-
-/* placeholder */
-
-.placeholder {
-    color: @insensitive_fg_color;
-}
-.placeholder label {
-    margin: 10px;
-    font-size: 20px;
-}
