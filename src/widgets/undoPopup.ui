@@ -32,8 +32,10 @@
         <child>
           <object class="GtkButton" id="closeButton">
             <property name="receives_default">1</property>
-            <property name="has-frame">0</property>
             <property name="icon_name">window-close-symbolic</property>
+            <style>
+              <class name="flat"/>
+            </style>
           </object>
         </child>
         <style>
