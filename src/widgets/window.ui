@@ -30,8 +30,9 @@
                     </binding>
                     <child type="end">
                       <object class="GtkMenuButton" id="menuButton">
-                        <property name="receives-default">1</property>
                         <property name="icon-name">open-menu-symbolic</property>
+                        <property name="primary">True</property>
+                        <property name="tooltip-text" translatable="yes">Main Menu</property>
                       </object>
                     </child>
                     <child>
