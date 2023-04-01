@@ -12,6 +12,7 @@
     <property name="popup-set-width">False</property>
     <property name="popup-single-match">False</property>
     <property name="inline-selection">True</property>
+    <property name="popup-completion">False</property>
   </object>
   <template class="FlatsealBusNameRow" parent="GtkBox">
     <property name="margin-bottom">12</property>
