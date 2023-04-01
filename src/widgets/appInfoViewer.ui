@@ -38,101 +38,89 @@
           <object class="GtkBox">
             <property name="spacing">20</property>
             <child>
-              <object class="GtkBox">
-                <property name="halign">center</property>
-                <property name="orientation">vertical</property>
+              <object class="GtkGrid">
+                <property name="vexpand">True</property>
                 <child>
-                  <object class="GtkGrid">
-                    <property name="vexpand">True</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Version</property>
-                        <style>
-                          <class name="description"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">1</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Last Updated</property>
-                        <style>
-                          <class name="description" />
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">2</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Runtime</property>
-                        <style>
-                          <class name="description" />
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
+                  <object class="GtkLabel">
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">Version</property>
+                    <style>
+                      <class name="description"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">Last Updated</property>
+                    <style>
+                      <class name="description"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">Runtime</property>
+                    <style>
+                      <class name="description"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">3</property>
+                    </layout>
                   </object>
                 </child>
               </object>
             </child>
             <child>
-              <object class="GtkBox">
-                <property name="halign">center</property>
-                <property name="orientation">vertical</property>
+              <object class="GtkGrid">
+                <property name="vexpand">True</property>
                 <child>
-                  <object class="GtkGrid">
-                    <property name="vexpand">True</property>
-                    <child>
-                      <object class="GtkLabel" id="version">
-                        <property name="halign">start</property>
-                        <property name="ellipsize">end</property>
-                        <style>
-                          <class name="value"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">1</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="released">
-                        <property name="halign">start</property>
-                        <property name="ellipsize">end</property>
-                        <style>
-                          <class name="value"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">2</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="runtime">
-                        <property name="halign">start</property>
-                        <property name="ellipsize">end</property>
-                        <style>
-                          <class name="value"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
+                  <object class="GtkLabel" id="version">
+                    <property name="halign">start</property>
+                    <property name="ellipsize">end</property>
+                    <style>
+                      <class name="value" />
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="released">
+                    <property name="halign">start</property>
+                    <property name="ellipsize">end</property>
+                    <style>
+                      <class name="value" />
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">2</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="runtime">
+                    <property name="halign">start</property>
+                    <property name="ellipsize">end</property>
+                    <style>
+                      <class name="value" />
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">3</property>
+                    </layout>
                   </object>
                 </child>
               </object>
