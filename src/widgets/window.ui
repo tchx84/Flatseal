@@ -172,12 +172,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkOverlay">
-                    <property name="vexpand">True</property>
-                    <property name="width-request">360</property>
+                  <object class="AdwToastOverlay" id="toastOverlay">
                     <property name="child">
                       <object class="GtkBox">
                         <property name="vexpand">True</property>
+                        <property name="width-request">360</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkStack" id="permissionsStack">
@@ -229,12 +228,6 @@
                         </style>
                       </object>
                     </property>
-                    <child type="overlay">
-                      <object class="GtkBox" id="undoPopupBox">
-                        <property name="halign">center</property>
-                        <property name="valign">start</property>
-                      </object>
-                    </child>
                   </object>
                 </child>
               </object>
