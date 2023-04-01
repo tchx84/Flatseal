@@ -55,7 +55,6 @@ var FlatsealWindow = GObject.registerClass({
         'applicationsSearchButton',
         'applicationsSearchBar',
         'applicationsSearchEntry',
-        'applicationsStack',
         'applicationsListBox',
         'applicationsHeaderBar',
         'permissionsHeaderBar',
@@ -217,7 +216,6 @@ var FlatsealWindow = GObject.registerClass({
         this.connect('destroy', this._shutdown.bind(this));
 
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
-        this._applicationsStack.visibleChildName = 'withApplicationsPage';
 
         this._applicationsListBox.set_filter_func(this._filter.bind(this));
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
