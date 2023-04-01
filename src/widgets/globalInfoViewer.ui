@@ -3,62 +3,81 @@
   <template class="FlatsealGlobalInfoViewer" parent="GtkBox">
     <property name="halign">start</property>
     <child>
-      <object class="GtkBox">
+      <object class="GtkImage" id="icon">
         <property name="halign">center</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkImage" id="icon">
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="vexpand">True</property>
-            <property name="pixel-size">128</property>
-            <property name="icon-name">com.github.tchx84.Flatseal.Flatpak</property>
-            <style>
-              <class name="icon"/>
-              <class name="icon-dropshadow"/>
-            </style>
-          </object>
-        </child>
+        <property name="valign">center</property>
+        <property name="vexpand">True</property>
+        <property name="pixel-size">128</property>
+        <property name="icon-name">com.github.tchx84.Flatseal.Flatpak</property>
+        <style>
+          <class name="icon"/>
+          <class name="icon-dropshadow"/>
+        </style>
       </object>
     </child>
     <child>
-      <object class="GtkBox">
-        <property name="halign">center</property>
+      <object class="GtkBox" id="content">
+        <property name="valign">center</property>
+        <property name="vexpand">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkBox" id="content">
+          <object class="GtkBox">
             <property name="valign">center</property>
             <property name="vexpand">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkBox">
-                <property name="valign">center</property>
+              <object class="GtkGrid">
                 <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkLabel" id="title">
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">All Applications</property>
+                    <property name="ellipsize">end</property>
+                    <style>
+                      <class name="name" />
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="description">
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">Changes that apply to all Flatpak applications</property>
+                    <property name="ellipsize">end</property>
+                    <style>
+                      <class name="author" />
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="vexpand">True</property>
+            <property name="valign">center</property>
+            <property name="spacing">20</property>
+            <child>
+              <object class="GtkBox">
+                <property name="halign">center</property>
                 <property name="orientation">vertical</property>
                 <child>
                   <object class="GtkGrid">
                     <property name="vexpand">True</property>
                     <child>
-                      <object class="GtkLabel" id="title">
+                      <object class="GtkLabel">
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">All Applications</property>
-                        <property name="ellipsize">end</property>
+                        <property name="label" translatable="yes">Flatpak Version</property>
                         <style>
-                          <class name="name"/>
-                        </style>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="description">
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Changes that apply to all Flatpak applications</property>
-                        <property name="ellipsize">end</property>
-                        <style>
-                          <class name="author"/>
+                          <class name="description"/>
                         </style>
                         <layout>
                           <property name="column">0</property>
@@ -66,125 +85,94 @@
                         </layout>
                       </object>
                     </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Portal Version</property>
+                        <style>
+                          <class name="description" />
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">2</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Changes Path</property>
+                        <style>
+                          <class name="description" />
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
             <child>
               <object class="GtkBox">
-                <property name="vexpand">True</property>
-                <property name="valign">center</property>
-                <property name="spacing">20</property>
+                <property name="halign">center</property>
+                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkBox">
-                    <property name="halign">center</property>
-                    <property name="orientation">vertical</property>
+                  <object class="GtkGrid">
+                    <property name="vexpand">True</property>
                     <child>
-                      <object class="GtkGrid">
-                        <property name="vexpand">True</property>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="halign">start</property>
-                            <property name="label" translatable="yes">Flatpak Version</property>
-                            <style>
-                              <class name="description"/>
-                            </style>
-                            <layout>
-                              <property name="column">0</property>
-                              <property name="row">1</property>
-                            </layout>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="halign">start</property>
-                            <property name="label" translatable="yes">Portal Version</property>
-                            <style>
-                              <class name="description"/>
-                            </style>
-                            <layout>
-                              <property name="column">0</property>
-                              <property name="row">2</property>
-                            </layout>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="halign">start</property>
-                            <property name="label" translatable="yes">Changes Path</property>
-                            <style>
-                              <class name="description"/>
-                            </style>
-                            <layout>
-                              <property name="column">0</property>
-                              <property name="row">3</property>
-                            </layout>
-                          </object>
-                        </child>
+                      <object class="GtkLabel" id="flatpak">
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Unknown</property>
+                        <property name="ellipsize">end</property>
+                        <style>
+                          <class name="value" />
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">1</property>
+                        </layout>
                       </object>
                     </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkBox">
-                    <property name="halign">center</property>
-                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkGrid">
-                        <property name="vexpand">True</property>
-                        <child>
-                          <object class="GtkLabel" id="flatpak">
-                            <property name="halign">start</property>
-                            <property name="label" translatable="yes">Unknown</property>
-                            <property name="ellipsize">end</property>
-                            <style>
-                              <class name="value"/>
-                            </style>
-                            <layout>
-                              <property name="column">0</property>
-                              <property name="row">1</property>
-                            </layout>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="portal">
-                            <property name="halign">start</property>
-                            <property name="label" translatable="yes">Unknown</property>
-                            <property name="ellipsize">end</property>
-                            <style>
-                              <class name="value"/>
-                            </style>
-                            <layout>
-                              <property name="column">0</property>
-                              <property name="row">2</property>
-                            </layout>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkLabel" id="overrides">
-                            <property name="halign">start</property>
-                            <property name="label" translatable="yes">Unknown</property>
-                            <property name="ellipsize">end</property>
-                            <style>
-                              <class name="value"/>
-                            </style>
-                            <layout>
-                              <property name="column">0</property>
-                              <property name="row">3</property>
-                            </layout>
-                          </object>
-                        </child>
+                      <object class="GtkLabel" id="portal">
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Unknown</property>
+                        <property name="ellipsize">end</property>
+                        <style>
+                          <class name="value" />
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">2</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="overrides">
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Unknown</property>
+                        <property name="ellipsize">end</property>
+                        <style>
+                          <class name="value" />
+                        </style>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">3</property>
+                        </layout>
                       </object>
                     </child>
                   </object>
                 </child>
               </object>
             </child>
-            <style>
-              <class name="content"/>
-            </style>
           </object>
         </child>
+        <style>
+          <class name="content" />
+        </style>
       </object>
     </child>
     <style>

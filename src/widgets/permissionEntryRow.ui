@@ -43,20 +43,14 @@
               </object>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkButton" id="button">
+                <property name="receives-default">1</property>
+                <property name="halign">end</property>
                 <property name="valign">center</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkButton" id="button">
-                    <property name="receives-default">1</property>
-                    <property name="halign">end</property>
-                    <property name="valign">center</property>
-                    <property name="icon-name">folder-new-symbolic</property>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                  </object>
-                </child>
+                <property name="icon-name">folder-new-symbolic</property>
+                <style>
+                  <class name="flat"/>
+                </style>
               </object>
             </child>
             <style>

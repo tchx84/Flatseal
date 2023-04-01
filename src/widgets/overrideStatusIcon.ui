@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="FlatsealOverrideStatusIcon" parent="GtkBox">
-    <property name="orientation">vertical</property>
     <child>
       <object class="GtkImage">
         <property name="valign">center</property>
