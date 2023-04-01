@@ -87,6 +87,7 @@ var FlatsealApplication = GObject.registerClass({
         this.set_accels_for_action('app.documentation', ['F1']);
         this.set_accels_for_action('app.shortcuts', ['<Control>question']);
         this.set_accels_for_action('app.quit', ['<Control>q']);
+        this.set_accels_for_action("window.close", ["<Control>w"]);
     }
 
     vfunc_activate() {
