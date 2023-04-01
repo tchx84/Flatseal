@@ -5,7 +5,6 @@
     <child>
       <object class="GtkBox">
         <property name="halign">center</property>
-        <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkImage" id="icon">
@@ -25,7 +24,6 @@
     <child>
       <object class="GtkBox">
         <property name="halign">center</property>
-        <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkBox" id="content">
@@ -43,7 +41,6 @@
                     <child>
                       <object class="GtkLabel" id="title">
                         <property name="halign">start</property>
-                        <property name="hexpand">1</property>
                         <property name="label" translatable="yes">All Applications</property>
                         <property name="ellipsize">end</property>
                         <style>
@@ -58,7 +55,6 @@
                     <child>
                       <object class="GtkLabel" id="description">
                         <property name="halign">start</property>
-                        <property name="hexpand">1</property>
                         <property name="label" translatable="yes">Changes that apply to all Flatpak applications</property>
                         <property name="ellipsize">end</property>
                         <style>

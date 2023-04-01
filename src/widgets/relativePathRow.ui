@@ -27,10 +27,10 @@
     </child>
     <child>
       <object class="GtkBox">
-        <property name="hexpand">1</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkEntry" id="entry">
+            <property name="hexpand">True</property>
             <property name="vexpand">True</property>
             <property name="valign">center</property>
             <property name="completion">completion</property>

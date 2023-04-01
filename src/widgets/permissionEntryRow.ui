@@ -11,11 +11,11 @@
             <property name="vexpand">True</property>
             <child>
               <object class="GtkBox">
-                <property name="hexpand">1</property>
                 <property name="halign">start</property>
                 <property name="valign">center</property>
                 <property name="orientation">vertical</property>
                 <property name="homogeneous">True</property>
+                <property name="hexpand">True</property>
                 <child>
                   <object class="GtkLabel" id="description">
                     <property name="vexpand">True</property>
