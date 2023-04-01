@@ -109,7 +109,7 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;Primary&gt;&lt;Shift&gt;G</property>
+                <property name="accelerator">&lt;Control&gt;&lt;Shift&gt;G</property>
                 <property name="title" translatable="yes">Find previous</property>
               </object>
             </child>
