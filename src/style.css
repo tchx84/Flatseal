@@ -1,32 +1,5 @@
-.applications .search-entry {
-    margin: 10px;
-}
-
-.applications .frame {
-    border-width: 0px;
-}
-
-.permissions .frame {
-    border-style: none;
-    border-width: 0px;
-}
-
-.permissions .box {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 25px;
-}
-
 .permissions clamp {
     margin-bottom: 25px;
-}
-
-row .frame {
-    border-width: 0px;
-}
-
-row .toolbox {
-    margin-right: 15px;
 }
 
 row .status {
@@ -87,11 +60,6 @@ row .content .path window {
    box-shadow: none;
 }
 
-separator {
-    margin-bottom: 0px;
-    margin-top: 0px;
-}
-
 .permissions .app-info {
     margin-top: 15px;
 }
@@ -129,16 +97,6 @@ separator {
     margin-bottom: 5px;
 }
 
-.reset-button label {
-  margin-right: 5px;
-  margin-left: 5px;
-}
 .reset-button image {
     color: @warning_color;
-}
-
-/* Menu */
-
-window .menu.background label {
-    padding: 7.5px 0px;
 }
