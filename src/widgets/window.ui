@@ -66,6 +66,7 @@
                       <object class="GtkListBox" id="applicationsListBox">
                         <style>
                           <class name="navigation-sidebar" />
+                          <class name="padded-sidebar" />
                         </style>
                         <property name="vexpand">True</property>
                         <property name="selection-mode">browse</property>
