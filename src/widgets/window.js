@@ -33,7 +33,6 @@ const {FlatsealResetButton} = imports.widgets.resetButton;
 const {FlatsealDetailsButton} = imports.widgets.detailsButton;
 const {FlatsealPathRow} = imports.widgets.pathRow;
 const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
-const {FlatsealUndoPopup} = imports.widgets.undoPopup;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
 const {FlatsealBusNameRow} = imports.widgets.busNameRow;
 const {FlatsealSettingsModel} = imports.models.settings;
@@ -69,8 +68,8 @@ var FlatsealWindow = GObject.registerClass({
         'menuButton',
         'backButton',
         'contentLeaflet',
-        'undoPopupBox',
         'permissionsTitle',
+        'toastOverlay',
     ],
 }, class FlatsealWindow extends Adw.ApplicationWindow {
     _init(application) {
@@ -101,8 +100,11 @@ var FlatsealWindow = GObject.registerClass({
         const resetActionButton = new FlatsealResetButton(this._permissions);
         this._endActionBox.append(resetActionButton);
 
-        this._undoPopup = new FlatsealUndoPopup(this._permissions);
-        this._undoPopupBox.append(this._undoPopup);
+        this._toast = new Adw.Toast();
+        this._toast.title = _("Permissions have been reset");
+        this._toast.button_label = _("Undo");
+        this._toast.connect('button-clicked', this._toastCb.bind(this));
+        this._permissions.connect('reset', this._showToast.bind(this));
 
         this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
         this._contentLeaflet.bind_property(
@@ -288,7 +290,7 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions.appId = row.appId;
         this._permissionsTitle.title = row.appName;
         this._updatePermissionsPane(row.appId);
-        this._undoPopup.close();
+        this._toast.dismiss();
 
         this._applicationsDelayHandlerId = 0;
         return GLib.SOURCE_REMOVE;
@@ -396,6 +398,14 @@ var FlatsealWindow = GObject.registerClass({
             this._focusOnApplications();
         else
             this._focusOnPermissions();
+    }
+
+    _showToast() {
+        this._toastOverlay.add_toast(this._toast);
+    }
+
+    _toastCb(toast) {
+        this._permissions.undo();
     }
 
     vfunc_close_request() {
