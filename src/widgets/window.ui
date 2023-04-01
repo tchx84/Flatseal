@@ -15,7 +15,6 @@
                   <class name="applications" />
                 </style>
                 <property name="orientation">vertical</property>
-                <property name="hexpand">0</property>
                 <child>
                   <object class="AdwHeaderBar" id="applicationsHeaderBar">
                     <property name="width-request">360</property>
@@ -220,16 +219,13 @@
                 <child>
                   <object class="GtkBox">
                     <property name="width-request">360</property>
-                    <property name="hexpand">1</property>
                     <property name="vexpand">True</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkOverlay">
-                        <property name="hexpand">1</property>
                         <property name="vexpand">True</property>
                         <property name="child">
                           <object class="GtkBox">
-                            <property name="hexpand">1</property>
                             <property name="vexpand">True</property>
                             <property name="orientation">vertical</property>
                             <child>

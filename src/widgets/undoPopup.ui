@@ -7,7 +7,6 @@
       <object class="GtkBox">
         <child>
           <object class="GtkLabel">
-            <property name="hexpand">1</property>
             <property name="halign">start</property>
             <property name="label" translatable="yes">Permissions have been reset</property>
             <property name="ellipsize">end</property>

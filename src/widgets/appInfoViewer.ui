@@ -17,7 +17,6 @@
         <child>
           <object class="GtkLabel" id="name">
             <property name="halign">start</property>
-            <property name="hexpand">True</property>
             <property name="ellipsize">end</property>
             <style>
               <class name="name"/>
@@ -28,7 +27,6 @@
         <child>
           <object class="GtkLabel" id="author">
             <property name="halign">start</property>
-            <property name="hexpand">True</property>
             <property name="ellipsize">end</property>
             <style>
               <class name="author"/>
