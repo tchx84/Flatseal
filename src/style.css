@@ -37,9 +37,9 @@ row .content .path.not-valid .info {
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
 
-row .content .bus button image,
-row .content .variable button image,
-row .content .path button image {
+row .content .bus button .suggested-image,
+row .content .variable button .suggested-image,
+row .content .path button .suggested-image {
     color: @accent_color;
 }
 
