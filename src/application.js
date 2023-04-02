@@ -40,7 +40,17 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayHelp() {
-        Gio.AppInfo.launch_default_for_uri('https://github.com/tchx84/flatseal', null);
+        const launcher = new Gtk.UriLauncher();
+        launcher.uri = 'https://github.com/tchx84/flatseal';
+        launcher.launch(this._window, null, this._displayHelpCb);
+    }
+
+    _displayHelpCb(launcher, res) {
+        try {
+            launcher.launch_finish(res);
+        } catch(err) {
+            logError(err);
+        }
     }
 
     _displayDocumentation() {

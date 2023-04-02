@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GLib, GObject, Adw, WebKit} = imports.gi;
+const {Gio, GLib, Gtk, GObject, Adw, WebKit} = imports.gi;
 const {WebView} = imports.gi.WebKit; // eslint-disable-line no-unused-vars
 
 const MAX_RESULTS = 10;
@@ -109,12 +109,23 @@ var FlatsealDocsViewer = GObject.registerClass({
         const uri = action.get_request().get_uri();
 
         if (!uri.startsWith('file')) {
-            Gio.AppInfo.launch_default_for_uri(uri, null);
+            const launcher = new Gtk.UriLauncher();
+            launcher.uri = uri;
+            launcher.launch(this, null, this._OpenUriCb);
+
             decision.ignore();
             return true;
         }
 
         return false;
+    }
+
+    _OpenUriCb(launcher, res) {
+        try {
+            launcher.launch_finish(res);
+        } catch(err) {
+            logError(err);
+        }
     }
 
     _updateNavigation() {
