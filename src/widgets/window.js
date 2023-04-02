@@ -213,8 +213,6 @@ var FlatsealWindow = GObject.registerClass({
             this._permissions.bind_property(p.statusProperty, row.status, 'status', _bindFlags);
         });
 
-        this.connect('destroy', this._shutdown.bind(this));
-
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
 
         this._applicationsListBox.set_filter_func(this._filter.bind(this));
@@ -408,6 +406,7 @@ var FlatsealWindow = GObject.registerClass({
 
     vfunc_close_request() {
         this._settings.saveWindowState(this);
+        this._shutdown();
         return super.vfunc_close_request();
     }
 });
