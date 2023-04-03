@@ -37,11 +37,11 @@ var FlatsealSettingsModel = GObject.registerClass({
     }
 
     saveWindowState(window) {
-        if (!window.is_maximized) {
-            const [width, height] = window.get_size();
+        if (!window.maximized) {
+            const [width, height] = window.get_default_size();
             this._settings.set_int('window-width', width);
             this._settings.set_int('window-height', height);
         }
-        this._settings.set_boolean('window-maximized', window.is_maximized);
+        this._settings.set_boolean('window-maximized', window.maximized);
     }
 });
