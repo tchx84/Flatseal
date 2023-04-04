@@ -38,7 +38,7 @@ const TestPermissionStoreIface = `
 
 
 function setup() {
-    Gtk.init(null);
+    Gtk.init();
 
     /* XXX this shouldn't be needed */
     const {format} = imports;
@@ -66,8 +66,9 @@ function setup() {
 
 
 function update() {
-    while (Gtk.events_pending())
-        Gtk.main_iteration();
+    const context = GLib.MainContext.default();
+    while (context.pending())
+        context.iteration(true);
 }
 
 
