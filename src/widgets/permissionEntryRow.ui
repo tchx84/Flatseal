@@ -44,7 +44,6 @@
             </child>
             <child>
               <object class="GtkButton" id="button">
-                <property name="receives-default">1</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
                 <property name="icon-name">folder-new-symbolic</property>

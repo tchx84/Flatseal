@@ -119,7 +119,6 @@
                         <child>
                           <object class="GtkButton" id="backButton">
                             <property name="sensitive">False</property>
-                            <property name="receives-default">1</property>
                             <property name="valign">center</property>
                             <property name="icon-name">go-previous-symbolic</property>
                           </object>
