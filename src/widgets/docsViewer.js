@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {Gio, GLib, Gtk, GObject, Adw, WebKit} = imports.gi;
+const {GLib, Gtk, GObject, Adw, WebKit} = imports.gi;
 const {WebView} = imports.gi.WebKit; // eslint-disable-line no-unused-vars
 
 const MAX_RESULTS = 10;
@@ -105,13 +105,13 @@ var FlatsealDocsViewer = GObject.registerClass({
         if (type !== WebKit.PolicyDecisionType.NAVIGATION_ACTION)
             return false;
 
-        let action = decision.get_navigation_action();
+        const action = decision.get_navigation_action();
         const uri = action.get_request().get_uri();
 
         if (!uri.startsWith('file')) {
             const launcher = new Gtk.UriLauncher();
             launcher.uri = uri;
-            launcher.launch(this, null, this._OpenUriCb);
+            launcher.launch(this, null, this._openUri);
 
             decision.ignore();
             return true;
@@ -120,10 +120,10 @@ var FlatsealDocsViewer = GObject.registerClass({
         return false;
     }
 
-    _OpenUriCb(launcher, res) {
+    _openUri(launcher, res) { // eslint-disable-line class-methods-use-this
         try {
             launcher.launch_finish(res);
-        } catch(err) {
+        } catch (err) {
             logError(err);
         }
     }
