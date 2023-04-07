@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GLib, GObject, Gtk, Adw} = imports.gi;
+const {GLib, GObject, Adw} = imports.gi;
 
 
 var FlatsealApplicationRow = GObject.registerClass({
