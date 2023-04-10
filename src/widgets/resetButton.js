@@ -54,7 +54,7 @@ var FlatsealResetButton = GObject.registerClass({
             content.icon_name = 'dialog-warning-symbolic';
             content.label = _('_Reset');
             content.use_underline = true;
-            this.set_child(this._content);
+            this.set_child(content);
         } else {
             this.label = _('_Reset');
         }
