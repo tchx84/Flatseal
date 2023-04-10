@@ -55,6 +55,9 @@ var FlatsealResetButton = GObject.registerClass({
             content.label = _('_Reset');
             content.use_underline = true;
             this.set_child(content);
+
+            /* XXX this makes the button look very inconsistent */
+            this.remove_css_class('image-text-button');
         } else {
             this.label = _('_Reset');
         }
