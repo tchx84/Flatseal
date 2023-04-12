@@ -100,7 +100,8 @@ var FlatsealWindow = GObject.registerClass({
 
         this._toast = new Adw.Toast();
         this._toast.title = _('Permissions have been reset');
-        this._toast.button_label = _('Undo');
+        this._toast.button_label = _('_Undo');
+        this._toast.timeout = 3;
         this._toast.connect('button-clicked', this._undoReset.bind(this));
         this._permissions.connect('reset', this._showToast.bind(this));
 
