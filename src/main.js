@@ -29,10 +29,7 @@ pkg.require({
 
 const {FlatsealApplication} = imports.application;
 
-const {GLib} = imports.gi;
-
 function main(argv) {
-    GLib.set_application_name('Flatseal');
     const application = new FlatsealApplication();
     return application.run(argv);
 }
