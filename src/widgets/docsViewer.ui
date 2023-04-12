@@ -2,6 +2,7 @@
 <interface>
   <template class="FlatsealDocsViewer" parent="AdwWindow">
     <property name="destroy-with-parent">True</property>
+    <property name="title">Flatseal</property>
     <property name="modal">True</property>
     <child>
       <object class="GtkShortcutController">
