@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+- Changed to GTK 4 and Libadwaita.
+- Changed to GNOME 44 runtime for stability.
+
 ## [1.8.1] - 2022-10-15
 
 - Fixed tooltips on unsupported permissions rows.
