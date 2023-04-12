@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Gdk, Gio, Adw} = imports.gi;
+const {GObject, Gtk, Gio, Adw} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {showAboutDialog} = imports.widgets.aboutDialog;
@@ -48,7 +48,7 @@ var FlatsealApplication = GObject.registerClass({
     _displayHelpCb(launcher, res) {
         try {
             launcher.launch_finish(res);
-        } catch(err) {
+        } catch (err) {
             logError(err);
         }
     }
@@ -97,7 +97,7 @@ var FlatsealApplication = GObject.registerClass({
         this.set_accels_for_action('app.documentation', ['F1']);
         this.set_accels_for_action('app.shortcuts', ['<Control>question']);
         this.set_accels_for_action('app.quit', ['<Control>q']);
-        this.set_accels_for_action("window.close", ["<Control>w"]);
+        this.set_accels_for_action('window.close', ['<Control>w']);
     }
 
     vfunc_activate() {
