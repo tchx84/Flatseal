@@ -42,7 +42,6 @@ const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYN
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
-const ACTION_BAR_THRESHOLD = 540;
 const APP_SELECTION_DELAY = 100;
 
 
@@ -108,10 +107,7 @@ var FlatsealWindow = GObject.registerClass({
         this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
-        this.root.connect(
-            'notify::default-width', this._updateVisibility.bind(this));
-        this.connect(
-            'notify::maximized', this._updateVisibility.bind(this));
+        this._contentLeaflet.connect('notify::folded', this._updateVisibility.bind(this));
 
         if (allApplications.length === 0 || allPermissions.length === 0)
             return;
@@ -292,20 +288,13 @@ var FlatsealWindow = GObject.registerClass({
         return GLib.SOURCE_REMOVE;
     }
 
-    _updateVisibility(window) {
-        if (window.maximized) {
-            this._detailsHeaderButton.visible = true;
-            this._resetHeaderButton.visible = true;
+    _updateVisibility() {
+        const visible = this._contentLeaflet.folded;
 
-            this._actionBar.visible = false;
-        } else {
-            const visible = window.root.default_width <= ACTION_BAR_THRESHOLD;
+        this._detailsHeaderButton.visible = !visible;
+        this._resetHeaderButton.visible = !visible;
 
-            this._detailsHeaderButton.visible = !visible;
-            this._resetHeaderButton.visible = !visible;
-
-            this._actionBar.visible = visible;
-        }
+        this._actionBar.visible = visible;
     }
 
     _filter(row) {
