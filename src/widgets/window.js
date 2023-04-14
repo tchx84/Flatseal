@@ -105,7 +105,6 @@ var FlatsealWindow = GObject.registerClass({
         this._toast.connect('button-clicked', this._undoReset.bind(this));
         this._permissions.connect('reset', this._showToast.bind(this));
 
-        this._contentLeaflet.connect('notify::visible-child-name', this._focusContent.bind(this));
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
         this._contentLeaflet.connect('notify::folded', this._updateVisibility.bind(this));
@@ -356,34 +355,10 @@ var FlatsealWindow = GObject.registerClass({
     _showApplications() {
         this._contentLeaflet.set_visible_child_name('applications');
         this._backButton.active = false;
-        this._focusOnApplications();
     }
 
     _showPermissions() {
         this._contentLeaflet.set_visible_child_name('permissions');
-    }
-
-    _focusOnApplications() {
-        const row = this._applicationsListBox.get_selected_row();
-        if (row !== null)
-            row.grab_focus();
-    }
-
-    _focusOnPermissions() {
-        let widget = this._appInfoViewer;
-
-        const row = this._applicationsListBox.get_selected_row();
-        if (isGlobalOverride(row.appId))
-            widget = this._globalInfoViewer;
-
-        widget.grab_focus();
-    }
-
-    _focusContent() {
-        if (this._contentLeaflet.visible_child_name === 'applications')
-            this._focusOnApplications();
-        else
-            this._focusOnPermissions();
     }
 
     _showToast() {
