@@ -229,8 +229,6 @@ var FlatsealWindow = GObject.registerClass({
 
         this._applicationsSearchButton.bind_property(
             'active', this._applicationsSearchBar, 'search-mode-enabled', _bindFlags);
-        this._applicationsSearchButton.connect(
-            'toggled', this._toggleSearchWithButton.bind(this));
 
         this._showApplications();
         this._backButton.set_sensitive(true);
@@ -323,13 +321,6 @@ var FlatsealWindow = GObject.registerClass({
             return -1;
 
         return 1;
-    }
-
-    _toggleSearchWithButton() {
-        if (this._applicationsSearchButton.active)
-            this._applicationsSearchEntry.grab_focus();
-        else
-            this._applicationsSearchButton.grab_focus();
     }
 
     _cancelSearch() {
