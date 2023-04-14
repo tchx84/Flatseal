@@ -224,7 +224,6 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.connect('row-activated', this._activateApplication.bind(this));
 
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
-        this._applicationsSearchEntry.connect('stop-search', this._cancelSearch.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
 
         this._applicationsSearchButton.bind_property(
@@ -321,13 +320,6 @@ var FlatsealWindow = GObject.registerClass({
             return -1;
 
         return 1;
-    }
-
-    _cancelSearch() {
-        if (this._applicationsSearchEntry.get_text() === '')
-            this._applicationsSearchBar.search_mode_enabled = false;
-
-        this._applicationsSearchEntry.set_text('');
     }
 
     _selectSearch() {
