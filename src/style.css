@@ -49,15 +49,11 @@ row .content .path button image:disabled {
     color: @insensitive_fg_color;
 }
 
-/* XXX Navigate through xdg options without the popup  */
-row .content .bus window,
-row .content .variable window,
-row .content .path window {
-   opacity: 0;
-   background-image: none;
+row .content .path popover treeview {
    background-color: transparent;
-   border: none;
-   box-shadow: none;
+}
+row .content .path popover treeview:selected {
+   background-color: @theme_bg_color;
 }
 
 .permissions .app-info {

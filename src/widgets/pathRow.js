@@ -76,7 +76,7 @@ const _notValidMsg = _('This is not a valid option');
 var FlatsealPathRow = GObject.registerClass({
     GTypeName: 'FlatsealPathRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/pathRow.ui',
-    InternalChildren: ['entry', 'button', 'store', 'image', 'statusBox'],
+    InternalChildren: ['entry', 'button', 'store', 'completion', 'image', 'statusBox'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
@@ -107,6 +107,9 @@ var FlatsealPathRow = GObject.registerClass({
             this._store.set(this._store.append(), [0], [option]);
             this._store.set(this._store.append(), [0], [`!${option}`]);
         });
+
+        /* XXX workaround property deprecation until GtkSuggestionEntry*/
+        this._completion.set_text_column(0);
 
         const paths = Object.keys(_options)
             .slice(0, 2)
