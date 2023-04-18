@@ -38,7 +38,7 @@ const _notValidMsg = _('This is not a valid option');
 var FlatsealBusNameRow = GObject.registerClass({
     GTypeName: 'FlatsealBusNameRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/busNameRow.ui',
-    InternalChildren: ['entry', 'button', 'store', 'image', 'statusBox'],
+    InternalChildren: ['entry', 'button', 'image', 'statusBox'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
