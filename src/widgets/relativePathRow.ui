@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkListStore" id="store">
-    <columns>
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkEntryCompletion" id="completion">
-    <property name="model">store</property>
-    <property name="text-column">0</property>
-    <property name="inline-completion">True</property>
-    <property name="popup-set-width">False</property>
-    <property name="popup-single-match">False</property>
-    <property name="inline-selection">True</property>
-    <property name="popup-completion">False</property>
-  </object>
   <template class="FlatsealRelativePathRow" parent="GtkBox">
     <property name="margin-bottom">12</property>
     <property name="spacing">6</property>
@@ -32,7 +18,6 @@
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
         <property name="valign">center</property>
-        <property name="completion">completion</property>
       </object>
     </child>
     <child>

@@ -36,7 +36,7 @@ const _notValidMsg = _('This is not a valid option');
 var FlatsealRelativePathRow = GObject.registerClass({
     GTypeName: 'FlatsealRelativePathRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/relativePathRow.ui',
-    InternalChildren: ['entry', 'button', 'store', 'image', 'statusBox'],
+    InternalChildren: ['entry', 'button', 'image', 'statusBox'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
