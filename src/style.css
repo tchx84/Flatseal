@@ -50,6 +50,8 @@ row .content .path button image:disabled {
 }
 
 row .content .path popover treeview {
+   color: @insensitive_fg_color;
+   font-size: small;
    background-color: transparent;
 }
 row .content .path popover treeview:selected {
