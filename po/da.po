@@ -569,17 +569,13 @@ msgid "Permissions have been reset"
 msgstr "Tilladelser er nulstillet"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Fortryd"
+msgstr "_Fortryd"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Hovedmenu"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Ingen applikationer fundet."
-
-#~ msgid "Contributions by"
-#~ msgstr "Bidrag af"
