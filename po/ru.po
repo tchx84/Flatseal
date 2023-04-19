@@ -570,17 +570,13 @@ msgid "Permissions have been reset"
 msgstr "Разрешения были восстановлены"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Отменить"
+msgstr "_Отменить"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Главное меню"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Приложения не найдены."
-
-#~ msgid "Contributions by"
-#~ msgstr "Вклады"
