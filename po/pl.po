@@ -572,17 +572,13 @@ msgid "Permissions have been reset"
 msgstr "Uprawnienia zostały zresetowane"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Cofnij"
+msgstr "_Cofnij"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu główne"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Nie znaleziono programów."
-
-#~ msgid "Contributions by"
-#~ msgstr "Zasługi"
