@@ -567,17 +567,13 @@ msgid "Permissions have been reset"
 msgstr "Permissões restauradas"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Desfaz"
+msgstr "_Desfaz"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu principal"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Nenhum aplicativo encontrado."
-
-#~ msgid "Contributions by"
-#~ msgstr "Contribuições por"
