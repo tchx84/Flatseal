@@ -2,6 +2,9 @@
 
 ## [unreleased]
 
+- Fixed Tamil mnemonics translation.
+- Added popover for XDG paths suggestions.
+- Added type-to-search for applications.
 - Changed to GTK 4 and Libadwaita.
 - Changed to GNOME 44 runtime for stability.
 
