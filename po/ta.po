@@ -568,17 +568,13 @@ msgid "Permissions have been reset"
 msgstr "அனுமதிகள் மீட்டமைக்கப்பட்டுள்ளன"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "செயல்தவிர்"
+msgstr "_செயல்தவிர்"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "முதன்மை பட்டியல்"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "பயன்பாடுகள் எதுவும் கிடைக்கவில்லை."
-
-#~ msgid "Contributions by"
-#~ msgstr "மூலம் பங்களிப்புகள்"
