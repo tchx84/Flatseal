@@ -566,17 +566,13 @@ msgid "Permissions have been reset"
 msgstr "ההרשאות אופסו"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "ביטול"
+msgstr "_ביטול"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "תפריט ראשי"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "לא נמצאו יישומים."
-
-#~ msgid "Contributions by"
-#~ msgstr "תרומות מאת"
