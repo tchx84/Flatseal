@@ -567,17 +567,13 @@ msgid "Permissions have been reset"
 msgstr "Engedélyeket visszaállításra kerültek"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Visszavonás"
+msgstr "_Visszavonás"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Főmenü"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Alkalmazás nem található."
-
-#~ msgid "Contributions by"
-#~ msgstr "Közreműködők:"
