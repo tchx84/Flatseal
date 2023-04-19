@@ -567,17 +567,13 @@ msgid "Permissions have been reset"
 msgstr "权限已被重置"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "撤消"
+msgstr "_撤消"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "主菜单"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "没有找到应用程序。"
-
-#~ msgid "Contributions by"
-#~ msgstr "贡献者"
