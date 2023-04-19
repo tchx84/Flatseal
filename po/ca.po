@@ -570,17 +570,13 @@ msgid "Permissions have been reset"
 msgstr "S'han restablert els permisos"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Desfés"
+msgstr "_Desfés"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menú principal"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "No s'ha trobat cap aplicació."
-
-#~ msgid "Contributions by"
-#~ msgstr "Contribucions per"
