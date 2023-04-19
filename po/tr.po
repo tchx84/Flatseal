@@ -571,17 +571,13 @@ msgid "Permissions have been reset"
 msgstr "İzinler sıfırlandı"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Geri al"
+msgstr "_Geri al"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Ana Menü"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Hiçbir uygulama bulunamadı."
-
-#~ msgid "Contributions by"
-#~ msgstr "Katkıcılar"
