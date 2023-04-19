@@ -570,17 +570,13 @@ msgid "Permissions have been reset"
 msgstr "De bevoegdheden zijn hersteld"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Ongedaan maken"
+msgstr "_Ongedaan maken"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Hoofdmenu"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Er zijn geen toepassingen aangetroffen."
-
-#~ msgid "Contributions by"
-#~ msgstr "Met bijdragen van"
