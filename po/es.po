@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 09:43-0300\n"
+"POT-Creation-Date: 2023-04-19 10:48-0400\n"
 "PO-Revision-Date: 2020-02-01 02:37-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -33,7 +33,6 @@ msgid "seal;sandbox;"
 msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
-#: src/widgets/aboutDialog.ui:11
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -48,8 +47,8 @@ msgstr ""
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
-#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
-#: src/widgets/globalInfoViewer.ui:281
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
 msgstr "Desconocida"
 
@@ -286,24 +285,20 @@ msgstr "ej. GTK_DEBUG=interactive"
 msgid "List of variables exported to the application"
 msgstr "Lista de variables exportadas a la aplicación"
 
-#: src/widgets/aboutDialog.js:38
-msgid "Contributions by"
-msgstr "Contribuciones por"
-
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
 msgstr "%e de %B de %Y"
 
-#: src/widgets/appInfoViewer.ui:127
+#: src/widgets/appInfoViewer.ui:46
 msgid "Version"
 msgstr "Versión"
 
-#: src/widgets/appInfoViewer.ui:142
+#: src/widgets/appInfoViewer.ui:59
 msgid "Last Updated"
 msgstr "Última actualización"
 
-#: src/widgets/appInfoViewer.ui:157
+#: src/widgets/appInfoViewer.ui:72
 msgid "Runtime"
 msgstr "Biblioteca de ejecución"
 
@@ -316,31 +311,31 @@ msgstr "Esta no es una opción válida"
 msgid "_Show Details"
 msgstr "_Mostrar detalles"
 
-#: src/widgets/detailsButton.js:107
+#: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
 msgstr "Mostrar aplicación en un administrador de software"
 
-#: src/widgets/detailsButton.js:109
+#: src/widgets/detailsButton.js:107
 msgid "No software manager found"
 msgstr "No se encontró un administrador de software"
 
-#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Todas las Aplicaciones"
 
-#: src/widgets/globalInfoViewer.ui:86
+#: src/widgets/globalInfoViewer.ui:32
 msgid "Changes that apply to all Flatpak applications"
 msgstr "Modificaciones que afectan a todas las aplicaciones Flatpak"
 
-#: src/widgets/globalInfoViewer.ui:153
+#: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
 msgstr "Versión de Flatpak"
 
-#: src/widgets/globalInfoViewer.ui:168
+#: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
 msgstr "Versión del Portal"
 
-#: src/widgets/globalInfoViewer.ui:183
+#: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
 msgstr "Ruta a Modificaciones"
 
@@ -470,7 +465,7 @@ msgstr "No puede modificar ni leer: %s"
 msgid "Can't create, modify or read: %s"
 msgstr "No puede crear, modificar ni leer: %s"
 
-#: src/widgets/permissionPortalRow.ui:28
+#: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
 msgstr "Desasignar"
 
@@ -478,102 +473,111 @@ msgstr "Desasignar"
 msgid "Default paths can't be removed"
 msgstr "Las rutas predeterminadas no se pueden eliminar"
 
-#: src/widgets/resetButton.js:45
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62
 msgid "_Reset"
 msgstr "_Restablecer"
 
-#: src/widgets/resetButton.js:63
+#: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
 msgstr "No se hicieron cambios a esta aplicación"
 
-#: src/widgets/resetButton.js:66
+#: src/widgets/resetButton.js:68
 msgid "Reset this application permissions"
 msgstr "Restablecer los permisos de esta aplicación"
 
-#: src/widgets/resetButton.js:68
+#: src/widgets/resetButton.js:70
 msgid ", including changes not made with Flatseal"
 msgstr ", incluidos los cambios no realizados con Flatseal"
 
-#: src/widgets/shortcutsWindow.ui:14
+#: src/widgets/shortcutsWindow.ui:11
 msgid "General"
 msgstr "Generales"
 
-#: src/widgets/shortcutsWindow.ui:19
+#: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
 msgstr "Mostrar mnemónicos"
 
-#: src/widgets/shortcutsWindow.ui:26
+#: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
 msgstr "Mostrar documentación"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:27
 msgid "Show menu"
 msgstr "Mostrar menú"
 
-#: src/widgets/shortcutsWindow.ui:40
+#: src/widgets/shortcutsWindow.ui:33
 msgid "Keyboard shortcuts"
 msgstr "Atajos de teclado"
 
-#: src/widgets/shortcutsWindow.ui:47
+#: src/widgets/shortcutsWindow.ui:39
 msgid "Quit"
 msgstr "Salir"
 
-#: src/widgets/shortcutsWindow.ui:55
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Navigation"
 msgstr "Navegación"
 
-#: src/widgets/shortcutsWindow.ui:60
+#: src/widgets/shortcutsWindow.ui:50
 msgid "Move left"
 msgstr "Moverse a la izquierda"
 
-#: src/widgets/shortcutsWindow.ui:67
+#: src/widgets/shortcutsWindow.ui:56
 msgid "Move up"
 msgstr "Moverse arriba"
 
-#: src/widgets/shortcutsWindow.ui:74
+#: src/widgets/shortcutsWindow.ui:62
 msgid "Move right"
 msgstr "Moverse a la derecha"
 
-#: src/widgets/shortcutsWindow.ui:81
+#: src/widgets/shortcutsWindow.ui:68
 msgid "Move down"
 msgstr "Moverse abajo"
 
-#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
 msgid "Applications"
 msgstr "Aplicaciones"
 
-#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
 msgid "Find"
 msgstr "Buscar"
 
-#: src/widgets/shortcutsWindow.ui:102
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Permissions"
 msgstr "Permisos"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:90
 msgid "Toggle"
 msgstr "Cambiar"
 
-#: src/widgets/shortcutsWindow.ui:115
+#: src/widgets/shortcutsWindow.ui:97
 msgid "Documentation"
 msgstr "Documentación"
 
-#: src/widgets/shortcutsWindow.ui:127
+#: src/widgets/shortcutsWindow.ui:107
 msgid "Find next"
 msgstr "Buscar siguiente"
 
-#: src/widgets/shortcutsWindow.ui:134
+#: src/widgets/shortcutsWindow.ui:113
 msgid "Find previous"
 msgstr "Buscar anterior"
 
-#: src/widgets/undoPopup.ui:19
+#: src/widgets/window.js:102
 msgid "Permissions have been reset"
 msgstr "Permisos restablecidos"
 
-#: src/widgets/undoPopup.ui:36
-msgid "Undo"
+#: src/widgets/window.js:103
+#, fuzzy
+msgid "_Undo"
 msgstr "Deshacer"
 
-#: src/widgets/window.ui:113 src/widgets/window.ui:211
+#: src/widgets/window.ui:35
+msgid "Main Menu"
+msgstr ""
+
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "No se encontraron aplicaciones."
+
+#~ msgid "Contributions by"
+#~ msgstr "Contribuciones por"

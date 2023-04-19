@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 09:43-0300\n"
+"POT-Creation-Date: 2023-04-19 10:48-0400\n"
 "PO-Revision-Date: 2022-10-03 20:35+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <heb-bugzap@hamakor.org.il>\n"
@@ -14,8 +14,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? 2 :"
-" 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
 "X-Generator: Lokalize 22.08.0\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -34,7 +34,6 @@ msgid "seal;sandbox;"
 msgstr "איטום;בידוד;ארגז חול;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
-#: src/widgets/aboutDialog.ui:11
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -47,8 +46,8 @@ msgstr ""
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
-#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
-#: src/widgets/globalInfoViewer.ui:281
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
 msgstr "לא ידוע"
 
@@ -285,24 +284,20 @@ msgstr "למשל: GTK_DEBUG=interactive"
 msgid "List of variables exported to the application"
 msgstr "רשימת המשתנים שייוצאו ליישום"
 
-#: src/widgets/aboutDialog.js:38
-msgid "Contributions by"
-msgstr "תרומות מאת"
-
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
 msgstr "%e ב%B, %Y"
 
-#: src/widgets/appInfoViewer.ui:127
+#: src/widgets/appInfoViewer.ui:46
 msgid "Version"
 msgstr "גרסה"
 
-#: src/widgets/appInfoViewer.ui:142
+#: src/widgets/appInfoViewer.ui:59
 msgid "Last Updated"
 msgstr "עדכון אחרון"
 
-#: src/widgets/appInfoViewer.ui:157
+#: src/widgets/appInfoViewer.ui:72
 msgid "Runtime"
 msgstr "סביבת הרצה"
 
@@ -315,31 +310,31 @@ msgstr "זאת אינה אפשרות תקנית"
 msgid "_Show Details"
 msgstr "ה_צגת פרטים"
 
-#: src/widgets/detailsButton.js:107
+#: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
 msgstr "הצגת היישום במנהל התוכנות"
 
-#: src/widgets/detailsButton.js:109
+#: src/widgets/detailsButton.js:107
 msgid "No software manager found"
 msgstr "לא נמצא מנהל תוכנות"
 
-#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "כל היישומים"
 
-#: src/widgets/globalInfoViewer.ui:86
+#: src/widgets/globalInfoViewer.ui:32
 msgid "Changes that apply to all Flatpak applications"
 msgstr "שינויים שחלים על כל גרסאות ה־Flatpak"
 
-#: src/widgets/globalInfoViewer.ui:153
+#: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
 msgstr "גרסת Flatpak"
 
-#: src/widgets/globalInfoViewer.ui:168
+#: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
 msgstr "גרסת Portal"
 
-#: src/widgets/globalInfoViewer.ui:183
+#: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
 msgstr "מחליף נתיב"
 
@@ -469,7 +464,7 @@ msgstr "אי אפשר לערוך או לקרוא: %s"
 msgid "Can't create, modify or read: %s"
 msgstr "אי אפשר ליצור, לערוך או לקרוא: %s"
 
-#: src/widgets/permissionPortalRow.ui:28
+#: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
 msgstr "ביטול הגדרה"
 
@@ -477,102 +472,111 @@ msgstr "ביטול הגדרה"
 msgid "Default paths can't be removed"
 msgstr "אי אפשר להסיר את נתיבי ברירת המחדל"
 
-#: src/widgets/resetButton.js:45
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62
 msgid "_Reset"
 msgstr "_איפוס"
 
-#: src/widgets/resetButton.js:63
+#: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
 msgstr "לא בוצעו שינויים ליישום הזה"
 
-#: src/widgets/resetButton.js:66
+#: src/widgets/resetButton.js:68
 msgid "Reset this application permissions"
 msgstr "איפוס הרשאות היישום הזה"
 
-#: src/widgets/resetButton.js:68
+#: src/widgets/resetButton.js:70
 msgid ", including changes not made with Flatseal"
 msgstr ", כולל שינויים שלא בוצעו דרך Flatseal"
 
-#: src/widgets/shortcutsWindow.ui:14
+#: src/widgets/shortcutsWindow.ui:11
 msgid "General"
 msgstr "כללי"
 
-#: src/widgets/shortcutsWindow.ui:19
+#: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
 msgstr "הצגת עזרי זיכרון"
 
-#: src/widgets/shortcutsWindow.ui:26
+#: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
 msgstr "הצגת תיעוד"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:27
 msgid "Show menu"
 msgstr "הצגת תפריט"
 
-#: src/widgets/shortcutsWindow.ui:40
+#: src/widgets/shortcutsWindow.ui:33
 msgid "Keyboard shortcuts"
 msgstr "קיצורי מקלדת"
 
-#: src/widgets/shortcutsWindow.ui:47
+#: src/widgets/shortcutsWindow.ui:39
 msgid "Quit"
 msgstr "יציאה"
 
-#: src/widgets/shortcutsWindow.ui:55
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Navigation"
 msgstr "ניווט"
 
-#: src/widgets/shortcutsWindow.ui:60
+#: src/widgets/shortcutsWindow.ui:50
 msgid "Move left"
 msgstr "הזזה שמאלה"
 
-#: src/widgets/shortcutsWindow.ui:67
+#: src/widgets/shortcutsWindow.ui:56
 msgid "Move up"
 msgstr "הזזה למעלה"
 
-#: src/widgets/shortcutsWindow.ui:74
+#: src/widgets/shortcutsWindow.ui:62
 msgid "Move right"
 msgstr "הזזה ימינה"
 
-#: src/widgets/shortcutsWindow.ui:81
+#: src/widgets/shortcutsWindow.ui:68
 msgid "Move down"
 msgstr "הזזה למטה"
 
-#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
 msgid "Applications"
 msgstr "יישומים"
 
-#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
 msgid "Find"
 msgstr "איתור"
 
-#: src/widgets/shortcutsWindow.ui:102
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Permissions"
 msgstr "הרשאות"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:90
 msgid "Toggle"
 msgstr "בורר"
 
-#: src/widgets/shortcutsWindow.ui:115
+#: src/widgets/shortcutsWindow.ui:97
 msgid "Documentation"
 msgstr "תיעוד"
 
-#: src/widgets/shortcutsWindow.ui:127
+#: src/widgets/shortcutsWindow.ui:107
 msgid "Find next"
 msgstr "איתור הבא"
 
-#: src/widgets/shortcutsWindow.ui:134
+#: src/widgets/shortcutsWindow.ui:113
 msgid "Find previous"
 msgstr "איתור הקודם"
 
-#: src/widgets/undoPopup.ui:19
+#: src/widgets/window.js:102
 msgid "Permissions have been reset"
 msgstr "ההרשאות אופסו"
 
-#: src/widgets/undoPopup.ui:36
-msgid "Undo"
+#: src/widgets/window.js:103
+#, fuzzy
+msgid "_Undo"
 msgstr "ביטול"
 
-#: src/widgets/window.ui:113 src/widgets/window.ui:211
+#: src/widgets/window.ui:35
+msgid "Main Menu"
+msgstr ""
+
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "לא נמצאו יישומים."
+
+#~ msgid "Contributions by"
+#~ msgstr "תרומות מאת"

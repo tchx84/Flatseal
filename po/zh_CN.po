@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 09:43-0300\n"
+"POT-Creation-Date: 2023-04-19 10:48-0400\n"
 "PO-Revision-Date: 2022-10-03 21:12+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
@@ -35,7 +35,6 @@ msgid "seal;sandbox;"
 msgstr "seal;sandbox;封条;沙盒;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
-#: src/widgets/aboutDialog.ui:11
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -48,8 +47,8 @@ msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
-#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
-#: src/widgets/globalInfoViewer.ui:281
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
 msgstr "未知"
 
@@ -286,24 +285,20 @@ msgstr "如：GTK_DEBUG=interactive"
 msgid "List of variables exported to the application"
 msgstr "导出到程序的环境变量"
 
-#: src/widgets/aboutDialog.js:38
-msgid "Contributions by"
-msgstr "贡献者"
-
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
 msgstr "%Y年%-m月%-e日"
 
-#: src/widgets/appInfoViewer.ui:127
+#: src/widgets/appInfoViewer.ui:46
 msgid "Version"
 msgstr "版本"
 
-#: src/widgets/appInfoViewer.ui:142
+#: src/widgets/appInfoViewer.ui:59
 msgid "Last Updated"
 msgstr "最后更新"
 
-#: src/widgets/appInfoViewer.ui:157
+#: src/widgets/appInfoViewer.ui:72
 msgid "Runtime"
 msgstr "运行环境"
 
@@ -316,31 +311,31 @@ msgstr "非法选项"
 msgid "_Show Details"
 msgstr "显示细节(_S)"
 
-#: src/widgets/detailsButton.js:107
+#: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
 msgstr "在软件管理器中显示程序"
 
-#: src/widgets/detailsButton.js:109
+#: src/widgets/detailsButton.js:107
 msgid "No software manager found"
 msgstr "没有找到软件管理器"
 
-#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "全部应用程序"
 
-#: src/widgets/globalInfoViewer.ui:86
+#: src/widgets/globalInfoViewer.ui:32
 msgid "Changes that apply to all Flatpak applications"
 msgstr "适用于所有 Flatpak 应用程序的更改"
 
-#: src/widgets/globalInfoViewer.ui:153
+#: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
 msgstr "Flatpak 版本"
 
-#: src/widgets/globalInfoViewer.ui:168
+#: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
 msgstr "Portal 版本"
 
-#: src/widgets/globalInfoViewer.ui:183
+#: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
 msgstr "更改项路径"
 
@@ -470,7 +465,7 @@ msgstr "不可以读取和修改：%s"
 msgid "Can't create, modify or read: %s"
 msgstr "不可以创建、读取和修改：%s"
 
-#: src/widgets/permissionPortalRow.ui:28
+#: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
 msgstr "取消设定"
 
@@ -478,102 +473,111 @@ msgstr "取消设定"
 msgid "Default paths can't be removed"
 msgstr "无法移除默认路径"
 
-#: src/widgets/resetButton.js:45
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62
 msgid "_Reset"
 msgstr "重置(_R)"
 
-#: src/widgets/resetButton.js:63
+#: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
 msgstr "未对程序做任何更改"
 
-#: src/widgets/resetButton.js:66
+#: src/widgets/resetButton.js:68
 msgid "Reset this application permissions"
 msgstr "重置程序权限"
 
-#: src/widgets/resetButton.js:68
+#: src/widgets/resetButton.js:70
 msgid ", including changes not made with Flatseal"
 msgstr "，包括未通过 Flatseal 修改的权限"
 
-#: src/widgets/shortcutsWindow.ui:14
+#: src/widgets/shortcutsWindow.ui:11
 msgid "General"
 msgstr "通用"
 
-#: src/widgets/shortcutsWindow.ui:19
+#: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
 msgstr "显示助记键"
 
-#: src/widgets/shortcutsWindow.ui:26
+#: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
 msgstr "显示文档"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:27
 msgid "Show menu"
 msgstr "显示菜单"
 
-#: src/widgets/shortcutsWindow.ui:40
+#: src/widgets/shortcutsWindow.ui:33
 msgid "Keyboard shortcuts"
 msgstr "快捷键"
 
-#: src/widgets/shortcutsWindow.ui:47
+#: src/widgets/shortcutsWindow.ui:39
 msgid "Quit"
 msgstr "退出"
 
-#: src/widgets/shortcutsWindow.ui:55
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Navigation"
 msgstr "导航"
 
-#: src/widgets/shortcutsWindow.ui:60
+#: src/widgets/shortcutsWindow.ui:50
 msgid "Move left"
 msgstr "向左移动"
 
-#: src/widgets/shortcutsWindow.ui:67
+#: src/widgets/shortcutsWindow.ui:56
 msgid "Move up"
 msgstr "向上移动"
 
-#: src/widgets/shortcutsWindow.ui:74
+#: src/widgets/shortcutsWindow.ui:62
 msgid "Move right"
 msgstr "向右移动"
 
-#: src/widgets/shortcutsWindow.ui:81
+#: src/widgets/shortcutsWindow.ui:68
 msgid "Move down"
 msgstr "向下移动"
 
-#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
 msgid "Applications"
 msgstr "应用程序"
 
-#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
 msgid "Find"
 msgstr "查找"
 
-#: src/widgets/shortcutsWindow.ui:102
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Permissions"
 msgstr "权限"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:90
 msgid "Toggle"
 msgstr "打开/关闭"
 
-#: src/widgets/shortcutsWindow.ui:115
+#: src/widgets/shortcutsWindow.ui:97
 msgid "Documentation"
 msgstr "文档"
 
-#: src/widgets/shortcutsWindow.ui:127
+#: src/widgets/shortcutsWindow.ui:107
 msgid "Find next"
 msgstr "查找下一个"
 
-#: src/widgets/shortcutsWindow.ui:134
+#: src/widgets/shortcutsWindow.ui:113
 msgid "Find previous"
 msgstr "查找上一个"
 
-#: src/widgets/undoPopup.ui:19
+#: src/widgets/window.js:102
 msgid "Permissions have been reset"
 msgstr "权限已被重置"
 
-#: src/widgets/undoPopup.ui:36
-msgid "Undo"
+#: src/widgets/window.js:103
+#, fuzzy
+msgid "_Undo"
 msgstr "撤消"
 
-#: src/widgets/window.ui:113 src/widgets/window.ui:211
+#: src/widgets/window.ui:35
+msgid "Main Menu"
+msgstr ""
+
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "没有找到应用程序。"
+
+#~ msgid "Contributions by"
+#~ msgstr "贡献者"
