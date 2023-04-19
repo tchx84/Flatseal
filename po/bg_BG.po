@@ -568,17 +568,13 @@ msgid "Permissions have been reset"
 msgstr "Разрешенията са нулирани"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Отмени"
+msgstr "_Отмени"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Основно меню"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Приложенията не са намерени."
-
-#~ msgid "Contributions by"
-#~ msgstr "Сътрудници"
