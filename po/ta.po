@@ -310,7 +310,7 @@ msgstr "இது சரியான விருப்பம் அல்ல"
 
 #: src/widgets/detailsButton.js:59
 msgid "_Show Details"
-msgstr "_விவரங்களை காட்டு"
+msgstr "விவரங்களை காட்டு (_S)"
 
 #: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
@@ -342,19 +342,19 @@ msgstr "பாதையை மாற்றும்"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
-msgstr "_உதவி"
+msgstr "உதவி (_H)"
 
 #: src/widgets/menu.ui:11
 msgid "_Documentation"
-msgstr "_ஆவணப்படுத்தல்"
+msgstr "ஆவணப்படுத்தல் (_D)"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr "_விசைப்பலகை குறுக்குவழிகள்"
+msgstr "விசைப்பலகை குறுக்குவழிகள் (_K)"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
-msgstr "_ பிளாட்சீல் பற்றி"
+msgstr "பிளாட்சீல் பற்றி (_A)"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
@@ -477,7 +477,7 @@ msgstr "இயல்புநிலை பாதைகளை அகற்ற ம
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
 #: src/widgets/resetButton.js:62
 msgid "_Reset"
-msgstr "_மீட்டமைக்கவும்"
+msgstr "மீட்டமைக்கவும் (_R)"
 
 #: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
@@ -569,7 +569,7 @@ msgstr "அனுமதிகள் மீட்டமைக்கப்பட�
 
 #: src/widgets/window.js:103
 msgid "_Undo"
-msgstr "_செயல்தவிர்"
+msgstr "செயல்தவிர் (_U)"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
