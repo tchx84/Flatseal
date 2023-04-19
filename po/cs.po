@@ -569,17 +569,13 @@ msgid "Permissions have been reset"
 msgstr "Oprávnění byla resetována"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Zpět"
+msgstr "_Zpět"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Hlavní nabídka"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Nenalezeny žádné aplikace."
-
-#~ msgid "Contributions by"
-#~ msgstr "Příspěvky od"
