@@ -568,20 +568,13 @@ msgid "Permissions have been reset"
 msgstr "Izin telah disetel ulang"
 
 #: src/widgets/window.js:103
-#, fuzzy
 msgid "_Undo"
-msgstr "Tak jadi"
+msgstr "_Tak jadi"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr ""
+msgstr "Menu Utama"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Tidak ada aplikasi yang ditemukan."
-
-#~ msgid "Contributions by"
-#~ msgstr "Kontribusi oleh"
-
-#~ msgid "com.github.tchx84.Flatseal"
-#~ msgstr "com.github.tchx84.Flatseal"
