@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-03 09:43-0300\n"
+"POT-Creation-Date: 2023-04-19 10:48-0400\n"
 "PO-Revision-Date: 2022-10-03 18:41+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
@@ -33,10 +33,10 @@ msgstr "பிளாட்பாக் அனுமதிகளை நிர்�
 msgid "seal;sandbox;"
 msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11 src/widgets/aboutDialog.ui:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
-"applications."
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
@@ -48,8 +48,8 @@ msgstr "Martin Abente Lahaye"
 
 #: src/models/applications.js:193 src/models/applications.js:253
 #: src/models/applications.js:254 src/models/applications.js:255
-#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
-#: src/widgets/globalInfoViewer.ui:281
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
 msgstr "தெரியாதது"
 
@@ -286,24 +286,20 @@ msgstr "எ.கா. GTK_DEBUG=interactive"
 msgid "List of variables exported to the application"
 msgstr "பயன்பாட்டிற்கு ஏற்றுமதி செய்யப்பட்ட மாறிகளின் பட்டியல்"
 
-#: src/widgets/aboutDialog.js:38
-msgid "Contributions by"
-msgstr "மூலம் பங்களிப்புகள்"
-
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
 msgstr "%B %e, %Y"
 
-#: src/widgets/appInfoViewer.ui:127
+#: src/widgets/appInfoViewer.ui:46
 msgid "Version"
 msgstr "பதிப்பு"
 
-#: src/widgets/appInfoViewer.ui:142
+#: src/widgets/appInfoViewer.ui:59
 msgid "Last Updated"
 msgstr "கடைசியாக புதுப்பிக்கப்பட்டது"
 
-#: src/widgets/appInfoViewer.ui:157
+#: src/widgets/appInfoViewer.ui:72
 msgid "Runtime"
 msgstr "இயக்க நேரம்"
 
@@ -316,31 +312,31 @@ msgstr "இது சரியான விருப்பம் அல்ல"
 msgid "_Show Details"
 msgstr "_விவரங்களை காட்டு"
 
-#: src/widgets/detailsButton.js:107
+#: src/widgets/detailsButton.js:105
 msgid "Show application in a software manager"
 msgstr "மென்பொருள் மேலாளரில் பயன்பாட்டைக் காட்டு"
 
-#: src/widgets/detailsButton.js:109
+#: src/widgets/detailsButton.js:107
 msgid "No software manager found"
 msgstr "மென்பொருள் மேலாளர் கிடைக்கவில்லை"
 
-#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "அனைத்து பயன்பாடுகள்"
 
-#: src/widgets/globalInfoViewer.ui:86
+#: src/widgets/globalInfoViewer.ui:32
 msgid "Changes that apply to all Flatpak applications"
 msgstr "எல்லா பிளாட்பாக் பயன்பாடுகளுக்கும் பொருந்தும் மாற்றங்கள்"
 
-#: src/widgets/globalInfoViewer.ui:153
+#: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
 msgstr "பிளாட்பாக் பதிப்பு"
 
-#: src/widgets/globalInfoViewer.ui:168
+#: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
 msgstr "போர்டல் பதிப்பு"
 
-#: src/widgets/globalInfoViewer.ui:183
+#: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
 msgstr "பாதையை மாற்றும்"
 
@@ -470,7 +466,7 @@ msgstr "மாற்றவோ படிக்கவோ முடியாது:
 msgid "Can't create, modify or read: %s"
 msgstr "உருவாக்கவோ, மாற்றவோ அல்லது படிக்கவோ முடியாது: %s"
 
-#: src/widgets/permissionPortalRow.ui:28
+#: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
 msgstr "அமைக்கப்படவில்லை"
 
@@ -478,102 +474,111 @@ msgstr "அமைக்கப்படவில்லை"
 msgid "Default paths can't be removed"
 msgstr "இயல்புநிலை பாதைகளை அகற்ற முடியாது"
 
-#: src/widgets/resetButton.js:45
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62
 msgid "_Reset"
 msgstr "_மீட்டமைக்கவும்"
 
-#: src/widgets/resetButton.js:63
+#: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
 msgstr "இந்த பயன்பாட்டில் எந்த மாற்றமும் செய்யப்படவில்லை"
 
-#: src/widgets/resetButton.js:66
+#: src/widgets/resetButton.js:68
 msgid "Reset this application permissions"
 msgstr "இந்தப் பயன்பாட்டு அனுமதிகளை மீட்டமைக்கவும்"
 
-#: src/widgets/resetButton.js:68
+#: src/widgets/resetButton.js:70
 msgid ", including changes not made with Flatseal"
 msgstr ", பிளாட்சீல் இல் செய்யப்படாத மாற்றங்கள் உட்பட"
 
-#: src/widgets/shortcutsWindow.ui:14
+#: src/widgets/shortcutsWindow.ui:11
 msgid "General"
 msgstr "பொது"
 
-#: src/widgets/shortcutsWindow.ui:19
+#: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
 msgstr "நினைவூட்டல்களைக் காட்டு"
 
-#: src/widgets/shortcutsWindow.ui:26
+#: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
 msgstr "ஆவணங்களைக் காட்டு"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:27
 msgid "Show menu"
 msgstr "மெனுவைக் காட்டு"
 
-#: src/widgets/shortcutsWindow.ui:40
+#: src/widgets/shortcutsWindow.ui:33
 msgid "Keyboard shortcuts"
 msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
-#: src/widgets/shortcutsWindow.ui:47
+#: src/widgets/shortcutsWindow.ui:39
 msgid "Quit"
 msgstr "வெளியேறு"
 
-#: src/widgets/shortcutsWindow.ui:55
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Navigation"
 msgstr "வழிசெலுத்தல்"
 
-#: src/widgets/shortcutsWindow.ui:60
+#: src/widgets/shortcutsWindow.ui:50
 msgid "Move left"
 msgstr "இடதுபுறம் நகர்த்தவும்"
 
-#: src/widgets/shortcutsWindow.ui:67
+#: src/widgets/shortcutsWindow.ui:56
 msgid "Move up"
 msgstr "மேலே நகர்த்து"
 
-#: src/widgets/shortcutsWindow.ui:74
+#: src/widgets/shortcutsWindow.ui:62
 msgid "Move right"
 msgstr "வலதுபுறம் நகர்த்தவும்"
 
-#: src/widgets/shortcutsWindow.ui:81
+#: src/widgets/shortcutsWindow.ui:68
 msgid "Move down"
 msgstr "கீழே இறங்கு"
 
-#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
 msgid "Applications"
 msgstr "பயன்பாடுகள்"
 
-#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
 msgid "Find"
 msgstr "கண்டுபிடி"
 
-#: src/widgets/shortcutsWindow.ui:102
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Permissions"
 msgstr "அனுமதிகள்"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:90
 msgid "Toggle"
 msgstr "நிலைமாற்று"
 
-#: src/widgets/shortcutsWindow.ui:115
+#: src/widgets/shortcutsWindow.ui:97
 msgid "Documentation"
 msgstr "ஆவணப்படுத்தல்"
 
-#: src/widgets/shortcutsWindow.ui:127
+#: src/widgets/shortcutsWindow.ui:107
 msgid "Find next"
 msgstr "அடுத்ததை தேடு"
 
-#: src/widgets/shortcutsWindow.ui:134
+#: src/widgets/shortcutsWindow.ui:113
 msgid "Find previous"
 msgstr "முந்தையதைக் கண்டுபிடி"
 
-#: src/widgets/undoPopup.ui:19
+#: src/widgets/window.js:102
 msgid "Permissions have been reset"
 msgstr "அனுமதிகள் மீட்டமைக்கப்பட்டுள்ளன"
 
-#: src/widgets/undoPopup.ui:36
-msgid "Undo"
+#: src/widgets/window.js:103
+#, fuzzy
+msgid "_Undo"
 msgstr "செயல்தவிர்"
 
-#: src/widgets/window.ui:113 src/widgets/window.ui:211
+#: src/widgets/window.ui:35
+msgid "Main Menu"
+msgstr ""
+
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "பயன்பாடுகள் எதுவும் கிடைக்கவில்லை."
+
+#~ msgid "Contributions by"
+#~ msgstr "மூலம் பங்களிப்புகள்"
