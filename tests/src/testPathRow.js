@@ -124,6 +124,7 @@ describe('FlatsealPathRow', function() {
     _catches('not-valid relative', '~/ .test ', '');
     _catches('not-valid token-based', 'home ', ':ro');
     _catches('not-valid token-based', 'home/', '');
+    _catches('not-valid token-based', 'home/.test/ ', '');
     _catches('not-valid token-based', 'home-non-valid', '');
     _catches('not-valid token-based', 'jome/.test ', '');
     _catches('not-valid mode', 'home', ':');
