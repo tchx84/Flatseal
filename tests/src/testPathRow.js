@@ -118,6 +118,7 @@ describe('FlatsealPathRow', function() {
         });
     }
 
+    _catches('not-valid empty', '', '');
     _catches('not-valid absolute', '/', '');
     _catches('not-valid relative', '~/', '');
     _catches('not-valid absolute', '/home/ .test ', '');
