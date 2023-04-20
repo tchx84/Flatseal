@@ -129,6 +129,8 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
+
+        this._validate();
     }
 
     _remove() {
