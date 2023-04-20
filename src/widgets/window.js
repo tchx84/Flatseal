@@ -262,15 +262,15 @@ var FlatsealWindow = GObject.registerClass({
             this._appInfoViewer.visible = false;
             this._globalInfoViewer.visible = true;
             this._portalsGroup.visible = false;
-            this._detailsHeaderButton.sensitive = false;
-            this._detailsActionButton.sensitive = false;
+            this._detailsHeaderButton.disable();
+            this._detailsActionButton.disable();
         } else {
             this._appInfoViewer.appId = appId;
             this._appInfoViewer.visible = true;
             this._globalInfoViewer.visible = false;
             this._portalsGroup.visible = true;
-            this._detailsHeaderButton.sensitive = true;
-            this._detailsActionButton.sensitive = true;
+            this._detailsHeaderButton.enable();
+            this._detailsActionButton.enable();
         }
     }
 

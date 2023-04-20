@@ -54,6 +54,7 @@ var FlatsealDetailsButton = GObject.registerClass({
     _setup(permissions) {
         this._proxy = null;
         this._permissions = permissions;
+        this._foundManager = false;
 
         this.set_use_underline(true);
         this.set_label(_('_Show Details'));
@@ -68,11 +69,12 @@ var FlatsealDetailsButton = GObject.registerClass({
             const proxy = new DBListNamesProxy(
                 Gio.DBus.session, 'org.freedesktop.DBus', '/org/freedesktop/DBus');
             proxy.ListActivatableNamesRemote(([services], err) => {
-                const found = !err && services.indexOf('org.gnome.Software') !== -1;
-                this._update(found);
+                this._foundManager = !err && services.indexOf('org.gnome.Software') !== -1;
+                this._update();
             });
         } catch (err) {
-            this._update(false);
+            this._foundManager = false;
+            this._update();
         }
     }
 
@@ -98,12 +100,21 @@ var FlatsealDetailsButton = GObject.registerClass({
         }
     }
 
-    _update(foundManager) {
-        this.sensitive = foundManager && this._permissions.appId;
+    _update() {
+        this.sensitive = this._foundManager && this._permissions.appId;
 
         if (this.sensitive)
             this.set_tooltip_text(_('Show application in a software manager'));
         else
             this.set_tooltip_text(_('No software manager found'));
+    }
+
+    enable() {
+        this._update();
+    }
+
+    disable() {
+        this.sensitive = false;
+        this.set_tooltip_text('');
     }
 });
