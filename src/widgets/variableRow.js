@@ -61,6 +61,8 @@ var FlatsealVariableRow = GObject.registerClass({
 
         this._statusIcon = new FlatsealOverrideStatusIcon();
         this._statusBox.append(this._statusIcon);
+
+        this._validate();
     }
 
     _remove() {
