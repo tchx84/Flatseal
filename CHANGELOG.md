@@ -2,7 +2,9 @@
 
 ## [unreleased]
 
+- Fixed re-enabling show-details button when GNOME Software is unavailable.
 - Fixed Tamil mnemonics translation.
+- Fixed validations for other-files section, e.g. to allow trailing slashes.
 - Added popover for XDG paths suggestions.
 - Added type-to-search for applications.
 - Changed to GTK 4 and Libadwaita.
