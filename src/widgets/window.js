@@ -36,6 +36,7 @@ const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
 const {FlatsealBusNameRow} = imports.widgets.busNameRow;
 const {FlatsealSettingsModel} = imports.models.settings;
+const {FlatpakMonitorModel} = imports.models.monitor;
 const {isGlobalOverride} = imports.models.globalModel;
 
 const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE;
@@ -135,6 +136,9 @@ var FlatsealWindow = GObject.registerClass({
         this._backButton.connect('clicked', this._showApplications.bind(this));
 
         this._applicationsSearchBar.set_key_capture_widget(this.root);
+
+        this._monitor = new FlatpakMonitorModel();
+        this._monitor.connect('changed', this._setupApplications.bind(this));
     }
 
     _setupApplications() {
@@ -269,6 +273,7 @@ var FlatsealWindow = GObject.registerClass({
 
     _shutdown() {
         this._permissions.shutdown();
+        this._monitor.shutdown();
     }
 
     _selectApplicationDelayed() {
