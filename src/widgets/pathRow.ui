@@ -12,7 +12,6 @@
   </object>
   <template class="FlatsealPathRow" parent="GtkBox">
     <property name="margin-bottom">12</property>
-    <property name="spacing">6</property>
     <child>
       <object class="GtkImage" id="image">
         <property name="valign">center</property>

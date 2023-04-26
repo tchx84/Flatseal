@@ -42,6 +42,12 @@ row .content .path.not-valid .info {
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
 
+row .content entry,
+row .content .status,
+row .content button {
+   margin-left: 8px;
+}
+
 row .content .path popover treeview {
    color: @insensitive_fg_color;
    font-size: small;
