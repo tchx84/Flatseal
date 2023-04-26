@@ -38,7 +38,7 @@ var FlatsealOverrideStatusIcon = GObject.registerClass({
             FlatsealOverrideStatus.ORIGINAL,
         ),
     },
-}, class FlatsealOverrideStatusIcon extends Gtk.Box {
+}, class FlatsealOverrideStatusIcon extends Gtk.Image {
     _init() {
         super._init({});
         this._status = FlatsealOverrideStatus.ORIGINAL;

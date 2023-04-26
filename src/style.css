@@ -3,13 +3,18 @@
 }
 
 row .status {
+    padding: 8px;
+    background-color: transparent;
+    background-image: -gtk-icontheme("dialog-warning-symbolic");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+}
+row .status.user {
     color: @accent_color;
 }
 row .status.global {
     color: @insensitive_fg_color;
-}
-row.activatable .status {
-    margin-right: 8px;
 }
 
 row .content .bus .info,

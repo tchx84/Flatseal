@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="FlatsealOverrideStatusIcon" parent="GtkBox">
-    <child>
-      <object class="GtkImage">
-        <property name="valign">center</property>
-        <property name="icon-name">dialog-warning-symbolic</property>
-      </object>
-    </child>
+  <template class="FlatsealOverrideStatusIcon" parent="GtkImage">
     <style>
       <class name="status"/>
     </style>
