@@ -33,9 +33,6 @@
       <object class="GtkBox" id="statusBox">
         <property name="halign">center</property>
         <property name="valign">center</property>
-        <style>
-          <class name="status"/>
-        </style>
       </object>
     </child>
     <child>
