@@ -37,12 +37,6 @@ row .content .path.not-valid .info {
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
 
-row .content .bus button image:disabled,
-row .content .variable button image:disabled,
-row .content .path button image:disabled {
-    color: @insensitive_fg_color;
-}
-
 row .content .path popover treeview {
    color: @insensitive_fg_color;
    font-size: small;
