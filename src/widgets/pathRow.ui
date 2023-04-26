@@ -18,7 +18,6 @@
         <property name="valign">center</property>
         <style>
           <class name="info"/>
-          <class name="suggested-image"/>
         </style>
       </object>
     </child>
