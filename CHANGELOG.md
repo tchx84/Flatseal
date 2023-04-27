@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.0.0] - 2023-04-27
 
 - Fixed re-enabling show-details button when GNOME Software is unavailable.
 - Fixed Tamil mnemonics translation.
