@@ -1,3 +1,7 @@
+.navigation-sidebar row {
+    padding: 3px 0px;
+}
+
 .permissions clamp {
     margin-bottom: 25px;
 }
