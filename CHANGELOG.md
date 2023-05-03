@@ -1,5 +1,10 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed window bouncing between folded and unfolded mode.
+- Fixed styling of applications list rows.
+
 ## [2.0.0] - 2023-04-27
 
 - Fixed re-enabling show-details button when GNOME Software is unavailable.
