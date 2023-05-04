@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.0.1] - 2023-05-04
 
 - Fixed window bouncing between folded and unfolded mode.
 - Fixed styling of applications list rows.
