@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+- Added Ukrainian translation.
+
 ## [2.0.1] - 2023-05-04
 
 - Fixed window bouncing between folded and unfolded mode.
