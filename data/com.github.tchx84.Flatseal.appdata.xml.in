@@ -2,7 +2,7 @@
 <component type="desktop">
   <!-- TRANSLATORS: Don't translate this text -->
   <name>Flatseal</name>
-  <id>com.github.tchx84.Flatseal.desktop</id>
+  <id>com.github.tchx84.Flatseal</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
