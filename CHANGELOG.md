@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.0.2] - 2023-07-07
 
 - Fixed GNOME Software not showing the application icon.
 - Added Ukrainian translation.
