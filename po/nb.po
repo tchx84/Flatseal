@@ -1,0 +1,580 @@
+# Norwegian Bokmål translation for Flatseal
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+#
+# Nikolai Eugen Sandvik <nikolai@sandvik.dev>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-29 21:28+0200\n"
+"PO-Revision-Date: 2023-07-30 14:33+0200\n"
+"Last-Translator: Nikolai Eugen Sandvik <nikolai@sandvik.dev>\n"
+"Language-Team: Norwegian Bokmal <>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Administrer Flatpak-tillatelser"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr "seal;sandbox;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal er et grafisk verktøy for å gjennomgå og endre tillatelser for dine "
+"Flatpak-applikasjoner."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr ""
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "Ukjent"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Kommuniserer"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Eier"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Liste over velkjente navn på øktsbussen"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Liste over velkjente navn på systembussen"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU-akselerasjon"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "Virtualisering"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "Delt minne"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "Alle enheter (f.eks. webkamera)"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "Liste over enheter tilgjengelig i sandkassen"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Utviklingssyskall (f.eks. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Programmer fra andre arkitekturer"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Controller Area Network-buss"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Applikasjonens delte minne"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Liste over funksjoner tilgjengelige for applikasjonen"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Alle systemfiler"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Alle systembiblioteker, kjørbare filer og statiske data"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Alle systemkonfigurasjoner"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Alle brukerfiler"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Liste over tilgjengelige filsystemdeler for applikasjonen"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Andre filer"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "f.eks. ~/games:ro, xdg-pictures, osv"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Filer"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "f.eks. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Liste over hjemmekatalog-relative stier opprettet i sandkassen"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Bakgrunn"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Kan kjøre i bakgrunnen"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Varsler"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Kan sende varsler"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Mikrofon"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Kan lytte til mikrofonen din"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Høyttalere"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Kan spille lyder gjennom høyttalerne dine"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Kamera"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Kan ta opp videoer med kameraet ditt"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Lokasjon"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Kan få tilgang til din lokasjon"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "Liste over ressurser selektivt gitt til applikasjonen"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Ikke støttet av den installerte versjonen av Flatpak"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "Krever permission store versjon 2 eller nyere"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "Portaldata er ikke satt opp enda"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Nettverk"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Interprosesskommunikasjon"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "Liste over undersystemer delt med verts systemet"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 vindusystem"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland vindusystem"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Fallback til X11 vindusystem"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio lydserver"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus øktbuss"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus systembuss"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Secure Shell-agent"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Smartkort"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Utskriftssystem"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-Agent-kataloger"
+
+#: src/models/sockets.js:125
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Liste over velkjente sockets tilgjengelige i sandkassen"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Variabler"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "f.eks. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Liste over variabler eksportert til applikasjonen"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e. %B %Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "Versjon"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "Sist oppdatert"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "Runtime"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "Dette er ikke en gyldig valgmulighet"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_Vis detaljer"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Vis applikasjonen i en programvarebehandler"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Ingen programvarebehandler funnet"
+
+#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "Alle Applikasjoner"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Endringer som gjelder for alle Flatpak-applikasjoner"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Flatpak Versjon"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Portal Versjon"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "Endrer Sti"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Hjelp"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Dokumentasjon"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastatursnarveier"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_Om Flatseal"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Endret globalt"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Endret av brukeren"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "denne absolutte stien"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "denne stien relativt til hjemmekatalogen"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "alle systemkonfigurasjoner"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "alle systembiblioteker, kjørbare filer og statiske data"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "alle systemfiler"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "alle brukerfiler"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "skrivebordskatalogen"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "dokumentkatalogen"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "nedlastingskatalogen"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "musikkatalogen"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "bildekatalogen"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "den offentlige katalogen"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "videokatalogen"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "malkatalogen"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "konfigurasjonskatalogen"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "bufferkatalogen"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "datakatalogen"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "runtime-katalogen"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Kan lese: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Kan endre og lese: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Kan opprette, endre og lese: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Kan ikke lese: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Kan ikke endre eller lese: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Kan ikke opprette, endre eller lese: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "Ikke satt"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "Standardstier kan ikke fjernes"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62
+msgid "_Reset"
+msgstr "_Tilbakestill"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "Ingen endringer gjort for denne applikasjonen"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "Tilbakestill denne applikasjonens tillatelser"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", inkludert endringer ikke gjort med Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "Generelt"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "Vis mnemonics"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "Vis dokumentasjon"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "Vis meny"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "Tastatursnarveier"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "Avslutt"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "Navigasjon"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "Flytt til venstre"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "Flytt opp"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "Flytt til høyre"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "Flytt ned"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
+msgid "Applications"
+msgstr "Applikasjoner"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "Finn"
+
+#: src/widgets/shortcutsWindow.ui:86
+msgid "Permissions"
+msgstr "Tillatelser"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "Veksle"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "Dokumentasjon"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "Finn neste"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "Finn forrige"
+
+#: src/widgets/window.js:103
+msgid "Permissions have been reset"
+msgstr "Tillatelser har blitt tilbakestilt"
+
+#: src/widgets/window.js:104
+msgid "_Undo"
+msgstr "_Angre"
+
+#: src/widgets/window.ui:35
+msgid "Main Menu"
+msgstr "Hovedmeny"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "Ingen applikasjoner funnet."
