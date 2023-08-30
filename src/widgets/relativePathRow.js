@@ -54,7 +54,7 @@ var FlatsealRelativePathRow = GObject.registerClass({
     }
 
     _setup() {
-        this._expression = new RegExp(/.*\S.*/);
+        this._expression = new RegExp(/^[^\n]*$/);
 
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
