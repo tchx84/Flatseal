@@ -104,7 +104,14 @@ var FlatsealWindow = GObject.registerClass({
         this._toast.button_label = _('_Undo');
         this._toast.timeout = 3;
         this._toast.connect('button-clicked', this._undoReset.bind(this));
-        this._permissions.connect('reset', this._showToast.bind(this));
+        this._resetHandlerId = this._permissions.connect('reset', this._showToast.bind(this));
+
+        this._failedToast = new Adw.Toast();
+        this._failedToast.title = _('Can\'t load overrides due to wrong contents');
+        this._failedToast.button_label = _('_Reset');
+        this._failedToast.timeout = null;
+        this._failedToast.connect('button-clicked', this._doReset.bind(this));
+        this._permissions.connect('failed', this._showFailedToast.bind(this));
 
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
@@ -275,6 +282,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _updatePermissions() {
+        this._failedToast.dismiss();
         const row = this._applicationsListBox.get_selected_row();
         this._permissions.appId = row.appId;
         this._permissionsTitle.title = row.appName;
@@ -337,6 +345,18 @@ var FlatsealWindow = GObject.registerClass({
 
     _showToast() {
         this._toastOverlay.add_toast(this._toast);
+    }
+
+    _showFailedToast() {
+        this._toastOverlay.add_toast(this._failedToast);
+    }
+
+    _doReset() {
+        GObject.signal_handler_block(this._permissions, this._resetHandlerId);
+
+        this._permissions.reset();
+
+        GObject.signal_handler_unblock(this._permissions, this._resetHandlerId);
     }
 
     _undoReset() {
