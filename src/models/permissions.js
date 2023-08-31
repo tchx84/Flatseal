@@ -93,6 +93,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
             param_types: [GObject.TYPE_BOOLEAN, GObject.TYPE_BOOLEAN],
         },
         reset: {},
+        failed: {},
     },
 }, class FlatpakPermissionsModel extends GObject.Object {
     _init() {
@@ -122,12 +123,19 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return GLib.build_filenamev([this._getBaseOverridesPath(), this._appId]);
     }
 
-    static _loadPermissionsForPath(path, overrides, global) {
+    _loadPermissionsForPath(path, overrides, global) {
         if (GLib.access(path, 0) !== 0)
             return;
 
         const keyFile = new GLib.KeyFile();
-        keyFile.load_from_file(path, 0);
+
+        try {
+            keyFile.load_from_file(path, 0);
+        } catch (err) {
+            logError(err, `Could not load ${path}`);
+            this.emit('failed');
+            return;
+        }
 
         const [groups] = keyFile.get_groups();
 
@@ -178,7 +186,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         if (isGlobalOverride(this._appId))
             return;
 
-        this.constructor._loadPermissionsForPath(
+        this._loadPermissionsForPath(
             this._applications.getMetadataPathForAppId(this._appId), false, false);
     }
 
@@ -186,12 +194,12 @@ var FlatpakPermissionsModel = GObject.registerClass({
         if (isGlobalOverride(this._appId))
             return;
 
-        this.constructor._loadPermissionsForPath(
+        this._loadPermissionsForPath(
             this._getGlobalOverridesPath(), true, true);
     }
 
     _loadOverrides() {
-        this.constructor._loadPermissionsForPath(
+        this._loadPermissionsForPath(
             this._getOverridesPath(), true, false);
     }
 
