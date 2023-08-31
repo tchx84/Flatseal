@@ -54,6 +54,7 @@ const _resetModeId = 'com.test.ResetMode';
 const _globalAppId = 'com.test.Global';
 const _globalRestoredAppId = 'com.test.GlobalRestored';
 const _statusesAppId = 'com.test.Statuses';
+const _malformedAppId = 'com.test.Malformed';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -1388,5 +1389,14 @@ describe('Model', function() {
         });
 
         update();
+    });
+
+    it('handles malformed overrides', function() {
+        spyOn(permissions, 'emit');
+
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissions.appId = _malformedAppId;
+
+        expect(permissions.emit.calls.first().args).toEqual(['failed']);
     });
 });
