@@ -52,6 +52,7 @@ var FlatsealWindow = GObject.registerClass({
     InternalChildren: [
         'actionBar',
         'appInfoGroup',
+        'applicationsToastOverlay',
         'applicationsSearchButton',
         'applicationsSearchBar',
         'applicationsSearchEntry',
@@ -109,6 +110,11 @@ var FlatsealWindow = GObject.registerClass({
         this._failedToast.timeout = null;
         this._failedToast.connect('button-clicked', this._doReset.bind(this));
         this._permissions.connect('failed', this._showFailedToast.bind(this));
+
+        this._applicationsToast = new Adw.Toast();
+        this._applicationsToast.title = _('Refreshed due to installation changes');
+        this._applicationsToast.timeout = null;
+        this._applications.connect('changed', this._showApplicationsToast.bind(this));
 
         this._contentLeaflet.bind_property(
             'folded', this._backButton, 'visible', _bindReadFlags);
@@ -392,6 +398,11 @@ var FlatsealWindow = GObject.registerClass({
 
     _showFailedToast() {
         this._toastOverlay.add_toast(this._failedToast);
+    }
+
+    _showApplicationsToast() {
+        this._setupApplications();
+        this._applicationsToastOverlay.add_toast(this._applicationsToast);
     }
 
     _doReset() {
