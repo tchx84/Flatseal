@@ -44,4 +44,12 @@ var FlatsealSettingsModel = GObject.registerClass({
         }
         this._settings.set_boolean('window-maximized', window.maximized);
     }
+
+    getSelectedAppId() {
+        return this._settings.get_string('selected-app-id');
+    }
+
+    setSelectedAppId(appId) {
+        this._settings.set_string('selected-app-id', appId);
+    }
 });

@@ -119,12 +119,16 @@ var FlatsealWindow = GObject.registerClass({
         if (allApplications.length === 0 || allPermissions.length === 0)
             return;
 
+        let selectedRow = null;
         const iconTheme = Gtk.IconTheme.get_for_display(this.get_display());
 
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
             this._applicationsListBox.append(row);
+
+            if (app.appId === this._settings.getSelectedAppId())
+                selectedRow = row;
         });
 
         /* Add row for global overrides */
@@ -222,8 +226,13 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
         /* select after the list has been sorted */
-        const row = this._applicationsListBox.get_row_at_index(1);
-        this._applicationsListBox.select_row(row);
+        if (selectedRow === null)
+            selectedRow = this._applicationsListBox.get_row_at_index(1);
+
+        /* XXX switch to ListBox.scroll_to when available */
+        selectedRow.grab_focus();
+
+        this._applicationsListBox.select_row(selectedRow);
         this._updatePermissions();
 
         this._applicationsDelayHandlerId = 0;
@@ -287,6 +296,7 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions.appId = row.appId;
         this._permissionsTitle.title = row.appName;
         this._updatePermissionsPane(row.appId);
+        this._settings.setSelectedAppId(row.appId);
         this._toast.dismiss();
 
         this._applicationsDelayHandlerId = 0;
