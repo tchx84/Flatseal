@@ -10,5 +10,9 @@
     <key name="window-maximized" type="b">
       <default>false</default>
     </key>
+    <key name="selected-app-id" type="s">
+      <default>""</default>
+      <summary>Application ID that was last selected</summary>
+    </key>
   </schema>
 </schemalist>
