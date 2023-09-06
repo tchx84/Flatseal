@@ -254,6 +254,7 @@ var FlatsealWindow = GObject.registerClass({
 
     _shutdown() {
         this._permissions.shutdown();
+        this._applications.shutdown();
     }
 
     _selectApplicationDelayed() {

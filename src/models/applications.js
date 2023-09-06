@@ -22,13 +22,53 @@ const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
 
 const {FlatpakInfoModel} = imports.models.info;
 
+const SIGNAL_DELAY = 500;
+const TARGET_EVENTS = [
+    Gio.FileMonitorEvent.CHANGES_DONE_HINT,
+    Gio.FileMonitorEvent.DELETED,
+];
+
 var FlatpakApplicationsModel = GObject.registerClass({
     GTypeName: 'FlatpakApplicationsModel',
+    Signals: {
+        changed: {},
+    },
 }, class FlatpakApplicationsModel extends GObject.Object {
     _init() {
         super._init({});
+        this._setup();
+    }
+
+    _setup() {
         this._paths = null;
         this._info = new FlatpakInfoModel();
+        this._monitors = [];
+        this._changedDelayHandlerId = 0;
+
+        this._getInstallationsPaths().forEach(path => {
+            const file = Gio.File.new_for_path(GLib.build_filenamev([path, 'app']));
+            const monitor = file.monitor_directory(Gio.FileMonitorFlags.NONE, null);
+
+            monitor.connect('changed', this._changedDelayed.bind(this));
+            this._monitors.push(monitor);
+        });
+    }
+
+    _changedDelayed(monitor, file, other_file, event) {
+        if (!TARGET_EVENTS.includes(event))
+            return;
+
+        if (this._changedDelayHandlerId !== 0)
+            GLib.Source.remove(this._changedDelayHandlerId);
+
+        this._changedDelayHandlerId = GLib.timeout_add(
+            GLib.PRIORITY_DEFAULT, SIGNAL_DELAY, this._emitChanged.bind(this));
+    }
+
+    _emitChanged() {
+        this.emit('changed');
+        this._changedDelayHandlerId = 0;
+        return GLib.SOURCE_REMOVE;
     }
 
     static _getSystemPath() {
@@ -334,6 +374,17 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
     get userPath() {
         return this._getUserPath();
+    }
+
+    shutdown() {
+        if (this._changedDelayHandlerId !== 0)
+            GLib.Source.remove(this._changedDelayHandlerId);
+        this._changedDelayHandlerId = 0;
+
+        this._monitors.forEach(monitor => {
+            monitor.cancel();
+        });
+        this._monitors = [];
     }
 });
 
