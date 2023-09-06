@@ -21,7 +21,7 @@
 
 const {GObject, GLib, Gtk} = imports.gi;
 
-const {FlatpakApplicationsModel} = imports.models.applications;
+const {applications} = imports.models;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -46,7 +46,7 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         super._init();
         this._appId = '';
         this._compact = false;
-        this._applications = new FlatpakApplicationsModel();
+        this._applications = applications.getDefault();
         this._validator = new RegExp(/^(\d+)-(\d+)-(\d+)$/);
     }
 
