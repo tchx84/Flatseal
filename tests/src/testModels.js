@@ -91,13 +91,14 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var delay, applications, permissions, infoDefault, portalsDefault, portalState;
+    var delay, permissions, applicationsDefault, infoDefault, portalsDefault, portalState;
 
     beforeAll(function() {
-        const {info, portals} = imports.models;
+        const {applications, info, portals} = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
+        applicationsDefault = applications.getDefault();
         portalState = portals.FlatpakPortalState;
         startService();
         waitForService();
@@ -114,13 +115,12 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _none, true);
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfo, true);
 
-        const {FlatpakApplicationsModel} = imports.models.applications;
         const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
 
         delay = DELAY;
         infoDefault.reload();
         portalsDefault.reload();
-        applications = new FlatpakApplicationsModel();
+        applicationsDefault.reload();
         permissions = new FlatpakPermissionsModel();
 
         GLib.unlink(_basicOverride);
@@ -137,7 +137,7 @@ describe('Model', function() {
     });
 
     it('loads applications', function() {
-        const appIds = applications.getAll().map(a => a.appId);
+        const appIds = applicationsDefault.getAll().map(a => a.appId);
 
         expect(appIds).toContain(_basicAppId);
         expect(appIds).toContain(_basicNegatedAppId);
@@ -158,7 +158,7 @@ describe('Model', function() {
 
         expect(GLib.access(path, 0)).toEqual(0);
 
-        const appIds = applications.getAll().map(a => a.appId);
+        const appIds = applicationsDefault.getAll().map(a => a.appId);
         expect(appIds).not.toContain(_baseAppId);
     });
 
@@ -714,14 +714,17 @@ describe('Model', function() {
 
     it('loads extra applications', function() {
         GLib.setenv('FLATPAK_CONFIG_DIR', _flatpakConfig, true);
+        applicationsDefault.reload();
 
-        const appIds = applications.getAll().map(a => a.appId);
+        const appIds = applicationsDefault.getAll().map(a => a.appId);
         expect(appIds).toContain(_extraAppId);
     });
 
     it('preserves installation priorities', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         GLib.setenv('FLATPAK_CONFIG_DIR', _flatpakConfig, true);
+        applicationsDefault.reload();
+
         permissions.appId = _extraAppId;
 
         expect(permissions.shared_network).toBe(false);
