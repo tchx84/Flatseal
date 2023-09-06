@@ -20,7 +20,6 @@
 
 const {GObject, GLib} = imports.gi;
 
-const {FlatpakApplicationsModel} = imports.models.applications;
 const {FlatpakUnsupportedModel} = imports.models.unsupported;
 const {FlatpakDevicesModel} = imports.models.devices;
 const {FlatpakSharedModel} = imports.models.shared;
@@ -32,7 +31,7 @@ const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 const {isGlobalOverride} = imports.models.globalModel;
-const {filesystems, persistent, portals} = imports.models;
+const {applications, filesystems, persistent, portals} = imports.models;
 
 const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
@@ -100,7 +99,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         super._init({});
         this._appId = '';
         this._delayedHandlerId = 0;
-        this._applications = new FlatpakApplicationsModel();
+        this._applications = applications.getDefault();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
         this._ensureBaseOverridesPath();
     }
