@@ -386,6 +386,11 @@ var FlatpakApplicationsModel = GObject.registerClass({
         });
         this._monitors = [];
     }
+
+    reload() {
+        this.shutdown();
+        this._setup();
+    }
 });
 
 
