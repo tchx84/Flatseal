@@ -155,15 +155,15 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         const directory = Gio.File.new_for_path(configPath);
         const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
-        let info = enumerator.next_file(null);
+        let fileInfo = enumerator.next_file(null);
 
-        while (info !== null) {
-            const file = enumerator.get_child(info);
+        while (fileInfo !== null) {
+            const file = enumerator.get_child(fileInfo);
             installations = [
                 ...installations,
                 ...this.constructor._parseCustomInstallation(file.get_path()),
             ];
-            info = enumerator.next_file(null);
+            fileInfo = enumerator.next_file(null);
         }
 
         return installations
@@ -208,17 +208,17 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         const directory = Gio.File.new_for_path(path);
         const enumerator = directory.enumerate_children('*', Gio.FileQueryInfoFlags.NONE, null);
-        let info = enumerator.next_file(null);
+        let fileInfo = enumerator.next_file(null);
 
-        while (info !== null) {
-            const file = enumerator.get_child(info);
+        while (fileInfo !== null) {
+            const file = enumerator.get_child(fileInfo);
             const appId = GLib.path_get_basename(file.get_path());
             const activePath = GLib.build_filenamev([file.get_path(), 'current', 'active']);
 
             if (!this.constructor._isBaseApp(appId) && GLib.access(activePath, 0) === 0)
                 list.push(appId);
 
-            info = enumerator.next_file(null);
+            fileInfo = enumerator.next_file(null);
         }
         return list;
     }
