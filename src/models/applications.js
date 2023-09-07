@@ -20,7 +20,7 @@
 
 const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
 
-const {FlatpakInfoModel} = imports.models.info;
+const {info} = imports.models;
 
 const SIGNAL_DELAY = 500;
 const TARGET_EVENTS = [
@@ -41,7 +41,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
     _setup() {
         this._paths = null;
-        this._info = new FlatpakInfoModel();
+        this._info = info.getDefault();
         this._monitors = [];
         this._changedDelayHandlerId = 0;
 
