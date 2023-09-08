@@ -105,14 +105,14 @@ var FlatsealWindow = GObject.registerClass({
         this._resetHandlerId = this._permissions.connect('reset', this._showToast.bind(this));
 
         this._failedToast = new Adw.Toast();
-        this._failedToast.title = _('Can\'t load overrides due to wrong contents');
+        this._failedToast.title = _('Cannot load overrides due to incorrect contents');
         this._failedToast.button_label = _('_Reset');
         this._failedToast.timeout = null;
         this._failedToast.connect('button-clicked', this._doReset.bind(this));
         this._permissions.connect('failed', this._showFailedToast.bind(this));
 
         this._applicationsToast = new Adw.Toast();
-        this._applicationsToast.title = _('Refreshed due to installation changes');
+        this._applicationsToast.title = _('Refreshed due to changes in Flatpak installations');
         this._applicationsToast.timeout = null;
         this._applications.connect('changed', this._showApplicationsToast.bind(this));
 
