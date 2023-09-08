@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-29 21:28+0200\n"
+"POT-Creation-Date: 2023-09-08 14:01-0400\n"
 "PO-Revision-Date: 2023-07-30 14:33+0200\n"
 "Last-Translator: Nikolai Eugen Sandvik <nikolai@sandvik.dev>\n"
 "Language-Team: Norwegian Bokmal <>\n"
@@ -46,8 +46,12 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr ""
 
-#: src/models/applications.js:193 src/models/applications.js:253
-#: src/models/applications.js:254 src/models/applications.js:255
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr ""
+
+#: src/models/applications.js:233 src/models/applications.js:293
+#: src/models/applications.js:294 src/models/applications.js:295
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -475,7 +479,7 @@ msgid "Default paths can't be removed"
 msgstr "Standardstier kan ikke fjernes"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:62 src/widgets/window.js:109
 msgid "_Reset"
 msgstr "_Tilbakestill"
 
@@ -563,18 +567,26 @@ msgstr "Finn neste"
 msgid "Find previous"
 msgstr "Finn forrige"
 
-#: src/widgets/window.js:103
+#: src/widgets/window.js:101
 msgid "Permissions have been reset"
 msgstr "Tillatelser har blitt tilbakestilt"
 
-#: src/widgets/window.js:104
+#: src/widgets/window.js:102
 msgid "_Undo"
 msgstr "_Angre"
+
+#: src/widgets/window.js:108
+msgid "Cannot load overrides due to incorrect contents"
+msgstr ""
+
+#: src/widgets/window.js:115
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr ""
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
 msgstr "Hovedmeny"
 
-#: src/widgets/window.ui:75
+#: src/widgets/window.ui:82
 msgid "No applications found."
 msgstr "Ingen applikasjoner funnet."
