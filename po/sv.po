@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-19 10:48-0400\n"
+"POT-Creation-Date: 2023-09-08 14:01-0400\n"
 "PO-Revision-Date: 2022-05-18 09:02+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
@@ -46,8 +46,12 @@ msgstr ""
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
-#: src/models/applications.js:193 src/models/applications.js:253
-#: src/models/applications.js:254 src/models/applications.js:255
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr ""
+
+#: src/models/applications.js:233 src/models/applications.js:293
+#: src/models/applications.js:294 src/models/applications.js:295
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -309,15 +313,15 @@ msgstr "Körtid"
 msgid "This is not a valid option"
 msgstr "Detta är inte ett giltigt alternativ"
 
-#: src/widgets/detailsButton.js:59
+#: src/widgets/detailsButton.js:60
 msgid "_Show Details"
 msgstr "_Visa detaljerad info"
 
-#: src/widgets/detailsButton.js:105
+#: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
 msgstr "Visa program i en programhanterare"
 
-#: src/widgets/detailsButton.js:107
+#: src/widgets/detailsButton.js:109
 msgid "No software manager found"
 msgstr "Ingen programhanterare hittades"
 
@@ -471,12 +475,12 @@ msgstr "Kan inte skapa, ändra eller läsa: %s"
 msgid "Unset"
 msgstr "Avlägsna"
 
-#: src/widgets/relativePathRow.js:82
+#: src/widgets/relativePathRow.js:84
 msgid "Default paths can't be removed"
 msgstr "Standardsökvägar kan inte tas bort"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62
+#: src/widgets/resetButton.js:62 src/widgets/window.js:109
 msgid "_Reset"
 msgstr "_Återställ"
 
@@ -564,18 +568,26 @@ msgstr "Sök nästa"
 msgid "Find previous"
 msgstr "Sök föregående"
 
-#: src/widgets/window.js:102
+#: src/widgets/window.js:101
 msgid "Permissions have been reset"
 msgstr "Behörigheter har återställts"
 
-#: src/widgets/window.js:103
+#: src/widgets/window.js:102
 msgid "_Undo"
 msgstr "Å_ngra"
+
+#: src/widgets/window.js:108
+msgid "Cannot load overrides due to incorrect contents"
+msgstr ""
+
+#: src/widgets/window.js:115
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr ""
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
 msgstr "Huvudmeny"
 
-#: src/widgets/window.ui:75
+#: src/widgets/window.ui:82
 msgid "No applications found."
 msgstr "Inga program hittades."
