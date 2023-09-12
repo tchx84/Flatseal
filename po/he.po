@@ -46,7 +46,7 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr ""
+msgstr "מזהה אפליקציה שנבחר לאחרונה"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
@@ -575,11 +575,11 @@ msgstr "_ביטול"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
-msgstr ""
+msgstr "לא ניתן לטעון שינויים עקב תוכן שגוי"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr ""
+msgstr "רענן עקב שינויים בהתקנות Flatpak"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
