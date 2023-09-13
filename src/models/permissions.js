@@ -101,6 +101,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._delayedHandlerId = 0;
         this._monitors = [];
         this._monitorsDelayedHandlerId = 0;
+        this._changedbyUser = false;
         this._applications = applications.getDefault();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
         this._ensureBaseOverridesPath();
@@ -277,6 +278,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
             });
         });
 
+        this._changedbyUser = true;
         this._saveOverrides();
         this._updateStatusProperties();
 
@@ -334,7 +336,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _updateFromMonitors() {
-        this._setup();
+        if (!this._changedbyUser)
+            this._setup();
+
+        this._changedbyUser = false;
         this._monitorsDelayedHandlerId = 0;
         return GLib.SOURCE_REMOVE;
     }
@@ -367,6 +372,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     undo() {
+        this._changedbyUser = true;
         const path = this._getOverridesPath();
         this._backup.save_to_file(path);
         MODELS.portals.restore();
@@ -380,6 +386,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     reset() {
+        this._changedbyUser = true;
         this.backup();
         const path = this._getOverridesPath();
         GLib.unlink(path);
