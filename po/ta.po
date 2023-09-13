@@ -48,7 +48,7 @@ msgstr "Martin Abente Lahaye"
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr ""
+msgstr "கடைசியாக தேர்ந்தெடுக்கப்பட்ட விண்ணப்ப ஐடி"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
@@ -577,11 +577,11 @@ msgstr "செயல்தவிர் (_U)"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
-msgstr ""
+msgstr "தவறான உள்ளடக்கம் காரணமாக மாற்றங்களை ஏற்ற முடியவில்லை"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr ""
+msgstr "Flatpak நிறுவல்களில் ஏற்பட்ட மாற்றங்கள் காரணமாக புதுப்பிக்கப்பட்டது"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
