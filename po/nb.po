@@ -48,7 +48,7 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr ""
+msgstr "Program-ID som sist ble valgt"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
@@ -577,11 +577,11 @@ msgstr "_Angre"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
-msgstr ""
+msgstr "Kan ikke laste inn endringer på grunn av feil innhold"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr ""
+msgstr "Oppdatert på grunn av endringer i Flatpak-installasjoner"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
