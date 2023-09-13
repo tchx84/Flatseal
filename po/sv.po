@@ -48,7 +48,7 @@ msgstr "Martin Abente Lahaye"
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr ""
+msgstr "Applikations-ID som senast valdes"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
@@ -578,11 +578,11 @@ msgstr "Å_ngra"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
-msgstr ""
+msgstr "Kan inte ladda åsidosättningar på grund av felaktigt innehåll"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr ""
+msgstr "Uppdaterad på grund av ändringar i Flatpak-installationer"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
