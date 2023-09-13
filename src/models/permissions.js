@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib} = imports.gi;
+const {Gio, GObject, GLib} = imports.gi;
 
 const {FlatpakUnsupportedModel} = imports.models.unsupported;
 const {FlatpakDevicesModel} = imports.models.devices;
@@ -99,6 +99,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
         super._init({});
         this._appId = '';
         this._delayedHandlerId = 0;
+        this._monitors = [];
+        this._monitorsDelayedHandlerId = 0;
         this._applications = applications.getDefault();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
         this._ensureBaseOverridesPath();
@@ -294,6 +296,49 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._updateStatusProperties();
     }
 
+    _setupMonitors() {
+        if (this._appId === '')
+            return;
+
+        let paths = [this._getGlobalOverridesPath()];
+
+        if (!isGlobalOverride(this._appId))
+            paths = [...paths, this._getMetadataPath(), this._getOverridesPath()];
+
+        paths.forEach(path => {
+            const file = Gio.File.new_for_path(path);
+            const monitor = file.monitor_file(Gio.FileMonitorFlags.WATCH_MOVES, null);
+            monitor.connect('changed', this._delayMonitorsChanged.bind(this));
+            this._monitors.push(monitor);
+        });
+    }
+
+    _cancelMonitors() {
+        if (this._monitorsDelayedHandlerId !== 0)
+            GLib.Source.remove(this._monitorsDelayedHandlerId);
+
+        this._monitors.forEach(monitor => {
+            monitor.cancel();
+        });
+
+        this._monitors = [];
+        this._monitorsDelayedHandlerId = 0;
+    }
+
+    _delayMonitorsChanged() {
+        if (this._monitorsDelayedHandlerId !== 0)
+            GLib.Source.remove(this._monitorsDelayedHandlerId);
+
+        this._monitorsDelayedHandlerId = GLib.timeout_add(
+            GLib.PRIORITY_DEFAULT, DELAY, this._updateFromMonitors.bind(this));
+    }
+
+    _updateFromMonitors() {
+        this._setup();
+        this._monitorsDelayedHandlerId = 0;
+        return GLib.SOURCE_REMOVE;
+    }
+
     getAll() {
         const list = [];
 
@@ -345,14 +390,16 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     shutdown() {
         this._processPendingUpdates();
+        this._cancelMonitors();
     }
 
     set appId(appId) {
         this._backup = null;
-        this._processPendingUpdates();
+        this.shutdown();
         this._appId = appId;
         MODELS.portals.appId = appId;
         this._setup();
+        this._setupMonitors();
     }
 
     get appId() {
