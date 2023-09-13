@@ -114,6 +114,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
         return GLib.build_filenamev([this._applications.userPath, 'overrides']);
     }
 
+    _getMetadataPath() {
+        return this._applications.getMetadataPathForAppId(this._appId);
+    }
+
     _getGlobalOverridesPath() {
         return GLib.build_filenamev([this._getBaseOverridesPath(), 'global']);
     }
@@ -185,8 +189,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         if (isGlobalOverride(this._appId))
             return;
 
-        this._loadPermissionsForPath(
-            this._applications.getMetadataPathForAppId(this._appId), false, false);
+        this._loadPermissionsForPath(this._getMetadataPath(), false, false);
     }
 
     _loadGlobalOverrides() {
