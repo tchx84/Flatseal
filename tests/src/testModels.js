@@ -91,17 +91,22 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var delay, permissions, applicationsDefault, infoDefault, portalsDefault, portalState;
+    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, portalState;
 
     beforeAll(function() {
-        const {applications, info, portals} = imports.models;
+        startService();
+        waitForService();
+
+        const {applications, info, permissions, portals} = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
         applicationsDefault = applications.getDefault();
+        permissionsDefault = permissions.getDefault();
+
+        delay = permissions.DELAY;
         portalState = portals.FlatpakPortalState;
-        startService();
-        waitForService();
+
         GLib.unlink(_overridenOverride);
         GLib.mkdir_with_parents(_overrides, 0o755);
     });
@@ -115,13 +120,10 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _none, true);
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfo, true);
 
-        const {FlatpakPermissionsModel, DELAY} = imports.models.permissions;
-
-        delay = DELAY;
         infoDefault.reload();
         portalsDefault.reload();
         applicationsDefault.reload();
-        permissions = new FlatpakPermissionsModel();
+        permissionsDefault.reload();
 
         GLib.unlink(_basicOverride);
         GLib.unlink(_reduceOverride);
@@ -163,171 +165,171 @@ describe('Model', function() {
     });
 
     it('loads permissions', function() {
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.shared_network).toBe(true);
-        expect(permissions.shared_ipc).toBe(true);
-        expect(permissions.sockets_x11).toBe(true);
-        expect(permissions.sockets_fallback_x11).toBe(true);
-        expect(permissions.sockets_wayland).toBe(true);
-        expect(permissions.sockets_pulseaudio).toBe(true);
-        expect(permissions.sockets_system_bus).toBe(true);
-        expect(permissions.sockets_session_bus).toBe(true);
-        expect(permissions.sockets_ssh_auth).toBe(true);
-        expect(permissions.sockets_pcsc).toBe(true);
-        expect(permissions.sockets_cups).toBe(true);
-        expect(permissions.sockets_gpg_agent).toBe(true);
-        expect(permissions.devices_dri).toBe(true);
-        expect(permissions.devices_kvm).toBe(true);
-        expect(permissions.devices_shm).toBe(true);
-        expect(permissions.devices_all).toBe(true);
-        expect(permissions.features_bluetooth).toBe(true);
-        expect(permissions.features_devel).toBe(true);
-        expect(permissions.features_multiarch).toBe(true);
-        expect(permissions.features_canbus).toBe(true);
-        expect(permissions.features_per_app_dev_shm).toBe(true);
-        expect(permissions.filesystems_host).toBe(true);
-        expect(permissions.filesystems_host_os).toBe(true);
-        expect(permissions.filesystems_host_etc).toBe(true);
-        expect(permissions.filesystems_home).toBe(true);
-        expect(permissions.filesystems_other).toEqual('~/test');
-        expect(permissions.session_talk).toEqual('org.test.Service-1');
-        expect(permissions.session_own).toEqual('org.test.Service-2');
-        expect(permissions.system_talk).toEqual('org.test.Service-3');
-        expect(permissions.system_own).toEqual('org.test.Service-4');
-        expect(permissions.persistent).toEqual('.test');
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.shared_network).toBe(true);
+        expect(permissionsDefault.shared_ipc).toBe(true);
+        expect(permissionsDefault.sockets_x11).toBe(true);
+        expect(permissionsDefault.sockets_fallback_x11).toBe(true);
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        expect(permissionsDefault.sockets_pulseaudio).toBe(true);
+        expect(permissionsDefault.sockets_system_bus).toBe(true);
+        expect(permissionsDefault.sockets_session_bus).toBe(true);
+        expect(permissionsDefault.sockets_ssh_auth).toBe(true);
+        expect(permissionsDefault.sockets_pcsc).toBe(true);
+        expect(permissionsDefault.sockets_cups).toBe(true);
+        expect(permissionsDefault.sockets_gpg_agent).toBe(true);
+        expect(permissionsDefault.devices_dri).toBe(true);
+        expect(permissionsDefault.devices_kvm).toBe(true);
+        expect(permissionsDefault.devices_shm).toBe(true);
+        expect(permissionsDefault.devices_all).toBe(true);
+        expect(permissionsDefault.features_bluetooth).toBe(true);
+        expect(permissionsDefault.features_devel).toBe(true);
+        expect(permissionsDefault.features_multiarch).toBe(true);
+        expect(permissionsDefault.features_canbus).toBe(true);
+        expect(permissionsDefault.features_per_app_dev_shm).toBe(true);
+        expect(permissionsDefault.filesystems_host).toBe(true);
+        expect(permissionsDefault.filesystems_host_os).toBe(true);
+        expect(permissionsDefault.filesystems_host_etc).toBe(true);
+        expect(permissionsDefault.filesystems_home).toBe(true);
+        expect(permissionsDefault.filesystems_other).toEqual('~/test');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
+        expect(permissionsDefault.system_talk).toEqual('org.test.Service-3');
+        expect(permissionsDefault.system_own).toEqual('org.test.Service-4');
+        expect(permissionsDefault.persistent).toEqual('.test');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
     });
 
     it('loads overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.shared_network).toBe(false);
-        expect(permissions.shared_ipc).toBe(false);
-        expect(permissions.sockets_x11).toBe(false);
-        expect(permissions.sockets_fallback_x11).toBe(false);
-        expect(permissions.sockets_wayland).toBe(false);
-        expect(permissions.sockets_pulseaudio).toBe(false);
-        expect(permissions.sockets_system_bus).toBe(false);
-        expect(permissions.sockets_session_bus).toBe(false);
-        expect(permissions.sockets_ssh_auth).toBe(false);
-        expect(permissions.sockets_pcsc).toBe(false);
-        expect(permissions.sockets_cups).toBe(false);
-        expect(permissions.sockets_gpg_agent).toBe(false);
-        expect(permissions.devices_dri).toBe(false);
-        expect(permissions.devices_kvm).toBe(false);
-        expect(permissions.devices_shm).toBe(false);
-        expect(permissions.devices_all).toBe(false);
-        expect(permissions.features_bluetooth).toBe(false);
-        expect(permissions.features_devel).toBe(false);
-        expect(permissions.features_multiarch).toBe(false);
-        expect(permissions.features_canbus).toBe(false);
-        expect(permissions.features_per_app_dev_shm).toBe(false);
-        expect(permissions.filesystems_host).toBe(false);
-        expect(permissions.filesystems_host_os).toBe(false);
-        expect(permissions.filesystems_host_etc).toBe(false);
-        expect(permissions.filesystems_home).toBe(false);
-        expect(permissions.session_talk).toEqual('');
-        expect(permissions.session_own).toEqual('');
-        expect(permissions.system_talk).toEqual('');
-        expect(permissions.system_own).toEqual('');
-        expect(permissions.persistent).toEqual('.test;tset.');
-        expect(permissions.variables).toEqual('TEST=no');
+        expect(permissionsDefault.shared_network).toBe(false);
+        expect(permissionsDefault.shared_ipc).toBe(false);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        expect(permissionsDefault.sockets_fallback_x11).toBe(false);
+        expect(permissionsDefault.sockets_wayland).toBe(false);
+        expect(permissionsDefault.sockets_pulseaudio).toBe(false);
+        expect(permissionsDefault.sockets_system_bus).toBe(false);
+        expect(permissionsDefault.sockets_session_bus).toBe(false);
+        expect(permissionsDefault.sockets_ssh_auth).toBe(false);
+        expect(permissionsDefault.sockets_pcsc).toBe(false);
+        expect(permissionsDefault.sockets_cups).toBe(false);
+        expect(permissionsDefault.sockets_gpg_agent).toBe(false);
+        expect(permissionsDefault.devices_dri).toBe(false);
+        expect(permissionsDefault.devices_kvm).toBe(false);
+        expect(permissionsDefault.devices_shm).toBe(false);
+        expect(permissionsDefault.devices_all).toBe(false);
+        expect(permissionsDefault.features_bluetooth).toBe(false);
+        expect(permissionsDefault.features_devel).toBe(false);
+        expect(permissionsDefault.features_multiarch).toBe(false);
+        expect(permissionsDefault.features_canbus).toBe(false);
+        expect(permissionsDefault.features_per_app_dev_shm).toBe(false);
+        expect(permissionsDefault.filesystems_host).toBe(false);
+        expect(permissionsDefault.filesystems_host_os).toBe(false);
+        expect(permissionsDefault.filesystems_host_etc).toBe(false);
+        expect(permissionsDefault.filesystems_home).toBe(false);
+        expect(permissionsDefault.session_talk).toEqual('');
+        expect(permissionsDefault.session_own).toEqual('');
+        expect(permissionsDefault.system_talk).toEqual('');
+        expect(permissionsDefault.system_own).toEqual('');
+        expect(permissionsDefault.persistent).toEqual('.test;tset.');
+        expect(permissionsDefault.variables).toEqual('TEST=no');
     });
 
     it('loads negated permissions', function() {
-        permissions.appId = _basicNegatedAppId;
+        permissionsDefault.appId = _basicNegatedAppId;
 
-        expect(permissions.shared_network).toBe(false);
-        expect(permissions.shared_ipc).toBe(false);
-        expect(permissions.sockets_x11).toBe(false);
-        expect(permissions.sockets_fallback_x11).toBe(false);
-        expect(permissions.sockets_wayland).toBe(false);
-        expect(permissions.sockets_pulseaudio).toBe(false);
-        expect(permissions.sockets_system_bus).toBe(false);
-        expect(permissions.sockets_session_bus).toBe(false);
-        expect(permissions.sockets_ssh_auth).toBe(false);
-        expect(permissions.sockets_pcsc).toBe(false);
-        expect(permissions.sockets_cups).toBe(false);
-        expect(permissions.sockets_gpg_agent).toBe(false);
-        expect(permissions.devices_dri).toBe(false);
-        expect(permissions.devices_kvm).toBe(false);
-        expect(permissions.devices_shm).toBe(false);
-        expect(permissions.devices_all).toBe(false);
-        expect(permissions.features_bluetooth).toBe(false);
-        expect(permissions.features_devel).toBe(false);
-        expect(permissions.features_multiarch).toBe(false);
-        expect(permissions.features_canbus).toBe(false);
-        expect(permissions.features_per_app_dev_shm).toBe(false);
-        expect(permissions.filesystems_host).toBe(false);
-        expect(permissions.filesystems_host_os).toBe(false);
-        expect(permissions.filesystems_host_etc).toBe(false);
-        expect(permissions.filesystems_home).toBe(false);
-        expect(permissions.filesystems_other).toEqual('!~/test');
-        expect(permissions.session_talk).toEqual('');
-        expect(permissions.session_own).toEqual('');
-        expect(permissions.system_talk).toEqual('');
-        expect(permissions.system_own).toEqual('');
-        expect(permissions.persistent).toEqual('tset.');
-        expect(permissions.variables).toEqual('TEST=no');
+        expect(permissionsDefault.shared_network).toBe(false);
+        expect(permissionsDefault.shared_ipc).toBe(false);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        expect(permissionsDefault.sockets_fallback_x11).toBe(false);
+        expect(permissionsDefault.sockets_wayland).toBe(false);
+        expect(permissionsDefault.sockets_pulseaudio).toBe(false);
+        expect(permissionsDefault.sockets_system_bus).toBe(false);
+        expect(permissionsDefault.sockets_session_bus).toBe(false);
+        expect(permissionsDefault.sockets_ssh_auth).toBe(false);
+        expect(permissionsDefault.sockets_pcsc).toBe(false);
+        expect(permissionsDefault.sockets_cups).toBe(false);
+        expect(permissionsDefault.sockets_gpg_agent).toBe(false);
+        expect(permissionsDefault.devices_dri).toBe(false);
+        expect(permissionsDefault.devices_kvm).toBe(false);
+        expect(permissionsDefault.devices_shm).toBe(false);
+        expect(permissionsDefault.devices_all).toBe(false);
+        expect(permissionsDefault.features_bluetooth).toBe(false);
+        expect(permissionsDefault.features_devel).toBe(false);
+        expect(permissionsDefault.features_multiarch).toBe(false);
+        expect(permissionsDefault.features_canbus).toBe(false);
+        expect(permissionsDefault.features_per_app_dev_shm).toBe(false);
+        expect(permissionsDefault.filesystems_host).toBe(false);
+        expect(permissionsDefault.filesystems_host_os).toBe(false);
+        expect(permissionsDefault.filesystems_host_etc).toBe(false);
+        expect(permissionsDefault.filesystems_home).toBe(false);
+        expect(permissionsDefault.filesystems_other).toEqual('!~/test');
+        expect(permissionsDefault.session_talk).toEqual('');
+        expect(permissionsDefault.session_own).toEqual('');
+        expect(permissionsDefault.system_talk).toEqual('');
+        expect(permissionsDefault.system_own).toEqual('');
+        expect(permissionsDefault.persistent).toEqual('tset.');
+        expect(permissionsDefault.variables).toEqual('TEST=no');
     });
 
     it('loads negated overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _basicNegatedAppId;
+        permissionsDefault.appId = _basicNegatedAppId;
 
-        expect(permissions.shared_network).toBe(true);
-        expect(permissions.shared_ipc).toBe(true);
-        expect(permissions.sockets_x11).toBe(true);
-        expect(permissions.sockets_fallback_x11).toBe(true);
-        expect(permissions.sockets_wayland).toBe(true);
-        expect(permissions.sockets_pulseaudio).toBe(true);
-        expect(permissions.sockets_system_bus).toBe(true);
-        expect(permissions.sockets_session_bus).toBe(true);
-        expect(permissions.sockets_ssh_auth).toBe(true);
-        expect(permissions.sockets_pcsc).toBe(true);
-        expect(permissions.sockets_cups).toBe(true);
-        expect(permissions.sockets_gpg_agent).toBe(true);
-        expect(permissions.devices_dri).toBe(true);
-        expect(permissions.devices_kvm).toBe(true);
-        expect(permissions.devices_shm).toBe(true);
-        expect(permissions.devices_all).toBe(true);
-        expect(permissions.features_bluetooth).toBe(true);
-        expect(permissions.features_devel).toBe(true);
-        expect(permissions.features_multiarch).toBe(true);
-        expect(permissions.features_canbus).toBe(true);
-        expect(permissions.features_per_app_dev_shm).toBe(true);
-        expect(permissions.filesystems_host).toBe(true);
-        expect(permissions.filesystems_host_os).toBe(true);
-        expect(permissions.filesystems_host_etc).toBe(true);
-        expect(permissions.filesystems_home).toBe(true);
-        expect(permissions.filesystems_other).toEqual('');
-        expect(permissions.session_talk).toEqual('org.test.Service-1');
-        expect(permissions.session_own).toEqual('org.test.Service-2');
-        expect(permissions.system_talk).toEqual('org.test.Service-3');
-        expect(permissions.system_own).toEqual('org.test.Service-4');
-        expect(permissions.persistent).toEqual('tset.;.test');
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.shared_network).toBe(true);
+        expect(permissionsDefault.shared_ipc).toBe(true);
+        expect(permissionsDefault.sockets_x11).toBe(true);
+        expect(permissionsDefault.sockets_fallback_x11).toBe(true);
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        expect(permissionsDefault.sockets_pulseaudio).toBe(true);
+        expect(permissionsDefault.sockets_system_bus).toBe(true);
+        expect(permissionsDefault.sockets_session_bus).toBe(true);
+        expect(permissionsDefault.sockets_ssh_auth).toBe(true);
+        expect(permissionsDefault.sockets_pcsc).toBe(true);
+        expect(permissionsDefault.sockets_cups).toBe(true);
+        expect(permissionsDefault.sockets_gpg_agent).toBe(true);
+        expect(permissionsDefault.devices_dri).toBe(true);
+        expect(permissionsDefault.devices_kvm).toBe(true);
+        expect(permissionsDefault.devices_shm).toBe(true);
+        expect(permissionsDefault.devices_all).toBe(true);
+        expect(permissionsDefault.features_bluetooth).toBe(true);
+        expect(permissionsDefault.features_devel).toBe(true);
+        expect(permissionsDefault.features_multiarch).toBe(true);
+        expect(permissionsDefault.features_canbus).toBe(true);
+        expect(permissionsDefault.features_per_app_dev_shm).toBe(true);
+        expect(permissionsDefault.filesystems_host).toBe(true);
+        expect(permissionsDefault.filesystems_host_os).toBe(true);
+        expect(permissionsDefault.filesystems_host_etc).toBe(true);
+        expect(permissionsDefault.filesystems_home).toBe(true);
+        expect(permissionsDefault.filesystems_other).toEqual('');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
+        expect(permissionsDefault.system_talk).toEqual('org.test.Service-3');
+        expect(permissionsDefault.system_own).toEqual('org.test.Service-4');
+        expect(permissionsDefault.persistent).toEqual('tset.;.test');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
     });
 
     it('creates overrides when properties changed', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _overridenAppId;
+        permissionsDefault.appId = _overridenAppId;
 
-        permissions.set_property('shared-network', false);
-        permissions.set_property('sockets_x11', false);
-        permissions.set_property('devices_dri', false);
-        permissions.set_property('shared-network', false);
-        permissions.set_property('features-bluetooth', false);
-        permissions.set_property('filesystems-host', false);
-        permissions.set_property('filesystems-other', '~/tset');
-        permissions.set_property('session_talk', 'org.test.Service-3');
-        permissions.set_property('session_own', 'org.test.Service-4');
-        permissions.set_property('system_talk', 'org.test.Service-5');
-        permissions.set_property('system_own', 'org.test.Service-6');
-        permissions.set_property('persistent', 'tset.');
-        permissions.set_property('variables', 'TEST=maybe');
+        permissionsDefault.set_property('shared-network', false);
+        permissionsDefault.set_property('sockets_x11', false);
+        permissionsDefault.set_property('devices_dri', false);
+        permissionsDefault.set_property('shared-network', false);
+        permissionsDefault.set_property('features-bluetooth', false);
+        permissionsDefault.set_property('filesystems-host', false);
+        permissionsDefault.set_property('filesystems-other', '~/tset');
+        permissionsDefault.set_property('session_talk', 'org.test.Service-3');
+        permissionsDefault.set_property('session_own', 'org.test.Service-4');
+        permissionsDefault.set_property('system_talk', 'org.test.Service-5');
+        permissionsDefault.set_property('system_own', 'org.test.Service-6');
+        permissionsDefault.set_property('persistent', 'tset.');
+        permissionsDefault.set_property('variables', 'TEST=maybe');
 
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
@@ -341,51 +343,51 @@ describe('Model', function() {
 
     it('reloads previous overrides later on', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _overridenAppId;
+        permissionsDefault.appId = _overridenAppId;
 
-        expect(permissions.shared_network).toBe(false);
-        expect(permissions.shared_ipc).toBe(true);
-        expect(permissions.sockets_x11).toBe(false);
-        expect(permissions.sockets_fallback_x11).toBe(true);
-        expect(permissions.sockets_wayland).toBe(true);
-        expect(permissions.sockets_pulseaudio).toBe(true);
-        expect(permissions.sockets_system_bus).toBe(true);
-        expect(permissions.sockets_session_bus).toBe(true);
-        expect(permissions.sockets_ssh_auth).toBe(true);
-        expect(permissions.sockets_cups).toBe(true);
-        expect(permissions.sockets_gpg_agent).toBe(true);
-        expect(permissions.devices_dri).toBe(false);
-        expect(permissions.devices_all).toBe(true);
-        expect(permissions.features_bluetooth).toBe(false);
-        expect(permissions.features_devel).toBe(true);
-        expect(permissions.features_multiarch).toBe(true);
-        expect(permissions.filesystems_host).toBe(false);
-        expect(permissions.filesystems_host_os).toBe(false);
-        expect(permissions.filesystems_host_etc).toBe(false);
-        expect(permissions.filesystems_home).toBe(true);
-        expect(permissions.filesystems_other).toEqual('~/tset');
-        expect(permissions.session_talk).toEqual('org.test.Service-3');
-        expect(permissions.session_own).toEqual('org.test.Service-4');
-        expect(permissions.system_talk).toEqual('org.test.Service-5');
-        expect(permissions.system_own).toEqual('org.test.Service-6');
-        expect(permissions.persistent).toEqual('tset.');
-        expect(permissions.variables).toEqual('TEST=maybe');
+        expect(permissionsDefault.shared_network).toBe(false);
+        expect(permissionsDefault.shared_ipc).toBe(true);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        expect(permissionsDefault.sockets_fallback_x11).toBe(true);
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        expect(permissionsDefault.sockets_pulseaudio).toBe(true);
+        expect(permissionsDefault.sockets_system_bus).toBe(true);
+        expect(permissionsDefault.sockets_session_bus).toBe(true);
+        expect(permissionsDefault.sockets_ssh_auth).toBe(true);
+        expect(permissionsDefault.sockets_cups).toBe(true);
+        expect(permissionsDefault.sockets_gpg_agent).toBe(true);
+        expect(permissionsDefault.devices_dri).toBe(false);
+        expect(permissionsDefault.devices_all).toBe(true);
+        expect(permissionsDefault.features_bluetooth).toBe(false);
+        expect(permissionsDefault.features_devel).toBe(true);
+        expect(permissionsDefault.features_multiarch).toBe(true);
+        expect(permissionsDefault.filesystems_host).toBe(false);
+        expect(permissionsDefault.filesystems_host_os).toBe(false);
+        expect(permissionsDefault.filesystems_host_etc).toBe(false);
+        expect(permissionsDefault.filesystems_home).toBe(true);
+        expect(permissionsDefault.filesystems_other).toEqual('~/tset');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-4');
+        expect(permissionsDefault.system_talk).toEqual('org.test.Service-5');
+        expect(permissionsDefault.system_own).toEqual('org.test.Service-6');
+        expect(permissionsDefault.persistent).toEqual('tset.');
+        expect(permissionsDefault.variables).toEqual('TEST=maybe');
     });
 
     it('resets overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _overridenAppId;
+        permissionsDefault.appId = _overridenAppId;
 
-        permissions.reset();
+        permissionsDefault.reset();
 
         expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
     });
 
     it('creates overrides when properties values changed', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _overridenAppId;
+        permissionsDefault.appId = _overridenAppId;
 
-        permissions.set_property('shared-network', false);
+        permissionsDefault.set_property('shared-network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(0);
@@ -398,9 +400,9 @@ describe('Model', function() {
 
     it('removes overrides when properties values restore', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _overridenAppId;
+        permissionsDefault.appId = _overridenAppId;
 
-        permissions.set_property('shared-network', true);
+        permissionsDefault.set_property('shared-network', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_overridenOverride, 0)).toEqual(-1);
@@ -413,21 +415,21 @@ describe('Model', function() {
 
     it('loads old filesystems overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _oldAppId;
+        permissionsDefault.appId = _oldAppId;
 
-        expect(permissions.filesystems_other).toEqual('xdg-pictures:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('xdg-pictures:ro');
     });
 
     it('reduces filesystems permission', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _reduceAppId;
+        permissionsDefault.appId = _reduceAppId;
 
-        expect(permissions.filesystems_other).toEqual('xdg-downloads');
+        expect(permissionsDefault.filesystems_other).toEqual('xdg-downloads');
 
-        permissions.set_property('filesystems-other', 'xdg-downloads:ro');
+        permissionsDefault.set_property('filesystems-other', 'xdg-downloads:ro');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_reduceOverride, group, _key, 'xdg-downloads:ro')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -438,14 +440,14 @@ describe('Model', function() {
 
     it('increases filesystems permission', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _increaseAppId;
+        permissionsDefault.appId = _increaseAppId;
 
-        expect(permissions.filesystems_other).toEqual('xdg-pictures:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('xdg-pictures:ro');
 
-        permissions.set_property('filesystems-other', 'xdg-pictures:rw');
+        permissionsDefault.set_property('filesystems-other', 'xdg-pictures:rw');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_increaseOverride, group, _key, 'xdg-pictures:rw')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -456,14 +458,14 @@ describe('Model', function() {
 
     it('increases filesystems permission (default)', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _increaseAppId;
+        permissionsDefault.appId = _increaseAppId;
 
-        expect(permissions.filesystems_other).toEqual('xdg-pictures:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('xdg-pictures:ro');
 
-        permissions.set_property('filesystems-other', 'xdg-pictures');
+        permissionsDefault.set_property('filesystems-other', 'xdg-pictures');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_increaseOverride, group, _key, 'xdg-pictures')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -474,14 +476,14 @@ describe('Model', function() {
 
     it('handles negated filesystems permission', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _negationAppId;
+        permissionsDefault.appId = _negationAppId;
 
-        expect(permissions.filesystems_other).toEqual('!~/negative;~/positive');
+        expect(permissionsDefault.filesystems_other).toEqual('!~/negative;~/positive');
 
-        permissions.set_property('filesystems-other', '!~/negative');
+        permissionsDefault.set_property('filesystems-other', '!~/negative');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '!~/positive')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -492,14 +494,14 @@ describe('Model', function() {
 
     it('handles removing negated filesystems permission', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _negationAppId;
+        permissionsDefault.appId = _negationAppId;
 
-        expect(permissions.filesystems_other).toEqual('!~/negative;~/positive');
+        expect(permissionsDefault.filesystems_other).toEqual('!~/negative;~/positive');
 
-        permissions.set_property('filesystems-other', '~/positive');
+        permissionsDefault.set_property('filesystems-other', '~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '~/negative')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -510,14 +512,14 @@ describe('Model', function() {
 
     it('handles adding negated filesystems override (manually)', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _negationAppId;
+        permissionsDefault.appId = _negationAppId;
 
-        expect(permissions.filesystems_other).toEqual('!~/negative;~/positive');
+        expect(permissionsDefault.filesystems_other).toEqual('!~/negative;~/positive');
 
-        permissions.set_property('filesystems-other', '!~/negative;!~/positive');
+        permissionsDefault.set_property('filesystems-other', '!~/negative;!~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '!~/positive')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -528,14 +530,14 @@ describe('Model', function() {
 
     it('handles removing negated filesystems override (manually)', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _negationAppId;
+        permissionsDefault.appId = _negationAppId;
 
-        expect(permissions.filesystems_other).toEqual('!~/negative;~/positive');
+        expect(permissionsDefault.filesystems_other).toEqual('!~/negative;~/positive');
 
-        permissions.set_property('filesystems-other', '~/negative;~/positive');
+        permissionsDefault.set_property('filesystems-other', '~/negative;~/positive');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_negationOverride, group, _key, '~/negative')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -546,14 +548,14 @@ describe('Model', function() {
 
     it('ignores unsupported permissions', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _unsupportedAppId;
+        permissionsDefault.appId = _unsupportedAppId;
 
-        expect(permissions.filesystems_other).toEqual('~/unsupported');
+        expect(permissionsDefault.filesystems_other).toEqual('~/unsupported');
 
-        permissions.set_property('filesystems-other', '');
+        permissionsDefault.set_property('filesystems-other', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(hasOnly(_unsupportedOverride, group, _key, '!~/unsupported')).toBe(true);
             done();
             return GLib.SOURCE_REMOVE;
@@ -564,10 +566,10 @@ describe('Model', function() {
 
     it('preserves unsupported permissions', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _unsupportedAppId;
+        permissionsDefault.appId = _unsupportedAppId;
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.set_property('filesystems-other', '');
+        permissionsDefault.set_property('filesystems-other', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'always')).toBe(true);
@@ -586,15 +588,15 @@ describe('Model', function() {
     });
 
     it('signals changes with overrides', function(done) {
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        permissions.set_property('shared-network', false);
+        permissionsDefault.set_property('shared-network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
+            expect(permissionsDefault.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -604,43 +606,43 @@ describe('Model', function() {
 
     it('signals changes with no overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
 
-        permissions.reset();
+        permissionsDefault.reset();
 
-        expect(permissions.emit.calls.first().args).toEqual(['changed', false, false]);
-        expect(permissions.emit.calls.count()).toEqual(2); // including reset signal
+        expect(permissionsDefault.emit.calls.first().args).toEqual(['changed', false, false]);
+        expect(permissionsDefault.emit.calls.count()).toEqual(2); // including reset signal
     });
 
     it('signals changes with unsupported overrides', function() {
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _unsupportedAppId;
+        permissionsDefault.appId = _unsupportedAppId;
 
-        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, true]);
+        expect(permissionsDefault.emit.calls.mostRecent().args).toEqual(['changed', true, true]);
     });
 
     it('signals changes without unsupported overrides', function() {
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _unsupportedAppId;
+        permissionsDefault.appId = _unsupportedAppId;
 
-        expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
+        expect(permissionsDefault.emit.calls.mostRecent().args).toEqual(['changed', false, false]);
     });
 
     it('saves pending updates before selecting other application', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.shared_network).toEqual(true);
+        expect(permissionsDefault.shared_network).toEqual(true);
 
-        permissions.set_property('shared-network', false);
+        permissionsDefault.set_property('shared-network', false);
 
-        permissions.appId = _unsupportedAppId;
+        permissionsDefault.appId = _unsupportedAppId;
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_basicOverride, 0)).toEqual(0);
@@ -654,13 +656,13 @@ describe('Model', function() {
 
     it('saves pending updates before shutting down', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.shared_network).toEqual(true);
+        expect(permissionsDefault.shared_network).toEqual(true);
 
-        permissions.set_property('shared-network', false);
+        permissionsDefault.set_property('shared-network', false);
 
-        permissions.shutdown();
+        permissionsDefault.shutdown();
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_basicOverride, 0)).toEqual(0);
@@ -675,9 +677,9 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoOld, true);
         infoDefault.reload();
         portalsDefault.reload();
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        const total = permissions.getAll().filter(p => p.supported).length;
+        const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(0);
     });
@@ -685,9 +687,10 @@ describe('Model', function() {
     it('enables all permissions with new flatpak version', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         infoDefault.reload();
-        permissions.appId = _basicAppId;
+        portalsDefault.reload();
+        permissionsDefault.appId = _basicAppId;
 
-        const total = permissions.getAll().filter(p => p.supported).length;
+        const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions);
     });
@@ -695,8 +698,9 @@ describe('Model', function() {
     it('disables permissions with stable flatpak version', function() {
         infoDefault.reload();
         portalsDefault.reload();
-        permissions.appId = _basicAppId;
-        const total = permissions.getAll().filter(p => p.supported).length;
+        permissionsDefault.appId = _basicAppId;
+
+        const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions - 8);
     });
@@ -705,9 +709,9 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _none, true);
         infoDefault.reload();
         portalsDefault.reload();
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        const total = permissions.getAll().filter(p => p.supported).length;
+        const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions);
     });
@@ -725,19 +729,19 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_CONFIG_DIR', _flatpakConfig, true);
         applicationsDefault.reload();
 
-        permissions.appId = _extraAppId;
+        permissionsDefault.appId = _extraAppId;
 
-        expect(permissions.shared_network).toBe(false);
-        expect(permissions.shared_ipc).toBe(true);
+        expect(permissionsDefault.shared_network).toBe(false);
+        expect(permissionsDefault.shared_ipc).toBe(true);
     });
 
     it('add new environment variable', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _environmentAppId;
+        permissionsDefault.appId = _environmentAppId;
 
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
 
-        permissions.set_property('variables', 'TEST=yes;TEST2=no');
+        permissionsDefault.set_property('variables', 'TEST=yes;TEST2=no');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST2', 'no')).toBe(true);
@@ -750,11 +754,11 @@ describe('Model', function() {
 
     it('override original environment variable', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _environmentAppId;
+        permissionsDefault.appId = _environmentAppId;
 
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
 
-        permissions.set_property('variables', 'TEST=no');
+        permissionsDefault.set_property('variables', 'TEST=no');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST', 'no')).toBe(true);
@@ -767,11 +771,11 @@ describe('Model', function() {
 
     it('remove original environment variable', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _environmentAppId;
+        permissionsDefault.appId = _environmentAppId;
 
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
 
-        permissions.set_property('variables', '');
+        permissionsDefault.set_property('variables', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST', '')).toBe(true);
@@ -784,18 +788,18 @@ describe('Model', function() {
 
     it('handles re-loading removed variables', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _variablesAppId;
+        permissionsDefault.appId = _variablesAppId;
 
-        expect(permissions.variables).toEqual('');
+        expect(permissionsDefault.variables).toEqual('');
     });
 
     it('handles non-valid environment variable', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _environmentAppId;
+        permissionsDefault.appId = _environmentAppId;
 
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
 
-        permissions.set_property('variables', 'TEST=yes;TE ST=no');
+        permissionsDefault.set_property('variables', 'TEST=yes;TE ST=no');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_environmentOverride, 0)).toEqual(-1);
@@ -808,17 +812,17 @@ describe('Model', function() {
 
     it('handles RUST debug export environment variables', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _environmentAppId;
+        permissionsDefault.appId = _environmentAppId;
 
-        expect(permissions.variables).toEqual('TEST=yes');
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
 
-        permissions.set_property('variables', 'TEST=yes=no');
+        permissionsDefault.set_property('variables', 'TEST=yes=no');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(hasOnly(_environmentOverride, 'Environment', 'TEST', 'yes=no')).toBe(true);
 
-            permissions.appId = _environmentAppId;
-            expect(permissions.variables).toEqual('TEST=yes=no');
+            permissionsDefault.appId = _environmentAppId;
+            expect(permissionsDefault.variables).toEqual('TEST=yes=no');
 
             done();
             return GLib.SOURCE_REMOVE;
@@ -829,13 +833,13 @@ describe('Model', function() {
 
     it('Add new well-known names', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _busAppId;
+        permissionsDefault.appId = _busAppId;
 
-        expect(permissions.session_talk).toEqual('org.test.Service-1');
-        expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
 
-        permissions.set_property('session-talk', 'org.test.Service-1;org.test.Service-3');
-        permissions.set_property('session-own', 'org.test.Service-2;org.test.Service-4');
+        permissionsDefault.set_property('session-talk', 'org.test.Service-1;org.test.Service-3');
+        permissionsDefault.set_property('session-own', 'org.test.Service-2;org.test.Service-4');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'talk')).toBe(false);
@@ -851,13 +855,13 @@ describe('Model', function() {
 
     it('Remove well-known names', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _busAppId;
+        permissionsDefault.appId = _busAppId;
 
-        expect(permissions.session_talk).toEqual('org.test.Service-1');
-        expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
 
-        permissions.set_property('session-talk', '');
-        permissions.set_property('session-own', '');
+        permissionsDefault.set_property('session-talk', '');
+        permissionsDefault.set_property('session-own', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'none')).toBe(true);
@@ -871,13 +875,13 @@ describe('Model', function() {
 
     it('Modify well-known names', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _busAppId;
+        permissionsDefault.appId = _busAppId;
 
-        expect(permissions.session_talk).toEqual('org.test.Service-1');
-        expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
 
-        permissions.set_property('session-talk', 'org.test.Service-2');
-        permissions.set_property('session-own', 'org.test.Service-1');
+        permissionsDefault.set_property('session-talk', 'org.test.Service-2');
+        permissionsDefault.set_property('session-own', 'org.test.Service-1');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_busOverride, _sessionGroup, 'org.test.Service-1', 'own')).toBe(true);
@@ -890,31 +894,31 @@ describe('Model', function() {
     });
 
     it('signals reset when done explicitly', function() {
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        permissions.reset();
+        permissionsDefault.reset();
 
-        expect(permissions.emit.calls.mostRecent().args).toEqual(['reset']);
+        expect(permissionsDefault.emit.calls.mostRecent().args).toEqual(['reset']);
     });
 
     it('restores overrides when undo', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.shared_network).toEqual(true);
-        permissions.set_property('shared_network', false);
+        expect(permissionsDefault.shared_network).toEqual(true);
+        permissionsDefault.set_property('shared_network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(permissions.shared_network).toBe(false);
+            expect(permissionsDefault.shared_network).toBe(false);
 
-            permissions.reset();
-            expect(permissions.shared_network).toBe(true);
+            permissionsDefault.reset();
+            expect(permissionsDefault.shared_network).toBe(true);
 
-            permissions.undo();
-            expect(permissions.shared_network).toBe(false);
+            permissionsDefault.undo();
+            expect(permissionsDefault.shared_network).toBe(false);
 
             done();
             return GLib.SOURCE_REMOVE;
@@ -924,25 +928,25 @@ describe('Model', function() {
     });
 
     it('handles portals permissions', function(done) {
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.portals_background).toBe(portalState.UNSET);
-        permissions.set_property('portals_background', portalState.ALLOWED);
+        expect(permissionsDefault.portals_background).toBe(portalState.UNSET);
+        permissionsDefault.set_property('portals_background', portalState.ALLOWED);
 
-        expect(permissions.portals_notification).toBe(portalState.UNSET);
-        permissions.set_property('portals_notification', portalState.ALLOWED);
+        expect(permissionsDefault.portals_notification).toBe(portalState.UNSET);
+        permissionsDefault.set_property('portals_notification', portalState.ALLOWED);
 
-        expect(permissions.portals_microphone).toBe(portalState.UNSET);
-        permissions.set_property('portals_microphone', portalState.ALLOWED);
+        expect(permissionsDefault.portals_microphone).toBe(portalState.UNSET);
+        permissionsDefault.set_property('portals_microphone', portalState.ALLOWED);
 
-        expect(permissions.portals_speakers).toBe(portalState.UNSET);
-        permissions.set_property('portals_speakers', portalState.ALLOWED);
+        expect(permissionsDefault.portals_speakers).toBe(portalState.UNSET);
+        permissionsDefault.set_property('portals_speakers', portalState.ALLOWED);
 
-        expect(permissions.portals_camera).toBe(portalState.UNSET);
-        permissions.set_property('portals_camera', portalState.ALLOWED);
+        expect(permissionsDefault.portals_camera).toBe(portalState.UNSET);
+        permissionsDefault.set_property('portals_camera', portalState.ALLOWED);
 
-        expect(permissions.portals_location).toBe(portalState.UNSET);
-        permissions.set_property('portals_location', portalState.ALLOWED);
+        expect(permissionsDefault.portals_location).toBe(portalState.UNSET);
+        permissionsDefault.set_property('portals_location', portalState.ALLOWED);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('background', 'background', 'yes', _basicAppId)).toBe(true);
@@ -960,9 +964,9 @@ describe('Model', function() {
     });
 
     it('resets portals permissions', function() {
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        permissions.reset();
+        permissionsDefault.reset();
 
         expect(getValueFromService('background', 'background', null, _basicAppId)).toBe(true);
         expect(getValueFromService('notifications', 'notification', null, _basicAppId)).toBe(true);
@@ -975,21 +979,21 @@ describe('Model', function() {
 
     it('restores portals permissions when undo', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _overridenAppId;
+        permissionsDefault.appId = _overridenAppId;
 
-        expect(permissions.portals_background).toBe(portalState.UNSET);
-        expect(permissions.portals_notification).toBe(portalState.UNSET);
-        expect(permissions.portals_microphone).toBe(portalState.UNSET);
-        expect(permissions.portals_speakers).toBe(portalState.UNSET);
-        expect(permissions.portals_camera).toBe(portalState.UNSET);
-        expect(permissions.portals_location).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_background).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_notification).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_microphone).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_speakers).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_camera).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_location).toBe(portalState.UNSET);
 
-        permissions.set_property('portals_notification', portalState.ALLOWED);
-        permissions.set_property('portals_background', portalState.ALLOWED);
-        permissions.set_property('portals_microphone', portalState.ALLOWED);
-        permissions.set_property('portals_speakers', portalState.ALLOWED);
-        permissions.set_property('portals_camera', portalState.ALLOWED);
-        permissions.set_property('portals_location', portalState.ALLOWED);
+        permissionsDefault.set_property('portals_notification', portalState.ALLOWED);
+        permissionsDefault.set_property('portals_background', portalState.ALLOWED);
+        permissionsDefault.set_property('portals_microphone', portalState.ALLOWED);
+        permissionsDefault.set_property('portals_speakers', portalState.ALLOWED);
+        permissionsDefault.set_property('portals_camera', portalState.ALLOWED);
+        permissionsDefault.set_property('portals_location', portalState.ALLOWED);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
@@ -999,7 +1003,7 @@ describe('Model', function() {
             expect(getValueFromService('devices', 'camera', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('location', 'location', 'EXACT', _overridenAppId)).toBe(true);
 
-            permissions.reset();
+            permissionsDefault.reset();
 
             expect(getValueFromService('background', 'background', null, _overridenAppId)).toBe(true);
             expect(getValueFromService('notifications', 'notification', null, _overridenAppId)).toBe(true);
@@ -1008,7 +1012,7 @@ describe('Model', function() {
             expect(getValueFromService('devices', 'camera', null, _overridenAppId)).toBe(true);
             expect(getValueFromService('location', 'location', null, _overridenAppId)).toBe(true);
 
-            permissions.undo();
+            permissionsDefault.undo();
 
             expect(getValueFromService('background', 'background', 'yes', _overridenAppId)).toBe(true);
             expect(getValueFromService('notifications', 'notification', 'yes', _overridenAppId)).toBe(true);
@@ -1025,9 +1029,9 @@ describe('Model', function() {
     });
 
     it('does not write to the store unnecessarily', function() {
-        permissions.appId = _reduceAppId;
+        permissionsDefault.appId = _reduceAppId;
 
-        expect(permissions.portals_background).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_background).toBe(portalState.UNSET);
         expect(getValueFromService('background', 'background', null, _reduceAppId)).toBe(true);
     });
 
@@ -1037,25 +1041,25 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         infoDefault.reload();
         portalsDefault.reload();
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        const total = permissions.getAll().filter(p => p.supported).length;
+        const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions - 1);
 
-        expect(permissions.portals_background).toBe(portalState.UNSET);
-        expect(permissions.portals_notification).toBe(portalState.UNSET);
-        expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
-        expect(permissions.portals_speakers).toBe(portalState.UNSET);
-        expect(permissions.portals_camera).toBe(portalState.UNSET);
-        expect(permissions.portals_location).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_background).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_notification).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_microphone).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_speakers).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_camera).toBe(portalState.UNSET);
+        expect(permissionsDefault.portals_location).toBe(portalState.UNSET);
     });
 
     it('handles writing to missing pair on permission store', function(done) {
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
-        permissions.set_property('portals_microphone', portalState.ALLOWED);
+        expect(permissionsDefault.portals_microphone).toBe(portalState.UNSUPPORTED);
+        permissionsDefault.set_property('portals_microphone', portalState.ALLOWED);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(getValueFromService('devices', 'microphone', null, _basicAppId)).toBe(true);
@@ -1073,35 +1077,35 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_INFO_PATH', _flatpakInfoNew, true);
         infoDefault.reload();
         portalsDefault.reload();
-        permissions.appId = _basicAppId;
+        permissionsDefault.appId = _basicAppId;
 
-        const total = permissions.getAll().filter(p => p.supported).length;
+        const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
         expect(total).toEqual(_totalPermissions - 6);
 
-        expect(permissions.portals_background).toBe(portalState.UNSUPPORTED);
-        expect(permissions.portals_notification).toBe(portalState.UNSUPPORTED);
-        expect(permissions.portals_microphone).toBe(portalState.UNSUPPORTED);
-        expect(permissions.portals_speakers).toBe(portalState.UNSUPPORTED);
-        expect(permissions.portals_camera).toBe(portalState.UNSUPPORTED);
-        expect(permissions.portals_location).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_background).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_notification).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_microphone).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_speakers).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_camera).toBe(portalState.UNSUPPORTED);
+        expect(permissionsDefault.portals_location).toBe(portalState.UNSUPPORTED);
     });
 
     it('handles trailing semicolons', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _trailingSemicolonId;
+        permissionsDefault.appId = _trailingSemicolonId;
 
-        expect(permissions.shared_network).toBe(true);
-        expect(permissions.shared_network).toBe(true);
-        expect(permissions.variables).toEqual('');
+        expect(permissionsDefault.shared_network).toBe(true);
+        expect(permissionsDefault.shared_network).toBe(true);
+        expect(permissionsDefault.variables).toEqual('');
 
         /* force change to verify that there ins't unsupported permissions */
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.set_property('shared-network', false);
+        permissionsDefault.set_property('shared-network', false);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(permissions.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
+            expect(permissionsDefault.emit.calls.mostRecent().args).toEqual(['changed', true, false]);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -1111,20 +1115,20 @@ describe('Model', function() {
 
     it('handles loading filesystems with mode', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _filesystemWithMode;
+        permissionsDefault.appId = _filesystemWithMode;
 
-        expect(permissions.filesystems_other).toEqual('home:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('home:ro');
     });
 
     it('handles overriding filesystems with mode', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _filesystemWithMode;
+        permissionsDefault.appId = _filesystemWithMode;
 
-        expect(permissions.filesystems_other).toEqual('host:ro;xdg-documents:ro;home:ro');
-        permissions.set_property('filesystems-other', 'home:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('host:ro;xdg-documents:ro;home:ro');
+        permissionsDefault.set_property('filesystems-other', 'home:ro');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('filesystems-other');
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
             expect(has(_filesystemWithModeOverride, group, _key, '!host')).toBe(true);
             expect(has(_filesystemWithModeOverride, group, _key, '!xdg-documents')).toBe(true);
             done();
@@ -1136,32 +1140,32 @@ describe('Model', function() {
 
     it('loads global overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalAppId;
+        permissionsDefault.appId = _globalAppId;
 
-        expect(permissions.sockets_x11).toBe(false);
-        expect(permissions.sockets_wayland).toBe(true);
-        expect(permissions.sockets_cups).toBe(true);
-        expect(permissions.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
-        expect(permissions.persistent).toEqual('.test1;.test2');
-        expect(permissions.filesystems_other).toEqual('~/test2;~/test3');
-        expect(permissions.session_talk).toEqual('org.test.Service-3');
-        expect(permissions.session_own).toEqual('org.test.Service-2');
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        expect(permissionsDefault.sockets_cups).toBe(true);
+        expect(permissionsDefault.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
+        expect(permissionsDefault.persistent).toEqual('.test1;.test2');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
     });
 
     it('handles overriding apps already globally overridden', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalAppId;
+        permissionsDefault.appId = _globalAppId;
 
-        expect(permissions.sockets_x11).toBe(false);
-        permissions.set_property('sockets-x11', true);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        permissionsDefault.set_property('sockets-x11', true);
 
-        expect(permissions.sockets_wayland).toBe(true);
-        permissions.set_property('sockets-wayland', false);
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        permissionsDefault.set_property('sockets-wayland', false);
 
-        expect(permissions.sockets_cups).toBe(true);
+        expect(permissionsDefault.sockets_cups).toBe(true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissions.constructor.getGroupForProperty('sockets-x11');
+            const group = permissionsDefault.constructor.getGroupForProperty('sockets-x11');
             expect(has(_globalWithGlobalOverride, group, 'sockets', 'x11')).toBe(true);
             expect(has(_globalWithGlobalOverride, group, 'sockets', '!wayland')).toBe(true);
             expect(hasInTotal(_globalWithGlobalOverride)).toEqual(2);
@@ -1174,10 +1178,10 @@ describe('Model', function() {
 
     it('handles variables already globally overridden', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalAppId;
+        permissionsDefault.appId = _globalAppId;
 
-        expect(permissions.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
-        permissions.set_property('variables', 'TEST2=override;TEST3=global;TEST4=override');
+        expect(permissionsDefault.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
+        permissionsDefault.set_property('variables', 'TEST2=override;TEST3=global;TEST4=override');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_globalWithGlobalOverride, 'Environment', 'TEST1', '')).toBe(true);
@@ -1193,10 +1197,10 @@ describe('Model', function() {
 
     it('handles persistent path already globally overridden', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalAppId;
+        permissionsDefault.appId = _globalAppId;
 
-        expect(permissions.persistent).toEqual('.test1;.test2');
-        permissions.set_property('persistent', '.test1;.test2;.test3');
+        expect(permissionsDefault.persistent).toEqual('.test1;.test2');
+        permissionsDefault.set_property('persistent', '.test1;.test2;.test3');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_globalWithGlobalOverride, 'Context', 'persistent', '.test3')).toBe(true);
@@ -1210,10 +1214,10 @@ describe('Model', function() {
 
     it('handles filesystem path already globally overridden', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalAppId;
+        permissionsDefault.appId = _globalAppId;
 
-        expect(permissions.filesystems_other).toEqual('~/test2;~/test3');
-        permissions.set_property('filesystems_other', '~/test4');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test3');
+        permissionsDefault.set_property('filesystems_other', '~/test4');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test2')).toBe(true);
@@ -1229,13 +1233,13 @@ describe('Model', function() {
 
     it('handles well-known names already globally overridden', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalAppId;
+        permissionsDefault.appId = _globalAppId;
 
-        expect(permissions.session_talk).toEqual('org.test.Service-3');
-        permissions.set_property('session_talk', 'org.test.Service-4');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
+        permissionsDefault.set_property('session_talk', 'org.test.Service-4');
 
-        expect(permissions.session_own).toEqual('org.test.Service-2');
-        permissions.set_property('session_own', 'org.test.Service-5');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
+        permissionsDefault.set_property('session_own', 'org.test.Service-5');
 
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
@@ -1254,53 +1258,53 @@ describe('Model', function() {
 
     it('restores all overriden global overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
-        permissions.appId = _globalRestoredAppId;
+        permissionsDefault.appId = _globalRestoredAppId;
 
-        expect(permissions.sockets_x11).toBe(true);
-        expect(permissions.sockets_wayland).toBe(false);
-        expect(permissions.sockets_cups).toBe(true);
-        expect(permissions.variables).toEqual('TEST2=override;TEST3=global;TEST4=override');
-        expect(permissions.persistent).toEqual('.test1;.test2;.test3');
-        expect(permissions.filesystems_other).toEqual('~/test4');
-        expect(permissions.session_talk).toEqual('org.test.Service-4');
-        expect(permissions.session_own).toEqual('org.test.Service-5');
+        expect(permissionsDefault.sockets_x11).toBe(true);
+        expect(permissionsDefault.sockets_wayland).toBe(false);
+        expect(permissionsDefault.sockets_cups).toBe(true);
+        expect(permissionsDefault.variables).toEqual('TEST2=override;TEST3=global;TEST4=override');
+        expect(permissionsDefault.persistent).toEqual('.test1;.test2;.test3');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test4');
+        expect(permissionsDefault.session_talk).toEqual('org.test.Service-4');
+        expect(permissionsDefault.session_own).toEqual('org.test.Service-5');
     });
 
     it('sets proper override statuses', function() {
         GLib.setenv('FLATPAK_USER_DIR', _statuses, true);
-        permissions.appId = _statusesAppId;
+        permissionsDefault.appId = _statusesAppId;
 
-        expect(permissions.sockets_cups_status).toEqual('original');
-        expect(permissions.sockets_wayland_status).toEqual('global');
-        expect(permissions.sockets_x11_status).toEqual('user');
-        expect(permissions.variables_status).toEqual('original;global;user');
-        expect(permissions.persistent_status).toEqual('original;global;user');
-        expect(permissions.filesystems_other_status).toEqual('original;global;user');
-        expect(permissions.session_talk_status).toEqual('original;global;user');
-        expect(permissions.session_own_status).toEqual('original;global;user');
+        expect(permissionsDefault.sockets_cups_status).toEqual('original');
+        expect(permissionsDefault.sockets_wayland_status).toEqual('global');
+        expect(permissionsDefault.sockets_x11_status).toEqual('user');
+        expect(permissionsDefault.variables_status).toEqual('original;global;user');
+        expect(permissionsDefault.persistent_status).toEqual('original;global;user');
+        expect(permissionsDefault.filesystems_other_status).toEqual('original;global;user');
+        expect(permissionsDefault.session_talk_status).toEqual('original;global;user');
+        expect(permissionsDefault.session_own_status).toEqual('original;global;user');
     });
 
     it('handles writting global overridden', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = 'global';
+        permissionsDefault.appId = 'global';
 
-        expect(permissions.sockets_x11).toBe(false);
-        permissions.set_property('sockets-x11', true);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        permissionsDefault.set_property('sockets-x11', true);
 
-        expect(permissions.variables).toEqual('');
-        permissions.set_property('variables', 'TEST=override');
+        expect(permissionsDefault.variables).toEqual('');
+        permissionsDefault.set_property('variables', 'TEST=override');
 
-        expect(permissions.persistent).toEqual('');
-        permissions.set_property('persistent', '.test');
+        expect(permissionsDefault.persistent).toEqual('');
+        permissionsDefault.set_property('persistent', '.test');
 
-        expect(permissions.filesystems_other).toEqual('');
-        permissions.set_property('filesystems_other', '~/test');
+        expect(permissionsDefault.filesystems_other).toEqual('');
+        permissionsDefault.set_property('filesystems_other', '~/test');
 
-        expect(permissions.session_talk).toEqual('');
-        permissions.set_property('session_talk', 'org.test.Talk');
+        expect(permissionsDefault.session_talk).toEqual('');
+        permissionsDefault.set_property('session_talk', 'org.test.Talk');
 
-        expect(permissions.session_own).toEqual('');
-        permissions.set_property('session_own', 'org.test.Own');
+        expect(permissionsDefault.session_own).toEqual('');
+        permissionsDefault.set_property('session_own', 'org.test.Own');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_globalOverride, 'Context', 'sockets', 'x11')).toBe(true);
@@ -1323,15 +1327,15 @@ describe('Model', function() {
         source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = 'global';
+        permissionsDefault.appId = 'global';
 
-        expect(permissions.sockets_x11).toBe(false);
-        expect(permissions.filesystems_other).toEqual('!~/test');
-        expect(permissions.variables).toEqual('');
-        expect(permissions.session_talk).toEqual('');
-        expect(permissions.session_own).toEqual('');
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        expect(permissionsDefault.filesystems_other).toEqual('!~/test');
+        expect(permissionsDefault.variables).toEqual('');
+        expect(permissionsDefault.session_talk).toEqual('');
+        expect(permissionsDefault.session_own).toEqual('');
 
-        permissions.set_property('shared-network', true);
+        permissionsDefault.set_property('shared-network', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_globalOverride, 'Context', 'shared', 'unsupported')).toBe(true);
@@ -1350,14 +1354,14 @@ describe('Model', function() {
 
     it('handles weird interactions with reset mode', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _resetModeId;
+        permissionsDefault.appId = _resetModeId;
 
-        expect(permissions.filesystems_host).toBe(true);
-        expect(permissions.filesystems_other).toEqual('');
-        permissions.set_property('filesystems_other', '!host:reset');
+        expect(permissionsDefault.filesystems_host).toBe(true);
+        expect(permissionsDefault.filesystems_other).toEqual('');
+        permissionsDefault.set_property('filesystems_other', '!host:reset');
 
-        expect(permissions.sockets_x11).toBe(false);
-        permissions.set_property('sockets_x11', true);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        permissionsDefault.set_property('sockets_x11', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_resetModeOverride, 'Context', 'sockets', 'x11')).toBe(true);
@@ -1376,13 +1380,13 @@ describe('Model', function() {
         source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
 
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissions.appId = _resetModeId;
+        permissionsDefault.appId = _resetModeId;
 
-        expect(permissions.filesystems_host).toBe(true);
-        expect(permissions.filesystems_other).toEqual('!host:reset');
+        expect(permissionsDefault.filesystems_host).toBe(true);
+        expect(permissionsDefault.filesystems_other).toEqual('!host:reset');
 
-        expect(permissions.sockets_x11).toBe(false);
-        permissions.set_property('sockets_x11', true);
+        expect(permissionsDefault.sockets_x11).toBe(false);
+        permissionsDefault.set_property('sockets_x11', true);
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_resetModeOverride, 'Context', 'sockets', 'x11')).toBe(true);
@@ -1395,11 +1399,11 @@ describe('Model', function() {
     });
 
     it('handles malformed overrides', function() {
-        spyOn(permissions, 'emit');
+        spyOn(permissionsDefault, 'emit');
 
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissions.appId = _malformedAppId;
+        permissionsDefault.appId = _malformedAppId;
 
-        expect(permissions.emit.calls.first().args).toEqual(['failed']);
+        expect(permissionsDefault.emit.calls.first().args).toEqual(['failed']);
     });
 });
