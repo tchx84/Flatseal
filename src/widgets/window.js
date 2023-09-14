@@ -134,7 +134,6 @@ var FlatsealWindow = GObject.registerClass({
 
         this._setupApplications();
         this._setupPermissions();
-        this._updatePermissions();
 
         this._showApplications();
         this._backButton.set_sensitive(true);
