@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2022.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-08 14:01-0400\n"
-"PO-Revision-Date: 2022-10-04 13:20+0700\n"
+"PO-Revision-Date: 2023-09-14 13:14+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
 "Language: id\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -212,7 +212,7 @@ msgstr "Daftar sumber daya yang diberikan secara selektif ke aplikasi"
 #: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
-msgstr "Tidak didukung oleh versi Flatpak yang diinstal"
+msgstr "Tidak didukung oleh versi Flatpak yang dipasang"
 
 #: src/models/portals.js:256
 msgid "Requires permission store version 2 or newer"
@@ -301,7 +301,7 @@ msgstr "Versi"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Last Updated"
-msgstr "Terakhir Diperbarui"
+msgstr "Terakhir Dimutakhirkan"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Runtime"
@@ -472,7 +472,7 @@ msgstr "Tidak dapat membuat, memodifikasi, atau membaca: %s"
 
 #: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
-msgstr "Menghapus"
+msgstr "Tidak Diatur"
 
 #: src/widgets/relativePathRow.js:84
 msgid "Default paths can't be removed"
@@ -569,7 +569,7 @@ msgstr "Cari sebelumnya"
 
 #: src/widgets/window.js:101
 msgid "Permissions have been reset"
-msgstr "Izin telah disetel ulang"
+msgstr "Izin telah diatur ulang"
 
 #: src/widgets/window.js:102
 msgid "_Undo"
@@ -581,7 +581,7 @@ msgstr "Tidak dapat memuat penggantian karena konten salah"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr "Disegarkan karena perubahan dalam instalasi Flatpak"
+msgstr "Disegarkan karena perubahan dalam pemasangan Flatpak"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
