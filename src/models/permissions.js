@@ -400,6 +400,12 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._cancelMonitors();
     }
 
+    reload() {
+        this.shutdown();
+        this._setup();
+        this._setupMonitors();
+    }
+
     set appId(appId) {
         this._backup = null;
         this.shutdown();
