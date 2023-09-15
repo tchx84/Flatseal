@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-08 14:01-0400\n"
-"PO-Revision-Date: 2022-10-03 19:38+0200\n"
+"PO-Revision-Date: 2023-09-13 17:14+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -48,7 +48,7 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr "Applicatie-ID die het laatst is geselecteerd"
+msgstr "De laatstgekozen toepassings-id"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
@@ -579,11 +579,11 @@ msgstr "_Ongedaan maken"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
-msgstr "Kan wijzigingen niet laden vanwege onjuiste inhoud"
+msgstr "De voorrangsregels kunnen niet worden geladen wegens onjuiste inhoud"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr "Vernieuwd vanwege wijzigingen in Flatpak-installaties"
+msgstr "Vernieuwd wegens wijzigingen in Flatpakinstallaties"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
