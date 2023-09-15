@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-08 14:01-0400\n"
-"PO-Revision-Date: 2023-05-14 21:00+0300\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2023-09-15 19:11+0300\n"
+"Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -32,7 +32,7 @@ msgstr "Керуйте дозволами Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr "заклеїти;пісочниця;"
+msgstr "seal;sandbox;флатсіал;заклеїти;пісочниця;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
@@ -49,7 +49,7 @@ msgstr "Martin Abente Lahaye"
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr "Ідентифікатор програми, який було вибрано востаннє"
+msgstr "Ідентифікатор додатку, який був обраний в останній раз"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
@@ -580,11 +580,11 @@ msgstr "_Скасувати дію"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
-msgstr "Не вдається завантажити зміни через неправильний вміст"
+msgstr "Не вдається завантажити зміну налаштувань через неправильний вміст"
 
 #: src/widgets/window.js:115
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr "Оновлено через зміни в установці Flatpak"
+msgstr "Оновлено через зміни в налаштуваннях Flatpak"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
