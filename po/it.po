@@ -1,15 +1,15 @@
 # Italian translations for flatseal package
 # Traduzioni italiane per il pacchetto flatseal..
-# Copyright (C) 2020, 2021 THE flatseal'S COPYRIGHT HOLDER
+# Copyright (C) 2020, 2021, 2023 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Milo Casagrande <milo@milo.name>, 2020, 2021.
+# Milo Casagrande <milo@milo.name>, 2020, 2021, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-08 14:01-0400\n"
-"PO-Revision-Date: 2021-03-22 20:49+0100\n"
+"PO-Revision-Date: 2023-09-14 10:56+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -32,7 +32,7 @@ msgstr "Un gestore di permessi per Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;"
-msgstr ""
+msgstr "permessi;seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
@@ -502,7 +502,7 @@ msgstr "Generale"
 
 #: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
-msgstr "Mostra mnemonici"
+msgstr "Mostra acceleratori"
 
 #: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
@@ -510,15 +510,15 @@ msgstr "Mostra documentazione"
 
 #: src/widgets/shortcutsWindow.ui:27
 msgid "Show menu"
-msgstr "Mostra menu"
+msgstr "Mostra menù"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Keyboard shortcuts"
-msgstr "Tasti rapidi"
+msgstr "Scorciatoie da tastiera"
 
 #: src/widgets/shortcutsWindow.ui:39
 msgid "Quit"
-msgstr "Uscire"
+msgstr "Esce"
 
 #: src/widgets/shortcutsWindow.ui:46
 msgid "Navigation"
@@ -526,19 +526,19 @@ msgstr "Navigazione"
 
 #: src/widgets/shortcutsWindow.ui:50
 msgid "Move left"
-msgstr "Muovere a sinistra"
+msgstr "Sposta a sinistra"
 
 #: src/widgets/shortcutsWindow.ui:56
 msgid "Move up"
-msgstr "Muoviti verso l'alto"
+msgstr "Sposta in alto"
 
 #: src/widgets/shortcutsWindow.ui:62
 msgid "Move right"
-msgstr "Muovere a destra"
+msgstr "Sposta a destra"
 
 #: src/widgets/shortcutsWindow.ui:68
 msgid "Move down"
-msgstr "Muoviti verso il basso"
+msgstr "Sposta in basso"
 
 #: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
 msgid "Applications"
@@ -554,7 +554,7 @@ msgstr "Permessi"
 
 #: src/widgets/shortcutsWindow.ui:90
 msgid "Toggle"
-msgstr "Modificare"
+msgstr "Attiva/Disattiva"
 
 #: src/widgets/shortcutsWindow.ui:97
 msgid "Documentation"
@@ -562,11 +562,11 @@ msgstr "Documentazione"
 
 #: src/widgets/shortcutsWindow.ui:107
 msgid "Find next"
-msgstr "Trova il prossimo risultato"
+msgstr "Trova successivo"
 
 #: src/widgets/shortcutsWindow.ui:113
 msgid "Find previous"
-msgstr "Trova il risultato precedente"
+msgstr "Trova precedente"
 
 #: src/widgets/window.js:101
 msgid "Permissions have been reset"
@@ -574,7 +574,7 @@ msgstr "I permessi sono stati reimpostati"
 
 #: src/widgets/window.js:102
 msgid "_Undo"
-msgstr "_Annulla"
+msgstr "A_nnulla"
 
 #: src/widgets/window.js:108
 msgid "Cannot load overrides due to incorrect contents"
@@ -586,7 +586,7 @@ msgstr "Aggiornato a causa di modifiche nelle installazioni Flatpak"
 
 #: src/widgets/window.ui:35
 msgid "Main Menu"
-msgstr "Menu principale"
+msgstr "Menù principale"
 
 #: src/widgets/window.ui:82
 msgid "No applications found."
