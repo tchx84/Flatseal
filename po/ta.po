@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-08 14:01-0400\n"
-"PO-Revision-Date: 2022-10-03 18:41+0530\n"
+"PO-Revision-Date: 2023-09-13 20:46+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -35,8 +35,8 @@ msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your "
-"Flatpak applications."
+"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
+"applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
@@ -48,7 +48,7 @@ msgstr "Martin Abente Lahaye"
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr "கடைசியாக தேர்ந்தெடுக்கப்பட்ட விண்ணப்ப ஐடி"
+msgstr "கடைசியாக தேர்ந்தெடுக்கப்பட்ட பயன்பாடு ஐடி"
 
 #: src/models/applications.js:233 src/models/applications.js:293
 #: src/models/applications.js:294 src/models/applications.js:295
