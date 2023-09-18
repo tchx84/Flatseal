@@ -39,6 +39,13 @@ var FlatpakDevicesModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: 'device=dri',
             },
+            'devices-input': {
+                supported: this._info.supports('1.15.6'),
+                description: _('Input devices'),
+                option: 'input',
+                value: this.constructor.getDefault(),
+                example: 'device=input',
+            },
             'devices-kvm': {
                 supported: this._info.supports('0.6.12'),
                 description: _('Virtualization'),
