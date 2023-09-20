@@ -2,32 +2,25 @@
 <interface>
   <template class="FlatsealWindow" parent="AdwApplicationWindow">
     <property name="title">Flatseal</property>
+    <property name="width-request">360</property>
+    <property name="height-request">294</property>
     <child>
-      <object class="AdwLeaflet" id="contentLeaflet">
-        <property name="width-request">360</property>
-        <property name="can-navigate-back">True</property>
-        <child>
-          <object class="AdwLeafletPage">
-            <property name="name">applications</property>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 720sp</condition>
+        <setter object="contentLeaflet" property="collapsed">True</setter>
+      </object>
+    </child>
+    <property name="content">
+      <object class="AdwNavigationSplitView" id="contentLeaflet">
+         <property name="sidebar">
+          <object class="AdwNavigationPage">
+            <property name="tag">applications</property>
+            <property name="title" translatable="yes">Applications</property>
             <property name="child">
-              <object class="GtkBox">
-                <property name="width-request">360</property>
-                <style>
-                  <class name="applications" />
-                </style>
-                <property name="orientation">vertical</property>
-                <child>
+              <object class="AdwToolbarView">
+                <child type="top">
                   <object class="AdwHeaderBar" id="applicationsHeaderBar">
-                    <property name="width-request">360</property>
                     <property name="visible">True</property>
-                    <property name="title-widget">
-                      <object class="AdwWindowTitle">
-                        <property name="title" translatable="yes">Applications</property>
-                      </object>
-                    </property>
-                    <binding name="show-end-title-buttons">
-                      <lookup name="folded">contentLeaflet</lookup>
-                    </binding>
                     <child type="end">
                       <object class="GtkMenuButton" id="menuButton">
                         <property name="icon-name">open-menu-symbolic</property>
@@ -53,7 +46,7 @@
                     </child>
                   </object>
                 </child>
-                <child>
+                <property name="content">
                   <object class="AdwToastOverlay" id="applicationsToastOverlay">
                     <property name="child">
                       <object class="GtkBox">
@@ -92,47 +85,26 @@
                       </object>
                     </property>
                   </object>
-                </child>
+                </property>
               </object>
             </property>
           </object>
-        </child>
-        <child>
-          <object class="AdwLeafletPage">
-            <property name="navigatable">False</property>
+        </property>
+        <property name="content">
+          <object class="AdwNavigationPage">
+            <property name="tag">permissions</property>
+            <property name="title" translatable="yes">Permissions</property>
             <property name="child">
-              <object class="GtkSeparator">
-                <property name="orientation">vertical</property>
-              </object>
-            </property>
-          </object>
-        </child>
-        <child>
-          <object class="AdwLeafletPage">
-            <property name="name">permissions</property>
-            <property name="child">
-              <object class="GtkBox">
-                <property name="orientation">vertical</property>
-                <child>
+              <object class="AdwToolbarView">
+                <child type="top">
                   <object class="AdwHeaderBar" id="permissionsHeaderBar">
-                    <property name="width-request">360</property>
                     <property name="hexpand">True</property>
-                    <binding name="show-start-title-buttons">
-                      <lookup name="folded">contentLeaflet</lookup>
-                    </binding>
                     <property name="title-widget">
                       <object class="AdwWindowTitle" id="permissionsTitle"/>
                     </property>
                     <child>
                       <object class="GtkBox" id="startHeaderBox">
                         <property name="valign">center</property>
-                        <child>
-                          <object class="GtkButton" id="backButton">
-                            <property name="sensitive">False</property>
-                            <property name="valign">center</property>
-                            <property name="icon-name">go-previous-symbolic</property>
-                          </object>
-                        </child>
                       </object>
                     </child>
                     <child type="end">
@@ -142,12 +114,11 @@
                     </child>
                   </object>
                 </child>
-                <child>
+                <property name="content">
                   <object class="AdwToastOverlay" id="toastOverlay">
                     <property name="child">
                       <object class="GtkBox">
                         <property name="vexpand">True</property>
-                        <property name="width-request">360</property>
                         <property name="orientation">vertical</property>
                         <child>
                           <object class="GtkStack" id="permissionsStack">
@@ -200,12 +171,12 @@
                       </object>
                     </property>
                   </object>
-                </child>
+                </property>
               </object>
             </property>
           </object>
-        </child>
+        </property>
       </object>
-    </child>
+    </property>
   </template>
 </interface>

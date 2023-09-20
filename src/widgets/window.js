@@ -66,7 +66,6 @@ var FlatsealWindow = GObject.registerClass({
         'startActionBox',
         'endActionBox',
         'menuButton',
-        'backButton',
         'contentLeaflet',
         'permissionsTitle',
         'toastOverlay',
@@ -116,9 +115,6 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsToast.timeout = null;
         this._applications.connect('changed', this._showApplicationsToast.bind(this));
 
-        this._contentLeaflet.bind_property(
-            'folded', this._backButton, 'visible', _bindReadFlags);
-
         this._applicationsListBox.set_filter_func(this._filter.bind(this));
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
 
@@ -136,8 +132,6 @@ var FlatsealWindow = GObject.registerClass({
         this._setupPermissions();
 
         this._showApplications();
-        this._backButton.set_sensitive(true);
-        this._backButton.connect('clicked', this._showApplications.bind(this));
 
         this._applicationsSearchBar.set_key_capture_widget(this.root);
     }
@@ -197,12 +191,12 @@ var FlatsealWindow = GObject.registerClass({
         this._appInfoViewer = new FlatsealAppInfoViewer();
         this._appInfoGroup.add(this._appInfoViewer);
         this._contentLeaflet.bind_property(
-            'folded', this._appInfoViewer, 'compact', _bindReadFlags);
+            'collapsed', this._appInfoViewer, 'compact', _bindReadFlags);
 
         this._globalInfoViewer = new FlatsealGlobalInfoViewer();
         this._appInfoGroup.add(this._globalInfoViewer);
         this._contentLeaflet.bind_property(
-            'folded', this._globalInfoViewer, 'compact', _bindReadFlags);
+            'collapsed', this._globalInfoViewer, 'compact', _bindReadFlags);
 
         let lastGroup = '';
         let lastPrefsGroup;
@@ -294,7 +288,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _activateApplication() {
-        if (this._contentLeaflet.folded)
+        if (this._contentLeaflet.collapsed)
             this._showPermissions();
     }
 
@@ -383,12 +377,11 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _showApplications() {
-        this._contentLeaflet.set_visible_child_name('applications');
-        this._backButton.active = false;
+        this._contentLeaflet.show_content = false;
     }
 
     _showPermissions() {
-        this._contentLeaflet.set_visible_child_name('permissions');
+        this._contentLeaflet.show_content = true;
     }
 
     _showToast() {
