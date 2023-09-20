@@ -1,6 +1,9 @@
 .navigation-sidebar row {
     padding: 3px 0px;
 }
+searchbar box {
+    background-color: transparent;
+}
 
 .permissions clamp {
     margin-bottom: 25px;

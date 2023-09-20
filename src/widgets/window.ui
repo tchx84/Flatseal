@@ -59,7 +59,9 @@
 	                      <child>
 	                        <object class="GtkSearchBar" id="applicationsSearchBar">
 	                          <child>
-	                            <object class="GtkSearchEntry" id="applicationsSearchEntry" />
+	                            <object class="GtkSearchEntry" id="applicationsSearchEntry">
+	                              <property name="hexpand">True</property>
+	                            </object>
 	                          </child>
 	                        </object>
 	                      </child>
