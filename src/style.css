@@ -81,7 +81,7 @@ row .content .path popover treeview:selected {
 
 .permissions .app-info .name {
     font-size: xx-large;
-    font-weight: bold;
+    font-weight: ultra-bold;
     margin-bottom: 5px;
 }
 
