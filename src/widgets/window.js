@@ -42,7 +42,6 @@ const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYN
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
-const ACTION_BAR_BREAKPOINT = 540;
 const APP_SELECTION_DELAY = 100;
 
 
@@ -407,17 +406,6 @@ var FlatsealWindow = GObject.registerClass({
 
     _undoReset() {
         this._permissions.undo();
-    }
-
-    /* XXX switch to Breakpoints API when available */
-    vfunc_size_allocate(width, height, baseline) {
-        const visible = width <= ACTION_BAR_BREAKPOINT;
-
-        this._detailsHeaderButton.visible = !visible;
-        this._resetHeaderButton.visible = !visible;
-        this._actionBar.visible = visible;
-
-        return super.vfunc_size_allocate(width, height, baseline);
     }
 
     vfunc_close_request() {

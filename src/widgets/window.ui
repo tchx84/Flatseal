@@ -8,6 +8,9 @@
       <object class="AdwBreakpoint">
         <condition>max-width: 720sp</condition>
         <setter object="contentLeaflet" property="collapsed">True</setter>
+        <setter object="startHeaderBox" property="visible">False</setter>
+        <setter object="endHeaderBox" property="visible">False</setter>
+        <setter object="actionBar" property="visible">True</setter>
       </object>
     </child>
     <property name="content">
