@@ -5,15 +5,15 @@ on:
 name: CI
 jobs:
   flatpak:
-    name: "Flatpak Builder"
+    name: "Flatpak"
     runs-on: ubuntu-latest
     container:
-      image: bilelmoussaoui/flatpak-github-actions:gnome-44
+      image: bilelmoussaoui/flatpak-github-actions:gnome-46
       options: --privileged
     steps:
-    - uses: actions/checkout@v2
-    - uses: flatpak/flatpak-github-actions/flatpak-builder@v5
+    - uses: actions/checkout@v4
+    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
       with:
-        bundle: "flatseal-dev.flatpak"
+        bundle: "flatseal.flatpak"
         manifest-path: "com.github.tchx84.Flatseal.json"
         run-tests: "true"
