@@ -18,7 +18,7 @@
 
 /* exported FlatpakApplicationsModel getDefault */
 
-const {GObject, GLib, Gio, AppStreamGlib} = imports.gi;
+const {GObject, GLib, Gio, AppStream} = imports.gi;
 
 const {info} = imports.models;
 
@@ -261,21 +261,19 @@ var FlatpakApplicationsModel = GObject.registerClass({
             'export', 'share', 'applications', appdata.launchable,
         ]);
 
-        if (GLib.access(path, 0) !== 0)
+        const file = Gio.File.new_for_path(path);
+        if (!file.query_exists(null))
             return desktop;
 
-        const app = new AppStreamGlib.App();
-
+        const metadata = new AppStream.Metadata();
         try {
-            app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+            metadata.parse_file(file, AppStream.FormatKind.DESKTOP_ENTRY);
         } catch (err) {
             return desktop;
         }
 
-        if (app === null)
-            return desktop;
-
-        const icon = app.get_icon_default();
+        const component = metadata.get_component();
+        const icon = component.get_icon_stock();
         if (icon === null)
             return desktop;
 
@@ -301,32 +299,31 @@ var FlatpakApplicationsModel = GObject.registerClass({
             'files', 'share', 'appdata', `${appId}.appdata.xml`,
         ]);
 
-        if (GLib.access(path, 0) !== 0)
+        const file = Gio.File.new_for_path(path);
+        if (!file.query_exists(null))
             return appdata;
 
-        const app = new AppStreamGlib.App();
-
+        const metadata = new AppStream.Metadata();
         try {
-            app.parse_file(path, AppStreamGlib.AppParseFlags.NONE);
+            metadata.parse_file(file, AppStream.FormatKind.XML);
         } catch (err) {
             return appdata;
         }
 
-        if (app === null)
-            return appdata;
+        const component = metadata.get_component();
 
-        if (app.get_name(null) !== null)
-            appdata.name = app.get_name(null);
+        if (component.get_name())
+            appdata.name = component.get_name();
 
-        if (app.get_developer_name(null) !== null)
-            appdata.author = app.get_developer_name(null);
+        if (component.get_developer_name())
+            appdata.author = component.get_developer_name();
 
-        const launchable = app.get_launchable_default();
-        if (launchable !== null && launchable.get_value())
-            appdata.launchable = launchable.get_value();
+        const launchable = component.get_launchable(AppStream.LaunchableKind.DESKTOP_ID);
+        if (launchable && launchable.get_entries())
+            [appdata.launchable] = launchable.get_entries();
 
-        const release = app.get_release_default();
-        if (release === null)
+        const [release] = component.get_releases();
+        if (!release)
             return appdata;
 
         if (release.get_version() !== null)
