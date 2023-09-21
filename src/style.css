@@ -2,6 +2,7 @@
     padding: 3px 0px;
 }
 searchbar box {
+    box-shadow: none;
     background-color: transparent;
 }
 
