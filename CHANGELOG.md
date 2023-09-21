@@ -1,5 +1,18 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed validations for the persist section, e.g. to prevent line breaks.
+- Fixed handling of broken overrides files.
+- Fixed Italian translation.
+- Added Norwegian Bokmål translation.
+- Added support for the new input permission.
+- Added save and restore selected application.
+- Added detection of applications installs and uninstalls.
+- Added detection of external changes to permissions, e.g. using flatpak-override.
+- Changed to Libadwaita 1.4 for visual refinements and better performance.
+- Changed to GNOME 45 runtime for stability.
+
 ## [2.0.2] - 2023-07-07
 
 - Fixed GNOME Software not showing the application icon.
