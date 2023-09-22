@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-22 08:55-0400\n"
-"PO-Revision-Date: 2022-05-19 00:15+0200\n"
+"PO-Revision-Date: 2023-09-22 16:22+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -82,7 +82,7 @@ msgstr "GPU-Beschleunigung"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Eingabegeräte"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
@@ -94,7 +94,7 @@ msgstr "Gemeinsam genutzter Speicher"
 
 #: src/models/devices.js:65
 msgid "All devices (e.g. webcam)"
-msgstr "Alle Geräte (z.B. Webcam)"
+msgstr "Alle Geräte (z. B. Webcam)"
 
 #: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
@@ -102,7 +102,7 @@ msgstr "Liste der in der Sandbox verfügbaren Geräte"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Entwicklungs-Systemaufrufe (z.B. ptrace)"
+msgstr "Entwicklungs-Systemaufrufe (z. B. ptrace)"
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
@@ -150,7 +150,7 @@ msgstr "Andere Dateien"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "z.B. ~/Spiele:ro, xdg-pictures, etc"
+msgstr "z. B. ~/Spiele:ro, xdg-pictures, etc."
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -158,7 +158,7 @@ msgstr "Dateien"
 
 #: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
-msgstr "z.B. .thunderbird"
+msgstr "z. B. .thunderbird"
 
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
@@ -291,7 +291,7 @@ msgstr "Variablen"
 
 #: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr "z.B. GTK_DEBUG=interactive"
+msgstr "z. B. GTK_DEBUG=interactive"
 
 #: src/models/variables.js:73
 msgid "List of variables exported to the application"
