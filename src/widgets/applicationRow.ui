@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="FlatsealApplicationRow" parent="AdwActionRow">
+    <property name="title-lines">1</property>
+    <property name="subtitle-lines">1</property>
     <property name="activatable">True</property>
     <child type="prefix">
       <object class="GtkImage" id="icon">
