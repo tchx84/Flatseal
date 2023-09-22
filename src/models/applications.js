@@ -22,7 +22,7 @@ const {GObject, GLib, Gio, AppStream} = imports.gi;
 
 const {info} = imports.models;
 
-const SIGNAL_DELAY = 500;
+const SIGNAL_DELAY = 2500;
 const TARGET_EVENTS = [
     Gio.FileMonitorEvent.CHANGES_DONE_HINT,
     Gio.FileMonitorEvent.DELETED,
