@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-08 14:01-0400\n"
-"PO-Revision-Date: 2023-09-15 19:11+0300\n"
+"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"PO-Revision-Date: 2023-09-22 17:00+0300\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -51,8 +51,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "Ідентифікатор додатку, який був обраний в останній раз"
 
-#: src/models/applications.js:233 src/models/applications.js:293
-#: src/models/applications.js:294 src/models/applications.js:295
+#: src/models/applications.js:233 src/models/applications.js:291
+#: src/models/applications.js:292 src/models/applications.js:293
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -79,18 +79,22 @@ msgid "GPU acceleration"
 msgstr "Відеоприскорення"
 
 #: src/models/devices.js:44
+msgid "Input devices"
+msgstr "Пристрої введення"
+
+#: src/models/devices.js:51
 msgid "Virtualization"
 msgstr "Віртуалізація"
 
-#: src/models/devices.js:51
+#: src/models/devices.js:58
 msgid "Shared memory"
 msgstr "Спільна пам'ять"
 
-#: src/models/devices.js:58
+#: src/models/devices.js:65
 msgid "All devices (e.g. webcam)"
 msgstr "Усі пристрої (наприклад, веб-камера)"
 
-#: src/models/devices.js:83
+#: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
 msgstr "Список пристроїв доступних у пісочниці"
 
@@ -482,7 +486,7 @@ msgid "Default paths can't be removed"
 msgstr "Стандартні шляхи не можуть бути змінені"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:109
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Скинути"
 
@@ -542,7 +546,7 @@ msgstr "Рухатися вправо"
 msgid "Move down"
 msgstr "Рухатися вниз"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Додатки"
 
@@ -550,7 +554,7 @@ msgstr "Додатки"
 msgid "Find"
 msgstr "Знайти"
 
-#: src/widgets/shortcutsWindow.ui:86
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
 msgid "Permissions"
 msgstr "Дозволи"
 
@@ -570,26 +574,26 @@ msgstr "Знайти наступне"
 msgid "Find previous"
 msgstr "Знайти попереднє"
 
-#: src/widgets/window.js:101
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Дозволи були скинуті до стандартних"
 
-#: src/widgets/window.js:102
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Скасувати дію"
 
-#: src/widgets/window.js:108
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Не вдається завантажити зміну налаштувань через неправильний вміст"
 
-#: src/widgets/window.js:115
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Оновлено через зміни в налаштуваннях Flatpak"
 
-#: src/widgets/window.ui:35
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Головне меню"
 
-#: src/widgets/window.ui:82
+#: src/widgets/window.ui:80
 msgid "No applications found."
 msgstr "Не знайдено жодного додатку."
