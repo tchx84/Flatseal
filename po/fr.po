@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-08 14:01-0400\n"
+"POT-Creation-Date: 2023-09-22 08:55-0400\n"
 "PO-Revision-Date: 2022-10-03 16:15-0400\n"
 "Last-Translator: mathieu <mathieu.bousquet2@gmail.com>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
@@ -51,8 +51,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "ID d'application sélectionné en dernier lieu"
 
-#: src/models/applications.js:233 src/models/applications.js:293
-#: src/models/applications.js:294 src/models/applications.js:295
+#: src/models/applications.js:233 src/models/applications.js:291
+#: src/models/applications.js:292 src/models/applications.js:293
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -79,18 +79,22 @@ msgid "GPU acceleration"
 msgstr "Accélération GPU"
 
 #: src/models/devices.js:44
+msgid "Input devices"
+msgstr ""
+
+#: src/models/devices.js:51
 msgid "Virtualization"
 msgstr "Virtualisation"
 
-#: src/models/devices.js:51
+#: src/models/devices.js:58
 msgid "Shared memory"
 msgstr "Mémoire partagée"
 
-#: src/models/devices.js:58
+#: src/models/devices.js:65
 msgid "All devices (e.g. webcam)"
 msgstr "Tous les périphériques (e.g. webcam)"
 
-#: src/models/devices.js:83
+#: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
 msgstr "Liste des périphériques disponible dans le sac à sable"
 
@@ -485,7 +489,7 @@ msgid "Default paths can't be removed"
 msgstr "Les chemins par défaut ne peuvent pas être supprimés"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:109
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Réinitialiser"
 
@@ -545,7 +549,7 @@ msgstr "Déplacer à droite"
 msgid "Move down"
 msgstr "Déplacer en bas"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Applications"
 
@@ -553,7 +557,7 @@ msgstr "Applications"
 msgid "Find"
 msgstr "Rechercher"
 
-#: src/widgets/shortcutsWindow.ui:86
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
 msgid "Permissions"
 msgstr "Permissions"
 
@@ -573,26 +577,27 @@ msgstr "Trouver le prochain"
 msgid "Find previous"
 msgstr "Trouver le précédent"
 
-#: src/widgets/window.js:101
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Les permissions ont été réinitialisées"
 
-#: src/widgets/window.js:102
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Annuler"
 
-#: src/widgets/window.js:108
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
-msgstr "Impossible de charger les modifications en raison d'un contenu incorrect"
+msgstr ""
+"Impossible de charger les modifications en raison d'un contenu incorrect"
 
-#: src/widgets/window.js:115
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Actualisé en raison de modifications dans les installations Flatpak"
 
-#: src/widgets/window.ui:35
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/widgets/window.ui:82
+#: src/widgets/window.ui:80
 msgid "No applications found."
 msgstr "Aucune application trouvée."
