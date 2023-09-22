@@ -78,7 +78,7 @@ msgstr "Aceleración de gráficos"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Dispositivos de entrada"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
