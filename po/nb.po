@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
 #
-# Nikolai Eugen Sandvik <nikolai@sandvik.dev>, 2023.
+# 2023 Nikolai Eugen Sandvik <nikolai@sandvik.dev>
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-22 08:55-0400\n"
-"PO-Revision-Date: 2023-07-30 14:33+0200\n"
+"PO-Revision-Date: 2023-09-22 16:24+0200\n"
 "Last-Translator: Nikolai Eugen Sandvik <nikolai@sandvik.dev>\n"
 "Language-Team: Norwegian Bokmal <>\n"
 "Language: nb\n"
@@ -79,7 +79,7 @@ msgstr "GPU-akselerasjon"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Inndataenheter"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
