@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-08 14:01-0400\n"
+"POT-Creation-Date: 2023-09-22 08:55-0400\n"
 "PO-Revision-Date: 2022-03-22 21:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,8 +52,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Identyfikator aplikacji, który został wybrany jako ostatni"
 
-#: src/models/applications.js:233 src/models/applications.js:293
-#: src/models/applications.js:294 src/models/applications.js:295
+#: src/models/applications.js:233 src/models/applications.js:291
+#: src/models/applications.js:292 src/models/applications.js:293
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -82,18 +82,22 @@ msgid "GPU acceleration"
 msgstr "Wspomaganie przez GPU"
 
 #: src/models/devices.js:44
+msgid "Input devices"
+msgstr ""
+
+#: src/models/devices.js:51
 msgid "Virtualization"
 msgstr "Wirtualizacja"
 
-#: src/models/devices.js:51
+#: src/models/devices.js:58
 msgid "Shared memory"
 msgstr "Pamięć wspólna"
 
-#: src/models/devices.js:58
+#: src/models/devices.js:65
 msgid "All devices (e.g. webcam)"
 msgstr "Wszystkie urządzenia (np. kamera internetowa)"
 
-#: src/models/devices.js:83
+#: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
 msgstr "Lista urządzeń dostępnych w piaskownicy"
 
@@ -483,7 +487,7 @@ msgid "Default paths can't be removed"
 msgstr "Domyślne ścieżki nie mogą być usunięte"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:109
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Resetuj"
 
@@ -543,7 +547,7 @@ msgstr "Przesuń w prawo"
 msgid "Move down"
 msgstr "Przesuń w dół"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Aplikacje"
 
@@ -551,7 +555,7 @@ msgstr "Aplikacje"
 msgid "Find"
 msgstr "Znajdź"
 
-#: src/widgets/shortcutsWindow.ui:86
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
 msgid "Permissions"
 msgstr "Uprawnienia"
 
@@ -571,26 +575,26 @@ msgstr "Znajdź następny wynik"
 msgid "Find previous"
 msgstr "Znajdź poprzedni wynik"
 
-#: src/widgets/window.js:101
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Uprawnienia zostały zresetowane"
 
-#: src/widgets/window.js:102
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Cofnij"
 
-#: src/widgets/window.js:108
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Nie można załadować zmian z powodu nieprawidłowej zawartości"
 
-#: src/widgets/window.js:115
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Odświeżono ze względu na zmiany w instalacjach Flatpak"
 
-#: src/widgets/window.ui:35
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Menu główne"
 
-#: src/widgets/window.ui:82
+#: src/widgets/window.ui:80
 msgid "No applications found."
 msgstr "Nie znaleziono programów."

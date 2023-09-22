@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-08 14:01-0400\n"
+"POT-Creation-Date: 2023-09-22 08:55-0400\n"
 "PO-Revision-Date: 2023-09-13 20:46+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
@@ -35,8 +35,8 @@ msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
-"applications."
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
@@ -50,8 +50,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "கடைசியாக தேர்ந்தெடுக்கப்பட்ட பயன்பாடு ஐடி"
 
-#: src/models/applications.js:233 src/models/applications.js:293
-#: src/models/applications.js:294 src/models/applications.js:295
+#: src/models/applications.js:233 src/models/applications.js:291
+#: src/models/applications.js:292 src/models/applications.js:293
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -78,18 +78,22 @@ msgid "GPU acceleration"
 msgstr "GPU முடுக்கம்"
 
 #: src/models/devices.js:44
+msgid "Input devices"
+msgstr ""
+
+#: src/models/devices.js:51
 msgid "Virtualization"
 msgstr "மெய்நிகராக்கம்"
 
-#: src/models/devices.js:51
+#: src/models/devices.js:58
 msgid "Shared memory"
 msgstr "பகிர்ந்த நினைவகம்"
 
-#: src/models/devices.js:58
+#: src/models/devices.js:65
 msgid "All devices (e.g. webcam)"
 msgstr "அனைத்து சாதனங்களும் (எ.கா. வெப்கேம்)"
 
-#: src/models/devices.js:83
+#: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
 msgstr "சாண்ட்பாக்ஸில் கிடைக்கும் சாதனங்களின் பட்டியல்"
 
@@ -479,7 +483,7 @@ msgid "Default paths can't be removed"
 msgstr "இயல்புநிலை பாதைகளை அகற்ற முடியாது"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:109
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "மீட்டமைக்கவும் (_R)"
 
@@ -539,7 +543,7 @@ msgstr "வலதுபுறம் நகர்த்தவும்"
 msgid "Move down"
 msgstr "கீழே இறங்கு"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "பயன்பாடுகள்"
 
@@ -547,7 +551,7 @@ msgstr "பயன்பாடுகள்"
 msgid "Find"
 msgstr "கண்டுபிடி"
 
-#: src/widgets/shortcutsWindow.ui:86
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
 msgid "Permissions"
 msgstr "அனுமதிகள்"
 
@@ -567,26 +571,26 @@ msgstr "அடுத்ததை தேடு"
 msgid "Find previous"
 msgstr "முந்தையதைக் கண்டுபிடி"
 
-#: src/widgets/window.js:101
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "அனுமதிகள் மீட்டமைக்கப்பட்டுள்ளன"
 
-#: src/widgets/window.js:102
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "செயல்தவிர் (_U)"
 
-#: src/widgets/window.js:108
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "தவறான உள்ளடக்கம் காரணமாக மாற்றங்களை ஏற்ற முடியவில்லை"
 
-#: src/widgets/window.js:115
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Flatpak நிறுவல்களில் ஏற்பட்ட மாற்றங்கள் காரணமாக புதுப்பிக்கப்பட்டது"
 
-#: src/widgets/window.ui:35
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "முதன்மை பட்டியல்"
 
-#: src/widgets/window.ui:82
+#: src/widgets/window.ui:80
 msgid "No applications found."
 msgstr "பயன்பாடுகள் எதுவும் கிடைக்கவில்லை."

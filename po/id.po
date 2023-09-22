@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-08 14:01-0400\n"
+"POT-Creation-Date: 2023-09-22 08:55-0400\n"
 "PO-Revision-Date: 2023-09-14 13:14+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: \n"
@@ -50,8 +50,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "ID Aplikasi yang terakhir dipilih"
 
-#: src/models/applications.js:233 src/models/applications.js:293
-#: src/models/applications.js:294 src/models/applications.js:295
+#: src/models/applications.js:233 src/models/applications.js:291
+#: src/models/applications.js:292 src/models/applications.js:293
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -78,18 +78,22 @@ msgid "GPU acceleration"
 msgstr "Akselerasi GPU"
 
 #: src/models/devices.js:44
+msgid "Input devices"
+msgstr ""
+
+#: src/models/devices.js:51
 msgid "Virtualization"
 msgstr "Virtualisasi"
 
-#: src/models/devices.js:51
+#: src/models/devices.js:58
 msgid "Shared memory"
 msgstr "Berbagi memori"
 
-#: src/models/devices.js:58
+#: src/models/devices.js:65
 msgid "All devices (e.g. webcam)"
 msgstr "Semua perangkat (mis. kamera web)"
 
-#: src/models/devices.js:83
+#: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
 msgstr "Daftar perangkat yang tersedia di sandbox"
 
@@ -479,7 +483,7 @@ msgid "Default paths can't be removed"
 msgstr "Path bawaan tidak dapat dihapus"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:109
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "Atu_r Ulang"
 
@@ -539,7 +543,7 @@ msgstr "Pindah ke kanan"
 msgid "Move down"
 msgstr "Pindah ke bawah"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:25
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Aplikasi"
 
@@ -547,7 +551,7 @@ msgstr "Aplikasi"
 msgid "Find"
 msgstr "Cari"
 
-#: src/widgets/shortcutsWindow.ui:86
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
 msgid "Permissions"
 msgstr "Izin"
 
@@ -567,26 +571,26 @@ msgstr "Cari berikutnya"
 msgid "Find previous"
 msgstr "Cari sebelumnya"
 
-#: src/widgets/window.js:101
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Izin telah diatur ulang"
 
-#: src/widgets/window.js:102
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Tak jadi"
 
-#: src/widgets/window.js:108
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Tidak dapat memuat penggantian karena konten salah"
 
-#: src/widgets/window.js:115
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Disegarkan karena perubahan dalam pemasangan Flatpak"
 
-#: src/widgets/window.ui:35
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Menu Utama"
 
-#: src/widgets/window.ui:82
+#: src/widgets/window.ui:80
 msgid "No applications found."
 msgstr "Tidak ada aplikasi yang ditemukan."
