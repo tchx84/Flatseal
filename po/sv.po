@@ -1,14 +1,14 @@
 # Swedish translation for Flatseal.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020-2022.
+# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020-2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-22 08:55-0400\n"
-"PO-Revision-Date: 2022-05-18 09:02+0200\n"
+"PO-Revision-Date: 2023-09-23 08:52+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -79,7 +79,7 @@ msgstr "GPU-acceleration"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Inmatningsenheter"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
