@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-22 08:55-0400\n"
-"PO-Revision-Date: 2022-05-21 00:45+0300\n"
+"PO-Revision-Date: 2023-09-22 17:37+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-POOTLE-MTIME: 1434043811.000000\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -82,7 +82,7 @@ msgstr "GPU hızlandırma"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Girdi aygıtları"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
