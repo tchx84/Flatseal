@@ -134,29 +134,9 @@
                               <object class="GtkStackPage">
                                 <property name="name">withPermissionsPage</property>
                                 <property name="child">
-                                  <object class="GtkBox">
-                                    <property name="orientation">vertical</property>
+                                  <object class="AdwPreferencesPage" id="permissionsBox">
                                     <child>
-                                      <object class="AdwPreferencesPage" id="permissionsBox">
-                                        <child>
-                                          <object class="AdwPreferencesGroup" id="appInfoGroup"/>
-                                        </child>
-                                      </object>
-                                    </child>
-                                    <child>
-                                      <object class="GtkActionBar" id="actionBar">
-                                        <property name="visible">False</property>
-                                        <child>
-                                          <object class="GtkBox" id="startActionBox">
-                                            <property name="valign">center</property>
-                                          </object>
-                                        </child>
-                                        <child type="end">
-                                          <object class="GtkBox" id="endActionBox">
-                                            <property name="valign">center</property>
-                                          </object>
-                                        </child>
-                                      </object>
+                                      <object class="AdwPreferencesGroup" id="appInfoGroup"/>
                                     </child>
                                   </object>
                                 </property>
@@ -171,6 +151,21 @@
                     </property>
                   </object>
                 </property>
+                <child type="bottom">
+                  <object class="GtkActionBar" id="actionBar">
+                    <property name="visible">False</property>
+                    <child>
+                      <object class="GtkBox" id="startActionBox">
+                        <property name="valign">center</property>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="GtkBox" id="endActionBox">
+                        <property name="valign">center</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
               </object>
             </property>
           </object>
