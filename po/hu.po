@@ -78,7 +78,7 @@ msgstr "GPU gyorsítás"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Beviteli eszközök"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
