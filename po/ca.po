@@ -79,7 +79,7 @@ msgstr "Acceleració per la GPU"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Dispositius d'entrada"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
