@@ -1,7 +1,7 @@
 pkgdatadir = join_paths(get_option('datadir'), meson.project_name())
 gnome = import('gnome')
 
-dependency('libadwaita-1', version : '>= 1.0')
+dependency('libadwaita-1', version : '>= 1.4')
 dependency('webkitgtk-6.0', version : '>= 2.40')
 
 src_res = gnome.compile_resources('com.github.tchx84.Flatseal.src',
