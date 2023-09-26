@@ -5,6 +5,7 @@
 - Fixed validations for the persist section, e.g. to prevent line breaks.
 - Fixed handling of broken overrides files.
 - Fixed Italian translation.
+- Fixed German translation.
 - Added Norwegian Bokmål translation.
 - Added support for the new input permission.
 - Added save and restore selected application.
