@@ -83,7 +83,7 @@ msgstr "Wspomaganie przez GPU"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Urządzenia wejściowe"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
