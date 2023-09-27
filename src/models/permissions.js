@@ -325,6 +325,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         this._monitors = [];
         this._monitorsDelayedHandlerId = 0;
+        this._changedbyUser = false;
     }
 
     _delayMonitorsChanged() {
