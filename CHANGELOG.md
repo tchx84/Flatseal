@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.1.0] - 2023-09-28
 
 - Fixed validations for the persist section, e.g. to prevent line breaks.
 - Fixed handling of broken overrides files.
