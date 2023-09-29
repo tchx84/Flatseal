@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <template class="FlatsealGlobalRow" parent="AdwActionRow">
+    <property name="title-lines">1</property>
+    <property name="subtitle-lines">1</property>
     <property name="activatable">True</property>
     <property name="title" translatable="yes">All Applications</property>
     <property name="subtitle">global</property>
