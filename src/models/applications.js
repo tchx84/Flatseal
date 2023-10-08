@@ -47,10 +47,14 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         this._getInstallationsPaths().forEach(path => {
             const file = Gio.File.new_for_path(GLib.build_filenamev([path, 'app']));
-            const monitor = file.monitor_directory(Gio.FileMonitorFlags.NONE, null);
 
-            monitor.connect('changed', this._changedDelayed.bind(this));
-            this._monitors.push(monitor);
+            try {
+                const monitor = file.monitor_directory(Gio.FileMonitorFlags.NONE, null);
+                monitor.connect('changed', this._changedDelayed.bind(this));
+                this._monitors.push(monitor);
+            } catch (err) {
+                logError(err);
+            }
         });
     }
 
