@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-09-22 08:55-0400\n"
-"PO-Revision-Date: 2021-11-03 18:08+0000\n"
-"Last-Translator: BigmenPixel < >\n"
+"PO-Revision-Date: 2023-10-14 15:04+0300\n"
+"Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: Russian < >\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 41.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -149,7 +149,7 @@ msgstr "Другие файлы"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "пр. ~/games:ro, xdg-pictures, другое"
+msgstr "пр. ~/games:ro, xdg-pictures, и т.д."
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -299,7 +299,7 @@ msgstr "Список переменных, экспортируемых в пр�
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
-msgstr "%B %e, %Y"
+msgstr "%e %B, %Y"
 
 #: src/widgets/appInfoViewer.ui:46
 msgid "Version"
@@ -320,7 +320,7 @@ msgstr "Это недопустимый вариант"
 
 #: src/widgets/detailsButton.js:60
 msgid "_Show Details"
-msgstr "_Показать детали"
+msgstr "_Показать подробности"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -344,7 +344,7 @@ msgstr "Версия Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
-msgstr "Портальная версия"
+msgstr "Версия портала"
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
@@ -376,11 +376,11 @@ msgstr "Изменено пользователем"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
-msgstr "этот абсолютный путь"
+msgstr "это абсолютный путь"
 
 #: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
-msgstr "этот путь относительно домашнего каталога"
+msgstr "это путь относительно домашней папки"
 
 #: src/widgets/pathRow.js:29
 msgid "all system configurations"
@@ -420,7 +420,7 @@ msgstr "каталог изображений"
 
 #: src/widgets/pathRow.js:38
 msgid "the public directory"
-msgstr "публичный каталог"
+msgstr "общедоступный каталог"
 
 #: src/widgets/pathRow.js:39
 msgid "the videos directory"
@@ -444,7 +444,7 @@ msgstr "каталог данных"
 
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
-msgstr "каталог рантаймов"
+msgstr "каталог сред исполнения"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
