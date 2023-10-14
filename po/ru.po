@@ -444,7 +444,7 @@ msgstr "каталог данных"
 
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
-msgstr "каталог сред исполнения"
+msgstr "каталог среды исполнения"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
