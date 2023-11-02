@@ -1,0 +1,579 @@
+# Finnish translation for Flatseal.
+# Copyright (C) 2021 Flatseal's copyright holder
+# This file is distributed under the same license as the flatseal package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-27 09:43-0300\n"
+"PO-Revision-Date: 2022-10-27 09:49+0200\n"
+"Last-Translator: LINUX-SAUNA <linuxsauna@protonmail.com>\n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Hallinnoi Flatpak-käyttölupia"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;"
+msgstr "sinetöi;sandbox-rajoita;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: src/widgets/aboutDialog.ui:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal on graafinen apuohjelma, jonka avulla voit tarkastella ja muokata Flatpak-sovelluksiesi  "
+"oikeuksia."
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: src/models/applications.js:193 src/models/applications.js:253
+#: src/models/applications.js:254 src/models/applications.js:255
+#: src/widgets/globalInfoViewer.ui:249 src/widgets/globalInfoViewer.ui:265
+#: src/widgets/globalInfoViewer.ui:281
+msgid "Unknown"
+msgstr "Tuntematon"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Puhuu"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Omistaa"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Luettelo tunnetuista nimistä session busissa"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Luettelo tunnetuista nimistä system busissa"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "Grafiikkasuorittimen kiihdytys"
+
+#: src/models/devices.js:44
+msgid "Virtualization"
+msgstr "Virtualisointi"
+
+#: src/models/devices.js:51
+msgid "Shared memory"
+msgstr "Jaettu muisti"
+
+#: src/models/devices.js:58
+msgid "All devices (e.g. webcam)"
+msgstr "Kaikki laitteet (esim. verkkokamera)"
+
+#: src/models/devices.js:83
+msgid "List of devices available in the sandbox"
+msgstr "Luettelo käytettävistä laitteista hiekkalaatikossa"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Kehitykseen liittyvät järjestelmäkutsut (esim. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Programs from other architectures"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Controller Area Network bus"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Application Shared Memory"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Luettelo käytettävistä ominaisuuksista sovellukselle"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Kaikki järjestelmätiedostot"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Kaikki järjestelmäkirjastot, ohjelmatiedostot ja staattinen data"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Kaikki järjestelmäkonfiguraatio"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Kaikki käyttäjätiedostot"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Luettelo tiedostojärjestelmän osista, jotka ovat sovelluksen käytettävissä"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Muut tiedostot"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "esim. ~/games:ro, xdg-pictures, tms"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Tiedostot"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "esim. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "List of homedir-relative paths created in the sandbox"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Tausta"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Voidaan suorittaa taustalla"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Ilmoitukset"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Saa lähettää ilmoituksia"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Mikrofoni"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Saa kuunnella mikrofoniasi"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Kaiuttimet"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Saa soittaa ääntä kaiuttimillasi"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Kamera"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Saa nauhoittaa videoita kamerallasi"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Sijainti"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Saa pääsyn sijaintiisi"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "List of resources selectively granted to the application"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Ei asennetun Flatpak-version tukema"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "Requires permission store version 2 or newer"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "Portaalidataa ei ole vielä asetettu"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Verkko"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Prosessien välinen kommunikointi"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "Luettelo alijärjestelmistä, jotka ovat jaetut isäntäjärjestelmän kanssa"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11-ikkunointijärjestelmä"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland-ikkunointijärjestelmä"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Palaa X11-ikkunointijärjestelmään"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio-äänijärjestelmä"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus session bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus system bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Secure Shell -agentti"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Älykortit"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Tulostusjärjestelmä"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-agenttihakemistot"
+
+#: src/models/sockets.js:125
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Luettelo tunnetuista pistokkeista, jotka hiekkalaatikon saatavilla"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Muuttujat"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "esim. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Luettelo muuttujista, jotka sovellukselle toimitetaan"
+
+#: src/widgets/aboutDialog.js:38
+msgid "Contributions by"
+msgstr "Contributions by"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e %B %Y"
+
+#: src/widgets/appInfoViewer.ui:127
+msgid "Version"
+msgstr "Versio"
+
+#: src/widgets/appInfoViewer.ui:142
+msgid "Last Updated"
+msgstr "Päivitetty viimeksi"
+
+#: src/widgets/appInfoViewer.ui:157
+msgid "Runtime"
+msgstr "Ajoympäristö"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "Tämä valinta on epäkelpo"
+
+#: src/widgets/detailsButton.js:59
+msgid "_Show Details"
+msgstr "_Näytä yksityiskohdat"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Näytä sovellus ohjelmistohallinnassa"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Ohjelmistohallintaa ei löytyny"
+
+#: src/widgets/globalRow.ui:10 src/widgets/globalInfoViewer.ui:69
+msgid "All Applications"
+msgstr "Kaikki sovellukset"
+
+#: src/widgets/globalInfoViewer.ui:86
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Muutokset pätevät kaikkiin Flatpak-sovelluksiin"
+
+#: src/widgets/globalInfoViewer.ui:153
+msgid "Flatpak Version"
+msgstr "Flatpakin versio"
+
+#: src/widgets/globalInfoViewer.ui:168
+msgid "Portal Version"
+msgstr "Portaaliversio"
+
+#: src/widgets/globalInfoViewer.ui:183
+msgid "Changes Path"
+msgstr "Muuttaa polkua"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Apua"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Tietokanta"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Näppäimistön oikopolut"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_Tietoa Flatsealista"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Changed globally"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Changed by the user"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "tämä on absoluuttinen polku"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "tämä polku on suhteessa kotihakemistoon"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "kaikki järjestelmäkonfiguraatio"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "kaikki järjestelmäkirjastot, ohjelmatiedostot ja staattinen data"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "kaikki järjestelmätiedostot"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "kaikki käyttäjätiedostot"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "Työpöytä-hakemisto"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "Asiakirjat-hakemisto"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "Lataukset-hakemisto"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "Musiikki-hakemisto"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "Kuvat-hakemisto"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "Julkinen-hakemisto"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "Videot-hakemisto"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "Mallit-hakemisto"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "Config-hakemisto"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "Cache-hakemisto"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "Data-hakemisto"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "Runtime-hakemisto"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Saa lukea: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Saa muokata ja lukea: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Saa luoda, muokata ja lukea: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Ei saa lukea: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Ei voi muokata eikä lukea: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Ei voi luoda, muokata tai lukea: %s"
+
+#: src/widgets/permissionPortalRow.ui:28
+msgid "Unset"
+msgstr "Ei asetettu"
+
+#: src/widgets/relativePathRow.js:82
+msgid "Default paths can't be removed"
+msgstr "Vakiopolkuja ei voi poistaa"
+
+#: src/widgets/resetButton.js:45
+msgid "_Reset"
+msgstr "_Nollaa"
+
+#: src/widgets/resetButton.js:63
+msgid "No changes made to this application"
+msgstr "Ei muutoksia tehty tähän sovellukseen"
+
+#: src/widgets/resetButton.js:66
+msgid "Reset this application permissions"
+msgstr "Nollaa tämän sovelluksen oikeudet"
+
+#: src/widgets/resetButton.js:68
+msgid ", including changes not made with Flatseal"
+msgstr ", sisältäen muutokset, joita ei tehty Flatsealissa"
+
+#: src/widgets/shortcutsWindow.ui:14
+msgid "General"
+msgstr "Yleiset"
+
+#: src/widgets/shortcutsWindow.ui:19
+msgid "Show mnemonics"
+msgstr "Show mnemonics"
+
+#: src/widgets/shortcutsWindow.ui:26
+msgid "Show documentation"
+msgstr "Näytä dokumentaatio"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Show menu"
+msgstr "Näytä valikko"
+
+#: src/widgets/shortcutsWindow.ui:40
+msgid "Keyboard shortcuts"
+msgstr "Näppäimistöoikopolut"
+
+#: src/widgets/shortcutsWindow.ui:47
+msgid "Quit"
+msgstr "Lopeta"
+
+#: src/widgets/shortcutsWindow.ui:55
+msgid "Navigation"
+msgstr "Navigaatio"
+
+#: src/widgets/shortcutsWindow.ui:60
+msgid "Move left"
+msgstr "Liiku vasemmalle"
+
+#: src/widgets/shortcutsWindow.ui:67
+msgid "Move up"
+msgstr "Liiku ylös"
+
+#: src/widgets/shortcutsWindow.ui:74
+msgid "Move right"
+msgstr "Liiku oikealle"
+
+#: src/widgets/shortcutsWindow.ui:81
+msgid "Move down"
+msgstr "Liiku alas"
+
+#: src/widgets/shortcutsWindow.ui:89 src/widgets/window.ui:29
+msgid "Applications"
+msgstr "Sovellukset"
+
+#: src/widgets/shortcutsWindow.ui:94 src/widgets/shortcutsWindow.ui:120
+msgid "Find"
+msgstr "Etsi"
+
+#: src/widgets/shortcutsWindow.ui:102
+msgid "Permissions"
+msgstr "Oikeudet"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Toggle"
+msgstr "Toggle"
+
+#: src/widgets/shortcutsWindow.ui:115
+msgid "Documentation"
+msgstr "Dokumentaatio"
+
+#: src/widgets/shortcutsWindow.ui:127
+msgid "Find next"
+msgstr "Etsi seuraava"
+
+#: src/widgets/shortcutsWindow.ui:134
+msgid "Find previous"
+msgstr "Etsi edellinen"
+
+#: src/widgets/undoPopup.ui:19
+msgid "Permissions have been reset"
+msgstr "Oikeudet nollattu"
+
+#: src/widgets/undoPopup.ui:36
+msgid "Undo"
+msgstr "Kumoa"
+
+#: src/widgets/window.ui:113 src/widgets/window.ui:211
+msgid "No applications found."
+msgstr "Sovelluksia ei löytynyt."
