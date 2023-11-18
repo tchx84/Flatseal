@@ -233,7 +233,7 @@ msgstr "Les données du portail n’ont pas encore été configurées"
 
 #: src/models/shared.js:39
 msgid "Network"
-msgstr "Réseau sans fil"
+msgstr "Réseau"
 
 #: src/models/shared.js:46
 msgid "Inter-process communications"
