@@ -97,9 +97,6 @@ var FlatsealPathsViewer = GObject.registerClass({
             return;
         }
 
-        if (text === this.text)
-            return;
-
         this._update(text);
         this.notify('text');
     }
