@@ -17,12 +17,15 @@
   </releases>
   <screenshots>
     <screenshot type="default">
+      <caption>The Flatseal main window</caption>
       <image>https://raw.githubusercontent.com/tchx84/flatseal/master/screenshots/en/1.png</image>
     </screenshot>
     <screenshot>
+      <caption>Flatseal showing filesystem permissions</caption>
       <image>https://raw.githubusercontent.com/tchx84/flatseal/master/screenshots/en/2.png</image>
     </screenshot>
     <screenshot>
+      <caption>Flatseal showing global overrides</caption>
       <image>https://raw.githubusercontent.com/tchx84/flatseal/master/screenshots/en/3.png</image>
     </screenshot>
   </screenshots>
