@@ -1,7 +1,7 @@
 # Flatseal- Tamil translation.
-# Copyright (C) 2022 THE Flatseal'S COPYRIGHT HOLDER
+# Copyright (C) 2024 THE Flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# K.B.Dharun Krishna (kbdharun) <kbdharunkrishna@gmail.com>, 2022.
+# K.B.Dharun Krishna (kbdharun) <kbdharunkrishna@gmail.com>, 2022 - 2024.
 #
 msgid ""
 msgstr ""
