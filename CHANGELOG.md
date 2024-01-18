@@ -1,5 +1,13 @@
 # Changelog
 
+## [unreleased]
+
+- Fixed crashes on some Ubuntu systems due to missing file monitor support.
+- Fixed falling back to appdata file when metainfo file is missing.
+- Fixed not being able to remove persist global overrides.
+- Fixed Russian translation.
+- Fixed French translation.
+
 ## [2.1.0] - 2023-09-28
 
 - Fixed validations for the persist section, e.g. to prevent line breaks.
