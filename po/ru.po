@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
 "PO-Revision-Date: 2023-10-14 15:04+0300\n"
 "Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: Russian < >\n"
@@ -32,7 +32,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Управление разрешениями Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -43,8 +44,20 @@ msgstr ""
 "Flatseal - графическая утилита для просмотра и модификации разрешений ваших "
 "Flatpak приложений."
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -52,8 +65,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "Идентификатор приложения, который был выбран последним"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -330,7 +343,7 @@ msgstr "Показать приложение в менеджере софта"
 msgid "No software manager found"
 msgstr "Менеджер софта не найден"
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Все приложения"
 
@@ -545,7 +558,7 @@ msgstr "Переместить вправо"
 msgid "Move down"
 msgstr "Переместить вниз"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "Приложения"
 
@@ -553,7 +566,7 @@ msgstr "Приложения"
 msgid "Find"
 msgstr "Найти"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Разрешения"
 
@@ -589,10 +602,10 @@ msgstr "Невозможно загрузить изменения из-за н�
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Обновлено в связи с изменениями в установках Flatpak"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "Приложения не найдены."
