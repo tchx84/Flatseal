@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-18 10:37-0300\n"
-"PO-Revision-Date: 2023-09-23 10:52+0530\n"
+"PO-Revision-Date: 2024-01-18 23:25+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -30,29 +30,28 @@ msgid "Manage Flatpak permissions"
 msgstr "பிளாட்பாக் அனுமதிகளை நிர்வகிக்கவும்"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-#, fuzzy
 msgid "seal;sandbox;override;"
-msgstr "முத்திரை;சாண்ட்பாக்ஸ்;"
+msgstr "முத்திரை;சாண்ட்பாக்ஸ்;புறக்கணிப்பு;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your "
-"Flatpak applications."
+"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
+"applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:20
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "Flatseal பிரதான சாளரம்"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:24
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "கோப்பு முறைமை அனுமதிகளைக் காட்டும் Flatseal"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:28
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "உலகளாவிய மேலெழுதலைக் காட்டும் Flatseal"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:34
