@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
 "PO-Revision-Date: 2023-09-24 04:03+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
@@ -31,7 +31,8 @@ msgid "Manage Flatpak permissions"
 msgstr "管理 Flatpak 权限"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;封条;沙盒;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -40,8 +41,20 @@ msgid ""
 "Flatpak applications."
 msgstr "Flatseal 是一个可以查看并修改 Flatpak 程序权限的图形工具。"
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -49,8 +62,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "最后所选应用程序的 ID"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -327,7 +340,7 @@ msgstr "在软件管理器中显示程序"
 msgid "No software manager found"
 msgstr "没有找到软件管理器"
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "全部应用程序"
 
@@ -542,7 +555,7 @@ msgstr "向右移动"
 msgid "Move down"
 msgstr "向下移动"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "应用程序"
 
@@ -550,7 +563,7 @@ msgstr "应用程序"
 msgid "Find"
 msgstr "查找"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "权限"
 
@@ -586,10 +599,10 @@ msgstr "由于内容不正确而无法加载更改"
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "由于 Flatpak 安装的变更而刷新"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "主菜单"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "没有找到应用程序。"
