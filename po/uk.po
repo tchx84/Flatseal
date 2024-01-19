@@ -1,29 +1,29 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Ukrainian translation for flatseal.
+# Copyright (C) 2024 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# volkov <volkovissocool@gmail.com>, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-18 10:37-0300\n"
-"PO-Revision-Date: 2023-09-22 17:00+0300\n"
+"PO-Revision-Date: 2024-01-18 21:43+0200\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: volkov <volkovissocool@gmail.com>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.4\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
-msgstr "Flatseal"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:9
@@ -31,9 +31,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Керуйте дозволами Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-#, fuzzy
 msgid "seal;sandbox;override;"
-msgstr "seal;sandbox;флатсіал;заклеїти;пісочниця;"
+msgstr "seal;sandbox;override;флатсіал;заклеїти;пісочниця;дозволи;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
@@ -45,20 +44,20 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:20
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "Головне вікно Flatseal"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:24
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "Flatseal показує дозволи файлової системи"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:28
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "Flatseal показує глобальні перезаписи"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
-msgstr "Martin Abente Lahaye"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
@@ -121,7 +120,7 @@ msgstr "Програм з інших архітектур"
 
 #: src/models/features.js:51
 msgid "Bluetooth"
-msgstr "Bluetooth"
+msgstr ""
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
