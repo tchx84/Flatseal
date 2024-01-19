@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
 #
-# 2023 Nikolai Eugen Sandvik <nikolai@sandvik.dev>
+# 2023-2024 Nikolai Eugen Sandvik <nikolai@sandvik.dev>
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-18 10:37-0300\n"
-"PO-Revision-Date: 2023-09-22 16:24+0200\n"
+"PO-Revision-Date: 2024-01-19 15:42+0100\n"
 "Last-Translator: Nikolai Eugen Sandvik <nikolai@sandvik.dev>\n"
 "Language-Team: Norwegian Bokmal <>\n"
 "Language: nb\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -30,9 +30,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Administrer Flatpak-tillatelser"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-#, fuzzy
 msgid "seal;sandbox;override;"
-msgstr "seal;sandbox;"
+msgstr "seal;sandbox;override;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
@@ -44,15 +43,15 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:20
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "Flatseal hovedvinduet"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:24
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "Flatseal viser filsystemtillatelser"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:28
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "Flatseal viser globale overstyringer"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:34
