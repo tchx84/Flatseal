@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
 "PO-Revision-Date: 2022-03-24 13:19+0100\n"
 "Last-Translator: ExponentActivity\n"
 "Language-Team: \n"
@@ -30,7 +30,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Administrer Flatpak tilladelser"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -41,8 +42,20 @@ msgstr ""
 "Flatseal er et grafisk værktøj til at gennemse og ændre tilladelser for dine "
 "Flatpak applikationer."
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -50,8 +63,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "Applikations-id, der sidst blev valgt"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -79,7 +92,7 @@ msgstr "GPU-accelerering"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Input-enheder"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
@@ -329,7 +342,7 @@ msgstr "Vis applikation i en software manager"
 msgid "No software manager found"
 msgstr "Ingen software manager blev fundet"
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Alle Applikationer"
 
@@ -544,7 +557,7 @@ msgstr "Flyt til højre"
 msgid "Move down"
 msgstr "Flyt ned"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "Applikationer"
 
@@ -552,7 +565,7 @@ msgstr "Applikationer"
 msgid "Find"
 msgstr "Find"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Tilladelser"
 
@@ -588,10 +601,10 @@ msgstr "Kan ikke indlæse ændringer på grund af forkert indhold"
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Opdateret på grund af ændringer i Flatpak-installationer"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "Hovedmenu"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "Ingen applikationer fundet."

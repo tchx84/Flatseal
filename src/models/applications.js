@@ -47,10 +47,14 @@ var FlatpakApplicationsModel = GObject.registerClass({
 
         this._getInstallationsPaths().forEach(path => {
             const file = Gio.File.new_for_path(GLib.build_filenamev([path, 'app']));
-            const monitor = file.monitor_directory(Gio.FileMonitorFlags.NONE, null);
 
-            monitor.connect('changed', this._changedDelayed.bind(this));
-            this._monitors.push(monitor);
+            try {
+                const monitor = file.monitor_directory(Gio.FileMonitorFlags.NONE, null);
+                monitor.connect('changed', this._changedDelayed.bind(this));
+                this._monitors.push(monitor);
+            } catch (err) {
+                logError(err);
+            }
         });
     }
 
@@ -294,15 +298,22 @@ var FlatpakApplicationsModel = GObject.registerClass({
             launchable: `${appId}.desktop`,
         };
 
-        const path = GLib.build_filenamev([
-            this._getBundlePathForAppId(appId),
-            'files', 'share', 'appdata', `${appId}.appdata.xml`,
+        const bundlePath = this._getBundlePathForAppId(appId);
+
+        let path = GLib.build_filenamev([
+            bundlePath, 'files', 'share', 'appdata', `${appId}.appdata.xml`,
         ]);
 
-        const file = Gio.File.new_for_path(path);
-        if (!file.query_exists(null))
-            return appdata;
+        if (!GLib.file_test(path, GLib.FileTest.EXISTS)) {
+            path = GLib.build_filenamev([
+                bundlePath, 'files', 'share', 'metainfo', `${appId}.metainfo.xml`,
+            ]);
 
+            if (!GLib.file_test(path, GLib.FileTest.EXISTS))
+                return appdata;
+        }
+
+        const file = Gio.File.new_for_path(path);
         const metadata = new AppStream.Metadata();
         try {
             metadata.parse_file(file, AppStream.FormatKind.XML);

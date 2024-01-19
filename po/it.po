@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
 "PO-Revision-Date: 2023-09-14 10:56+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -31,7 +31,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Un gestore di permessi per Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "permessi;seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -42,8 +43,20 @@ msgstr ""
 "Flatseal è uno strumento grafico per visualizzare e modificare i permessi di "
 "base delle applicazioni Flatpak."
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -51,8 +64,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "ID dell'applicazione selezionata per ultima"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -80,7 +93,7 @@ msgstr "Accelerazione tramite GPU"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Dispositivi di input"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
@@ -329,7 +342,7 @@ msgstr "Mostra applicazione in un gestore software"
 msgid "No software manager found"
 msgstr "Nessun gestore software trovato"
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Tutte le Applicazioni"
 
@@ -544,7 +557,7 @@ msgstr "Sposta a destra"
 msgid "Move down"
 msgstr "Sposta in basso"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "Applicazioni"
 
@@ -552,7 +565,7 @@ msgstr "Applicazioni"
 msgid "Find"
 msgstr "Trova"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Permessi"
 
@@ -588,10 +601,10 @@ msgstr "Impossibile caricare le sostituzioni a causa di contenuti errati"
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Aggiornato a causa di modifiche nelle installazioni Flatpak"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "Menù principale"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "Non è stata trovata alcuna applicazione."

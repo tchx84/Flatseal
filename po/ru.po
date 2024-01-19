@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
-"PO-Revision-Date: 2021-11-03 18:08+0000\n"
-"Last-Translator: BigmenPixel < >\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"PO-Revision-Date: 2023-10-14 15:04+0300\n"
+"Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: Russian < >\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 41.0\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.4\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -32,7 +32,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Управление разрешениями Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -43,8 +44,20 @@ msgstr ""
 "Flatseal - графическая утилита для просмотра и модификации разрешений ваших "
 "Flatpak приложений."
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -52,8 +65,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "Идентификатор приложения, который был выбран последним"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -81,7 +94,7 @@ msgstr "GPU ускорение"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr ""
+msgstr "Устройства ввода"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
@@ -149,7 +162,7 @@ msgstr "Другие файлы"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "пр. ~/games:ro, xdg-pictures, другое"
+msgstr "пр. ~/games:ro, xdg-pictures, и т.д."
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -299,7 +312,7 @@ msgstr "Список переменных, экспортируемых в пр�
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
-msgstr "%B %e, %Y"
+msgstr "%e %B, %Y"
 
 #: src/widgets/appInfoViewer.ui:46
 msgid "Version"
@@ -320,7 +333,7 @@ msgstr "Это недопустимый вариант"
 
 #: src/widgets/detailsButton.js:60
 msgid "_Show Details"
-msgstr "_Показать детали"
+msgstr "_Показать подробности"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -330,7 +343,7 @@ msgstr "Показать приложение в менеджере софта"
 msgid "No software manager found"
 msgstr "Менеджер софта не найден"
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Все приложения"
 
@@ -344,7 +357,7 @@ msgstr "Версия Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
-msgstr "Портальная версия"
+msgstr "Версия портала"
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
@@ -376,11 +389,11 @@ msgstr "Изменено пользователем"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
-msgstr "этот абсолютный путь"
+msgstr "это абсолютный путь"
 
 #: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
-msgstr "этот путь относительно домашнего каталога"
+msgstr "это путь относительно домашней папки"
 
 #: src/widgets/pathRow.js:29
 msgid "all system configurations"
@@ -420,7 +433,7 @@ msgstr "каталог изображений"
 
 #: src/widgets/pathRow.js:38
 msgid "the public directory"
-msgstr "публичный каталог"
+msgstr "общедоступный каталог"
 
 #: src/widgets/pathRow.js:39
 msgid "the videos directory"
@@ -444,7 +457,7 @@ msgstr "каталог данных"
 
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
-msgstr "каталог рантаймов"
+msgstr "каталог среды исполнения"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
@@ -545,7 +558,7 @@ msgstr "Переместить вправо"
 msgid "Move down"
 msgstr "Переместить вниз"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "Приложения"
 
@@ -553,7 +566,7 @@ msgstr "Приложения"
 msgid "Find"
 msgstr "Найти"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Разрешения"
 
@@ -589,10 +602,10 @@ msgstr "Невозможно загрузить изменения из-за н�
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Обновлено в связи с изменениями в установках Flatpak"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "Главное меню"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "Приложения не найдены."

@@ -3,8 +3,8 @@
   <object class="AdwAboutWindow" id="about-window">
     <property name="application_name">Flatseal</property>
     <property name="modal">True</property>
-    <property name="version">2.0.2</property>
-    <property name="copyright">© 2020-2023 Martin Abente Lahaye</property>
+    <property name="version">2.1.0</property>
+    <property name="copyright">© 2020-2024 Martin Abente Lahaye</property>
     <property name="issue_url">https://github.com/tchx84/Flatseal/issues/new</property>
     <property name="developer_name">Martin Abente Lahaye</property>
     <property name="developers">Martin Abente Lahaye
@@ -43,7 +43,10 @@ Yaron Shahrabani
 K.B.Dharun Krishna
 Dingzhong Chen
 Philipp Kiemle
-Vovkiv</property>
+Vovkiv
+Nikolai Eugen Sandvik
+Aleksandr Melman
+Lucas Serrano</property>
     <property name="artists">Tobias Bernard
 J.P. MacDonald</property>
     <property name="documenters">TheEvilSkeleton</property>

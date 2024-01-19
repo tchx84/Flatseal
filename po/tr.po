@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
 "PO-Revision-Date: 2023-09-22 17:37+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
@@ -33,7 +33,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Flatpak izinlerini yönet"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "yalıt;yalıtım;sanal ortam;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -44,8 +45,20 @@ msgstr ""
 "Flatseal, Flatpak uygulamalarınızdaki izinleri gözden geçirmek ve "
 "değiştirmek için kullanılan grafiksel bir yardımcı uygulamadır."
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -53,8 +66,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "Son seçilen uygulama kimliği"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -331,7 +344,7 @@ msgstr "Bir yazılım yöneticisinde yazılımı göster"
 msgid "No software manager found"
 msgstr "Yazılım yöneticisi bulunamadı"
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Tüm Uygulamalar"
 
@@ -546,7 +559,7 @@ msgstr "Sağa hakeret et"
 msgid "Move down"
 msgstr "Aşağı hareket et"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "Uygulamalar"
 
@@ -554,7 +567,7 @@ msgstr "Uygulamalar"
 msgid "Find"
 msgstr "Bul"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "İzinler"
 
@@ -590,10 +603,10 @@ msgstr "Yanlış içerik nedeniyle değişiklikler yüklenemiyor"
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Flatpak kurulumlarındaki değişiklikler nedeniyle yenilendi"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "Ana Menü"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "Hiçbir uygulama bulunamadı."

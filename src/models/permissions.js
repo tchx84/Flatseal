@@ -309,9 +309,14 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         paths.forEach(path => {
             const file = Gio.File.new_for_path(path);
-            const monitor = file.monitor_file(Gio.FileMonitorFlags.WATCH_MOVES, null);
-            monitor.connect('changed', this._delayMonitorsChanged.bind(this));
-            this._monitors.push(monitor);
+
+            try {
+                const monitor = file.monitor_file(Gio.FileMonitorFlags.WATCH_MOVES, null);
+                monitor.connect('changed', this._delayMonitorsChanged.bind(this));
+                this._monitors.push(monitor);
+            } catch (err) {
+                logError(err);
+            }
         });
     }
 
@@ -325,6 +330,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
         this._monitors = [];
         this._monitorsDelayedHandlerId = 0;
+        this._changedbyUser = false;
     }
 
     _delayMonitorsChanged() {

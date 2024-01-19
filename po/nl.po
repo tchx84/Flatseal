@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-22 08:55-0400\n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
 "PO-Revision-Date: 2023-09-13 17:14+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -30,7 +30,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Beheer Flatpak-bevoegdheden"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-msgid "seal;sandbox;"
+#, fuzzy
+msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;rechten;bevoegdheden;machtigingen;permissies;flatpak;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
@@ -41,8 +42,20 @@ msgstr ""
 "Flatseal is een grafisch hulpmiddel om de bevoegdheden van elke Flatpak-"
 "toepassing te bekijken en aan te passen."
 
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr ""
+
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:31
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -50,8 +63,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "De laatstgekozen toepassings-id"
 
-#: src/models/applications.js:233 src/models/applications.js:291
-#: src/models/applications.js:292 src/models/applications.js:293
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -330,7 +343,7 @@ msgstr "Toon de toepassing in een softwarebeheerder"
 msgid "No software manager found"
 msgstr "Er is geen softwarebeheerder aangetroffen."
 
-#: src/widgets/globalRow.ui:5 src/widgets/globalInfoViewer.ui:21
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
 msgstr "Alle toepassingen"
 
@@ -545,7 +558,7 @@ msgstr "Naar rechts verplaatsen"
 msgid "Move down"
 msgstr "Omlaag verplaatsen"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
 msgid "Applications"
 msgstr "Toepassingen"
 
@@ -553,7 +566,7 @@ msgstr "Toepassingen"
 msgid "Find"
 msgstr "Zoeken"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:101
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Bevoegdheden"
 
@@ -589,10 +602,10 @@ msgstr "De voorrangsregels kunnen niet worden geladen wegens onjuiste inhoud"
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Vernieuwd wegens wijzigingen in Flatpakinstallaties"
 
-#: src/widgets/window.ui:31
+#: src/widgets/window.ui:32
 msgid "Main Menu"
 msgstr "Hoofdmenu"
 
-#: src/widgets/window.ui:80
+#: src/widgets/window.ui:76
 msgid "No applications found."
 msgstr "Er zijn geen toepassingen aangetroffen."
