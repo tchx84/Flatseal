@@ -1,24 +1,24 @@
 # Turkish translations for Flatseal package.
-# Copyright (C) 2021-2022 Flatseal's COPYRIGHT HOLDER
+# Copyright (C) 2021-2024 Flatseal's COPYRIGHT HOLDER
 # This file is distributed under the same license as the Flatseal package.
 #
 # Ümit Solmaz <u2slmz@pm.me>, 2021.
-# Sabri Ünal <libreajans@gmail.com>, 2022.
+# Sabri Ünal <libreajans@gmail.com>, 2022, 2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-18 10:37-0300\n"
-"PO-Revision-Date: 2023-09-22 17:37+0300\n"
+"PO-Revision-Date: 2024-01-19 00:24+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"Language-Team: Türkçe <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-POOTLE-MTIME: 1434043811.000000\n"
 
 #. TRANSLATORS: Don't translate this text
@@ -33,9 +33,8 @@ msgid "Manage Flatpak permissions"
 msgstr "Flatpak izinlerini yönet"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
-#, fuzzy
 msgid "seal;sandbox;override;"
-msgstr "yalıt;yalıtım;sanal ortam;"
+msgstr "yalıt;yalıtım;sanal ortam;üzerine yaz;üzerine yazma;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:11
 msgid ""
@@ -47,15 +46,15 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:20
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "Flatseal ana penceresi"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:24
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "Flatseal dosya sistemi izinlerini gösterirken"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:28
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "Flatseal genel üzerine yazmaları gösterirken"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:34
