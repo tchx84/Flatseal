@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.1.1] - 2024-02-06
 
 - Fixed crashes on some Ubuntu systems due to missing file monitor support.
 - Fixed falling back to appdata file when metainfo file is missing.
