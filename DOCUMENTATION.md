@@ -1,6 +1,6 @@
 # Documentation
 
-## Table of contents
+## Table of Contents
 
 - [Permissions](#permissions)
 	- [Share](#share)
