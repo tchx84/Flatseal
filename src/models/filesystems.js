@@ -34,28 +34,28 @@ var FlatpakFilesystemsModel = GObject.registerClass({
         return {
             'filesystems-host': {
                 supported: this._info.supports('0.4.0'),
-                description: _('All system files'),
+                description: _('All System Files'),
                 option: 'host',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host',
             },
             'filesystems-host-os': {
                 supported: this._info.supports('1.7.1'),
-                description: _('All system libraries, executables and static data'),
+                description: _('All System Libraries, Executables and Static Data'),
                 option: 'host-os',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host-os',
             },
             'filesystems-host-etc': {
                 supported: this._info.supports('1.7.1'),
-                description: _('All system configurations'),
+                description: _('All System Configurations'),
                 option: 'host-etc',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host-etc',
             },
             'filesystems-home': {
                 supported: this._info.supports('0.4.0'),
-                description: _('All user files'),
+                description: _('All User Files'),
                 option: 'home',
                 value: this.constructor.getDefault(),
                 example: 'filesystem=home',

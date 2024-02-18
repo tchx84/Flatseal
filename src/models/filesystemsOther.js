@@ -36,7 +36,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         return {
             'filesystems-other': {
                 supported: this._info.supports('0.6.14'),
-                description: _('Other files'),
+                description: _('Other Files'),
                 option: null,
                 value: this.constructor.getDefault(),
                 example: _('e.g. ~/games:ro, xdg-pictures, etc'),

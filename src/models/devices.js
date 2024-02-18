@@ -34,14 +34,14 @@ var FlatpakDevicesModel = GObject.registerClass({
         return {
             'devices-dri': {
                 supported: this._info.supports('0.4.0'),
-                description: _('GPU acceleration'),
+                description: _('GPU Acceleration'),
                 option: 'dri',
                 value: this.constructor.getDefault(),
                 example: 'device=dri',
             },
             'devices-input': {
                 supported: this._info.supports('1.15.6'),
-                description: _('Input devices'),
+                description: _('Input Devices'),
                 option: 'input',
                 value: this.constructor.getDefault(),
                 example: 'device=input',
@@ -55,14 +55,14 @@ var FlatpakDevicesModel = GObject.registerClass({
             },
             'devices-shm': {
                 supported: this._info.supports('1.6.1'),
-                description: _('Shared memory'),
+                description: _('Shared Memory'),
                 option: 'shm',
                 value: this.constructor.getDefault(),
                 example: 'device=shm',
             },
             'devices-all': {
                 supported: this._info.supports('0.6.6'),
-                description: _('All devices (e.g. webcam)'),
+                description: _('All Devices (e.g. Webcam)'),
                 option: 'all',
                 value: this.constructor.getDefault(),
                 example: 'device=all',

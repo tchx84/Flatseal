@@ -43,7 +43,7 @@ var FlatpakSharedModel = GObject.registerClass({
             },
             'shared-ipc': {
                 supported: this._info.supports('0.4.0'),
-                description: _('Inter-process communications'),
+                description: _('Inter-Process Communications'),
                 option: 'ipc',
                 value: this.constructor.getDefault(),
                 example: 'share=ipc',

@@ -34,14 +34,14 @@ var FlatpakFeaturesModel = GObject.registerClass({
         return {
             'features-devel': {
                 supported: this._info.supports('0.6.10'),
-                description: _('Development syscalls (e.g. ptrace)'),
+                description: _('Development Syscalls (e.g. ptrace)'),
                 option: 'devel',
                 value: this.constructor.getDefault(),
                 example: 'allow=devel',
             },
             'features-multiarch': {
                 supported: this._info.supports('0.6.12'),
-                description: _('Programs from other architectures'),
+                description: _('Programs From Other Architectures'),
                 option: 'multiarch',
                 value: this.constructor.getDefault(),
                 example: 'allow=multiarch',
@@ -55,7 +55,7 @@ var FlatpakFeaturesModel = GObject.registerClass({
             },
             'features-canbus': {
                 supported: this._info.supports('1.0.3'),
-                description: _('Controller Area Network bus'),
+                description: _('Controller Area Network Bus'),
                 option: 'canbus',
                 value: this.constructor.getDefault(),
                 example: 'allow=canbus',
