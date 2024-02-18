@@ -80,7 +80,7 @@ Application Shared Memory | Toggle | Allow the application to share its /dev/shm
 Name | Type | Description | `flatpak override` Equivalent
 --- | --- | --- | ---
 All Filesystem Files | Toggle | Allow read-write access to the whole filesystem. Everything that isn't writeable by the user will be read-only | `--filesystem=host` and `--nofilesystem=host`
-All System Libraries, executables and static data | Toggle | Allow read-write access to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
+All System Libraries, Executables and Static Data | Toggle | Allow read-write access to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
 All System Configurations | Toggle | Allow read-write access to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-etc` and `--nofilesystem=host-etc`
 All User Files | Toggle | Allow read-write access to the user directory (`$HOME` or `~/`). | `--filesystem=home` and `--nofilesystem=home`
 Other Files | Input | Allow read-write access to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only access to `~/games`, then you would put `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
