@@ -3,6 +3,7 @@
   <!-- TRANSLATORS: Don't translate this text -->
   <name>Flatseal</name>
   <id>com.github.tchx84.Flatseal</id>
+  <launchable type="desktop-id">com.github.tchx84.Flatseal.desktop</launchable>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
   <content_rating type="oars-1.1"/>
@@ -32,10 +33,12 @@
   <update_contact>martin.abente.lahaye@gmail.com</update_contact>
   <!-- TRANSLATORS: Don't translate this text -->
   <developer_name>Martin Abente Lahaye</developer_name>
+  <developer id="dev.tchx84">
+    <name translatable="no">Martin Abente Lahaye</name>
+  </developer>
   <url type="homepage">https://github.com/tchx84/flatseal</url>
   <url type="bugtracker">https://github.com/tchx84/flatseal/issues</url>
   <custom>
-    <value key="Purism::form_factor">workstation</value>
     <value key="Purism::form_factor">mobile</value>
   </custom>
 </component>
