@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-18 10:37-0300\n"
-"PO-Revision-Date: 2024-03-10 12:44+0100\n"
+"PO-Revision-Date: 2024-03-13 23:32+0100\n"
 "Last-Translator: Dévényi Benedek <rdbende@proton.me>\n"
 "Language-Team: Hungarian <>\n"
 "Language: hu\n"
@@ -124,7 +124,7 @@ msgstr "Bluetooth"
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
-msgstr "Controller Area Network busz"
+msgstr "CAN (Controller Area Network) -busz"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
@@ -604,7 +604,7 @@ msgstr "Frissítve a Flatpak telepítések változásai miatt"
 
 #: src/widgets/window.ui:32
 msgid "Main Menu"
-msgstr "Menü megnyitása"
+msgstr "Főmenü"
 
 #: src/widgets/window.ui:76
 msgid "No applications found."
