@@ -41,4 +41,8 @@
   <custom>
     <value key="Purism::form_factor">mobile</value>
   </custom>
+  <branding>
+    <color type="primary" scheme_preference="light">#9af0cf</color>
+    <color type="primary" scheme_preference="dark">#0c8d5c</color>
+  </branding>
 </component>
