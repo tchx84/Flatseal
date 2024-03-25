@@ -73,7 +73,7 @@
                             <child type="placeholder">
                               <object class="AdwStatusPage">
                                 <property name="icon-name">system-search-symbolic</property>
-                                <property name="title" translatable="yes">No applications found.</property>
+                                <property name="title" translatable="yes">No Applications Found</property>
                                 <style>
                                   <class name="compact"/>
                                 </style>

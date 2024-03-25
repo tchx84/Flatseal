@@ -12,25 +12,25 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">&lt;alt&gt;</property>
-                <property name="title" translatable="yes">Show mnemonics</property>
+                <property name="title" translatable="yes">Show Mnemonics</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">F1</property>
-                <property name="title" translatable="yes">Show documentation</property>
+                <property name="title" translatable="yes">Show Documentation</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">F10</property>
-                <property name="title" translatable="yes">Show menu</property>
+                <property name="title" translatable="yes">Show Menu</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">&lt;ctrl&gt;question</property>
-                <property name="title" translatable="yes">Keyboard shortcuts</property>
+                <property name="title" translatable="yes">Keyboard Shortcuts</property>
               </object>
             </child>
             <child>
@@ -47,25 +47,25 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">Left</property>
-                <property name="title" translatable="yes">Move left</property>
+                <property name="title" translatable="yes">Move Left</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">Up</property>
-                <property name="title" translatable="yes">Move up</property>
+                <property name="title" translatable="yes">Move Up</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">Right</property>
-                <property name="title" translatable="yes">Move right</property>
+                <property name="title" translatable="yes">Move Right</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">Down</property>
-                <property name="title" translatable="yes">Move down</property>
+                <property name="title" translatable="yes">Move Down</property>
               </object>
             </child>
           </object>
@@ -104,13 +104,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">&lt;ctrl&gt;G</property>
-                <property name="title" translatable="yes">Find next</property>
+                <property name="title" translatable="yes">Find Next</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="accelerator">&lt;Control&gt;&lt;Shift&gt;G</property>
-                <property name="title" translatable="yes">Find previous</property>
+                <property name="title" translatable="yes">Find Previous</property>
               </object>
             </child>
           </object>

@@ -28,7 +28,7 @@
 </head>
 <body>
 <h1 id="documentation">Documentation</h1>
-<h2 id="table-of-contents">Table of contents</h2>
+<h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li>
 <a href="#permissions">Permissions</a>
@@ -69,16 +69,16 @@
 <a href="#tips-and-tricks">Tips and Tricks</a>
 <ul>
 <li>
-<a href="#manually-reset-flatseal-permissions">Manually reset Flatseal permissions</a>
+<a href="#manually-reset-flatseal-permissions">Manually Reset Flatseal Permissions</a>
 </li>
 <li>
-<a href="#add-new-translations">Add new translations</a>
+<a href="#add-new-translations">Add New Translations</a>
 </li>
 <li>
-<a href="#enable-custom-installations">Enable custom installations</a>
+<a href="#enable-custom-installations">Enable Custom Installations</a>
 </li>
 <li>
-<a href="#use-custom-flatpak_user_dir">Use custom FLATPAK_USER_DIR</a>
+<a href="#use-custom-flatpak_user_dir">Use Custom FLATPAK_USER_DIR</a>
 </li>
 </ul>
 </li>
@@ -103,7 +103,7 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
@@ -114,7 +114,7 @@
 <td><code>--share=network</code> and <code>--unshare=network</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://en.wikipedia.org/wiki/Inter-process_communication">Inter-process communications</a></td>
+<td><a href="https://en.wikipedia.org/wiki/Inter-process_communication">Inter-Process Communications</a></td>
 <td>Toggle</td>
 <td>Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC.</td>
 <td><code>--share=ipc</code> and <code>--unshare=ipc</code></td>
@@ -134,66 +134,66 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>X11 windowing system</td>
+<td>X11 Windowing System</td>
 <td>Toggle</td>
 <td>Allow the application to open in an X11 window. <br /> <br /> Most applications use X11 for historical reasons, but is considered less secure.</td>
 <td><code>--socket=x11</code> and <code>--nosocket=x11</code></td>
 </tr>
 <tr class="even">
-<td>Wayland windowing system</td>
+<td>Wayland Windowing System</td>
 <td>Toggle</td>
 <td>Allow the application to open in a Wayland window. <br /> <br /> Many applications do not use Wayland as it is a newer display protocol unlike X11, and is considered more secure, but either some applications require extra steps to use it (see <a href="#environment">environment variables</a> example for Firefox), or do not support Wayland at all.</td>
 <td><code>--socket=wayland</code> and <code>--nosocket=wayland</code></td>
 </tr>
 <tr class="odd">
-<td>Fallback to X11 windowing system</td>
+<td>Fallback to X11 Windowing System</td>
 <td>Toggle</td>
 <td>Allow the application to open in an X11 window when Wayland is not available. This overrides the X11 windowing system option when enabled.</td>
 <td><code>--socket=fallback-x11</code> and <code>--nosocket=fallback-x11</code></td>
 </tr>
 <tr class="even">
-<td>PulseAudio sound server</td>
+<td>PulseAudio Sound Server</td>
 <td>Toggle</td>
 <td>Allow the application to play sounds or get access to the microphone when using PulseAudio. <br /> <br /> For example, if it’s disabled for Rhythmbox, it will no longer be possible to listen to the music with this application.</td>
 <td><code>--socket=pulseaudio</code> and <code>--nosocket=pulseaudio</code></td>
 </tr>
 <tr class="odd">
-<td>D-Bus session bus</td>
+<td>D-Bus Session Bus</td>
 <td>Toggle</td>
 <td>Allow the application to have access to the entire session bus.</td>
 <td><code>--socket=session-dbus</code> and <code>--nosocket=session-dbus</code></td>
 </tr>
 <tr class="even">
-<td>D-Bus system bus</td>
+<td>D-Bus System Bus</td>
 <td>Toggle</td>
 <td>Allow the application to have access to the entire system bus.</td>
 <td><code>--socket=system-dbus</code> and <code>--nosocket=system-dbus</code></td>
 </tr>
 <tr class="odd">
-<td>Secure Shell agent</td>
+<td>Secure Shell Agent</td>
 <td>Toggle</td>
 <td>Allow the application to use SSH authentications.</td>
 <td><code>--socket=ssh-auth</code> and <code>--nosocket=ssh-auth</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://wiki.debian.org/Smartcards">Smart cards</a></td>
+<td><a href="https://wiki.debian.org/Smartcards">Smart Cards</a></td>
 <td>Toggle</td>
 <td>Allow the application to use smart cards.</td>
 <td><code>--socket=pcsc</code> and <code>--nosocket=pcsc</code></td>
 </tr>
 <tr class="odd">
-<td>Printing system</td>
+<td>Printing System</td>
 <td>Toggle</td>
 <td>Allow the application to use printing systems. <br /> <br /> For example, if it’s disabled for LibreOffice, it will no longer be possible to print documents with this application.</td>
 <td><code>--socket=cups</code> and <code>--nosocket=cups</code></td>
 </tr>
 <tr class="even">
-<td>GPG-Agent directories</td>
+<td>GPG-Agent Directories</td>
 <td>Toggle</td>
 <td>Allow the application to access GPG-Agent directories.</td>
 <td><code>--socket=gpg-agent</code> and <code>--nosocket=gpg-agent</code></td>
@@ -213,18 +213,18 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>GPU acceleration</td>
+<td>GPU Acceleration</td>
 <td>Toggle</td>
 <td>Allow the application to access the graphics direct rendering to take advantage of GPU acceleration.</td>
 <td><code>--device=dri</code> and <code>--nodevice=dri</code></td>
 </tr>
 <tr class="even">
-<td>Input devices</td>
+<td>Input Devices</td>
 <td>Toggle</td>
 <td>Allow input device access. <br /> <br /> Note that raw and virtual input devices could still require <a href="#device">All devices</a></td>
 <td><code>--device=input</code> and <code>--nodevice=input</code></td>
@@ -236,13 +236,13 @@
 <td><code>--device=kvm</code> and <code>--nodevice=kvm</code></td>
 </tr>
 <tr class="even">
-<td>Shared memory</td>
+<td>Shared Memory</td>
 <td>Toggle</td>
 <td>Allow the application to access shared memory.</td>
 <td><code>--device=shm</code> and <code>--nodevice=shm</code></td>
 </tr>
 <tr class="odd">
-<td>All devices</td>
+<td>All Devices</td>
 <td>Toggle</td>
 <td>Allow the application to access all devices, such as webcam and external devices. <br /> <br /> For example, if it’s disabled for Element, it will no longer be possible to do video calls with this application.</td>
 <td><code>--device=all</code> and <code>--nodevice=all</code></td>
@@ -262,18 +262,18 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Development syscalls</td>
+<td>Development Syscalls</td>
 <td>Toggle</td>
 <td>Allow the application to access to certain syscalls, such as <a href="https://en.wikipedia.org/wiki/Ptrace"><code>ptrace()</code></a> and <a href="https://en.wikipedia.org/wiki/Perf_(Linux)"><code>perf_event_open()</code></a>.</td>
 <td><code>--allow=devel</code> and <code>--disallow=devel</code></td>
 </tr>
 <tr class="even">
-<td>Programs from other architectures</td>
+<td>Programs From Other Architectures</td>
 <td>Toggle</td>
 <td>Allow the application to execute programs for an <a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a> other than the one supported natively by the system.</td>
 <td><code>--allow=multiarch</code> and <code>--disallow=multiarch</code></td>
@@ -285,7 +285,7 @@
 <td><code>--allow=bluetooth</code> and <code>--disallow=bluetooth</code></td>
 </tr>
 <tr class="even">
-<td>Controller Area Network bus</td>
+<td>Controller Area Network Bus</td>
 <td>Toggle</td>
 <td>Allow the application to use canbus sockets. You must also have <a href="#share">network access</a> for this to work.</td>
 <td><code>--allow=canbus</code> and <code>--disallow=canbus</code></td>
@@ -311,36 +311,36 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>All filesystem files</td>
+<td>All Filesystem Files</td>
 <td>Toggle</td>
 <td>Allow read-write access to the whole filesystem. Everything that isn’t writeable by the user will be read-only</td>
 <td><code>--filesystem=host</code> and <code>--nofilesystem=host</code></td>
 </tr>
 <tr class="even">
-<td>All system libraries, executables and static data</td>
+<td>All System Libraries, Executables and Static Data</td>
 <td>Toggle</td>
 <td>Allow read-write access to system libraries located in <code>/usr</code>. Since this directory requires root access to write, the permission will be read-only.</td>
 <td><code>--filesystem=host-os</code> and <code>--nofilesystem=host-os</code></td>
 </tr>
 <tr class="odd">
-<td>All system configurations</td>
+<td>All System Configurations</td>
 <td>Toggle</td>
 <td>Allow read-write access to system configurations located in <code>/etc</code>. Since this directory requires root access to write, the permission will be read-only.</td>
 <td><code>--filesystem=host-etc</code> and <code>--nofilesystem=host-etc</code></td>
 </tr>
 <tr class="even">
-<td>All user files</td>
+<td>All User Files</td>
 <td>Toggle</td>
 <td>Allow read-write access to the user directory (<code>$HOME</code> or <code>~/</code>).</td>
 <td><code>--filesystem=home</code> and <code>--nofilesystem=home</code></td>
 </tr>
 <tr class="odd">
-<td>Other files</td>
+<td>Other Files</td>
 <td>Input</td>
 <td>Allow read-write access to the directory you desire. <br /> <br /> For example, you would put <code>~/games</code> if you want read-write access to <code>~/games</code>. If you want read-only access to <code>~/games</code>, then you would put <code>~/games:ro</code>.</td>
 <td><code>--filesystem=[PATH]</code>, <code>--filesystem=[PATH]:ro</code> and <code>--nofilesystem=[PATH]</code></td>
@@ -360,7 +360,7 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak-override</code> equivalent</th>
+<th><code>flatpak-override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
@@ -385,7 +385,7 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
@@ -410,7 +410,7 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
@@ -441,7 +441,7 @@
 <th>Name</th>
 <th>Type</th>
 <th>Description</th>
-<th><code>flatpak override</code> equivalent</th>
+<th><code>flatpak override</code> Equivalent</th>
 </tr>
 </thead>
 <tbody>
@@ -515,10 +515,10 @@
 </tbody>
 </table>
 <h2 id="tips-and-tricks">Tips and Tricks</h2>
-<h3 id="manually-reset-flatseal-permissions">Manually reset Flatseal permissions</h3>
+<h3 id="manually-reset-flatseal-permissions">Manually Reset Flatseal Permissions</h3>
 <p>If permissions are removed and is no longer possible to reset, run the following command from the terminal and re-start Flatseal:</p>
 <pre><code>$ rm ~/.local/share/flatpak/overrides/com.github.tchx84.Flatseal</code></pre>
-<h3 id="add-new-translations">Add new translations</h3>
+<h3 id="add-new-translations">Add New Translations</h3>
 <p>Add a new language and update translations:</p>
 <pre><code>$ git clone https://github.com/tchx84/Flatseal.git
 $ cd Flatseal
@@ -531,23 +531,23 @@ $ gedit ../po/es.po # translate the strings to Spanish</code></pre>
 <pre><code>$ flatpak config --set languages es
 $ flatpak update org.gnome.Platform
 $ LC_ALL=es_PY.UTF-8 flatpak run com.github.tchx84.Flatseal</code></pre>
-<h3 id="enable-custom-installations">Enable custom installations</h3>
+<h3 id="enable-custom-installations">Enable Custom Installations</h3>
 <p>To enable a custom installation, e.g, <code>/xusr/custom/flatpak</code>.</p>
-<h4 id="flatpak-1.7.1-or-newer">Flatpak 1.7.1 or newer</h4>
+<h4 id="flatpak-1.7.1-or-newer">Flatpak 1.7.1 or Newer</h4>
 <ol type="1">
 <li>Launch Flatseal and select it to edit its own permissions.</li>
 <li>Enable <code>host-etc</code>, or type in <code>host-etc:ro</code> in the other option.</li>
 <li>Type in the custom installation path, e.g, <code>/xusr/custom/flatpak:ro</code>.</li>
 <li>Restart Flatseal.</li>
 </ol>
-<h4 id="all-versions">All versions</h4>
+<h4 id="all-versions">All Versions</h4>
 <ol type="1">
 <li>Launch Flatseal and select it to edit its own permissions.</li>
 <li>Enable <code>host</code>, or type in <code>host:ro</code> in the other option.</li>
 <li>Restart Flatseal.</li>
 </ol>
 <p><strong>NOTE</strong>: To find these installations, Flatseal needs access to <code>/etc/flatpak/installations.d</code>. Before Flatpak 1.7.1, accessing the host <code>/etc</code> required the <code>host</code> permission, which was an all-or-nothing situation. By default, Flatseal will have minimal permissions, so it’s up to the user to decide to enable this feature.</p>
-<h3 id="use-custom-flatpak_user_dir">Use custom FLATPAK_USER_DIR</h3>
+<h3 id="use-custom-flatpak_user_dir">Use Custom FLATPAK_USER_DIR</h3>
 <p>To use a custom <code>FLATPAK_USER_DIR</code>, e.g. <code>/var/home/user/.flatpak</code>.</p>
 <pre><code>flatpak --user override --filesystem=/var/home/user/.flatpak --env=FLATPAK_USER_DIR=/var/home/user/.flatpak com.github.tchx84.Flatseal</code></pre>
 <p><strong>NOTE</strong>: By default, <code>FLATPAK_USER_DIR</code> is not accessible from within the Flatpak sandbox, and Flatseal has no access to custom directories. Therefore, these overrides are needed.</p>
