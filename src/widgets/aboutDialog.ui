@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="AdwAboutWindow" id="about-window">
+  <object class="AdwAboutDialog" id="about-window">
     <property name="application_name">Flatseal</property>
-    <property name="modal">True</property>
     <property name="version">2.1.2</property>
     <property name="copyright">© 2020-2024 Martin Abente Lahaye</property>
     <property name="issue_url">https://github.com/tchx84/Flatseal/issues/new</property>
