@@ -2,7 +2,10 @@
 
 ## [unreleased]
 
+- Added brand colors to appdata.
 - Fixed appdata to pass new Flathub checks.
+- Fixed Hungarian translation.
+- Changed to GNOME 46 runtime for stability.
 
 ## [2.1.1] - 2024-02-06
 
