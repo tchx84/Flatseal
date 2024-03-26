@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.1.2] - 2024-03-26
 
 - Added brand colors to appdata.
 - Fixed appdata to pass new Flathub checks.
