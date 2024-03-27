@@ -43,6 +43,14 @@
         {
             "name": "flatseal",
             "buildsystem": "meson",
+            "run-tests": true,
+            "build-options": {
+                "test-args": [
+                    "--socket=x11",
+                    "--share=network",
+                    "--socket=session-bus"
+                ]
+            },
             "sources": [
                 {
                     "type": "dir",
