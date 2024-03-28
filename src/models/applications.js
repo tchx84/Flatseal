@@ -326,14 +326,18 @@ var FlatpakApplicationsModel = GObject.registerClass({
         if (component.get_name())
             appdata.name = component.get_name();
 
-        if (component.get_developer_name())
-            appdata.author = component.get_developer_name();
+        const developer = component.get_developer();
+        if (developer && developer.get_name())
+            appdata.author = developer.get_name();
 
         const launchable = component.get_launchable(AppStream.LaunchableKind.DESKTOP_ID);
         if (launchable && launchable.get_entries())
             [appdata.launchable] = launchable.get_entries();
 
-        const [release] = component.get_releases();
+        const releaselist = component.get_releases_plain();
+        if (!releaselist)
+            return appdata;
+        const [release] = releaselist.get_entries();
         if (!release)
             return appdata;
 
