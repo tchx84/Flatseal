@@ -6,7 +6,16 @@ name: CI
 jobs:
   testing:
     runs-on: ubuntu-latest
-    name: testing
+    container:
+      image: ghcr.io/andyholmes/flatter/gnome:46
+      options: --privileged
     steps:
-    - uses: actions/checkout@master
-    - uses: tchx84/gtk-apps-testing-docker-action@gjs
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Build
+        uses: andyholmes/flatter@main
+        with:
+          files: com.github.tchx84.Flatseal.json
+          run-tests: true
