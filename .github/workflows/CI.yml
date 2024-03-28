@@ -5,8 +5,13 @@ on:
 name: CI
 jobs:
   testing:
-    runs-on: ubuntu-latest
     name: testing
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+      options: --privileged
     steps:
     - uses: actions/checkout@master
-    - uses: tchx84/gtk-apps-testing-docker-action@gjs
+    - uses: tchx84/gtk-apps-testing-docker-action@flatpak
+      env:
+        MANIFEST_PATH: com.github.tchx84.Flatseal.json
