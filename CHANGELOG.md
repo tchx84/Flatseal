@@ -1,5 +1,9 @@
 # Changelog
 
+## [unreleased]
+
+* Changed to Adw.Dialog for more adaptive dialogs.
+
 ## [2.1.2] - 2024-03-26
 
 - Added brand colors to appdata.
