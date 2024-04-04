@@ -24,5 +24,5 @@ const ABOUT_RESOURCE = '/com/github/tchx84/Flatseal/widgets/aboutDialog.ui';
 function showAboutDialog(window) {
     const builder = Gtk.Builder.new_from_resource(ABOUT_RESOURCE);
     const dialog = builder.get_object('about-window');
-    dialog.present(parent=window);
+    dialog.present(window);
 }
