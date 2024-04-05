@@ -50,6 +50,30 @@ const MODELS = {
     unsupported: new FlatpakUnsupportedModel(),
 };
 
+function generate_index() {
+    const index = {};
+
+    Object.values(MODELS).forEach(model => {
+        const group = model.constructor.getGroup();
+        const key = model.constructor.getKey();
+        const options = model.getOptions();
+
+        if (key === null) {
+            index[`${group}`] = model;
+        } else if (options === null) {
+            index[`${group}_${key}`] = model;
+        } else {
+            options.forEach(option => {
+                index[`${group}_${key}_${option}`] = model;
+            });
+        }
+    });
+
+    return index;
+}
+
+const INDEX = generate_index();
+
 function generate() {
     const properties = {};
 
@@ -149,40 +173,30 @@ var FlatpakPermissionsModel = GObject.registerClass({
             const [keys] = keyFile.get_keys(group);
 
             keys.forEach(key => {
-                const values = keyFile.get_value(group, key)
-                    .replace(/;+$/, '')
-                    .split(';');
+                const value = keyFile.get_value(group, key).replace(/;+$/, '');
 
-                values.forEach(value => {
-                    let model = null;
-                    const option = value.replace('!', '');
+                /* First for models that process the value as a whole */
+                let model = INDEX[`${group}`] || null;
 
-                    for (const _model of Object.values(MODELS)) {
-                        if (_model.constructor.getGroup() !== group)
-                            continue;
+                if (model !== null) {
+                    model.loadFromKeyFile(group, key, value, overrides, global);
+                    return;
+                }
 
-                        const _key = _model.constructor.getKey();
-                        if (_key !== null && _key !== key)
-                            continue;
+                /* Then check models that process the value as individually */
+                const values = value.split(';');
 
-                        const options = _model.getOptions();
-                        if (options !== null && options.includes(option)) {
-                            model = _model;
-                            break;
-                        } else if (options === null) {
-                            model = _model;
-                            break;
-                        } else {
+                values.forEach(option => {
+                    model = INDEX[`${group}_${key}_${option.replace('!', '')}`] || null;
 
-                            /* unsupported */
-                        }
-                    }
+                    if (model === null)
+                        model = INDEX[`${group}_${key}`] || null;
 
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
                     if (model !== null)
-                        model.loadFromKeyFile(group, key, value, overrides, global);
+                        model.loadFromKeyFile(group, key, option, overrides, global);
                 });
             });
         });
