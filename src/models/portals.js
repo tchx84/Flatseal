@@ -200,6 +200,14 @@ var FlatpakPortalsModel = GObject.registerClass({
         return 'portals';
     }
 
+    static getKey() {
+        return null;
+    }
+
+    getOptions() { // eslint-disable-line class-methods-use-this
+        return null;
+    }
+
     static getTitle() {
         return 'Portals';
     }
