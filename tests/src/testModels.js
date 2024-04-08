@@ -835,6 +835,26 @@ describe('Model', function() {
         update();
     });
 
+
+    it('handles environment variables with semicolons', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _environmentAppId;
+
+        expect(permissionsDefault.variables).toEqual('TEST=yes');
+
+        permissionsDefault.set_property('variables', 'TEST=yes;no');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            permissionsDefault.appId = _environmentAppId;
+            expect(permissionsDefault.variables).toEqual('TEST=yes;no');
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
     it('Add new well-known names', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissionsDefault.appId = _busAppId;
