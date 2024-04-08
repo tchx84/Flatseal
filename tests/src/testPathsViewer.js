@@ -29,7 +29,11 @@ describe('FlatsealPathsViewer', function() {
     var viewer;
 
     beforeEach(function() {
-        viewer = new FlatsealPathsViewer(FlatsealPathRow);
+        viewer = new FlatsealPathsViewer(
+            (v) => v.join(';'),
+            (v) => v.split(';'),
+            FlatsealPathRow,
+        );
     });
 
     it('starts empty', function() {
