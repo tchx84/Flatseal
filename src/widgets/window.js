@@ -205,6 +205,8 @@ var FlatsealWindow = GObject.registerClass({
                     p.description,
                     p.permission,
                     p.value,
+                    p.serializeFunc,
+                    p.deserializeFunc,
                     FlatsealPathRow,
                     'folder-new-symbolic');
             } else if (p.type === 'relativePath') {
@@ -212,6 +214,8 @@ var FlatsealWindow = GObject.registerClass({
                     p.description,
                     p.permission,
                     p.value,
+                    p.serializeFunc,
+                    p.deserializeFunc,
                     FlatsealRelativePathRow,
                     'folder-new-symbolic');
             } else if (p.type === 'variable') {
@@ -219,6 +223,8 @@ var FlatsealWindow = GObject.registerClass({
                     p.description,
                     p.permission,
                     p.value,
+                    p.serializeFunc,
+                    p.deserializeFunc,
                     FlatsealVariableRow,
                     'list-add-symbolic');
             } else if (p.type === 'bus') {
@@ -226,6 +232,8 @@ var FlatsealWindow = GObject.registerClass({
                     p.description,
                     p.permission,
                     p.value,
+                    p.serializeFunc,
+                    p.deserializeFunc,
                     FlatsealBusNameRow,
                     'list-add-symbolic');
             } else if (p.type === 'portal') {
