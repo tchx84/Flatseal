@@ -41,7 +41,9 @@ var FlatsealPathsViewer = GObject.registerClass({
             FlatsealOverrideStatus.ORIGINAL),
     },
 }, class FlatsealPathsViewer extends Gtk.Box {
-    _init(rowClass) {
+    _init(serializeFunc, deserializeFunc, rowClass) {
+        this._serializeFunc = serializeFunc;
+        this._deserializeFunc = deserializeFunc;
         this._status = FlatsealOverrideStatus.ORIGINAL;
         super._init({});
         this._rowClass = rowClass;
@@ -64,7 +66,7 @@ var FlatsealPathsViewer = GObject.registerClass({
             this.remove(row);
 
         this.visible = false;
-        const paths = text.split(';');
+        const paths = this._deserializeFunc(text);
 
         paths.forEach(path => {
             if (path.length === 0)
@@ -102,10 +104,10 @@ var FlatsealPathsViewer = GObject.registerClass({
     }
 
     get text() {
-        return Array.from(this)
+        return this._serializeFunc(Array.from(this)
             .map(row => row.text)
             .reverse()
-            .join(';');
+        );
     }
 
     set status(status) {
