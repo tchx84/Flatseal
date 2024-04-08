@@ -73,6 +73,12 @@ var FlatpakVariablesModel = GObject.registerClass({
         return _('List of variables exported to the application');
     }
 
+    static deserialize(value) {
+        return value
+            .split(/(?=;.*=)/)
+            .map(v => v.replace(/^;/, ''));
+    }
+
     getOptions() { // eslint-disable-line class-methods-use-this
         return null;
     }
