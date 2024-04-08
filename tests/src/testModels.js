@@ -1402,6 +1402,27 @@ describe('Model', function() {
         update();
     });
 
+    it('handles global overrides that negate filesystems with mode', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+
+        permissionsDefault.appId = _filesystemWithMode;
+        expect(permissionsDefault.filesystems_other).toEqual('host:ro;xdg-documents:ro;home:ro');
+
+        permissionsDefault.appId = 'global';
+        expect(permissionsDefault.filesystems_other).toEqual('');
+        permissionsDefault.set_property('filesystems_other', '!host');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            permissionsDefault.appId = _filesystemWithMode;
+            expect(permissionsDefault.filesystems_other).toEqual('xdg-documents:ro;home:ro');
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
     it('handles malformed overrides', function() {
         spyOn(permissionsDefault, 'emit');
 
