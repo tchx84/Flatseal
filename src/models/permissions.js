@@ -383,6 +383,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
                 entry['statusProperty'] = `${property}-status`;
+                entry['serializeFunc'] = model.constructor.serialize;
+                entry['deserializeFunc'] = model.constructor.deserialize;
 
                 list.push(entry);
             });
