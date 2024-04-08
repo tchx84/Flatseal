@@ -79,6 +79,14 @@ var FlatpakSharedModel = GObject.registerClass({
         return _('List of subsystems shared with the host system');
     }
 
+    static serialize(values) {
+        return values.join(';');
+    }
+
+    static deserialize(value) {
+        return value.split(';');
+    }
+
     getOptions() {
         return Object.entries(this.getPermissions())
             .map(([, permission]) => permission.option);

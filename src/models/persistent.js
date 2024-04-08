@@ -77,8 +77,7 @@ var FlatpakPersistentModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const originals = new Set([...this._originals, ...this._globals]);
 
-        const overrides = new Set(value
-            .split(';')
+        const overrides = new Set(this.constructor.deserialize(value)
             .filter(p => p.length !== 0)
             .filter(p => !originals.has(p)));
 
@@ -91,7 +90,7 @@ var FlatpakPersistentModel = GObject.registerClass({
             .filter(p => p.length !== 0)
             .map(p => this._getStatusForPermission(p));
 
-        proxy.set_property('persistent-status', values.join(';'));
+        proxy.set_property('persistent-status', this.constructor.serialize(values));
     }
 
     updateProxyProperty(proxy) {
