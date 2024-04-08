@@ -91,7 +91,7 @@ var FlatpakSessionBusModel = GObject.registerClass({
         const option = property.replace(`${prefix}-`, '');
 
         const originals = {...this._originals, ...this._globals};
-        const values = value.split(';');
+        const values = this.constructor.deserialize(value);
 
         /* Reset overrides on Talk since it's the first to update */
         const overrides = option === 'talk' ? {} : this._overrides;
@@ -168,8 +168,8 @@ var FlatpakSessionBusModel = GObject.registerClass({
         });
 
         const prefix = this.constructor.getPrefix();
-        proxy.set_property(`${prefix}-talk`, options['talk'].join(';'));
-        proxy.set_property(`${prefix}-own`, options['own'].join(';'));
+        proxy.set_property(`${prefix}-talk`, this.constructor.serialize(options['talk']));
+        proxy.set_property(`${prefix}-own`, this.constructor.serialize(options['own']));
     }
 
     loadFromKeyFile(group, name, option, overrides, global) {

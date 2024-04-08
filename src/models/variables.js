@@ -82,8 +82,7 @@ var FlatpakVariablesModel = GObject.registerClass({
         const variables = {};
         const originals = {...this._originals, ...this._globals};
 
-        value
-            .split(';')
+        this.constructor.deserialize(value)
             .filter(v => this._expression.test(v))
             .map(v => v.split(/[=](.*)/s))
             .forEach(([k, v]) => {
@@ -140,10 +139,9 @@ var FlatpakVariablesModel = GObject.registerClass({
 
         variables = Object.entries(variables)
             .filter(([, value]) => value.length !== 0)
-            .map(([key, value]) => `${key}=${value}`)
-            .join(';');
+            .map(([key, value]) => `${key}=${value}`);
 
-        proxy.set_property('variables', variables);
+        proxy.set_property('variables', this.constructor.serialize(variables));
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {

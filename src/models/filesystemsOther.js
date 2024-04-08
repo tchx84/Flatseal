@@ -121,7 +121,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     updateFromProxyProperty(property, value) {
-        const paths = new Set(value.split(';'));
+        const paths = new Set(this.constructor.deserialize(value));
 
         const added = new Set([...paths]
             .filter(p => p.length !== 0)
@@ -189,7 +189,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
                            !this.constructor.isResetOverride(p)));
 
         const paths = new Set([...originals, ...globals, ...overrides]);
-        const value = [...paths].join(';');
+        const value = this.constructor.serialize([...paths]);
 
         proxy.set_property('filesystems-other', value);
     }
