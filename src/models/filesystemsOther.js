@@ -125,12 +125,12 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
         const added = new Set([...paths]
             .filter(p => p.length !== 0)
-            .filter(p => !this._filesystems._originals.has(p))
+            .filter(p => !this._filesystems.originals.has(p))
             .filter(p => !this._originals.has(p))
             .filter(p => !this._globals.has(p)));
 
         const removedOriginals = [...this._originals]
-            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
+            .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._globals, p))
             .filter(p => !this.constructor.isOverriden(added, p))
             .filter(p => !paths.has(p))
@@ -138,8 +138,8 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             .map(p => this.constructor.negate(p));
 
         const removedGlobals = [...this._globals]
-            .filter(p => !this.constructor.isOverriden(this._filesystems._originals, p))
-            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
+            .filter(p => !this.constructor.isOverriden(this._filesystems.originals, p))
+            .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._originals, p))
             .filter(p => !this.constructor.isOverriden(added, p))
             .filter(p => !paths.has(p))
@@ -160,15 +160,15 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
     updateProxyProperty(proxy) {
         const originals = [...this._originals]
-            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
+            .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._globals, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p));
 
         const globals = [...this._globals]
             .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
-            .filter(p => !this.constructor.isOverriden(this._filesystems._overrides, p))
+            .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p))
-            .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
+            .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
                            this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
@@ -178,7 +178,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         const overrides = [...this._overrides]
             .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
             .filter(p => !this.constructor.isStrictlyOverriden(this._globals, p))
-            .filter(p => !(this.constructor.isOverriden(this._filesystems._originals, p) &&
+            .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
                            this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)))
             .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
