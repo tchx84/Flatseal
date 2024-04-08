@@ -160,6 +160,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
 
     updateProxyProperty(proxy) {
         const originals = [...this._originals]
+            .filter(p => !this.constructor.isOverriden(this._filesystems.globals, p))
             .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._globals, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p));
