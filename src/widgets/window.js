@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, GLib, Gtk, Adw} = imports.gi;
+const {GObject, Gtk, Adw} = imports.gi;
 
 const {applications, permissions} = imports.models;
 
@@ -42,7 +42,6 @@ const _bindFlags = GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYN
 const _bindReadFlags = GObject.BindingFlags.SYNC_CREATE;
 
 const menuResource = '/com/github/tchx84/Flatseal/widgets/menu.ui';
-const APP_SELECTION_DELAY = 100;
 
 
 var FlatsealWindow = GObject.registerClass({
@@ -114,11 +113,12 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsToast.timeout = null;
         this._applications.connect('changed', this._showApplicationsToast.bind(this));
 
+        this._activatedRow = null;
+        this._contentLeaflet.connect('notify::collapsed', this._updateSelection.bind(this));
+        this._updateSelection();
+
         this._applicationsListBox.set_filter_func(this._filter.bind(this));
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
-
-        this._applicationsDelayHandlerId = 0;
-        this._applicationsListBox.connect('row-selected', this._selectApplicationDelayed.bind(this));
         this._applicationsListBox.connect('row-activated', this._activateApplication.bind(this));
 
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
@@ -130,9 +130,11 @@ var FlatsealWindow = GObject.registerClass({
         this._setupApplications();
         this._setupPermissions();
 
-        this._showApplications();
-
         this._applicationsSearchBar.set_key_capture_widget(this.root);
+
+        /* Only after the UI is setup */
+        if (this._activatedRow !== null)
+            this._activateApplication(this._applicationsListBox, this._activatedRow);
     }
 
     _setupApplications() {
@@ -145,13 +147,15 @@ var FlatsealWindow = GObject.registerClass({
         const allApplications = this._applications.getAll();
 
         if (allApplications.length === 0) {
-            this._applicationsListBox.unselect_all();
+            this._contentLeaflet.show_content = false;
             this._permissionsStack.visibleChildName = 'withNoPermissionsPage';
             return;
         }
 
+        this._contentLeaflet.show_content = true;
+        this._permissionsStack.visibleChildName = 'withPermissionsPage';
+
         /* Add rows for every application */
-        let selectedRow = null;
         const iconTheme = Gtk.IconTheme.get_for_display(this.get_display());
 
         allApplications.forEach(app => {
@@ -160,7 +164,7 @@ var FlatsealWindow = GObject.registerClass({
             this._applicationsListBox.append(row);
 
             if (app.appId === this._settings.getSelectedAppId())
-                selectedRow = row;
+                this._activatedRow = row;
         });
 
         /* Add row for global overrides */
@@ -168,16 +172,8 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.append(this._globalRow);
 
         /* Select after the list has been sorted */
-        if (selectedRow === null)
-            selectedRow = this._applicationsListBox.get_row_at_index(1);
-
-        /* XXX Switch to ListBox.scroll_to when available */
-        selectedRow.grab_focus();
-
-        this._applicationsListBox.select_row(selectedRow);
-
-        /* Enable permissions view only if there's applications */
-        this._permissionsStack.visibleChildName = 'withPermissionsPage';
+        if (this._activatedRow === null)
+            this._activatedRow = this._applicationsListBox.get_row_at_index(1);
     }
 
     _setupPermissions() {
@@ -278,21 +274,11 @@ var FlatsealWindow = GObject.registerClass({
         this._applications.shutdown();
     }
 
-    _selectApplicationDelayed() {
-        if (this._applicationsDelayHandlerId !== 0)
-            GLib.Source.remove(this._applicationsDelayHandlerId);
-
-        this._applicationsDelayHandlerId = GLib.timeout_add(
-            GLib.PRIORITY_DEFAULT, APP_SELECTION_DELAY, this._selectApplication.bind(this));
-    }
-
-    _activateApplication() {
-        if (this._contentLeaflet.collapsed)
-            this._showPermissions();
-    }
-
-    _selectApplication() {
-        this._updatePermissions();
+    _activateApplication(listBox, row) {
+        this._activatedRow = row;
+        this._updatePermissions(row);
+        this._applicationsListBox.select_row(row);
+        this._contentLeaflet.show_content = true;
     }
 
     _updatePermissionsPane(row) {
@@ -320,18 +306,26 @@ var FlatsealWindow = GObject.registerClass({
         }
     }
 
-    _updatePermissions() {
+    _updatePermissions(row) {
         this._failedToast.dismiss();
-        const row = this._applicationsListBox.get_selected_row();
         this._updatePermissionsPane(row);
 
         const appId = row ? row.appId : '';
         this._permissions.appId = appId;
         this._settings.setSelectedAppId(appId);
         this._toast.dismiss();
+    }
 
-        this._applicationsDelayHandlerId = 0;
-        return GLib.SOURCE_REMOVE;
+    _updateSelection() {
+        const mode = this._contentLeaflet.collapsed ? Gtk.SelectionMode.NONE : Gtk.SelectionMode.BROWSE;
+        this._applicationsListBox.selection_mode = mode;
+
+        if (this._contentLeaflet.collapsed)
+            return;
+        if (this._activatedRow === null)
+            return;
+
+        this._applicationsListBox.select_row(this._activatedRow);
     }
 
     _filter(row) {
@@ -364,23 +358,12 @@ var FlatsealWindow = GObject.registerClass({
 
     _selectSearch() {
         const row = this._applicationsListBox.get_row_at_y(0);
-        if (row === null)
-            return;
-
-        this._applicationsListBox.select_row(row);
-        row.grab_focus();
+        if (row !== null)
+            row.grab_focus();
     }
 
     _resetSearch() {
         this._applicationsListBox.invalidate_filter();
-    }
-
-    _showApplications() {
-        this._contentLeaflet.show_content = false;
-    }
-
-    _showPermissions() {
-        this._contentLeaflet.show_content = true;
     }
 
     _showToast() {
