@@ -94,7 +94,6 @@ var FlatpakFilesystemsModel = GObject.registerClass({
     get originals() {
         return this._originals;
     }
-
 });
 
 var getDefault = (function() {
