@@ -106,7 +106,7 @@ var FlatsealPathsViewer = GObject.registerClass({
     get text() {
         return this._serializeFunc(Array.from(this)
             .map(row => row.text)
-            .reverse()
+            .reverse(),
         );
     }
 
