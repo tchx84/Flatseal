@@ -36,7 +36,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/ptomato/jasmine-gjs.git",
-                    "commit": "c6aa28b3a3b16a3abb53e32825d83f836a2fed42"
+                    "commit": "f6a42dbdbf4d0790358cd17aac09b2d66a22c38c"
                 }
             ]
         },
