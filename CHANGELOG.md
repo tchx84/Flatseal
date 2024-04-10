@@ -2,7 +2,10 @@
 
 ## [unreleased]
 
-* Changed to Adw.Dialog for more adaptive dialogs.
+* Fixed parsing environment variables with certain characters.
+* Fixed filesystem permissions still showing up after being removed globally.
+* Changed navigation experience to mimic GNOME Settings.
+* Changed to Adw.AboutDialog for better adaptive behavior.
 
 ## [2.1.2] - 2024-03-26
 
