@@ -132,8 +132,7 @@ var FlatpakVariablesModel = GObject.registerClass({
     }
 
     updateStatusProperty(proxy) {
-        const values = proxy.variables
-            .split(';')
+        const values = this.constructor.deserialize(proxy.variables)
             .filter(v => v.length !== 0)
             .map(v => this._getStatusForPermission(v));
 
