@@ -2,6 +2,7 @@
 
 ## [unreleased]
 
+* Added Greek translation.
 * Fixed parsing environment variables with certain characters.
 * Fixed filesystem permissions still showing up after being removed globally.
 * Changed navigation experience to mimic GNOME Settings.
