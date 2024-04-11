@@ -1,0 +1,617 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+#Karachalios Stagkas Athanasios Nektarios (nasos.karachalios.stagkas@proton.me) ,2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"PO-Revision-Date: 2024-04-03 13:31+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: el_GR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Διαχείριση δικαιωμάτων Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;override;"
+msgstr "σφράγισε;απομόνωσε;προσπέλασε;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Το Flatseal είναι ένα γραφικό βοηθητικό πρόγραμμα για την επισκόπηση και "
+"την τροποποίηση των δικαιωμάτων από τις εφαρμογές Flatpak που διαθέτετε."
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr "Το κύριο παράθυρο του Flatseal"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr "Το Flatseal δείχνει τα δικαιώματα του συστήματος αρχείων"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal δείχνει παγκόσμιες προσπελάσεις"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "ID εφαρμογής που επιλέχθηκε τελευταία φορά"
+
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Επικοινωνεί"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Κατέχει"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Κατάλογος γνωστών ονομάτων στον δίαυλο συνεδρίας"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Κατάλογος γνωστών ονομάτων στο δίαυλο συστήματος"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "Επιτάχυνση Κάρτας Γράφικων"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "Συσκευές εισόδου"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "Εικονικοποίηση"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "Κοινόχρηστη μνήμη"
+
+#: src/models/devices.js:65
+msgid "All devices (e.g. webcam)"
+msgstr "Όλες οι συσκευές (π.χ. κάμερα)"
+
+#: src/models/devices.js:90
+msgid "List of devices available in the sandbox"
+msgstr "Λίστα των συσκευών που είναι διαθέσιμες στην απομόνωσή"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Αναπτυξιακές κλήσεις συστήματος (π.χ. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Προγράμματα άλλων αρχιτεκτονικών"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Δίαυλος ελεγκτή δικτύου"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Κοινόχρηστη μνήμη εφαρμογής"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Κατάλογος των διαθέσιμων λειτουργιών της εφαρμογής"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Όλα τα αρχεία συστήματος"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr ""
+"Όλες οι βιβλιοθήκες του συστήματος, τα εκτελέσιμα και τα στατικά δεδομένα"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Όλες οι διαμορφώσεις συστήματος"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Όλα τα αρχεία χρήστη"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr ""
+"Κατάλογος των υποσυνόλων του συστήματος αρχείων που είναι διαθέσιμα στην "
+"εφαρμογή"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Άλλα αρχεία"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "π.χ. ~/games:ro, xdg-pictures, κ.λπ"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Αρχεία"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "π.χ. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr ""
+"Λίστα των σχετικών με την διεύθυνση προσωπικού κατάλογου μονοπατιών που "
+"δημιουργήθηκαν στην απομόνωση"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Παρασκήνιο"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Μπορεί να εκτελεστεί στο παρασκήνιο"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Ειδοποιήσεις"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Μπορεί να στείλει ειδοποιήσεις"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Μικρόφωνο"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Μπορεί να ακούσει το μικρόφωνό σας"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Ηχεία"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Μπορεί να αναπαράγει ήχους στα ηχεία σας"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Κάμερα"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Μπορεί να καταγράψει βίντεο με την κάμερά σας"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Τοποθεσία"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Μπορεί να έχει πρόσβαση στη θέση σας"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "Κατάλογος των πόρων που χορηγούνται επιλεκτικά στην εφαρμογή"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Δεν υποστηρίζεται από την εγκατεστημένη έκδοση του Flatpak"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "Απαιτεί την έκδοση 2 ή νεότερη του καταστήματος αδειών"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "Τα δεδομένα της πύλης δεν έχουν ακόμη δημιουργηθεί"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Δίκτυο"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Επικοινωνίες μεταξύ διεργασιών"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr ""
+"Κατάλογος των υποσυστημάτων που χρησιμοποιούνται από κοινού με το σύστημα "
+"υποδοχής"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "Σύστημα παραθύρων X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Σύστημα παραθύρων Wayland"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Παλινδρόμηση στο σύστημα παραθύρων X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "Διακομιστής ήχου PulseAudio"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "Δίαυλος συνεδρίας D-Bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "Δίαυλος συστήματος D-Bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Πράκτορας Aσφαλούς Κελύφους"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Ευφυείς κάρτες"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Σύστημα εκτύπωσης"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "Κατάλογοι του πράκτορα GPG"
+
+#: src/models/sockets.js:125
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Λίστα των γνωστών υποδοχών που είναι διαθέσιμες στην απομόνωση"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Μεταβλητές"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "π.χ. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Κατάλογος μεταβλητών που εξάγονται στην εφαρμογή"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e %B,%Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "Έκδοση"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "Τελευταία ενημέρωση"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "Χρόνος λειτουργίας"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "Αυτή δεν είναι έγκυρη επιλογή"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_Εμφάνιση λεπτομερειών"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Εμφάνιση εφαρμογής σε διαχειριστή λογισμικού"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Δεν βρέθηκε διαχειριστής λογισμικού"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "Όλες οι εφαρμογές"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Αλλαγές που ισχύουν για όλες τις εφαρμογές Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Έκδοση Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Έκδοση Portal"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "Αλλαγές διαδρομής"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Βοήθεια"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Εγχειρίδιο"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Συντομεύσεις πληκτρολογίου"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_Περί Flatseal"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Αλλαγή παγκοσμίως"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Αλλαγή από τον χρήστη"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "αυτή η απόλυτη διαδρομή"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "αυτή η διαδρομή σε σχέση με τον προσωπικό κατάλογο"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "όλες οι διαμορφώσεις του συστήματος"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr ""
+"όλες τις βιβλιοθήκες του συστήματος, τα εκτελέσιμα και τα στατικά δεδομένα"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "όλα τα αρχεία συστήματος"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "όλα τα αρχεία χρήστη"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "ο κατάλογος της επιφάνειας εργασίας"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "ο κατάλογος εγγράφων"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "ο κατάλογος λήψεων"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "ο μουσικός κατάλογος"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "ο κατάλογος εικόνων"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "ο δημόσιος κατάλογος"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "ο κατάλογος βίντεο"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "ο κατάλογος προτύπων"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "ο κατάλογος config"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "ο κατάλογος cache"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "ο κατάλογος data"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "ο κατάλογος runtime"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Μπορεί να διαβάσει: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Μπορεί να τροποποιήσει και να διαβάσει: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Μπορεί να δημιουργήσει, να τροποποιήσει και να διαβάσει: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Δεν μπορεί να διαβάσει: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Δεν μπορεί να τροποποιήσει ή να διαβάσει: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Δεν μπορείτε να δημιουργήσει, να τροποποιήσει ή να διαβάσει: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "Μη ρυθμισμένο"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "Οι προεπιλεγμένες διαδρομές δεν μπορούν να αφαιρεθούν"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+msgid "_Reset"
+msgstr "_Επαναφορά"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "Καμία αλλαγή σε αυτή την εφαρμογή"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "Επαναφορά δικαιωμάτων αυτής της εφαρμογής"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", συμπεριλαμβανομένων των αλλαγών που δεν έγιναν με το Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "Γενικά"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "Εμφάνιση μνημονικών"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "Εμφάνιση εγχειριδίου"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "Εμφάνιση μενού"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "Συντομεύσεις πληκτρολογίου"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "Πλοήγηση"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "Μετακίνηση προς τα αριστερά"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "Μετακίνηση προς τα πάνω"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "Μετακίνηση προς τα δεξιά"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "Μετακίνηση προς τα κάτω"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+msgid "Applications"
+msgstr "Εφαρμογές"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "Εύρεση"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "Δικαιώματα"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "Εναλλαγή"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "Εγχειρίδιο"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "Εύρεση επόμενου"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "Εύρεση προηγούμενου"
+
+#: src/widgets/window.js:99
+msgid "Permissions have been reset"
+msgstr "Τα δικαιώματα έχουν επαναφερθεί"
+
+#: src/widgets/window.js:100
+msgid "_Undo"
+msgstr "_Αναίρεση"
+
+#: src/widgets/window.js:106
+msgid "Cannot load overrides due to incorrect contents"
+msgstr ""
+"Δεν είναι δυνατή η φόρτωση προσπελάσεων λόγω λανθασμένου περιεχομένου"
+
+#: src/widgets/window.js:113
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "Ανανεώθηκε λόγω αλλαγών στις εγκαταστάσεις Flatpak"
+
+#: src/widgets/window.ui:32
+msgid "Main Menu"
+msgstr "Κεντρικό μενού"
+
+#: src/widgets/window.ui:76
+msgid "No applications found."
+msgstr "Δεν βρέθηκαν εφαρμογές."
