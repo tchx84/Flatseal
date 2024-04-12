@@ -6,7 +6,7 @@
     <property name="height-request">294</property>
     <child>
       <object class="AdwBreakpoint">
-        <condition>max-width: 800sp</condition>
+        <condition>max-width: 540sp</condition>
         <setter object="contentLeaflet" property="collapsed">True</setter>
         <setter object="startHeaderBox" property="visible">False</setter>
         <setter object="endHeaderBox" property="visible">False</setter>
@@ -17,7 +17,6 @@
       <object class="AdwNavigationSplitView" id="contentLeaflet">
          <property name="sidebar">
           <object class="AdwNavigationPage">
-            <property name="width-request">360</property>
             <property name="tag">applications</property>
             <property name="title" translatable="yes">Applications</property>
             <property name="child">
@@ -91,6 +90,7 @@
         </property>
         <property name="content">
           <object class="AdwNavigationPage">
+            <property name="width-request">360</property>
             <property name="tag">permissions</property>
             <property name="title" translatable="yes">Permissions</property>
             <property name="child">
