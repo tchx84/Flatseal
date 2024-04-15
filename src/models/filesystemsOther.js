@@ -103,11 +103,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     static isStrictlyOverriden(set, value) {
-        const path = value.replace('!', '');
-
-        return (
-            set.has(path) ||
-            set.has(`!${path}`));
+        return set.has(this.negate(value));
     }
 
     static isResetOverride(value) {
