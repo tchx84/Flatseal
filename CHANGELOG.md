@@ -5,6 +5,7 @@
 * Added Greek translation.
 * Fixed parsing environment variables with certain characters.
 * Fixed filesystem permissions still showing up after being removed globally.
+* Fixed filesystem permissions not showing up after redundantly added globally.
 * Changed adaptive behavior to mimic GNOME Settings.
 * Changed navigation experience to mimic GNOME Settings.
 * Changed to Adw.AboutDialog for better adaptive behavior.
