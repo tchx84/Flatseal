@@ -1121,7 +1121,7 @@ describe('Model', function() {
 
         expect(permissionsDefault.shared_network).toBe(true);
         expect(permissionsDefault.shared_network).toBe(true);
-        expect(permissionsDefault.variables).toEqual('');
+        expect(permissionsDefault.variables).toEqual('TEST=;');
 
         /* force change to verify that there ins't unsupported permissions */
         spyOn(permissionsDefault, 'emit');
