@@ -173,7 +173,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
             const [keys] = keyFile.get_keys(group);
 
             keys.forEach(key => {
-                const value = keyFile.get_value(group, key).replace(/;+$/, '');
+                const value = keyFile.get_value(group, key);
 
                 /* First for models that process the value as a whole */
                 let model = INDEX[`${group}`] || null;
@@ -184,7 +184,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 }
 
                 /* Then check models that process the value as individually */
-                const values = value.split(';');
+                const values = value
+                    .replace(/;+$/, '')
+                    .split(';');
 
                 values.forEach(option => {
                     model = INDEX[`${group}_${key}_${option.replace('!', '')}`] || null;
