@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.2.0] - 2024-04-18
 
 * Added Greek translation.
 * Fixed parsing environment variables with certain characters.
