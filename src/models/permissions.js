@@ -176,7 +176,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 const value = keyFile.get_value(group, key);
 
                 /* First for models that process the value as a whole */
-                let model = INDEX[`${group}`] || null;
+                let model = this.constructor._find(`${group}`);
 
                 if (model !== null) {
                     model.loadFromKeyFile(group, key, value, overrides, global);
@@ -189,10 +189,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
-                    model = INDEX[`${group}_${key}_${option.replace('!', '')}`] || null;
+                    model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
 
                     if (model === null)
-                        model = INDEX[`${group}_${key}`] || null;
+                        model = this.constructor._find(`${group}_${key}`);
 
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
@@ -441,6 +441,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     get appId() {
         return this._appId;
+    }
+
+    static _find(key) {
+        return Object.hasOwn(INDEX, key) ? INDEX[key] : null;
     }
 
     /* testing */
