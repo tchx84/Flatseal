@@ -1,0 +1,609 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"PO-Revision-Date: 2024-05-06 19:26+0530\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 46.1\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+msgid "Manage Flatpak permissions"
+msgstr "Flatpak अनुमतियां प्रबंधित करें"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;override;"
+msgstr "सील;सैंडबॉक्स;अध्यारोहण;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal आपके Flatpak अनुप्रयोगों की अनुमतियों की समीक्षा और संशोधन करने के लिए "
+"चित्रात्मक उपयोगिता है।"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+msgid "The Flatseal main window"
+msgstr "Flatseal की मुख्य खिड़की"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+msgid "Flatseal showing filesystem permissions"
+msgstr "Flatseal फाइलसिस्टम अनुमतियां दिखाते हुए"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal वैश्विक अध्यारोहण दिखाते हुए"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "अनुप्रयोग ID जिसे अंतिम बार चुना गया था"
+
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "वार्ता"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "मालिक"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "सत्र बस में जाने-माने नामों की सूची"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "सिस्टम बस पर जाने-माने नामों की सूची"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU त्वरण"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "आगत उपकरण"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "आभासीकरण"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "साझा मेमोरी"
+
+#: src/models/devices.js:65
+msgid "All devices (e.g. webcam)"
+msgstr "सभी उपकरण (उदा. वेबकैम)"
+
+#: src/models/devices.js:90
+msgid "List of devices available in the sandbox"
+msgstr "सैंडबॉक्स में उपलब्ध उपकरणों की सूची"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "विकास syscalls (उदा. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "अन्य आर्किटेक्चर से प्रोग्राम"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "ब्लूटूथ"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "नियंत्रक क्षेत्र नेटवर्क बस"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "अनुप्रयोग द्वारा साझा मेमोरी"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "अनुप्रयोग के लिए उपलब्ध सुविधाओं की सूची"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "सभी सिस्टम फाइलें"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "सभी सिस्टम लाइब्रेरी, निष्पादनयोग्य और स्थिर डेटा"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "सभी सिस्टम विन्यास"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "सभी उपयोक्ता फाइलें"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "अनुप्रयोग के लिए उपलब्ध फाइलसिस्टम उपसमुच्चय की सूची"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "अन्य फाइलें"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "उदा. ~/games:ro, xdg-pictures, आदि"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "फाइलें"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "उदा. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "सैंडबॉक्स में बनाए गए होमनिर्देशिका-सापेक्ष पथों की सूची"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "पृष्ठभूमि"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "पृष्ठभूमि में चल सकता है"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "सूचनाएं"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "सूचनाएं भेज सकता है"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "माइक्रोफोन"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "आपके माइक्रोफोन को सुन सकता है"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "स्पीकर"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "आपके स्पीकर पर ध्वनियां बजा सकता है"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "कैमरा"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "अपने कैमरे से वीडियो रिकॉर्ड कर सकता है"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "लोकेशन"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "आपकी लोकेशन तक पहुंच सकता है"
+
+#: src/models/portals.js:208
+msgid "List of resources selectively granted to the application"
+msgstr "अनुप्रयोग को चुनिंदा रूप से दिए गए संसाधनों की सूची"
+
+#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Flatpak के स्थापित संस्करण द्वारा समर्थित नहीं है"
+
+#: src/models/portals.js:256
+msgid "Requires permission store version 2 or newer"
+msgstr "अनुमति स्टोर संस्करण 2 या नए की आवश्यकता है"
+
+#: src/models/portals.js:264
+msgid "Portal data has not been set up yet"
+msgstr "पोर्टल डेटा अभी तक स्थापित नहीं किया गया है"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "नेटवर्क"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "अंतर-प्रक्रिया संचार"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "होस्ट सिस्टम के साथ साझा की गई उपप्रणालियों की सूची"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 विंडोइंग सिस्टम"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland विंडोइंग सिस्टम"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "X11 विंडोइंग सिस्टम पर वापसी"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio ध्वनि सर्वर"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus सत्र बस"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus सिस्टम बस"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "सुरक्षित शैल एजेंट"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "स्मार्ट कार्ड"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "मुद्रण प्रणाली"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-Agent निर्देशिकाएं"
+
+#: src/models/sockets.js:125
+msgid "List of well-known sockets available in the sandbox"
+msgstr "सैंडबॉक्स में उपलब्ध जाने-माने सॉकेट की सूची"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "चर"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "उदा. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "अनुप्रयोग में निर्यात किए गए चरों की सूची"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%B %e, %Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "संस्करण"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "अंतिम अद्यतित"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "रनटाइम"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "यह कोई मान्य विकल्प नहीं है"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "विवरण दिखाएं (_S)"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "सॉफ्टवेयर प्रबंधक में अनुप्रयोग दिखाएं"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "कोई सॉफ्टवेयर प्रबंधक नहीं मिला"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "सभी अनुप्रयोग"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "परिवर्तन जो सभी Flatpak अनुप्रयोगों पर लागू होते हैं"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Flatpak संस्करण"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "पोर्टल संस्करण"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "बदलाव पथ"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "सहायता (_H)"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "दस्तावेज़ीकरण (_D)"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "कीबोर्ड शॉर्टकट (_K)"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "Flatseal के बारे में (_A)"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "वैश्विक स्तर पर बदला गया"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "उपयोक्ता द्वारा बदला गया"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "यह निरपेक्ष पथ"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "होम निर्देशिका से संबंधित यह पथ"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "सभी सिस्टम विन्यास"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "सभी सिस्टम लाइब्रेरी, निष्पादनयोग्य और स्थिर डेटा"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "सभी सिस्टम फाइलें"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "सभी उपयोक्ता फाइलें"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "डेस्कटॉप निर्देशिका"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "दस्तावेज़ निर्देशिका"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "डाउनलोड निर्देशिका"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "संगीत निर्देशिका"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "चित्र निर्देशिका"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "सार्वजनिक निर्देशिका"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "वीडियो निर्देशिका"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "खाके निर्देशिका"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "विन्यास निर्देशिका"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "कैशे निर्देशिका"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "डेटा निर्देशिका"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "रनटाइम निर्देशिका"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "पढ़ सकते हैं: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "संशोधित और पढ़ सकते हैं: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "बना, संशोधित और पढ़ सकते हैं: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "पढ़ नहीं सकते: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "संशोधित या पढ़ नहीं सकते: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "बना, संशोधित या पढ़ नहीं सकते: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "अनिर्धारित"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "तयशुदा पथ नहीं हटाए जा सकते"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+msgid "_Reset"
+msgstr "रीसेट (_R)"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "इस अनुप्रयोग में कोई बदलाव नहीं किया गया है"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "इस अनुप्रयोग की अनुमतियां रीसेट करें"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", Flatseal के साथ नहीं किए गए परिवर्तन सहित"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "सामान्य"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "निमोनिक्स दिखाएं"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "दस्तावेज़ दिखाएं"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "मेनू दिखाएं"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "कीबोर्ड शॉर्टकट"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "छोड़ें"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "नेविगेशन"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "बाएं जाएं"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "ऊपर जाएं"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "दाएं जाएं"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "नीचे जाएं"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+msgid "Applications"
+msgstr "अनुप्रयोग"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "खोजें"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "अनुमतियां"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "टॉगल"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "दस्तावेज़ीकरण"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "अगला खोजें"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "पिछला खोजें"
+
+#: src/widgets/window.js:99
+msgid "Permissions have been reset"
+msgstr "अनुमतियां रीसेट कर दी गई हैं"
+
+#: src/widgets/window.js:100
+msgid "_Undo"
+msgstr "पूर्ववत करें (_U)"
+
+#: src/widgets/window.js:106
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "गलत सामग्री के कारण अध्यारोहण लोड नहीं किया जा सकता"
+
+#: src/widgets/window.js:113
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "Flatpak संस्थापनों में परिवर्तन के कारण ताजा किया गया"
+
+#: src/widgets/window.ui:32
+msgid "Main Menu"
+msgstr "मुख्य मेनू"
+
+#: src/widgets/window.ui:76
+msgid "No applications found."
+msgstr "कोई अनुप्रयोग नहीं मिला।"
