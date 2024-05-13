@@ -1,6 +1,7 @@
 pkgdatadir = join_paths(get_option('datadir'), meson.project_name())
 gnome = import('gnome')
 
+dependency('appstream', version : '>= 1.0')
 dependency('libadwaita-1', version : '>= 1.5')
 dependency('webkitgtk-6.0', version : '>= 2.40')
 
