@@ -75,7 +75,7 @@ var FlatpakVariablesModel = GObject.registerClass({
 
     static deserialize(value) {
         return value
-            .split(/(?=;[\w\s]+=)/)
+            .split(/(?=;[^;]+=)/)
             .map(v => v.replace(/^;/, ''));
     }
 
