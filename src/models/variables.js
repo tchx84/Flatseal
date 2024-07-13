@@ -23,7 +23,7 @@ const {GObject} = imports.gi;
 const {FlatpakSharedModel} = imports.models.shared;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
-var VAR_REGEXP = /^\w+=[\S ]+$/;
+var VAR_REGEXP = /^[^;\s]+=[\S ]+$/;
 
 var FlatpakVariablesModel = GObject.registerClass({
     GTypeName: 'FlatpakVariablesModel',
@@ -75,7 +75,7 @@ var FlatpakVariablesModel = GObject.registerClass({
 
     static deserialize(value) {
         return value
-            .split(/(?=;[\w\s]+=)/)
+            .split(/(?=;[^;]+=)/)
             .map(v => v.replace(/^;/, ''));
     }
 
