@@ -102,6 +102,13 @@ var FlatpakSocketsModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: 'socket=gpg-agent',
             },
+            'sockets-inherit-wayland-socket': {
+                supported: this._info.supports('1.15.7'),
+                description: _('Inherit Wayland socket'),
+                option: 'inherit-wayland-socket',
+                value: this.constructor.getDefault(),
+                example: 'socket=inherit-wayland-socket',
+            },
         };
     }
 
