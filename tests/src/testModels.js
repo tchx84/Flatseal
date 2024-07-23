@@ -33,7 +33,7 @@ const {
 
 setup();
 
-const _totalPermissions = 39;
+const _totalPermissions = 40;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
@@ -179,6 +179,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_pcsc).toBe(true);
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.sockets_gpg_agent).toBe(true);
+        expect(permissionsDefault.sockets_inherit_wayland_socket).toBe(true);
         expect(permissionsDefault.devices_dri).toBe(true);
         expect(permissionsDefault.devices_input).toBe(true);
         expect(permissionsDefault.devices_kvm).toBe(true);
@@ -218,6 +219,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_pcsc).toBe(false);
         expect(permissionsDefault.sockets_cups).toBe(false);
         expect(permissionsDefault.sockets_gpg_agent).toBe(false);
+        expect(permissionsDefault.sockets_inherit_wayland_socket).toBe(false);
         expect(permissionsDefault.devices_dri).toBe(false);
         expect(permissionsDefault.devices_input).toBe(false);
         expect(permissionsDefault.devices_kvm).toBe(false);
@@ -255,6 +257,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_pcsc).toBe(false);
         expect(permissionsDefault.sockets_cups).toBe(false);
         expect(permissionsDefault.sockets_gpg_agent).toBe(false);
+        expect(permissionsDefault.sockets_inherit_wayland_socket).toBe(false);
         expect(permissionsDefault.devices_dri).toBe(false);
         expect(permissionsDefault.devices_input).toBe(false);
         expect(permissionsDefault.devices_kvm).toBe(false);
@@ -294,6 +297,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_pcsc).toBe(true);
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.sockets_gpg_agent).toBe(true);
+        expect(permissionsDefault.sockets_inherit_wayland_socket).toBe(true);
         expect(permissionsDefault.devices_dri).toBe(true);
         expect(permissionsDefault.devices_input).toBe(true);
         expect(permissionsDefault.devices_kvm).toBe(true);
@@ -360,6 +364,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_ssh_auth).toBe(true);
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.sockets_gpg_agent).toBe(true);
+        expect(permissionsDefault.sockets_inherit_wayland_socket).toBe(true);
         expect(permissionsDefault.devices_dri).toBe(false);
         expect(permissionsDefault.devices_all).toBe(true);
         expect(permissionsDefault.features_bluetooth).toBe(false);
@@ -706,7 +711,7 @@ describe('Model', function() {
 
         const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 9);
+        expect(total).toEqual(_totalPermissions - 10);
     });
 
     it('handles missing .flatpak-info', function() {
