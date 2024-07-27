@@ -54,6 +54,7 @@ Secure Shell agent | Toggle | Allow the application to use SSH authentications. 
 [Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the application to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
 Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for LibreOffice, it will no longer be possible to print documents with this application. | `--socket=cups` and `--nosocket=cups`
 GPG-Agent directories | Toggle | Allow the application to access GPG-Agent directories. | `--socket=gpg-agent` and `--nosocket=gpg-agent`
+Inherit Wayland socket | Toggle | Allow passing WAYLAND_SOCKET environment variable to the sandbox. <br /> <br /> For example, if it's disabled for Fcitx5, it won't be able to connect to Wayland and display its autocompletion dialogs. | `--socket=inherit-wayland-socket` and `--nosocket=inherit-wayland-socket`
 
 ### Device
 
