@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-#Karachalios Stagkas Athanasios Nektarios (nasos.karachalios.stagkas@proton.me) ,2024.
+# Karachalios Stagkas Athanasios Nektarios (nasos.karachalios.stagkas@proton.me) ,2024.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"POT-Creation-Date: 2024-09-18 16:26-0400\n"
 "PO-Revision-Date: 2024-04-03 13:31+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,7 +25,7 @@ msgid "Flatseal"
 msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Διαχείριση δικαιωμάτων Flatpak"
 
@@ -33,28 +33,29 @@ msgstr "Διαχείριση δικαιωμάτων Flatpak"
 msgid "seal;sandbox;override;"
 msgstr "σφράγισε;απομόνωσε;προσπέλασε;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Το Flatseal είναι ένα γραφικό βοηθητικό πρόγραμμα για την επισκόπηση και "
-"την τροποποίηση των δικαιωμάτων από τις εφαρμογές Flatpak που διαθέτετε."
+"Το Flatseal είναι ένα γραφικό βοηθητικό πρόγραμμα για την επισκόπηση και την "
+"τροποποίηση των δικαιωμάτων από τις εφαρμογές Flatpak που διαθέτετε."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
 msgstr "Το κύριο παράθυρο του Flatseal"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Το Flatseal δείχνει τα δικαιώματα του συστήματος αρχείων"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal δείχνει παγκόσμιες προσπελάσεις"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -226,20 +227,20 @@ msgstr "Τοποθεσία"
 msgid "Can access your location"
 msgstr "Μπορεί να έχει πρόσβαση στη θέση σας"
 
-#: src/models/portals.js:208
+#: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
 msgstr "Κατάλογος των πόρων που χορηγούνται επιλεκτικά στην εφαρμογή"
 
-#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Δεν υποστηρίζεται από την εγκατεστημένη έκδοση του Flatpak"
 
-#: src/models/portals.js:256
+#: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
 msgstr "Απαιτεί την έκδοση 2 ή νεότερη του καταστήματος αδειών"
 
-#: src/models/portals.js:264
+#: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
 msgstr "Τα δεδομένα της πύλης δεν έχουν ακόμη δημιουργηθεί"
 
@@ -297,7 +298,11 @@ msgstr "Σύστημα εκτύπωσης"
 msgid "GPG-Agent directories"
 msgstr "Κατάλογοι του πράκτορα GPG"
 
-#: src/models/sockets.js:125
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr ""
+
+#: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Λίστα των γνωστών υποδοχών που είναι διαθέσιμες στην απομόνωση"
 
@@ -503,7 +508,7 @@ msgid "Default paths can't be removed"
 msgstr "Οι προεπιλεγμένες διαδρομές δεν μπορούν να αφαιρεθούν"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
 msgstr "_Επαναφορά"
 
@@ -563,7 +568,7 @@ msgstr "Μετακίνηση προς τα δεξιά"
 msgid "Move down"
 msgstr "Μετακίνηση προς τα κάτω"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Εφαρμογές"
 
@@ -591,27 +596,26 @@ msgstr "Εύρεση επόμενου"
 msgid "Find previous"
 msgstr "Εύρεση προηγούμενου"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:98
 msgid "Permissions have been reset"
 msgstr "Τα δικαιώματα έχουν επαναφερθεί"
 
-#: src/widgets/window.js:100
+#: src/widgets/window.js:99
 msgid "_Undo"
 msgstr "_Αναίρεση"
 
-#: src/widgets/window.js:106
+#: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
-msgstr ""
-"Δεν είναι δυνατή η φόρτωση προσπελάσεων λόγω λανθασμένου περιεχομένου"
+msgstr "Δεν είναι δυνατή η φόρτωση προσπελάσεων λόγω λανθασμένου περιεχομένου"
 
-#: src/widgets/window.js:113
+#: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Ανανεώθηκε λόγω αλλαγών στις εγκαταστάσεις Flatpak"
 
-#: src/widgets/window.ui:32
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Κεντρικό μενού"
 
-#: src/widgets/window.ui:76
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Δεν βρέθηκαν εφαρμογές."

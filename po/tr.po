@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"POT-Creation-Date: 2024-09-18 16:26-0400\n"
 "PO-Revision-Date: 2024-01-19 00:24+0300\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <takim@gnome.org.tr>\n"
@@ -28,7 +28,7 @@ msgid "Flatseal"
 msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Flatpak izinlerini yönet"
 
@@ -36,7 +36,7 @@ msgstr "Flatpak izinlerini yönet"
 msgid "seal;sandbox;override;"
 msgstr "yalıt;yalıtım;sanal ortam;üzerine yaz;üzerine yazma;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -44,20 +44,21 @@ msgstr ""
 "Flatseal, Flatpak uygulamalarınızdaki izinleri gözden geçirmek ve "
 "değiştirmek için kullanılan grafiksel bir yardımcı uygulamadır."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
 msgstr "Flatseal ana penceresi"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Flatseal dosya sistemi izinlerini gösterirken"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal genel üzerine yazmaları gösterirken"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -224,20 +225,20 @@ msgstr "Konum"
 msgid "Can access your location"
 msgstr "Konumunuza erişebilir"
 
-#: src/models/portals.js:208
+#: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
 msgstr "Uygulamaya seçici olarak verilen kaynakların listesi"
 
-#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Flatpak yüklü sürümü tarafından desteklenmiyor"
 
-#: src/models/portals.js:256
+#: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
 msgstr "İzin deposu sürüm 2 veya daha yenisini gerektirir"
 
-#: src/models/portals.js:264
+#: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
 msgstr "Portal verileri henüz kurulmadı"
 
@@ -293,7 +294,11 @@ msgstr "Yazdırma sistemi"
 msgid "GPG-Agent directories"
 msgstr "GPG-Ajan dizinleri"
 
-#: src/models/sockets.js:125
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr ""
+
+#: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Sanal alanda bulunan kutuların tanınmış yuvaların listesi"
 
@@ -498,7 +503,7 @@ msgid "Default paths can't be removed"
 msgstr "Varsayılan yollar kaldırılamaz"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
 msgstr "_Sıfırla"
 
@@ -558,7 +563,7 @@ msgstr "Sağa hakeret et"
 msgid "Move down"
 msgstr "Aşağı hareket et"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Uygulamalar"
 
@@ -586,26 +591,26 @@ msgstr "Sonraki sonucu bul"
 msgid "Find previous"
 msgstr "Önceki sonucu bul"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:98
 msgid "Permissions have been reset"
 msgstr "İzinler sıfırlandı"
 
-#: src/widgets/window.js:100
+#: src/widgets/window.js:99
 msgid "_Undo"
 msgstr "_Geri al"
 
-#: src/widgets/window.js:106
+#: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Yanlış içerik nedeniyle değişiklikler yüklenemiyor"
 
-#: src/widgets/window.js:113
+#: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Flatpak kurulumlarındaki değişiklikler nedeniyle yenilendi"
 
-#: src/widgets/window.ui:32
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Ana Menü"
 
-#: src/widgets/window.ui:76
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Hiçbir uygulama bulunamadı."

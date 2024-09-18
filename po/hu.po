@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"POT-Creation-Date: 2024-09-18 16:26-0400\n"
 "PO-Revision-Date: 2024-03-13 23:32+0100\n"
 "Last-Translator: Dévényi Benedek <rdbende@proton.me>\n"
 "Language-Team: Hungarian <>\n"
@@ -26,7 +26,7 @@ msgid "Flatseal"
 msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "A Flatpak engedélykezelője"
 
@@ -34,7 +34,7 @@ msgstr "A Flatpak engedélykezelője"
 msgid "seal;sandbox;override;"
 msgstr "tömítés;homokozó;felülírás;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -42,20 +42,21 @@ msgstr ""
 "Flatseal egy grafikus segédprogram, amellyel áttekintheti és módosíthatja a "
 "Flatpak-alkalmazások alapvető engedélyeit."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
 msgstr "A Flatseal főablaka"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Fájlrendszer-engedélyek a Flatsealben"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Globális felülírások a Flatsealben"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -223,20 +224,20 @@ msgstr "Hely"
 msgid "Can access your location"
 msgstr "Hozzáférhet az Ön tartózkodási helyéhez"
 
-#: src/models/portals.js:208
+#: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
 msgstr "Az alkalmazásnak kifejezetten megadott engedélyek"
 
-#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "A Flatpak telepített verziója nem támogatja"
 
-#: src/models/portals.js:256
+#: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
 msgstr "Engedélytároló 2. vagy újabb verziója szükséges"
 
-#: src/models/portals.js:264
+#: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
 msgstr "A portál adatai még nem lettek beállítva"
 
@@ -292,7 +293,11 @@ msgstr "Nyomtatási rendszer"
 msgid "GPG-Agent directories"
 msgstr "GPG-ügynöki (gpg-agent) könyvtárak"
 
-#: src/models/sockets.js:125
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr ""
+
+#: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
 msgstr "A homokozóban elérhető közismert csatlakozók"
 
@@ -497,7 +502,7 @@ msgid "Default paths can't be removed"
 msgstr "Az alapértelmezett elérési útvonalakat nem lehet eltávolítani"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
 msgstr "Alap_helyzet"
 
@@ -558,7 +563,7 @@ msgstr "Ugrás jobbra"
 msgid "Move down"
 msgstr "Ugrás lefelé"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Alkalmazások"
 
@@ -586,26 +591,26 @@ msgstr "Következő keresése"
 msgid "Find previous"
 msgstr "Előző keresése"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:98
 msgid "Permissions have been reset"
 msgstr "Az engedélyek vissza lettek állítva"
 
-#: src/widgets/window.js:100
+#: src/widgets/window.js:99
 msgid "_Undo"
 msgstr "_Visszavonás"
 
-#: src/widgets/window.js:106
+#: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Helytelen tartalom miatt a módosítások nem tölthetők be"
 
-#: src/widgets/window.js:113
+#: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Frissítve a Flatpak telepítések változásai miatt"
 
-#: src/widgets/window.ui:32
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Főmenü"
 
-#: src/widgets/window.ui:76
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Nem található alkalmazás"
