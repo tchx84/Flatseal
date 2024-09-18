@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"POT-Creation-Date: 2024-09-18 16:26-0400\n"
 "PO-Revision-Date: 2024-01-19 13:11+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
@@ -25,7 +25,7 @@ msgid "Flatseal"
 msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Beheer Flatpak-bevoegdheden"
 
@@ -33,7 +33,7 @@ msgstr "Beheer Flatpak-bevoegdheden"
 msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;rechten;bevoegdheden;machtigingen;permissies;flatpak;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -41,20 +41,21 @@ msgstr ""
 "Flatseal is een grafisch hulpmiddel om de bevoegdheden van elke Flatpak-"
 "toepassing te bekijken en aan te passen."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
 msgstr "Hoofdvenster"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Pagina met bestandssysteemrechten"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Pagina met voorrangsregels"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -223,20 +224,20 @@ msgstr "Locatie"
 msgid "Can access your location"
 msgstr "Mag uw locatie bepalen"
 
-#: src/models/portals.js:208
+#: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
 msgstr "Lijst met functies die zijn toegekend aan de toepassing"
 
-#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Niet ondersteund door de geïnstalleerde versie van Flatpak"
 
-#: src/models/portals.js:256
+#: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
 msgstr "Vereist toestemmingopslag versie 2 of nieuwer"
 
-#: src/models/portals.js:264
+#: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
 msgstr "De portaalgegevens zijn nog niet ingesteld"
 
@@ -292,7 +293,11 @@ msgstr "Afdruksysteem"
 msgid "GPG-Agent directories"
 msgstr "GPG-Agent-mappen"
 
-#: src/models/sockets.js:125
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr ""
+
+#: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Lijst met bekende sockets die beschikbaar zijn in de sandbox"
 
@@ -497,7 +502,7 @@ msgid "Default paths can't be removed"
 msgstr "Standaardlocaties kunnen niet worden verwijderd"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
 msgstr "Standaa_rdwaarden"
 
@@ -557,7 +562,7 @@ msgstr "Naar rechts verplaatsen"
 msgid "Move down"
 msgstr "Omlaag verplaatsen"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Toepassingen"
 
@@ -585,26 +590,26 @@ msgstr "Volgende zoeken"
 msgid "Find previous"
 msgstr "Vorige zoeken"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:98
 msgid "Permissions have been reset"
 msgstr "De bevoegdheden zijn hersteld"
 
-#: src/widgets/window.js:100
+#: src/widgets/window.js:99
 msgid "_Undo"
 msgstr "_Ongedaan maken"
 
-#: src/widgets/window.js:106
+#: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "De voorrangsregels kunnen niet worden geladen wegens onjuiste inhoud"
 
-#: src/widgets/window.js:113
+#: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Vernieuwd wegens wijzigingen in Flatpakinstallaties"
 
-#: src/widgets/window.ui:32
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Hoofdmenu"
 
-#: src/widgets/window.ui:76
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Er zijn geen toepassingen aangetroffen."

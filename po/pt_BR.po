@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 10:37-0300\n"
+"POT-Creation-Date: 2024-09-18 16:26-0400\n"
 "PO-Revision-Date: 2020-02-05 14:06-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -24,7 +24,7 @@ msgid "Flatseal"
 msgstr ""
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Um gerenciador de permissões para Flatpak"
 
@@ -32,7 +32,7 @@ msgstr "Um gerenciador de permissões para Flatpak"
 msgid "seal;sandbox;override;"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -40,20 +40,21 @@ msgstr ""
 "O Flatseal é um utilitário gráfico para revisar e modificar permissões "
 "básicas de seus aplicativos Flatpak."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
 msgstr "A janela principal do Flatseal"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Flatseal mostrando permissões do sistema de arquivos"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal mostrando alterações globais"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -220,20 +221,20 @@ msgstr "Localização"
 msgid "Can access your location"
 msgstr "Pode acessar sua localização"
 
-#: src/models/portals.js:208
+#: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
 msgstr "Lista de recursos concedidos seletivamente ao aplicativo"
 
-#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "Não é suportado pela versão instalada do Flatpak"
 
-#: src/models/portals.js:256
+#: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
 msgstr "Requer permissão de armazenamento versão 2 ou mais recente"
 
-#: src/models/portals.js:264
+#: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
 msgstr "Os dados do portal ainda não foram configurados"
 
@@ -289,7 +290,11 @@ msgstr "Sistema de impressão"
 msgid "GPG-Agent directories"
 msgstr "Diretórios do GPG-Agent"
 
-#: src/models/sockets.js:125
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr ""
+
+#: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Lista de soquetes conhecidos disponíveis na sandbox"
 
@@ -494,7 +499,7 @@ msgid "Default paths can't be removed"
 msgstr "Caminhos padrão não podem ser removidos"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
 msgstr "_Restaurar"
 
@@ -554,7 +559,7 @@ msgstr "Mover para a direita"
 msgid "Move down"
 msgstr "Mova para baixo"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Aplicativos"
 
@@ -582,26 +587,26 @@ msgstr "Encontre o próximo"
 msgid "Find previous"
 msgstr "Encontrar anterior"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:98
 msgid "Permissions have been reset"
 msgstr "Permissões restauradas"
 
-#: src/widgets/window.js:100
+#: src/widgets/window.js:99
 msgid "_Undo"
 msgstr "_Desfaz"
 
-#: src/widgets/window.js:106
+#: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Não é possível carregar alterações devido a conteúdo incorreto"
 
-#: src/widgets/window.js:113
+#: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Atualizado devido a mudanças nas instalações do Flatpak"
 
-#: src/widgets/window.ui:32
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/widgets/window.ui:76
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "Nenhum aplicativo encontrado."

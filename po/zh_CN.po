@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-18 22:19+0800\n"
+"POT-Creation-Date: 2024-09-18 16:26-0400\n"
 "PO-Revision-Date: 2023-09-24 04:03+0800\n"
 "Last-Translator: Eric Zhang <ericzhang456@disroot.org>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
@@ -26,7 +26,7 @@ msgid "Flatseal"
 msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:9
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "管理 Flatpak 权限"
 
@@ -35,26 +35,27 @@ msgstr "管理 Flatpak 权限"
 msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;封条;沙盒;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:11
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr "Flatseal 是一个可以查看并修改 Flatpak 程序权限的图形工具。"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:20
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
 msgstr "Flatseal 主窗口"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:24
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Flatseal 正在展示文件系统权限"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:28
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal 正在展示全局覆盖"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:34
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -221,20 +222,20 @@ msgstr "定位"
 msgid "Can access your location"
 msgstr "允许访问位置信息"
 
-#: src/models/portals.js:208
+#: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
 msgstr "程序可以访问的资源"
 
-#: src/models/portals.js:248 src/widgets/permissionEntryRow.js:58
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr "不支持所安装 Flatpak 的版本"
 
-#: src/models/portals.js:256
+#: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
 msgstr "需要存储权限版本 2 及以上"
 
-#: src/models/portals.js:264
+#: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
 msgstr "门户（portal）数据还未配置"
 
@@ -290,7 +291,11 @@ msgstr "打印系统"
 msgid "GPG-Agent directories"
 msgstr "GPG-Agent 目录"
 
-#: src/models/sockets.js:125
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr ""
+
+#: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
 msgstr "沙盒可提供的接口"
 
@@ -495,7 +500,7 @@ msgid "Default paths can't be removed"
 msgstr "无法移除默认路径"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
 msgstr "重置(_R)"
 
@@ -555,7 +560,7 @@ msgstr "向右移动"
 msgid "Move down"
 msgstr "向下移动"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:22
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "应用程序"
 
@@ -583,26 +588,26 @@ msgstr "查找下一个"
 msgid "Find previous"
 msgstr "查找上一个"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:98
 msgid "Permissions have been reset"
 msgstr "权限已被重置"
 
-#: src/widgets/window.js:100
+#: src/widgets/window.js:99
 msgid "_Undo"
 msgstr "撤消(_U)"
 
-#: src/widgets/window.js:106
+#: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "由于内容不正确而无法加载更改"
 
-#: src/widgets/window.js:113
+#: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "由于 Flatpak 安装的变更而刷新"
 
-#: src/widgets/window.ui:32
+#: src/widgets/window.ui:31
 msgid "Main Menu"
 msgstr "主菜单"
 
-#: src/widgets/window.ui:76
+#: src/widgets/window.ui:75
 msgid "No applications found."
 msgstr "没有找到应用程序。"
