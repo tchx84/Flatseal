@@ -255,19 +255,19 @@ msgstr "A gazdarendszerrel megosztott alrendszerek"
 
 #: src/models/sockets.js:37
 msgid "X11 windowing system"
-msgstr "X11 ablakrendszer"
+msgstr "X11-ablakrendszer"
 
 #: src/models/sockets.js:44
 msgid "Wayland windowing system"
-msgstr "Wayland ablakrendszer"
+msgstr "Wayland-ablakrendszer"
 
 #: src/models/sockets.js:51
 msgid "Fallback to X11 windowing system"
-msgstr "Tartalék X11 ablakrendszer"
+msgstr "Tartalék X11-ablakrendszer"
 
 #: src/models/sockets.js:58
 msgid "PulseAudio sound server"
-msgstr "PulseAudio hangkiszolgáló"
+msgstr "PulseAudio-hangkiszolgáló"
 
 #: src/models/sockets.js:65
 msgid "D-Bus session bus"
@@ -295,11 +295,11 @@ msgstr "GPG-ügynöki (gpg-agent) könyvtárak"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "A Wayland-szoftvercsatorna örökölése"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
-msgstr "A homokozóban elérhető közismert csatlakozók"
+msgstr "A homokozóban elérhető közismert szoftvercsatornák"
 
 #: src/models/variables.js:40
 msgid "Variables"
