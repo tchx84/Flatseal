@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-01-18 21:43+0200\n"
+"PO-Revision-Date: 2024-09-19 13:58+0300\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: volkov <volkovissocool@gmail.com>\n"
 "Language: uk\n"
@@ -17,8 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.4\n"
 
+# Не перекладати.
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
@@ -54,6 +55,7 @@ msgstr "Flatseal показує дозволи файлової системи"
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal показує глобальні перезаписи"
 
+# Не перекладати.
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:35
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:37
@@ -119,6 +121,7 @@ msgstr "Системні виклики для розробки (наприкл�
 msgid "Programs from other architectures"
 msgstr "Програм з інших архітектур"
 
+# Не перекладати.
 #: src/models/features.js:51
 msgid "Bluetooth"
 msgstr ""
@@ -294,7 +297,7 @@ msgstr "Теки GPG-агента"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Наслідувати сокет Wayland"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
@@ -459,10 +462,9 @@ msgstr "тека для кешу"
 msgid "the data directory"
 msgstr "тека для даних"
 
-# Для україномовних перекладачів: оскільки я все ще не знаю, як перекласти адекватно "runtime", то просто перекладу як "рантайм"
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
-msgstr "тека для рантайму"
+msgstr "тека для середовища виконання"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
