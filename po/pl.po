@@ -297,7 +297,7 @@ msgstr "Katalogi agenta GPG"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Dziedzicz gniazdo Waylanda"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
