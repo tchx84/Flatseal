@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-01-20 23:46+0200\n"
+"PO-Revision-Date: 2024-09-21 23:01+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <heb-bugzap@hamakor.org.il>\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -55,7 +55,7 @@ msgstr "Flatseal מציג מעקפים כלליים"
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:35
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
-msgstr ""
+msgstr "Martin Abente Lahaye"
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
@@ -291,7 +291,7 @@ msgstr "תיקיות GPG-Agent"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "ירושת שקע של Wayland"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
