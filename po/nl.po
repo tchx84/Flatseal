@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-01-19 13:11+0100\n"
+"PO-Revision-Date: 2024-09-22 22:20+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -295,7 +295,7 @@ msgstr "GPG-Agent-mappen"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Waylandsocket gebruiken"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
