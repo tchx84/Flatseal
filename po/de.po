@@ -4,14 +4,14 @@
 # Automatically generated, 2020.
 #
 # Tim Rieck <tim.rieck@gmail.com>, 2020.
-# Philipp Kiemle <philipp.kiemle@gmail.com>, 2022-2023.
+# Philipp Kiemle <philipp.kiemle@gmail.com>, 2022-2024.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-01-18 15:33+0100\n"
+"PO-Revision-Date: 2024-09-21 14:19+0200\n"
 "Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -296,7 +296,7 @@ msgstr "GPG-Agent-Verzeichnisse"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Wayland-Socket erben"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
