@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-01-18 23:25+0530\n"
+"PO-Revision-Date: 2024-09-21 21:51+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -35,8 +35,8 @@ msgstr "முத்திரை;சாண்ட்பாக்ஸ்;புற�
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your "
-"Flatpak applications."
+"Flatseal is a graphical utility to review and modify permissions from your Flatpak "
+"applications."
 msgstr ""
 "பிளாட்சீல் என்பது உங்கள் பிளாட்பாக் பயன்பாடுகளின் அனுமதிகளை மதிப்பாய்வு செய்வதற்கும் "
 "மாற்றியமைப்பதற்கும் ஒரு வரைகலைப் பயன்பாடாகும்."
@@ -293,7 +293,7 @@ msgstr "GPG-ஏஜென்ட் கோப்பகங்கள்"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "வேலண்ட் சாக்கெட்டைப் பெறுங்கள்"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
