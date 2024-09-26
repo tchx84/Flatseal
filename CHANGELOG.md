@@ -1,5 +1,12 @@
 # Changelog
 
+## [unreleased]
+
+- Added support for the new inherit-wayland-socket permission.
+- Added Hindi translation.
+- Changed to AppStream 1.0.
+- Changed to GNOME 47 runtime for stability.
+
 ## [2.2.0] - 2024-04-18
 
 * Added Greek translation.
