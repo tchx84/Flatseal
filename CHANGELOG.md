@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.3.0] - 2024-09-30
 
 - Added support for the new inherit-wayland-socket permission.
 - Added Hindi translation.
