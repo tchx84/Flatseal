@@ -808,7 +808,7 @@ describe('Model', function() {
 
         expect(permissionsDefault.variables).toEqual('TEST=yes');
 
-        permissionsDefault.set_property('variables', 'TEST=yes;TE ST=no');
+        permissionsDefault.set_property('variables', 'TEST=yes;TE;ST=no');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(GLib.access(_environmentOverride, 0)).toEqual(-1);
