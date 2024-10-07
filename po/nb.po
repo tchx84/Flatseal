@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-09-19 18:39+0200\n"
-"Last-Translator: Nikolai Eugen Sandvik <nikolai@sandvik.dev>\n"
+"PO-Revision-Date: 2024-10-04 18:43+0200\n"
+"Last-Translator: Sunniva Løvstad <turtle@turtle.garden>\n"
 "Language-Team: Norwegian Bokmal <>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -31,7 +31,7 @@ msgstr "Administrer Flatpak-tillatelser"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 msgid "seal;sandbox;override;"
-msgstr "seal;sandbox;override;"
+msgstr "seal;sandbox;override;segl;innhegning;overstyre;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
@@ -43,15 +43,15 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
-msgstr "Flatseal hovedvinduet"
+msgstr "Flatseals hovedvindu"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
-msgstr "Flatseal viser filsystemtillatelser"
+msgstr "Flatseal mens det viser filsystemtillatelser"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
-msgstr "Flatseal viser globale overstyringer"
+msgstr "Flatseal mens det viser globale overstyringer"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:35
@@ -233,7 +233,7 @@ msgstr "Ikke støttet av den installerte versjonen av Flatpak"
 
 #: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
-msgstr "Krever permission store versjon 2 eller nyere"
+msgstr "Krever tillatelse store versjon 2 eller nyere"
 
 #: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
@@ -249,31 +249,31 @@ msgstr "Interprosesskommunikasjon"
 
 #: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
-msgstr "Liste over undersystemer delt med verts systemet"
+msgstr "Liste over undersystemer delt med vertssystemet"
 
 #: src/models/sockets.js:37
 msgid "X11 windowing system"
-msgstr "X11 vindusystem"
+msgstr "X11-vindusystem"
 
 #: src/models/sockets.js:44
 msgid "Wayland windowing system"
-msgstr "Wayland vindusystem"
+msgstr "Wayland-vindusystem"
 
 #: src/models/sockets.js:51
 msgid "Fallback to X11 windowing system"
-msgstr "Fallback til X11 vindusystem"
+msgstr "Fallback til X11-vindusystem"
 
 #: src/models/sockets.js:58
 msgid "PulseAudio sound server"
-msgstr "PulseAudio lydserver"
+msgstr "PulseAudio-lydserver"
 
 #: src/models/sockets.js:65
 msgid "D-Bus session bus"
-msgstr "D-Bus øktbuss"
+msgstr "D-Bus-øktbuss"
 
 #: src/models/sockets.js:72
 msgid "D-Bus system bus"
-msgstr "D-Bus systembuss"
+msgstr "D-Bus-systembuss"
 
 #: src/models/sockets.js:79
 msgid "Secure Shell agent"
@@ -297,7 +297,7 @@ msgstr "Arv Wayland-socket"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Liste over velkjente sockets tilgjengelige i sandkassen"
+msgstr "Liste over velkjente socketer tilgjengelige i sandkassen"
 
 #: src/models/variables.js:40
 msgid "Variables"
@@ -363,7 +363,7 @@ msgstr "Portal Versjon"
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
-msgstr "Endrer Sti"
+msgstr "Endringssti"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -522,7 +522,7 @@ msgstr "Generelt"
 
 #: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
-msgstr "Vis mnemonics"
+msgstr "Vis huskeregler"
 
 #: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
@@ -598,11 +598,11 @@ msgstr "_Angre"
 
 #: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
-msgstr "Kan ikke laste inn endringer på grunn av feil innhold"
+msgstr "Kan ikke laste inn overstyringer på grunn av feil innhold"
 
 #: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr "Oppdatert på grunn av endringer i Flatpak-installasjoner"
+msgstr "Oppdatert på grunn av overstyringer i Flatpak-installasjoner"
 
 #: src/widgets/window.ui:31
 msgid "Main Menu"
