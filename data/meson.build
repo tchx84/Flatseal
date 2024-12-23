@@ -15,11 +15,11 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-  input: 'com.github.tchx84.Flatseal.appdata.xml.in',
-  output: 'com.github.tchx84.Flatseal.appdata.xml',
+  input: 'com.github.tchx84.Flatseal.metainfo.xml.in',
+  output: 'com.github.tchx84.Flatseal.metainfo.xml',
   po_dir: '../po',
   install: true,
-  install_dir: join_paths(get_option('datadir'), 'appdata')
+  install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
 appstreamcli = find_program('appstreamcli', required: false)
