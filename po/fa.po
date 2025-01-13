@@ -1,0 +1,612 @@
+# Persian translations for flatseal package.
+# Copyright (C) 2025 THE flatseal'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# Danial Behzadi <dani.behzi@ubuntu.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-13 18:37+0330\n"
+"PO-Revision-Date: 2025-01-13 19:08+0330\n"
+"Last-Translator: Danial Behzadi <dani.behzi@ubuntu.com>\n"
+"Language-Team: none\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+msgid "Flatseal"
+msgstr "فلت‌بند"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "مدیریت اجازه‌های فلت‌پک"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:15
+msgid "seal;sandbox;override;"
+msgstr "flatseal;seal;sandbox;override;فلت‌پک;قرنطینه;"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"فلت‌بند ابزاری نگاشتاری برای بازبینی و دستکاری اجازه‌های برنامه‌های فلت‌پکتان "
+"است."
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
+msgid "The Flatseal main window"
+msgstr "پنجرهٔ اصلی فلت‌بند"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "فلت‌بند در حال نمایش اجازه‌های سامانه‌پرونده"
+
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "فلت‌بند در حال نمایش پایمالی‌های عمومی"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
+#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr "مارتین آبنت لاهای"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "شناسهٔ برنامه‌ای که آخرین بار گزیده شد"
+
+#: src/models/applications.js:237 src/models/applications.js:295
+#: src/models/applications.js:296 src/models/applications.js:297
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "ناشناخته"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "صحبت"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "مالکیت"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "سیاههٔ نام‌های شناخته شده روی گذرگاه نشست"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "سیاههٔ نام‌های شناخته شده روی گذرگاه سامانه"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "شتاب‌دهی گرافیکی"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "افزاره‌های ورودی"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "مجازی‌سازی"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "حافظهٔ اشتراکی"
+
+#: src/models/devices.js:65
+msgid "All devices (e.g. webcam)"
+msgstr "همهٔ افزاره‌ها (چون دوربین)"
+
+#: src/models/devices.js:90
+msgid "List of devices available in the sandbox"
+msgstr "سیاههٔ افزاره‌های موجود در قرنطینه"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "فراخوانی‌های سامانه‌ای توسعه‌ای (چون ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "برنامه‌ها از معماری‌های دیگر"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "بلوتوث"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "گذرگاه شبکهٔ ناحیهٔ واپایشگر"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "حافظهٔ اشتراکی برنامه"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "سیاههٔ ویژگی‌های در دسترس برنامه"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "همهٔ پرونده‌های سامانه‌ای"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "همهٔ داده‌های ایستا، پرونده‌های اجرایی و کتابخانه‌های سامانه‌ای"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "همهٔ پیکربندی‌های سامانه"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "همهٔ پرونده‌های کاربری"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "سیاههٔ زیرمجموعه‌های سامانه‌پروندهٔ در دسترس برنامه"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "دیگر پرونده‌ها"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "چون ‪~/games:ro‬، ‏xdg-pictures و غیره"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "پرونده‌ها"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "چون ‪.thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "سیاههٔ مسیرهای نسبی ساخته شده در قرنطینه از شاخهٔ خانگی"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "پس‌زمینه"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "می‌تواند در پس‌زمینه اجرا شود"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "آگاهی‌ها"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "می‌تواند آگاهی بفرستد"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "صدابَر"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "می‌تواند به صدابَرتان گوش دهد"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "بلندگوها"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "می‌تواند در بلندگوهایتان صدا پخش کند"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "دوربین"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "می‌تواند با دوربینتان ویدیو ضبط کند"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "مکان"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "می‌تواند به مکانتان دسترسی داشته باشد"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "سیاههٔ منابع گزینشی داده شده به برنامه"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "پشتیبانی نشده به دست نگارش نصب شدهٔ فلت‌پک"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "نیازمند نگارش ۲ یا بالاتر نگه‌داری اجازه"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "داده‌های درگاه هنوز برپا نشده آند"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "شبکه"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "ارتباطات درون فرایندی"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "سیاههٔ زیرسامانه‌های هم‌رسانده با سامانهٔ میزبان"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "سامانهٔ پنجرهٔ X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "سامانهٔ پنجرهٔ وی‌لند"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "عقب‌نشینی به سامانهٔ پنجرهٔ X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "کارساز صدای پالس‌آدیو"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "گذرگاه نشست دی‌باس"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "گذرگاه سامانهٔ دی‌باس"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "عامل پوستهٔ امن"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "کارت‌های هوشمند"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "سامانهٔ چاپ"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "شاخه‌های عامل GPG"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "ارث بری سوکت وی‌لند"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "سیاههٔ سوکت‌های شناخته شدهٔ موجود در قرنطینه"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "متغیّرها"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "چون GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "سیاههٔ متغیّرهای برون‌ریخته به برنامه"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%Oe %OB %OY"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "نگارش"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "آخرین به‌روز رسانی"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "زمان اجرا"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "گزینهٔ معتبری نیست"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_نمایش جزییات"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "نمایش برنامه در مدیر نرم‌افزارها"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "هیچ مدیر نرم‌افزاری پیدا نشد"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "همهٔ برنامه‌ها"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "تغییرات اعمال شونده روی همهٔ برنامه‌های فلت‌پکی"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "نگارش فلت‌پک"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "نگارش درگاه"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "مسیر تغییرات"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_راهنما"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_مستندات"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_میان‌برهای صفحه‌کلید"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_دربارهٔ فلت‌بند"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "عمومی تغییر یافته"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "تغییر یافته به دست کاربر"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "این مسیر مطلق"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "این مسیر نسبی از شاخهٔ خانگی"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "همهٔ پیکربندی‌های سامانه"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "همهٔ داده‌های ایستا، پرونده‌های اجرایی و کتابخانه‌های سامانه‌ای"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "همهٔ پرونده‌های سامانه‌ای"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "همهٔ پرونده‌های کاربری"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "شاخهٔ میزکار"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "شاخهٔ سندها"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "شاخهٔ بارگیری‌ها"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "شاخهٔ آهنگ‌ها"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "شاخهٔ نگاره‌ها"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "شاخهٔ عمومی"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "شاخهٔ ویدیوها"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "شاخهٔ قالب‌ها"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "شاخهٔ پیکربندی"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "شاخهٔ انباره"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "شاخهٔ داده"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "شاخهٔ زمان اجرا"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "می‌تواند بخواند: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "می‌تواند بخواند و تغییر دهد: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "می‌تواند ایجاد کند، بخواند و تغییر دهد: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "نمی‌تواند بخواند: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "نمی‌تواند بخواند یا تغییر دهد: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "نمی‌تواند ایجاد کند، بخواند یا تغییر دهد: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "ناتنظیم"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "مسیرهای پیش‌گزیده نمی‌تواندد برداشته شوند"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+msgid "_Reset"
+msgstr "_بازنشانی"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "هیچ تغییری در این برنامه داده نشده"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "بازنشانی اجازه‌های این برنامه"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr "، از جمله تغییراتی که با فلت‌بند ایجاد نشده‌اند"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "عمومی"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "نمایش شتاب‌دهنده‌ها"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "نمایش مستندات"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "نمایش فهرست"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "میان‌برهای صفحه‌کلید"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "خروج"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "ناوبری"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "جابه‌جایی به چپ"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "جابه‌جایی به بالا"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "جابه‌جایی به راست"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "جابه‌جایی به پایین"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "برنامه‌ها"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "یافتن"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "اجازه‌ها"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "تغییر وضعیت"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "مستندات"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "یافتن بعدی"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "یافتن پیشین"
+
+#: src/widgets/window.js:98
+msgid "Permissions have been reset"
+msgstr "اجازه‌ها بازنشانی شدند"
+
+#: src/widgets/window.js:99
+msgid "_Undo"
+msgstr "_برگردان"
+
+#: src/widgets/window.js:105
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "به دلیل محتوای نادرست نمی‌توان پایمالی‌ها را بار کرد"
+
+#: src/widgets/window.js:112
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "به دلیل تغییرات در نصب فلت‌پک‌ها نوسازی شد"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "فهرست اصلی"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "هیچ برنامه‌ای پیدا نشد."
