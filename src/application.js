@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Gio, Adw} = imports.gi;
+const {GObject, Gtk, Gio, GLib, Adw} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {showAboutDialog} = imports.widgets.aboutDialog;
@@ -32,17 +32,31 @@ var FlatsealApplication = GObject.registerClass({
     _init() {
         super._init({
             application_id: 'com.github.tchx84.Flatseal',
-            flags: Gio.ApplicationFlags.FLAGS_NONE,
+            flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
             resource_base_path: '/com/github/tchx84/Flatseal/',
         });
 
         this._window = null;
+
+        this.add_main_option(
+            'show-app',
+            null,
+            GLib.OptionFlags.NONE,
+            GLib.OptionArg.STRING,
+            'A custom flag for my app',
+            null);
+
+        this.connect("command-line", this._cliArgHandler.bind(this));
     }
 
     _cliArgHandler(_app, gCommandLine) {
         this.vfunc_activate();
         try {
             const options = gCommandLine.get_options_dict();
+            if (options.contains('show-app')) {
+                const appId = options.lookup_value("show-app", null).get_string()[0];
+                return this._window.showAppId(appId);
+            }
         } catch (error) {
             logError(error);
             return 1;
