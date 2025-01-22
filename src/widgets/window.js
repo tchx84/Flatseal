@@ -399,6 +399,22 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions.undo();
     }
 
+    showAppId(appId) {
+        for (const row of Array.from(this._applicationsListBox)) {
+            if (!row.visible)
+                continue;
+
+            if (!row instanceof FlatsealApplicationRow)
+                continue;
+
+            if (row.appId === appId) {
+                this._activateApplication(this._applicationsListBox, row);
+                return 0;
+            }
+        }
+        return 1;
+    }
+
     vfunc_close_request() {
         this._settings.saveWindowState(this);
         this._shutdown();
