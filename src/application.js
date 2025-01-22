@@ -39,6 +39,17 @@ var FlatsealApplication = GObject.registerClass({
         this._window = null;
     }
 
+    _cliArgHandler(_app, gCommandLine) {
+        this.vfunc_activate();
+        try {
+            const options = gCommandLine.get_options_dict();
+        } catch (error) {
+            logError(error);
+            return 1;
+        }
+        return 0;
+    }
+
     _displayHelp() {
         const launcher = new Gtk.UriLauncher();
         launcher.uri = 'https://github.com/tchx84/flatseal';
