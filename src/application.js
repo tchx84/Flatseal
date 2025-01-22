@@ -43,7 +43,7 @@ var FlatsealApplication = GObject.registerClass({
             null,
             GLib.OptionFlags.NONE,
             GLib.OptionArg.STRING,
-            'A custom flag for my app',
+            'Show a specific application entry, by providing its ID',
             null);
 
         this.connect("command-line", this._cliArgHandler.bind(this));
