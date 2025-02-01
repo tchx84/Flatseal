@@ -244,6 +244,15 @@ var FlatsealWindow = GObject.registerClass({
                     p.value,
                     p.portalTable,
                     p.portalId);
+            } else if (p.type === 'usb') {
+                row = new FlatsealPermissionEntryRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    p.serializeFunc,
+                    p.deserializeFunc,
+                    FlatsealBusNameRow,
+                    'list-add-symbolic');
             } else {
                 property = 'active';
                 row = new FlatsealPermissionSwitchRow(
