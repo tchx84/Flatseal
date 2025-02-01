@@ -110,7 +110,7 @@ msgstr "Tous les périphériques (e.g. webcam)"
 
 #: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
-msgstr "Liste des périphériques disponible dans le sac à sable"
+msgstr "Liste des périphériques disponible dans le bac à sable"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
