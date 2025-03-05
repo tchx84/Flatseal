@@ -82,11 +82,11 @@ msgstr "Possède"
 
 #: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
-msgstr "Liste de noms connus sur le bus session"
+msgstr "Liste des noms connus sur le bus session"
 
 #: src/models/systemBus.js:73
 msgid "List of well-known names on the system bus"
-msgstr "Liste de noms connus sur le bus système"
+msgstr "Liste des noms connus sur le bus système"
 
 #: src/models/devices.js:37
 msgid "GPU acceleration"
@@ -110,7 +110,7 @@ msgstr "Tous les périphériques (e.g. webcam)"
 
 #: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
-msgstr "Liste des périphériques disponible dans le bac à sable"
+msgstr "Liste des périphériques disponibles dans le bac à sable"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
@@ -178,7 +178,7 @@ msgstr "e.g. .thunderbird"
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr ""
-"Liste des chemins relatifs au répertoire personnel créé dans le sac de sable"
+"Liste des chemins relatifs au répertoire personnel créés dans le sac de sable"
 
 #: src/models/portals.js:118
 msgid "Background"
