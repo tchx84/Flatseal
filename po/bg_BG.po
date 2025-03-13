@@ -1,14 +1,14 @@
 # Flatseal - Bulgarian Translation
-# Copyright (C) 2022-2024
+# Copyright (C) 2022-2025
 # This file is distributed under the same license as the flatseal package.
-# Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, 2022, 2023, 2024
+# Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>, 2022, 2023, 2024, 2025
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2024-01-19 13:23+0200\n"
+"PO-Revision-Date: 2025-02-22 14:26+0200\n"
 "Last-Translator: Georgi Georgiev (RacerBG) <g.georgiev.shumen@gmail.com>\n"
 "Language-Team: \n"
 "Language: bg_BG\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:4
@@ -108,11 +108,11 @@ msgstr "Всички устройства (например уеб камера)
 
 #: src/models/devices.js:90
 msgid "List of devices available in the sandbox"
-msgstr "Устройства във виртуалната среда"
+msgstr "Устройства в ограничената среда"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Системни сигнали (например ptrace)"
+msgstr "Системни повиквания (например ptrace)"
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
@@ -172,7 +172,7 @@ msgstr "например .thunderbird"
 
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Създадени в домашната папка местоположения във виртуалната среда"
+msgstr "Създадени в домашната папка местоположения в ограничената среда"
 
 #: src/models/portals.js:118
 msgid "Background"
@@ -237,7 +237,7 @@ msgstr "Изисква разрешение за съхранение с вер�
 
 #: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
-msgstr "Данните за порталите не са готови"
+msgstr "Данните на портала не са настроени"
 
 #: src/models/shared.js:39
 msgid "Network"
@@ -293,11 +293,11 @@ msgstr "Папките на агент GPG"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Наследява гнездото Wayland"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Известни гнезда във виртуалната среда"
+msgstr "Гнезда в ограничената среда"
 
 #: src/models/variables.js:40
 msgid "Variables"
