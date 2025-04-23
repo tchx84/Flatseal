@@ -1,5 +1,14 @@
 # Changelog
 
+## [unreleased]
+
+- Added Persian translation.
+- Added Arabic translation.
+- Fixed Norwegian Bokmål translation.
+- Fixed French translation.
+- Fixed Bulgarian translation.
+- Changed to GNOME 48 runtime for stability.
+
 ## [2.3.0] - 2024-09-30
 
 - Added support for the new inherit-wayland-socket permission.
