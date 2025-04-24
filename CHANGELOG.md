@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.3.1] - 2025-04-24
 
 - Added Persian translation.
 - Added Arabic translation.
