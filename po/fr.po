@@ -178,7 +178,7 @@ msgstr "e.g. .thunderbird"
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
 msgstr ""
-"Liste des chemins relatifs au répertoire personnel créés dans le sac de sable"
+"Liste des chemins relatifs au répertoire personnel créés dans le bac à sable"
 
 #: src/models/portals.js:118
 msgid "Background"
@@ -303,7 +303,7 @@ msgstr ""
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Liste des prises connues et disponibles dans le sac de sable"
+msgstr "Liste des prises connues et disponibles dans le bac à sable"
 
 #: src/models/variables.js:40
 msgid "Variables"
