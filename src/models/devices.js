@@ -60,6 +60,13 @@ var FlatpakDevicesModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: 'device=shm',
             },
+            'devices-usb': {
+                supported: this._info.supports('1.15.11'),
+                description: _('USB devices'),
+                option: 'usb',
+                value: this.constructor.getDefault(),
+                example: 'device=usb',
+            },
             'devices-all': {
                 supported: this._info.supports('0.6.6'),
                 description: _('All devices (e.g. webcam)'),
