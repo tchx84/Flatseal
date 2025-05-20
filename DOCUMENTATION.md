@@ -64,6 +64,7 @@ GPU acceleration | Toggle | Allow the application to access the graphics direct 
 Input devices | Toggle | Allow input device access. <br /> <br /> Note that raw and virtual input devices could still require [All devices](#device) | `--device=input` and `--nodevice=input`
 Virtualization | Toggle | Allow the application to support virtualization. | `--device=kvm` and `--nodevice=kvm`
 Shared memory | Toggle | Allow the application to access shared memory. | `--device=shm` and `--nodevice=shm`
+USB devices | Toggle | Allow raw USB device access. | `--device=usb` and `--nodevice=usb`
 All devices | Toggle | Allow the application to access all devices, such as webcam and external devices. <br /> <br /> For example, if it's disabled for Element, it will no longer be possible to do video calls with this application. | `--device=all` and `--nodevice=all`
 
 ### Allow
