@@ -33,7 +33,7 @@ const {
 
 setup();
 
-const _totalPermissions = 40;
+const _totalPermissions = 41;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
@@ -184,6 +184,7 @@ describe('Model', function() {
         expect(permissionsDefault.devices_input).toBe(true);
         expect(permissionsDefault.devices_kvm).toBe(true);
         expect(permissionsDefault.devices_shm).toBe(true);
+        expect(permissionsDefault.devices_usb).toBe(true);
         expect(permissionsDefault.devices_all).toBe(true);
         expect(permissionsDefault.features_bluetooth).toBe(true);
         expect(permissionsDefault.features_devel).toBe(true);
@@ -224,6 +225,7 @@ describe('Model', function() {
         expect(permissionsDefault.devices_input).toBe(false);
         expect(permissionsDefault.devices_kvm).toBe(false);
         expect(permissionsDefault.devices_shm).toBe(false);
+        expect(permissionsDefault.devices_usb).toBe(false);
         expect(permissionsDefault.devices_all).toBe(false);
         expect(permissionsDefault.features_bluetooth).toBe(false);
         expect(permissionsDefault.features_devel).toBe(false);
@@ -262,6 +264,7 @@ describe('Model', function() {
         expect(permissionsDefault.devices_input).toBe(false);
         expect(permissionsDefault.devices_kvm).toBe(false);
         expect(permissionsDefault.devices_shm).toBe(false);
+        expect(permissionsDefault.devices_usb).toBe(false);
         expect(permissionsDefault.devices_all).toBe(false);
         expect(permissionsDefault.features_bluetooth).toBe(false);
         expect(permissionsDefault.features_devel).toBe(false);
@@ -302,6 +305,7 @@ describe('Model', function() {
         expect(permissionsDefault.devices_input).toBe(true);
         expect(permissionsDefault.devices_kvm).toBe(true);
         expect(permissionsDefault.devices_shm).toBe(true);
+        expect(permissionsDefault.devices_usb).toBe(true);
         expect(permissionsDefault.devices_all).toBe(true);
         expect(permissionsDefault.features_bluetooth).toBe(true);
         expect(permissionsDefault.features_devel).toBe(true);
@@ -711,7 +715,7 @@ describe('Model', function() {
 
         const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 10);
+        expect(total).toEqual(_totalPermissions - 11);
     });
 
     it('handles missing .flatpak-info', function() {
