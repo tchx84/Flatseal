@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-23 21:24+0200\n"
-"PO-Revision-Date: 2022-10-03 23:31+0200\n"
-"Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
+"PO-Revision-Date: 2025-06-20 17:14+0200\n"
+"Last-Translator: Ícar N. S. <personal@icarns.xyz>\n"
 "Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -31,7 +31,7 @@ msgstr "Gestiona els permisos de Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:14
 msgid "seal;sandbox;override;"
-msgstr "segell;entorn protegit;sobreeiximent"
+msgstr "segell;entorn protegit;sobreeiximent;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
