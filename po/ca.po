@@ -104,7 +104,7 @@ msgstr "Memòria compartida"
 
 #: src/models/devices.js:65
 msgid "USB devices"
-msgstr "Dispositius de USB"
+msgstr "Dispositius USB"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
