@@ -2,6 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
 # Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2020-2023.
+# Proficiency (Anggiar Rachman) <proficiency@xmail.net>, 2025.
 #
 msgid ""
 msgstr ""
@@ -27,32 +28,32 @@ msgstr "Flatseal"
 #: data/com.github.tchx84.Flatseal.desktop.in:10
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
-msgstr "Pengelola izin untuk Flatpak"
+msgstr "Kelola perizinan Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:15
 #, fuzzy
 msgid "seal;sandbox;override;"
-msgstr "seal;sandbox;"
+msgstr "segel;sandbox;pengesampingan;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal adalah utilitas grafis untuk meninjau dan memodifikasi izin dasar "
-"dari aplikasi Flatpak Anda."
+"Flatseal adalah utilitas grafis untuk meninjau dan memodifikasi perizinan "
+"aplikasi Flatpak Anda."
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "Jendela Utama Flatseal"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "Flatseal menampilkan perizinan berkas sistem"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "Flatseal menampilkan pengesampingan konfigurasi global"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:35
@@ -93,7 +94,7 @@ msgstr "Akselerasi GPU"
 
 #: src/models/devices.js:44
 msgid "Input devices"
-msgstr "Perangkat masukan"
+msgstr "Perangkat input"
 
 #: src/models/devices.js:51
 msgid "Virtualization"
@@ -294,7 +295,7 @@ msgstr "Direktori Agen GPG"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Warisi soket Wayland"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
@@ -494,7 +495,7 @@ msgstr "Tidak dapat membuat, memodifikasi, atau membaca: %s"
 
 #: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
-msgstr "Tidak Diatur"
+msgstr "Belum Diatur"
 
 #: src/widgets/relativePathRow.js:84
 msgid "Default paths can't be removed"
@@ -535,7 +536,7 @@ msgstr "Tampilkan menu"
 
 #: src/widgets/shortcutsWindow.ui:33
 msgid "Keyboard shortcuts"
-msgstr "Pintasan Papan Tik"
+msgstr "Pintasan Papan Ketik"
 
 #: src/widgets/shortcutsWindow.ui:39
 msgid "Quit"
@@ -595,7 +596,7 @@ msgstr "Izin telah diatur ulang"
 
 #: src/widgets/window.js:99
 msgid "_Undo"
-msgstr "_Tak jadi"
+msgstr "_Batalkan"
 
 #: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
