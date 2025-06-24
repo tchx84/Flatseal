@@ -277,6 +277,9 @@ var FlatpakApplicationsModel = GObject.registerClass({
         }
 
         const component = metadata.get_component();
+        if (component === null)
+            return desktop;
+
         const icon = component.get_icon_stock();
         if (icon === null)
             return desktop;
@@ -322,6 +325,8 @@ var FlatpakApplicationsModel = GObject.registerClass({
         }
 
         const component = metadata.get_component();
+        if (component === null)
+            return appdata;
 
         if (component.get_name())
             appdata.name = component.get_name();
