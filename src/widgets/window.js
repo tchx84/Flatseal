@@ -161,7 +161,7 @@ var FlatsealWindow = GObject.registerClass({
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
 
-            // Aqui você deve acessar as permissões do app
+        
             const allPermissions = this._permissions.getAll();
             const appPermissions = allPermissions.find(p => p.appId === app.appId);
             const fsPerms = appPermissions ? appPermissions.value : [];
