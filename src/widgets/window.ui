@@ -111,7 +111,7 @@
                         <property name="valign">center</property>
                       </object>
                     </child>
-                  </object>
+                  </object>z
                 </child>
                 <property name="content">
                   <object class="AdwToastOverlay" id="toastOverlay">
