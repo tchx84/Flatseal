@@ -33,11 +33,10 @@ var FlatsealApplicationRow = GObject.registerClass({
         this.set_subtitle(appId);
 
         if (asDangerousFs) {
-            // Cria um ícone de alerta
             const warningIcon = new Gtk.Image({
                 icon_name: 'dialog-warning-symbolic',
                 pixel_size: 16,
-                tooltip_text: 'Este app tem acesso total ao sistema de arquivos (filesystem=host ou home). Isso pode ser um risco de segurança.'
+                tooltip_text: 'This app has full access to the file system (filesystem=host or home). This may be a security risk..'
             });
             this.add_suffix(warningIcon);
         }
