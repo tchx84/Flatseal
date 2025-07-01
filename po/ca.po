@@ -7,32 +7,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 16:26-0400\n"
-"PO-Revision-Date: 2022-10-03 23:31+0200\n"
-"Last-Translator: Ícar N. S. <icar.nin@protonmail.com>\n"
+"POT-Creation-Date: 2025-05-23 21:24+0200\n"
+"PO-Revision-Date: 2025-06-20 17:14+0200\n"
+"Last-Translator: Ícar N. S. <personal@icarns.xyz>\n"
 "Language-Team: \n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.6\n"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.desktop.in:4
+#: data/com.github.tchx84.Flatseal.desktop.in:3
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:4
 msgid "Flatseal"
 msgstr "Flatseal"
 
-#: data/com.github.tchx84.Flatseal.desktop.in:10
+#: data/com.github.tchx84.Flatseal.desktop.in:9
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Gestiona els permisos de Flatpak"
 
-#: data/com.github.tchx84.Flatseal.desktop.in:15
-#, fuzzy
+#: data/com.github.tchx84.Flatseal.desktop.in:14
 msgid "seal;sandbox;override;"
-msgstr "segell;entorn protegit;"
+msgstr "segell;entorn protegit;sobreeiximent;"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:12
 msgid ""
@@ -44,21 +43,21 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:21
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "La finestra principal del Flatseal"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:25
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "El Flatseal mostrant els permisos del sistema de fitxers"
 
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:29
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "El Flatseal mostrant els sobreeiximents globals"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:35
 #: data/com.github.tchx84.Flatseal.appdata.xml.in:37
 msgid "Martin Abente Lahaye"
-msgstr "Martin Abente Lahaye"
+msgstr ""
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
@@ -104,10 +103,14 @@ msgid "Shared memory"
 msgstr "Memòria compartida"
 
 #: src/models/devices.js:65
+msgid "USB devices"
+msgstr "Dispositius USB"
+
+#: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
 msgstr "Tots els dispositius (p. ex. la càmera web)"
 
-#: src/models/devices.js:90
+#: src/models/devices.js:97
 msgid "List of devices available in the sandbox"
 msgstr "Llista de dispositius disponibles a l'entorn de proves"
 
@@ -296,7 +299,7 @@ msgstr "Directoris de l'agent GPG"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Hereda el sòcol del Wayland"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
@@ -569,7 +572,7 @@ msgstr "Aplicacions"
 
 #: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
 msgid "Find"
-msgstr "Troba"
+msgstr "Cerca"
 
 #: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
 msgid "Permissions"
@@ -589,7 +592,7 @@ msgstr "Busca el següent resultat"
 
 #: src/widgets/shortcutsWindow.ui:113
 msgid "Find previous"
-msgstr "Troba el resultat anterior"
+msgstr "Cerca el resultat anterior"
 
 #: src/widgets/window.js:98
 msgid "Permissions have been reset"
