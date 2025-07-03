@@ -24,7 +24,6 @@ const {GObject, Gtk, Gio, GLib, Adw} = imports.gi;
 const {FlatsealWindow} = imports.widgets.window;
 const {showAboutDialog} = imports.widgets.aboutDialog;
 const {FlatsealDocsViewer} = imports.widgets.docsViewer;
-const {FlatsealShortcutsWindow} = imports.widgets.shortcutsWindow;
 
 var FlatsealApplication = GObject.registerClass({
     GTypeName: 'FlatsealApplication',
@@ -65,12 +64,6 @@ var FlatsealApplication = GObject.registerClass({
         showAboutDialog(this._window);
     }
 
-    _displayShortcuts() {
-        this.activate();
-        const dialog = new FlatsealShortcutsWindow({transient_for: this._window});
-        dialog.present();
-    }
-
     _quit() {
         this.activate();
         this._window._shutdown();
@@ -89,9 +82,6 @@ var FlatsealApplication = GObject.registerClass({
         const documentation_action = new Gio.SimpleAction({name: 'documentation', state: null});
         documentation_action.connect('activate', this._displayDocumentation.bind(this));
 
-        const shortcuts_action = new Gio.SimpleAction({name: 'shortcuts', state: null});
-        shortcuts_action.connect('activate', this._displayShortcuts.bind(this));
-
         const about_action = new Gio.SimpleAction({name: 'about', state: null});
         about_action.connect('activate', this._displayAbout.bind(this));
 
@@ -103,13 +93,11 @@ var FlatsealApplication = GObject.registerClass({
 
         this.add_action(help_action);
         this.add_action(documentation_action);
-        this.add_action(shortcuts_action);
         this.add_action(about_action);
         this.add_action(quit_action);
         this.add_action(show_action);
 
         this.set_accels_for_action('app.documentation', ['F1']);
-        this.set_accels_for_action('app.shortcuts', ['<Control>question']);
         this.set_accels_for_action('app.quit', ['<Control>q']);
         this.set_accels_for_action('window.close', ['<Control>w']);
     }
