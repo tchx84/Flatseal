@@ -1,121 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="FlatsealShortcutsWindow" parent="GtkShortcutsWindow">
-    <property name="modal">1</property>
+  <requires lib="gtk" version="4.0"/>
+  <object class="AdwShortcutsDialog" id="shortcuts_dialog">
     <child>
-      <object class="GtkShortcutsSection">
-        <property name="section-name">shortcuts</property>
-        <property name="max-height">12</property>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">General</property>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">General</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;alt&gt;</property>
-                <property name="title" translatable="yes">Show mnemonics</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">F1</property>
-                <property name="title" translatable="yes">Show documentation</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">F10</property>
-                <property name="title" translatable="yes">Show menu</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;ctrl&gt;question</property>
-                <property name="title" translatable="yes">Keyboard shortcuts</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;ctrl&gt;Q</property>
-                <property name="title" translatable="yes">Quit</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;alt&gt;</property>
+            <property name="title" translatable="yes">Show mnemonics</property>
           </object>
         </child>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Navigation</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">Left</property>
-                <property name="title" translatable="yes">Move left</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">Up</property>
-                <property name="title" translatable="yes">Move up</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">Right</property>
-                <property name="title" translatable="yes">Move right</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">Down</property>
-                <property name="title" translatable="yes">Move down</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">F1</property>
+            <property name="title" translatable="yes">Show documentation</property>
           </object>
         </child>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Applications</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;ctrl&gt;F</property>
-                <property name="title" translatable="yes">Find</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">F10</property>
+            <property name="title" translatable="yes">Show menu</property>
           </object>
         </child>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Permissions</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">space</property>
-                <property name="title" translatable="yes">Toggle</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;ctrl&gt;question</property>
+            <property name="title" translatable="yes">Keyboard shortcuts</property>
           </object>
         </child>
         <child>
-          <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes">Documentation</property>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;ctrl&gt;F</property>
-                <property name="title" translatable="yes">Find</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;ctrl&gt;G</property>
-                <property name="title" translatable="yes">Find next</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="accelerator">&lt;Control&gt;&lt;Shift&gt;G</property>
-                <property name="title" translatable="yes">Find previous</property>
-              </object>
-            </child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;ctrl&gt;Q</property>
+            <property name="title" translatable="yes">Quit</property>
           </object>
         </child>
       </object>
     </child>
-  </template>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">Navigation</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">Left</property>
+            <property name="title" translatable="yes">Move left</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">Up</property>
+            <property name="title" translatable="yes">Move up</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">Right</property>
+            <property name="title" translatable="yes">Move right</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">Down</property>
+            <property name="title" translatable="yes">Move down</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">Applications</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;ctrl&gt;F</property>
+            <property name="title" translatable="yes">Find</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">Permissions</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">space</property>
+            <property name="title" translatable="yes">Toggle</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <property name="title" translatable="yes">Documentation</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;ctrl&gt;F</property>
+            <property name="title" translatable="yes">Find</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;ctrl&gt;G</property>
+            <property name="title" translatable="yes">Find next</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <property name="accelerator">&lt;Control&gt;&lt;Shift&gt;G</property>
+            <property name="title" translatable="yes">Find previous</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
 </interface>

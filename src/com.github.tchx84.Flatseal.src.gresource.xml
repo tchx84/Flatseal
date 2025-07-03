@@ -19,7 +19,6 @@
     <file>widgets/permissionSwitchRow.js</file>
     <file>widgets/relativePathRow.js</file>
     <file>widgets/resetButton.js</file>
-    <file>widgets/shortcutsWindow.js</file>
     <file>widgets/variableRow.js</file>
     <file>widgets/window.js</file>
     <file>models/applications.js</file>
