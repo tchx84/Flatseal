@@ -36,7 +36,7 @@ row .content .path .info {
 row .content .relative.path .info,
 row .content .bus .info,
 row .content .variable .info {
-    background-image: -gtk-icontheme("emblem-ok-symbolic");
+    background-image: -gtk-icontheme("object-select-symbolic");
 }
 
 row .content .bus.not-valid .info,
