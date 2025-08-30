@@ -41,4 +41,15 @@ if compile_schemas.found()
   )
 endif
 
+conf = configuration_data()
+conf.set('prefix', get_option('prefix'))
+conf.set('bindir', get_option('bindir'))
+
+configure_file(
+  input: 'com.github.tchx84.Flatseal.service.in',
+  output: 'com.github.tchx84.Flatseal.service',
+  configuration: conf,
+  install_dir: join_paths(get_option('datadir'), 'dbus-1', 'services')
+)
+
 subdir('icons')

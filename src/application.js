@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Gio, Adw} = imports.gi;
+const {GObject, Gtk, Gio, GLib, Adw} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {showAboutDialog} = imports.widgets.aboutDialog;
@@ -72,6 +72,11 @@ var FlatsealApplication = GObject.registerClass({
         this.quit();
     }
 
+    _show(action, appId) {
+        this.activate();
+        this._window.showApplication(appId.unpack());
+    }
+
     _setupActions() {
         const help_action = new Gio.SimpleAction({name: 'help', state: null});
         help_action.connect('activate', this._displayHelp.bind(this));
@@ -88,11 +93,15 @@ var FlatsealApplication = GObject.registerClass({
         const quit_action = new Gio.SimpleAction({name: 'quit', state: null});
         quit_action.connect('activate', this._quit.bind(this));
 
+        const show_action = new Gio.SimpleAction({name: 'show', state: null, parameterType: GLib.VariantType.new('s')});
+        show_action.connect('activate', this._show.bind(this));
+
         this.add_action(help_action);
         this.add_action(documentation_action);
         this.add_action(shortcuts_action);
         this.add_action(about_action);
         this.add_action(quit_action);
+        this.add_action(show_action);
 
         this.set_accels_for_action('app.documentation', ['F1']);
         this.set_accels_for_action('app.shortcuts', ['<Control>question']);
