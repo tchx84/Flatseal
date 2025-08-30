@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.github.tchx84.Flatseal
+Exec=@prefix@/@bindir@/com.github.tchx84.Flatseal --gapplication-service

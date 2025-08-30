@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Gio, Adw} = imports.gi;
+const {GObject, Gtk, Gio, GLib, Adw} = imports.gi;
 
 const {FlatsealWindow} = imports.widgets.window;
 const {showAboutDialog} = imports.widgets.aboutDialog;
@@ -36,6 +36,7 @@ var FlatsealApplication = GObject.registerClass({
             resource_base_path: '/com/github/tchx84/Flatseal/',
         });
 
+        this._appId = null;
         this._window = null;
     }
 
@@ -100,9 +101,21 @@ var FlatsealApplication = GObject.registerClass({
         this.set_accels_for_action('window.close', ['<Control>w']);
     }
 
+    vfunc_before_emit(variant) {
+        const platform_data = variant.recursiveUnpack();
+
+        if (typeof platform_data.appId !== 'undefined')
+            this._appId = platform_data.appId;
+
+        super.vfunc_before_emit(variant);
+    }
+
     vfunc_activate() {
         if (this._window === null)
             this._window = new FlatsealWindow(this);
+
+        if (this._appId !== null)
+            this._window.activateApplication(this._appId);
 
         this._window.present();
     }
