@@ -404,4 +404,10 @@ var FlatsealWindow = GObject.registerClass({
         this._shutdown();
         return super.vfunc_close_request();
     }
+
+    showApplication(appId) {
+        const row = Array.from(this._applicationsListBox).find(r => r.appId === appId);
+        if (typeof row !== 'undefined')
+            this._activateApplication(this._applicationsListBox, row);
+    }
 });
