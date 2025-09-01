@@ -40,6 +40,7 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayHelp() {
+        this.activate();
         const launcher = new Gtk.UriLauncher();
         launcher.uri = 'https://github.com/tchx84/flatseal';
         launcher.launch(this._window, null, this._doDisplayHelp);
@@ -54,20 +55,24 @@ var FlatsealApplication = GObject.registerClass({
     }
 
     _displayDocumentation() {
+        this.activate();
         const viewer = new FlatsealDocsViewer(this._window);
         viewer.present();
     }
 
     _displayAbout() {
+        this.activate();
         showAboutDialog(this._window);
     }
 
     _displayShortcuts() {
+        this.activate();
         const dialog = new FlatsealShortcutsWindow({transient_for: this._window});
         dialog.present();
     }
 
     _quit() {
+        this.activate();
         this._window._shutdown();
         this.quit();
     }
