@@ -1,5 +1,16 @@
 # Changelog
 
+## [unreleased]
+
+- Added action to launch Flatseal with selected app id via DBus.
+- Added support for the new USB devices permission.
+- Fixed referencing deprecated symbolic icons.
+- Fixed handling incomplete desktop files.
+- Fixed Catalan translation.
+- Fixed French translation.
+- Fixed Brazilian Portuguese translation.
+- Changed appdata to metainfo.
+
 ## [2.3.1] - 2025-04-24
 
 - Added Persian translation.
