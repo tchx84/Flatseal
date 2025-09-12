@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-23 21:24+0200\n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
 "PO-Revision-Date: 2025-06-20 17:14+0200\n"
 "Last-Translator: Ícar N. S. <personal@icarns.xyz>\n"
 "Language-Team: \n"
@@ -20,12 +20,12 @@ msgstr ""
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
 msgid "Flatseal"
 msgstr "Flatseal"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:9
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Gestiona els permisos de Flatpak"
 
@@ -33,7 +33,7 @@ msgstr "Gestiona els permisos de Flatpak"
 msgid "seal;sandbox;override;"
 msgstr "segell;entorn protegit;sobreeiximent;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -41,21 +41,21 @@ msgstr ""
 "Flatseal és una utilitat gràfica per revisar i modificar els permisos de les "
 "vostres aplicacions Flatpak."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
 msgstr "La finestra principal del Flatseal"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "El Flatseal mostrant els permisos del sistema de fitxers"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "El Flatseal mostrant els sobreeiximents globals"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -63,8 +63,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Identificador de l'aplicació que es va seleccionar per darrera vegada"
 
-#: src/models/applications.js:237 src/models/applications.js:295
-#: src/models/applications.js:296 src/models/applications.js:297
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
