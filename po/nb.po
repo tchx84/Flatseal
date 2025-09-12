@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 16:26-0400\n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
 "PO-Revision-Date: 2024-10-04 18:43+0200\n"
 "Last-Translator: Sunniva Løvstad <turtle@turtle.garden>\n"
 "Language-Team: Norwegian Bokmal <>\n"
@@ -19,21 +19,21 @@ msgstr ""
 "X-Generator: Poedit 3.5\n"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.desktop.in:4
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
 msgid "Flatseal"
 msgstr ""
 
-#: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "Administrer Flatpak-tillatelser"
 
-#: data/com.github.tchx84.Flatseal.desktop.in:15
+#: data/com.github.tchx84.Flatseal.desktop.in:14
 msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;override;segl;innhegning;overstyre;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
@@ -41,21 +41,21 @@ msgstr ""
 "Flatseal er et grafisk verktøy for å gjennomgå og endre tillatelser for dine "
 "Flatpak-applikasjoner."
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
 msgstr "Flatseals hovedvindu"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Flatseal mens det viser filsystemtillatelser"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal mens det viser globale overstyringer"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr ""
 
@@ -63,8 +63,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Program-ID som sist ble valgt"
 
-#: src/models/applications.js:237 src/models/applications.js:295
-#: src/models/applications.js:296 src/models/applications.js:297
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -103,10 +103,15 @@ msgid "Shared memory"
 msgstr "Delt minne"
 
 #: src/models/devices.js:65
+#, fuzzy
+msgid "USB devices"
+msgstr "Inndataenheter"
+
+#: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
 msgstr "Alle enheter (f.eks. webkamera)"
 
-#: src/models/devices.js:90
+#: src/models/devices.js:97
 msgid "List of devices available in the sandbox"
 msgstr "Liste over enheter tilgjengelig i sandkassen"
 

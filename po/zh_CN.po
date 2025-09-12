@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-18 16:26-0400\n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
 "PO-Revision-Date: 2024-09-25 21:46+0800\n"
 "Last-Translator: Eric Zhang <ericzhang456@disroot.org>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
@@ -20,42 +20,42 @@ msgstr ""
 "X-Generator: Poedit 3.3.2\n"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.desktop.in:4
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:4
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
 msgid "Flatseal"
 msgstr "Flatseal"
 
-#: data/com.github.tchx84.Flatseal.desktop.in:10
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:10
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
 msgid "Manage Flatpak permissions"
 msgstr "管理 Flatpak 权限"
 
-#: data/com.github.tchx84.Flatseal.desktop.in:15
+#: data/com.github.tchx84.Flatseal.desktop.in:14
 #, fuzzy
 msgid "seal;sandbox;override;"
 msgstr "seal;sandbox;封条;沙盒;"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:12
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr "Flatseal 是一个可以查看并修改 Flatpak 程序权限的图形工具。"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:21
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
 msgstr "Flatseal 主窗口"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:25
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
 msgid "Flatseal showing filesystem permissions"
 msgstr "Flatseal 正在展示文件系统权限"
 
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:29
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
 msgid "Flatseal showing global overrides"
 msgstr "Flatseal 正在展示全局覆盖"
 
 #. TRANSLATORS: Don't translate this text
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:35
-#: data/com.github.tchx84.Flatseal.appdata.xml.in:37
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
 msgid "Martin Abente Lahaye"
 msgstr "Martin Abente Lahaye"
 
@@ -63,8 +63,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "最后所选应用程序的 ID"
 
-#: src/models/applications.js:237 src/models/applications.js:295
-#: src/models/applications.js:296 src/models/applications.js:297
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -103,10 +103,15 @@ msgid "Shared memory"
 msgstr "共享内存"
 
 #: src/models/devices.js:65
+#, fuzzy
+msgid "USB devices"
+msgstr "输入设备"
+
+#: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
 msgstr "全部设备（如：摄像头）"
 
-#: src/models/devices.js:90
+#: src/models/devices.js:97
 msgid "List of devices available in the sandbox"
 msgstr "沙盒中可提供的设备"
 
