@@ -1,5 +1,5 @@
 data/com.github.tchx84.Flatseal.desktop.in
-data/com.github.tchx84.Flatseal.appdata.xml.in
+data/com.github.tchx84.Flatseal.metainfo.xml.in
 data/com.github.tchx84.Flatseal.gschema.xml
 src/application.js
 src/main.js
