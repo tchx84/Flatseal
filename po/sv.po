@@ -1,14 +1,14 @@
 # Swedish translation for Flatseal.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020-2024.
+# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 13:59-0300\n"
-"PO-Revision-Date: 2024-09-19 09:22+0200\n"
+"PO-Revision-Date: 2025-09-13 12:12+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.7\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -103,9 +103,8 @@ msgid "Shared memory"
 msgstr "Delat minne"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "Inmatningsenheter"
+msgstr "USB-enheter"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
