@@ -1,25 +1,23 @@
 # German translation for flatseal package.
 # Copyright (C) 2020 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Automatically generated, 2020.
-#
 # Tim Rieck <tim.rieck@gmail.com>, 2020.
-# Philipp Kiemle <philipp.kiemle@gmail.com>, 2022-2024.
+# Philipp Kiemle <l10n@prly.mozmail.com>, 2022-2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 13:59-0300\n"
-"PO-Revision-Date: 2024-09-21 14:19+0200\n"
-"Last-Translator: Philipp Kiemle <philipp.kiemle@gmail.com>\n"
+"PO-Revision-Date: 2025-09-15 20:15+0200\n"
+"Last-Translator: Philipp Kiemle <l10n@prly.mozmail.com>\n"
 "Language-Team: none\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.7\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -37,12 +35,8 @@ msgid "seal;sandbox;override;"
 msgstr "Siegel;seal;Sandkasten;sandbox;überschreiben;override;"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
-msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your "
-"Flatpak applications."
-msgstr ""
-"Flatseal ist ein grafisches Dienstprogramm zum Überprüfen und Ändern von "
-"Basisberechtigungen Ihrer Flatpak-Anwendungen."
+msgid "Flatseal is a graphical utility to review and modify permissions from your Flatpak applications."
+msgstr "Flatseal ist ein grafisches Dienstprogramm zum Überprüfen und Ändern von Basisberechtigungen Ihrer Flatpak-Anwendungen."
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
@@ -106,9 +100,8 @@ msgid "Shared memory"
 msgstr "Gemeinsam genutzter Speicher"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "Eingabegeräte"
+msgstr "USB-Geräte"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
@@ -614,7 +607,7 @@ msgstr "Aufgrund von Änderungen in Flatpak-Installationen aktualisiert"
 
 #: src/widgets/window.ui:31
 msgid "Main Menu"
-msgstr "Menü-Taste"
+msgstr "Hauptmenü"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
