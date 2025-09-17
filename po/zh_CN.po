@@ -103,9 +103,8 @@ msgid "Shared memory"
 msgstr "共享内存"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "输入设备"
+msgstr "USB 设备"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
