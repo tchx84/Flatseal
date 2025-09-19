@@ -7,7 +7,7 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/andyholmes/flatter/gnome:48
+      image: ghcr.io/andyholmes/flatter/gnome:49
       options: --privileged
     steps:
       - name: Checkout
