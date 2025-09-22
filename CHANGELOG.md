@@ -10,6 +10,7 @@
 - Fixed French translation.
 - Fixed Brazilian Portuguese translation.
 - Changed appdata to metainfo.
+- Running test ignore.
 
 ## [2.3.1] - 2025-04-24
 
