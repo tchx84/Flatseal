@@ -370,7 +370,7 @@ msgstr "Portál-verzió"
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
-msgstr "Változtatások útvonala"
+msgstr "A módosítások elérési útja"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
