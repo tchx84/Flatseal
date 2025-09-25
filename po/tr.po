@@ -106,9 +106,8 @@ msgid "Shared memory"
 msgstr "Paylaşımlı bellek"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "Girdi aygıtları"
+msgstr "USB cihazları"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
