@@ -105,7 +105,6 @@ msgid "Shared memory"
 msgstr "Mémoire partagée"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
 msgstr "Périphériques USB"
 

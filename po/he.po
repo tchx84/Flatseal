@@ -101,9 +101,8 @@ msgid "Shared memory"
 msgstr "זיכרון שיתופי"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "התקני קלט"
+msgstr "התקני USB"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"

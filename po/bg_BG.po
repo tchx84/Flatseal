@@ -103,9 +103,8 @@ msgid "Shared memory"
 msgstr "Споделена памет"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "Входни устройства"
+msgstr "USB устройства"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"

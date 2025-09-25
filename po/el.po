@@ -103,9 +103,8 @@ msgid "Shared memory"
 msgstr "Κοινόχρηστη μνήμη"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "Συσκευές εισόδου"
+msgstr "Συσκευές USB"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"

@@ -103,9 +103,8 @@ msgid "Shared memory"
 msgstr "Delt minne"
 
 #: src/models/devices.js:65
-#, fuzzy
 msgid "USB devices"
-msgstr "Inndataenheter"
+msgstr "USB-enheter"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
