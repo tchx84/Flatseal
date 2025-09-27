@@ -6,10 +6,14 @@
 - Added support for the new USB devices permission.
 - Fixed referencing deprecated symbolic icons.
 - Fixed handling incomplete desktop files.
+- Fixed Hungarian translation.
 - Fixed Catalan translation.
 - Fixed French translation.
 - Fixed Brazilian Portuguese translation.
 - Changed appdata to metainfo.
+- Changed to Adw.ShortcutsDialog for better adaptive behavior.
+- Changed to Libadwaita 1.8 for new widgets.
+- Changed to GNOME 49 runtime for stability.
 
 ## [2.3.1] - 2025-04-24
 
