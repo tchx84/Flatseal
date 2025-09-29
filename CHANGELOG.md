@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.4.0] - 2025-09-29
 
 - Added action to launch Flatseal with selected app id via DBus.
 - Added support for the new USB devices permission.
