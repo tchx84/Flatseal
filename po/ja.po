@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 13:59-0300\n"
-"PO-Revision-Date: 2025-10-04 22:29+0900\n"
+"PO-Revision-Date: 2025-10-05 14:23+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
-msgstr ""
+msgstr "Flatseal のメイン画面"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
 msgid "Flatseal showing filesystem permissions"
@@ -108,11 +108,11 @@ msgstr "USB デバイス"
 
 #: src/models/devices.js:72
 msgid "All devices (e.g. webcam)"
-msgstr ""
+msgstr "全てのデバイス (例: Webカメラ)"
 
 #: src/models/devices.js:97
 msgid "List of devices available in the sandbox"
-msgstr ""
+msgstr "サンドボックス内で利用可能なデバイスのリスト"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
@@ -132,43 +132,43 @@ msgstr ""
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
-msgstr ""
+msgstr "アプリケーション共有メモリ"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
-msgstr ""
+msgstr "アプリケーションで利用可能な要素のリスト"
 
 #: src/models/filesystems.js:37
 msgid "All system files"
-msgstr ""
+msgstr "全てのシステムファイル"
 
 #: src/models/filesystems.js:44
 msgid "All system libraries, executables and static data"
-msgstr ""
+msgstr "全てのシステムライブラリ、実行可能ファイルと静的データ"
 
 #: src/models/filesystems.js:51
 msgid "All system configurations"
-msgstr ""
+msgstr "全てのシステム設定"
 
 #: src/models/filesystems.js:58
 msgid "All user files"
-msgstr ""
+msgstr "全てのユーザーファイル"
 
 #: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
-msgstr ""
+msgstr "アプリケーションが利用可能なファイルシステムの範囲のリスト"
 
 #: src/models/filesystemsOther.js:39
 msgid "Other files"
-msgstr ""
+msgstr "その他のファイル"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr ""
+msgstr "例) ~/games:ro, xdg-pictures など"
 
 #: src/models/persistent.js:37
 msgid "Files"
-msgstr ""
+msgstr "ファイル"
 
 #: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
@@ -234,6 +234,7 @@ msgstr ""
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
 msgstr ""
+"インストールされている Flatpak のバージョンではサポートされていません"
 
 #: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
@@ -245,59 +246,61 @@ msgstr ""
 
 #: src/models/shared.js:39
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 #: src/models/shared.js:46
 msgid "Inter-process communications"
-msgstr ""
+msgstr "プロセス間通信"
 
 #: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
-msgstr ""
+msgstr "ホストのシステムから共有されたサブシステムのリスト"
 
 #: src/models/sockets.js:37
 msgid "X11 windowing system"
-msgstr ""
+msgstr "X11 ウィンドウシステム"
 
 #: src/models/sockets.js:44
 msgid "Wayland windowing system"
-msgstr ""
+msgstr "Wayland ウィンドウシステム"
 
 #: src/models/sockets.js:51
 msgid "Fallback to X11 windowing system"
-msgstr ""
+msgstr "X11 ウィンドウシステムへのフォールバック"
 
 #: src/models/sockets.js:58
 msgid "PulseAudio sound server"
-msgstr ""
+msgstr "PulseAudio サウンドサーバー"
 
 #: src/models/sockets.js:65
 msgid "D-Bus session bus"
-msgstr ""
+msgstr "D-bus セッションバス"
 
 #: src/models/sockets.js:72
 msgid "D-Bus system bus"
-msgstr ""
+msgstr "D-bus システムバス"
 
 #: src/models/sockets.js:79
+#, fuzzy
 msgid "Secure Shell agent"
-msgstr ""
+msgstr "SSH エージェント"
 
 #: src/models/sockets.js:86
 msgid "Smart cards"
-msgstr ""
+msgstr "スマートカード"
 
 #: src/models/sockets.js:93
 msgid "Printing system"
-msgstr ""
+msgstr "印刷システム"
 
 #: src/models/sockets.js:100
+#, fuzzy
 msgid "GPG-Agent directories"
-msgstr ""
+msgstr "GPG エージェント ディレクトリ"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr ""
+msgstr "Wayland ソケットの継承"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
@@ -335,7 +338,7 @@ msgstr "ランタイム"
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
 #: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
 msgid "This is not a valid option"
-msgstr ""
+msgstr "これは正しいオプションではありません"
 
 #: src/widgets/detailsButton.js:60
 msgid "_Show Details"
@@ -343,23 +346,23 @@ msgstr "_詳細の表示"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
-msgstr ""
+msgstr "アプリケーションをソフトウェアマネージャーで表示"
 
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
-msgstr ""
+msgstr "ソフトウェアマネージャーが見つかりませんでした"
 
 #: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
-msgstr ""
+msgstr "全てのアプリケーション"
 
 #: src/widgets/globalInfoViewer.ui:32
 msgid "Changes that apply to all Flatpak applications"
-msgstr ""
+msgstr "これに対する変更は全ての Flatpak アプリケーションに適用されます"
 
 #: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
-msgstr ""
+msgstr "Flatpak のバージョン"
 
 #: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
@@ -367,7 +370,7 @@ msgstr ""
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
-msgstr ""
+msgstr "変更先のパス"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -387,11 +390,11 @@ msgstr "_Flatseal について"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr ""
+msgstr "グローバル設定で変更済み"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr ""
+msgstr "ユーザーによって変更済み"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
@@ -510,15 +513,15 @@ msgstr "_リセット"
 
 #: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
-msgstr ""
+msgstr "このアプリケーションに対して行われた変更はありません"
 
 #: src/widgets/resetButton.js:68
 msgid "Reset this application permissions"
-msgstr ""
+msgstr "このアプリケーションの権限をリセットする"
 
 #: src/widgets/resetButton.js:70
 msgid ", including changes not made with Flatseal"
-msgstr ""
+msgstr "、Flatseal 以外で行った変更も含めて"
 
 #: src/widgets/shortcutsWindow.ui:11
 msgid "General"
@@ -526,7 +529,7 @@ msgstr "一般"
 
 #: src/widgets/shortcutsWindow.ui:15
 msgid "Show mnemonics"
-msgstr ""
+msgstr "カーソル位置を表示"
 
 #: src/widgets/shortcutsWindow.ui:21
 msgid "Show documentation"
@@ -606,12 +609,12 @@ msgstr ""
 
 #: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr ""
+msgstr "新しい Flatpak がインストールされたため再読み込みしました"
 
 #: src/widgets/window.ui:31
 msgid "Main Menu"
-msgstr ""
+msgstr "メインメニュー"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
-msgstr ""
+msgstr "アプリケーションが見つかりませんでした。"
