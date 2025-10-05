@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 13:59-0300\n"
-"PO-Revision-Date: 2025-10-05 21:53+0900\n"
+"PO-Revision-Date: 2025-10-05 22:08+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -47,11 +47,11 @@ msgstr "Flatseal のメイン画面"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
 msgid "Flatseal showing filesystem permissions"
-msgstr ""
+msgstr "Flatseal はファイルシステムの権限を表示中です"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
 msgid "Flatseal showing global overrides"
-msgstr ""
+msgstr "Flatseal はグローバルなオーバーライドを表示中です"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
@@ -130,8 +130,9 @@ msgid "Bluetooth"
 msgstr "Bluetooth"
 
 #: src/models/features.js:58
+#, fuzzy
 msgid "Controller Area Network bus"
-msgstr ""
+msgstr "コントローラーエリアネットワーク(CAN) バス"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
@@ -506,7 +507,7 @@ msgstr "%s への作成、変更、読み込みができません"
 
 #: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
-msgstr ""
+msgstr "リセット"
 
 #: src/widgets/relativePathRow.js:84
 msgid "Default paths can't be removed"
@@ -611,7 +612,7 @@ msgstr "_取り消す"
 
 #: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
-msgstr "コンテンツに異常があるため、オーバーライドをロードできません"
+msgstr "コンテンツに問題があるため、オーバーライドをロードできません"
 
 #: src/widgets/window.js:112
 msgid "Refreshed due to changes in Flatpak installations"
