@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 13:59-0300\n"
-"PO-Revision-Date: 2025-10-05 22:08+0900\n"
+"PO-Revision-Date: 2025-10-30 05:47+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -71,7 +71,6 @@ msgid "Unknown"
 msgstr "不明"
 
 #: src/models/sessionBus.js:38 src/models/systemBus.js:37
-#, fuzzy
 msgid "Talks"
 msgstr "通信"
 
@@ -80,12 +79,10 @@ msgid "Owns"
 msgstr "所有"
 
 #: src/models/sessionBus.js:82
-#, fuzzy
 msgid "List of well-known names on the session bus"
 msgstr "セッションバスにおけるウェルノウンな名前のリスト"
 
 #: src/models/systemBus.js:73
-#, fuzzy
 msgid "List of well-known names on the system bus"
 msgstr "システムバスにおけるウェルノウンな名前のリスト"
 
@@ -130,7 +127,6 @@ msgid "Bluetooth"
 msgstr "Bluetooth"
 
 #: src/models/features.js:58
-#, fuzzy
 msgid "Controller Area Network bus"
 msgstr "コントローラーエリアネットワーク(CAN) バス"
 
@@ -168,7 +164,7 @@ msgstr "その他のファイル"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "例) ~/games:ro, xdg-pictures など"
+msgstr "例: ~/games:ro, xdg-pictures など"
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -176,7 +172,7 @@ msgstr "ファイル"
 
 #: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
-msgstr "例) .thunderbird"
+msgstr "例: .thunderbird"
 
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
@@ -245,7 +241,6 @@ msgid "Requires permission store version 2 or newer"
 msgstr "権限ストアバージョン 2 以上が必要です"
 
 #: src/models/portals.js:272
-#, fuzzy
 msgid "Portal data has not been set up yet"
 msgstr "Portal のデータがまたセットアップされていません"
 
@@ -286,9 +281,8 @@ msgid "D-Bus system bus"
 msgstr "D-bus システムバス"
 
 #: src/models/sockets.js:79
-#, fuzzy
 msgid "Secure Shell agent"
-msgstr "SSH エージェント"
+msgstr "SSH-Agent"
 
 #: src/models/sockets.js:86
 msgid "Smart cards"
@@ -299,16 +293,14 @@ msgid "Printing system"
 msgstr "印刷システム"
 
 #: src/models/sockets.js:100
-#, fuzzy
 msgid "GPG-Agent directories"
-msgstr "GPG エージェント ディレクトリ"
+msgstr "GPG-Agent ディレクトリ"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
 msgstr "Wayland ソケットの継承"
 
 #: src/models/sockets.js:132
-#, fuzzy
 msgid "List of well-known sockets available in the sandbox"
 msgstr "サンドボックス内で使用できるウェルノウンなソケットのリスト"
 
@@ -327,7 +319,7 @@ msgstr "アプリケーションに渡される変数のリスト"
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
-msgstr "%Y/%0M/%0d"
+msgstr "%Y/%0m/%0e"
 
 #: src/widgets/appInfoViewer.ui:46
 msgid "Version"
@@ -348,7 +340,7 @@ msgstr "これは正しいオプションではありません"
 
 #: src/widgets/detailsButton.js:60
 msgid "_Show Details"
-msgstr "_詳細の表示"
+msgstr "詳細の表示(_S)"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
@@ -371,7 +363,6 @@ msgid "Flatpak Version"
 msgstr "Flatpak のバージョン"
 
 #: src/widgets/globalInfoViewer.ui:68
-#, fuzzy
 msgid "Portal Version"
 msgstr "Portal のバージョン"
 
@@ -381,19 +372,19 @@ msgstr "変更先のパス"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
-msgstr "_ヘルプ"
+msgstr "ヘルプ(_H)"
 
 #: src/widgets/menu.ui:11
 msgid "_Documentation"
-msgstr "_ドキュメント"
+msgstr "ドキュメント(_D)"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr "_キーボードショートカット"
+msgstr "キーボードショートカット(_K)"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
-msgstr "_Flatseal について"
+msgstr "Flatseal について(_A)"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
@@ -476,32 +467,32 @@ msgid "the runtime directory"
 msgstr "ランタイム ディレクトリ"
 
 #: src/widgets/pathRow.js:59
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can read: %s"
 msgstr "%s を読み込むことができます"
 
 #: src/widgets/pathRow.js:60
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can modify and read: %s"
 msgstr "%s の変更と読み込みができます"
 
 #: src/widgets/pathRow.js:61
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can create, modify and read: %s"
 msgstr "%s への作成、変更、読み込みができます"
 
 #: src/widgets/pathRow.js:67
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't read: %s"
 msgstr "%s を読み込むことができません"
 
 #: src/widgets/pathRow.js:68
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't modify or read: %s"
 msgstr "%s の変更と読み込みができません"
 
 #: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
-#, fuzzy, javascript-format
+#, javascript-format
 msgid "Can't create, modify or read: %s"
 msgstr "%s への作成、変更、読み込みができません"
 
@@ -516,7 +507,7 @@ msgstr "デフォルトのパスは削除できません"
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
 #: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
-msgstr "_リセット"
+msgstr "リセット(_R)"
 
 #: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
@@ -608,7 +599,7 @@ msgstr "権限がリセットされました"
 
 #: src/widgets/window.js:99
 msgid "_Undo"
-msgstr "_取り消す"
+msgstr "取り消す(_U)"
 
 #: src/widgets/window.js:105
 msgid "Cannot load overrides due to incorrect contents"
