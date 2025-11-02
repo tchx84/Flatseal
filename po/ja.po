@@ -1,0 +1,618 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"PO-Revision-Date: 2025-10-30 05:47+0900\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.7\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "Flatpak の権限を管理"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:14
+msgid "seal;sandbox;override;"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal は Flatpak アプリケーションの権限を確認、変更できるグラフィカルイ"
+"ンターフェースです。"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
+msgid "The Flatseal main window"
+msgstr "Flatseal のメイン画面"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "Flatseal はファイルシステムの権限を表示中です"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal はグローバルなオーバーライドを表示中です"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr ""
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "最後に選択したアプリケーション ID"
+
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "不明"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "通信"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "所有"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "セッションバスにおけるウェルノウンな名前のリスト"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "システムバスにおけるウェルノウンな名前のリスト"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU 支援"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "入力デバイス"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "仮想化"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "共有メモリ"
+
+#: src/models/devices.js:65
+msgid "USB devices"
+msgstr "USB デバイス"
+
+#: src/models/devices.js:72
+msgid "All devices (e.g. webcam)"
+msgstr "全てのデバイス (例: Webカメラ)"
+
+#: src/models/devices.js:97
+msgid "List of devices available in the sandbox"
+msgstr "サンドボックス内で利用可能なデバイスのリスト"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "開発用システムコール (例: ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "異なるアーキテクチャのプログラム"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "コントローラーエリアネットワーク(CAN) バス"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "アプリケーション共有メモリ"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "アプリケーションで利用可能な要素のリスト"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "全てのシステムファイル"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "全てのシステムライブラリ、実行可能ファイルと静的データ"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "全てのシステム設定"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "全てのユーザーファイル"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "アプリケーションが利用可能なファイルシステムの範囲のリスト"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "その他のファイル"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "例: ~/games:ro, xdg-pictures など"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "ファイル"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "例: .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "サンドボックス内に作成されるホームディレクトリに相対的なパスのリスト"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "バックグラウンド"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "バックグラウンドで動作できるかどうか"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "通知"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "通知を送ることができるかどうか"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "マイク"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "マイクを使用できるかどうか"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "スピーカー"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "スピーカーで音を再生で生きるかどうか"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "カメラ"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "カメラの映像を録画できるかどうか"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "位置情報"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "位置情報にアクセスできるかどうか"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "このアプリケーションが使用を許可されているリソースのリスト"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr ""
+"インストールされている Flatpak のバージョンではサポートされていません"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "権限ストアバージョン 2 以上が必要です"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "Portal のデータがまたセットアップされていません"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "ネットワーク"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "プロセス間通信"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "ホストのシステムから共有されたサブシステムのリスト"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 ウィンドウシステム"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland ウィンドウシステム"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "X11 ウィンドウシステムへのフォールバック"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio サウンドサーバー"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-bus セッションバス"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-bus システムバス"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "SSH-Agent"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "スマートカード"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "印刷システム"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-Agent ディレクトリ"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "Wayland ソケットの継承"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "サンドボックス内で使用できるウェルノウンなソケットのリスト"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "変数"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "例) GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "アプリケーションに渡される変数のリスト"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%Y/%0m/%0e"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "バージョン"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "最終更新日"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "ランタイム"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "これは正しいオプションではありません"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "詳細の表示(_S)"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "アプリケーションをソフトウェアマネージャーで表示"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "ソフトウェアマネージャーが見つかりませんでした"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "全てのアプリケーション"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "これに対する変更は全ての Flatpak アプリケーションに適用されます"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Flatpak のバージョン"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Portal のバージョン"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "変更先のパス"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "ヘルプ(_H)"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "ドキュメント(_D)"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "キーボードショートカット(_K)"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "Flatseal について(_A)"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "グローバル設定で変更済み"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "ユーザーによって変更済み"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "この絶対パス"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "このホームディレクトリに対する相対パス"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "全てのシステム設定"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "全てのシステムライブラリ、実行可能ファイルと静的データ"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "全てのシステムファイル"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "全てのユーザーファイル"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "「デスクトップ」ディレクトリ"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "「ドキュメント」ディレクトリ"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "「ダウンロード」ディレクトリ"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "「ミュージック」ディレクトリ"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "「ピクチャ」ディレクトリ"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "「公開」ディレクトリ"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "「ビデオ」ディレクトリ"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "「テンプレート」ディレクトリ"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "設定ディレクトリ"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "キャッシュ ディレクトリ"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "データ ディレクトリ"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "ランタイム ディレクトリ"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "%s を読み込むことができます"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "%s の変更と読み込みができます"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "%s への作成、変更、読み込みができます"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "%s を読み込むことができません"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "%s の変更と読み込みができません"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "%s への作成、変更、読み込みができません"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "リセット"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "デフォルトのパスは削除できません"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+msgid "_Reset"
+msgstr "リセット(_R)"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "このアプリケーションに対して行われた変更はありません"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "このアプリケーションの権限をリセットする"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr "、Flatseal 以外で行った変更も含めて"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "一般"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "カーソル位置を表示"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "ドキュメントの表示"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "メニューの表示"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "キーボードショートカット"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "アプリを終了"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "カーソルの操作"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "左に移動"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "上に移動"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "右に移動"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "下に移動"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "検索"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "権限"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "切り替え"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "ドキュメント"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "次を検索"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "前を検索"
+
+#: src/widgets/window.js:98
+msgid "Permissions have been reset"
+msgstr "権限がリセットされました"
+
+#: src/widgets/window.js:99
+msgid "_Undo"
+msgstr "取り消す(_U)"
+
+#: src/widgets/window.js:105
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "コンテンツに問題があるため、オーバーライドをロードできません"
+
+#: src/widgets/window.js:112
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "新しい Flatpak がインストールされたため再読み込みしました"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "メインメニュー"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "アプリケーションが見つかりませんでした。"
