@@ -2,21 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Loc Huynh <https://github.com/hthienloc>, 2025.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-12 13:59-0300\n"
-"PO-Revision-Date: 2025-11-20 18:21+0700\n"
-"Last-Translator: loccun <huynhloc.contact@gmail.com>\n"
-"Language-Team: \n"
+"PO-Revision-Date: 2025-12-11 05:05+0700\n"
+"Last-Translator: Loc Huynh <https://github.com/hthienloc>\n"
+"Language-Team: Vietnamese <https://github.com/linux-l10n-vi>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Gtranslator 49.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -31,13 +32,14 @@ msgstr "Quản lý quyền Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:14
 msgid "seal;sandbox;override;"
-msgstr "seal;sandbox;override;"
+msgstr "seal;sandbox;override;niêm phong;ghi đè;"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
 msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
-msgstr "Flatseal là tiện ích đồ họa để xem và chỉnh sửa quyền của ứng dụng Flatpak."
+msgstr ""
+"Flatseal là tiện ích đồ họa để xem và chỉnh sửa quyền của ứng dụng Flatpak."
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
@@ -126,7 +128,7 @@ msgstr "Bluetooth"
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
-msgstr "Bus Controller Area Network (CAN)"
+msgstr "Controller Area Network bus"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
@@ -138,7 +140,7 @@ msgstr "Danh sách tính năng ứng dụng có thể sử dụng"
 
 #: src/models/filesystems.js:37
 msgid "All system files"
-msgstr "Tất cả tập tin hệ thống"
+msgstr "Tất cả tệp hệ thống"
 
 #: src/models/filesystems.js:44
 msgid "All system libraries, executables and static data"
@@ -150,7 +152,7 @@ msgstr "Tất cả cấu hình hệ thống"
 
 #: src/models/filesystems.js:58
 msgid "All user files"
-msgstr "Tất cả tập tin người dùng"
+msgstr "Tất cả tệp người dùng"
 
 #: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
@@ -158,7 +160,7 @@ msgstr "Danh sách các phần của hệ thống tệp ứng dụng có thể t
 
 #: src/models/filesystemsOther.js:39
 msgid "Other files"
-msgstr "Các tập tin khác"
+msgstr "Tệp khác"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
@@ -279,7 +281,7 @@ msgstr "Bus hệ thống D-Bus"
 
 #: src/models/sockets.js:79
 msgid "Secure Shell agent"
-msgstr "Agent Secure Shell"
+msgstr "Secure Shell agent"
 
 #: src/models/sockets.js:86
 msgid "Smart cards"
@@ -323,7 +325,7 @@ msgstr "Phiên bản"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Last Updated"
-msgstr "Cập Nhật Lần Cuối"
+msgstr "Cập nhật lần cuối"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Runtime"
@@ -356,15 +358,15 @@ msgstr "Thay đổi áp dụng cho tất cả ứng dụng Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
-msgstr "Phiên Bản Flatpak"
+msgstr "Phiên bản Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:68
 msgid "Portal Version"
-msgstr "Phiên Bản Portal"
+msgstr "Phiên bản Portal"
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
-msgstr "Đường Dẫn Thay Đổi"
+msgstr "Đường dẫn thay đổi"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
@@ -372,23 +374,23 @@ msgstr "_Trợ giúp"
 
 #: src/widgets/menu.ui:11
 msgid "_Documentation"
-msgstr "_Tài Liệu"
+msgstr "Tài _liệu"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
-msgstr "_Phím Tắt"
+msgstr "_Phím tắt"
 
 #: src/widgets/menu.ui:19
 msgid "_About Flatseal"
-msgstr "_Giới Thiệu Flatseal"
+msgstr "_Giới thiệu về Flatseal"
 
 #: src/widgets/overrideStatusIcon.js:25
 msgid "Changed globally"
-msgstr "Đã thay đổi toàn cục"
+msgstr "Thay đổi toàn cục"
 
 #: src/widgets/overrideStatusIcon.js:26
 msgid "Changed by the user"
-msgstr "Đã thay đổi bởi người dùng"
+msgstr "Thay đổi bởi người dùng"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
@@ -408,11 +410,11 @@ msgstr "tất cả thư viện hệ thống, chương trình thực thi và dữ
 
 #: src/widgets/pathRow.js:31
 msgid "all system files"
-msgstr "tất cả tập tin hệ thống"
+msgstr "tất cả tệp hệ thống"
 
 #: src/widgets/pathRow.js:32
 msgid "all user files"
-msgstr "tất cả tập tin người dùng"
+msgstr "tất cả tệp người dùng"
 
 #: src/widgets/pathRow.js:33
 msgid "the desktop directory"
@@ -424,15 +426,15 @@ msgstr "thư mục Documents"
 
 #: src/widgets/pathRow.js:35
 msgid "the download directory"
-msgstr "thư mục Tải về"
+msgstr "thư mục Download"
 
 #: src/widgets/pathRow.js:36
 msgid "the music directory"
-msgstr "thư mục Âm nhạc"
+msgstr "thư mục Music"
 
 #: src/widgets/pathRow.js:37
 msgid "the pictures directory"
-msgstr "thư mục Ảnh"
+msgstr "thư mục Pictures"
 
 #: src/widgets/pathRow.js:38
 msgid "the public directory"
@@ -440,15 +442,15 @@ msgstr "thư mục Public"
 
 #: src/widgets/pathRow.js:39
 msgid "the videos directory"
-msgstr "thư mục Video"
+msgstr "thư mục Videos"
 
 #: src/widgets/pathRow.js:40
 msgid "the templates directory"
-msgstr "thư mục Mẫu"
+msgstr "thư mục Templates"
 
 #: src/widgets/pathRow.js:41
 msgid "the config directory"
-msgstr "thư mục cấu hình"
+msgstr "thư mục config"
 
 #: src/widgets/pathRow.js:42
 msgid "the cache directory"
@@ -456,7 +458,7 @@ msgstr "thư mục cache"
 
 #: src/widgets/pathRow.js:43
 msgid "the data directory"
-msgstr "thư mục dữ liệu"
+msgstr "thư mục data"
 
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
@@ -503,7 +505,7 @@ msgstr "Đường dẫn mặc định không thể xóa"
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
 #: src/widgets/resetButton.js:62 src/widgets/window.js:106
 msgid "_Reset"
-msgstr "_Đặt Lại"
+msgstr "Đặt _lại"
 
 #: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
@@ -575,7 +577,7 @@ msgstr "Quyền"
 
 #: src/widgets/shortcutsWindow.ui:90
 msgid "Toggle"
-msgstr "Chuyển đổi"
+msgstr "Bật/Tắt"
 
 #: src/widgets/shortcutsWindow.ui:97
 msgid "Documentation"
@@ -607,7 +609,7 @@ msgstr "Làm mới do thay đổi trong cài đặt Flatpak"
 
 #: src/widgets/window.ui:31
 msgid "Main Menu"
-msgstr "Menu Chính"
+msgstr "Menu chính"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
