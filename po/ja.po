@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the flatseal package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
