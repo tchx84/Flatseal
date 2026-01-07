@@ -1,0 +1,618 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Flynn Peck <cirilla@tuta.io>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"PO-Revision-Date: 2026-01-07 14:29+0000\n"
+"Last-Translator: Flynn Peck <cirilla@tuta.io>\n"
+"Language-Team: kw\n"
+"Language: kw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 49.0\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "Dyghtya grontys Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:14
+msgid "seal;sandbox;override;"
+msgstr "sel;kowel;aslea;"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal yw unn toul grafagel rag dashwithra ha chanjya grontys rag dha "
+"appys Flatpak."
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
+msgid "The Flatseal main window"
+msgstr "An fenester chif Flatseal"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "Flatseal diskwedhes grontys system restrenva"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal diskwedges asleans olldalghus"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "ID App dewisys diwettha"
+
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "Ankoth"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Kewsel"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Perghenna"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Rol a henwyn aswonsys war an kyttrin esedhek"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Rol a henwyn aswonsys war an kyttrin system"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "Uskisheans GPU"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "Devisyow ynworrans"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "Amontyellow Gowir"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "Kov kevrennys"
+
+#: src/models/devices.js:65
+msgid "USB devices"
+msgstr "Devisyow USB"
+
+#: src/models/devices.js:72
+msgid "All devices (e.g. webcam)"
+msgstr "Oll devisyow (r.e. kamera)"
+
+#: src/models/devices.js:97
+msgid "List of devices available in the sandbox"
+msgstr "Rol a devisyow kavadow yn an kowel"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Galwennow system displegyans (r.e. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Towlennow dhyworth pennserneth aral"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Kyttrin Rosweyth Arenebedh Routyansow"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Kov Kevrennys Appys"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Rol a nasyow kavadow dhe an app"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Oll restrennow system"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Oll lyvervaow, eksekutadow, ha data sevelyek war an system"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Oll settyansow system"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Oll restrennow usyer"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Rol a is-settys system restrenva kavadow dhe an app"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Restrennow aral"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "r.e. ~/games:ro, xdg-pictures, h.e."
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Restrennow"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "r.e. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Rol a tylleryow perthynek restrenva tre gwrys yn an kowel"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Kilva"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Gallos eksekutya yn kilva"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Gwarnyansow"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Gallos danvon gwarnyansow"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Korrgewsell"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Gallos goslowes dhe dha korrgewsell"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Gwarioryon"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Gallos gwari sonyow dhe dha gwarioryon"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Kamera"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Gallos rekordya gwydhyowyow gans dha kamera"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "GPS"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Gallos drehedhes dha tyller"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "Rol a asnodhow grontys dhe an app"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Anskoodhys gans an versyon leys Flatpak"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "Rekwirya gwithva grontys version 2 po nowydha"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "Data portal ha selys hwath"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Rosweyth"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Keskommunyansow ynter argerdhow"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "Rol a issystemow kevrennys gans an system ost"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "System fenestri X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "System fenestri Wayland"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Omskoodhya war system fenestri X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "Servell son PulseAudio"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "Kyttrin esedhek D-Bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "Kyttrin system D-Bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Maynor Secure Shell"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Kartennow fethus"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "System pryntyoryon"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "Restrenvaow Maynor-GPG"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "Erita kraw Wayland"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Rol a krawyow aswonsys kavadow yn an kowel"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Nowejynnow"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "r.e. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Rol a nowejynnow esperthys dhe an app"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%B %e, %Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "Versyon"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "Nowedhys Diwettha"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "Kerghynnedh Medhelweyth"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "An dewis ma yw anewn"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_Diskwedhes Manylyon"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Diskwedhes app yn unn dyghtyer appys"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Dyghtyer appys kavosys vyth"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "Oll Appys"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Chanjyow rag oll appys Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Versyon Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Versyon Portal"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "Chanjya Tyller"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Gweres"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Kowethlyver"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Kesunyansow Bysowek"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_A-dro Flatseal"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Chanjys yn olldalghus"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Chanjys gans an usyer"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "an tyller absolut ma"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "an tyller perthynek ma dhe an restrenva tre"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "oll settyansow system"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "oll"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "oll lyvervaow, eksekutadow, ha data sevelyek war an system"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "oll restrennow usyer"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "an restrenva desktop"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "an restrenva skrifow"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "an restrenva iskargow"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "an restrenva ilow"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "an restrenva avenyow"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "an restrenva poblek"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "an restrenva gwydhyowyow"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "an restrenva ensampelys"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "an restrenva config"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "an restrenva cache"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "an restrenva data"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "an restrenva kerghynnedh"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Gallos redya: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Gallos chanjya ha redya: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Gallos gul, chanjya, ha redya: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Na gallos redya: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Na gallos chanjya po redya: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Na gallos gul, chanjya, po redya: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "Disgorra"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "Tylleryow defowt na gallos removys"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+msgid "_Reset"
+msgstr "_Dasgorra"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "Chanjyow vyth gwrys dhe an app ma"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "Dasgorra an app ma grontys"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", komprehendya chanjyow na gwrys gans Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "Ollgemmyn"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "Diskwedhes mnemonekys"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "Diskwedhes kowellyver"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "Diskwedhes rol"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "Kesunyansow Bysowek"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "Kwytya"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "Navigacyon"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "Gwaya kledh"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "Gwaya war-vann"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "Gwaya dyghow"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "Gwaya war-woles"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "Appys"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "Kavos"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "Grontys"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "Dewis"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "Kowellyver"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "Kavos nessa"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "Kavos kynsa"
+
+#: src/widgets/window.js:98
+msgid "Permissions have been reset"
+msgstr "Grontys yw dasgorrys"
+
+#: src/widgets/window.js:99
+msgid "_Undo"
+msgstr "_Digelmi"
+
+#: src/widgets/window.js:105
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "Y fyllis dhe karga asleansow drefen dalgh anewn"
+
+#: src/widgets/window.js:112
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "Diseghys drefen chanjyow yn ynstalyansow Flatpak"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "Rol Chif"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "Appys kavosys vyth"
