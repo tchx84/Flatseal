@@ -33,6 +33,7 @@ var FlatsealApplication = GObject.registerClass({
             application_id: 'com.github.tchx84.Flatseal',
             flags: Gio.ApplicationFlags.FLAGS_NONE,
             resource_base_path: '/com/github/tchx84/Flatseal/',
+            support_save: true,
         });
 
         this._window = null;
@@ -100,6 +101,18 @@ var FlatsealApplication = GObject.registerClass({
         this.set_accels_for_action('app.documentation', ['F1']);
         this.set_accels_for_action('app.quit', ['<Control>q']);
         this.set_accels_for_action('window.close', ['<Control>w']);
+    }
+
+    vfunc_restore_window(reason, state) {
+        this._window = new FlatsealWindow(this);
+
+        /* Avoid restoring selected app if restoring from a crash in order to avoid potential crash loop */
+        if (reason !== Gtk.RestoreReason.RECOVER) {
+            const selectedAppId = state.lookup_value('selected-app-id', new GLib.VariantType('s'))?.get_string()[0];
+            this._window.showApplication(selectedAppId);
+        }
+                
+        this._window.present();    
     }
 
     vfunc_activate() {

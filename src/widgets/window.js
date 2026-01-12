@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Adw} = imports.gi;
+const {GObject, Gtk, GLib, Adw} = imports.gi;
 
 const {applications, permissions} = imports.models;
 
@@ -78,9 +78,6 @@ var FlatsealWindow = GObject.registerClass({
         const builder = Gtk.Builder.new_from_resource(menuResource);
         this._menuButton.set_menu_model(builder.get_object('menu'));
 
-        this._settings = new FlatsealSettingsModel();
-        this._settings.restoreWindowState(this);
-
         this._permissions = permissions.getDefault();
         this._applications = applications.getDefault();
 
@@ -131,10 +128,6 @@ var FlatsealWindow = GObject.registerClass({
         this._setupPermissions();
 
         this._applicationsSearchBar.set_key_capture_widget(this.root);
-
-        /* Only after the UI is setup */
-        if (this._activatedRow !== null)
-            this._activateApplication(this._applicationsListBox, this._activatedRow);
     }
 
     _setupApplications() {
@@ -162,9 +155,6 @@ var FlatsealWindow = GObject.registerClass({
             iconTheme.add_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
             this._applicationsListBox.append(row);
-
-            if (app.appId === this._settings.getSelectedAppId())
-                this._activatedRow = row;
         });
 
         /* Add row for global overrides */
@@ -320,7 +310,6 @@ var FlatsealWindow = GObject.registerClass({
 
         const appId = row ? row.appId : '';
         this._permissions.appId = appId;
-        this._settings.setSelectedAppId(appId);
         this._toast.dismiss();
     }
 
@@ -399,8 +388,11 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions.undo();
     }
 
+    vfunc_save_state(state) {
+        state.insert_value('selected-app-id', new GLib.Variant('s', this._permissions.appId));
+    }
+
     vfunc_close_request() {
-        this._settings.saveWindowState(this);
         this._shutdown();
         return super.vfunc_close_request();
     }
