@@ -38,6 +38,14 @@
   </developer>
   <url type="homepage">https://github.com/tchx84/flatseal</url>
   <url type="bugtracker">https://github.com/tchx84/flatseal/issues</url>
+  <supports> 
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires> 
   <custom>
     <value key="Purism::form_factor">mobile</value>
   </custom>
