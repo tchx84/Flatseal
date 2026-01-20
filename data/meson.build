@@ -29,18 +29,6 @@ if appstreamcli.found()
   )
 endif
 
-install_data(
-  'com.github.tchx84.Flatseal.gschema.xml',
-  install_dir: join_paths(get_option('datadir'), 'glib-2.0', 'schemas')
-)
-
-compile_schemas = find_program('glib-compile-schemas', required: false)
-if compile_schemas.found()
-  test('Validate schema file', compile_schemas,
-    args: ['--strict', '--dry-run', meson.current_source_dir()]
-  )
-endif
-
 conf = configuration_data()
 conf.set('prefix', get_option('prefix'))
 conf.set('bindir', get_option('bindir'))

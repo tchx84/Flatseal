@@ -4,6 +4,8 @@
     <property name="title">Flatseal</property>
     <property name="width-request">360</property>
     <property name="height-request">294</property>
+    <property name="default-width">1024</property>
+    <property name="default-height">768</property>
     <child>
       <object class="AdwBreakpoint">
         <condition>max-width: 540sp</condition>
