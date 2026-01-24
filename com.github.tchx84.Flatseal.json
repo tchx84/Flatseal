@@ -36,7 +36,14 @@
                 {
                     "type": "git",
                     "url": "https://github.com/ptomato/jasmine-gjs.git",
-                    "commit": "856465dddbd92e82e574891e1ebc79e17d7b708a"
+                    "commit": "06d8ee3e291a0f25231669c67e4a961a8e836668",
+                    "x-checker-data": {
+                        "type": "json",
+                        "url": "https://api.github.com/repos/ptomato/jasmine-gjs/commits",
+                        "commit-query": "first( .[].sha )",
+                        "version-query": "first( .[].sha )",
+                        "timestamp-query": "first( .[].commit.committer.date )"
+                    }
                 }
             ]
         },
