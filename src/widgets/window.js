@@ -18,9 +18,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Adw} = imports.gi;
+const {GLib, Gio, GObject, Gtk, Adw} = imports.gi;
 
-const {applications, permissions} = imports.models;
+const {applications, permissions, portals} = imports.models;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
@@ -121,6 +121,11 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
         this._applicationsListBox.connect('row-activated', this._activateApplication.bind(this));
 
+        this._permissions.connect('changed', (model, overriden) => {
+            if (this._activatedRow)
+                this._activatedRow.changed = overriden;
+        });
+
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
 
@@ -155,12 +160,28 @@ var FlatsealWindow = GObject.registerClass({
         this._contentLeaflet.show_content = true;
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
 
+        /* Cache changed applications */
+        const changedApps = portals.getDefault().getAppsWithChanges();
+        const overridesPath = GLib.build_filenamev([this._applications.userPath, 'overrides']);
+
+        if (GLib.access(overridesPath, 0) === 0) {
+            const directory = Gio.File.new_for_path(overridesPath);
+            const enumerator = directory.enumerate_children('standard::name', Gio.FileQueryInfoFlags.NONE, null);
+            let fileInfo = enumerator.next_file(null);
+
+            while (fileInfo !== null) {
+                changedApps.add(fileInfo.get_name());
+                fileInfo = enumerator.next_file(null);
+            }
+        }
+
         /* Add rows for every application */
         const iconTheme = Gtk.IconTheme.get_for_display(this.get_display());
 
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
+            row.changed = changedApps.has(app.appId);
             this._applicationsListBox.append(row);
 
             if (app.appId === this._settings.getSelectedAppId())
@@ -169,6 +190,7 @@ var FlatsealWindow = GObject.registerClass({
 
         /* Add row for global overrides */
         this._globalRow = new FlatsealGlobalRow();
+        this._globalRow.changed = changedApps.has('global');
         this._applicationsListBox.append(this._globalRow);
 
         /* Select after the list has been sorted */

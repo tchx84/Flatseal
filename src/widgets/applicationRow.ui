@@ -16,6 +16,17 @@
         </style>
       </object>
     </child>
+    <child>
+      <object class="GtkImage" id="status">
+        <property name="valign">center</property>
+        <property name="visible">False</property>
+        <property name="tooltip-text" translatable="yes">Changed by the user</property>
+        <style>
+          <class name="status"/>
+          <class name="user"/>
+        </style>
+      </object>
+    </child>
     <style>
       <class name="row"/>
     </style>
