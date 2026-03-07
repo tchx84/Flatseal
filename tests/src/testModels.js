@@ -1460,4 +1460,20 @@ describe('Model', function() {
 
         expect(permissionsDefault.emit.calls.first().args).toEqual(['failed']);
     });
+
+    it('identifies applications with portal changes', function() {
+        portalsDefault.appId = _basicAppId;
+        expect(portalsDefault.getAppsWithPortalChanges().has(_basicAppId)).toBe(false);
+
+        permissionsDefault.appId = _basicAppId;
+        permissionsDefault.set_property('portals-background', portalState.ALLOWED);
+        update();
+
+        expect(portalsDefault.getAppsWithPortalChanges().has(_basicAppId)).toBe(true);
+        expect(portalsDefault.getAppsWithPortalChanges().has('some-other-app')).toBe(false);
+
+        permissionsDefault.set_property('portals-background', portalState.UNSET);
+        update();
+        expect(portalsDefault.getAppsWithPortalChanges().has(_basicAppId)).toBe(false);
+    });
 });

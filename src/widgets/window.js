@@ -161,19 +161,21 @@ var FlatsealWindow = GObject.registerClass({
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
 
         /* Cache changed applications */
-        const changedApps = portals.getDefault().getAppsWithChanges();
-        const overridesPath = GLib.build_filenamev([this._applications.userPath, 'overrides']);
+        const changedApps = portals.getDefault().getAppsWithPortalChanges();
+        const overridesPaths = this._applications.getOverridesPaths();
 
-        if (GLib.access(overridesPath, 0) === 0) {
-            const directory = Gio.File.new_for_path(overridesPath);
-            const enumerator = directory.enumerate_children('standard::name', Gio.FileQueryInfoFlags.NONE, null);
-            let fileInfo = enumerator.next_file(null);
+        overridesPaths.forEach(overridesPath => {
+            if (GLib.access(overridesPath, 0) === 0) {
+                const directory = Gio.File.new_for_path(overridesPath);
+                const enumerator = directory.enumerate_children('standard::name', Gio.FileQueryInfoFlags.NONE, null);
+                let fileInfo = enumerator.next_file(null);
 
-            while (fileInfo !== null) {
-                changedApps.add(fileInfo.get_name());
-                fileInfo = enumerator.next_file(null);
+                while (fileInfo !== null) {
+                    changedApps.add(fileInfo.get_name());
+                    fileInfo = enumerator.next_file(null);
+                }
             }
-        }
+        });
 
         /* Add rows for every application */
         const iconTheme = Gtk.IconTheme.get_for_display(this.get_display());
