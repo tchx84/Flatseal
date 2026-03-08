@@ -122,7 +122,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
         const installations = [];
 
         const keyFile = new GLib.KeyFile();
-        keyFile.load_from_file(path, GLib.KeyFileFlags.NONE);
+
+        try {
+            keyFile.load_from_file(path, GLib.KeyFileFlags.NONE);
+        } catch (err) {
+            logError(err, `Could not load custom installation from ${path}`);
+            return installations;
+        }
 
         const [groups] = keyFile.get_groups();
         groups.forEach(group => {
