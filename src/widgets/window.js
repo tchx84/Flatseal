@@ -93,6 +93,8 @@ var FlatsealWindow = GObject.registerClass({
             });
         });
 
+        this.connect('destroy', () => this._overrides.shutdown());
+
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
         this._startHeaderBox.append(this._detailsHeaderButton);
         this._resetHeaderButton = new FlatsealResetButton(this._permissions);
@@ -289,6 +291,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _shutdown() {
+        this._overrides.shutdown();
         this._permissions.shutdown();
         this._applications.shutdown();
     }

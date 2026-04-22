@@ -75,6 +75,8 @@ var FlatpakOverridesModel = GObject.registerClass({
 
         if (eventType === Gio.FileMonitorEvent.CREATED ||
             eventType === Gio.FileMonitorEvent.CHANGES_DONE_HINT) {
+            if (this._overriddenApps.has(name))
+                return;
             this._overriddenApps.add(name);
             this._emitChangedDelayed();
         } else if (eventType === Gio.FileMonitorEvent.DELETED) {
