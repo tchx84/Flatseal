@@ -108,13 +108,3 @@ var FlatpakOverridesModel = GObject.registerClass({
         this._monitors = [];
     }
 });
-
-
-var getDefault = (function() {
-    let instance;
-    return function(paths) {
-        if (typeof instance === 'undefined')
-            instance = new FlatpakOverridesModel(paths);
-        return instance;
-    };
-}());

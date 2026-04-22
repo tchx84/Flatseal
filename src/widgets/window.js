@@ -84,7 +84,7 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions = permissions.getDefault();
         this._applications = applications.getDefault();
 
-        this._overrides = overrides.getDefault(
+        this._overrides = new overrides.FlatpakOverridesModel(
             this._applications.getOverridesPaths());
         this._overrides.connect('changed', () => {
             this._applicationsListBox.foreach(row => {
