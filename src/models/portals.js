@@ -384,20 +384,6 @@ var FlatpakPortalsModel = GObject.registerClass({
         return false;
     }
 
-    getAppsWithPortalChanges() {
-        const apps = new Set();
-        for (const [, permission] of Object.entries(this.getPermissions())) {
-            if (!this.isSupported(permission.table, permission.id))
-                continue;
-
-            const [appIds] = this.safeLookUp(permission.table, permission.id);
-            if (appIds !== null)
-                Object.keys(appIds).forEach(appId => apps.add(appId));
-        }
-
-        return apps;
-    }
-
     saveToKeyFile() {
 
         /* this backend has no file */

@@ -20,7 +20,7 @@
 
 const {GLib, Gio, GObject, Gtk, Adw} = imports.gi;
 
-const {applications, permissions, portals} = imports.models;
+const {applications, permissions, overrides} = imports.models;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
@@ -84,6 +84,15 @@ var FlatsealWindow = GObject.registerClass({
         this._permissions = permissions.getDefault();
         this._applications = applications.getDefault();
 
+        this._overrides = new overrides.FlatpakOverridesModel(
+            this._applications.getOverridesPaths());
+        this._overrides.connect('changed', () => {
+            this._applicationsListBox.foreach(row => {
+                if (row instanceof FlatsealApplicationRow || row instanceof FlatsealGlobalRow)
+                    row.changed = this._overrides.isOverridden(row.appId);
+            });
+        });
+
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
         this._startHeaderBox.append(this._detailsHeaderButton);
         this._resetHeaderButton = new FlatsealResetButton(this._permissions);
@@ -121,11 +130,6 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.set_sort_func(this._sort.bind(this));
         this._applicationsListBox.connect('row-activated', this._activateApplication.bind(this));
 
-        this._permissions.connect('changed', (model, overriden) => {
-            if (this._activatedRow)
-                this._activatedRow.changed = overriden;
-        });
-
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
 
@@ -160,30 +164,13 @@ var FlatsealWindow = GObject.registerClass({
         this._contentLeaflet.show_content = true;
         this._permissionsStack.visibleChildName = 'withPermissionsPage';
 
-        /* Cache changed applications */
-        const changedApps = portals.getDefault().getAppsWithPortalChanges();
-        const overridesPaths = this._applications.getOverridesPaths();
-
-        overridesPaths.forEach(overridesPath => {
-            if (GLib.access(overridesPath, 0) === 0) {
-                const directory = Gio.File.new_for_path(overridesPath);
-                const enumerator = directory.enumerate_children('standard::name', Gio.FileQueryInfoFlags.NONE, null);
-                let fileInfo = enumerator.next_file(null);
-
-                while (fileInfo !== null) {
-                    changedApps.add(fileInfo.get_name());
-                    fileInfo = enumerator.next_file(null);
-                }
-            }
-        });
-
         /* Add rows for every application */
         const iconTheme = Gtk.IconTheme.get_for_display(this.get_display());
 
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
-            row.changed = changedApps.has(app.appId);
+            row.changed = this._overrides.isOverridden(app.appId);
             this._applicationsListBox.append(row);
 
             if (app.appId === this._settings.getSelectedAppId())
@@ -192,7 +179,7 @@ var FlatsealWindow = GObject.registerClass({
 
         /* Add row for global overrides */
         this._globalRow = new FlatsealGlobalRow();
-        this._globalRow.changed = changedApps.has('global');
+        this._globalRow.changed = this._overrides.isOverridden('global');
         this._applicationsListBox.append(this._globalRow);
 
         /* Select after the list has been sorted */

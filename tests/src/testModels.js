@@ -91,18 +91,19 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, portalState;
+    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, overridesDefault, portalState;
 
     beforeAll(function() {
         startService();
         waitForService();
 
-        const {applications, info, permissions, portals} = imports.models;
+        const {applications, info, permissions, portals, overrides} = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
         applicationsDefault = applications.getDefault();
         permissionsDefault = permissions.getDefault();
+        overridesDefault = overrides;
 
         delay = permissions.DELAY;
         portalState = portals.FlatpakPortalState;
@@ -1461,19 +1462,27 @@ describe('Model', function() {
         expect(permissionsDefault.emit.calls.first().args).toEqual(['failed']);
     });
 
-    it('identifies applications with portal changes', function() {
-        portalsDefault.appId = _basicAppId;
-        expect(portalsDefault.getAppsWithPortalChanges().has(_basicAppId)).toBe(false);
+    it('identifies applications with modified overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
 
-        permissionsDefault.appId = _basicAppId;
-        permissionsDefault.set_property('portals-background', portalState.ALLOWED);
+        const model = new overridesDefault.FlatpakOverridesModel(
+            applicationsDefault.getOverridesPaths());
+
+        expect(model.isOverridden(_basicAppId)).toBe(true);
+        expect(model.isOverridden('some-non-existent-app')).toBe(false);
+
+        /* Test reactive change */
+        const tempOverride = GLib.build_filenamev([_overrides, 'com.test.Reactive']);
+        GLib.file_set_contents(tempOverride, '[Context]\nshared=network;');
+
         update();
+        /* monitor might need a bit of time, but update() usually flushes events in tests */
+        expect(model.isOverridden('com.test.Reactive')).toBe(true);
 
-        expect(portalsDefault.getAppsWithPortalChanges().has(_basicAppId)).toBe(true);
-        expect(portalsDefault.getAppsWithPortalChanges().has('some-other-app')).toBe(false);
-
-        permissionsDefault.set_property('portals-background', portalState.UNSET);
+        GLib.unlink(tempOverride);
         update();
-        expect(portalsDefault.getAppsWithPortalChanges().has(_basicAppId)).toBe(false);
+        expect(model.isOverridden('com.test.Reactive')).toBe(false);
+
+        model.shutdown();
     });
 });
