@@ -93,8 +93,6 @@ var FlatsealWindow = GObject.registerClass({
             });
         });
 
-
-
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
         this._startHeaderBox.append(this._detailsHeaderButton);
         this._resetHeaderButton = new FlatsealResetButton(this._permissions);
