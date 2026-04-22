@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GLib, Gio, GObject, Gtk, Adw} = imports.gi;
+const {GObject, Gtk, Adw} = imports.gi;
 
 const {applications, permissions, overrides} = imports.models;
 

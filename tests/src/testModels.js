@@ -1465,8 +1465,10 @@ describe('Model', function() {
     it('identifies applications with modified overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
 
-        const model = overridesDefault.getDefault(
-            applicationsDefault.getOverridesPaths());
+        const paths = applicationsDefault.getOverridesPaths();
+        paths.push(_overrides);
+
+        const model = new overridesDefault.FlatpakOverridesModel(paths);
 
         expect(model.isOverridden(_basicAppId)).toBe(true);
         expect(model.isOverridden('some-non-existent-app')).toBe(false);
