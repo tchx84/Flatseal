@@ -56,7 +56,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">Last Updated</property>
+                    <property name="label" translatable="yes">Identifier</property>
                     <style>
                       <class name="description"/>
                     </style>
@@ -69,13 +69,26 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="halign">start</property>
-                    <property name="label" translatable="yes">Runtime</property>
+                    <property name="label" translatable="yes">Last Updated</property>
                     <style>
                       <class name="description"/>
                     </style>
                     <layout>
                       <property name="column">0</property>
                       <property name="row">3</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="halign">start</property>
+                    <property name="label" translatable="yes">Runtime</property>
+                    <style>
+                      <class name="description"/>
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">4</property>
                     </layout>
                   </object>
                 </child>
@@ -98,7 +111,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="released">
+                  <object class="GtkLabel" id="identifier">
                     <property name="halign">start</property>
                     <property name="ellipsize">end</property>
                     <style>
@@ -111,7 +124,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="runtime">
+                  <object class="GtkLabel" id="released">
                     <property name="halign">start</property>
                     <property name="ellipsize">end</property>
                     <style>
@@ -120,6 +133,19 @@
                     <layout>
                       <property name="column">0</property>
                       <property name="row">3</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="runtime">
+                    <property name="halign">start</property>
+                    <property name="ellipsize">end</property>
+                    <style>
+                      <class name="value" />
+                    </style>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">4</property>
                     </layout>
                   </object>
                 </child>
