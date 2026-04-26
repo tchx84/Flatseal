@@ -260,7 +260,7 @@ var FlatpakPortalsModel = GObject.registerClass({
 
         this._setup();
 
-        if (this._proxy === null || this._proxy.version >= SUPPORTED_SERVICE_VERSION === false) {
+        if (this._proxy === null || this._proxy.version < SUPPORTED_SERVICE_VERSION) {
             this[`_${table}${id}Reason`] = _('Requires permission store version 2 or newer');
             this[`_${table}${id}Supported`] = false;
             return false;
