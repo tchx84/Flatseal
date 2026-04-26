@@ -34,7 +34,6 @@
     <file>models/filesystemsOther.js</file>
     <file>models/portals.js</file>
     <file>models/sessionBus.js</file>
-    <file>models/settings.js</file>
     <file>models/shared.js</file>
     <file>models/sockets.js</file>
     <file>models/systemBus.js</file>
