@@ -371,7 +371,7 @@ msgstr "ბილიკის შეცვლა"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
-msgstr "_დახმარება"
+msgstr "და_ხმარება"
 
 #: src/widgets/menu.ui:11
 msgid "_Documentation"
