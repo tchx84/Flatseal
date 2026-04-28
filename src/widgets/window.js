@@ -85,7 +85,7 @@ var FlatsealWindow = GObject.registerClass({
         this._applications = applications.getDefault();
 
         this._overrides = new overrides.FlatpakOverridesModel(
-            this._applications.getOverridesPaths());
+            this._applications.userOverridesPath);
         this._overrides.connect('changed', () => {
             this._applicationsListBox.foreach(row => {
                 if (row instanceof FlatsealApplicationRow || row instanceof FlatsealGlobalRow)

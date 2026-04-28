@@ -26,48 +26,45 @@ var FlatpakOverridesModel = GObject.registerClass({
         'changed': {},
     },
 }, class FlatpakOverridesModel extends GObject.Object {
-    _init(paths) {
+    _init(path) {
         super._init();
         this._overriddenApps = new Set();
-        this._monitors = [];
+        this._monitor = null;
         this._changedDelayHandlerId = 0;
-        this._setup(paths);
+        this._setup(path);
     }
 
-    _setup(paths) {
-        paths.forEach(path => {
-            const directory = Gio.File.new_for_path(path);
+    _setup(path) {
+        const directory = Gio.File.new_for_path(path);
 
-            /* Scan existing files */
-            if (GLib.access(path, 0) === 0) {
-                try {
-                    const enumerator = directory.enumerate_children(
-                        'standard::name',
-                        Gio.FileQueryInfoFlags.NONE,
-                        null
-                    );
-                    let fileInfo = enumerator.next_file(null);
-                    while (fileInfo !== null) {
-                        this._overriddenApps.add(fileInfo.get_name());
-                        fileInfo = enumerator.next_file(null);
-                    }
-                } catch (e) {
-                    /* Directory may be empty or inaccessible */
-                }
-            }
-
-            /* Watch for future changes */
+        /* Scan existing files */
+        if (GLib.access(path, 0) === 0) {
             try {
-                const monitor = directory.monitor_directory(
-                    Gio.FileMonitorFlags.NONE,
+                const enumerator = directory.enumerate_children(
+                    'standard::name',
+                    Gio.FileQueryInfoFlags.NONE,
                     null
                 );
-                monitor.connect('changed', this._onDirectoryChanged.bind(this));
-                this._monitors.push(monitor);
+                let fileInfo = enumerator.next_file(null);
+                while (fileInfo !== null) {
+                    this._overriddenApps.add(fileInfo.get_name());
+                    fileInfo = enumerator.next_file(null);
+                }
             } catch (e) {
-                /* Directory doesn't exist yet, skip monitoring */
+                /* Directory may be empty or inaccessible */
             }
-        });
+        }
+
+        /* Watch for future changes */
+        try {
+            this._monitor = directory.monitor_directory(
+                Gio.FileMonitorFlags.NONE,
+                null
+            );
+            this._monitor.connect('changed', this._onDirectoryChanged.bind(this));
+        } catch (e) {
+            /* Directory doesn't exist yet, skip monitoring */
+        }
     }
 
     _onDirectoryChanged(monitor, file, _otherFile, eventType) {
@@ -106,7 +103,9 @@ var FlatpakOverridesModel = GObject.registerClass({
             GLib.Source.remove(this._changedDelayHandlerId);
         this._changedDelayHandlerId = 0;
 
-        this._monitors.forEach(m => m.cancel());
-        this._monitors = [];
+        if (this._monitor) {
+            this._monitor.cancel();
+            this._monitor = null;
+        }
     }
 });

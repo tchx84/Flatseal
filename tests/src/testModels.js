@@ -1465,16 +1465,13 @@ describe('Model', function() {
     it('identifies applications with modified overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
 
-        const paths = applicationsDefault.getOverridesPaths();
-        paths.push(_overrides);
-
-        const model = new overridesDefault.FlatpakOverridesModel(paths);
+        const model = new overridesDefault.FlatpakOverridesModel(applicationsDefault.userOverridesPath);
 
         expect(model.isOverridden(_basicAppId)).toBe(true);
         expect(model.isOverridden('some-non-existent-app')).toBe(false);
 
         /* Test reactive change */
-        const tempOverride = GLib.build_filenamev([_overrides, 'com.test.Reactive']);
+        const tempOverride = GLib.build_filenamev([applicationsDefault.userOverridesPath, 'com.test.Reactive']);
         GLib.file_set_contents(tempOverride, '[Context]\nshared=network;');
 
         update();

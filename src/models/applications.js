@@ -389,12 +389,12 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return GLib.build_filenamev([this._getBundlePathForAppId(appId), 'metadata']);
     }
 
-    getOverridesPaths() {
-        return this._getInstallationsPaths().map(path => GLib.build_filenamev([path, 'overrides']));
-    }
-
     get userPath() {
         return this._getUserPath();
+    }
+
+    get userOverridesPath() {
+        return GLib.build_filenamev([this._getUserPath(), 'overrides']);
     }
 
     shutdown() {
