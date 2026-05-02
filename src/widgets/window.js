@@ -87,10 +87,10 @@ var FlatsealWindow = GObject.registerClass({
         this._overrides = new overrides.FlatpakOverridesModel(
             this._applications.userOverridesPath);
         this._overrides.connect('changed', () => {
-            this._applicationsListBox.foreach(row => {
+            for (const row of Array.from(this._applicationsListBox)) {
                 if (row instanceof FlatsealApplicationRow || row instanceof FlatsealGlobalRow)
                     row.changed = this._overrides.isOverridden(row.appId);
-            });
+            }
         });
 
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
