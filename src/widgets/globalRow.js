@@ -24,10 +24,18 @@ const {GObject, Adw} = imports.gi;
 var FlatsealGlobalRow = GObject.registerClass({
     GTypeName: 'FlatsealGlobalRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/globalRow.ui',
-    InternalChildren: ['icon'],
+    InternalChildren: ['icon', 'status'],
 }, class FlatsealGlobalRow extends Adw.ActionRow {
     _init() {
         super._init();
+    }
+
+    set changed(changed) {
+        this._status.visible = changed;
+    }
+
+    get changed() {
+        return this._status.visible;
     }
 
     get appId() {

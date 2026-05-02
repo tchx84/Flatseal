@@ -20,7 +20,7 @@
 
 const {GObject, Gtk, Adw} = imports.gi;
 
-const {applications, permissions} = imports.models;
+const {applications, permissions, overrides} = imports.models;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
@@ -83,6 +83,15 @@ var FlatsealWindow = GObject.registerClass({
 
         this._permissions = permissions.getDefault();
         this._applications = applications.getDefault();
+
+        this._overrides = new overrides.FlatpakOverridesModel(
+            this._applications.userOverridesPath);
+        this._overrides.connect('changed', () => {
+            for (const row of Array.from(this._applicationsListBox)) {
+                if (row instanceof FlatsealApplicationRow || row instanceof FlatsealGlobalRow)
+                    row.changed = this._overrides.isOverridden(row.appId);
+            }
+        });
 
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
         this._startHeaderBox.append(this._detailsHeaderButton);
@@ -161,6 +170,7 @@ var FlatsealWindow = GObject.registerClass({
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
             const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
+            row.changed = this._overrides.isOverridden(app.appId);
             this._applicationsListBox.append(row);
 
             if (app.appId === this._settings.getSelectedAppId())
@@ -169,6 +179,7 @@ var FlatsealWindow = GObject.registerClass({
 
         /* Add row for global overrides */
         this._globalRow = new FlatsealGlobalRow();
+        this._globalRow.changed = this._overrides.isOverridden('global');
         this._applicationsListBox.append(this._globalRow);
 
         /* Select after the list has been sorted */
@@ -278,6 +289,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _shutdown() {
+        this._overrides.shutdown();
         this._permissions.shutdown();
         this._applications.shutdown();
     }

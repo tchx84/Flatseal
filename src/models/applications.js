@@ -393,6 +393,10 @@ var FlatpakApplicationsModel = GObject.registerClass({
         return this._getUserPath();
     }
 
+    get userOverridesPath() {
+        return GLib.build_filenamev([this._getUserPath(), 'overrides']);
+    }
+
     shutdown() {
         if (this._changedDelayHandlerId !== 0)
             GLib.Source.remove(this._changedDelayHandlerId);
