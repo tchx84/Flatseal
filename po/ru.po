@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 08:52-0300\n"
-"PO-Revision-Date: 2025-09-13 12:33+0300\n"
+"PO-Revision-Date: 2026-05-15 23:33+0300\n"
 "Last-Translator: Aleksandr Melman <Alexmelman88@gmail.com>\n"
 "Language-Team: Russian < >\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -328,7 +328,7 @@ msgstr "Версия"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Identifier"
-msgstr ""
+msgstr "Идентификатор"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
