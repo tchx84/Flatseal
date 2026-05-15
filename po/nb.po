@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"POT-Creation-Date: 2026-05-15 08:52-0300\n"
 "PO-Revision-Date: 2024-10-04 18:43+0200\n"
 "Last-Translator: Sunniva Løvstad <turtle@turtle.garden>\n"
 "Language-Team: Norwegian Bokmal <>\n"
@@ -325,10 +325,14 @@ msgid "Version"
 msgstr "Versjon"
 
 #: src/widgets/appInfoViewer.ui:59
+msgid "Identifier"
+msgstr ""
+
+#: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
 msgstr "Sist oppdatert"
 
-#: src/widgets/appInfoViewer.ui:72
+#: src/widgets/appInfoViewer.ui:85
 msgid "Runtime"
 msgstr "Runtime"
 
@@ -520,75 +524,75 @@ msgstr "Tilbakestill denne applikasjonens tillatelser"
 msgid ", including changes not made with Flatseal"
 msgstr ", inkludert endringer ikke gjort med Flatseal"
 
-#: src/widgets/shortcutsWindow.ui:11
+#: src/widgets/shortcutsWindow.ui:7
 msgid "General"
 msgstr "Generelt"
 
-#: src/widgets/shortcutsWindow.ui:15
+#: src/widgets/shortcutsWindow.ui:11
 msgid "Show mnemonics"
 msgstr "Vis huskeregler"
 
-#: src/widgets/shortcutsWindow.ui:21
+#: src/widgets/shortcutsWindow.ui:17
 msgid "Show documentation"
 msgstr "Vis dokumentasjon"
 
-#: src/widgets/shortcutsWindow.ui:27
+#: src/widgets/shortcutsWindow.ui:23
 msgid "Show menu"
 msgstr "Vis meny"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:29
 msgid "Keyboard shortcuts"
 msgstr "Tastatursnarveier"
 
-#: src/widgets/shortcutsWindow.ui:39
+#: src/widgets/shortcutsWindow.ui:35
 msgid "Quit"
 msgstr "Avslutt"
 
-#: src/widgets/shortcutsWindow.ui:46
+#: src/widgets/shortcutsWindow.ui:42
 msgid "Navigation"
 msgstr "Navigasjon"
 
-#: src/widgets/shortcutsWindow.ui:50
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Move left"
 msgstr "Flytt til venstre"
 
-#: src/widgets/shortcutsWindow.ui:56
+#: src/widgets/shortcutsWindow.ui:52
 msgid "Move up"
 msgstr "Flytt opp"
 
-#: src/widgets/shortcutsWindow.ui:62
+#: src/widgets/shortcutsWindow.ui:58
 msgid "Move right"
 msgstr "Flytt til høyre"
 
-#: src/widgets/shortcutsWindow.ui:68
+#: src/widgets/shortcutsWindow.ui:64
 msgid "Move down"
 msgstr "Flytt ned"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Applikasjoner"
 
-#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
 msgid "Find"
 msgstr "Finn"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+#: src/widgets/shortcutsWindow.ui:82 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Tillatelser"
 
-#: src/widgets/shortcutsWindow.ui:90
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Toggle"
 msgstr "Veksle"
 
-#: src/widgets/shortcutsWindow.ui:97
+#: src/widgets/shortcutsWindow.ui:93
 msgid "Documentation"
 msgstr "Dokumentasjon"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:103
 msgid "Find next"
 msgstr "Finn neste"
 
-#: src/widgets/shortcutsWindow.ui:113
+#: src/widgets/shortcutsWindow.ui:109
 msgid "Find previous"
 msgstr "Finn forrige"
 
