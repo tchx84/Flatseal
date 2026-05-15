@@ -1,5 +1,17 @@
 # Changelog
 
+## [unreleased]
+
+- Added identifier field to the app summary.
+- Added Japanese translation.
+- Fixed missing device support information in the app metadata.
+- Fixed issue where paths entries suddenly disappear.
+- Fixed too strict environment variable validation.
+- Fixed unnecessary cleanup section in the manifest.
+- Fixed libadwaita version requirement.
+- Changed to test-gnome-flatpak-app-action to run tests in CI.
+- Changed to GNOME 50 runtime for stability.
+
 ## [2.4.0] - 2025-09-29
 
 - Added action to launch Flatseal with selected app id via DBus.
