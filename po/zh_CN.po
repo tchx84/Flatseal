@@ -1,7 +1,7 @@
 # Chinese (China) translation for Flatseal.
 # Copyright (C) 2022 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Eric Zhang <ericzhang456@hotmail.com>, 2022, 2023, 2024.
+# Eric Zhang <ericxiang456@gmail.com>, 2022, 2023, 2024, 2025, 2026.
 # Dingzhong Chen <wsxy162@gmail.com>, 2022, 2023.
 #
 msgid ""
@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: flatseal master\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 08:52-0300\n"
-"PO-Revision-Date: 2024-09-25 21:46+0800\n"
-"Last-Translator: Eric Zhang <ericzhang456@disroot.org>\n"
+"PO-Revision-Date: 2026-05-15 20:56+0800\n"
+"Last-Translator: Eric Zhang <ericxiang456@gmail.com>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -326,7 +326,7 @@ msgstr "版本"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Identifier"
-msgstr ""
+msgstr "标识符"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
