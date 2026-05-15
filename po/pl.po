@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"POT-Creation-Date: 2026-05-15 08:52-0300\n"
 "PO-Revision-Date: 2024-01-22 21:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -329,10 +329,14 @@ msgid "Version"
 msgstr "Wersja"
 
 #: src/widgets/appInfoViewer.ui:59
+msgid "Identifier"
+msgstr ""
+
+#: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
 msgstr "Ostatnia aktualizacja"
 
-#: src/widgets/appInfoViewer.ui:72
+#: src/widgets/appInfoViewer.ui:85
 msgid "Runtime"
 msgstr "Środowisko"
 
@@ -524,75 +528,75 @@ msgstr "Resetuj uprawnienia tej aplikacji"
 msgid ", including changes not made with Flatseal"
 msgstr ", w tym zmian dokonanych we Flatseal"
 
-#: src/widgets/shortcutsWindow.ui:11
+#: src/widgets/shortcutsWindow.ui:7
 msgid "General"
 msgstr "Ogólny"
 
-#: src/widgets/shortcutsWindow.ui:15
+#: src/widgets/shortcutsWindow.ui:11
 msgid "Show mnemonics"
 msgstr "Pokaż mnemoniki"
 
-#: src/widgets/shortcutsWindow.ui:21
+#: src/widgets/shortcutsWindow.ui:17
 msgid "Show documentation"
 msgstr "Pokaż dokumentację"
 
-#: src/widgets/shortcutsWindow.ui:27
+#: src/widgets/shortcutsWindow.ui:23
 msgid "Show menu"
 msgstr "Pokaż menu"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:29
 msgid "Keyboard shortcuts"
 msgstr "Skróty klawiszowe"
 
-#: src/widgets/shortcutsWindow.ui:39
+#: src/widgets/shortcutsWindow.ui:35
 msgid "Quit"
 msgstr "Wyjdź"
 
-#: src/widgets/shortcutsWindow.ui:46
+#: src/widgets/shortcutsWindow.ui:42
 msgid "Navigation"
 msgstr "Nawigacja"
 
-#: src/widgets/shortcutsWindow.ui:50
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Move left"
 msgstr "Przesuń w lewo"
 
-#: src/widgets/shortcutsWindow.ui:56
+#: src/widgets/shortcutsWindow.ui:52
 msgid "Move up"
 msgstr "Przesuń w górę"
 
-#: src/widgets/shortcutsWindow.ui:62
+#: src/widgets/shortcutsWindow.ui:58
 msgid "Move right"
 msgstr "Przesuń w prawo"
 
-#: src/widgets/shortcutsWindow.ui:68
+#: src/widgets/shortcutsWindow.ui:64
 msgid "Move down"
 msgstr "Przesuń w dół"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Aplikacje"
 
-#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
 msgid "Find"
 msgstr "Znajdź"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+#: src/widgets/shortcutsWindow.ui:82 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Uprawnienia"
 
-#: src/widgets/shortcutsWindow.ui:90
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Toggle"
 msgstr "Przełącz"
 
-#: src/widgets/shortcutsWindow.ui:97
+#: src/widgets/shortcutsWindow.ui:93
 msgid "Documentation"
 msgstr "Dokumentacja"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:103
 msgid "Find next"
 msgstr "Znajdź następny wynik"
 
-#: src/widgets/shortcutsWindow.ui:113
+#: src/widgets/shortcutsWindow.ui:109
 msgid "Find previous"
 msgstr "Znajdź poprzedni wynik"
 

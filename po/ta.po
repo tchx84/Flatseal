@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"POT-Creation-Date: 2026-05-15 08:52-0300\n"
 "PO-Revision-Date: 2024-09-21 21:51+0530\n"
 "Last-Translator: K.B.Dharun Krishna <kbdharunkrishna@gmail.com>\n"
 "Language-Team: \n"
@@ -325,10 +325,14 @@ msgid "Version"
 msgstr "பதிப்பு"
 
 #: src/widgets/appInfoViewer.ui:59
+msgid "Identifier"
+msgstr ""
+
+#: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
 msgstr "கடைசியாக புதுப்பிக்கப்பட்டது"
 
-#: src/widgets/appInfoViewer.ui:72
+#: src/widgets/appInfoViewer.ui:85
 msgid "Runtime"
 msgstr "இயக்க நேரம்"
 
@@ -520,75 +524,75 @@ msgstr "இந்தப் பயன்பாட்டு அனுமதிக�
 msgid ", including changes not made with Flatseal"
 msgstr ", பிளாட்சீல் இல் செய்யப்படாத மாற்றங்கள் உட்பட"
 
-#: src/widgets/shortcutsWindow.ui:11
+#: src/widgets/shortcutsWindow.ui:7
 msgid "General"
 msgstr "பொது"
 
-#: src/widgets/shortcutsWindow.ui:15
+#: src/widgets/shortcutsWindow.ui:11
 msgid "Show mnemonics"
 msgstr "நினைவூட்டல்களைக் காட்டு"
 
-#: src/widgets/shortcutsWindow.ui:21
+#: src/widgets/shortcutsWindow.ui:17
 msgid "Show documentation"
 msgstr "ஆவணங்களைக் காட்டு"
 
-#: src/widgets/shortcutsWindow.ui:27
+#: src/widgets/shortcutsWindow.ui:23
 msgid "Show menu"
 msgstr "மெனுவைக் காட்டு"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:29
 msgid "Keyboard shortcuts"
 msgstr "விசைப்பலகை குறுக்குவழிகள்"
 
-#: src/widgets/shortcutsWindow.ui:39
+#: src/widgets/shortcutsWindow.ui:35
 msgid "Quit"
 msgstr "வெளியேறு"
 
-#: src/widgets/shortcutsWindow.ui:46
+#: src/widgets/shortcutsWindow.ui:42
 msgid "Navigation"
 msgstr "வழிசெலுத்தல்"
 
-#: src/widgets/shortcutsWindow.ui:50
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Move left"
 msgstr "இடதுபுறம் நகர்த்தவும்"
 
-#: src/widgets/shortcutsWindow.ui:56
+#: src/widgets/shortcutsWindow.ui:52
 msgid "Move up"
 msgstr "மேலே நகர்த்து"
 
-#: src/widgets/shortcutsWindow.ui:62
+#: src/widgets/shortcutsWindow.ui:58
 msgid "Move right"
 msgstr "வலதுபுறம் நகர்த்தவும்"
 
-#: src/widgets/shortcutsWindow.ui:68
+#: src/widgets/shortcutsWindow.ui:64
 msgid "Move down"
 msgstr "கீழே இறங்கு"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "பயன்பாடுகள்"
 
-#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
 msgid "Find"
 msgstr "கண்டுபிடி"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+#: src/widgets/shortcutsWindow.ui:82 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "அனுமதிகள்"
 
-#: src/widgets/shortcutsWindow.ui:90
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Toggle"
 msgstr "நிலைமாற்று"
 
-#: src/widgets/shortcutsWindow.ui:97
+#: src/widgets/shortcutsWindow.ui:93
 msgid "Documentation"
 msgstr "ஆவணப்படுத்தல்"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:103
 msgid "Find next"
 msgstr "அடுத்ததை தேடு"
 
-#: src/widgets/shortcutsWindow.ui:113
+#: src/widgets/shortcutsWindow.ui:109
 msgid "Find previous"
 msgstr "முந்தையதைக் கண்டுபிடி"
 
