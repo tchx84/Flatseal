@@ -1,14 +1,14 @@
 # Swedish translation for Flatseal.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020-2025.
+# Åke Engelbrektson <eson@svenskasprakfiler.se>, 2020-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 08:52-0300\n"
-"PO-Revision-Date: 2025-09-13 12:12+0200\n"
+"PO-Revision-Date: 2026-05-16 09:03+0200\n"
 "Last-Translator: Åke Engelbrektson <eson@svenskasprakfiler.se>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Geany / PoHelper 2.0\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -327,7 +327,7 @@ msgstr "Version"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Identifier"
-msgstr ""
+msgstr "Identifierare"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
@@ -428,7 +428,7 @@ msgstr "Skrivbord"
 
 #: src/widgets/pathRow.js:34
 msgid "the documents directory"
-msgstr "Dokument"
+msgstr "Dokumentmappen"
 
 #: src/widgets/pathRow.js:35
 msgid "the download directory"
@@ -436,11 +436,11 @@ msgstr "Nedladdningar"
 
 #: src/widgets/pathRow.js:36
 msgid "the music directory"
-msgstr "Musik"
+msgstr "Musikmappen"
 
 #: src/widgets/pathRow.js:37
 msgid "the pictures directory"
-msgstr "Bilder"
+msgstr "Bildmappen"
 
 #: src/widgets/pathRow.js:38
 msgid "the public directory"
@@ -448,7 +448,7 @@ msgstr "Publikt"
 
 #: src/widgets/pathRow.js:39
 msgid "the videos directory"
-msgstr "Video"
+msgstr "Videomappen"
 
 #: src/widgets/pathRow.js:40
 msgid "the templates directory"
