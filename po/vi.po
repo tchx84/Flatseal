@@ -1,12 +1,12 @@
 # Vietnamese translations for flatseal package.
 # Copyright (C) 2021 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"POT-Creation-Date: 2026-05-15 08:52-0300\n"
 "PO-Revision-Date: 2026-05-02 00:00+0700\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
@@ -323,10 +323,14 @@ msgid "Version"
 msgstr "Phiên bản"
 
 #: src/widgets/appInfoViewer.ui:59
+msgid "Identifier"
+msgstr "Mã định danh"
+
+#: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
 msgstr "Cập nhật lần cuối"
 
-#: src/widgets/appInfoViewer.ui:72
+#: src/widgets/appInfoViewer.ui:85
 msgid "Runtime"
 msgstr "Môi trường chạy"
 
@@ -518,75 +522,75 @@ msgstr "Đặt lại quyền của ứng dụng này"
 msgid ", including changes not made with Flatseal"
 msgstr ", bao gồm cả các thay đổi không được thực hiện bằng Flatseal"
 
-#: src/widgets/shortcutsWindow.ui:11
+#: src/widgets/shortcutsWindow.ui:7
 msgid "General"
 msgstr "Chung"
 
-#: src/widgets/shortcutsWindow.ui:15
+#: src/widgets/shortcutsWindow.ui:11
 msgid "Show mnemonics"
 msgstr "Hiện bộ gợi nhớ"
 
-#: src/widgets/shortcutsWindow.ui:21
+#: src/widgets/shortcutsWindow.ui:17
 msgid "Show documentation"
 msgstr "Hiện tài liệu"
 
-#: src/widgets/shortcutsWindow.ui:27
+#: src/widgets/shortcutsWindow.ui:23
 msgid "Show menu"
 msgstr "Hiện menu"
 
-#: src/widgets/shortcutsWindow.ui:33
+#: src/widgets/shortcutsWindow.ui:29
 msgid "Keyboard shortcuts"
 msgstr "Phím tắt"
 
-#: src/widgets/shortcutsWindow.ui:39
+#: src/widgets/shortcutsWindow.ui:35
 msgid "Quit"
 msgstr "Thoát"
 
-#: src/widgets/shortcutsWindow.ui:46
+#: src/widgets/shortcutsWindow.ui:42
 msgid "Navigation"
 msgstr "Điều hướng"
 
-#: src/widgets/shortcutsWindow.ui:50
+#: src/widgets/shortcutsWindow.ui:46
 msgid "Move left"
 msgstr "Di chuyển sang trái"
 
-#: src/widgets/shortcutsWindow.ui:56
+#: src/widgets/shortcutsWindow.ui:52
 msgid "Move up"
 msgstr "Di chuyển lên trên"
 
-#: src/widgets/shortcutsWindow.ui:62
+#: src/widgets/shortcutsWindow.ui:58
 msgid "Move right"
 msgstr "Di chuyển sang phải"
 
-#: src/widgets/shortcutsWindow.ui:68
+#: src/widgets/shortcutsWindow.ui:64
 msgid "Move down"
 msgstr "Di chuyển xuống dưới"
 
-#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+#: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
 msgid "Applications"
 msgstr "Ứng dụng"
 
-#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
 msgid "Find"
 msgstr "Tìm"
 
-#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+#: src/widgets/shortcutsWindow.ui:82 src/widgets/window.ui:95
 msgid "Permissions"
 msgstr "Quyền"
 
-#: src/widgets/shortcutsWindow.ui:90
+#: src/widgets/shortcutsWindow.ui:86
 msgid "Toggle"
 msgstr "Bật/tắt"
 
-#: src/widgets/shortcutsWindow.ui:97
+#: src/widgets/shortcutsWindow.ui:93
 msgid "Documentation"
 msgstr "Tài liệu"
 
-#: src/widgets/shortcutsWindow.ui:107
+#: src/widgets/shortcutsWindow.ui:103
 msgid "Find next"
 msgstr "Tìm tiếp"
 
-#: src/widgets/shortcutsWindow.ui:113
+#: src/widgets/shortcutsWindow.ui:109
 msgid "Find previous"
 msgstr "Tìm trước"
 
