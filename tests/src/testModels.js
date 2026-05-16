@@ -91,18 +91,19 @@ const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
 
 describe('Model', function() {
-    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, portalState;
+    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, overridesDefault, portalState;
 
     beforeAll(function() {
         startService();
         waitForService();
 
-        const {applications, info, permissions, portals} = imports.models;
+        const {applications, info, permissions, portals, overrides} = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
         applicationsDefault = applications.getDefault();
         permissionsDefault = permissions.getDefault();
+        overridesDefault = overrides;
 
         delay = permissions.DELAY;
         portalState = portals.FlatpakPortalState;
@@ -1459,5 +1460,28 @@ describe('Model', function() {
         permissionsDefault.appId = _malformedAppId;
 
         expect(permissionsDefault.emit.calls.first().args).toEqual(['failed']);
+    });
+
+    it('identifies applications with modified overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+
+        const model = new overridesDefault.FlatpakOverridesModel(applicationsDefault.userOverridesPath);
+
+        expect(model.isOverridden(_basicAppId)).toBe(true);
+        expect(model.isOverridden('some-non-existent-app')).toBe(false);
+
+        /* Test reactive change */
+        const tempOverride = GLib.build_filenamev([applicationsDefault.userOverridesPath, 'com.test.Reactive']);
+        GLib.file_set_contents(tempOverride, '[Context]\nshared=network;');
+
+        update();
+        /* monitor might need a bit of time, but update() usually flushes events in tests */
+        expect(model.isOverridden('com.test.Reactive')).toBe(true);
+
+        GLib.unlink(tempOverride);
+        update();
+        expect(model.isOverridden('com.test.Reactive')).toBe(false);
+
+        model.shutdown();
     });
 });
