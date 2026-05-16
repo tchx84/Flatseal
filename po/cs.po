@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 08:52-0300\n"
-"PO-Revision-Date: 2025-09-13 12:22+0200\n"
+"PO-Revision-Date: 2026-05-15 14:42+0200\n"
 "Last-Translator: Daniel Rusek <mail@asciiwolf.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 3.7\n"
+"X-Generator: Poedit 3.9\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -327,7 +327,7 @@ msgstr "Verze"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Identifier"
-msgstr ""
+msgstr "Identifikátor"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
