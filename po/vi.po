@@ -377,7 +377,7 @@ msgstr "_Trợ giúp"
 
 #: src/widgets/menu.ui:11
 msgid "_Documentation"
-msgstr "_Tài liệu"
+msgstr "Tài _liệu"
 
 #: src/widgets/menu.ui:15
 msgid "_Keyboard Shortcuts"
