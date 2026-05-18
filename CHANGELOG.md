@@ -4,6 +4,7 @@
 
 - Added identifier field to the app summary.
 - Added Japanese translation.
+- Added Vietnamese translation.
 - Fixed missing device support information in the app metadata.
 - Fixed issue where paths entries suddenly disappear.
 - Fixed too strict environment variable validation.
