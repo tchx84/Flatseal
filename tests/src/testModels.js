@@ -33,7 +33,7 @@ const {
 
 setup();
 
-const _totalPermissions = 41;
+const _totalPermissions = 42;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
@@ -194,6 +194,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host).toBe(true);
         expect(permissionsDefault.filesystems_host_os).toBe(true);
         expect(permissionsDefault.filesystems_host_etc).toBe(true);
+        expect(permissionsDefault.filesystems_host_root).toBe(true);
         expect(permissionsDefault.filesystems_home).toBe(true);
         expect(permissionsDefault.filesystems_other).toEqual('~/test');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
@@ -235,6 +236,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host).toBe(false);
         expect(permissionsDefault.filesystems_host_os).toBe(false);
         expect(permissionsDefault.filesystems_host_etc).toBe(false);
+        expect(permissionsDefault.filesystems_host_root).toBe(false);
         expect(permissionsDefault.filesystems_home).toBe(false);
         expect(permissionsDefault.session_talk).toEqual('');
         expect(permissionsDefault.session_own).toEqual('');
@@ -274,6 +276,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host).toBe(false);
         expect(permissionsDefault.filesystems_host_os).toBe(false);
         expect(permissionsDefault.filesystems_host_etc).toBe(false);
+        expect(permissionsDefault.filesystems_host_root).toBe(false);
         expect(permissionsDefault.filesystems_home).toBe(false);
         expect(permissionsDefault.filesystems_other).toEqual('!~/test');
         expect(permissionsDefault.session_talk).toEqual('');
@@ -315,6 +318,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host).toBe(true);
         expect(permissionsDefault.filesystems_host_os).toBe(true);
         expect(permissionsDefault.filesystems_host_etc).toBe(true);
+        expect(permissionsDefault.filesystems_host_root).toBe(true);
         expect(permissionsDefault.filesystems_home).toBe(true);
         expect(permissionsDefault.filesystems_other).toEqual('');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
@@ -377,6 +381,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host).toBe(false);
         expect(permissionsDefault.filesystems_host_os).toBe(false);
         expect(permissionsDefault.filesystems_host_etc).toBe(false);
+        expect(permissionsDefault.filesystems_host_root).toBe(false);
         expect(permissionsDefault.filesystems_home).toBe(true);
         expect(permissionsDefault.filesystems_other).toEqual('~/tset');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');

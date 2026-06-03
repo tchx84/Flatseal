@@ -84,6 +84,7 @@ Name | Type | Description | `flatpak override` equivalent
 All filesystem files | Toggle | Allow read-write access to the whole filesystem. Everything that isn't writeable by the user will be read-only | `--filesystem=host` and `--nofilesystem=host`
 All system libraries, executables and static data | Toggle | Allow read-write access to system libraries located in `/usr`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-os` and `--nofilesystem=host-os`
 All system configurations | Toggle | Allow read-write access to system configurations located in `/etc`. Since this directory requires root access to write, the permission will be read-only. | `--filesystem=host-etc` and `--nofilesystem=host-etc`
+Complete host filesystem | Toggle | Allow read-write access to the host filesystem, mounted at "/run/host/root" inside the sandbox | `--filesystem=host-root` and `--nofilesystem=host-root`
 All user files | Toggle | Allow read-write access to the user directory (`$HOME` or `~/`). | `--filesystem=home` and `--nofilesystem=home`
 Other files | Input | Allow read-write access to the directory you desire. <br /> <br /> For example, you would put `~/games` if you want read-write access to `~/games`. If you want read-only access to `~/games`, then you would put `~/games:ro`. | `--filesystem=[PATH]`, `--filesystem=[PATH]:ro` and `--nofilesystem=[PATH]`
 
