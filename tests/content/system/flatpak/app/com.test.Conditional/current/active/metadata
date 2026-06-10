@@ -1,0 +1,8 @@
+[Application]
+name=com.test.Conditional
+runtime=org.gnome.Platform/x86_64/master
+sdk=org.gnome.Sdk/x86_64/master
+command=test
+
+[Context]
+sockets=x11;if:x11:!has-wayland;

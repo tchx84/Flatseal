@@ -107,6 +107,7 @@ function generate() {
 }
 
 var DELAY = 500;
+var CONDITIONAL_PREFIX = 'if:';
 
 var FlatpakPermissionsModel = GObject.registerClass({
     GTypeName: 'FlatpakPermissionsModel',
@@ -189,6 +190,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
+                    if (option.startsWith(CONDITIONAL_PREFIX))
+                        return;
+
                     model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
 
                     if (model === null)

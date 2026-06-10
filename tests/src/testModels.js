@@ -55,6 +55,7 @@ const _globalAppId = 'com.test.Global';
 const _globalRestoredAppId = 'com.test.GlobalRestored';
 const _statusesAppId = 'com.test.Statuses';
 const _malformedAppId = 'com.test.Malformed';
+const _conditionalAppId = 'com.test.Conditional';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -82,6 +83,7 @@ const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId
 const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
 const _filesystemWithModeOverride = GLib.build_filenamev([_overrides, _filesystemWithMode]);
 const _resetModeOverride = GLib.build_filenamev([_overrides, _resetModeId]);
+const _conditionalOverride = GLib.build_filenamev([_overrides, _conditionalAppId]);
 const _globalWithGlobalOverride = GLib.build_filenamev([_global, 'overrides', _globalAppId]);
 
 const _sessionGroup = 'Session Bus Policy';
@@ -134,6 +136,7 @@ describe('Model', function() {
         GLib.unlink(_busOverride);
         GLib.unlink(_filesystemWithModeOverride);
         GLib.unlink(_resetModeOverride);
+        GLib.unlink(_conditionalOverride);
         GLib.unlink(_globalWithGlobalOverride);
         GLib.unlink(_globalOverride);
     });
@@ -1445,6 +1448,48 @@ describe('Model', function() {
             permissionsDefault.appId = _filesystemWithMode;
             expect(permissionsDefault.filesystems_other).toEqual('xdg-documents:ro;home:ro');
 
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('ignores conditional permissions', function() {
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.sockets_x11).toBe(true);
+    });
+
+    it('does not write conditional permissions back', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        permissionsDefault.set_property('sockets-x11', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = permissionsDefault.constructor.getGroupForProperty('sockets-x11');
+            expect(has(_conditionalOverride, group, 'sockets', '!x11')).toBe(true);
+            expect(has(_conditionalOverride, group, 'sockets', 'if:x11:!has-wayland')).toBe(false);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('does not write conditional overrides back', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        expect(permissionsDefault.devices_all).toBe(true);
+        permissionsDefault.set_property('devices-all', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = permissionsDefault.constructor.getGroupForProperty('sockets-x11');
+            expect(has(_conditionalOverride, group, 'sockets', '!x11')).toBe(true);
+            expect(has(_conditionalOverride, group, 'devices', 'if:all:!has-input-device')).toBe(false);
             done();
             return GLib.SOURCE_REMOVE;
         });
