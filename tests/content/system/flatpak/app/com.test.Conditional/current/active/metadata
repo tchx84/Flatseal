@@ -6,4 +6,3 @@ command=test
 
 [Context]
 sockets=x11;if:x11:!has-wayland;
-devices=all;

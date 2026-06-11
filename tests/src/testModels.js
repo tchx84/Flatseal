@@ -1472,8 +1472,9 @@ describe('Model', function() {
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             const group = permissionsDefault.constructor.getGroupForProperty('sockets-x11');
             expect(has(_conditionalOverride, group, 'sockets', '!x11')).toBe(true);
-            expect(has(_conditionalOverride, group, 'devices', '!all')).toBe(true);
-            expect(hasInTotal(_conditionalOverride)).toEqual(2);
+            expect(has(_conditionalOverride, group, 'sockets', 'if:x11:!has-wayland')).toBe(false);
+            expect(has(_conditionalOverride, group, 'devices', 'if:all:!has-input-device')).toBe(false);
+            expect(hasInTotal(_conditionalOverride)).toEqual(1);
             done();
             return GLib.SOURCE_REMOVE;
         });

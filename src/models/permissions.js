@@ -190,6 +190,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
+                    /* Flatseal does not support conditionals, but skips them
+                     * to avoid corrupting the overrides file. */
                     if (option.startsWith(CONDITIONAL_PREFIX))
                         return;
 
