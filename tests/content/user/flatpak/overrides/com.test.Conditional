@@ -1,3 +1,2 @@
 [Context]
-sockets=!x11;if:x11:!has-wayland;
 devices=all;if:all:!has-input-device;
