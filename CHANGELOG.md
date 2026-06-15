@@ -1,6 +1,6 @@
 # Changelog
 
-## [unreleased]
+## [2.4.1] - 2026-05-20
 
 - Added identifier field to the app summary.
 - Added Japanese translation.

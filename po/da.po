@@ -328,7 +328,7 @@ msgstr "Version"
 
 #: src/widgets/appInfoViewer.ui:59
 msgid "Identifier"
-msgstr ""
+msgstr "Identifikator"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
