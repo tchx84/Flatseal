@@ -1465,6 +1465,9 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _conditionalAppId;
 
+        expect(permissionsDefault.sockets_x11).toBe(true);
+        expect(permissionsDefault.devices_all).toBe(true);
+
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissionsDefault.set_property('sockets-x11', false);
         permissionsDefault.set_property('devices-all', false);
