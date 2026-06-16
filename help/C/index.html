@@ -346,12 +346,18 @@
 <td><code>--filesystem=host-etc</code> and <code>--nofilesystem=host-etc</code></td>
 </tr>
 <tr class="even">
+<td>Complete host filesystem without exclusions</td>
+<td>Toggle</td>
+<td>Complete host filesystem with no exclusions, mounted at "/run/host/root" inside the sandbox</td>
+<td><code>--filesystem=host-root</code> and <code>--nofilesystem=host-root</code></td>
+</tr>
+<tr class="odd">
 <td>All user files</td>
 <td>Toggle</td>
 <td>Allow read-write access to the user directory (<code>$HOME</code> or <code>~/</code>).</td>
 <td><code>--filesystem=home</code> and <code>--nofilesystem=home</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Other files</td>
 <td>Input</td>
 <td>Allow read-write access to the directory you desire. <br /> <br /> For example, you would put <code>~/games</code> if you want read-write access to <code>~/games</code>. If you want read-only access to <code>~/games</code>, then you would put <code>~/games:ro</code>.</td>

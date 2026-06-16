@@ -53,6 +53,13 @@ var FlatpakFilesystemsModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: 'filesystem=host-etc',
             },
+            'filesystems-host-root': {
+                supported: this._info.supports('1.17.0'),
+                description: _('Complete host filesystem mounted at "/run/host/root"'),
+                option: 'host-root',
+                value: this.constructor.getDefault(),
+                example: 'filesystem=host-root',
+            },
             'filesystems-home': {
                 supported: this._info.supports('0.4.0'),
                 description: _('All user files'),
