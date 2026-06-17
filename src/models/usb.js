@@ -88,12 +88,20 @@ var FlatpakUsbModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const values = new Set(this.constructor.deserialize(value).filter(d => d.length !== 0));
 
-        const baseline = this._originals.union(this._globals);
-        const added = values.difference(baseline);
-        const removed = new Set([...baseline.difference(values)]
+        const added = new Set([...values]
+            .filter(d => !this._originals.has(d))
+            .filter(d => !this._globals.has(d)));
+
+        const removedOriginals = new Set([...this._originals]
+            .filter(d => !this._globals.has(this.constructor.negate(d)))
+            .filter(d => !values.has(d))
             .map(d => this.constructor.negate(d)));
 
-        this._overrides = added.union(removed);
+        const removedGlobals = new Set([...this._globals]
+            .filter(d => !values.has(d))
+            .map(d => this.constructor.negate(d)));
+
+        this._overrides = new Set([...added, ...removedOriginals, ...removedGlobals]);
     }
 
     updateStatusProperty(proxy) {
