@@ -115,6 +115,13 @@ var FlatpakUsbModel = GObject.registerClass({
 
         proxy.set_property('usb', this.constructor.serialize(usb));
     }
+
+    loadFromKeyFile(group, key, value, overrides, global) {
+        if (value.length === 0)
+            return;
+        const set = this._findProperSet(overrides, global);
+        set.add(value);
+    }
 });
 
 var FlatpakUsbHiddenModel = GObject.registerClass({
