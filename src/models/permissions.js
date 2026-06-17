@@ -29,7 +29,7 @@ const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
-const {FlatpakUsbModel} = imports.models.usb;
+const {FlatpakUsbModel, FlatpakUsbHiddenModel} = imports.models.usb;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 const {isGlobalOverride} = imports.models.globalModel;
 const {applications, filesystems, persistent, portals} = imports.models;
@@ -48,6 +48,7 @@ const MODELS = {
     system: new FlatpakSystemBusModel(),
     session: new FlatpakSessionBusModel(),
     usb: new FlatpakUsbModel(),
+    usbHidden: new FlatpakUsbHiddenModel(),
     portals: portals.getDefault(),
     unsupported: new FlatpakUnsupportedModel(),
 };

@@ -1,4 +1,4 @@
-/* exported FlatpakUsbModel */
+/* exported FlatpakUsbModel FlatpakUsbHiddenModel */
 
 /* usb.js
  *
@@ -114,5 +114,84 @@ var FlatpakUsbModel = GObject.registerClass({
         const usb = [...originals, ...globals, ...this._overrides];
 
         proxy.set_property('usb', this.constructor.serialize(usb));
+    }
+});
+
+var FlatpakUsbHiddenModel = GObject.registerClass({
+    GTypeName: 'FlatpakUsbHiddenModel',
+}, class FlatpakUsbHiddenModel extends FlatpakSharedModel {
+    _init() {
+        super._init({});
+    }
+
+    getPermissions() {
+        return {
+            'usb-hidden': {
+                supported: this._info.supports('1.15.11'),
+                description: _('Blocked devices'),
+                option: null,
+                value: this.constructor.getDefault(),
+                example: _('e.g. vnd:0123+dev:4567'),
+            },
+        };
+    }
+
+    static getDefault() {
+        return '';
+    }
+
+    static getType() {
+        return 'usb';
+    }
+
+    static getGroup() {
+        return 'USB Devices';
+    }
+
+    static getKey() {
+        return 'hidden-devices';
+    }
+
+    static getStyle() {
+        return 'usb';
+    }
+
+    static getTitle() {
+        return 'USB';
+    }
+
+    static getDescription() {
+        return _('List of devices hidden from the USB portal');
+    }
+
+    getOptions() { // eslint-disable-line class-methods-use-this
+        return null;
+    }
+
+    updateFromProxyProperty(property, value) {
+        const originals = new Set([...this._originals, ...this._globals]);
+        const overrides = new Set(this.constructor.deserialize(value)
+            .filter(d => d.length !== 0)
+            .filter(d => !originals.has(d)));
+        this._overrides = overrides;
+    }
+
+    updateStatusProperty(proxy) {
+        const statuses = this.constructor.deserialize(proxy.usb_hidden)
+            .filter(d => d.length !== 0)
+            .map(d => this._getStatusForPermission(d));
+        proxy.set_property('usb-hidden-status', this.constructor.serialize(statuses));
+    }
+
+    updateProxyProperty(proxy) {
+        const devices = new Set([...this._originals, ...this._globals, ...this._overrides]);
+        proxy.set_property('usb-hidden', this.constructor.serialize([...devices]));
+    }
+
+    loadFromKeyFile(group, key, value, overrides, global) {
+        if (value.length === 0)
+            return;
+        const set = this._findProperSet(overrides, global);
+        set.add(value);
     }
 });
