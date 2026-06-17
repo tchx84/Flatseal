@@ -86,7 +86,7 @@ var FlatpakUsbModel = GObject.registerClass({
     }
 
     updateFromProxyProperty(property, value) {
-        const values = new Set(this.constructor.deserialize(value));
+        const values = new Set(this.constructor.deserialize(value).filter(d => d.length !== 0));
 
         const baseline = this._originals.union(this._globals);
         const added = values.difference(baseline);
