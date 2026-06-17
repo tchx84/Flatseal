@@ -47,6 +47,7 @@ const _overridenAppId = 'com.test.Overriden';
 const _extraAppId = 'com.test.Extra';
 const _environmentAppId = 'com.test.Environment';
 const _busAppId = 'com.test.Bus';
+const _usbAppId = 'com.test.Usb';
 const _variablesAppId = 'com.test.Variables';
 const _trailingSemicolonId = 'com.test.TrailingSemicolon';
 const _filesystemWithMode = 'com.test.FilesystemWithMode';
@@ -81,6 +82,7 @@ const _unsupportedOverride = GLib.build_filenamev([_overrides, _unsupportedAppId
 const _overridenOverride = GLib.build_filenamev([_overrides, _overridenAppId]);
 const _environmentOverride = GLib.build_filenamev([_overrides, _environmentAppId]);
 const _busOverride = GLib.build_filenamev([_overrides, _busAppId]);
+const _usbOverride = GLib.build_filenamev([_overrides, _usbAppId]);
 const _filesystemWithModeOverride = GLib.build_filenamev([_overrides, _filesystemWithMode]);
 const _resetModeOverride = GLib.build_filenamev([_overrides, _resetModeId]);
 const _conditionalOverride = GLib.build_filenamev([_overrides, _conditionalAppId]);
@@ -88,6 +90,9 @@ const _globalWithGlobalOverride = GLib.build_filenamev([_global, 'overrides', _g
 
 const _sessionGroup = 'Session Bus Policy';
 const _key = 'filesystems';
+const _usbGroup = 'USB Devices';
+const _usbKey = 'enumerable-devices';
+const _usbHiddenKey = 'hidden-devices';
 
 const _flatpakConfig = GLib.build_filenamev(['..', 'tests', 'content']);
 
@@ -134,6 +139,7 @@ describe('Model', function() {
         GLib.unlink(_unsupportedOverride);
         GLib.unlink(_environmentOverride);
         GLib.unlink(_busOverride);
+        GLib.unlink(_usbOverride);
         GLib.unlink(_filesystemWithModeOverride);
         GLib.unlink(_resetModeOverride);
         GLib.unlink(_conditionalOverride);
@@ -1493,4 +1499,67 @@ describe('Model', function() {
 
         expect(permissionsDefault.emit.calls.first().args).toEqual(['failed']);
     });
+
+    it('loads USB devices', function() {
+        permissionsDefault.appId = _usbAppId;
+
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+        expect(permissionsDefault.usb_hidden).toEqual('vnd:0408+dev:5348');
+    });
+
+    it('adds USB devices', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+        expect(permissionsDefault.usb_hidden).toEqual('vnd:0408+dev:5348');
+
+        permissionsDefault.set_property('usb', 'vnd:0123;vnd:0456');
+        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0123');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0456')).toBe(true);
+            expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0123')).toBe(false);
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0123')).toBe(true);
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0408+dev:5348')).toBe(false);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('removes USB enumerable device', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+
+        permissionsDefault.set_property('usb', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_usbOverride, _usbGroup, _usbKey, '!vnd:0123')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('does not write override when USB devices unchanged', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        const currentValue = permissionsDefault.usb;
+        permissionsDefault.set_property('usb', currentValue);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
 });
