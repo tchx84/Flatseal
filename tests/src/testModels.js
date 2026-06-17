@@ -33,7 +33,7 @@ const {
 
 setup();
 
-const _totalPermissions = 41;
+const _totalPermissions = 43;
 
 const _basicAppId = 'com.test.Basic';
 const _basicNegatedAppId = 'com.test.BasicNegated';
@@ -718,7 +718,7 @@ describe('Model', function() {
 
         const total = permissionsDefault.getAll().filter(p => p.supported).length;
 
-        expect(total).toEqual(_totalPermissions - 11);
+        expect(total).toEqual(_totalPermissions - 13);
     });
 
     it('handles missing .flatpak-info', function() {
