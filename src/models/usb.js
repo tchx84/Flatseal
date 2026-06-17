@@ -75,33 +75,11 @@ var FlatpakUsbModel = GObject.registerClass({
         return null;
     }
 
-    static isNegated(value) {
-        return value.startsWith('!');
-    }
-
-    static negate(value) {
-        if (this.isNegated(value))
-            return value.replace('!', '');
-        return `!${value}`;
-    }
-
     updateFromProxyProperty(property, value) {
-        const values = new Set(this.constructor.deserialize(value).filter(d => d.length !== 0));
-
-        const added = new Set([...values]
-            .filter(d => !this._originals.has(d))
-            .filter(d => !this._globals.has(d)));
-
-        const removedOriginals = new Set([...this._originals]
-            .filter(d => !this._globals.has(this.constructor.negate(d)))
-            .filter(d => !values.has(d))
-            .map(d => this.constructor.negate(d)));
-
-        const removedGlobals = new Set([...this._globals]
-            .filter(d => !values.has(d))
-            .map(d => this.constructor.negate(d)));
-
-        this._overrides = new Set([...added, ...removedOriginals, ...removedGlobals]);
+        const originals = new Set([...this._originals, ...this._globals]);
+        this._overrides = new Set(this.constructor.deserialize(value)
+            .filter(d => d.length !== 0)
+            .filter(d => !originals.has(d)));
     }
 
     updateStatusProperty(proxy) {
@@ -113,16 +91,8 @@ var FlatpakUsbModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
-        const originals = [...this._originals]
-            .filter(o => !this._globals.has(this.constructor.negate(o)))
-            .filter(o => !this._overrides.has(this.constructor.negate(o)));
-
-        const globals = [...this._globals]
-            .filter(g => !this._overrides.has(this.constructor.negate(g)));
-
-        const usb = [...originals, ...globals, ...this._overrides];
-
-        proxy.set_property('usb', this.constructor.serialize(usb));
+        const usb = new Set([...this._originals, ...this._globals, ...this._overrides]);
+        proxy.set_property('usb', this.constructor.serialize([...usb]));
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
