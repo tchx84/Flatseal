@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealUsbRow" parent="GtkBox">
+    <property name="margin-bottom">12</property>
+    <child>
+      <object class="GtkImage" id="image">
+        <property name="vexpand">True</property>
+        <property name="valign">center</property>
+        <style>
+          <class name="info"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkEntry" id="entry">
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+        <property name="valign">center</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkBox" id="statusBox">
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="orientation">vertical</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="button">
+        <property name="valign">center</property>
+        <property name="icon-name">window-close-symbolic</property>
+        <style>
+          <class name="flat"/>
+        </style>
+      </object>
+    </child>
+    <style>
+      <class name="usb"/>
+    </style>
+  </template>
+</interface>

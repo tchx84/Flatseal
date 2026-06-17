@@ -7,6 +7,7 @@
     <file>widgets/appInfoViewer.js</file>
     <file>widgets/applicationRow.js</file>
     <file>widgets/busNameRow.js</file>
+    <file>widgets/usbRow.js</file>
     <file>widgets/detailsButton.js</file>
     <file>widgets/docsViewer.js</file>
     <file>widgets/globalInfoViewer.js</file>

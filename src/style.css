@@ -23,7 +23,8 @@ row .status.global {
 
 row .content .bus .info,
 row .content .variable .info,
-row .content .path .info {
+row .content .path .info,
+row .content .usb .info {
     padding: 8px;
     color: @accent_color;
     background-color: transparent;
@@ -35,13 +36,15 @@ row .content .path .info {
 
 row .content .relative.path .info,
 row .content .bus .info,
-row .content .variable .info {
+row .content .variable .info,
+row .content .usb .info {
     background-image: -gtk-icontheme("object-select-symbolic");
 }
 
 row .content .bus.not-valid .info,
 row .content .variable.not-valid .info,
-row .content .path.not-valid .info {
+row .content .path.not-valid .info,
+row .content .usb.not-valid .info {
     color: @warning_color;
     background-image: -gtk-icontheme("dialog-warning-symbolic");
 }
