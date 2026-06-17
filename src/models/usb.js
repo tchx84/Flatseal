@@ -106,6 +106,7 @@ var FlatpakUsbModel = GObject.registerClass({
 
     updateStatusProperty(proxy) {
         const statuses = this.constructor.deserialize(proxy.usb)
+            .filter(d => d.length !== 0)
             .map(d => this._getStatusForPermission(d));
 
         proxy.set_property('usb-status', this.constructor.serialize(statuses));
