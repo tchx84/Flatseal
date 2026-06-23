@@ -33,7 +33,7 @@ const styles = {
 var FlatsealAppInfoViewer = GObject.registerClass({
     GTypeName: 'FlatsealAppInfoViewer',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/appInfoViewer.ui',
-    InternalChildren: ['icon', 'name', 'author', 'version', 'identifier', 'released', 'runtime'],
+    InternalChildren: ['icon', 'name', 'author', 'version', 'identifier', 'released', 'runtime', 'devices'],
     Properties: {
         compact: GObject.ParamSpec.boolean(
             'compact',
@@ -70,6 +70,7 @@ var FlatsealAppInfoViewer = GObject.registerClass({
         this._version.set_label(appdata.version);
         this._identifier.set_label(appdata.appId);
         this._released.set_label(this._getFormattedDate(appdata.date));
+        this._devices.set_label(appdata.devices || '');
 
         this._icon.set_from_icon_name(desktop.icon);
 
