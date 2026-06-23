@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 08:52-0300\n"
-"PO-Revision-Date: 2025-11-24 06:03+0900\n"
+"PO-Revision-Date: 2026-05-19 13:33+0900\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.desktop.in:3
@@ -37,8 +37,8 @@ msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal は Flatpak アプリケーションの権限を確認、変更できるグラフィカルイン"
-"ターフェースです。"
+"Flatseal は Flatpak アプリケーションの権限を確認、変更できるグラフィカルイ"
+"ンターフェースです。"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
@@ -46,11 +46,11 @@ msgstr "Flatseal のメイン画面"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
 msgid "Flatseal showing filesystem permissions"
-msgstr "Flatseal はファイルシステムの権限を表示中です"
+msgstr "ファイルシステムの権限を表示中の Flatseal の画面"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
 msgid "Flatseal showing global overrides"
-msgstr "Flatseal はグローバルなオーバーライドを表示中です"
+msgstr "グローバルなオーバーライドを表示中の Flatseal の画面"
 
 #. TRANSLATORS: Don't translate this text
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
@@ -127,7 +127,7 @@ msgstr "Bluetooth"
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
-msgstr "コントローラーエリアネットワーク(CAN) バス"
+msgstr "コントローラーエリアネットワーク (CAN) バス"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
@@ -232,7 +232,8 @@ msgstr "このアプリケーションが使用を許可されているリソー
 #: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
 msgid "Not supported by the installed version of Flatpak"
-msgstr "インストールされている Flatpak のバージョンではサポートされていません"
+msgstr ""
+"インストールされている Flatpak のバージョンではサポートされていません"
 
 #: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
@@ -296,7 +297,7 @@ msgstr "GPG-Agent ディレクトリ"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr "Wayland ソケットの継承"
+msgstr "Wayland ソケットを継承"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
@@ -481,7 +482,7 @@ msgstr "%s の変更と読み込みができます"
 #: src/widgets/pathRow.js:61
 #, javascript-format
 msgid "Can create, modify and read: %s"
-msgstr "%s への作成、変更、読み込みができます"
+msgstr "%s でのファイル作成、変更、読み込みができます"
 
 #: src/widgets/pathRow.js:67
 #, javascript-format
@@ -500,7 +501,7 @@ msgstr "%s への作成、変更、読み込みができません"
 
 #: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
-msgstr "リセット"
+msgstr "アンセット"
 
 #: src/widgets/relativePathRow.js:84
 msgid "Default paths can't be removed"
@@ -529,7 +530,7 @@ msgstr "一般"
 
 #: src/widgets/shortcutsWindow.ui:11
 msgid "Show mnemonics"
-msgstr "カーソル位置を表示"
+msgstr "ニーモニックの表示"
 
 #: src/widgets/shortcutsWindow.ui:17
 msgid "Show documentation"
