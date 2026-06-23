@@ -160,7 +160,14 @@ var FlatsealWindow = GObject.registerClass({
 
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
-            const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
+
+        
+            const allPermissions = this._permissions.getAll();
+            const appPermissions = allPermissions.find(p => p.appId === app.appId);
+            const fsPerms = appPermissions ? appPermissions.value : [];
+            const hasDangerousFs = fsPerms.includes('host') || fsPerms.includes('home');
+
+            const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName, hasDangerousFs);
             this._applicationsListBox.append(row);
 
             if (app.appId === this._settings.getSelectedAppId())
