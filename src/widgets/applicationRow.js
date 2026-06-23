@@ -24,13 +24,21 @@ const {GLib, GObject, Adw} = imports.gi;
 var FlatsealApplicationRow = GObject.registerClass({
     GTypeName: 'FlatsealApplicationRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/applicationRow.ui',
-    InternalChildren: ['icon'],
+    InternalChildren: ['icon', 'status'],
 }, class FlatsealApplicationRow extends Adw.ActionRow {
     _init(appId, appName, appIconName) {
         super._init();
         this._icon.set_from_icon_name(appIconName);
         this.set_title(GLib.markup_escape_text(appName, -1));
         this.set_subtitle(appId);
+    }
+
+    set changed(changed) {
+        this._status.visible = changed;
+    }
+
+    get changed() {
+        return this._status.visible;
     }
 
     get appId() {
