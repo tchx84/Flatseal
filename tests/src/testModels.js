@@ -1556,4 +1556,74 @@ describe('Model', function() {
         update();
     });
 
+    it('moves original USB device to blocked when removed from allowed', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+
+        permissionsDefault.set_property('usb', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0123')).toBe(true);
+            expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0123')).toBe(false);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores original USB device to allowed when removed from blocked', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        permissionsDefault.set_property('usb', '');
+        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0123');
+
+        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+            expect(permissionsDefault.usb).toContain('vnd:0123');
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('removes user-added USB device from allowed without blocking it', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        permissionsDefault.set_property('usb', 'vnd:0123;vnd:0456');
+        permissionsDefault.set_property('usb', 'vnd:0123');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('removes user-added USB device from blocked without allowing it', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0456');
+        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+            expect(permissionsDefault.usb).not.toContain('vnd:0456');
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
 });

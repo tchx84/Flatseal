@@ -1,4 +1,4 @@
-/* exported FlatpakUsbModel FlatpakUsbHiddenModel */
+/* exported FlatpakUsbModel */
 
 /* usb.js
  *
@@ -40,78 +40,6 @@ var FlatpakUsbModel = GObject.registerClass({
                 value: this.constructor.getDefault(),
                 example: _('e.g. vnd:0123+dev:4567'),
             },
-        };
-    }
-
-    static getDefault() {
-        return '';
-    }
-
-    static getType() {
-        return 'usb';
-    }
-
-    static getGroup() {
-        return 'USB Devices';
-    }
-
-    static getKey() {
-        return 'enumerable-devices';
-    }
-
-    static getStyle() {
-        return 'usb';
-    }
-
-    static getTitle() {
-        return 'USB';
-    }
-
-    static getDescription() {
-        return _('List of devices matching the query visible to the USB portal');
-    }
-
-    getOptions() { // eslint-disable-line class-methods-use-this
-        return null;
-    }
-
-    updateFromProxyProperty(property, value) {
-        const originals = new Set([...this._originals, ...this._globals]);
-        this._overrides = new Set(this.constructor.deserialize(value)
-            .filter(d => d.length !== 0)
-            .filter(d => !originals.has(d)));
-    }
-
-    updateStatusProperty(proxy) {
-        const statuses = this.constructor.deserialize(proxy.usb)
-            .filter(d => d.length !== 0)
-            .map(d => this._getStatusForPermission(d));
-
-        proxy.set_property('usb-status', this.constructor.serialize(statuses));
-    }
-
-    updateProxyProperty(proxy) {
-        const usb = new Set([...this._originals, ...this._globals, ...this._overrides]);
-        proxy.set_property('usb', this.constructor.serialize([...usb]));
-    }
-
-    loadFromKeyFile(group, key, value, overrides, global) {
-        if (value.length === 0)
-            return;
-        const set = this._findProperSet(overrides, global);
-        set.add(value);
-    }
-});
-
-var FlatpakUsbHiddenModel = GObject.registerClass({
-    GTypeName: 'FlatpakUsbHiddenModel',
-}, class FlatpakUsbHiddenModel extends FlatpakSharedModel {
-    _init() {
-        super._init({});
-    }
-
-    getPermissions() {
-        return {
             'usb-hidden': {
                 supported: this._info.supports('1.15.11'),
                 description: _('Blocked devices'),
@@ -135,7 +63,7 @@ var FlatpakUsbHiddenModel = GObject.registerClass({
     }
 
     static getKey() {
-        return 'hidden-devices';
+        return null;
     }
 
     static getStyle() {
@@ -147,37 +75,127 @@ var FlatpakUsbHiddenModel = GObject.registerClass({
     }
 
     static getDescription() {
-        return _('List of devices hidden from the USB portal');
+        return _('List of USB devices accessible through the portal');
     }
 
     getOptions() { // eslint-disable-line class-methods-use-this
         return null;
     }
 
+    reset() {
+        super.reset();
+        this._hiddenOriginals = new Set();
+        this._hiddenGlobals = new Set();
+        this._hiddenOverrides = new Set();
+    }
+
+    _findProperHiddenSet(overrides, global) {
+        if (overrides && global)
+            return this._hiddenGlobals;
+        if (overrides && !global)
+            return this._hiddenOverrides;
+        return this._hiddenOriginals;
+    }
+
+    _getHiddenStatusForDevice(device) {
+        let status = FlatsealOverrideStatus.ORIGINAL;
+        if (this._hiddenGlobals.has(device))
+            status = FlatsealOverrideStatus.GLOBAL;
+        if (this._hiddenOverrides.has(device))
+            status = FlatsealOverrideStatus.USER;
+        return status;
+    }
+
     updateFromProxyProperty(property, value) {
-        const originals = new Set([...this._originals, ...this._globals]);
-        const overrides = new Set(this.constructor.deserialize(value)
-            .filter(d => d.length !== 0)
-            .filter(d => !originals.has(d)));
-        this._overrides = overrides;
+        const devices = new Set(this.constructor.deserialize(value)
+            .filter(d => d.length !== 0));
+
+        if (property === 'usb') {
+            this._overrides = new Set([...devices]
+                .filter(d => !this._originals.has(d))
+                .filter(d => !this._globals.has(d)));
+
+            /* Originals removed from allowed → auto-block via hidden-devices */
+            [...this._originals].forEach(d => {
+                if (!devices.has(d))
+                    this._hiddenOverrides.add(d);
+                else
+                    this._hiddenOverrides.delete(d);
+            });
+        } else if (property === 'usb-hidden') {
+            const hiddenKnown = new Set([...this._hiddenOriginals, ...this._hiddenGlobals]);
+            this._hiddenOverrides = new Set([...devices]
+                .filter(d => !hiddenKnown.has(d)));
+        }
     }
 
     updateStatusProperty(proxy) {
-        const statuses = this.constructor.deserialize(proxy.usb_hidden)
+        const usbStatuses = this.constructor.deserialize(proxy.usb)
             .filter(d => d.length !== 0)
             .map(d => this._getStatusForPermission(d));
-        proxy.set_property('usb-hidden-status', this.constructor.serialize(statuses));
+        proxy.set_property('usb-status', this.constructor.serialize(usbStatuses));
+
+        const hiddenStatuses = this.constructor.deserialize(proxy.usb_hidden)
+            .filter(d => d.length !== 0)
+            .map(d => this._getHiddenStatusForDevice(d));
+        proxy.set_property('usb-hidden-status', this.constructor.serialize(hiddenStatuses));
     }
 
     updateProxyProperty(proxy) {
-        const devices = new Set([...this._originals, ...this._globals, ...this._overrides]);
-        proxy.set_property('usb-hidden', this.constructor.serialize([...devices]));
+        const allHidden = new Set([
+            ...this._hiddenOriginals,
+            ...this._hiddenGlobals,
+            ...this._hiddenOverrides,
+        ]);
+
+        const allowed = new Set([
+            ...[...this._originals].filter(d => !allHidden.has(d)),
+            ...[...this._globals].filter(d => !allHidden.has(d)),
+            ...this._overrides,
+        ]);
+
+        const blocked = new Set([
+            ...this._hiddenOriginals,
+            ...this._hiddenGlobals,
+            ...this._hiddenOverrides,
+        ]);
+
+        proxy.set_property('usb', this.constructor.serialize([...allowed]));
+        proxy.set_property('usb-hidden', this.constructor.serialize([...blocked]));
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
-        if (value.length === 0)
-            return;
-        const set = this._findProperSet(overrides, global);
-        set.add(value);
+        const devices = this.constructor.deserialize(value)
+            .filter(d => d.length !== 0);
+
+        if (key === 'enumerable-devices') {
+            const set = this._findProperSet(overrides, global);
+            devices.forEach(d => set.add(d));
+        } else if (key === 'hidden-devices') {
+            const set = this._findProperHiddenSet(overrides, global);
+            devices.forEach(d => set.add(d));
+        }
+    }
+
+    saveToKeyFile(keyFile) {
+        const group = this.constructor.getGroup();
+
+        this._overrides.forEach(value => {
+            try {
+                const existing = keyFile.get_value(group, 'enumerable-devices');
+                keyFile.set_value(group, 'enumerable-devices', `${value};${existing}`);
+            } catch (err) {
+                keyFile.set_value(group, 'enumerable-devices', `${value}`);
+            }
+        });
+
+        this._hiddenOverrides.forEach(value => {
+            try {
+                const existing = keyFile.get_value(group, 'hidden-devices');
+                keyFile.set_value(group, 'hidden-devices', `${value};${existing}`);
+            } catch (err) {
+                keyFile.set_value(group, 'hidden-devices', `${value}`);
+            }
+        });
     }
 });

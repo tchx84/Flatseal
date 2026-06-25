@@ -29,7 +29,7 @@ const {FlatpakFilesystemsOtherModel} = imports.models.filesystemsOther;
 const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
-const {FlatpakUsbModel, FlatpakUsbHiddenModel} = imports.models.usb;
+const {FlatpakUsbModel} = imports.models.usb;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 const {isGlobalOverride} = imports.models.globalModel;
 const {applications, filesystems, persistent, portals} = imports.models;
@@ -48,7 +48,6 @@ const MODELS = {
     system: new FlatpakSystemBusModel(),
     session: new FlatpakSessionBusModel(),
     usb: new FlatpakUsbModel(),
-    usbHidden: new FlatpakUsbHiddenModel(),
     portals: portals.getDefault(),
     unsupported: new FlatpakUnsupportedModel(),
 };
@@ -130,6 +129,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._monitors = [];
         this._monitorsDelayedHandlerId = 0;
         this._changesByUser = 0;
+        this._pendingProperties = new Set();
         this._applications = applications.getDefault();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
         this._ensureBaseOverridesPath();
@@ -275,7 +275,9 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
 
-    _delayedUpdate() {
+    _delayedUpdate(_obj, pspec) {
+        this._pendingProperties.add(pspec.name);
+
         if (this._delayedHandlerId !== 0)
             GLib.Source.remove(this._delayedHandlerId);
 
@@ -295,16 +297,22 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _updateModels() {
+        const changedProps = this._pendingProperties;
+        this._pendingProperties = new Set();
+
         Object.values(MODELS).forEach(model => {
             Object.entries(model.getPermissions()).forEach(([property]) => {
-                model.updateFromProxyProperty(
-                    property,
-                    this[property.replace(/-/g, '_')]);
+                if (changedProps.size === 0 || changedProps.has(property)) {
+                    model.updateFromProxyProperty(
+                        property,
+                        this[property.replace(/-/g, '_')]);
+                }
             });
         });
 
         this._changesByUser += 1;
         this._saveOverrides();
+        this._updateProperties();
         this._updateStatusProperties();
 
         this._delayedHandlerId = 0;
