@@ -1508,14 +1508,16 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _usbAppId;
         expect(permissionsDefault.usb).toEqual('vnd:0123;vnd:0456');
+        expect(permissionsDefault.usb_hidden).toContain('vnd:0789');
 
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissionsDefault.appId = _usbAppId;
-        expect(permissionsDefault.usb).toEqual('vnd:0123;vnd:0456');
+        expect(permissionsDefault.usb).toEqual('vnd:0123;vnd:0567');
 
         GLib.setenv('FLATPAK_USER_DIR', _statuses, true);
         permissionsDefault.appId = _usbAppId;
         expect(permissionsDefault.usb_status).toEqual('original;global;user');
+        expect(permissionsDefault.usb_hidden_status).toEqual('original;user');
     });
 
     it('adds USB devices', function(done) {
@@ -1526,29 +1528,13 @@ describe('Model', function() {
         expect(permissionsDefault.usb_hidden).toEqual('vnd:0408+dev:5348');
 
         permissionsDefault.set_property('usb', 'vnd:0123;vnd:0456');
-        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0123');
+        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0999');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0456')).toBe(true);
             expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0123')).toBe(false);
-            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0123')).toBe(true);
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0999')).toBe(true);
             expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0408+dev:5348')).toBe(false);
-            done();
-            return GLib.SOURCE_REMOVE;
-        });
-
-        update();
-    });
-
-    it('does not write override when USB devices unchanged', function(done) {
-        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissionsDefault.appId = _usbAppId;
-
-        const currentValue = permissionsDefault.usb;
-        permissionsDefault.set_property('usb', currentValue);
-
-        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -1567,6 +1553,7 @@ describe('Model', function() {
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
             expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0123')).toBe(true);
             expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0123')).toBe(false);
+            expect(hasInTotal(_usbOverride)).toEqual(1);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -1578,9 +1565,10 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissionsDefault.appId = _usbAppId;
 
-        permissionsDefault.set_property('usb', '');
-        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0123');
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+        expect(permissionsDefault.usb_hidden).toEqual('vnd:0408+dev:5348');
 
+        permissionsDefault.set_property('usb', '');
         permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
@@ -1597,12 +1585,22 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissionsDefault.appId = _usbAppId;
 
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+
         permissionsDefault.set_property('usb', 'vnd:0123;vnd:0456');
-        permissionsDefault.set_property('usb', 'vnd:0123');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
-            done();
+            expect(has(_usbOverride, _usbGroup, _usbKey, 'vnd:0456')).toBe(true);
+
+            permissionsDefault.set_property('usb', 'vnd:0123');
+
+            GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+                expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+                done();
+                return GLib.SOURCE_REMOVE;
+            });
+
+            update();
             return GLib.SOURCE_REMOVE;
         });
 
@@ -1613,13 +1611,23 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissionsDefault.appId = _usbAppId;
 
+        expect(permissionsDefault.usb_hidden).toEqual('vnd:0408+dev:5348');
+
         permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348;vnd:0456');
-        permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
-            expect(permissionsDefault.usb).not.toContain('vnd:0456');
-            done();
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0456')).toBe(true);
+
+            permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
+
+            GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+                expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+                expect(permissionsDefault.usb).not.toContain('vnd:0456');
+                done();
+                return GLib.SOURCE_REMOVE;
+            });
+
+            update();
             return GLib.SOURCE_REMOVE;
         });
 

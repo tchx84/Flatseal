@@ -1,2 +1,3 @@
 [USB Devices]
 enumerable-devices=vnd:0456;
+hidden-devices=vnd:0789;

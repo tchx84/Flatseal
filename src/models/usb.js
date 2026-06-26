@@ -3,6 +3,7 @@
 /* usb.js
  *
  * Copyright 2025 Martin Abente Lahaye
+ * Copyright 2026 Malika Odeny Asman
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
