@@ -1,4 +1,4 @@
-/* exported FlatsealUsbRow */
+/* exported FlatsealUsbRow validity */
 
 /* usbRow.js
  *

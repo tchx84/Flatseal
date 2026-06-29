@@ -152,7 +152,7 @@ var FlatpakUsbModel = GObject.registerClass({
         const allowed = new Set([
             ...[...this._originals].filter(d => !allHidden.has(d)),
             ...[...this._globals].filter(d => !allHidden.has(d)),
-            ...this._overrides,
+            ...[...this._overrides].filter(d => !allHidden.has(d)),
         ]);
 
         const blocked = new Set([
