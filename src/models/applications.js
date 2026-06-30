@@ -44,6 +44,9 @@ var FlatpakApplicationsModel = GObject.registerClass({
         this._info = info.getDefault();
         this._monitors = [];
         this._changedDelayHandlerId = 0;
+        this._appDataCache = new Map();
+        this._desktopCache = new Map();
+        this._bundlePathsCache = new Map();
 
         this._getInstallationsPaths().forEach(path => {
             const file = Gio.File.new_for_path(GLib.build_filenamev([path, 'app']));
@@ -70,6 +73,14 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     _emitChanged() {
+        this._paths = null;
+        if (this._appDataCache)
+            this._appDataCache.clear();
+        if (this._desktopCache)
+            this._desktopCache.clear();
+        if (this._bundlePathsCache)
+            this._bundlePathsCache.clear();
+
         this.emit('changed');
         this._changedDelayHandlerId = 0;
         return GLib.SOURCE_REMOVE;
@@ -188,9 +199,17 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     _getBundlePathForAppId(appId) {
-        return this._getInstallationsPaths()
+        if (this._bundlePathsCache && this._bundlePathsCache.has(appId))
+            return this._bundlePathsCache.get(appId);
+
+        const path = this._getInstallationsPaths()
             .map(p => GLib.build_filenamev([p, 'app', appId, 'current', 'active']))
             .find(p => GLib.access(p, 0) === 0);
+
+        if (this._bundlePathsCache)
+            this._bundlePathsCache.set(appId, path);
+
+        return path;
     }
 
     _getIconThemePathForAppId(appId) {
@@ -256,6 +275,19 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     getDesktopForAppData(appdata) {
+        const cacheKey = appdata.appId;
+        if (this._desktopCache && this._desktopCache.has(cacheKey))
+            return this._desktopCache.get(cacheKey);
+
+        const desktop = this._getDesktopForAppData(appdata);
+
+        if (this._desktopCache)
+            this._desktopCache.set(cacheKey, desktop);
+
+        return desktop;
+    }
+
+    _getDesktopForAppData(appdata) {
         const desktop = {
             icon: 'application-x-executable-symbolic',
         };
@@ -292,6 +324,18 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     getAppDataForAppId(appId) {
+        if (this._appDataCache && this._appDataCache.has(appId))
+            return this._appDataCache.get(appId);
+
+        const appdata = this._getAppDataForAppId(appId);
+
+        if (this._appDataCache)
+            this._appDataCache.set(appId, appdata);
+
+        return appdata;
+    }
+
+    _getAppDataForAppId(appId) {
         const appdata = {
             appId: appId,
             name: this.constructor._getApproximateNameForAppId(appId),
@@ -402,6 +446,9 @@ var FlatpakApplicationsModel = GObject.registerClass({
             monitor.cancel();
         });
         this._monitors = [];
+        this._appDataCache = null;
+        this._desktopCache = null;
+        this._bundlePathsCache = null;
     }
 
     reload() {
