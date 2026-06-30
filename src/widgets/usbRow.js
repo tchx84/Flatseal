@@ -25,8 +25,8 @@ const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
 
-/* https://github.com/flatpak/flatpak/blob/main/doc/flatpak-override.xml */
-const EXP = /^!?(all|(vnd:[0-9a-fA-F]{4}|dev:[0-9a-fA-F]{4}|cls:[0-9a-fA-F]{2})(\+(vnd:[0-9a-fA-F]{4}|dev:[0-9a-fA-F]{4}|cls:[0-9a-fA-F]{2}))*)$/;
+/* https://github.com/flatpak/flatpak/blob/main/doc/flatpak-build-finish.xml */
+const EXP = /^(?!(?=.*dev:)(?!.*vnd:))(all|(vnd:[0-9a-fA-F]{4}|dev:[0-9a-fA-F]{4}|cls:[0-9a-fA-F]{2}:(?:[0-9a-fA-F]{2}|\*))(\+(vnd:[0-9a-fA-F]{4}|dev:[0-9a-fA-F]{4}|cls:[0-9a-fA-F]{2}:(?:[0-9a-fA-F]{2}|\*)))*)$/;
 
 var validity = {
     VALID: 'valid',
