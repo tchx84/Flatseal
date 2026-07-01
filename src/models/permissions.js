@@ -129,7 +129,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._monitors = [];
         this._monitorsDelayedHandlerId = 0;
         this._changesByUser = 0;
-        this._pendingProperties = new Set();
         this._applications = applications.getDefault();
         this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
         this._ensureBaseOverridesPath();
@@ -275,9 +274,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
 
-    _delayedUpdate(_obj, pspec) {
-        this._pendingProperties.add(pspec.name);
-
+    _delayedUpdate() {
         if (this._delayedHandlerId !== 0)
             GLib.Source.remove(this._delayedHandlerId);
 
@@ -297,16 +294,11 @@ var FlatpakPermissionsModel = GObject.registerClass({
     }
 
     _updateModels() {
-        const changedProps = this._pendingProperties;
-        this._pendingProperties = new Set();
-
         Object.values(MODELS).forEach(model => {
             Object.entries(model.getPermissions()).forEach(([property]) => {
-                if (changedProps.size === 0 || changedProps.has(property)) {
-                    model.updateFromProxyProperty(
-                        property,
-                        this[property.replace(/-/g, '_')]);
-                }
+                model.updateFromProxyProperty(
+                    property,
+                    this[property.replace(/-/g, '_')]);
             });
         });
 

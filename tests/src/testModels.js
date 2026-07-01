@@ -1561,7 +1561,7 @@ describe('Model', function() {
         update();
     });
 
-    it('restores original USB device to allowed when removed from blocked', function(done) {
+    it('keeps original USB device blocked when blocked-devices value is reasserted unchanged in the same cycle', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
         permissionsDefault.appId = _usbAppId;
 
@@ -1572,9 +1572,36 @@ describe('Model', function() {
         permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(GLib.access(_usbOverride, 0)).toEqual(-1);
-            expect(permissionsDefault.usb).toContain('vnd:0123');
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0123')).toBe(true);
+            expect(permissionsDefault.usb).not.toContain('vnd:0123');
             done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores auto-blocked original USB device to allowed when removed from blocked', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _usbAppId;
+
+        expect(permissionsDefault.usb).toEqual('vnd:0123');
+
+        permissionsDefault.set_property('usb', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_usbOverride, _usbGroup, _usbHiddenKey, 'vnd:0123')).toBe(true);
+
+            permissionsDefault.set_property('usb-hidden', 'vnd:0408+dev:5348');
+
+            GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+                expect(GLib.access(_usbOverride, 0)).toEqual(-1);
+                expect(permissionsDefault.usb).toContain('vnd:0123');
+                done();
+                return GLib.SOURCE_REMOVE;
+            });
+
+            update();
             return GLib.SOURCE_REMOVE;
         });
 

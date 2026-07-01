@@ -88,6 +88,8 @@ var FlatpakUsbModel = GObject.registerClass({
         this._hiddenOriginals = new Set();
         this._hiddenGlobals = new Set();
         this._hiddenOverrides = new Set();
+        this._lastProxyUsb = '';
+        this._lastProxyUsbHidden = '';
     }
 
     _findProperHiddenSet(overrides, global) {
@@ -110,8 +112,14 @@ var FlatpakUsbModel = GObject.registerClass({
     updateFromProxyProperty(property, value) {
         const devices = new Set(this.constructor.deserialize(value)
             .filter(d => d.length !== 0));
+        const serialized = this.constructor.serialize([...devices]);
 
         if (property === 'usb') {
+            if (serialized === this._lastProxyUsb)
+                return;
+
+            this._lastProxyUsb = serialized;
+
             this._overrides = new Set([...devices]
                 .filter(d => !this._originals.has(d))
                 .filter(d => !this._globals.has(d)));
@@ -123,7 +131,14 @@ var FlatpakUsbModel = GObject.registerClass({
                 else
                     this._hiddenOverrides.delete(d);
             });
+
+            [...this._overrides].forEach(d => this._hiddenOverrides.delete(d));
         } else if (property === 'usb-hidden') {
+            if (serialized === this._lastProxyUsbHidden)
+                return;
+
+            this._lastProxyUsbHidden = serialized;
+
             const hiddenKnown = new Set([...this._hiddenOriginals, ...this._hiddenGlobals]);
             this._hiddenOverrides = new Set([...devices]
                 .filter(d => !hiddenKnown.has(d)));
@@ -161,8 +176,11 @@ var FlatpakUsbModel = GObject.registerClass({
             ...this._hiddenOverrides,
         ]);
 
-        proxy.set_property('usb', this.constructor.serialize([...allowed]));
-        proxy.set_property('usb-hidden', this.constructor.serialize([...blocked]));
+        this._lastProxyUsb = this.constructor.serialize([...allowed]);
+        this._lastProxyUsbHidden = this.constructor.serialize([...blocked]);
+
+        proxy.set_property('usb', this._lastProxyUsb);
+        proxy.set_property('usb-hidden', this._lastProxyUsbHidden);
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
