@@ -11,3 +11,6 @@ TEST3=global
 [Session Bus Policy]
 org.test.Service-1=none
 org.test.Service-3=talk
+
+[USB Devices]
+enumerable-devices=vnd:0567;

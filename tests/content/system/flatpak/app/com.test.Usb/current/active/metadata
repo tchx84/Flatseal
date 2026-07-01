@@ -1,0 +1,7 @@
+[Application]
+name=com.test.Usb
+runtime=org.test.Platform
+
+[USB Devices]
+enumerable-devices=vnd:0123;
+hidden-devices=vnd:0408+dev:5348;

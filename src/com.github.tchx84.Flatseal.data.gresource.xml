@@ -6,6 +6,7 @@
     <file>widgets/appInfoViewer.ui</file>
     <file>widgets/applicationRow.ui</file>
     <file>widgets/busNameRow.ui</file>
+    <file>widgets/usbRow.ui</file>
     <file>widgets/docsViewer.ui</file>
     <file>widgets/globalInfoViewer.ui</file>
     <file>widgets/globalRow.ui</file>

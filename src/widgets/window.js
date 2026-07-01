@@ -35,6 +35,7 @@ const {FlatsealPathRow} = imports.widgets.pathRow;
 const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
 const {FlatsealBusNameRow} = imports.widgets.busNameRow;
+const {FlatsealUsbRow} = imports.widgets.usbRow;
 const {FlatsealSettingsModel} = imports.models.settings;
 const {isGlobalOverride} = imports.models.globalModel;
 
@@ -244,6 +245,15 @@ var FlatsealWindow = GObject.registerClass({
                     p.value,
                     p.portalTable,
                     p.portalId);
+            } else if (p.type === 'usb') {
+                row = new FlatsealPermissionEntryRow(
+                    p.description,
+                    p.permission,
+                    p.value,
+                    p.serializeFunc,
+                    p.deserializeFunc,
+                    FlatsealUsbRow,
+                    'list-add-symbolic');
             } else {
                 property = 'active';
                 row = new FlatsealPermissionSwitchRow(
