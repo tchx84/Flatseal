@@ -102,6 +102,11 @@ function generate() {
             const statusProperty = `${property}-status`;
             properties[statusProperty] = GObject.ParamSpec.string(
                 statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
+
+            /* conditional requests */
+            const conditionalProperty = `${property}-conditional`;
+            properties[conditionalProperty] = GObject.ParamSpec.string(
+                conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
         });
     });
 
@@ -192,10 +197,22 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
-                    /* Flatseal does not support conditionals, but skips them
-                     * to avoid corrupting the overrides file. */
-                    if (option.startsWith(CONDITIONAL_PREFIX))
+                    if (option.startsWith(CONDITIONAL_PREFIX)) {
+                        /* Record the conditional request as a real
+                         * permission, without letting it fall into the
+                         * unsupported bucket. */
+                        const [conditionalOption] = option.slice(CONDITIONAL_PREFIX.length).split(':');
+                        let conditionalModel = this.constructor._find(`${group}_${key}_${conditionalOption}`);
+
+                        if (conditionalModel === null)
+                            conditionalModel = this.constructor._find(`${group}_${key}`);
+
+                        if (conditionalModel !== null) {
+                            conditionalModel.loadFromKeyFile(group, key, conditionalOption, overrides, global);
+                            conditionalModel.markConditional(conditionalOption, option);
+                        }
                         return;
+                    }
 
                     model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
 
@@ -270,6 +287,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_block(this, this._notifyHandlerId);
 
         Object.values(MODELS).forEach(model => model.updateStatusProperty(this));
+        [MODELS.shared, MODELS.sockets, MODELS.devices, MODELS.features]
+            .forEach(model => model.updateConditionalProperty(this));
 
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
@@ -394,6 +413,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
                 entry['statusProperty'] = `${property}-status`;
+                entry['conditionalProperty'] = `${property}-conditional`;
                 entry['serializeFunc'] = model.constructor.serialize;
                 entry['deserializeFunc'] = model.constructor.deserialize;
 

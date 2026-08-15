@@ -1498,6 +1498,17 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_x11).toBe(true);
     });
 
+    it('marks conditional permissions', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.sockets_x11_conditional).toBe('if:x11:!has-wayland');
+        expect(permissionsDefault.devices_all_conditional).toBe('if:all:!has-input-device');
+
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        expect(permissionsDefault.sockets_wayland_conditional).toBe('if:wayland:true');
+    });
+
     it('does not write conditional permissions back', function(done) {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _conditionalAppId;
