@@ -619,6 +619,7 @@ describe('Model', function() {
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'always')).toBe(true);
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'undefined')).toBe(false);
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'null')).toBe(false);
+            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'if:teleport:true')).toBe(true);
 
             expect(has(_unsupportedOverride, 'Context', 'shared', 'unsupported')).toBe(true);
             expect(has(_unsupportedOverride, 'Context', 'shared', 'undefined')).toBe(false);
