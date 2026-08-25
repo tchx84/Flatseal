@@ -53,7 +53,12 @@ const MODELS = {
 };
 
 /* Models that support conditional permissions */
-const CONDITIONAL_MODELS = [MODELS.shared, MODELS.sockets, MODELS.devices, MODELS.features];
+const CONDITIONAL_MODELS = [
+    MODELS.shared,
+    MODELS.sockets,
+    MODELS.devices,
+    MODELS.features,
+];
 
 function generate_index() {
     const index = {};
@@ -216,17 +221,14 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    if (model === null)
-                        return;
-
                     /* Preserves the original conditional string for models
                      * that don't support conditionals, so the condition
                      * is not lost.*/
-                    if (isConditional && model !== MODELS.unsupported) {
-                        model.loadFromKeyFile(group, key, bareOption, overrides, global);
-                        model.markConditional(bareOption, option);
+                    if (isConditional && CONDITIONAL_MODELS.includes(model)) {
+                        model?.loadFromKeyFile(group, key, bareOption, overrides, global);
+                        model?.markConditional(bareOption, option);
                     } else {
-                        model.loadFromKeyFile(group, key, option, overrides, global);
+                        model?.loadFromKeyFile(group, key, option, overrides, global);
                     }
                 });
             });
