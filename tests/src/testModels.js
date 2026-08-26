@@ -619,11 +619,27 @@ describe('Model', function() {
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'always')).toBe(true);
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'undefined')).toBe(false);
             expect(has(_unsupportedOverride, 'Context', 'unsupported', 'null')).toBe(false);
-            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'if:teleport:true')).toBe(true);
 
             expect(has(_unsupportedOverride, 'Context', 'shared', 'unsupported')).toBe(true);
             expect(has(_unsupportedOverride, 'Context', 'shared', 'undefined')).toBe(false);
             expect(has(_unsupportedOverride, 'Context', 'shared', 'null')).toBe(false);
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('ignores unsupported conditional permissions', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissionsDefault.appId = _unsupportedAppId;
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.set_property('filesystems-other', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'if:teleport:true')).toBe(false);
 
             done();
             return GLib.SOURCE_REMOVE;

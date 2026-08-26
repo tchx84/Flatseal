@@ -209,8 +209,12 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     let bareOption = option;
 
                     if (option.startsWith(CONDITIONAL_PREFIX)) {
-                        isConditional = true;
-                        [bareOption] = option.slice(CONDITIONAL_PREFIX.length).split(':');
+                        const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
+
+                        if (parts.length >= 2) {
+                            isConditional = true;
+                            [bareOption] = parts;
+                        }
                     }
 
                     model = this.constructor._find(`${group}_${key}_${bareOption.replace('!', '')}`);
@@ -218,16 +222,15 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null)
                         model = this.constructor._find(`${group}_${key}`);
 
-                    if (model === null && overrides && !global)
+                    if (model === null && overrides && !global && !isConditional)
                         model = MODELS.unsupported;
 
-                    /* Preserves the original conditional string for models
-                     * that don't support conditionals, so the condition
-                     * is not lost.*/
+                    /* Ignore conditional entries that don't match a
+                     * supported model. */
                     if (isConditional && CONDITIONAL_MODELS.includes(model)) {
                         model?.loadFromKeyFile(group, key, bareOption, overrides, global);
                         model?.markConditional(bareOption, option);
-                    } else {
+                    } else if (!isConditional) {
                         model?.loadFromKeyFile(group, key, option, overrides, global);
                     }
                 });
