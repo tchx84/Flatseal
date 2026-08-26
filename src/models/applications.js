@@ -250,7 +250,13 @@ var FlatpakApplicationsModel = GObject.registerClass({
             return data;
 
         const keyFile = new GLib.KeyFile();
-        keyFile.load_from_file(path, 0);
+
+        try {
+            keyFile.load_from_file(path, 0);
+        } catch (err) {
+            logError(err, `Could not load metadata ${path}`);
+            return data;
+        }
 
         try {
             data.runtime = keyFile.get_value(group, 'runtime');

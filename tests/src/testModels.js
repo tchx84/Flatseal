@@ -58,6 +58,7 @@ const _statusesAppId = 'com.test.Statuses';
 const _malformedAppId = 'com.test.Malformed';
 const _conditionalAppId = 'com.test.Conditional';
 const _invalidTimestampAppId = 'com.test.InvalidTimestamp';
+const _malformedMetadataAppId = 'com.test.MalformedMetadata';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -184,6 +185,13 @@ describe('Model', function() {
 
         const appIds = applicationsDefault.getAll().map(a => a.appId);
         expect(appIds).toContain(_invalidTimestampAppId);
+    });
+
+    it('does not crash when an app metadata file is malformed', function() {
+        expect(() => applicationsDefault.getMetadataForAppId(_malformedMetadataAppId)).not.toThrow();
+
+        const metadata = applicationsDefault.getMetadataForAppId(_malformedMetadataAppId);
+        expect(metadata.runtime).toEqual(_('Unknown'));
     });
 
     it('loads permissions', function() {
