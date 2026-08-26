@@ -1,0 +1,621 @@
+# Slovak translation of Flatseal.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flatseal package.
+# Jozef Gaal <preklady@mayday.sk>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Flatseal v2.4.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-15 08:52-0300\n"
+"PO-Revision-Date: 2026-05-21 13:58+0200\n"
+"Last-Translator: Jozef Gaal <preklady@mayday.sk>\n"
+"Language-Team: Jozef Gaal <preklady@mayday.sk>\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "Spravujte oprávnenia Flatpak"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:14
+msgid "seal;sandbox;override;"
+msgstr "utesniť;sandbox;nahradiť;"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal je grafický nástroj na prehliadanie a úpravu oprávnení vašich "
+"aplikácií Flatpak."
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
+msgid "The Flatseal main window"
+msgstr "Hlavné okno aplikácie Flatseal"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "Flatseal zobrazujúci oprávnenia súborového systému"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal zobrazujúci globálne prepísania"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "ID aplikácie, ktoré bolo naposledy vybraté"
+
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "Neznáme"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Komunikuje"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Vlastní"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Zoznam známych názvov na zbernici relácií"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Zoznam známych názvov na systémovej zbernici"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "Urýchlenie GPU"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "Vstupné zariadenia"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "Virtualizácia"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "Zdieľaná pamäť"
+
+#: src/models/devices.js:65
+msgid "USB devices"
+msgstr "USB zariadenia"
+
+#: src/models/devices.js:72
+msgid "All devices (e.g. webcam)"
+msgstr "Všetky zariadenia (napr. webkamera)"
+
+#: src/models/devices.js:97
+msgid "List of devices available in the sandbox"
+msgstr "Zoznam zariadení dostupných v sandboxe"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Vývojové systémové volania (napr. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Programy z iných architektúr"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Zbernica Controller Area Network"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Zdieľaná pamäť aplikácie"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Zoznam funkcií dostupných pre aplikáciu"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Všetky systémové súbory"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Všetky systémové knižnice, spustiteľné súbory a statické údaje"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Všetky systémové konfigurácie"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Všetky používateľské súbory"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Zoznam podmnožín súborového systému dostupných pre aplikáciu"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Iné súbory"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "napr. ~/games:ro, xdg-pictures, atď"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Súbory"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "napr. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr "Zoznam ciest relatívnych k domovskému adresáru vytvorených v sandboxe"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Pozadie"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Môže bežať na pozadí"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Oznámenia"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Môže odosielať oznámenia"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Mikrofón"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Môže počúvať váš mikrofón"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Reproduktory"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Môže prehrávať zvuk cez vaše reproduktory"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Kamera"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Môže nahrávať videá vašou kamerou"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Poloha"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Môže pristupovať k vašej polohe"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "Zoznam zdrojov selektívne poskytnutých aplikácii"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Nie je podporované nainštalovanou verziou Flatpak"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "Vyžaduje úložisko oprávnení verzie 2 alebo novšej"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "Dáta portálu ešte neboli nastavené"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Sieť"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Medziprocesová komunikácia"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "Zoznam subsystémov zdieľaných s hostiteľským systémom"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 okenný systém"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland okenný systém"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Prechod na okenný systém X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio zvukový server"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus zbernica relácie"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus systémová zbernica"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Secure Shell agent"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Čipové karty"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Tlačový systém"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "Adresáre GPG-Agent"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "Zdediť Wayland socket"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Zoznam známych socketov dostupných v sandboxe"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Premenné"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "napr. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Zoznam premenných exportovaných do aplikácie"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e. %B %Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "Verzia"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Identifier"
+msgstr "Identifikátor"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Last Updated"
+msgstr "Naposledy aktualizované"
+
+#: src/widgets/appInfoViewer.ui:85
+msgid "Runtime"
+msgstr "Runtime"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "Toto nie je platná voľba"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_Zobraziť podrobnosti"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Zobraziť aplikáciu v správcovi softvéru"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Nebol nájdený žiadny správca softvéru"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "Všetky aplikácie"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Zmeny, ktoré sa vzťahujú na všetky aplikácie Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Verzia Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Verzia portálu"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "Cesta zmien"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Pomoc"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Dokumentácia"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové skratky"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_O programe Flatseal"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Zmenené globálne"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Zmenené používateľom"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "táto absolútna cesta"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "táto cesta relatívna k domovskému adresáru"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "všetky systémové konfigurácie"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "všetky systémové knižnice, spustiteľné súbory a statické údaje"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "všetky systémové súbory"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "všetky používateľské súbory"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "priečinok plochy"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "priečinok dokumentov"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "priečinok na sťahovanie"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "priečinok hudby"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "priečinok obrázkov"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "verejný priečinok"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "priečinok videí"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "priečinok šablón"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "priečinok konfigurácie"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "priečinok vyrovnávacej pamäte"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "priečinok údajov"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "runtime priečinok"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Môže čítať: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Môže upravovať a čítať: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Môže vytvárať, upravovať a čítať: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Nemôže čítať: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Nemôže upravovať ani čítať: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Nemôže vytvárať, upravovať ani čítať: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "Zrušiť nastavenie"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "Predvolené cesty nie je možné odstrániť"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+msgid "_Reset"
+msgstr "_Obnoviť"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "V tejto aplikácii neboli vykonané žiadne zmeny"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "Obnoviť oprávnenia tejto aplikácie"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", vrátane zmien, ktoré neboli vykonané pomocou Flatseal"
+
+#: src/widgets/shortcutsWindow.ui:7
+msgid "General"
+msgstr "Všeobecné"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "Show mnemonics"
+msgstr "Zobraziť mnemotechnické pomôcky"
+
+#: src/widgets/shortcutsWindow.ui:17
+msgid "Show documentation"
+msgstr "Zobraziť dokumentáciu"
+
+#: src/widgets/shortcutsWindow.ui:23
+msgid "Show menu"
+msgstr "Zobraziť ponuku"
+
+#: src/widgets/shortcutsWindow.ui:29
+msgid "Keyboard shortcuts"
+msgstr "Klávesové skratky"
+
+#: src/widgets/shortcutsWindow.ui:35
+msgid "Quit"
+msgstr "Ukončiť"
+
+#: src/widgets/shortcutsWindow.ui:42
+msgid "Navigation"
+msgstr "Navigácia"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Move left"
+msgstr "Posunúť doľava"
+
+#: src/widgets/shortcutsWindow.ui:52
+msgid "Move up"
+msgstr "Posunúť nahor"
+
+#: src/widgets/shortcutsWindow.ui:58
+msgid "Move right"
+msgstr "Posunúť doprava"
+
+#: src/widgets/shortcutsWindow.ui:64
+msgid "Move down"
+msgstr "Posunúť nadol"
+
+#: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "Aplikácie"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
+msgid "Find"
+msgstr "Hľadať"
+
+#: src/widgets/shortcutsWindow.ui:82 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "Oprávnenia"
+
+#: src/widgets/shortcutsWindow.ui:86
+msgid "Toggle"
+msgstr "Prepnúť"
+
+#: src/widgets/shortcutsWindow.ui:93
+msgid "Documentation"
+msgstr "Dokumentácia"
+
+#: src/widgets/shortcutsWindow.ui:103
+msgid "Find next"
+msgstr "Hľadať ďalšie"
+
+#: src/widgets/shortcutsWindow.ui:109
+msgid "Find previous"
+msgstr "Hľadať predchádzajúce"
+
+#: src/widgets/window.js:98
+msgid "Permissions have been reset"
+msgstr "Oprávnenia boli obnovené"
+
+#: src/widgets/window.js:99
+msgid "_Undo"
+msgstr "_Späť"
+
+#: src/widgets/window.js:105
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "Nie je možné načítať prepísania kvôli nesprávnemu obsahu"
+
+#: src/widgets/window.js:112
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "Obnovené kvôli zmenám v inštaláciách Flatpak"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "Hlavná ponuka"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "Nenašli sa žiadne aplikácie."
