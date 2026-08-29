@@ -150,18 +150,21 @@ var FlatpakSharedModel = GObject.registerClass({
         });
     }
 
-    /* Flatpak drops a conditional if a bare grant for the same
-     * option is applied afterward, so this being set doesn't
-     * guarantee the permission is actually granted at runtime. */
-    markConditional(option, rawValue) {
-        this._conditionals.set(option, rawValue);
+    /* Only write back the per-app overrides.
+     * Metadata should remain unchanged, and global conditionals
+     * are already stored in their own file. */
+    markConditional(option, rawValue, fullGroup, overrides, global) {
+        const fromOverride = Boolean(overrides) && !global;
+
+        this._conditionals.set(option, {value: rawValue, group: fullGroup, fromOverride});
     }
 
     updateConditionalProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
             const conditionalProperty = `${property}-conditional`;
-            const value = this._conditionals.get(option) || '';
+            const conditional = this._conditionals.get(option);
+            const value = conditional ? conditional.value : '';
 
             proxy.set_property(conditionalProperty, value);
         });
@@ -203,25 +206,92 @@ var FlatpakSharedModel = GObject.registerClass({
         set.add(value);
     }
 
+    static _writeValue(keyFile, group, key, value) {
+        let _value = value;
+
+        try {
+            const existing = keyFile.get_value(group, key);
+            _value = `${value};${existing}`;
+        } catch (err) {
+            _value = `${value}`;
+        }
+
+        keyFile.set_value(group, key, _value);
+    }
+
+    /* Resolve the conditional's bare entries independently of the "if:"
+     * entry. For example, "all;if:all:!has-input-device" resolves to
+     * true for "all". */
+    static _impliedValue(fullGroup, option) {
+        const entries = fullGroup.split(';');
+        let value = false;
+
+        if (entries.includes(option))
+            value = true;
+        if (entries.includes(`!${option}`))
+            value = false;
+
+        return value;
+    }
+
+    /* Get the current value for an option, using the same logic as
+     * updateProxyProperty. */
+    _currentValue(option) {
+        const originals = [...this._originals]
+            .filter(o => !this.constructor._isOverriden(this._globals, o))
+            .filter(o => !this.constructor._isOverriden(this._overrides, o));
+
+        const globals = [...this._globals]
+            .filter(g => !this.constructor._isOverriden(this._overrides, g));
+
+        const permissions = new Set([...originals, ...globals, ...this._overrides]);
+
+        let value = this.constructor.getDefault();
+
+        if (permissions.has(option))
+            value = true;
+        if (permissions.has(`!${option}`))
+            value = false;
+
+        return value;
+    }
+
     saveToKeyFile(keyFile) {
         const group = this.constructor.getGroup();
         const key = this.constructor.getKey();
 
-        /* This only writes from _overrides (the on/off state), it does
-         * not write out anything from _conditionals. Saving can
-         * therefore drop an existing conditional entry from the
-         * override file. Write-back isn't implemented yet. */
-        this._overrides.forEach(value => {
-            let _value = value;
+        /* Preserve a per-app conditional exactly as it was found, so an
+         * unrelated save doesn't silently drop it. But if the option's
+         * current value no longer matches what the conditional's own
+         * entries imply, the user has explicitly changed that specific
+         * permission since it was loaded, so let their plain toggle
+         * win instead, matching how a fresh bare grant clears a
+         * conditional in real Flatpak. Once dropped this way, forget
+         * it for good */
+        const preserved = new Set();
 
-            try {
-                const existing = keyFile.get_value(group, key);
-                _value = `${value};${existing}`;
-            } catch (err) {
-                _value = `${value}`;
+        this._conditionals.forEach((conditional, option) => {
+            if (!conditional.fromOverride)
+                return;
+
+            const impliedValue = this.constructor._impliedValue(conditional.group, option);
+
+            if (this._currentValue(option) !== impliedValue) {
+                this._conditionals.delete(option);
+                return;
             }
 
-            keyFile.set_value(group, key, _value);
+            preserved.add(option);
+            this.constructor._writeValue(keyFile, group, key, conditional.group);
+        });
+
+        this._overrides.forEach(value => {
+            const option = value.replace('!', '');
+
+            if (preserved.has(option))
+                return;
+
+            this.constructor._writeValue(keyFile, group, key, value);
         });
     }
 

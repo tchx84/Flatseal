@@ -204,6 +204,27 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .replace(/;+$/, '')
                     .split(';');
 
+                /* Group entries by the plain option name they belong to, so a
+                 * conditional's full original text can be preserved
+                 * on write-back. */
+                const optionGroups = new Map();
+
+                values.forEach(option => {
+                    let plainOption = option.replace('!', '');
+
+                    if (option.startsWith(CONDITIONAL_PREFIX)) {
+                        const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
+
+                        if (parts.length >= 2)
+                            [plainOption] = parts;
+                    }
+
+                    if (!optionGroups.has(plainOption))
+                        optionGroups.set(plainOption, []);
+
+                    optionGroups.get(plainOption).push(option);
+                });
+
                 values.forEach(option => {
                     let isConditional = false;
                     let bareOption = option;
@@ -228,8 +249,11 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     /* Ignore conditional entries that don't match a
                      * supported model. */
                     if (isConditional && CONDITIONAL_MODELS.includes(model)) {
+                        const plainOption = bareOption.replace('!', '');
+                        const fullGroup = optionGroups.get(plainOption).join(';');
+
                         model?.loadFromKeyFile(group, key, bareOption, overrides, global);
-                        model?.markConditional(bareOption, option);
+                        model?.markConditional(plainOption, option, fullGroup, overrides, global);
                     } else if (!isConditional) {
                         model?.loadFromKeyFile(group, key, option, overrides, global);
                     }
