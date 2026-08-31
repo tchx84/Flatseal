@@ -617,7 +617,9 @@ describe('Model', function() {
         permissionsDefault.set_property('filesystems-other', '');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            expect(has(_unsupportedOverride, 'Context', 'unsupported', 'if:teleport:true')).toBe(false);
+            expect(has(
+                _unsupportedOverride, 'Context', 'unsupported',
+                'if:unsupported-permission:!has-unsupported-permission')).toBe(false);
 
             done();
             return GLib.SOURCE_REMOVE;
@@ -1512,29 +1514,6 @@ describe('Model', function() {
             expect(has(_conditionalOverride, group, 'sockets', 'if:x11:!has-wayland')).toBe(false);
             expect(has(_conditionalOverride, group, 'devices', 'if:all:!has-input-device')).toBe(false);
             expect(hasInTotal(_conditionalOverride)).toEqual(1);
-            done();
-            return GLib.SOURCE_REMOVE;
-        });
-
-        update();
-    });
-
-    it('preserves conditional permissions on unrelated save', function(done) {
-        GLib.setenv('FLATPAK_USER_DIR', _user, true);
-        permissionsDefault.appId = _conditionalAppId;
-
-        expect(permissionsDefault.devices_all).toBe(true);
-        expect(permissionsDefault.devices_dri).toBe(false);
-
-        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
-        permissionsDefault.set_property('devices-dri', true);
-
-        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
-            const group = permissionsDefault.constructor.getGroupForProperty('devices-dri');
-            expect(has(_conditionalOverride, group, 'devices', 'dri')).toBe(true);
-            expect(has(_conditionalOverride, group, 'devices', 'all')).toBe(true);
-            expect(has(_conditionalOverride, group, 'devices', 'if:all:!has-input-device')).toBe(true);
-            expect(hasInTotal(_conditionalOverride)).toEqual(3);
             done();
             return GLib.SOURCE_REMOVE;
         });

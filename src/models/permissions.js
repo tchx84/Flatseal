@@ -204,27 +204,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .replace(/;+$/, '')
                     .split(';');
 
-                /* Group entries by the plain option name they belong to, so a
-                 * conditional's full original text can be preserved
-                 * on write-back. */
-                const optionGroups = new Map();
-
-                values.forEach(option => {
-                    let plainOption = option.replace('!', '');
-
-                    if (option.startsWith(CONDITIONAL_PREFIX)) {
-                        const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
-
-                        if (parts.length >= 2)
-                            [plainOption] = parts;
-                    }
-
-                    if (!optionGroups.has(plainOption))
-                        optionGroups.set(plainOption, []);
-
-                    optionGroups.get(plainOption).push(option);
-                });
-
                 values.forEach(option => {
                     let isConditional = false;
                     let bareOption = option;
@@ -232,6 +211,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (option.startsWith(CONDITIONAL_PREFIX)) {
                         const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
 
+                        /* A valid conditional has both an option and a
+                         * condition after "if:". Ignore incomplete
+                         * entries instead of treating them as
+                         * conditionals. */
                         if (parts.length >= 2) {
                             isConditional = true;
                             [bareOption] = parts;
@@ -243,19 +226,24 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null)
                         model = this.constructor._find(`${group}_${key}`);
 
-                    if (model === null && overrides && !global && !isConditional)
+                    if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    /* Ignore conditional entries that don't match a
-                     * supported model. */
-                    if (isConditional && CONDITIONAL_MODELS.includes(model)) {
-                        const plainOption = bareOption.replace('!', '');
-                        const fullGroup = optionGroups.get(plainOption).join(';');
+                    /* Only the four models in CONDITIONAL_MODELS are
+                     * recognized to support conditionals. A conditional
+                     * entry for anything else is skipped entirely here:
+                     * not loaded into any model, not shown in the UI,
+                     * and never tracked, so nothing is ever written
+                     * back for it either to avoid corrupting the
+                     * override file. */
+                    if (isConditional && !CONDITIONAL_MODELS.includes(model))
+                        return;
 
-                        model?.loadFromKeyFile(group, key, bareOption, overrides, global);
-                        model?.markConditional(plainOption, option, fullGroup, overrides, global);
-                    } else if (!isConditional) {
-                        model?.loadFromKeyFile(group, key, option, overrides, global);
+                    if (model !== null) {
+                        model.loadFromKeyFile(group, key, bareOption, overrides, global);
+
+                        if (isConditional)
+                            model.markConditional(bareOption, option);
                     }
                 });
             });
