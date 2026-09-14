@@ -134,7 +134,7 @@
                               <object class="GtkStackPage">
                                 <property name="name">withPermissionsPage</property>
                                 <property name="child">
-                                  <object class="AdwPreferencesPage" id="permissionsBox">
+                                  <object class="AdwPreferencesPage" id="permissionsBox">// Aq// Aqui você deve acessar as permissões do appui você deve acessar as permissões do app
                                     <child>
                                       <object class="AdwPreferencesGroup" id="appInfoGroup"/>
                                     </child>
