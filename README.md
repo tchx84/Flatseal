@@ -19,7 +19,7 @@ For more details please visit the [documentation](./DOCUMENTATION.md) page.
 ```
 git clone https://github.com/tchx84/Flatseal.git
 cd Flatseal
-flatpak --user install org.gnome.{Platform,Sdk}//50
+flatpak --user install org.gnome.{Platform,Sdk}//51
 flatpak-builder --user --force-clean --install build com.github.tchx84.Flatseal.json
 flatpak --user run --branch=master com.github.tchx84.Flatseal
 ```
