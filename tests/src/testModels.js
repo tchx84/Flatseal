@@ -67,6 +67,7 @@ const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']
 const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
 const _globalNegated = GLib.build_filenamev(['..', 'tests', 'content', 'globalNegated', 'flatpak']);
 const _globalResetMode = GLib.build_filenamev(['..', 'tests', 'content', 'globalResetMode', 'flatpak']);
+const _globalConditional = GLib.build_filenamev(['..', 'tests', 'content', 'globalConditional', 'flatpak']);
 const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
@@ -620,6 +621,9 @@ describe('Model', function() {
             expect(has(
                 _unsupportedOverride, 'Context', 'unsupported',
                 'if:unsupported-permission:!has-unsupported-permission')).toBe(false);
+            expect(has(
+                _unsupportedOverride, 'Context', 'unsupported',
+                'unsupported-permission')).toBe(false);
 
             done();
             return GLib.SOURCE_REMOVE;
@@ -1486,15 +1490,28 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_x11).toBe(true);
     });
 
-    it('marks conditional permissions', function() {
+    it('marks conditional permissions from original metadata', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _conditionalAppId;
 
         expect(permissionsDefault.sockets_x11_conditional).toBe('if:x11:!has-wayland');
-        expect(permissionsDefault.devices_all_conditional).toBe('if:all:!has-input-device');
 
         expect(permissionsDefault.sockets_wayland).toBe(true);
         expect(permissionsDefault.sockets_wayland_conditional).toBe('if:wayland:true');
+    });
+
+    it('does not mark conditional permissions from overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.devices_all).toBe(true);
+        expect(permissionsDefault.devices_all_conditional).toBe('');
+
+        GLib.setenv('FLATPAK_USER_DIR', _globalConditional, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.features_devel).toBe(true);
+        expect(permissionsDefault.features_devel_conditional).toBe('');
     });
 
     it('does not write conditional permissions back', function(done) {

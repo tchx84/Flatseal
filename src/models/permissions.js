@@ -242,7 +242,14 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model !== null) {
                         model.loadFromKeyFile(group, key, bareOption, overrides, global);
 
-                        if (isConditional)
+                        /* Only mark conditionals from the app's own
+                         * original metadata. Conditionals from an
+                         * override are never written back, so
+                         * displaying them would be misleading. The
+                         * user would see one on load, only for it to
+                         * silently vanish the next time anything is
+                         * saved. */
+                        if (isConditional && !overrides)
                             model.markConditional(bareOption, option);
                     }
                 });
