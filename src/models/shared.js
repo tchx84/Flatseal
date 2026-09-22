@@ -161,7 +161,12 @@ var FlatpakSharedModel = GObject.registerClass({
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
             const conditionalProperty = `${property}-conditional`;
-            const value = this._conditionals.get(option) || '';
+            let value = this._conditionals.get(option) || '';
+
+            /* The conditional marker should not show on the */
+            /* overriden conditional permisions. */
+            if (this._getStatusForPermission(option) !== FlatsealOverrideStatus.ORIGINAL)
+                value = '';
 
             proxy.set_property(conditionalProperty, value);
         });

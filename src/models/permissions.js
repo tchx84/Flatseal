@@ -112,9 +112,11 @@ function generate() {
                 statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
 
             /* conditional requests */
-            const conditionalProperty = `${property}-conditional`;
-            properties[conditionalProperty] = GObject.ParamSpec.string(
-                conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
+            if (CONDITIONAL_MODELS.includes(model)) {
+                const conditionalProperty = `${property}-conditional`;
+                properties[conditionalProperty] = GObject.ParamSpec.string(
+                    conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
+            }
         });
     });
 
@@ -221,6 +223,13 @@ var FlatpakPermissionsModel = GObject.registerClass({
                         }
                     }
 
+                    /* Conditionals from overrides (per-app or global)
+                     * are dropped. They can't be written back without
+                     * risking a change in their meaning, so they are
+                     * neither loaded nor displayed. */
+                    if (isConditional && overrides)
+                        return;
+
                     model = this.constructor._find(`${group}_${key}_${bareOption.replace('!', '')}`);
 
                     if (model === null)
@@ -229,13 +238,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    /* Only the four models in CONDITIONAL_MODELS are
-                     * recognized to support conditionals. A conditional
-                     * entry for anything else is skipped entirely here:
-                     * not loaded into any model, not shown in the UI,
-                     * and never tracked, so nothing is ever written
-                     * back for it either to avoid corrupting the
-                     * override file. */
+                    /* Only the four models in CONDITIONAL_MODELS
+                     * support conditionals. A conditional for any
+                     * other permission is dropped instead of being
+                     * loaded as a plain, unconditional permission. */
                     if (isConditional && !CONDITIONAL_MODELS.includes(model))
                         return;
 
@@ -433,7 +439,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
                 entry['statusProperty'] = `${property}-status`;
-                entry['conditionalProperty'] = `${property}-conditional`;
+                entry['conditionalProperty'] = CONDITIONAL_MODELS.includes(model)
+                    ? `${property}-conditional` : null;
                 entry['serializeFunc'] = model.constructor.serialize;
                 entry['deserializeFunc'] = model.constructor.deserialize;
 
