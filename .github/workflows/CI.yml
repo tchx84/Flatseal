@@ -10,10 +10,10 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/tchx84/test-gnome-flatpak-app-action:v50
+      image: ghcr.io/tchx84/test-gnome-flatpak-app-action:v51
       options: --privileged
     steps:
     - uses: actions/checkout@v6
-    - uses: tchx84/test-gnome-flatpak-app-action@v50
+    - uses: tchx84/test-gnome-flatpak-app-action@v51
       with:
         manifest: com.github.tchx84.Flatseal.json
