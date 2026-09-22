@@ -52,6 +52,14 @@ const MODELS = {
     unsupported: new FlatpakUnsupportedModel(),
 };
 
+/* Models that support conditional permissions */
+const CONDITIONAL_MODELS = [
+    MODELS.shared,
+    MODELS.sockets,
+    MODELS.devices,
+    MODELS.features,
+];
+
 function generate_index() {
     const index = {};
 
@@ -102,6 +110,11 @@ function generate() {
             const statusProperty = `${property}-status`;
             properties[statusProperty] = GObject.ParamSpec.string(
                 statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
+
+            /* conditional requests */
+            const conditionalProperty = `${property}-conditional`;
+            properties[conditionalProperty] = GObject.ParamSpec.string(
+                conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
         });
     });
 
@@ -192,12 +205,23 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
-                    /* Flatseal does not support conditionals, but skips them
-                     * to avoid corrupting the overrides file. */
-                    if (option.startsWith(CONDITIONAL_PREFIX))
-                        return;
+                    let isConditional = false;
+                    let bareOption = option;
 
-                    model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
+                    if (option.startsWith(CONDITIONAL_PREFIX)) {
+                        const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
+
+                        /* A valid conditional has both an option and a
+                         * condition after "if:". Ignore incomplete
+                         * entries instead of treating them as
+                         * conditionals. */
+                        if (parts.length >= 2) {
+                            isConditional = true;
+                            [bareOption] = parts;
+                        }
+                    }
+
+                    model = this.constructor._find(`${group}_${key}_${bareOption.replace('!', '')}`);
 
                     if (model === null)
                         model = this.constructor._find(`${group}_${key}`);
@@ -205,8 +229,29 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    if (model !== null)
-                        model.loadFromKeyFile(group, key, option, overrides, global);
+                    /* Only the four models in CONDITIONAL_MODELS are
+                     * recognized to support conditionals. A conditional
+                     * entry for anything else is skipped entirely here:
+                     * not loaded into any model, not shown in the UI,
+                     * and never tracked, so nothing is ever written
+                     * back for it either to avoid corrupting the
+                     * override file. */
+                    if (isConditional && !CONDITIONAL_MODELS.includes(model))
+                        return;
+
+                    if (model !== null) {
+                        model.loadFromKeyFile(group, key, bareOption, overrides, global);
+
+                        /* Only mark conditionals from the app's own
+                         * original metadata. Conditionals from an
+                         * override are never written back, so
+                         * displaying them would be misleading. The
+                         * user would see one on load, only for it to
+                         * silently vanish the next time anything is
+                         * saved. */
+                        if (isConditional && !overrides)
+                            model.markConditional(bareOption, option);
+                    }
                 });
             });
         });
@@ -270,6 +315,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_block(this, this._notifyHandlerId);
 
         Object.values(MODELS).forEach(model => model.updateStatusProperty(this));
+        CONDITIONAL_MODELS.forEach(model => model.updateConditionalProperty(this));
 
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
@@ -394,6 +440,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
                 entry['statusProperty'] = `${property}-status`;
+                entry['conditionalProperty'] = `${property}-conditional`;
                 entry['serializeFunc'] = model.constructor.serialize;
                 entry['deserializeFunc'] = model.constructor.deserialize;
 
