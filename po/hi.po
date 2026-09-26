@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 08:52-0300\n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
 "PO-Revision-Date: 2024-05-06 19:26+0530\n"
 "Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
 "Language-Team: Hindi\n"
@@ -64,8 +64,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "अनुप्रयोग ID जिसे अंतिम बार चुना गया था"
 
-#: src/models/applications.js:237 src/models/applications.js:298
-#: src/models/applications.js:299 src/models/applications.js:300
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -304,6 +304,25 @@ msgstr ""
 msgid "List of well-known sockets available in the sandbox"
 msgstr "सैंडबॉक्स में उपलब्ध जाने-माने सॉकेट की सूची"
 
+#: src/models/usb.js:39
+#, fuzzy
+msgid "Allowed devices"
+msgstr "USB डिवाइस"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr ""
+
+#: src/models/usb.js:46
+#, fuzzy
+msgid "Blocked devices"
+msgstr "USB डिवाइस"
+
+#: src/models/usb.js:79
+#, fuzzy
+msgid "List of USB devices accessible through the portal"
+msgstr "सैंडबॉक्स में उपलब्ध उपकरणों की सूची"
+
 #: src/models/variables.js:40
 msgid "Variables"
 msgstr "चर"
@@ -338,7 +357,8 @@ msgid "Runtime"
 msgstr "रनटाइम"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "यह कोई मान्य विकल्प नहीं है"
 
@@ -509,7 +529,7 @@ msgid "Default paths can't be removed"
 msgstr "तयशुदा पथ नहीं हटाए जा सकते"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "रीसेट (_R)"
 
@@ -597,19 +617,19 @@ msgstr "अगला खोजें"
 msgid "Find previous"
 msgstr "पिछला खोजें"
 
-#: src/widgets/window.js:98
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "अनुमतियां रीसेट कर दी गई हैं"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "पूर्ववत करें (_U)"
 
-#: src/widgets/window.js:105
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "गलत सामग्री के कारण अध्यारोहण लोड नहीं किया जा सकता"
 
-#: src/widgets/window.js:112
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Flatpak संस्थापनों में परिवर्तन के कारण ताजा किया गया"
 

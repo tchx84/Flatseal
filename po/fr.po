@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 08:52-0300\n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
 "PO-Revision-Date: 2025-08-05 11:09+0200\n"
 "Last-Translator: Léane GRASSER <leane.grasser@proton.me>\n"
 "Language-Team: French <gnomefr@traduc.org>\n"
@@ -65,8 +65,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Dernier ID d'application sélectionné"
 
-#: src/models/applications.js:237 src/models/applications.js:298
-#: src/models/applications.js:299 src/models/applications.js:300
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -308,6 +308,25 @@ msgstr "Hériter du socket Wayland"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Liste des sockets connus disponibles dans le bac à sable"
 
+#: src/models/usb.js:39
+#, fuzzy
+msgid "Allowed devices"
+msgstr "Périphériques USB"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr ""
+
+#: src/models/usb.js:46
+#, fuzzy
+msgid "Blocked devices"
+msgstr "Périphériques USB"
+
+#: src/models/usb.js:79
+#, fuzzy
+msgid "List of USB devices accessible through the portal"
+msgstr "Liste des périphériques disponibles dans le bac à sable"
+
 #: src/models/variables.js:40
 msgid "Variables"
 msgstr "Variables"
@@ -342,7 +361,8 @@ msgid "Runtime"
 msgstr "Environnement d'exécution"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Cette option est invalide"
 
@@ -513,7 +533,7 @@ msgid "Default paths can't be removed"
 msgstr "Les chemins par défaut ne peuvent pas être supprimés"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Réinitialiser"
 
@@ -601,20 +621,20 @@ msgstr "Résultat suivant"
 msgid "Find previous"
 msgstr "Résultat précédent"
 
-#: src/widgets/window.js:98
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Les autorisations ont été réinitialisées"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Annuler"
 
-#: src/widgets/window.js:105
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr ""
 "Impossible de charger les modifications en raison d'un contenu incorrect"
 
-#: src/widgets/window.js:112
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Actualisé en raison de modifications dans les installations Flatpak"
 

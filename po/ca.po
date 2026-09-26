@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 08:52-0300\n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
 "PO-Revision-Date: 2025-06-20 17:14+0200\n"
 "Last-Translator: Ícar N. S. <personal@icarns.xyz>\n"
 "Language-Team: \n"
@@ -63,8 +63,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Identificador de l'aplicació que es va seleccionar per darrera vegada"
 
-#: src/models/applications.js:237 src/models/applications.js:298
-#: src/models/applications.js:299 src/models/applications.js:300
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -305,6 +305,25 @@ msgstr "Hereda el sòcol del Wayland"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Llista de sòcols coneguts disponibles a l'entorn aïllat"
 
+#: src/models/usb.js:39
+#, fuzzy
+msgid "Allowed devices"
+msgstr "Dispositius USB"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr ""
+
+#: src/models/usb.js:46
+#, fuzzy
+msgid "Blocked devices"
+msgstr "Dispositius USB"
+
+#: src/models/usb.js:79
+#, fuzzy
+msgid "List of USB devices accessible through the portal"
+msgstr "Llista de dispositius disponibles a l'entorn de proves"
+
 #: src/models/variables.js:40
 msgid "Variables"
 msgstr "Variables"
@@ -339,7 +358,8 @@ msgid "Runtime"
 msgstr "Entorn d'execució"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Aquesta opció no és vàlida"
 
@@ -510,7 +530,7 @@ msgid "Default paths can't be removed"
 msgstr "No es poden eliminar els camins per defecte"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Reinicia"
 
@@ -598,19 +618,19 @@ msgstr "Busca el següent resultat"
 msgid "Find previous"
 msgstr "Cerca el resultat anterior"
 
-#: src/widgets/window.js:98
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "S'han restablert els permisos"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Desfés"
 
-#: src/widgets/window.js:105
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "No es poden carregar els canvis a causa d'un contingut incorrecte"
 
-#: src/widgets/window.js:112
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Actualitzat a causa dels canvis a les instal·lacions de Flatpak"
 
