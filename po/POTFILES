@@ -17,6 +17,7 @@ src/models/portals.js
 src/models/shared.js
 src/models/sockets.js
 src/models/unsupported.js
+src/models/usb.js
 src/models/variables.js
 src/widgets/aboutDialog.js
 src/widgets/aboutDialog.ui
@@ -45,6 +46,8 @@ src/widgets/relativePathRow.js
 src/widgets/relativePathRow.ui
 src/widgets/resetButton.js
 src/widgets/shortcutsWindow.ui
+src/widgets/usbRow.js
+src/widgets/usbRow.ui
 src/widgets/variableRow.js
 src/widgets/variableRow.ui
 src/widgets/window.js
