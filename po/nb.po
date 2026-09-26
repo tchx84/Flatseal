@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 08:52-0300\n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
 "PO-Revision-Date: 2024-10-04 18:43+0200\n"
 "Last-Translator: Sunniva Løvstad <turtle@turtle.garden>\n"
 "Language-Team: Norwegian Bokmal <>\n"
@@ -63,8 +63,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Program-ID som sist ble valgt"
 
-#: src/models/applications.js:237 src/models/applications.js:298
-#: src/models/applications.js:299 src/models/applications.js:300
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -303,6 +303,25 @@ msgstr "Arv Wayland-socket"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Liste over velkjente socketer tilgjengelige i sandkassen"
 
+#: src/models/usb.js:39
+#, fuzzy
+msgid "Allowed devices"
+msgstr "USB-enheter"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr ""
+
+#: src/models/usb.js:46
+#, fuzzy
+msgid "Blocked devices"
+msgstr "USB-enheter"
+
+#: src/models/usb.js:79
+#, fuzzy
+msgid "List of USB devices accessible through the portal"
+msgstr "Liste over enheter tilgjengelig i sandkassen"
+
 #: src/models/variables.js:40
 msgid "Variables"
 msgstr "Variabler"
@@ -337,7 +356,8 @@ msgid "Runtime"
 msgstr "Runtime"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Dette er ikke en gyldig valgmulighet"
 
@@ -508,7 +528,7 @@ msgid "Default paths can't be removed"
 msgstr "Standardstier kan ikke fjernes"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Tilbakestill"
 
@@ -596,19 +616,19 @@ msgstr "Finn neste"
 msgid "Find previous"
 msgstr "Finn forrige"
 
-#: src/widgets/window.js:98
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Tillatelser har blitt tilbakestilt"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Angre"
 
-#: src/widgets/window.js:105
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Kan ikke laste inn overstyringer på grunn av feil innhold"
 
-#: src/widgets/window.js:112
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Oppdatert på grunn av overstyringer i Flatpak-installasjoner"
 

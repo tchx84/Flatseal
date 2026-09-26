@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 08:52-0300\n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
 "PO-Revision-Date: 2024-09-19 13:58+0300\n"
 "Last-Translator: volkov <volkovissocool@gmail.com>\n"
 "Language-Team: volkov <volkovissocool@gmail.com>\n"
@@ -66,8 +66,8 @@ msgstr ""
 msgid "Application ID that was last selected"
 msgstr "Ідентифікатор додатку, який був обраний в останній раз"
 
-#: src/models/applications.js:237 src/models/applications.js:298
-#: src/models/applications.js:299 src/models/applications.js:300
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -307,6 +307,25 @@ msgstr "Наслідувати сокет Wayland"
 msgid "List of well-known sockets available in the sandbox"
 msgstr "Список відомих сокетів доступних у пісочниці"
 
+#: src/models/usb.js:39
+#, fuzzy
+msgid "Allowed devices"
+msgstr "USB-пристрої"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr ""
+
+#: src/models/usb.js:46
+#, fuzzy
+msgid "Blocked devices"
+msgstr "USB-пристрої"
+
+#: src/models/usb.js:79
+#, fuzzy
+msgid "List of USB devices accessible through the portal"
+msgstr "Список пристроїв доступних у пісочниці"
+
 #: src/models/variables.js:40
 msgid "Variables"
 msgstr "Змінні"
@@ -342,7 +361,8 @@ msgid "Runtime"
 msgstr "Рантайм"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "Це не правильний параметр"
 
@@ -513,7 +533,7 @@ msgid "Default paths can't be removed"
 msgstr "Стандартні шляхи не можуть бути змінені"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "_Скинути"
 
@@ -601,19 +621,19 @@ msgstr "Знайти наступне"
 msgid "Find previous"
 msgstr "Знайти попереднє"
 
-#: src/widgets/window.js:98
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "Дозволи були скинуті до стандартних"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "_Скасувати дію"
 
-#: src/widgets/window.js:105
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "Не вдається завантажити зміну налаштувань через неправильний вміст"
 
-#: src/widgets/window.js:112
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "Оновлено через зміни в налаштуваннях Flatpak"
 
