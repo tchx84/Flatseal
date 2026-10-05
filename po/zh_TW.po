@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 08:52-0300\n"
-"PO-Revision-Date: 2026-06-04 12:03+0800\n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
+"PO-Revision-Date: 2026-10-25 10:04+0800\n"
 "Last-Translator: Alang Hsu <alang.hsu@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "Language: zh_TW\n"
@@ -34,7 +34,8 @@ msgstr "封存;沙箱;覆寫;"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
 msgid ""
-"Flatseal is a graphical utility to review and modify permissions from your Flatpak applications."
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
 msgstr "Flatseal 是一套用來檢視與修改 Flatpak 應用程式權限的圖形化工具。"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
@@ -59,8 +60,8 @@ msgstr "Martin Abente Lahaye"
 msgid "Application ID that was last selected"
 msgstr "上次選取的應用程式 ID"
 
-#: src/models/applications.js:237 src/models/applications.js:298
-#: src/models/applications.js:299 src/models/applications.js:300
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
 #: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
 #: src/widgets/globalInfoViewer.ui:133
 msgid "Unknown"
@@ -68,7 +69,7 @@ msgstr "未知"
 
 #: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
-msgstr "對話"
+msgstr "呼叫"
 
 #: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
@@ -96,7 +97,7 @@ msgstr "虛擬化"
 
 #: src/models/devices.js:58
 msgid "Shared memory"
-msgstr "共享記憶體"
+msgstr "共用記憶體"
 
 #: src/models/devices.js:65
 msgid "USB devices"
@@ -128,7 +129,7 @@ msgstr "控制器區域網路匯流排"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
-msgstr "應用程式共享記憶體"
+msgstr "應用程式共用記憶體"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
@@ -204,7 +205,7 @@ msgstr "喇叭"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "可對您的喇叭播放聲音"
+msgstr "可透過喇叭播放音效"
 
 #: src/models/portals.js:158
 msgid "Camera"
@@ -249,7 +250,7 @@ msgstr "行程間通訊"
 
 #: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
-msgstr "與主機系統共享的子系統清單"
+msgstr "與主機系統共用的子系統清單"
 
 #: src/models/sockets.js:37
 msgid "X11 windowing system"
@@ -261,7 +262,7 @@ msgstr "Wayland 視窗系統"
 
 #: src/models/sockets.js:51
 msgid "Fallback to X11 windowing system"
-msgstr "X11 視窗系統後備"
+msgstr "回退至 X11 視窗系統"
 
 #: src/models/sockets.js:58
 msgid "PulseAudio sound server"
@@ -277,7 +278,7 @@ msgstr "D-Bus 系統匯流排"
 
 #: src/models/sockets.js:79
 msgid "Secure Shell agent"
-msgstr "Secure Shell 代理程式"
+msgstr "SSH 代理程式"
 
 #: src/models/sockets.js:86
 msgid "Smart cards"
@@ -293,11 +294,27 @@ msgstr "GPG-Agent 目錄"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr "繼承 Wayland 通訊端"
+msgstr "繼承 Wayland socket"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
-msgstr "沙箱中可用的已知通訊端清單"
+msgstr "沙箱中可用的已知 socket 清單"
+
+#: src/models/usb.js:39
+msgid "Allowed devices"
+msgstr "允許的裝置"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr "例如 vnd:0123+dev:4567"
+
+#: src/models/usb.js:46
+msgid "Blocked devices"
+msgstr "封鎖的裝置"
+
+#: src/models/usb.js:79
+msgid "List of USB devices accessible through the portal"
+msgstr "可透過入口存取的 USB 裝置清單"
 
 #: src/models/variables.js:40
 msgid "Variables"
@@ -333,7 +350,8 @@ msgid "Runtime"
 msgstr "執行環境"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
-#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
 msgstr "這不是有效選項"
 
@@ -504,7 +522,7 @@ msgid "Default paths can't be removed"
 msgstr "無法移除預設路徑"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
-#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
 msgid "_Reset"
 msgstr "重設(_R)"
 
@@ -592,19 +610,19 @@ msgstr "尋找下一個"
 msgid "Find previous"
 msgstr "尋找上一個"
 
-#: src/widgets/window.js:98
+#: src/widgets/window.js:99
 msgid "Permissions have been reset"
 msgstr "權限已重設"
 
-#: src/widgets/window.js:99
+#: src/widgets/window.js:100
 msgid "_Undo"
 msgstr "復原(_U)"
 
-#: src/widgets/window.js:105
+#: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
 msgstr "因內容錯誤，無法載入覆寫"
 
-#: src/widgets/window.js:112
+#: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
 msgstr "因 Flatpak 安裝變更已重新整理"
 
