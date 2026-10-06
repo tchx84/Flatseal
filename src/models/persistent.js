@@ -85,12 +85,12 @@ var FlatpakPersistentModel = GObject.registerClass({
     }
 
     updateStatusProperty(proxy) {
-        const values = proxy.persistent
+        const values = proxy.getPermission('persistent').value
             .split(';')
             .filter(p => p.length !== 0)
             .map(p => this._getStatusForPermission(p));
 
-        proxy.set_property('persistent-status', this.constructor.serialize(values));
+        proxy.getPermission('persistent').status = this.constructor.serialize(values);
     }
 
     updateProxyProperty(proxy) {
@@ -98,7 +98,7 @@ var FlatpakPersistentModel = GObject.registerClass({
 
         const persistent = [...paths].join(';');
 
-        proxy.set_property('persistent', persistent);
+        proxy.getPermission('persistent').value = persistent;
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {

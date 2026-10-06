@@ -143,10 +143,9 @@ var FlatpakSharedModel = GObject.registerClass({
     updateStatusProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
-            const statusProperty = `${property}-status`;
             const status = this._getStatusForPermission(option);
 
-            proxy.set_property(statusProperty, status);
+            proxy.getPermission(property).status = status;
         });
     }
 
@@ -160,7 +159,6 @@ var FlatpakSharedModel = GObject.registerClass({
     updateConditionalProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
-            const conditionalProperty = `${property}-conditional`;
             let value = this._conditionals.get(option) || '';
 
             /* The conditional marker should not show on the */
@@ -168,7 +166,7 @@ var FlatpakSharedModel = GObject.registerClass({
             if (this._getStatusForPermission(option) !== FlatsealOverrideStatus.ORIGINAL)
                 value = '';
 
-            proxy.set_property(conditionalProperty, value);
+            proxy.getPermission(property).conditional = value;
         });
     }
 
@@ -191,7 +189,7 @@ var FlatpakSharedModel = GObject.registerClass({
             if (permissions.has(`!${option}`))
                 value = false;
 
-            proxy.set_property(property, value);
+            proxy.getPermission(property).value = value;
         });
     }
 

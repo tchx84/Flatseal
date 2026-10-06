@@ -309,20 +309,20 @@ var FlatpakPortalsModel = GObject.registerClass({
     updateProxyProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             if (!this.isSupported(permission.table, permission.id)) {
-                proxy.set_property(property, FlatpakPortalState.UNSUPPORTED);
+                proxy.getPermission(property).value = FlatpakPortalState.UNSUPPORTED;
                 return;
             }
 
             const [appIds] = this.safeLookUp(permission.table, permission.id);
 
             if (appIds === null)
-                proxy.set_property(property, FlatpakPortalState.UNSUPPORTED);
+                proxy.getPermission(property).value = FlatpakPortalState.UNSUPPORTED;
             else if (!(this.appId in appIds))
-                proxy.set_property(property, FlatpakPortalState.UNSET);
+                proxy.getPermission(property).value = FlatpakPortalState.UNSET;
             else if (appIds[this.appId][0] === permission.allowed[0])
-                proxy.set_property(property, FlatpakPortalState.ALLOWED);
+                proxy.getPermission(property).value = FlatpakPortalState.ALLOWED;
             else
-                proxy.set_property(property, FlatpakPortalState.DISALLOWED);
+                proxy.getPermission(property).value = FlatpakPortalState.DISALLOWED;
         });
     }
 
