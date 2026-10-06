@@ -123,23 +123,23 @@ var FlatpakUsbModel = GObject.registerClass({
     }
 
     updateStatusProperty(proxy) {
-        const usbStatuses = this.constructor.deserialize(proxy.usb)
+        const usbStatuses = this.constructor.deserialize(proxy.getPermission('usb').value)
             .filter(d => d.length !== 0)
             .map(d => this._getStatusForPermission(d));
-        proxy.set_property('usb-status', this.constructor.serialize(usbStatuses));
+        proxy.getPermission('usb').status = this.constructor.serialize(usbStatuses);
 
-        const hiddenStatuses = this.constructor.deserialize(proxy.usb_hidden)
+        const hiddenStatuses = this.constructor.deserialize(proxy.getPermission('usb-hidden').value)
             .filter(d => d.length !== 0)
             .map(d => this._getHiddenStatusForDevice(d));
-        proxy.set_property('usb-hidden-status', this.constructor.serialize(hiddenStatuses));
+        proxy.getPermission('usb-hidden').status = this.constructor.serialize(hiddenStatuses);
     }
 
     updateProxyProperty(proxy) {
         const allowed = new Set([...this._originals, ...this._globals, ...this._overrides]);
         const blocked = new Set([...this._hiddenOriginals, ...this._hiddenGlobals, ...this._hiddenOverrides]);
 
-        proxy.set_property('usb', this.constructor.serialize([...allowed]));
-        proxy.set_property('usb-hidden', this.constructor.serialize([...blocked]));
+        proxy.getPermission('usb').value = this.constructor.serialize([...allowed]);
+        proxy.getPermission('usb-hidden').value = this.constructor.serialize([...blocked]);
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {

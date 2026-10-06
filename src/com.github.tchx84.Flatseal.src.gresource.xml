@@ -7,6 +7,7 @@
     <file>widgets/appInfoViewer.js</file>
     <file>widgets/applicationRow.js</file>
     <file>widgets/busNameRow.js</file>
+    <file>widgets/conditionalStatusIcon.js</file>
     <file>widgets/detailsButton.js</file>
     <file>widgets/docsViewer.js</file>
     <file>widgets/globalInfoViewer.js</file>
@@ -28,6 +29,7 @@
     <file>models/overrideStatus.js</file>
     <file>models/unsupported.js</file>
     <file>models/persistent.js</file>
+    <file>models/permissionValue.js</file>
     <file>models/permissions.js</file>
     <file>models/devices.js</file>
     <file>models/features.js</file>

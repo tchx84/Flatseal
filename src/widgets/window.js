@@ -278,12 +278,18 @@ var FlatsealWindow = GObject.registerClass({
             lastPrefsGroup.add(row);
             this._portalsGroup = lastPrefsGroup;
 
-            this._permissions.bind_property(p.property, row.content, property, _bindFlags);
+            /* Only the value can be changed by the user */
+            p.object.bind_property('value', row.content, property, _bindFlags);
 
             if (!row.status)
                 return;
 
-            this._permissions.bind_property(p.statusProperty, row.status, 'status', _bindFlags);
+            p.object.bind_property('status', row.status, 'status', _bindReadFlags);
+
+            if (!row.conditional || !p.conditional)
+                return;
+
+            p.object.bind_property('conditional', row.conditional, 'value', _bindReadFlags);
         });
     }
 

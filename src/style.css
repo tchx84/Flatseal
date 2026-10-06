@@ -20,6 +20,14 @@ row .status.user {
 row .status.global {
     color: @insensitive_fg_color;
 }
+row .conditional {
+    padding: 8px;
+    background-color: transparent;
+    background-image: -gtk-icontheme("dialog-question-symbolic");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px;
+}
 
 row .content .bus .info,
 row .content .variable .info,

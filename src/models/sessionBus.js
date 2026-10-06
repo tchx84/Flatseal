@@ -143,18 +143,18 @@ var FlatpakSessionBusModel = GObject.registerClass({
     updateStatusProperty(proxy) {
         const prefix = this.constructor.getPrefix();
 
-        const talk_values = proxy[`${prefix}-talk`]
+        const talk_values = proxy.getPermission(`${prefix}-talk`).value
             .split(';')
             .filter(n => n.length !== 0)
             .map(n => this._getStatusForPermission(n));
 
-        const own_values = proxy[`${prefix}-own`]
+        const own_values = proxy.getPermission(`${prefix}-own`).value
             .split(';')
             .filter(n => n.length !== 0)
             .map(n => this._getStatusForPermission(n));
 
-        proxy.set_property(`${prefix}-talk-status`, talk_values.join(';'));
-        proxy.set_property(`${prefix}-own-status`, own_values.join(';'));
+        proxy.getPermission(`${prefix}-talk`).status = talk_values.join(';');
+        proxy.getPermission(`${prefix}-own`).status = own_values.join(';');
     }
 
     updateProxyProperty(proxy) {
@@ -168,8 +168,8 @@ var FlatpakSessionBusModel = GObject.registerClass({
         });
 
         const prefix = this.constructor.getPrefix();
-        proxy.set_property(`${prefix}-talk`, this.constructor.serialize(options['talk']));
-        proxy.set_property(`${prefix}-own`, this.constructor.serialize(options['own']));
+        proxy.getPermission(`${prefix}-talk`).value = this.constructor.serialize(options['talk']);
+        proxy.getPermission(`${prefix}-own`).value = this.constructor.serialize(options['own']);
     }
 
     loadFromKeyFile(group, name, option, overrides, global) {

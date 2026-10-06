@@ -146,12 +146,12 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     updateStatusProperty(proxy) {
-        const values = proxy.filesystems_other
+        const values = proxy.getPermission('filesystems-other').value
             .split(';')
             .filter(p => p.length !== 0)
             .map(p => this._getStatusForPermission(p));
 
-        proxy.set_property('filesystems-other-status', values.join(';'));
+        proxy.getPermission('filesystems-other').status = values.join(';');
     }
 
     updateProxyProperty(proxy) {
@@ -188,7 +188,7 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         const paths = new Set([...originals, ...globals, ...overrides]);
         const value = this.constructor.serialize([...paths]);
 
-        proxy.set_property('filesystems-other', value);
+        proxy.getPermission('filesystems-other').value = value;
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {

@@ -30,11 +30,11 @@ const {FlatpakVariablesModel} = imports.models.variables;
 const {FlatpakSessionBusModel} = imports.models.sessionBus;
 const {FlatpakSystemBusModel} = imports.models.systemBus;
 const {FlatpakUsbModel} = imports.models.usb;
-const {FlatsealOverrideStatus} = imports.models.overrideStatus;
+const {getPermissionClass} = imports.models.permissionValue;
 const {isGlobalOverride} = imports.models.globalModel;
 const {applications, filesystems, persistent, portals} = imports.models;
 
-const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
+const FLAGS = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT_ONLY;
 
 const MODELS = {
     shared: new FlatpakSharedModel(),
@@ -51,6 +51,14 @@ const MODELS = {
     portals: portals.getDefault(),
     unsupported: new FlatpakUnsupportedModel(),
 };
+
+/* Models that support conditional permissions */
+const CONDITIONAL_MODELS = [
+    MODELS.shared,
+    MODELS.sockets,
+    MODELS.devices,
+    MODELS.features,
+];
 
 function generate_index() {
     const index = {};
@@ -76,36 +84,50 @@ function generate_index() {
 
 const INDEX = generate_index();
 
-function generate() {
-    const properties = {};
+/* Pick a class for each permission based on the type of value it
+ * holds and whether it supports conditionals. */
+function generate_classes() {
+    const classes = {};
 
     Object.values(MODELS).forEach(model => {
         Object.entries(model.getPermissions()).forEach(([property]) => {
             const value = model.constructor.getDefault();
+            const permissionClass = getPermissionClass(value, CONDITIONAL_MODELS.includes(model));
 
-            if (typeof value === 'boolean') {
-                properties[property] = GObject.ParamSpec.boolean(
-                    property, property, property, FLAGS, value);
-            } else if (typeof value === 'string') {
-                properties[property] = GObject.ParamSpec.string(
-                    property, property, property, FLAGS, value);
-            } else if (typeof value === 'number') {
-                const max = model.constructor.getMax();
-                const min = model.constructor.getMin();
-                properties[property] = GObject.ParamSpec.int(
-                    property, property, property, FLAGS, min, max, value);
-            } else {
+            if (permissionClass === null) {
                 logError(`No support for ${property}:${typeof value}`);
+                return;
             }
 
-            /* overrides status */
-            const statusProperty = `${property}-status`;
-            properties[statusProperty] = GObject.ParamSpec.string(
-                statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
+            classes[property] = permissionClass;
         });
     });
 
+    return classes;
+}
+
+const CLASSES = generate_classes();
+
+function generate() {
+    const properties = {};
+
+    Object.entries(CLASSES).forEach(([property, permissionClass]) => {
+        properties[property] = GObject.ParamSpec.object(
+            property, property, property, FLAGS, permissionClass.$gtype);
+    });
+
     return properties;
+}
+
+/* Creates one permission object for each permission property. */
+function generatePermissions() {
+    const permissions = {};
+
+    Object.entries(CLASSES).forEach(([property, permissionClass]) => {
+        permissions[property.replace(/-/g, '_')] = new permissionClass();
+    });
+
+    return permissions;
 }
 
 var DELAY = 500;
@@ -123,14 +145,19 @@ var FlatpakPermissionsModel = GObject.registerClass({
     },
 }, class FlatpakPermissionsModel extends GObject.Object {
     _init() {
-        super._init({});
+        super._init(generatePermissions());
         this._appId = '';
         this._delayedHandlerId = 0;
         this._monitors = [];
         this._monitorsDelayedHandlerId = 0;
         this._changesByUser = 0;
         this._applications = applications.getDefault();
-        this._notifyHandlerId = this.connect('notify', this._delayedUpdate.bind(this));
+
+        /* The user can only change the value, so that's all we need to save. */
+        this._valueHandlerIds = this._getAllPermissions().map(permission => {
+            const handlerId = permission.connect('notify::value', this._delayedUpdate.bind(this));
+            return [permission, handlerId];
+        });
         this._ensureBaseOverridesPath();
     }
 
@@ -192,12 +219,30 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
-                    /* Flatseal does not support conditionals, but skips them
-                     * to avoid corrupting the overrides file. */
-                    if (option.startsWith(CONDITIONAL_PREFIX))
+                    let isConditional = false;
+                    let bareOption = option;
+
+                    if (option.startsWith(CONDITIONAL_PREFIX)) {
+                        const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
+
+                        /* A valid conditional has both an option and a
+                         * condition after "if:". Ignore incomplete
+                         * entries instead of treating them as
+                         * conditionals. */
+                        if (parts.length >= 2) {
+                            isConditional = true;
+                            [bareOption] = parts;
+                        }
+                    }
+
+                    /* Conditionals from overrides (per-app or global)
+                     * are dropped. They can't be written back without
+                     * risking a change in their meaning, so they are
+                     * neither loaded nor displayed. */
+                    if (isConditional && overrides)
                         return;
 
-                    model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
+                    model = this.constructor._find(`${group}_${key}_${bareOption.replace('!', '')}`);
 
                     if (model === null)
                         model = this.constructor._find(`${group}_${key}`);
@@ -205,8 +250,19 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    if (model !== null)
-                        model.loadFromKeyFile(group, key, option, overrides, global);
+                    /* Only the four models in CONDITIONAL_MODELS
+                     * support conditionals. A conditional for any
+                     * other permission is dropped instead of being
+                     * loaded as a plain, unconditional permission. */
+                    if (isConditional && !CONDITIONAL_MODELS.includes(model))
+                        return;
+
+                    if (model !== null) {
+                        model.loadFromKeyFile(group, key, bareOption, overrides, global);
+
+                        if (isConditional)
+                            model.markConditional(bareOption, option);
+                    }
                 });
             });
         });
@@ -256,22 +312,38 @@ var FlatpakPermissionsModel = GObject.registerClass({
         this._checkIfChanged();
     }
 
+    _getAllPermissions() {
+        const permissions = [];
+
+        Object.values(MODELS).forEach(model => {
+            Object.keys(model.getPermissions()).forEach(property => {
+                permissions.push(this.getPermission(property));
+            });
+        });
+
+        return permissions;
+    }
+
+    /* Values loaded from the files shouldn't be written back. */
     _updateProperties() {
-        GObject.signal_handler_block(this, this._notifyHandlerId);
+        this._valueHandlerIds.forEach(([permission, handlerId]) => {
+            GObject.signal_handler_block(permission, handlerId);
+        });
 
         Object.values(MODELS).forEach(model => model.updateProxyProperty(this));
 
         this._checkIfChanged();
 
-        GObject.signal_handler_unblock(this, this._notifyHandlerId);
+        this._valueHandlerIds.forEach(([permission, handlerId]) => {
+            GObject.signal_handler_unblock(permission, handlerId);
+        });
     }
 
+    /* Status and conditional aren't user-editable, so there's
+     * nothing to save here. */
     _updateStatusProperties() {
-        GObject.signal_handler_block(this, this._notifyHandlerId);
-
         Object.values(MODELS).forEach(model => model.updateStatusProperty(this));
-
-        GObject.signal_handler_unblock(this, this._notifyHandlerId);
+        CONDITIONAL_MODELS.forEach(model => model.updateConditionalProperty(this));
     }
 
     _delayedUpdate() {
@@ -298,7 +370,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
             Object.entries(model.getPermissions()).forEach(([property]) => {
                 model.updateFromProxyProperty(
                     property,
-                    this[property.replace(/-/g, '_')]);
+                    this.getPermission(property).value);
             });
         });
 
@@ -384,7 +456,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
                 entry['property'] = property;
                 entry['description'] = permission.description;
-                entry['value'] = this[property.replace(/-/g, '_')];
+                entry['value'] = this.getPermission(property).value;
                 entry['type'] = model.constructor.getType();
                 entry['permission'] = permission.example;
                 entry['supported'] = permission.supported;
@@ -393,7 +465,8 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupTitle'] = model.constructor.getTitle();
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
-                entry['statusProperty'] = `${property}-status`;
+                entry['object'] = this.getPermission(property);
+                entry['conditional'] = CONDITIONAL_MODELS.includes(model);
                 entry['serializeFunc'] = model.constructor.serialize;
                 entry['deserializeFunc'] = model.constructor.deserialize;
 
@@ -450,6 +523,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
     get appId() {
         return this._appId;
+    }
+
+    getPermission(property) {
+        return this[property.replace(/-/g, '_')];
     }
 
     static _find(key) {

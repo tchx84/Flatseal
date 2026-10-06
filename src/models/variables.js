@@ -132,11 +132,11 @@ var FlatpakVariablesModel = GObject.registerClass({
     }
 
     updateStatusProperty(proxy) {
-        const values = this.constructor.deserialize(proxy.variables)
+        const values = this.constructor.deserialize(proxy.getPermission('variables').value)
             .filter(v => v.length !== 0)
             .map(v => this._getStatusForPermission(v));
 
-        proxy.set_property('variables-status', values.join(';'));
+        proxy.getPermission('variables').status = values.join(';');
     }
 
     updateProxyProperty(proxy) {
@@ -146,7 +146,7 @@ var FlatpakVariablesModel = GObject.registerClass({
             .filter(([, value]) => value.length !== 0)
             .map(([key, value]) => `${key}=${value}`);
 
-        proxy.set_property('variables', this.constructor.serialize(variables));
+        proxy.getPermission('variables').value = this.constructor.serialize(variables);
     }
 
     loadFromKeyFile(group, key, value, overrides, global) {
