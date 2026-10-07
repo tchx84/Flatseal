@@ -18,6 +18,11 @@
         </style>
       </object>
     </child>
+    <child>
+      <object class="GtkBox" id="statusBox">
+        <property name="valign">center</property>
+      </object>
+    </child>
     <style>
       <class name="row"/>
     </style>
