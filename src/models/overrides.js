@@ -41,9 +41,9 @@ var FlatpakOverridesModel = GObject.registerClass({
         this._monitor = null;
         this._changedDelayHandlerId = 0;
 
-        const path = this._permissions._getBaseOverridesPath();
-        this._appIds = this.constructor._getApplicationsForPath(path);
+        this._appIds = this._getApplications();
 
+        const path = this._permissions._getBaseOverridesPath();
         const file = Gio.File.new_for_path(path);
 
         try {
@@ -54,8 +54,9 @@ var FlatpakOverridesModel = GObject.registerClass({
         }
     }
 
-    static _getApplicationsForPath(path) {
+    _getApplications() {
         const appIds = [];
+        const path = this._permissions._getBaseOverridesPath();
 
         if (GLib.access(path, 0) !== 0)
             return appIds;
@@ -80,8 +81,7 @@ var FlatpakOverridesModel = GObject.registerClass({
     }
 
     _emitChanged() {
-        this._appIds = this.constructor._getApplicationsForPath(
-            this._permissions._getBaseOverridesPath());
+        this._appIds = this._getApplications();
         this.emit('changed');
         this._changedDelayHandlerId = 0;
         return GLib.SOURCE_REMOVE;
