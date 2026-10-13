@@ -144,9 +144,16 @@ var FlatpakSharedModel = GObject.registerClass({
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
             const statusProperty = `${property}-status`;
+            const conditionalProperty = `${property}-conditional`;
             const status = this._getStatusForPermission(option);
 
+            /* Overridden permissions are no longer conditional */
+            let conditional = '';
+            if (status === FlatsealOverrideStatus.ORIGINAL)
+                conditional = this._conditionals.get(option) || '';
+
             proxy.set_property(statusProperty, status);
+            proxy.set_property(conditionalProperty, conditional);
         });
     }
 
@@ -155,21 +162,6 @@ var FlatpakSharedModel = GObject.registerClass({
      * guarantee the permission is actually granted at runtime. */
     markConditional(option, rawValue) {
         this._conditionals.set(option, rawValue);
-    }
-
-    updateConditionalProperty(proxy) {
-        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
-            const {option} = permission;
-            const conditionalProperty = `${property}-conditional`;
-            let value = this._conditionals.get(option) || '';
-
-            /* The conditional marker should not show on the */
-            /* overriden conditional permisions. */
-            if (this._getStatusForPermission(option) !== FlatsealOverrideStatus.ORIGINAL)
-                value = '';
-
-            proxy.set_property(conditionalProperty, value);
-        });
     }
 
     updateProxyProperty(proxy) {

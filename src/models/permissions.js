@@ -52,14 +52,6 @@ const MODELS = {
     unsupported: new FlatpakUnsupportedModel(),
 };
 
-/* Models that support conditional permissions */
-const CONDITIONAL_MODELS = [
-    MODELS.shared,
-    MODELS.sockets,
-    MODELS.devices,
-    MODELS.features,
-];
-
 function generate_index() {
     const index = {};
 
@@ -112,11 +104,9 @@ function generate() {
                 statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
 
             /* conditional requests */
-            if (CONDITIONAL_MODELS.includes(model)) {
-                const conditionalProperty = `${property}-conditional`;
-                properties[conditionalProperty] = GObject.ParamSpec.string(
-                    conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
-            }
+            const conditionalProperty = `${property}-conditional`;
+            properties[conditionalProperty] = GObject.ParamSpec.string(
+                conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
         });
     });
 
@@ -238,13 +228,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    /* Only the four models in CONDITIONAL_MODELS
-                     * support conditionals. A conditional for any
-                     * other permission is dropped instead of being
-                     * loaded as a plain, unconditional permission. */
-                    if (isConditional && !CONDITIONAL_MODELS.includes(model))
-                        return;
-
                     if (model !== null) {
                         model.loadFromKeyFile(group, key, bareOption, overrides, global);
 
@@ -314,7 +297,6 @@ var FlatpakPermissionsModel = GObject.registerClass({
         GObject.signal_handler_block(this, this._notifyHandlerId);
 
         Object.values(MODELS).forEach(model => model.updateStatusProperty(this));
-        CONDITIONAL_MODELS.forEach(model => model.updateConditionalProperty(this));
 
         GObject.signal_handler_unblock(this, this._notifyHandlerId);
     }
@@ -439,8 +421,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
                 entry['statusProperty'] = `${property}-status`;
-                entry['conditionalProperty'] = CONDITIONAL_MODELS.includes(model)
-                    ? `${property}-conditional` : null;
+                entry['conditionalProperty'] = `${property}-conditional`;
                 entry['serializeFunc'] = model.constructor.serialize;
                 entry['deserializeFunc'] = model.constructor.deserialize;
 
