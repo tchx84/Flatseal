@@ -9,7 +9,7 @@
 row .status {
     padding: 8px;
     background-color: transparent;
-    background-image: -gtk-icontheme("dialog-warning-symbolic");
+    background-image: -gtk-icontheme("com.github.tchx84.Flatseal.Pencil-symbolic");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 16px;
