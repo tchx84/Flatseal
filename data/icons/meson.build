@@ -9,7 +9,3 @@ install_data('com.github.tchx84.Flatseal-symbolic.svg',
 install_data('com.github.tchx84.Flatseal.Flatpak.svg',
   install_dir: join_paths(get_option('datadir'), 'icons/hicolor/scalable/apps')
 )
-
-install_data('com.github.tchx84.Flatseal.Pencil-symbolic.svg',
-  install_dir: join_paths(get_option('datadir'), 'icons/hicolor/scalable/apps')
-)
