@@ -101,18 +101,19 @@ const _customInstallationConfig = GLib.build_filenamev(['..', 'tests', 'content'
 
 
 describe('Model', function() {
-    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, portalState;
+    var delay, permissionsDefault, applicationsDefault, infoDefault, portalsDefault, overridesDefault, portalState;
 
     beforeAll(function() {
         startService();
         waitForService();
 
-        const {applications, info, permissions, portals} = imports.models;
+        const {applications, info, overrides, permissions, portals} = imports.models;
 
         infoDefault = info.getDefault();
         portalsDefault = portals.getDefault();
         applicationsDefault = applications.getDefault();
         permissionsDefault = permissions.getDefault();
+        overridesDefault = overrides.getDefault();
 
         delay = permissions.DELAY;
         portalState = portals.FlatpakPortalState;
@@ -1588,6 +1589,40 @@ describe('Model', function() {
             done();
             return GLib.SOURCE_REMOVE;
         });
+        update();
+    });
+
+    it('loads applications with overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        overridesDefault.reload();
+
+        expect(overridesDefault.hasOverrides(_basicAppId)).toBe(true);
+        expect(overridesDefault.hasOverrides(_reduceAppId)).toBe(false);
+        expect(overridesDefault.hasOverrides('global')).toBe(false);
+
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        overridesDefault.reload();
+
+        expect(overridesDefault.hasOverrides('global')).toBe(true);
+    });
+
+    it('updates applications with overrides when properties changed', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _overridenAppId;
+        permissionsDefault.reset();
+        overridesDefault.reload();
+
+        expect(overridesDefault.hasOverrides(_overridenAppId)).toBe(false);
+
+        permissionsDefault.set_property('shared-network', false);
+
+        /* overrides are saved after one delay and noticed after another */
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay * 3, () => {
+            expect(overridesDefault.hasOverrides(_overridenAppId)).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
         update();
     });
 });
