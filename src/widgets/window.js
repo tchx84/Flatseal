@@ -284,6 +284,11 @@ var FlatsealWindow = GObject.registerClass({
                 return;
 
             this._permissions.bind_property(p.statusProperty, row.status, 'status', _bindFlags);
+
+            if (!row.conditional)
+                return;
+
+            this._permissions.bind_property(p.conditionalProperty, row.conditional, 'value', _bindFlags);
         });
     }
 
