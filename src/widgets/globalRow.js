@@ -19,15 +19,29 @@
  */
 
 const {GObject, Adw} = imports.gi;
+const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 var FlatsealGlobalRow = GObject.registerClass({
     GTypeName: 'FlatsealGlobalRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/globalRow.ui',
-    InternalChildren: ['icon'],
+    InternalChildren: ['icon', 'statusBox'],
 }, class FlatsealGlobalRow extends Adw.ActionRow {
     _init() {
         super._init();
+
+        this._statusIcon = new FlatsealOverrideStatusIcon();
+        this._statusBox.append(this._statusIcon);
+    }
+
+    get hasOverrides() {
+        return this._statusIcon.status === FlatsealOverrideStatus.USER;
+    }
+
+    set hasOverrides(hasOverrides) {
+        this._statusIcon.status = hasOverrides
+            ? FlatsealOverrideStatus.USER : FlatsealOverrideStatus.ORIGINAL;
     }
 
     get appId() {

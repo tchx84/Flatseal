@@ -20,7 +20,7 @@
 
 const {GObject, Gtk, Adw} = imports.gi;
 
-const {applications, permissions} = imports.models;
+const {applications, overrides, permissions} = imports.models;
 
 const {FlatsealAppInfoViewer} = imports.widgets.appInfoViewer;
 const {FlatsealGlobalInfoViewer} = imports.widgets.globalInfoViewer;
@@ -84,6 +84,8 @@ var FlatsealWindow = GObject.registerClass({
 
         this._permissions = permissions.getDefault();
         this._applications = applications.getDefault();
+        this._overrides = overrides.getDefault();
+        this._overrides.connect('changed', this._updateOverrideStatus.bind(this));
 
         this._detailsHeaderButton = new FlatsealDetailsButton(this._permissions);
         this._startHeaderBox.append(this._detailsHeaderButton);
@@ -171,6 +173,8 @@ var FlatsealWindow = GObject.registerClass({
         /* Add row for global overrides */
         this._globalRow = new FlatsealGlobalRow();
         this._applicationsListBox.append(this._globalRow);
+
+        this._updateOverrideStatus();
 
         /* Select after the list has been sorted */
         if (this._activatedRow === null)
@@ -287,7 +291,15 @@ var FlatsealWindow = GObject.registerClass({
         });
     }
 
+    _updateOverrideStatus() {
+        for (const row of Array.from(this._applicationsListBox)) {
+            if (row instanceof Adw.ActionRow)
+                row.hasOverrides = this._overrides.hasOverrides(row.appId);
+        }
+    }
+
     _shutdown() {
+        this._overrides.shutdown();
         this._permissions.shutdown();
         this._applications.shutdown();
     }
