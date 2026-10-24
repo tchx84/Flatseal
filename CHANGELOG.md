@@ -1,5 +1,16 @@
 # Changelog
 
+## [unreleased]
+
+- Added support for USB devices allow and deny lists.
+- Added override indicator to applications list.
+- Fixed crash from corrupted application metadata files.
+- Fixed crash from corrupted custom installation configurations.
+- Fixed crash from invalid applications release timestamps.
+- Fixed mishandling conditional permissions.
+- Changed portals unset icon button for clarity.
+- Changed to GNOME 51 runtime for stability.
+
 ## [2.4.1] - 2026-05-20
 
 - Added identifier field to the app summary.
