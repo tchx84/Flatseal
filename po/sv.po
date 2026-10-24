@@ -116,7 +116,7 @@ msgstr "Lista över enheter som är tillgängliga i sandlådan"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
-msgstr "Development syscalls (t.ex. ptrace)"
+msgstr "Systemanrop för utveckling (t.ex. ptrace)"
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
@@ -144,7 +144,7 @@ msgstr "Alla systemfiler"
 
 #: src/models/filesystems.js:44
 msgid "All system libraries, executables and static data"
-msgstr "Alla systemets bibliotek, exekverbara och statisk data"
+msgstr "Alla systembibliotek, körbara filer och statiska data"
 
 #: src/models/filesystems.js:51
 msgid "All system configurations"
@@ -165,7 +165,7 @@ msgstr "Andra filer"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "t.ex. ~/games:ro, xdg-pictures, etc"
+msgstr "t.ex. ~/games:ro, xdg-pictures, osv."
 
 #: src/models/persistent.js:37
 msgid "Files"
