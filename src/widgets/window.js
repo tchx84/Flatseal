@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gtk, Adw} = imports.gi;
+const {GObject, Gio, GLib, Gtk, Adw} = imports.gi;
 
 const {applications, overrides, permissions} = imports.models;
 
@@ -79,6 +79,14 @@ var FlatsealWindow = GObject.registerClass({
         const builder = Gtk.Builder.new_from_resource(menuResource);
         this._menuButton.set_menu_model(builder.get_object('menu'));
 
+        this._filterAction = new Gio.SimpleAction({
+            name: 'filter',
+            parameterType: GLib.VariantType.new('s'),
+            state: GLib.Variant.new_string('all'),
+        });
+        this._filterAction.connect('change-state', this._changeFilter.bind(this));
+        this.add_action(this._filterAction);
+
         this._settings = new FlatsealSettingsModel();
         this._settings.restoreWindowState(this);
 
@@ -126,6 +134,7 @@ var FlatsealWindow = GObject.registerClass({
 
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
+        this._applicationsSearchBar.connect('notify::search-mode-enabled', this._resetSearch.bind(this));
 
         this._applicationsSearchButton.bind_property(
             'active', this._applicationsSearchBar, 'search-mode-enabled', _bindFlags);
@@ -296,6 +305,8 @@ var FlatsealWindow = GObject.registerClass({
             if (row instanceof Adw.ActionRow)
                 row.hasOverrides = this._overrides.hasOverrides(row.appId);
         }
+
+        this._applicationsListBox.invalidate_filter();
     }
 
     _shutdown() {
@@ -359,6 +370,15 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _filter(row) {
+        if (!this._applicationsSearchBar.search_mode_enabled)
+            return true;
+
+        const [filter] = this._filterAction.state.get_string();
+        if (filter === 'overridden' && !row.hasOverrides)
+            return false;
+        if (filter === 'not-overridden' && row.hasOverrides)
+            return false;
+
         const text = this._applicationsSearchEntry.get_text();
         if (text.length === 0)
             return true;
@@ -394,6 +414,11 @@ var FlatsealWindow = GObject.registerClass({
 
     _resetSearch() {
         this._applicationsListBox.invalidate_filter();
+    }
+
+    _changeFilter(action, value) {
+        action.set_state(value);
+        this._resetSearch();
     }
 
     _showToast() {

@@ -52,8 +52,20 @@
                 <child type="top">
                   <object class="GtkSearchBar" id="applicationsSearchBar">
                     <child>
-                      <object class="GtkSearchEntry" id="applicationsSearchEntry">
-                        <property name="hexpand">True</property>
+                      <object class="GtkBox">
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkSearchEntry" id="applicationsSearchEntry">
+                            <property name="hexpand">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkMenuButton" id="applicationsFilterButton">
+                            <property name="icon-name">com.github.tchx84.Flatseal.FunnelOutline-symbolic</property>
+                            <property name="tooltip-text" translatable="yes">Filter</property>
+                            <property name="menu-model">filterMenu</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -173,4 +185,23 @@
       </object>
     </property>
   </template>
+  <menu id="filterMenu">
+    <section>
+      <item>
+        <attribute name="action">win.filter</attribute>
+        <attribute name="target">all</attribute>
+        <attribute name="label" translatable="yes">All</attribute>
+      </item>
+      <item>
+        <attribute name="action">win.filter</attribute>
+        <attribute name="target">overridden</attribute>
+        <attribute name="label" translatable="yes">Overridden</attribute>
+      </item>
+      <item>
+        <attribute name="action">win.filter</attribute>
+        <attribute name="target">not-overridden</attribute>
+        <attribute name="label" translatable="yes">Not Overridden</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>
