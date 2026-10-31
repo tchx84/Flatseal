@@ -18,7 +18,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-const {GObject, Gio, GLib, Gtk, Adw} = imports.gi;
+const {GObject, Gtk, Adw} = imports.gi;
 
 const {applications, overrides, permissions} = imports.models;
 
@@ -53,6 +53,7 @@ var FlatsealWindow = GObject.registerClass({
         'appInfoGroup',
         'applicationsToastOverlay',
         'applicationsSearchButton',
+        'applicationsFilterButton',
         'applicationsSearchBar',
         'applicationsSearchEntry',
         'applicationsListBox',
@@ -78,14 +79,6 @@ var FlatsealWindow = GObject.registerClass({
     _setup() {
         const builder = Gtk.Builder.new_from_resource(menuResource);
         this._menuButton.set_menu_model(builder.get_object('menu'));
-
-        this._filterAction = new Gio.SimpleAction({
-            name: 'filter',
-            parameterType: GLib.VariantType.new('s'),
-            state: GLib.Variant.new_string('all'),
-        });
-        this._filterAction.connect('change-state', this._changeFilter.bind(this));
-        this.add_action(this._filterAction);
 
         this._settings = new FlatsealSettingsModel();
         this._settings.restoreWindowState(this);
@@ -134,7 +127,8 @@ var FlatsealWindow = GObject.registerClass({
 
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
-        this._applicationsSearchBar.connect('notify::search-mode-enabled', this._resetSearch.bind(this));
+        this._applicationsFilterButton.connect('toggled', this._resetSearch.bind(this));
+        this._applicationsSearchBar.connect('notify::search-mode-enabled', this._resetFilter.bind(this));
 
         this._applicationsSearchButton.bind_property(
             'active', this._applicationsSearchBar, 'search-mode-enabled', _bindFlags);
@@ -142,6 +136,7 @@ var FlatsealWindow = GObject.registerClass({
         this._setupApplications();
         this._setupPermissions();
 
+        this._applicationsSearchBar.connect_entry(this._applicationsSearchEntry);
         this._applicationsSearchBar.set_key_capture_widget(this.root);
 
         /* Only after the UI is setup */
@@ -370,13 +365,7 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _filter(row) {
-        if (!this._applicationsSearchBar.search_mode_enabled)
-            return true;
-
-        const [filter] = this._filterAction.state.get_string();
-        if (filter === 'overridden' && !row.hasOverrides)
-            return false;
-        if (filter === 'not-overridden' && row.hasOverrides)
+        if (this._applicationsFilterButton.active && !row.hasOverrides)
             return false;
 
         const text = this._applicationsSearchEntry.get_text();
@@ -416,9 +405,9 @@ var FlatsealWindow = GObject.registerClass({
         this._applicationsListBox.invalidate_filter();
     }
 
-    _changeFilter(action, value) {
-        action.set_state(value);
-        this._resetSearch();
+    _resetFilter() {
+        if (!this._applicationsSearchBar.search_mode_enabled)
+            this._applicationsFilterButton.active = false;
     }
 
     _showToast() {
