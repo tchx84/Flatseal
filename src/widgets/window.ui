@@ -52,8 +52,19 @@
                 <child type="top">
                   <object class="GtkSearchBar" id="applicationsSearchBar">
                     <child>
-                      <object class="GtkSearchEntry" id="applicationsSearchEntry">
-                        <property name="hexpand">True</property>
+                      <object class="GtkBox">
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkSearchEntry" id="applicationsSearchEntry">
+                            <property name="hexpand">True</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkToggleButton" id="applicationsFilterButton">
+                            <property name="icon-name">com.github.tchx84.Flatseal.FunnelOutline-symbolic</property>
+                            <property name="tooltip-text" translatable="yes">Show Overridden Only</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>

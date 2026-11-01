@@ -53,6 +53,7 @@ var FlatsealWindow = GObject.registerClass({
         'appInfoGroup',
         'applicationsToastOverlay',
         'applicationsSearchButton',
+        'applicationsFilterButton',
         'applicationsSearchBar',
         'applicationsSearchEntry',
         'applicationsListBox',
@@ -126,6 +127,8 @@ var FlatsealWindow = GObject.registerClass({
 
         this._applicationsSearchEntry.connect('activate', this._selectSearch.bind(this));
         this._applicationsSearchEntry.connect('search-changed', this._resetSearch.bind(this));
+        this._applicationsFilterButton.connect('toggled', this._resetSearch.bind(this));
+        this._applicationsSearchBar.connect('notify::search-mode-enabled', this._resetFilter.bind(this));
 
         this._applicationsSearchButton.bind_property(
             'active', this._applicationsSearchBar, 'search-mode-enabled', _bindFlags);
@@ -133,6 +136,7 @@ var FlatsealWindow = GObject.registerClass({
         this._setupApplications();
         this._setupPermissions();
 
+        this._applicationsSearchBar.connect_entry(this._applicationsSearchEntry);
         this._applicationsSearchBar.set_key_capture_widget(this.root);
 
         /* Only after the UI is setup */
@@ -296,6 +300,8 @@ var FlatsealWindow = GObject.registerClass({
             if (row instanceof Adw.ActionRow)
                 row.hasOverrides = this._overrides.hasOverrides(row.appId);
         }
+
+        this._applicationsListBox.invalidate_filter();
     }
 
     _shutdown() {
@@ -359,6 +365,9 @@ var FlatsealWindow = GObject.registerClass({
     }
 
     _filter(row) {
+        if (this._applicationsFilterButton.active && !row.hasOverrides)
+            return false;
+
         const text = this._applicationsSearchEntry.get_text();
         if (text.length === 0)
             return true;
@@ -394,6 +403,11 @@ var FlatsealWindow = GObject.registerClass({
 
     _resetSearch() {
         this._applicationsListBox.invalidate_filter();
+    }
+
+    _resetFilter() {
+        if (!this._applicationsSearchBar.search_mode_enabled)
+            this._applicationsFilterButton.active = false;
     }
 
     _showToast() {
