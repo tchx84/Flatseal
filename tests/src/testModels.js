@@ -347,7 +347,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host_os).toBe(true);
         expect(permissionsDefault.filesystems_host_etc).toBe(true);
         expect(permissionsDefault.filesystems_home).toBe(true);
-        expect(permissionsDefault.filesystems_other).toEqual('');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
         expect(permissionsDefault.system_talk).toEqual('org.test.Service-3');
@@ -409,7 +409,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host_os).toBe(false);
         expect(permissionsDefault.filesystems_host_etc).toBe(false);
         expect(permissionsDefault.filesystems_home).toBe(true);
-        expect(permissionsDefault.filesystems_other).toEqual('~/tset');
+        expect(permissionsDefault.filesystems_other).toEqual('!~/test;~/tset');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-4');
         expect(permissionsDefault.system_talk).toEqual('org.test.Service-5');
@@ -1190,7 +1190,7 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _filesystemWithMode;
 
-        expect(permissionsDefault.filesystems_other).toEqual('home:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('home:ro;!xdg-documents');
     });
 
     it('handles overriding filesystems with mode', function(done) {
@@ -1220,7 +1220,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
         expect(permissionsDefault.persistent).toEqual('.test1;.test2');
-        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test0;!~/test1;~/test3');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
     });
@@ -1289,7 +1289,7 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissionsDefault.appId = _globalAppId;
 
-        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test0;!~/test1;~/test3');
         permissionsDefault.set_property('filesystems_other', '~/test4');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
@@ -1297,6 +1297,24 @@ describe('Model', function() {
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test3')).toBe(true);
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '~/test4')).toBe(true);
             expect(hasInTotal(_globalWithGlobalOverride)).toEqual(3);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles negated filesystem path already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissionsDefault.appId = _globalAppId;
+
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test0;!~/test1;~/test3');
+        permissionsDefault.set_property('filesystems_other', '~/test2;!~/test0;~/test1;~/test3');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test0')).toBe(true);
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '~/test1')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(2);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -1338,7 +1356,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.variables).toEqual('TEST2=override;TEST3=global;TEST4=override');
         expect(permissionsDefault.persistent).toEqual('.test1;.test2;.test3');
-        expect(permissionsDefault.filesystems_other).toEqual('~/test4');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test0;!~/test1;!~/test2;!~/test3;~/test4');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-4');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-5');
     });

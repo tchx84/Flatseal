@@ -122,7 +122,8 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         const added = new Set([...paths]
             .filter(p => p.length !== 0)
             .filter(p => !this._filesystems.originals.has(p))
-            .filter(p => !this._originals.has(p))
+            .filter(p => !this._originals.has(p) ||
+                         this.constructor.isStrictlyOverriden(this._globals, p))
             .filter(p => !this._globals.has(p)));
 
         const removedOriginals = [...this._originals]
@@ -162,26 +163,19 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
             .filter(p => !this.constructor.isOverriden(this._overrides, p));
 
         const globals = [...this._globals]
-            .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
             .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._overrides, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
                            this.constructor.isNegated(p) &&
-                           !this.constructor.isResetOverride(p)))
-            .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                           this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)));
 
+        const replaced = new Set([...this._overrides]
+            .filter(p => !this.constructor.isNegated(p)));
+
         const overrides = [...this._overrides]
-            .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
-            .filter(p => !this.constructor.isStrictlyOverriden(this._globals, p))
+            .filter(p => !(this.constructor.isOverriden(replaced, p) &&
+                           this.constructor.isNegated(p)))
             .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
-                           this.constructor.isNegated(p) &&
-                           !this.constructor.isResetOverride(p)))
-            .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                           this.constructor.isNegated(p) &&
-                           !this.constructor.isResetOverride(p)))
-            .filter(p => !(this.constructor.isOverriden(this._globals, p) &&
                            this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)));
 

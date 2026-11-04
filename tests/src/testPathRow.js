@@ -22,6 +22,7 @@ const {setup} = imports.utils;
 setup();
 
 const {FlatsealPathRow, mode, validity} = imports.widgets.pathRow;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 describe('FlatsealPathRow', function() {
@@ -76,6 +77,58 @@ describe('FlatsealPathRow', function() {
         expect(context.has_class(mode.READONLY)).toBe(false);
         expect(context.has_class(mode.READWRITE)).toBe(false);
         expect(context.has_class(mode.CREATE)).toBe(true);
+    });
+
+    it('negates original paths when removed', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test:ro';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('!~/test');
+        expect(row.emit.calls.count()).toEqual(0);
+    });
+
+    it('negates global paths when removed', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test';
+        row.status = FlatsealOverrideStatus.GLOBAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('!~/test');
+        expect(row.emit.calls.count()).toEqual(0);
+    });
+
+    it('restores negated original paths', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test:ro';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+        row.status = FlatsealOverrideStatus.USER;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test:ro');
+        expect(row.emit.calls.count()).toEqual(0);
+    });
+
+    it('removes user paths', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test';
+        row.status = FlatsealOverrideStatus.USER;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test');
+        expect(row.emit.calls.mostRecent().args).toEqual(['remove-requested']);
+    });
+
+    it('negates negated original paths when removed', function() {
+        spyOn(row, 'emit');
+        row.text = '!~/test';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test');
+        expect(row.emit.calls.count()).toEqual(0);
     });
 
     function _handles(description, path, _mode) {
