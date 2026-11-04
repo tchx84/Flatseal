@@ -1,0 +1,617 @@
+# Georgian translation for flatseal.
+# Copyright (C) 2026 flatseal's authors.
+# This file is distributed under the same license as the flatseal package.
+# Ekaterine Papava <papava.e@gtu.ge>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 13:59-0300\n"
+"PO-Revision-Date: 2026-02-22 16:58+0100\n"
+"Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "Flatpak-ის წვდომების მართვა"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:14
+msgid "seal;sandbox;override;"
+msgstr "seal;sandbox;override;გადაფარვა;"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal გრაფიკული პროგრამაა თქვენი Flatpak-ის აპლიკაციების უფლებების "
+"გადასახედად და შესაცვლელად."
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
+msgid "The Flatseal main window"
+msgstr "Flatseal-ის მთავარი ფანჯარა"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "Flatseal აჩვენებს ფაილური სისტემის წვდომებს"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal აჩვენებს გლობალურ გადაფარვებს"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "ბოლოს არჩეული აპლიკაციის ID"
+
+#: src/models/applications.js:237 src/models/applications.js:298
+#: src/models/applications.js:299 src/models/applications.js:300
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "უცნობი"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "საუბრები"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "მფლობელები"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "სესიის სალტეზე ცნობილი სახელების სია"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "სისტემის სალტეზე ცნობილი სახელების სია"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU აჩქარება"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "შეყვანის მოწყობილობები"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "ვირტუალიზაცია"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "ზიარი მეხსიერება"
+
+#: src/models/devices.js:65
+msgid "USB devices"
+msgstr "USB მოწყობილობები"
+
+#: src/models/devices.js:72
+msgid "All devices (e.g. webcam)"
+msgstr "ყველა მოწყობილობა (მაგ: ვებკამერა)"
+
+#: src/models/devices.js:97
+msgid "List of devices available in the sandbox"
+msgstr "სენდბოქსში ხელმისაწვდომი მოწყობილობების სია"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "პროგრამისტის syscall-ები (მაგ: ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "პროგრამები სხვა არქიტექტურებიდან"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "ბლუთუზი"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "სალტე კონტროლერის არეს ქსელი"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "აპლიკაციის გაზიარებული მეხსიერება"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "აპლიკაციისთვის ხელმისაწვდომი თვისებების სია"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "ყველა სისტემის ფაილი"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "ყველა სისტემური ბიბლიოთეკა, გამშვები ფაილი და სტატიკური მონაცემები"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "ყველა სისტემის კონფიგურაცია"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "ყველა მომხმარების ფაილი"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "აპლიკაციისთვის ხელმისაწვდომი ფაილური სისტემის ქვენაკრებები"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "სხვა ფაილები"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "მაგ: ~/games:ro, xdg-pictures, და სხვა"
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "ფაილები"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "მაგ: .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr ""
+"საწყის საქაღალდესთან შედარებითი ბილიკების სია, რომლებიც სენდბოქსში შეიქმნა"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "ფონი"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "შეუძლია ფონში გაშვება"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "გაფრთხილებები"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "შეუძლია შეტყობინებების გაგზავნა"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "მიკროფონი"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "შეუძლია თქვენი მიკროფონის მოსმენა"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "დინამიკები"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "შეუძლია ხმის დაკვრა თქვენს დინამიკებში"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "კამერა"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "შეუძლია ვიდეოს ჩაწერა თქვენი კამერით"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "მდებარეობა"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "აქვს წვდომა თქვენს მდებარეობასტან"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "აპლიკაციისთვის მინიჭებული არჩეული რესურსების სია"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Flatpak-ის დაყენებული ვერსიის მიერ მხარდაჭერილი არაა"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "ითხოვს წვდომის საცავის ვერსიას 2, ან უფრო ახალს"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "პორტალის მონაცემები ჯერ მორგებული არაა"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "ქსელი"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "პროცესთშორისი კომუნიკაცია"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "ჰოსტ სისტემასთან გაზიარებული ქვესისტემების სია"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "X11 ფანჯრული სისტემა"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Wayland ფანჯრული სისტემა"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "X11 ფანჯრული სისტემაზე გადართვა"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "PulseAudio ხმის სერვერი"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "D-Bus-ის სესიის სალტე"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "D-Bus-ის სისტემური სალტე"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "დაცული გარსის აგენტი"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "სმარტ ბარათები"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "ბეჭდვის სისტემა"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "GPG-აგენტის საქაღალდეები"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "Wayland-ის სოკეტის მემკვიდრეობით მიღება"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "სენდბოქსში ხელმისაწვდომი ცნობილი სოკეტების სია"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "ცვლადები"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "მაგ: GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "აპლიკაციისთვის ცნობილი ცვლადების სია"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%B %e, %Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "ვერსია"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Last Updated"
+msgstr "ბოლო განახლება"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Runtime"
+msgstr "გაშვების დრო"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "ეს არასწორი პარამეტრია"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_დეტალების ჩვენება"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "აპლიკაციის ჩვენება პროგრამების მმართველში"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "პროგრამების მმართველი აღმოჩენილი არაა"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "ყველა აპლიკაცია"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "ცვლილებები, რომლებიც ყველა Flatpak-ის აპლიკაციას ეხება"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Flatpak-ის ვერსია"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "პორტალის ვერსია"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "ბილიკის შეცვლა"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "და_ხმარება"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_დოკუმენტაცია"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_კლავიატურის მალსახმობები"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "Flatseal-ის შეს_ახებ"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "შეიცვალა გლობალურად"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "შეიცვალა მომხმარებლის მიერ"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "ეს აბსოლუტური ბილიკი"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "ეს ბილიკი საწყის საქაღალდესთან შედარებით"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "ყველა სისტემის კონფიგურაცია"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "ყველა სისტემური ბიბლიოთეკა, გამშვები ფაილი და სტატიკური მონაცემები"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "ყველა სისტემის ფაილი"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "ყველა მომხმარების ფაილი"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "სამუშაო მაგიდის საქაღალდე"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "დოკუმენტების საქაღალდე"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "გადმოწერის საქაღალდე"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "მუსიკის საქაღალდე"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "სურათების საქაღალდე"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "საჯარო საქაღალდე"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "ვიდეოების საქაღალდე"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "შაბლონების საქაღალდე"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "კონფიგურაციის საქაღალდე"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "კეშის საქაღალდე"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "მონაცემების საქაღალდე"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "გაშვების დროის საქაღალდე"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "შეუძლია წაკითხვა: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "შეუძლია შეცვლა და წაკითხვა: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "შეუძლია შექმნა, შეცვლა და წაკითხვა: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "არ შეუძლია წაკითხვა: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "არ შეუძლია შეცვლა, ან წაკითხვა: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "არ შეუძლია შექმნა, შეცვლა, ან წაკითხვა: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "დაყენების გაუქმება"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "ნაგულისხმევი ბილიკების წაშლა შეუძ₾ებელია"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:106
+msgid "_Reset"
+msgstr "ჩამოყ_რა"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "ამ აპლიკაციაში არაფერი სეცვლილა"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "ამ აპლიკაციის წვდომების ჩამოყრა"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", არა Flatseal-ში შეტანილი ცვლილებების ჩათვლით"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "General"
+msgstr "ზოგადი"
+
+#: src/widgets/shortcutsWindow.ui:15
+msgid "Show mnemonics"
+msgstr "მნემონიკების ჩვენება"
+
+#: src/widgets/shortcutsWindow.ui:21
+msgid "Show documentation"
+msgstr "დოკუმენტაციის ჩვენება"
+
+#: src/widgets/shortcutsWindow.ui:27
+msgid "Show menu"
+msgstr "მენიუს ჩვენება"
+
+#: src/widgets/shortcutsWindow.ui:33
+msgid "Keyboard shortcuts"
+msgstr "კლავიატურის მალსახმობები"
+
+#: src/widgets/shortcutsWindow.ui:39
+msgid "Quit"
+msgstr "გასვლა"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Navigation"
+msgstr "ნავიგაცია"
+
+#: src/widgets/shortcutsWindow.ui:50
+msgid "Move left"
+msgstr "მარცხნივ გაწევა"
+
+#: src/widgets/shortcutsWindow.ui:56
+msgid "Move up"
+msgstr "აწევა"
+
+#: src/widgets/shortcutsWindow.ui:62
+msgid "Move right"
+msgstr "მარჯვნივ გაწევა"
+
+#: src/widgets/shortcutsWindow.ui:68
+msgid "Move down"
+msgstr "ჩამოწევა"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "აპლიკაციები"
+
+#: src/widgets/shortcutsWindow.ui:79 src/widgets/shortcutsWindow.ui:101
+msgid "Find"
+msgstr "ძებნა"
+
+#: src/widgets/shortcutsWindow.ui:86 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "უფლებები"
+
+#: src/widgets/shortcutsWindow.ui:90
+msgid "Toggle"
+msgstr "გადართვა"
+
+#: src/widgets/shortcutsWindow.ui:97
+msgid "Documentation"
+msgstr "დოკუმენტაცია"
+
+#: src/widgets/shortcutsWindow.ui:107
+msgid "Find next"
+msgstr "მომდევნოს მოძებნა"
+
+#: src/widgets/shortcutsWindow.ui:113
+msgid "Find previous"
+msgstr "წინანდელის ძიება"
+
+#: src/widgets/window.js:98
+msgid "Permissions have been reset"
+msgstr "წვდომების ჩამოყრა დასრულდა"
+
+#: src/widgets/window.js:99
+msgid "_Undo"
+msgstr "გა_უქმება"
+
+#: src/widgets/window.js:105
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "გადაფარვების ჩატვირთვა შეუძლებელია არასწორი შემცველობის გამო"
+
+#: src/widgets/window.js:112
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "განახლდა Flatpak-ის დაყენებების გამო"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "მთავარი მენიუ"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "აპლიკაციები ნაპოვნი არაა."
