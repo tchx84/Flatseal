@@ -89,6 +89,11 @@ var FlatsealPathRow = GObject.registerClass({
             'mode',
             'mode',
             _propFlags, mode.READONLY),
+        removed: GObject.ParamSpec.boolean(
+            'removed',
+            'removed',
+            'removed',
+            GObject.ParamFlags.READWRITE, false),
     },
     Signals: {
         'remove-requested': {},
@@ -96,7 +101,7 @@ var FlatsealPathRow = GObject.registerClass({
 }, class FlatsealPathRow extends Gtk.Box {
     _init() {
         this._mode = mode.READONLY;
-        this._restoreText = '';
+        this._removed = false;
         super._init({});
         this._setup();
     }
@@ -136,24 +141,15 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _remove() {
-        /* restore paths that were negated by the button below */
-        if (this._restoreText.length !== 0) {
-            this.text = this._restoreText;
-            this._restoreText = '';
-            this._button.set_icon_name('window-close-symbolic');
-            this._button.set_tooltip_text('');
+        if (this.removed) {
+            this.removed = false;
             return;
         }
 
-        /* paths from the application or global overrides are negated, not removed */
+        /* keep paths from the application or global overrides */
         if (this.status !== FlatsealOverrideStatus.USER &&
             this.text.length !== 0) {
-            const negated = this.text.startsWith(_negationSymbol);
-            const [path] = this.text.replace(_negationSymbol, '').split(':');
-            this._restoreText = this.text;
-            this.text = negated ? path : `${_negationSymbol}${path}`;
-            this._button.set_icon_name('object-rotate-left-symbolic');
-            this._button.set_tooltip_text(_('Restore'));
+            this.removed = true;
             return;
         }
 
@@ -256,6 +252,21 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._mode = value;
         this.notify('mode');
+    }
+
+    get removed() {
+        return this._removed;
+    }
+
+    set removed(removed) {
+        if (this._removed === removed)
+            return;
+
+        this._removed = removed;
+        this._entry.sensitive = !removed;
+        this._button.set_icon_name(removed ? 'object-rotate-left-symbolic' : 'window-close-symbolic');
+        this._button.set_tooltip_text(removed ? _('Restore') : '');
+        this.notify('removed');
     }
 
     get status() {
