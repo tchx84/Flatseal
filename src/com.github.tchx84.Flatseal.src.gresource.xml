@@ -19,6 +19,7 @@
     <file>widgets/permissionSwitchRow.js</file>
     <file>widgets/relativePathRow.js</file>
     <file>widgets/resetButton.js</file>
+    <file>widgets/restorablePathsViewer.js</file>
     <file>widgets/usbRow.js</file>
     <file>widgets/variableRow.js</file>
     <file>widgets/window.js</file>

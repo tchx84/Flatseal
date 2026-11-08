@@ -77,7 +77,7 @@ const _notValidMsg = _('This is not a valid option');
 var FlatsealPathRow = GObject.registerClass({
     GTypeName: 'FlatsealPathRow',
     Template: 'resource:///com/github/tchx84/Flatseal/widgets/pathRow.ui',
-    InternalChildren: ['entry', 'button', 'store', 'completion', 'image', 'statusBox'],
+    InternalChildren: ['entry', 'button', 'restoreButton', 'store', 'completion', 'image', 'statusBox'],
     Properties: {
         text: GObject.ParamSpec.string(
             'text',
@@ -89,6 +89,11 @@ var FlatsealPathRow = GObject.registerClass({
             'mode',
             'mode',
             _propFlags, mode.READONLY),
+        removed: GObject.ParamSpec.boolean(
+            'removed',
+            'removed',
+            'removed',
+            GObject.ParamFlags.READWRITE, false),
     },
     Signals: {
         'remove-requested': {},
@@ -96,7 +101,7 @@ var FlatsealPathRow = GObject.registerClass({
 }, class FlatsealPathRow extends Gtk.Box {
     _init() {
         this._mode = mode.READONLY;
-        this._restoreText = '';
+        this._removed = false;
         super._init({});
         this._setup();
     }
@@ -131,33 +136,24 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._entry.connect('notify::text', this._changed.bind(this));
         this._button.connect('clicked', this._remove.bind(this));
+        this._restoreButton.connect('clicked', this._restore.bind(this));
 
         this._validate();
     }
 
     _remove() {
-        /* restore paths that were negated by the button below */
-        if (this._restoreText.length !== 0) {
-            this.text = this._restoreText;
-            this._restoreText = '';
-            this._button.set_icon_name('window-close-symbolic');
-            this._button.set_tooltip_text('');
-            return;
-        }
-
-        /* paths from the application or global overrides are negated, not removed */
+        /* keep paths from the application or global overrides */
         if (this.status !== FlatsealOverrideStatus.USER &&
             this.text.length !== 0) {
-            const negated = this.text.startsWith(_negationSymbol);
-            const [path] = this.text.replace(_negationSymbol, '').split(':');
-            this._restoreText = this.text;
-            this.text = negated ? path : `${_negationSymbol}${path}`;
-            this._button.set_icon_name('object-rotate-left-symbolic');
-            this._button.set_tooltip_text(_('Restore'));
+            this.removed = true;
             return;
         }
 
         this.emit('remove-requested');
+    }
+
+    _restore() {
+        this.removed = false;
     }
 
     _changed() {
@@ -256,6 +252,21 @@ var FlatsealPathRow = GObject.registerClass({
 
         this._mode = value;
         this.notify('mode');
+    }
+
+    get removed() {
+        return this._removed;
+    }
+
+    set removed(removed) {
+        if (this._removed === removed)
+            return;
+
+        this._removed = removed;
+        this._entry.sensitive = !removed;
+        this._button.visible = !removed;
+        this._restoreButton.visible = removed;
+        this.notify('removed');
     }
 
     get status() {

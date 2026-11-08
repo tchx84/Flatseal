@@ -31,6 +31,7 @@ const {FlatsealPermissionPortalRow} = imports.widgets.permissionPortalRow;
 const {FlatsealPermissionSwitchRow} = imports.widgets.permissionSwitchRow;
 const {FlatsealResetButton} = imports.widgets.resetButton;
 const {FlatsealDetailsButton} = imports.widgets.detailsButton;
+const {FlatsealRestorablePathsViewer} = imports.widgets.restorablePathsViewer;
 const {FlatsealPathRow} = imports.widgets.pathRow;
 const {FlatsealRelativePathRow} = imports.widgets.relativePathRow;
 const {FlatsealVariableRow} = imports.widgets.variableRow;
@@ -213,7 +214,8 @@ var FlatsealWindow = GObject.registerClass({
                     p.serializeFunc,
                     p.deserializeFunc,
                     FlatsealPathRow,
-                    'folder-new-symbolic');
+                    'folder-new-symbolic',
+                    FlatsealRestorablePathsViewer);
             } else if (p.type === 'relativePath') {
                 row = new FlatsealPermissionEntryRow(
                     p.description,

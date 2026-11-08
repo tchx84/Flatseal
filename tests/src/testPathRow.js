@@ -79,36 +79,44 @@ describe('FlatsealPathRow', function() {
         expect(context.has_class(mode.CREATE)).toBe(true);
     });
 
-    it('negates original paths when removed', function() {
-        spyOn(row, 'emit');
+    it('keeps original paths when removed', function() {
+        spyOn(row, 'emit').and.callThrough();
         row.text = '~/test:ro';
         row.status = FlatsealOverrideStatus.ORIGINAL;
         row._button.emit('clicked');
 
-        expect(row.text).toEqual('!~/test');
-        expect(row.emit.calls.count()).toEqual(0);
+        expect(row.text).toEqual('~/test:ro');
+        expect(row.removed).toBe(true);
+        expect(row._entry.sensitive).toBe(false);
+        expect(row._button.visible).toBe(false);
+        expect(row._restoreButton.visible).toBe(true);
+        expect(row.emit).not.toHaveBeenCalledWith('remove-requested');
     });
 
-    it('negates global paths when removed', function() {
-        spyOn(row, 'emit');
+    it('keeps global paths when removed', function() {
+        spyOn(row, 'emit').and.callThrough();
         row.text = '~/test';
         row.status = FlatsealOverrideStatus.GLOBAL;
         row._button.emit('clicked');
 
-        expect(row.text).toEqual('!~/test');
-        expect(row.emit.calls.count()).toEqual(0);
+        expect(row.removed).toBe(true);
+        expect(row.emit).not.toHaveBeenCalledWith('remove-requested');
     });
 
-    it('restores negated original paths', function() {
-        spyOn(row, 'emit');
+    it('restores removed paths', function() {
+        spyOn(row, 'emit').and.callThrough();
         row.text = '~/test:ro';
         row.status = FlatsealOverrideStatus.ORIGINAL;
         row._button.emit('clicked');
         row.status = FlatsealOverrideStatus.USER;
-        row._button.emit('clicked');
+        row._restoreButton.emit('clicked');
 
         expect(row.text).toEqual('~/test:ro');
-        expect(row.emit.calls.count()).toEqual(0);
+        expect(row.removed).toBe(false);
+        expect(row._entry.sensitive).toBe(true);
+        expect(row._button.visible).toBe(true);
+        expect(row._restoreButton.visible).toBe(false);
+        expect(row.emit).not.toHaveBeenCalledWith('remove-requested');
     });
 
     it('removes user paths', function() {
@@ -119,16 +127,6 @@ describe('FlatsealPathRow', function() {
 
         expect(row.text).toEqual('~/test');
         expect(row.emit.calls.mostRecent().args).toEqual(['remove-requested']);
-    });
-
-    it('negates negated original paths when removed', function() {
-        spyOn(row, 'emit');
-        row.text = '!~/test';
-        row.status = FlatsealOverrideStatus.ORIGINAL;
-        row._button.emit('clicked');
-
-        expect(row.text).toEqual('~/test');
-        expect(row.emit.calls.count()).toEqual(0);
     });
 
     function _handles(description, path, _mode) {

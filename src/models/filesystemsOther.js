@@ -116,12 +116,22 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         return path;
     }
 
+    static isNegationOf(value, other) {
+        return this.negate(this.removeMode(value)) === this.removeMode(other);
+    }
+
+    isNegationOfPath(value) {
+        return [...this._originals, ...this._globals]
+            .some(p => this.constructor.isNegationOf(p, value));
+    }
+
     updateFromProxyProperty(property, value) {
         const paths = new Set(this.constructor.deserialize(value));
 
         const added = new Set([...paths]
             .filter(p => p.length !== 0)
-            .filter(p => !this._filesystems.originals.has(p))
+            .filter(p => !this._filesystems.originals.has(p) ||
+                         this.isNegationOfPath(p))
             .filter(p => !this._originals.has(p) ||
                          this.constructor.isStrictlyOverriden(this._globals, p))
             .filter(p => !this._globals.has(p)));
@@ -156,21 +166,30 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
+        const replaced = new Set([...this._overrides]
+            .filter(p => !this.constructor.isNegated(p)));
+
+        const negations = new Set([...this._overrides]
+            .filter(p => this.constructor.isNegated(p)));
+
         const originals = [...this._originals]
             .filter(p => !this.constructor.isOverriden(this._filesystems.globals, p))
             .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
             .filter(p => !this.constructor.isOverriden(this._globals, p))
-            .filter(p => !this.constructor.isOverriden(this._overrides, p));
+            .filter(p => !this.constructor.isOverriden(
+                this.constructor.isNegated(p) ? negations : replaced, p));
 
         const globals = [...this._globals]
+            .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
             .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
-            .filter(p => !this.constructor.isOverriden(this._overrides, p))
+            .filter(p => !this.constructor.isOverriden(
+                this.constructor.isNegated(p) ? negations : replaced, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
                            this.constructor.isNegated(p) &&
+                           !this.constructor.isResetOverride(p)))
+            .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
+                           this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)));
-
-        const replaced = new Set([...this._overrides]
-            .filter(p => !this.constructor.isNegated(p)));
 
         const overrides = [...this._overrides]
             .filter(p => !(this.constructor.isOverriden(replaced, p) &&
