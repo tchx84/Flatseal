@@ -21,6 +21,7 @@ setup();
 
 const {FlatsealPathsViewer} = imports.widgets.pathsViewer;
 const {FlatsealPathRow} = imports.widgets.pathRow;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 const _paths = 'home;host;xdg-desktop';
 
@@ -55,5 +56,38 @@ describe('FlatsealPathsViewer', function() {
         viewer.add('');
         viewer.text = '';
         expect(viewer.text).toEqual('');
+    });
+
+    it('adds negation of original paths', function() {
+        viewer.text = '~/test:ro';
+        viewer.status = FlatsealOverrideStatus.ORIGINAL;
+        viewer.get_first_child()._button.emit('clicked');
+
+        expect(viewer.text).toEqual('~/test:ro;!~/test');
+        expect(viewer.get_first_child().status).toEqual(FlatsealOverrideStatus.USER);
+    });
+
+    it('does not add the same negation twice', function() {
+        viewer.text = '~/test:ro;!~/test';
+        viewer.status = `${FlatsealOverrideStatus.ORIGINAL};${FlatsealOverrideStatus.USER}`;
+        viewer.get_last_child()._button.emit('clicked');
+
+        expect(viewer.text).toEqual('~/test:ro;!~/test');
+    });
+
+    it('removes negation of original paths', function() {
+        viewer.text = '~/test:ro;!~/test';
+        viewer.status = `${FlatsealOverrideStatus.ORIGINAL};${FlatsealOverrideStatus.USER}`;
+        viewer.get_first_child()._button.emit('clicked');
+
+        expect(viewer.text).toEqual('~/test:ro');
+    });
+
+    it('keeps status of loaded paths', function() {
+        viewer.text = '~/test:ro;!~/test';
+        viewer.status = `${FlatsealOverrideStatus.ORIGINAL};${FlatsealOverrideStatus.USER}`;
+
+        expect(viewer.get_last_child().status).toEqual(FlatsealOverrideStatus.ORIGINAL);
+        expect(viewer.get_first_child().status).toEqual(FlatsealOverrideStatus.USER);
     });
 });

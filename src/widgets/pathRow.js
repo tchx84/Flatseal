@@ -19,6 +19,7 @@
  */
 
 const {GObject, Gtk} = imports.gi;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
 
 const _propFlags = GObject.ParamFlags.READWRITE | GObject.ParamFlags.CONSTRUCT;
@@ -91,6 +92,9 @@ var FlatsealPathRow = GObject.registerClass({
     },
     Signals: {
         'remove-requested': {},
+        'negate-requested': {
+            param_types: [GObject.TYPE_STRING],
+        },
     },
 }, class FlatsealPathRow extends Gtk.Box {
     _init() {
@@ -134,6 +138,15 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _remove() {
+        /* paths from the application or global overrides are kept, and negated in a new row */
+        if (this.status !== FlatsealOverrideStatus.USER &&
+            this.text.length !== 0) {
+            const negated = this.text.startsWith(_negationSymbol);
+            const [path] = this.text.replace(_negationSymbol, '').split(':');
+            this.emit('negate-requested', negated ? path : `${_negationSymbol}${path}`);
+            return;
+        }
+
         this.emit('remove-requested');
     }
 

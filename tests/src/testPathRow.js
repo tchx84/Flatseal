@@ -22,6 +22,7 @@ const {setup} = imports.utils;
 setup();
 
 const {FlatsealPathRow, mode, validity} = imports.widgets.pathRow;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 describe('FlatsealPathRow', function() {
@@ -76,6 +77,46 @@ describe('FlatsealPathRow', function() {
         expect(context.has_class(mode.READONLY)).toBe(false);
         expect(context.has_class(mode.READWRITE)).toBe(false);
         expect(context.has_class(mode.CREATE)).toBe(true);
+    });
+
+    it('requests negation of original paths when removed', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test:ro';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test:ro');
+        expect(row.emit.calls.mostRecent().args).toEqual(['negate-requested', '!~/test']);
+    });
+
+    it('requests negation of global paths when removed', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test';
+        row.status = FlatsealOverrideStatus.GLOBAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test');
+        expect(row.emit.calls.mostRecent().args).toEqual(['negate-requested', '!~/test']);
+    });
+
+    it('requests negation of negated original paths when removed', function() {
+        spyOn(row, 'emit');
+        row.text = '!~/test';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('!~/test');
+        expect(row.emit.calls.mostRecent().args).toEqual(['negate-requested', '~/test']);
+    });
+
+    it('removes user paths', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test';
+        row.status = FlatsealOverrideStatus.USER;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test');
+        expect(row.emit.calls.mostRecent().args).toEqual(['remove-requested']);
     });
 
     function _handles(description, path, _mode) {
