@@ -61,6 +61,14 @@ var FlatsealPathsViewer = GObject.registerClass({
         this._changed();
     }
 
+    _negate(row, path) {
+        if (Array.from(this).some(r => r.text === path))
+            return;
+
+        this.add(path);
+        this._changed();
+    }
+
     _update(text) {
         for (const row of Array.from(this))
             this.remove(row);
@@ -122,8 +130,12 @@ var FlatsealPathsViewer = GObject.registerClass({
     add(path) {
         const row = new this._rowClass();
         row.text = path;
+        row.status = FlatsealOverrideStatus.USER;
         row.connect('remove-requested', this._remove.bind(this, row));
         row.connect('notify::text', this._changed.bind(this));
+
+        if (GObject.signal_lookup('negate-requested', this._rowClass.$gtype) !== 0)
+            row.connect('negate-requested', this._negate.bind(this));
 
         this.prepend(row);
         this.visible = true;

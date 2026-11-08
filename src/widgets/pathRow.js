@@ -92,11 +92,13 @@ var FlatsealPathRow = GObject.registerClass({
     },
     Signals: {
         'remove-requested': {},
+        'negate-requested': {
+            param_types: [GObject.TYPE_STRING],
+        },
     },
 }, class FlatsealPathRow extends Gtk.Box {
     _init() {
         this._mode = mode.READONLY;
-        this._restoreText = '';
         super._init({});
         this._setup();
     }
@@ -136,24 +138,12 @@ var FlatsealPathRow = GObject.registerClass({
     }
 
     _remove() {
-        /* restore paths that were negated by the button below */
-        if (this._restoreText.length !== 0) {
-            this.text = this._restoreText;
-            this._restoreText = '';
-            this._button.set_icon_name('window-close-symbolic');
-            this._button.set_tooltip_text('');
-            return;
-        }
-
-        /* paths from the application or global overrides are negated, not removed */
+        /* paths from the application or global overrides are kept, and negated in a new row */
         if (this.status !== FlatsealOverrideStatus.USER &&
             this.text.length !== 0) {
             const negated = this.text.startsWith(_negationSymbol);
             const [path] = this.text.replace(_negationSymbol, '').split(':');
-            this._restoreText = this.text;
-            this.text = negated ? path : `${_negationSymbol}${path}`;
-            this._button.set_icon_name('object-rotate-left-symbolic');
-            this._button.set_tooltip_text(_('Restore'));
+            this.emit('negate-requested', negated ? path : `${_negationSymbol}${path}`);
             return;
         }
 
