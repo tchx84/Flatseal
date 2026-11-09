@@ -59,6 +59,7 @@ const _malformedAppId = 'com.test.Malformed';
 const _conditionalAppId = 'com.test.Conditional';
 const _invalidTimestampAppId = 'com.test.InvalidTimestamp';
 const _malformedMetadataAppId = 'com.test.MalformedMetadata';
+const _keywordsAppId = 'com.test.Keywords';
 
 const _flatpakInfo = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info']);
 const _flatpakInfoOld = GLib.build_filenamev(['..', 'tests', 'content', '.flatpak-info.old']);
@@ -186,6 +187,22 @@ describe('Model', function() {
 
         const appIds = applicationsDefault.getAll().map(a => a.appId);
         expect(appIds).toContain(_invalidTimestampAppId);
+    });
+
+    it('loads keywords from desktop file', function() {
+        const app = applicationsDefault.getAll().find(a => a.appId === _keywordsAppId);
+        expect(app.appKeywords).toContain('pdf');
+        expect(app.appKeywords).toContain('viewer');
+    });
+
+    it('loads generic name from desktop file', function() {
+        const app = applicationsDefault.getAll().find(a => a.appId === _keywordsAppId);
+        expect(app.appKeywords).toContain('Document Reader');
+    });
+
+    it('loads no keywords without desktop file', function() {
+        const app = applicationsDefault.getAll().find(a => a.appId === _basicAppId);
+        expect(app.appKeywords).toEqual([]);
     });
 
     it('does not crash when an app metadata file is malformed', function() {
