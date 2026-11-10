@@ -144,10 +144,24 @@ var FlatpakSharedModel = GObject.registerClass({
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
             const statusProperty = `${property}-status`;
+            const conditionalProperty = `${property}-conditional`;
             const status = this._getStatusForPermission(option);
 
+            /* Overridden permissions are no longer conditional */
+            let conditional = '';
+            if (status === FlatsealOverrideStatus.ORIGINAL)
+                conditional = this._conditionals.get(option) || '';
+
             proxy.set_property(statusProperty, status);
+            proxy.set_property(conditionalProperty, conditional);
         });
+    }
+
+    /* Flatpak drops a conditional if a bare grant for the same
+     * option is applied afterward, so this being set doesn't
+     * guarantee the permission is actually granted at runtime. */
+    markConditional(option, rawValue) {
+        this._conditionals.set(option, rawValue);
     }
 
     updateProxyProperty(proxy) {
@@ -190,6 +204,10 @@ var FlatpakSharedModel = GObject.registerClass({
         const group = this.constructor.getGroup();
         const key = this.constructor.getKey();
 
+        /* This only writes from _overrides (the on/off state), it does
+         * not write out anything from _conditionals. Saving can
+         * therefore drop an existing conditional entry from the
+         * override file. Write-back isn't implemented yet. */
         this._overrides.forEach(value => {
             let _value = value;
 
@@ -208,5 +226,6 @@ var FlatpakSharedModel = GObject.registerClass({
         this._overrides = new Set();
         this._globals = new Set();
         this._originals = new Set();
+        this._conditionals = new Map();
     }
 });

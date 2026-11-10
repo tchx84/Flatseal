@@ -1,2 +1,2 @@
 [Context]
-devices=all;if:all:!has-input-device;
+devices=all;if:all:!has-input-device;if:kvm:!has-input-device;
