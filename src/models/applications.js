@@ -270,6 +270,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
     getDesktopForAppData(appdata) {
         const desktop = {
             icon: 'application-x-executable-symbolic',
+            keywords: [],
         };
 
         const path = GLib.build_filenamev([
@@ -281,6 +282,21 @@ var FlatpakApplicationsModel = GObject.registerClass({
         if (!file.query_exists(null))
             return desktop;
 
+        const group = 'Desktop Entry';
+        const keyFile = new GLib.KeyFile();
+        try {
+            keyFile.load_from_file(path, GLib.KeyFileFlags.NONE);
+        } catch (err) {
+            logError(err, `Could not load desktop file ${path}`);
+        }
+
+        const [groups] = keyFile.get_groups();
+        if (groups.includes(group)) {
+            const [keys] = keyFile.get_keys(group);
+            if (keys.includes('GenericName'))
+                desktop.keywords.push(keyFile.get_locale_string(group, 'GenericName', null));
+        }
+
         const metadata = new AppStream.Metadata();
         try {
             metadata.parse_file(file, AppStream.FormatKind.DESKTOP_ENTRY);
@@ -291,6 +307,10 @@ var FlatpakApplicationsModel = GObject.registerClass({
         const component = metadata.get_component();
         if (component === null)
             return desktop;
+
+        const keywords = component.get_keywords();
+        if (keywords !== null)
+            desktop.keywords = [...desktop.keywords, ...keywords];
 
         const icon = component.get_icon_stock();
         if (icon === null)
@@ -393,6 +413,7 @@ var FlatpakApplicationsModel = GObject.registerClass({
                 appThemePath: this._getIconThemePathForAppId(appId),
                 appName: appdata.name,
                 appIconName: desktop.icon,
+                appKeywords: desktop.keywords,
             };
         });
     }
