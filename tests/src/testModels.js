@@ -70,6 +70,7 @@ const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatp
 const _globalNegated = GLib.build_filenamev(['..', 'tests', 'content', 'globalNegated', 'flatpak']);
 const _globalResetMode = GLib.build_filenamev(['..', 'tests', 'content', 'globalResetMode', 'flatpak']);
 const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
+const _restored = GLib.build_filenamev(['..', 'tests', 'content', 'restored', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
 const _overrides = GLib.build_filenamev([_tmp, 'overrides']);
@@ -77,6 +78,7 @@ const _globalOverride = GLib.build_filenamev([_overrides, 'global']);
 const _globalNegatedOverride = GLib.build_filenamev([_globalNegated, 'overrides', 'global']);
 const _globalResetModeOverride = GLib.build_filenamev([_globalResetMode, 'overrides', 'global']);
 const _basicOverride = GLib.build_filenamev([_overrides, _basicAppId]);
+const _basicNegatedOverride = GLib.build_filenamev([_overrides, _basicNegatedAppId]);
 const _reduceOverride = GLib.build_filenamev([_overrides, _reduceAppId]);
 const _increaseOverride = GLib.build_filenamev([_overrides, _increaseAppId]);
 const _negationOverride = GLib.build_filenamev([_overrides, _negationAppId]);
@@ -89,6 +91,9 @@ const _filesystemWithModeOverride = GLib.build_filenamev([_overrides, _filesyste
 const _resetModeOverride = GLib.build_filenamev([_overrides, _resetModeId]);
 const _conditionalOverride = GLib.build_filenamev([_overrides, _conditionalAppId]);
 const _globalWithGlobalOverride = GLib.build_filenamev([_global, 'overrides', _globalAppId]);
+const _userFilesystemWithModeOverride = GLib.build_filenamev([_user, 'overrides', _filesystemWithMode]);
+const _restoredResetModeOverride = GLib.build_filenamev([_restored, 'overrides', _resetModeId]);
+const _restoredBasicNegatedOverride = GLib.build_filenamev([_restored, 'overrides', _basicNegatedAppId]);
 
 const _sessionGroup = 'Session Bus Policy';
 const _key = 'filesystems';
@@ -138,6 +143,7 @@ describe('Model', function() {
         permissionsDefault.reload();
 
         GLib.unlink(_basicOverride);
+        GLib.unlink(_basicNegatedOverride);
         GLib.unlink(_reduceOverride);
         GLib.unlink(_increaseOverride);
         GLib.unlink(_negationOverride);
@@ -347,7 +353,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host_os).toBe(true);
         expect(permissionsDefault.filesystems_host_etc).toBe(true);
         expect(permissionsDefault.filesystems_home).toBe(true);
-        expect(permissionsDefault.filesystems_other).toEqual('');
+        expect(permissionsDefault.filesystems_other).toEqual('!~/test;~/test');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-1');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
         expect(permissionsDefault.system_talk).toEqual('org.test.Service-3');
@@ -409,7 +415,7 @@ describe('Model', function() {
         expect(permissionsDefault.filesystems_host_os).toBe(false);
         expect(permissionsDefault.filesystems_host_etc).toBe(false);
         expect(permissionsDefault.filesystems_home).toBe(true);
-        expect(permissionsDefault.filesystems_other).toEqual('~/tset');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test;!~/test;~/tset');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-4');
         expect(permissionsDefault.system_talk).toEqual('org.test.Service-5');
@@ -1190,7 +1196,7 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _filesystemWithMode;
 
-        expect(permissionsDefault.filesystems_other).toEqual('home:ro');
+        expect(permissionsDefault.filesystems_other).toEqual('host:ro;xdg-documents:ro;home:ro;!xdg-documents;!host');
     });
 
     it('handles overriding filesystems with mode', function(done) {
@@ -1211,6 +1217,180 @@ describe('Model', function() {
         update();
     });
 
+    it('sets status of original paths next to their negation', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _basicAppId;
+
+        permissionsDefault.set_property('filesystems-other', '~/test;!~/test');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            permissionsDefault.appId = _basicAppId;
+            expect(permissionsDefault.filesystems_other).toEqual('~/test;!~/test');
+            expect(permissionsDefault.filesystems_other_status).toEqual('original;user');
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles removing filesystems with mode', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _filesystemWithMode;
+
+        permissionsDefault.set_property('filesystems-other', 'host:ro;home:ro;!xdg-documents');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
+            expect(has(_filesystemWithModeOverride, group, _key, '!xdg-documents')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores filesystems with mode when negation is removed', function(done) {
+        const source = Gio.File.new_for_path(_userFilesystemWithModeOverride);
+        const destination = Gio.File.new_for_path(_filesystemWithModeOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _filesystemWithMode;
+
+        expect(permissionsDefault.filesystems_other).toEqual('host:ro;xdg-documents:ro;home:ro;!xdg-documents;!host');
+        permissionsDefault.set_property('filesystems-other', 'host:ro;xdg-documents:ro;home:ro;!host');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_filesystemWithModeOverride, 'Context', 'filesystems', '!host')).toBe(true);
+            expect(hasInTotal(_filesystemWithModeOverride)).toEqual(1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles removing filesystems with mode negated by filesystems', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _filesystemWithMode;
+
+        permissionsDefault.set_property('filesystems-other', 'host:ro;xdg-documents:ro;home:ro;!host');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_filesystemWithModeOverride, 'Context', 'filesystems', '!host')).toBe(true);
+            expect(hasInTotal(_filesystemWithModeOverride)).toEqual(1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores filesystems with mode negated by filesystems', function(done) {
+        const source = Gio.File.new_for_path(_userFilesystemWithModeOverride);
+        const destination = Gio.File.new_for_path(_filesystemWithModeOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _filesystemWithMode;
+
+        expect(permissionsDefault.filesystems_other_status).toEqual('original;original;original;user;user');
+        permissionsDefault.set_property('filesystems-other', 'host:ro;xdg-documents:ro;home:ro;!xdg-documents');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_filesystemWithModeOverride, 'Context', 'filesystems', '!xdg-documents')).toBe(true);
+            expect(hasInTotal(_filesystemWithModeOverride)).toEqual(1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles overriding global reset filesystems', function(done) {
+        const source = Gio.File.new_for_path(_globalResetModeOverride);
+        const destination = Gio.File.new_for_path(_globalOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _resetModeId;
+
+        permissionsDefault.set_property('filesystems-other', '!host:reset;host');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_resetModeOverride, 'Context', 'filesystems', 'host')).toBe(true);
+            expect(hasInTotal(_resetModeOverride)).toEqual(1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores global reset filesystems when override is removed', function(done) {
+        const globalSource = Gio.File.new_for_path(_globalResetModeOverride);
+        const globalDestination = Gio.File.new_for_path(_globalOverride);
+        globalSource.copy(globalDestination, Gio.FileCopyFlags.NONE, null, null);
+
+        const source = Gio.File.new_for_path(_restoredResetModeOverride);
+        const destination = Gio.File.new_for_path(_resetModeOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _resetModeId;
+
+        expect(permissionsDefault.filesystems_other).toEqual('!host:reset;host');
+        expect(permissionsDefault.filesystems_other_status).toEqual('global;user');
+        permissionsDefault.set_property('filesystems-other', '!host:reset');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_resetModeOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles overriding negated filesystems', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _basicNegatedAppId;
+
+        expect(permissionsDefault.filesystems_other).toEqual('!~/test');
+        permissionsDefault.set_property('filesystems-other', '!~/test;~/test');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            const group = permissionsDefault.constructor.getGroupForProperty('filesystems-other');
+            expect(has(_basicNegatedOverride, group, _key, '~/test')).toBe(true);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('restores negated filesystems when override is removed', function(done) {
+        const source = Gio.File.new_for_path(_restoredBasicNegatedOverride);
+        const destination = Gio.File.new_for_path(_basicNegatedOverride);
+        source.copy(destination, Gio.FileCopyFlags.NONE, null, null);
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _basicNegatedAppId;
+
+        expect(permissionsDefault.filesystems_other).toEqual('!~/test;~/test');
+        expect(permissionsDefault.filesystems_other_status).toEqual('original;user');
+        permissionsDefault.set_property('filesystems-other', '!~/test');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(GLib.access(_basicNegatedOverride, 0)).toEqual(-1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
     it('loads global overrides', function() {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissionsDefault.appId = _globalAppId;
@@ -1220,7 +1400,7 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.variables).toEqual('TEST1=global;TEST2=original;TEST3=global');
         expect(permissionsDefault.persistent).toEqual('.test1;.test2');
-        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test0;!~/test1;~/test3');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-3');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-2');
     });
@@ -1289,7 +1469,7 @@ describe('Model', function() {
         GLib.setenv('FLATPAK_USER_DIR', _global, true);
         permissionsDefault.appId = _globalAppId;
 
-        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test3');
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test0;!~/test1;~/test3');
         permissionsDefault.set_property('filesystems_other', '~/test4');
 
         GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
@@ -1297,6 +1477,24 @@ describe('Model', function() {
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test3')).toBe(true);
             expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '~/test4')).toBe(true);
             expect(hasInTotal(_globalWithGlobalOverride)).toEqual(3);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('handles negated filesystem path already globally overridden', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _global, true);
+        permissionsDefault.appId = _globalAppId;
+
+        expect(permissionsDefault.filesystems_other).toEqual('~/test2;~/test0;!~/test1;~/test3');
+        permissionsDefault.set_property('filesystems_other', '~/test2;!~/test0;~/test1;~/test3');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '!~/test0')).toBe(true);
+            expect(has(_globalWithGlobalOverride, 'Context', 'filesystems', '~/test1')).toBe(true);
+            expect(hasInTotal(_globalWithGlobalOverride)).toEqual(2);
             done();
             return GLib.SOURCE_REMOVE;
         });
@@ -1338,7 +1536,8 @@ describe('Model', function() {
         expect(permissionsDefault.sockets_cups).toBe(true);
         expect(permissionsDefault.variables).toEqual('TEST2=override;TEST3=global;TEST4=override');
         expect(permissionsDefault.persistent).toEqual('.test1;.test2;.test3');
-        expect(permissionsDefault.filesystems_other).toEqual('~/test4');
+        expect(permissionsDefault.filesystems_other).toEqual(
+            '~/test2;~/test0;!~/test1;~/test3;!~/test2;!~/test3;~/test4');
         expect(permissionsDefault.session_talk).toEqual('org.test.Service-4');
         expect(permissionsDefault.session_own).toEqual('org.test.Service-5');
     });

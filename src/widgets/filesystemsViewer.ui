@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealFilesystemsViewer" parent="FlatsealPathsViewer">
+    <property name="orientation">vertical</property>
+    <property name="visible">False</property>
+  </template>
+</interface>

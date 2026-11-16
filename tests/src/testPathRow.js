@@ -22,6 +22,7 @@ const {setup} = imports.utils;
 setup();
 
 const {FlatsealPathRow, mode, validity} = imports.widgets.pathRow;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
 
 describe('FlatsealPathRow', function() {
@@ -76,6 +77,54 @@ describe('FlatsealPathRow', function() {
         expect(context.has_class(mode.READONLY)).toBe(false);
         expect(context.has_class(mode.READWRITE)).toBe(false);
         expect(context.has_class(mode.CREATE)).toBe(true);
+    });
+
+    it('keeps original paths when removed', function() {
+        spyOn(row, 'emit').and.callThrough();
+        row.text = '~/test:ro';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test:ro');
+        expect(row.removed).toBe(true);
+        expect(row._entry.sensitive).toBe(false);
+        expect(row._button.icon_name).toEqual('object-rotate-left-symbolic');
+        expect(row.emit).not.toHaveBeenCalledWith('remove-requested');
+    });
+
+    it('keeps global paths when removed', function() {
+        spyOn(row, 'emit').and.callThrough();
+        row.text = '~/test';
+        row.status = FlatsealOverrideStatus.GLOBAL;
+        row._button.emit('clicked');
+
+        expect(row.removed).toBe(true);
+        expect(row.emit).not.toHaveBeenCalledWith('remove-requested');
+    });
+
+    it('restores removed paths', function() {
+        spyOn(row, 'emit').and.callThrough();
+        row.text = '~/test:ro';
+        row.status = FlatsealOverrideStatus.ORIGINAL;
+        row._button.emit('clicked');
+        row.status = FlatsealOverrideStatus.USER;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test:ro');
+        expect(row.removed).toBe(false);
+        expect(row._entry.sensitive).toBe(true);
+        expect(row._button.icon_name).toEqual('window-close-symbolic');
+        expect(row.emit).not.toHaveBeenCalledWith('remove-requested');
+    });
+
+    it('removes user paths', function() {
+        spyOn(row, 'emit');
+        row.text = '~/test';
+        row.status = FlatsealOverrideStatus.USER;
+        row._button.emit('clicked');
+
+        expect(row.text).toEqual('~/test');
+        expect(row.emit.calls.mostRecent().args).toEqual(['remove-requested']);
     });
 
     function _handles(description, path, _mode) {

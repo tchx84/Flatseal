@@ -21,6 +21,7 @@
 const {GObject} = imports.gi;
 
 const {filesystems} = imports.models;
+const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 const {FlatpakSharedModel} = imports.models.shared;
 
 
@@ -116,13 +117,33 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         return path;
     }
 
+    static isNegationOf(value, other) {
+        return this.negate(this.removeMode(value)) === this.removeMode(other);
+    }
+
+    _isNegationOfPath(value) {
+        return [...this._originals, ...this._globals]
+            .some(p => this.constructor.isNegationOf(p, value));
+    }
+
+    _getNegatedOverrides() {
+        return new Set([...this._filesystems.overrides]
+            .filter(p => this._isNegationOfPath(p)));
+    }
+
     updateFromProxyProperty(property, value) {
         const paths = new Set(this.constructor.deserialize(value));
 
+        /* negations of these paths can be loaded by the filesystems model */
+        this._getNegatedOverrides()
+            .forEach(p => this._filesystems.overrides.delete(p));
+
         const added = new Set([...paths]
             .filter(p => p.length !== 0)
-            .filter(p => !this._filesystems.originals.has(p))
-            .filter(p => !this._originals.has(p))
+            .filter(p => !this._filesystems.originals.has(p) ||
+                         this._isNegationOfPath(p))
+            .filter(p => !this._originals.has(p) ||
+                         this.constructor.isStrictlyOverriden(this._globals, p))
             .filter(p => !this._globals.has(p)));
 
         const removedOriginals = [...this._originals]
@@ -145,6 +166,18 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
         this._overrides = new Set([...added, ...removedOriginals, ...removedGlobals]);
     }
 
+    _getStatusForPermission(permission) {
+        let status = FlatsealOverrideStatus.ORIGINAL;
+
+        if (this._globals.has(permission))
+            status = FlatsealOverrideStatus.GLOBAL;
+        if (this._overrides.has(permission) ||
+            this._filesystems.overrides.has(permission))
+            status = FlatsealOverrideStatus.USER;
+
+        return status;
+    }
+
     updateStatusProperty(proxy) {
         const values = proxy.filesystems_other
             .split(';')
@@ -155,37 +188,40 @@ var FlatpakFilesystemsOtherModel = GObject.registerClass({
     }
 
     updateProxyProperty(proxy) {
+        const replaced = new Set([...this._overrides]
+            .filter(p => !this.constructor.isNegated(p)));
+
+        const negations = new Set([...this._overrides]
+            .filter(p => this.constructor.isNegated(p)));
+
+        const negatedOverrides = this._getNegatedOverrides();
+
+        const filesystemsOverrides = new Set([...this._filesystems.overrides]
+            .filter(p => !negatedOverrides.has(p)));
+
         const originals = [...this._originals]
             .filter(p => !this.constructor.isOverriden(this._filesystems.globals, p))
-            .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
+            .filter(p => !this.constructor.isOverriden(filesystemsOverrides, p))
             .filter(p => !this.constructor.isOverriden(this._globals, p))
-            .filter(p => !this.constructor.isOverriden(this._overrides, p));
+            .filter(p => !this.constructor.isOverriden(
+                this.constructor.isNegated(p) ? negations : replaced, p));
 
         const globals = [...this._globals]
-            .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
-            .filter(p => !this.constructor.isOverriden(this._filesystems.overrides, p))
-            .filter(p => !this.constructor.isOverriden(this._overrides, p))
+            .filter(p => !this.constructor.isOverriden(filesystemsOverrides, p))
+            .filter(p => !this.constructor.isOverriden(
+                this.constructor.isNegated(p) ? negations : replaced, p))
             .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
-                           this.constructor.isNegated(p) &&
-                           !this.constructor.isResetOverride(p)))
-            .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
                            this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)));
 
         const overrides = [...this._overrides]
-            .filter(p => !this.constructor.isStrictlyOverriden(this._originals, p))
-            .filter(p => !this.constructor.isStrictlyOverriden(this._globals, p))
+            .filter(p => !(this.constructor.isOverriden(replaced, p) &&
+                           this.constructor.isNegated(p)))
             .filter(p => !(this.constructor.isOverriden(this._filesystems.originals, p) &&
-                           this.constructor.isNegated(p) &&
-                           !this.constructor.isResetOverride(p)))
-            .filter(p => !(this.constructor.isOverriden(this._originals, p) &&
-                           this.constructor.isNegated(p) &&
-                           !this.constructor.isResetOverride(p)))
-            .filter(p => !(this.constructor.isOverriden(this._globals, p) &&
                            this.constructor.isNegated(p) &&
                            !this.constructor.isResetOverride(p)));
 
-        const paths = new Set([...originals, ...globals, ...overrides]);
+        const paths = new Set([...originals, ...globals, ...overrides, ...negatedOverrides]);
         const value = this.constructor.serialize([...paths]);
 
         proxy.set_property('filesystems-other', value);
