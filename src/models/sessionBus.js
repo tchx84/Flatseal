@@ -23,12 +23,15 @@ const {GObject} = imports.gi;
 const {FlatpakSharedModel} = imports.models.shared;
 const {FlatsealOverrideStatus} = imports.models.overrideStatus;
 
+/* https://dbus.freedesktop.org/doc/dbus-specification.html */
+const EXP = /^(([A-Z]|[a-z]|[0-9]|_|-)+)(\.(([A-Z]|[a-z]|[0-9]|_|-)+))+(\.\*){0,1}$/;
 
 var FlatpakSessionBusModel = GObject.registerClass({
     GTypeName: 'FlatpakSessionBusModel',
 }, class FlatpakSessionBusModel extends FlatpakSharedModel {
     _init() {
         super._init({});
+        this._expression = new RegExp(EXP);
     }
 
     getPermissions() {
@@ -180,7 +183,9 @@ var FlatpakSessionBusModel = GObject.registerClass({
     saveToKeyFile(keyFile) {
         const group = this.constructor.getGroup();
         Object.entries(this._overrides).forEach(([key, value]) => {
-            keyFile.set_value(group, key, value);
+            if (this._expression.test(key)) {
+                keyFile.set_value(group, key, value);
+            }
         });
     }
 
