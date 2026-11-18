@@ -69,6 +69,7 @@ const _user = GLib.build_filenamev(['..', 'tests', 'content', 'user', 'flatpak']
 const _global = GLib.build_filenamev(['..', 'tests', 'content', 'global', 'flatpak']);
 const _globalNegated = GLib.build_filenamev(['..', 'tests', 'content', 'globalNegated', 'flatpak']);
 const _globalResetMode = GLib.build_filenamev(['..', 'tests', 'content', 'globalResetMode', 'flatpak']);
+const _globalConditional = GLib.build_filenamev(['..', 'tests', 'content', 'globalConditional', 'flatpak']);
 const _statuses = GLib.build_filenamev(['..', 'tests', 'content', 'statuses', 'flatpak']);
 const _tmp = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'tmp']);
 const _none = GLib.build_filenamev([GLib.DIR_SEPARATOR_S, 'dev', 'null']);
@@ -623,6 +624,28 @@ describe('Model', function() {
             expect(has(_unsupportedOverride, 'Context', 'shared', 'unsupported')).toBe(true);
             expect(has(_unsupportedOverride, 'Context', 'shared', 'undefined')).toBe(false);
             expect(has(_unsupportedOverride, 'Context', 'shared', 'null')).toBe(false);
+
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('ignores unsupported conditional permissions', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissionsDefault.appId = _unsupportedAppId;
+
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.set_property('filesystems-other', '');
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(has(
+                _unsupportedOverride, 'Context', 'unsupported',
+                'if:unsupported-permission:!has-unsupported-permission')).toBe(false);
+            expect(has(
+                _unsupportedOverride, 'Context', 'unsupported',
+                'unsupported-permission')).toBe(false);
 
             done();
             return GLib.SOURCE_REMOVE;
@@ -1492,10 +1515,28 @@ describe('Model', function() {
         update();
     });
 
-    it('ignores conditional permissions', function() {
+    it('marks conditional permissions from original metadata', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
         permissionsDefault.appId = _conditionalAppId;
 
-        expect(permissionsDefault.sockets_x11).toBe(true);
+        expect(permissionsDefault.sockets_x11_conditional).toBe('if:x11:!has-wayland');
+
+        expect(permissionsDefault.sockets_wayland).toBe(true);
+        expect(permissionsDefault.sockets_wayland_conditional).toBe('if:wayland:true');
+    });
+
+    it('drops conditional permissions from overrides', function() {
+        GLib.setenv('FLATPAK_USER_DIR', _user, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.devices_kvm).toBe(false);
+        expect(permissionsDefault.devices_kvm_conditional).toBe('');
+
+        GLib.setenv('FLATPAK_USER_DIR', _globalConditional, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.features_devel).toBe(false);
+        expect(permissionsDefault.features_devel_conditional).toBe('');
     });
 
     it('does not write conditional permissions back', function(done) {
@@ -1515,6 +1556,24 @@ describe('Model', function() {
             expect(has(_conditionalOverride, group, 'sockets', 'if:x11:!has-wayland')).toBe(false);
             expect(has(_conditionalOverride, group, 'devices', 'if:all:!has-input-device')).toBe(false);
             expect(hasInTotal(_conditionalOverride)).toEqual(1);
+            done();
+            return GLib.SOURCE_REMOVE;
+        });
+
+        update();
+    });
+
+    it('does not mark overridden conditional permissions', function(done) {
+        GLib.setenv('FLATPAK_USER_DIR', _tmp, true);
+        permissionsDefault.appId = _conditionalAppId;
+
+        expect(permissionsDefault.sockets_x11_conditional).toBe('if:x11:!has-wayland');
+
+        permissionsDefault.set_property('sockets-x11', false);
+
+        GLib.timeout_add(GLib.PRIORITY_HIGH, delay + 1, () => {
+            expect(permissionsDefault.sockets_x11_status).toBe('user');
+            expect(permissionsDefault.sockets_x11_conditional).toBe('');
             done();
             return GLib.SOURCE_REMOVE;
         });
