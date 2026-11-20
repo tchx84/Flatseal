@@ -2,14 +2,16 @@
 # Copyright (C) 2024 THE flatseal'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the flatseal package.
 # volkov <volkovissocool@gmail.com>, 2024.
+# Andrii Butsvin <58703326+andreysey@users.noreply.github.com>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: flatseal\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-26 08:09-0300\n"
-"PO-Revision-Date: 2024-09-19 13:58+0300\n"
-"Last-Translator: volkov <volkovissocool@gmail.com>\n"
+"PO-Revision-Date: 2026-11-20 12:00+0200\n"
+"Last-Translator: Andrii Butsvin "
+"<58703326+andreysey@users.noreply.github.com>\n"
 "Language-Team: volkov <volkovissocool@gmail.com>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +31,7 @@ msgstr ""
 #: data/com.github.tchx84.Flatseal.desktop.in:9
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
 msgid "Manage Flatpak permissions"
-msgstr "Керуйте дозволами Flatpak"
+msgstr "Керування дозволами Flatpak"
 
 #: data/com.github.tchx84.Flatseal.desktop.in:14
 msgid "seal;sandbox;override;"
@@ -40,8 +42,8 @@ msgid ""
 "Flatseal is a graphical utility to review and modify permissions from your "
 "Flatpak applications."
 msgstr ""
-"Flatseal — це графічна утиліта для перегляду та зміни дозволів ваших "
-"додатків Flatpak."
+"Flatseal — це графічна утиліта для перегляду та зміни дозволів ваших програм "
+"Flatpak."
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
 msgid "The Flatseal main window"
@@ -53,7 +55,7 @@ msgstr "Flatseal показує дозволи файлової системи"
 
 #: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
 msgid "Flatseal showing global overrides"
-msgstr "Flatseal показує глобальні перезаписи"
+msgstr "Flatseal показує глобальні перевизначення"
 
 # Не перекладати.
 #. TRANSLATORS: Don't translate this text
@@ -64,7 +66,7 @@ msgstr ""
 
 #: data/com.github.tchx84.Flatseal.gschema.xml:15
 msgid "Application ID that was last selected"
-msgstr "Ідентифікатор додатку, який був обраний в останній раз"
+msgstr "Ідентифікатор програми, яку було вибрано останньою"
 
 #: src/models/applications.js:243 src/models/applications.js:310
 #: src/models/applications.js:311 src/models/applications.js:312
@@ -75,23 +77,23 @@ msgstr "Невідомо"
 
 #: src/models/sessionBus.js:38 src/models/systemBus.js:37
 msgid "Talks"
-msgstr "Спілкування"
+msgstr "Обмін даними"
 
 #: src/models/sessionBus.js:45 src/models/systemBus.js:44
 msgid "Owns"
-msgstr "Володіння"
+msgstr "Власник назви"
 
 #: src/models/sessionBus.js:82
 msgid "List of well-known names on the session bus"
-msgstr "Список відомих імен для шини сессії"
+msgstr "Список відомих назв на каналі сеансу"
 
 #: src/models/systemBus.js:73
 msgid "List of well-known names on the system bus"
-msgstr "Список відомих імен для системної шини"
+msgstr "Список відомих назв на каналі системи"
 
 #: src/models/devices.js:37
 msgid "GPU acceleration"
-msgstr "Відеоприскорення"
+msgstr "Прискорення графічним процесором"
 
 #: src/models/devices.js:44
 msgid "Input devices"
@@ -115,7 +117,7 @@ msgstr "Усі пристрої (наприклад, веб-камера)"
 
 #: src/models/devices.js:97
 msgid "List of devices available in the sandbox"
-msgstr "Список пристроїв доступних у пісочниці"
+msgstr "Список пристроїв, доступних у пісочниці"
 
 #: src/models/features.js:37
 msgid "Development syscalls (e.g. ptrace)"
@@ -123,24 +125,24 @@ msgstr "Системні виклики для розробки (наприкл�
 
 #: src/models/features.js:44
 msgid "Programs from other architectures"
-msgstr "Програм з інших архітектур"
+msgstr "Програми з інших архітектур"
 
 # Не перекладати.
 #: src/models/features.js:51
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: src/models/features.js:58
 msgid "Controller Area Network bus"
-msgstr "Шина мережі контролерів"
+msgstr "Шина CAN (Controller Area Network)"
 
 #: src/models/features.js:65
 msgid "Application Shared Memory"
-msgstr "Спільна пам'ять додатка"
+msgstr "Спільна пам'ять програми"
 
 #: src/models/features.js:90
 msgid "List of features available to the application"
-msgstr "Список функцій доступних додатку"
+msgstr "Список можливостей, доступних програмі"
 
 #: src/models/filesystems.js:37
 msgid "All system files"
@@ -160,7 +162,7 @@ msgstr "Усі файли користувача"
 
 #: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
 msgid "List of filesystem subsets available to the application"
-msgstr "Список усіх підсистем файлової системи доступних додатку"
+msgstr "Список частин файлової системи, доступних програмі"
 
 #: src/models/filesystemsOther.js:39
 msgid "Other files"
@@ -168,7 +170,7 @@ msgstr "Інші файли"
 
 #: src/models/filesystemsOther.js:42
 msgid "e.g. ~/games:ro, xdg-pictures, etc"
-msgstr "наприклад: ~/games:ro, xdg-pictures, тощо"
+msgstr "наприклад, ~/games:ro, xdg-pictures тощо"
 
 #: src/models/persistent.js:37
 msgid "Files"
@@ -176,19 +178,19 @@ msgstr "Файли"
 
 #: src/models/persistent.js:40
 msgid "e.g. .thunderbird"
-msgstr "наприклад, thunderbird"
+msgstr "наприклад, .thunderbird"
 
 #: src/models/persistent.js:62
 msgid "List of homedir-relative paths created in the sandbox"
-msgstr "Список відносних шляхів до домашньої теки, створених у пісочниці"
+msgstr "Список шляхів відносно домашньої теки, створених у пісочниці"
 
 #: src/models/portals.js:118
 msgid "Background"
-msgstr "Задній фон"
+msgstr "Фонова робота"
 
 #: src/models/portals.js:120
 msgid "Can run in the background"
-msgstr "Може працювати у задньому фоні"
+msgstr "Може працювати у фоновому режимі"
 
 #: src/models/portals.js:128
 msgid "Notifications"
@@ -196,7 +198,7 @@ msgstr "Сповіщення"
 
 #: src/models/portals.js:130
 msgid "Can send notifications"
-msgstr "Може відправляти сповіщення"
+msgstr "Може надсилати сповіщення"
 
 #: src/models/portals.js:138
 msgid "Microphone"
@@ -212,7 +214,7 @@ msgstr "Динаміки"
 
 #: src/models/portals.js:150
 msgid "Can play sounds to your speakers"
-msgstr "Може програвати звуки через ваші динаміки"
+msgstr "Може відтворювати звуки через ваші динаміки"
 
 #: src/models/portals.js:158
 msgid "Camera"
@@ -228,11 +230,11 @@ msgstr "Розташування"
 
 #: src/models/portals.js:170
 msgid "Can access your location"
-msgstr "Може отримати доступ до вашої геолокації"
+msgstr "Може отримувати доступ до вашого розташування"
 
 #: src/models/portals.js:216
 msgid "List of resources selectively granted to the application"
-msgstr "Список ресурсів, які були дозволені додатку"
+msgstr "Список ресурсів, вибірково наданих програмі"
 
 #: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
 #: src/widgets/permissionSwitchRow.js:43
@@ -241,11 +243,11 @@ msgstr "Не підтримується встановленою версією 
 
 #: src/models/portals.js:264
 msgid "Requires permission store version 2 or newer"
-msgstr "Потребується дозвіл зберігання версія 2 або вище"
+msgstr "Потрібне сховище дозволів версії 2 або новіше"
 
 #: src/models/portals.js:272
 msgid "Portal data has not been set up yet"
-msgstr "Дані порталу ще не були налаштовані"
+msgstr "Дані порталу ще не налаштовано"
 
 #: src/models/shared.js:39
 msgid "Network"
@@ -253,39 +255,39 @@ msgstr "Мережа"
 
 #: src/models/shared.js:46
 msgid "Inter-process communications"
-msgstr "Комунікація між процесами"
+msgstr "Міжпроцесова взаємодія"
 
 #: src/models/shared.js:79
 msgid "List of subsystems shared with the host system"
-msgstr "Список підсистем, спільних з системою-хостом"
+msgstr "Список підсистем, спільних з основною системою"
 
 #: src/models/sockets.js:37
 msgid "X11 windowing system"
-msgstr "Система вікон X11"
+msgstr "Віконна система X11"
 
 #: src/models/sockets.js:44
 msgid "Wayland windowing system"
-msgstr "Система вікон Wayland"
+msgstr "Віконна система Wayland"
 
 #: src/models/sockets.js:51
 msgid "Fallback to X11 windowing system"
-msgstr "Дозволити перемикатися на систему вікон X11, як резервний варіант"
+msgstr "Використовувати X11 як резервну віконну систему"
 
 #: src/models/sockets.js:58
 msgid "PulseAudio sound server"
-msgstr "Аудіо сервер PulseAudio"
+msgstr "Звуковий сервер PulseAudio"
 
 #: src/models/sockets.js:65
 msgid "D-Bus session bus"
-msgstr "Шина сесії D-Bus"
+msgstr "Канал сеансу D-Bus"
 
 #: src/models/sockets.js:72
 msgid "D-Bus system bus"
-msgstr "Шина системи D-Bus"
+msgstr "Канал системи D-Bus"
 
 #: src/models/sockets.js:79
 msgid "Secure Shell agent"
-msgstr "SSH агент"
+msgstr "Агент SSH"
 
 #: src/models/sockets.js:86
 msgid "Smart cards"
@@ -293,7 +295,7 @@ msgstr "Смарт-карти"
 
 #: src/models/sockets.js:93
 msgid "Printing system"
-msgstr "Система принтерів"
+msgstr "Система друку"
 
 #: src/models/sockets.js:100
 msgid "GPG-Agent directories"
@@ -301,30 +303,27 @@ msgstr "Теки GPG-агента"
 
 #: src/models/sockets.js:107
 msgid "Inherit Wayland socket"
-msgstr "Наслідувати сокет Wayland"
+msgstr "Успадкувати сокет Wayland"
 
 #: src/models/sockets.js:132
 msgid "List of well-known sockets available in the sandbox"
-msgstr "Список відомих сокетів доступних у пісочниці"
+msgstr "Список відомих сокетів, доступних у пісочниці"
 
 #: src/models/usb.js:39
-#, fuzzy
 msgid "Allowed devices"
-msgstr "USB-пристрої"
+msgstr "Дозволені пристрої"
 
 #: src/models/usb.js:42 src/models/usb.js:49
 msgid "e.g. vnd:0123+dev:4567"
-msgstr ""
+msgstr "наприклад, vnd:0123+dev:4567"
 
 #: src/models/usb.js:46
-#, fuzzy
 msgid "Blocked devices"
-msgstr "USB-пристрої"
+msgstr "Заблоковані пристрої"
 
 #: src/models/usb.js:79
-#, fuzzy
 msgid "List of USB devices accessible through the portal"
-msgstr "Список пристроїв доступних у пісочниці"
+msgstr "Список USB-пристроїв, доступних через портал"
 
 #: src/models/variables.js:40
 msgid "Variables"
@@ -332,16 +331,16 @@ msgstr "Змінні"
 
 #: src/models/variables.js:43
 msgid "e.g. GTK_DEBUG=interactive"
-msgstr "наприклад: GTK_DEBUG=interactive"
+msgstr "наприклад, GTK_DEBUG=interactive"
 
 #: src/models/variables.js:73
 msgid "List of variables exported to the application"
-msgstr "Список змінних, експортованих додатку"
+msgstr "Список змінних, експортованих для програми"
 
 #. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
 #: src/widgets/appInfoViewer.js:61
 msgid "%B %e, %Y"
-msgstr "%e %B, %Y"
+msgstr "%e %B %Y"
 
 #: src/widgets/appInfoViewer.ui:46
 msgid "Version"
@@ -353,26 +352,26 @@ msgstr "Ідентифікатор"
 
 #: src/widgets/appInfoViewer.ui:72
 msgid "Last Updated"
-msgstr "Останній раз оновлено"
+msgstr "Востаннє оновлено"
 
 # Для україномовних перекладачів: я не знаю, як перекласти це так, щоб було зрозуміло, тому просто залишу як "Рантайм"
 #: src/widgets/appInfoViewer.ui:85
 msgid "Runtime"
-msgstr "Рантайм"
+msgstr "Середовище виконання"
 
 #: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
 #: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
 #: src/widgets/variableRow.js:33
 msgid "This is not a valid option"
-msgstr "Це не правильний параметр"
+msgstr "Це неправильний параметр"
 
 #: src/widgets/detailsButton.js:60
 msgid "_Show Details"
-msgstr "_Показати деталі"
+msgstr "_Показати подробиці"
 
 #: src/widgets/detailsButton.js:107
 msgid "Show application in a software manager"
-msgstr "Показати цей додаток у менеджері програм"
+msgstr "Показати програму в менеджері програм"
 
 #: src/widgets/detailsButton.js:109
 msgid "No software manager found"
@@ -380,11 +379,11 @@ msgstr "Не знайдено менеджера програм"
 
 #: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
 msgid "All Applications"
-msgstr "Усі додатки"
+msgstr "Усі програми"
 
 #: src/widgets/globalInfoViewer.ui:32
 msgid "Changes that apply to all Flatpak applications"
-msgstr "Зміни, які стосуються всіх додатків Flatpak"
+msgstr "Зміни, що стосуються всіх програм Flatpak"
 
 #: src/widgets/globalInfoViewer.ui:55
 msgid "Flatpak Version"
@@ -396,11 +395,11 @@ msgstr "Версія порталу"
 
 #: src/widgets/globalInfoViewer.ui:81
 msgid "Changes Path"
-msgstr "Розташування для змін"
+msgstr "Шлях до змін"
 
 #: src/widgets/menu.ui:7
 msgid "_Help"
-msgstr "_Підтримка"
+msgstr "Під_тримка"
 
 #: src/widgets/menu.ui:11
 msgid "_Documentation"
@@ -424,11 +423,11 @@ msgstr "Змінено користувачем"
 
 #: src/widgets/pathRow.js:27
 msgid "this absolute path"
-msgstr "це абсолютних шлях"
+msgstr "цей абсолютний шлях"
 
 #: src/widgets/pathRow.js:28
 msgid "this path relative to the home directory"
-msgstr "цей шлях відносний до теки \"Домівка\""
+msgstr "цей шлях відносно домашньої теки"
 
 #: src/widgets/pathRow.js:29
 msgid "all system configurations"
@@ -444,7 +443,7 @@ msgstr "усі системні файли"
 
 #: src/widgets/pathRow.js:32
 msgid "all user files"
-msgstr "усі дані користувача"
+msgstr "усі файли користувача"
 
 #: src/widgets/pathRow.js:33
 msgid "the desktop directory"
@@ -452,47 +451,47 @@ msgstr "тека робочого столу"
 
 #: src/widgets/pathRow.js:34
 msgid "the documents directory"
-msgstr "тека для документів"
+msgstr "тека документів"
 
 #: src/widgets/pathRow.js:35
 msgid "the download directory"
-msgstr "тека для завантажень"
+msgstr "тека завантажень"
 
 #: src/widgets/pathRow.js:36
 msgid "the music directory"
-msgstr "тека для музики"
+msgstr "тека музики"
 
 #: src/widgets/pathRow.js:37
 msgid "the pictures directory"
-msgstr "тека для зображень"
+msgstr "тека зображень"
 
 #: src/widgets/pathRow.js:38
 msgid "the public directory"
-msgstr "тека для спільного доступу"
+msgstr "загальнодоступна тека"
 
 #: src/widgets/pathRow.js:39
 msgid "the videos directory"
-msgstr "тека для відео"
+msgstr "тека відео"
 
 #: src/widgets/pathRow.js:40
 msgid "the templates directory"
-msgstr "тека для шаблонів"
+msgstr "тека шаблонів"
 
 #: src/widgets/pathRow.js:41
 msgid "the config directory"
-msgstr "тека для конфігурацій"
+msgstr "тека налаштувань"
 
 #: src/widgets/pathRow.js:42
 msgid "the cache directory"
-msgstr "тека для кешу"
+msgstr "тека кешу"
 
 #: src/widgets/pathRow.js:43
 msgid "the data directory"
-msgstr "тека для даних"
+msgstr "тека даних"
 
 #: src/widgets/pathRow.js:44
 msgid "the runtime directory"
-msgstr "тека для середовища виконання"
+msgstr "тека середовища виконання"
 
 #: src/widgets/pathRow.js:59
 #, javascript-format
@@ -526,11 +525,11 @@ msgstr "Не може створювати, змінювати або читат
 
 #: src/widgets/permissionPortalRow.ui:11
 msgid "Unset"
-msgstr "Вимкнути"
+msgstr "Скинути"
 
 #: src/widgets/relativePathRow.js:84
 msgid "Default paths can't be removed"
-msgstr "Стандартні шляхи не можуть бути змінені"
+msgstr "Типові шляхи не можна вилучити"
 
 #: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
 #: src/widgets/resetButton.js:62 src/widgets/window.js:107
@@ -539,23 +538,23 @@ msgstr "_Скинути"
 
 #: src/widgets/resetButton.js:65
 msgid "No changes made to this application"
-msgstr "Жодних змін не було прийнято до цього додатку"
+msgstr "Для цієї програми не внесено жодних змін"
 
 #: src/widgets/resetButton.js:68
 msgid "Reset this application permissions"
-msgstr "Скинути дозволи додатку до стандартних"
+msgstr "Скинути дозволи цієї програми"
 
 #: src/widgets/resetButton.js:70
 msgid ", including changes not made with Flatseal"
-msgstr ", включає зміни, які були зроблені не за допомогою Flatseal"
+msgstr ", зокрема зміни, внесені не через Flatseal"
 
 #: src/widgets/shortcutsWindow.ui:7
 msgid "General"
-msgstr "Загальні"
+msgstr "Загальне"
 
 #: src/widgets/shortcutsWindow.ui:11
 msgid "Show mnemonics"
-msgstr "Показати мнемоніку"
+msgstr "Показати мнемоніки"
 
 #: src/widgets/shortcutsWindow.ui:17
 msgid "Show documentation"
@@ -595,7 +594,7 @@ msgstr "Рухатися вниз"
 
 #: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
 msgid "Applications"
-msgstr "Додатки"
+msgstr "Програми"
 
 #: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
 msgid "Find"
@@ -607,7 +606,7 @@ msgstr "Дозволи"
 
 #: src/widgets/shortcutsWindow.ui:86
 msgid "Toggle"
-msgstr "Перемикнути"
+msgstr "Перемкнути"
 
 #: src/widgets/shortcutsWindow.ui:93
 msgid "Documentation"
@@ -623,19 +622,19 @@ msgstr "Знайти попереднє"
 
 #: src/widgets/window.js:99
 msgid "Permissions have been reset"
-msgstr "Дозволи були скинуті до стандартних"
+msgstr "Дозволи скинуто"
 
 #: src/widgets/window.js:100
 msgid "_Undo"
-msgstr "_Скасувати дію"
+msgstr "_Скасувати"
 
 #: src/widgets/window.js:106
 msgid "Cannot load overrides due to incorrect contents"
-msgstr "Не вдається завантажити зміну налаштувань через неправильний вміст"
+msgstr "Не вдалося завантажити перевизначення через неправильний вміст"
 
 #: src/widgets/window.js:113
 msgid "Refreshed due to changes in Flatpak installations"
-msgstr "Оновлено через зміни в налаштуваннях Flatpak"
+msgstr "Оновлено через зміни у встановленнях Flatpak"
 
 #: src/widgets/window.ui:31
 msgid "Main Menu"
@@ -643,4 +642,8 @@ msgstr "Головне меню"
 
 #: src/widgets/window.ui:75
 msgid "No applications found."
-msgstr "Не знайдено жодного додатку."
+msgstr "Не знайдено жодної програми."
+
+#: src/widgets/window.ui:65
+msgid "Show only changed applications"
+msgstr "Показувати лише змінені програми"
