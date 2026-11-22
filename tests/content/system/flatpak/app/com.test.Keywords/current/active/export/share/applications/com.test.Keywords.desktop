@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Keywords
+GenericName=Document Reader
+Exec=keywords
+Icon=com.test.Keywords
+Keywords=pdf;viewer;

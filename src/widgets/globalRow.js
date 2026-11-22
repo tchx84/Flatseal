@@ -51,4 +51,8 @@ var FlatsealGlobalRow = GObject.registerClass({
     get appName() {
         return this.get_title();
     }
+
+    get appKeywords() { // eslint-disable-line class-methods-use-this
+        return [];
+    }
 });

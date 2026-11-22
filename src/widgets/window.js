@@ -167,7 +167,8 @@ var FlatsealWindow = GObject.registerClass({
 
         allApplications.forEach(app => {
             iconTheme.add_search_path(app.appThemePath);
-            const row = new FlatsealApplicationRow(app.appId, app.appName, app.appIconName);
+            const row = new FlatsealApplicationRow(
+                app.appId, app.appName, app.appIconName, app.appKeywords);
             this._applicationsListBox.append(row);
 
             if (app.appId === this._settings.getSelectedAppId())
@@ -372,12 +373,15 @@ var FlatsealWindow = GObject.registerClass({
         if (text.length === 0)
             return true;
 
-        const subString = text.toLowerCase();
+        const words = text
+            .toLowerCase()
+            .split(/\s+/)
+            .filter(w => w.length > 0);
 
-        return (
-            row.appId.toLowerCase().includes(subString) ||
-            row.appName.toLowerCase().includes(subString)
-        );
+        return words.every(word =>
+            row.appId.toLowerCase().includes(word) ||
+            row.appName.toLowerCase().includes(word) ||
+            row.appKeywords.some(k => k.toLowerCase().includes(word)));
     }
 
     _sort(row1, row2) { // eslint-disable-line class-methods-use-this
