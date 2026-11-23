@@ -3,6 +3,7 @@
 /* permissionSwitchRow.js
  *
  * Copyright 2020 Martin Abente Lahaye
+ * Copyright 2026 Malika Odeny Asman
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +21,7 @@
 
 const {GObject, Adw} = imports.gi;
 const {FlatsealOverrideStatusIcon} = imports.widgets.overrideStatusIcon;
+const {FlatsealConditionalStatusIcon} = imports.widgets.conditionalStatusIcon;
 
 
 var FlatsealPermissionSwitchRow = GObject.registerClass({
@@ -36,6 +38,9 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
 
         this._statusIcon = new FlatsealOverrideStatusIcon();
         this._statusBox.append(this._statusIcon);
+
+        this._conditionalIcon = new FlatsealConditionalStatusIcon();
+        this._statusBox.append(this._conditionalIcon);
     }
 
     _update() {
@@ -51,6 +56,10 @@ var FlatsealPermissionSwitchRow = GObject.registerClass({
 
     get status() {
         return this._statusIcon;
+    }
+
+    get conditional() {
+        return this._conditionalIcon;
     }
 
     get supported() {

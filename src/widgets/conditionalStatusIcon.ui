@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="FlatsealConditionalStatusIcon" parent="GtkImage">
+    <style>
+      <class name="conditional"/>
+    </style>
+  </template>
+</interface>

@@ -102,6 +102,11 @@ function generate() {
             const statusProperty = `${property}-status`;
             properties[statusProperty] = GObject.ParamSpec.string(
                 statusProperty, statusProperty, statusProperty, FLAGS, FlatsealOverrideStatus.ORIGINAL);
+
+            /* conditional requests */
+            const conditionalProperty = `${property}-conditional`;
+            properties[conditionalProperty] = GObject.ParamSpec.string(
+                conditionalProperty, conditionalProperty, conditionalProperty, FLAGS, '');
         });
     });
 
@@ -192,12 +197,30 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     .split(';');
 
                 values.forEach(option => {
-                    /* Flatseal does not support conditionals, but skips them
-                     * to avoid corrupting the overrides file. */
-                    if (option.startsWith(CONDITIONAL_PREFIX))
+                    let isConditional = false;
+                    let bareOption = option;
+
+                    if (option.startsWith(CONDITIONAL_PREFIX)) {
+                        const parts = option.slice(CONDITIONAL_PREFIX.length).split(':');
+
+                        /* A valid conditional has both an option and a
+                         * condition after "if:". Ignore incomplete
+                         * entries instead of treating them as
+                         * conditionals. */
+                        if (parts.length >= 2) {
+                            isConditional = true;
+                            [bareOption] = parts;
+                        }
+                    }
+
+                    /* Conditionals from overrides (per-app or global)
+                     * are dropped. They can't be written back without
+                     * risking a change in their meaning, so they are
+                     * neither loaded nor displayed. */
+                    if (isConditional && overrides)
                         return;
 
-                    model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
+                    model = this.constructor._find(`${group}_${key}_${bareOption.replace('!', '')}`);
 
                     if (model === null)
                         model = this.constructor._find(`${group}_${key}`);
@@ -205,8 +228,12 @@ var FlatpakPermissionsModel = GObject.registerClass({
                     if (model === null && overrides && !global)
                         model = MODELS.unsupported;
 
-                    if (model !== null)
-                        model.loadFromKeyFile(group, key, option, overrides, global);
+                    if (model !== null) {
+                        model.loadFromKeyFile(group, key, bareOption, overrides, global);
+
+                        if (isConditional)
+                            model.markConditional(bareOption, option);
+                    }
                 });
             });
         });
@@ -394,6 +421,7 @@ var FlatpakPermissionsModel = GObject.registerClass({
                 entry['groupStyle'] = model.constructor.getStyle();
                 entry['groupDescription'] = model.constructor.getDescription();
                 entry['statusProperty'] = `${property}-status`;
+                entry['conditionalProperty'] = `${property}-conditional`;
                 entry['serializeFunc'] = model.constructor.serialize;
                 entry['deserializeFunc'] = model.constructor.deserialize;
 
