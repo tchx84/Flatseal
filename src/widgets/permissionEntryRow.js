@@ -33,12 +33,13 @@ var FlatsealPermissionEntryRow = GObject.registerClass({
         'button',
     ],
 }, class FlatsealpermissionEntryRow extends Adw.PreferencesRow {
-    _init(description, permission, content, serializeFunc, deserializeFunc, rowClass, iconName) {
+    _init(description, permission, content, serializeFunc, deserializeFunc, rowClass, iconName,
+        viewerClass = FlatsealPathsViewer) {
         super._init({});
         this._description.set_text(description);
         this._permission.set_text(permission);
 
-        this._content = new FlatsealPathsViewer(serializeFunc, deserializeFunc, rowClass);
+        this._content = new viewerClass(serializeFunc, deserializeFunc, rowClass);
         this._content.text = content;
         this._box.append(this._content);
         this._content.bind_property('visible', this._box, 'visible', GObject.BindingFlags.SYNC_CREATE);

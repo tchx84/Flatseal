@@ -199,6 +199,10 @@ var FlatpakPermissionsModel = GObject.registerClass({
 
                     model = this.constructor._find(`${group}_${key}_${option.replace('!', '')}`);
 
+                    /* e.g. !home removes home:ro from other files */
+                    if (model === MODELS.filesystems && MODELS.filesystemsOther.isNegationOfPath(option))
+                        model = MODELS.filesystemsOther;
+
                     if (model === null)
                         model = this.constructor._find(`${group}_${key}`);
 

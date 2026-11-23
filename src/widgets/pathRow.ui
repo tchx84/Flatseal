@@ -43,6 +43,17 @@
         </style>
       </object>
     </child>
+    <child>
+      <object class="GtkButton" id="restoreButton">
+        <property name="tooltip-text" translatable="yes">Restore</property>
+        <property name="valign">center</property>
+        <property name="icon-name">object-rotate-left-symbolic</property>
+        <property name="visible">False</property>
+        <style>
+          <class name="flat"/>
+        </style>
+      </object>
+    </child>
     <style>
       <class name="path"/>
     </style>
