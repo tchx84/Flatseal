@@ -143,10 +143,30 @@ var FlatpakSharedModel = GObject.registerClass({
     updateStatusProperty(proxy) {
         Object.entries(this.getPermissions()).forEach(([property, permission]) => {
             const {option} = permission;
-            const statusProperty = `${property}-status`;
             const status = this._getStatusForPermission(option);
 
-            proxy.set_property(statusProperty, status);
+            proxy.getPermission(property).status = status;
+        });
+    }
+
+    /* Flatpak drops a conditional if a bare grant for the same
+     * option is applied afterward, so this being set doesn't
+     * guarantee the permission is actually granted at runtime. */
+    markConditional(option, rawValue) {
+        this._conditionals.set(option, rawValue);
+    }
+
+    updateConditionalProperty(proxy) {
+        Object.entries(this.getPermissions()).forEach(([property, permission]) => {
+            const {option} = permission;
+            let value = this._conditionals.get(option) || '';
+
+            /* The conditional marker should not show on the */
+            /* overriden conditional permisions. */
+            if (this._getStatusForPermission(option) !== FlatsealOverrideStatus.ORIGINAL)
+                value = '';
+
+            proxy.getPermission(property).conditional = value;
         });
     }
 
@@ -169,7 +189,7 @@ var FlatpakSharedModel = GObject.registerClass({
             if (permissions.has(`!${option}`))
                 value = false;
 
-            proxy.set_property(property, value);
+            proxy.getPermission(property).value = value;
         });
     }
 
@@ -190,6 +210,10 @@ var FlatpakSharedModel = GObject.registerClass({
         const group = this.constructor.getGroup();
         const key = this.constructor.getKey();
 
+        /* This only writes from _overrides (the on/off state), it does
+         * not write out anything from _conditionals. Saving can
+         * therefore drop an existing conditional entry from the
+         * override file. Write-back isn't implemented yet. */
         this._overrides.forEach(value => {
             let _value = value;
 
@@ -208,5 +232,6 @@ var FlatpakSharedModel = GObject.registerClass({
         this._overrides = new Set();
         this._globals = new Set();
         this._originals = new Set();
+        this._conditionals = new Map();
     }
 });
