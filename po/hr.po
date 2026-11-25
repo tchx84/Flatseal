@@ -1,0 +1,637 @@
+# Croatian translations for Flatseal.
+# Copyright (C) 2026 AnduinOS Croatian translation contributors.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flatseal\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-26 08:09-0300\n"
+"PO-Revision-Date: 2026-11-21 21:00+0100\n"
+"Last-Translator: AnduinOS Croatian translation contributors\n"
+"Language-Team: Croatian\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.desktop.in:3
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:4
+msgid "Flatseal"
+msgstr "Flatseal"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:9
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:10
+msgid "Manage Flatpak permissions"
+msgstr "Upravljajte dopuštenjima Flatpak aplikacija"
+
+#: data/com.github.tchx84.Flatseal.desktop.in:14
+msgid "seal;sandbox;override;"
+msgstr "Flatseal;dopuštenja;izolirano okruženje;nadjačavanje;"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:12
+msgid ""
+"Flatseal is a graphical utility to review and modify permissions from your "
+"Flatpak applications."
+msgstr ""
+"Flatseal je grafički alat za pregled i izmjenu dopuštenja vaših Flatpak "
+"aplikacija."
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:21
+msgid "The Flatseal main window"
+msgstr "Glavni prozor aplikacije Flatseal"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:25
+msgid "Flatseal showing filesystem permissions"
+msgstr "Flatseal s prikazom dopuštenja datotečnog sustava"
+
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:29
+msgid "Flatseal showing global overrides"
+msgstr "Flatseal s prikazom globalnih nadjačavanja"
+
+#. TRANSLATORS: Don't translate this text
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:35
+#: data/com.github.tchx84.Flatseal.metainfo.xml.in:37
+msgid "Martin Abente Lahaye"
+msgstr "Martin Abente Lahaye"
+
+#: data/com.github.tchx84.Flatseal.gschema.xml:15
+msgid "Application ID that was last selected"
+msgstr "ID posljednje odabrane aplikacije"
+
+#: src/models/applications.js:243 src/models/applications.js:310
+#: src/models/applications.js:311 src/models/applications.js:312
+#: src/widgets/globalInfoViewer.ui:105 src/widgets/globalInfoViewer.ui:119
+#: src/widgets/globalInfoViewer.ui:133
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: src/models/sessionBus.js:38 src/models/systemBus.js:37
+msgid "Talks"
+msgstr "Komunicira"
+
+#: src/models/sessionBus.js:45 src/models/systemBus.js:44
+msgid "Owns"
+msgstr "Posjeduje"
+
+#: src/models/sessionBus.js:82
+msgid "List of well-known names on the session bus"
+msgstr "Popis dobro poznatih imena na sesijskoj sabirnici"
+
+#: src/models/systemBus.js:73
+msgid "List of well-known names on the system bus"
+msgstr "Popis dobro poznatih imena na sistemskoj sabirnici"
+
+#: src/models/devices.js:37
+msgid "GPU acceleration"
+msgstr "GPU ubrzanje"
+
+#: src/models/devices.js:44
+msgid "Input devices"
+msgstr "Ulazni uređaji"
+
+#: src/models/devices.js:51
+msgid "Virtualization"
+msgstr "Virtualizacija"
+
+#: src/models/devices.js:58
+msgid "Shared memory"
+msgstr "Dijeljena memorija"
+
+#: src/models/devices.js:65
+msgid "USB devices"
+msgstr "USB uređaji"
+
+#: src/models/devices.js:72
+msgid "All devices (e.g. webcam)"
+msgstr "Svi uređaji (npr. web-kamera)"
+
+#: src/models/devices.js:97
+msgid "List of devices available in the sandbox"
+msgstr "Popis uređaja dostupnih u izoliranom okruženju"
+
+#: src/models/features.js:37
+msgid "Development syscalls (e.g. ptrace)"
+msgstr "Razvojni sistemski pozivi (npr. ptrace)"
+
+#: src/models/features.js:44
+msgid "Programs from other architectures"
+msgstr "Programi za druge arhitekture"
+
+#: src/models/features.js:51
+msgid "Bluetooth"
+msgstr "Bluetooth"
+
+#: src/models/features.js:58
+msgid "Controller Area Network bus"
+msgstr "Sabirnica mreže upravljačkog područja (CAN)"
+
+#: src/models/features.js:65
+msgid "Application Shared Memory"
+msgstr "Zajednička memorija aplikacije"
+
+#: src/models/features.js:90
+msgid "List of features available to the application"
+msgstr "Popis mogućnosti dostupnih aplikaciji"
+
+#: src/models/filesystems.js:37
+msgid "All system files"
+msgstr "Sve sistemske datoteke"
+
+#: src/models/filesystems.js:44
+msgid "All system libraries, executables and static data"
+msgstr "Sve sistemske biblioteke, izvršne datoteke i statički podaci"
+
+#: src/models/filesystems.js:51
+msgid "All system configurations"
+msgstr "Sve sistemske konfiguracije"
+
+#: src/models/filesystems.js:58
+msgid "All user files"
+msgstr "Sve korisničke datoteke"
+
+#: src/models/filesystems.js:83 src/models/filesystemsOther.js:64
+msgid "List of filesystem subsets available to the application"
+msgstr "Popis dijelova datotečnog sustava dostupnih aplikaciji"
+
+#: src/models/filesystemsOther.js:39
+msgid "Other files"
+msgstr "Ostale datoteke"
+
+#: src/models/filesystemsOther.js:42
+msgid "e.g. ~/games:ro, xdg-pictures, etc"
+msgstr "npr. ~/igre:ro, xdg-pictures itd."
+
+#: src/models/persistent.js:37
+msgid "Files"
+msgstr "Datoteke"
+
+#: src/models/persistent.js:40
+msgid "e.g. .thunderbird"
+msgstr "npr. .thunderbird"
+
+#: src/models/persistent.js:62
+msgid "List of homedir-relative paths created in the sandbox"
+msgstr ""
+"Popis putanja relativnih u odnosu na korisničku mapu stvorenih u izoliranom okruženju"
+
+#: src/models/portals.js:118
+msgid "Background"
+msgstr "Rad u pozadini"
+
+#: src/models/portals.js:120
+msgid "Can run in the background"
+msgstr "Može se izvoditi u pozadini"
+
+#: src/models/portals.js:128
+msgid "Notifications"
+msgstr "Obavijesti"
+
+#: src/models/portals.js:130
+msgid "Can send notifications"
+msgstr "Može slati obavijesti"
+
+#: src/models/portals.js:138
+msgid "Microphone"
+msgstr "Mikrofon"
+
+#: src/models/portals.js:140
+msgid "Can listen to your microphone"
+msgstr "Može snimati zvuk putem mikrofona"
+
+#: src/models/portals.js:148
+msgid "Speakers"
+msgstr "Zvučnici"
+
+#: src/models/portals.js:150
+msgid "Can play sounds to your speakers"
+msgstr "Može reproducirati zvuk putem zvučnika"
+
+#: src/models/portals.js:158
+msgid "Camera"
+msgstr "Kamera"
+
+#: src/models/portals.js:160
+msgid "Can record videos with your camera"
+msgstr "Može snimati videozapise kamerom"
+
+#: src/models/portals.js:168
+msgid "Location"
+msgstr "Lokacija"
+
+#: src/models/portals.js:170
+msgid "Can access your location"
+msgstr "Može pristupiti vašoj lokaciji"
+
+#: src/models/portals.js:216
+msgid "List of resources selectively granted to the application"
+msgstr "Popis resursa kojima je aplikaciji dodijeljen pristup"
+
+#: src/models/portals.js:256 src/widgets/permissionEntryRow.js:58
+#: src/widgets/permissionSwitchRow.js:43
+msgid "Not supported by the installed version of Flatpak"
+msgstr "Nije podržano u instaliranoj verziji Flatpaka"
+
+#: src/models/portals.js:264
+msgid "Requires permission store version 2 or newer"
+msgstr "Zahtijeva verziju 2 ili noviju spremišta dopuštenja"
+
+#: src/models/portals.js:272
+msgid "Portal data has not been set up yet"
+msgstr "Podaci portala još nisu postavljeni"
+
+#: src/models/shared.js:39
+msgid "Network"
+msgstr "Mreža"
+
+#: src/models/shared.js:46
+msgid "Inter-process communications"
+msgstr "Međuprocesna komunikacija"
+
+#: src/models/shared.js:79
+msgid "List of subsystems shared with the host system"
+msgstr "Popis podsustava dijeljenih sa sustavom domaćinom"
+
+#: src/models/sockets.js:37
+msgid "X11 windowing system"
+msgstr "Prozorski sustav X11"
+
+#: src/models/sockets.js:44
+msgid "Wayland windowing system"
+msgstr "Prozorski sustav Wayland"
+
+#: src/models/sockets.js:51
+msgid "Fallback to X11 windowing system"
+msgstr "Zamjenski pristup prozorskom sustavu X11"
+
+#: src/models/sockets.js:58
+msgid "PulseAudio sound server"
+msgstr "Zvučni poslužitelj PulseAudio"
+
+#: src/models/sockets.js:65
+msgid "D-Bus session bus"
+msgstr "Sesijska sabirnica D-Bus"
+
+#: src/models/sockets.js:72
+msgid "D-Bus system bus"
+msgstr "Sistemska sabirnica D-Bus"
+
+#: src/models/sockets.js:79
+msgid "Secure Shell agent"
+msgstr "Agent Secure Shella"
+
+#: src/models/sockets.js:86
+msgid "Smart cards"
+msgstr "Pametne kartice"
+
+#: src/models/sockets.js:93
+msgid "Printing system"
+msgstr "Sustav ispisa"
+
+#: src/models/sockets.js:100
+msgid "GPG-Agent directories"
+msgstr "Direktoriji agenta GPG"
+
+#: src/models/sockets.js:107
+msgid "Inherit Wayland socket"
+msgstr "Naslijedi utičnicu sustava Wayland"
+
+#: src/models/sockets.js:132
+msgid "List of well-known sockets available in the sandbox"
+msgstr "Popis poznatih utičnica dostupnih u izoliranom okruženju"
+
+#: src/models/usb.js:39
+msgid "Allowed devices"
+msgstr "Dopušteni uređaji"
+
+#: src/models/usb.js:42 src/models/usb.js:49
+msgid "e.g. vnd:0123+dev:4567"
+msgstr "npr. vnd:0123+dev:4567"
+
+#: src/models/usb.js:46
+msgid "Blocked devices"
+msgstr "Blokirani uređaji"
+
+#: src/models/usb.js:79
+msgid "List of USB devices accessible through the portal"
+msgstr "Popis USB uređaja dostupnih putem portala"
+
+#: src/models/variables.js:40
+msgid "Variables"
+msgstr "Varijable"
+
+#: src/models/variables.js:43
+msgid "e.g. GTK_DEBUG=interactive"
+msgstr "npr. GTK_DEBUG=interactive"
+
+#: src/models/variables.js:73
+msgid "List of variables exported to the application"
+msgstr "Popis varijabli proslijeđenih aplikaciji"
+
+#. TRANSLATORS: <full-month-name> <day-of-month>, <year-with-century>
+#: src/widgets/appInfoViewer.js:61
+msgid "%B %e, %Y"
+msgstr "%e. %B %Y"
+
+#: src/widgets/appInfoViewer.ui:46
+msgid "Version"
+msgstr "Verzija"
+
+#: src/widgets/appInfoViewer.ui:59
+msgid "Identifier"
+msgstr "Identifikator"
+
+#: src/widgets/appInfoViewer.ui:72
+msgid "Last Updated"
+msgstr "Posljednje ažuriranje"
+
+#: src/widgets/appInfoViewer.ui:85
+msgid "Runtime"
+msgstr "Izvršno okruženje"
+
+#: src/widgets/busNameRow.js:35 src/widgets/pathRow.js:73
+#: src/widgets/relativePathRow.js:33 src/widgets/usbRow.js:38
+#: src/widgets/variableRow.js:33
+msgid "This is not a valid option"
+msgstr "Ova opcija nije valjana"
+
+#: src/widgets/detailsButton.js:60
+msgid "_Show Details"
+msgstr "_Prikaži pojedinosti"
+
+#: src/widgets/detailsButton.js:107
+msgid "Show application in a software manager"
+msgstr "Prikaži aplikaciju u upravitelju softvera"
+
+#: src/widgets/detailsButton.js:109
+msgid "No software manager found"
+msgstr "Nije pronađen upravitelj softvera"
+
+#: src/widgets/globalRow.ui:7 src/widgets/globalInfoViewer.ui:21
+msgid "All Applications"
+msgstr "Sve aplikacije"
+
+#: src/widgets/globalInfoViewer.ui:32
+msgid "Changes that apply to all Flatpak applications"
+msgstr "Promjene koje se primjenjuju na sve aplikacije Flatpak"
+
+#: src/widgets/globalInfoViewer.ui:55
+msgid "Flatpak Version"
+msgstr "Verzija Flatpaka"
+
+#: src/widgets/globalInfoViewer.ui:68
+msgid "Portal Version"
+msgstr "Verzija portala"
+
+#: src/widgets/globalInfoViewer.ui:81
+msgid "Changes Path"
+msgstr "Putanja promjena"
+
+#: src/widgets/menu.ui:7
+msgid "_Help"
+msgstr "_Pomoć"
+
+#: src/widgets/menu.ui:11
+msgid "_Documentation"
+msgstr "_Dokumentacija"
+
+#: src/widgets/menu.ui:15
+msgid "_Keyboard Shortcuts"
+msgstr "_Tipkovni prečaci"
+
+#: src/widgets/menu.ui:19
+msgid "_About Flatseal"
+msgstr "_O aplikaciji Flatseal"
+
+#: src/widgets/overrideStatusIcon.js:25
+msgid "Changed globally"
+msgstr "Promijenjeno globalno"
+
+#: src/widgets/overrideStatusIcon.js:26
+msgid "Changed by the user"
+msgstr "Izmijenio korisnik"
+
+#: src/widgets/pathRow.js:27
+msgid "this absolute path"
+msgstr "ovu apsolutnu putanju"
+
+#: src/widgets/pathRow.js:28
+msgid "this path relative to the home directory"
+msgstr "ovu putanju relativnu u odnosu na korisničku mapu"
+
+#: src/widgets/pathRow.js:29
+msgid "all system configurations"
+msgstr "sve sistemske konfiguracije"
+
+#: src/widgets/pathRow.js:30
+msgid "all system libraries, executables and static data"
+msgstr "sve sistemske biblioteke, izvršne datoteke i statičke podatke"
+
+#: src/widgets/pathRow.js:31
+msgid "all system files"
+msgstr "sve sistemske datoteke"
+
+#: src/widgets/pathRow.js:32
+msgid "all user files"
+msgstr "sve korisničke datoteke"
+
+#: src/widgets/pathRow.js:33
+msgid "the desktop directory"
+msgstr "mapu radne površine"
+
+#: src/widgets/pathRow.js:34
+msgid "the documents directory"
+msgstr "mapu s dokumentima"
+
+#: src/widgets/pathRow.js:35
+msgid "the download directory"
+msgstr "mapu Preuzimanja"
+
+#: src/widgets/pathRow.js:36
+msgid "the music directory"
+msgstr "mapu s glazbom"
+
+#: src/widgets/pathRow.js:37
+msgid "the pictures directory"
+msgstr "mapu sa slikama"
+
+#: src/widgets/pathRow.js:38
+msgid "the public directory"
+msgstr "javnu mapu"
+
+#: src/widgets/pathRow.js:39
+msgid "the videos directory"
+msgstr "mapu s videozapisima"
+
+#: src/widgets/pathRow.js:40
+msgid "the templates directory"
+msgstr "mapu s predlošcima"
+
+#: src/widgets/pathRow.js:41
+msgid "the config directory"
+msgstr "mapu s konfiguracijom"
+
+#: src/widgets/pathRow.js:42
+msgid "the cache directory"
+msgstr "mapu predmemorije"
+
+#: src/widgets/pathRow.js:43
+msgid "the data directory"
+msgstr "mapu s podacima"
+
+#: src/widgets/pathRow.js:44
+msgid "the runtime directory"
+msgstr "mapu izvršnog okruženja"
+
+#: src/widgets/pathRow.js:59
+#, javascript-format
+msgid "Can read: %s"
+msgstr "Može čitati: %s"
+
+#: src/widgets/pathRow.js:60
+#, javascript-format
+msgid "Can modify and read: %s"
+msgstr "Može mijenjati i čitati: %s"
+
+#: src/widgets/pathRow.js:61
+#, javascript-format
+msgid "Can create, modify and read: %s"
+msgstr "Može stvarati, mijenjati i čitati: %s"
+
+#: src/widgets/pathRow.js:67
+#, javascript-format
+msgid "Can't read: %s"
+msgstr "Ne može čitati: %s"
+
+#: src/widgets/pathRow.js:68
+#, javascript-format
+msgid "Can't modify or read: %s"
+msgstr "Ne može mijenjati ni čitati: %s"
+
+#: src/widgets/pathRow.js:69 src/widgets/pathRow.js:70
+#, javascript-format
+msgid "Can't create, modify or read: %s"
+msgstr "Ne može stvarati, mijenjati ni čitati: %s"
+
+#: src/widgets/permissionPortalRow.ui:11
+msgid "Unset"
+msgstr "Nije postavljeno"
+
+#: src/widgets/relativePathRow.js:84
+msgid "Default paths can't be removed"
+msgstr "Zadane se putanje ne mogu ukloniti"
+
+#: src/widgets/resetButton.js:37 src/widgets/resetButton.js:55
+#: src/widgets/resetButton.js:62 src/widgets/window.js:107
+msgid "_Reset"
+msgstr "_Vrati na početno"
+
+#: src/widgets/resetButton.js:65
+msgid "No changes made to this application"
+msgstr "Nema promjena za ovu aplikaciju"
+
+#: src/widgets/resetButton.js:68
+msgid "Reset this application permissions"
+msgstr "Vrati dopuštenja ove aplikacije na zadane vrijednosti"
+
+#: src/widgets/resetButton.js:70
+msgid ", including changes not made with Flatseal"
+msgstr ", uključujući promjene koje nisu napravljene u Flatsealu"
+
+#: src/widgets/shortcutsWindow.ui:7
+msgid "General"
+msgstr "Općenito"
+
+#: src/widgets/shortcutsWindow.ui:11
+msgid "Show mnemonics"
+msgstr "Prikaži pristupne tipke"
+
+#: src/widgets/shortcutsWindow.ui:17
+msgid "Show documentation"
+msgstr "Prikaži dokumentaciju"
+
+#: src/widgets/shortcutsWindow.ui:23
+msgid "Show menu"
+msgstr "Prikaži izbornik"
+
+#: src/widgets/shortcutsWindow.ui:29
+msgid "Keyboard shortcuts"
+msgstr "Tipkovni prečaci"
+
+#: src/widgets/shortcutsWindow.ui:35
+msgid "Quit"
+msgstr "Izlaz"
+
+#: src/widgets/shortcutsWindow.ui:42
+msgid "Navigation"
+msgstr "Navigacija"
+
+#: src/widgets/shortcutsWindow.ui:46
+msgid "Move left"
+msgstr "Pomakni ulijevo"
+
+#: src/widgets/shortcutsWindow.ui:52
+msgid "Move up"
+msgstr "Pomakni gore"
+
+#: src/widgets/shortcutsWindow.ui:58
+msgid "Move right"
+msgstr "Pomakni udesno"
+
+#: src/widgets/shortcutsWindow.ui:64
+msgid "Move down"
+msgstr "Pomakni dolje"
+
+#: src/widgets/shortcutsWindow.ui:71 src/widgets/window.ui:21
+msgid "Applications"
+msgstr "Aplikacije"
+
+#: src/widgets/shortcutsWindow.ui:75 src/widgets/shortcutsWindow.ui:97
+msgid "Find"
+msgstr "Traži"
+
+#: src/widgets/shortcutsWindow.ui:82 src/widgets/window.ui:95
+msgid "Permissions"
+msgstr "Dopuštenja"
+
+#: src/widgets/shortcutsWindow.ui:86
+msgid "Toggle"
+msgstr "Uključi/isključi"
+
+#: src/widgets/shortcutsWindow.ui:93
+msgid "Documentation"
+msgstr "Dokumentacija"
+
+#: src/widgets/shortcutsWindow.ui:103
+msgid "Find next"
+msgstr "Traži sljedeće"
+
+#: src/widgets/shortcutsWindow.ui:109
+msgid "Find previous"
+msgstr "Traži prethodno"
+
+#: src/widgets/window.js:99
+msgid "Permissions have been reset"
+msgstr "Dopuštenja su vraćena na zadane vrijednosti"
+
+#: src/widgets/window.js:100
+msgid "_Undo"
+msgstr "_Poništi"
+
+#: src/widgets/window.js:106
+msgid "Cannot load overrides due to incorrect contents"
+msgstr "Nije moguće učitati nadjačavanja zbog neispravnog sadržaja"
+
+#: src/widgets/window.js:113
+msgid "Refreshed due to changes in Flatpak installations"
+msgstr "Osvježeno zbog promjena u instalacijama Flatpaka"
+
+#: src/widgets/window.ui:31
+msgid "Main Menu"
+msgstr "Glavni izbornik"
+
+#: src/widgets/window.ui:75
+msgid "No applications found."
+msgstr "Nisu pronađene aplikacije."
