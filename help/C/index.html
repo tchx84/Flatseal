@@ -117,9 +117,9 @@
 <td><code>--share=network</code> and <code>--unshare=network</code></td>
 </tr>
 <tr class="even">
-<td><a href="https://en.wikipedia.org/wiki/Inter-process_communication">Inter-process communications</a></td>
+<td><a href="https://man7.org/linux/man-pages/man7/sysvipc.7.html">System V inter-process communications</a></td>
 <td>Toggle</td>
-<td>Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC.</td>
+<td>Share the <a href="https://man7.org/linux/man-pages/man7/ipc_namespaces.7.html">IPC namespace</a> with the host: System V shared memory, semaphores and message queues, and POSIX message queues. <br /> <br /> X11 applications that share memory with the X server through System V segments need it for the shared memory extension (MIT-SHM). Without it, they can’t use that extension. Applications that pass the memory as a file descriptor (MIT-SHM 1.2) don’t need it.</td>
 <td><code>--share=ipc</code> and <code>--unshare=ipc</code></td>
 </tr>
 </tbody>
