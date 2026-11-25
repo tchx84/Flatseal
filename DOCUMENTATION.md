@@ -39,7 +39,7 @@ Both Flatseal and `flatpak permissions` command-line tool, use the `org.freedesk
 Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Network | Toggle | Allow the application to have access to the network. <br /> <br /> For example, if it's disabled for Firefox, it will no longer be possible to browse the internet with this application. | `--share=network` and `--unshare=network`
-[Inter-process communications](https://en.wikipedia.org/wiki/Inter-process_communication) | Toggle | Share IPC namespace with the host. <br /> <br /> This is required by X11 due to it depending on IPC. | `--share=ipc` and `--unshare=ipc`
+[System V inter-process communications](https://man7.org/linux/man-pages/man7/sysvipc.7.html) | Toggle | Share the [IPC namespace](https://man7.org/linux/man-pages/man7/ipc_namespaces.7.html) with the host: System V shared memory, semaphores and message queues, and POSIX message queues. <br /> <br /> X11 applications that share memory with the X server through System V segments need it for the shared memory extension (MIT-SHM). Without it, they can't use that extension. Applications that pass the memory as a file descriptor (MIT-SHM 1.2) don't need it. | `--share=ipc` and `--unshare=ipc`
 
 ### Socket
 
