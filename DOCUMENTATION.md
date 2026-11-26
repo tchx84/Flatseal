@@ -11,7 +11,7 @@
 	- [Persistent](#persistent)
 	- [Environment](#environment)
 	- [System Bus](#system-bus)
-	- [Session Bus](#system-bus)
+	- [Session Bus](#session-bus)
 	- [USB](#usb)
 	- [Portals](#portals)
 - [Tips and Tricks](#tips-and-tricks)
@@ -49,8 +49,8 @@ X11 windowing system | Toggle | Allow the application to open in an X11 window. 
 Wayland windowing system | Toggle | Allow the application to open in a Wayland window. <br /> <br /> Many applications do not use Wayland as it is a newer display protocol unlike X11, and is considered more secure, but either some applications require extra steps to use it (see [environment variables](#environment) example for Firefox), or do not support Wayland at all. | `--socket=wayland` and `--nosocket=wayland`
 Fallback to X11 windowing system | Toggle | Allow the application to open in an X11 window when Wayland is not available. This overrides the X11 windowing system option when enabled. | `--socket=fallback-x11` and `--nosocket=fallback-x11`
 PulseAudio sound server | Toggle | Allow the application to play sounds or get access to the microphone when using PulseAudio. <br /> <br /> For example, if it's disabled for Rhythmbox, it will no longer be possible to listen to the music with this application. | `--socket=pulseaudio` and `--nosocket=pulseaudio`
-D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-dbus` and `--nosocket=session-dbus`
-D-Bus system bus | Toggle | Allow the application to have access to the entire system bus. | `--socket=system-dbus` and `--nosocket=system-dbus`
+D-Bus session bus | Toggle | Allow the application to have access to the entire session bus. | `--socket=session-bus` and `--nosocket=session-bus`
+D-Bus system bus | Toggle | Allow the application to have access to the entire system bus. | `--socket=system-bus` and `--nosocket=system-bus`
 Secure Shell agent | Toggle | Allow the application to use SSH authentications. | `--socket=ssh-auth` and `--nosocket=ssh-auth`
 [Smart cards](https://wiki.debian.org/Smartcards) | Toggle | Allow the application to use smart cards. | `--socket=pcsc` and `--nosocket=pcsc`
 Printing system | Toggle | Allow the application to use printing systems. <br /> <br /> For example, if it's disabled for LibreOffice, it will no longer be possible to print documents with this application. | `--socket=cups` and `--nosocket=cups`
@@ -90,7 +90,7 @@ Other files | Input | Allow read-write access to the directory you desire. <br /
 
 ### Persistent
 
-Name | Type | Description | `flatpak-override` equivalent
+Name | Type | Description | `flatpak override` equivalent
 --- | --- | --- | ---
 Files | Input | Allow the application to access the targeted directory while restricting other applications from accessing it. <br /> <br /> Starting from the user directory (`$HOME` or `~/`), the targeted directory will be remapped to the application's directory (`~/.var/app/$FLATPAK_APP_ID/[PATH]`) if it has no write access to the targeted directory. <br /> <br /> For example, persisting `.mozilla` will map `~/.mozilla` to `~/.var/app/org.mozilla.Firefox/.mozilla`. <br /> <br /> This is also a technique used to declutter the user directory, as it prevents the application from writing to `~/`. | `--persist=[PATH]`
 
