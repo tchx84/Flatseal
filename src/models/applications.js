@@ -23,10 +23,6 @@ const {GObject, GLib, Gio, AppStream} = imports.gi;
 const {info} = imports.models;
 
 const SIGNAL_DELAY = 2500;
-const TARGET_EVENTS = [
-    Gio.FileMonitorEvent.CHANGES_DONE_HINT,
-    Gio.FileMonitorEvent.DELETED,
-];
 
 var FlatpakApplicationsModel = GObject.registerClass({
     GTypeName: 'FlatpakApplicationsModel',
@@ -46,10 +42,10 @@ var FlatpakApplicationsModel = GObject.registerClass({
         this._changedDelayHandlerId = 0;
 
         this._getInstallationsPaths().forEach(path => {
-            const file = Gio.File.new_for_path(GLib.build_filenamev([path, 'app']));
+            const file = Gio.File.new_for_path(GLib.build_filenamev([path, '.changed']));
 
             try {
-                const monitor = file.monitor_directory(Gio.FileMonitorFlags.NONE, null);
+                const monitor = file.monitor_file(Gio.FileMonitorFlags.NONE, null);
                 monitor.connect('changed', this._changedDelayed.bind(this));
                 this._monitors.push(monitor);
             } catch (err) {
@@ -59,9 +55,6 @@ var FlatpakApplicationsModel = GObject.registerClass({
     }
 
     _changedDelayed(monitor, file, other_file, event) {
-        if (!TARGET_EVENTS.includes(event))
-            return;
-
         if (this._changedDelayHandlerId !== 0)
             GLib.Source.remove(this._changedDelayHandlerId);
 
