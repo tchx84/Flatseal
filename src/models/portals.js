@@ -79,6 +79,7 @@ var FlatpakPortalsModel = GObject.registerClass({
         this._devicesspeakersSupported = null;
         this._devicescameraSupported = null;
         this._locationlocationSupported = null;
+        this._screenshotscreenshotSupported = null;
 
         this._backgroundbackgroundReason = '';
         this._notificationsnotificationReason = '';
@@ -86,6 +87,7 @@ var FlatpakPortalsModel = GObject.registerClass({
         this._devicesspeakersReason = '';
         this._devicescameraReason = '';
         this._locationlocationReason = '';
+        this._screenshotscreenshotReason = '';
 
         this._info = info.getDefault();
         this._appId = '';
@@ -172,6 +174,16 @@ var FlatpakPortalsModel = GObject.registerClass({
                 id: 'location',
                 allowed: ['EXACT', '0'],
                 disallowed: ['NONE', '0'],
+            },
+            'portals-screenshot': {
+                supported: this.isSupported('screenshot', 'screenshot'),
+                description: _('Screenshot'),
+                value: this.constructor.getDefault(),
+                example: _('Take pictures of the screen at any time'),
+                table: 'screenshot',
+                id: 'screenshot',
+                allowed: ['yes'],
+                disallowed: ['no'],
             },
         };
     }
